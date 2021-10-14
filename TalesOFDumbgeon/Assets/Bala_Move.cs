@@ -32,8 +32,10 @@ public class Bala_Move : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.CompareTag(""))
+        if (collision.gameObject.CompareTag("Enemigo"))
+        {
             collision.GetComponent<EnemigoController>().TakeDamage(personaje.damageArmaActual);
-        Destroy(gameObject);
+            Destroy(gameObject);
+        }
     }
 }
