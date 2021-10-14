@@ -4,12 +4,14 @@ using UnityEngine;
 
 public class Bala_Move : MonoBehaviour
 {
-    public float speed = 10;
+    public float speed;
     [SerializeField] private PlayerController personaje;
     [SerializeField] private SpriteRenderer sr;
     [SerializeField] private Rigidbody2D rbBullet;
     private GameObject jugador;
     private Vector2 sentido;
+    private Quaternion rotacion;
+    private Vector3 rotacion2;
 
     private bool direccion;
     private bool arriba;
@@ -18,35 +20,20 @@ public class Bala_Move : MonoBehaviour
     {
         jugador = GameObject.FindGameObjectWithTag("Player");
         personaje = jugador.GetComponent<PlayerController>();
-        direccion = personaje.derecha;
-        //speed = 10;
+        speed = 100f;
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        if(jugador.transform.rotation.x == (0f))
-        {
-            sentido = Vector2.right;
-        }else if(jugador.transform.rotation.x == (180f))
-        {
-            sentido = Vector2.left;
-        } else if (jugador.transform.rotation.y == (0f))
-        {
-            sentido = Vector2.up;
-        }
-        else if (jugador.transform.rotation.y == (180f))
-        {
-            sentido = Vector2.down;
-        }
-
-    }
-
-    private void FixedUpdate()
-    {        
+        sentido = jugador.transform.right;
         rbBullet.AddForce(sentido * speed);
-        Debug.Log(sentido);
-
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.gameObject.CompareTag(""))
+            collision.GetComponent<EnemigoController>().TakeDamage(personaje.damageArmaActual);
+        Destroy(gameObject);
+    }
 }
