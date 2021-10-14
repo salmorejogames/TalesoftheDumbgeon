@@ -93,9 +93,12 @@ public class PlayerController : MonoBehaviour
     {
         if (atacar > 0 && attackTime < 0)
         {
-            if(armaRango == ArmaRango.Distancia)
+            if (armaRango == ArmaRango.Distancia)
+            {
                 Instantiate(bala, ptAtaque.transform.position, Quaternion.Euler(transform.rotation.eulerAngles));
-            else if(armaRango == ArmaRango.CaC)
+                Debug.Log("Ataque a distancia");
+            }
+            else if (armaRango == ArmaRango.CaC)
             {
                 zonaAtaque.GetComponent<Collider2D>().isTrigger = false;
                 Debug.Log("Ataque cuerpo a cuerpo");
