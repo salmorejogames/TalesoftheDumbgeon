@@ -10,12 +10,15 @@ public class Card : MonoBehaviour, IPointerClickHandler
 
     private CardHolder _cardHolder;
     private RectTransform _rectTransform;
+    private Image _image;
+    [SerializeField] private Color highlightColor;
     
     // Start is called before the first frame update
     void Start()
     {
         _rectTransform = gameObject.GetComponent<RectTransform>();
         _cardHolder = gameObject.transform.parent.gameObject.GetComponent<CardHolder>();
+        _image = gameObject.GetComponent<Image>();
     }
 
     // Update is called once per frame
@@ -28,8 +31,7 @@ public class Card : MonoBehaviour, IPointerClickHandler
     {
         if (_cardHolder.active)
         {
-            StartCoroutine(nameof(Fade));
-            Invoke(nameof(Delete), 1);
+           StartDelete();
         }
         else
         {
@@ -38,11 +40,24 @@ public class Card : MonoBehaviour, IPointerClickHandler
         
     }
 
+    public void StartDelete()
+    {
+        SetHighlight(false);
+        StartCoroutine(nameof(Fade));
+        Invoke(nameof(Delete), 1);
+    }
     private void Delete()
     {
         _cardHolder.DeleteCard(_rectTransform);
     }
-    
+
+    public void SetHighlight(bool active)
+    {
+        if (active)
+            _image.color = highlightColor;
+        else
+            _image.color = Color.white;
+    }
     IEnumerator Fade() {
         Image image = GetComponent<Image>();
         var color = image.color;

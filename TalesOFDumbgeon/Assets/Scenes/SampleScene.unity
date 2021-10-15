@@ -1906,11 +1906,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e4159eaa2f96244e8ce194017c30158, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _activePoint: {x: 0, y: 0, z: 0}
-  gap: 50
-  cardDimensions: 64000000c8000000
+  active: 0
+  gap: 10
+  cardDimensions: {x: 100, y: 200}
   resizePercent: 0.5
   card: {fileID: 9146226890852535221, guid: c58fda9c6e8e1e546ac7e8c0bcea287c, type: 3}
+  buttonDown: {fileID: 2871093001890074368, guid: 0994937f9d12a954fac968d59d8f7732,
+    type: 3}
 --- !u!1 &1905006110
 GameObject:
   m_ObjectHideFlags: 0
