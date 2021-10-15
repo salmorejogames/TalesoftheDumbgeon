@@ -6,7 +6,7 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
     public InputControler controles;
-    public CharacterController playerController;
+    public Rigidbody2D playerController;
     public GameObject ptAtaque;
     public GameObject bala;
     public GameObject zonaAtaque;
@@ -22,7 +22,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private SpriteRenderer sr;
 
     private enum ArmaRango {CaC, Distancia};
-
+    private bool controlesEnable = true;
+    private int cartaUsada;
 
     //Variables de Objetos
     private ArmaRango armaRango;
@@ -32,7 +33,7 @@ public class PlayerController : MonoBehaviour
 
     private void Awake()
     {
-        playerController = gameObject.GetComponent<CharacterController>();
+        playerController = gameObject.GetComponent<Rigidbody2D>();
         sr = gameObject.GetComponent<SpriteRenderer>();
         controles = new InputControler();        
     }
@@ -42,18 +43,47 @@ public class PlayerController : MonoBehaviour
     {
         attackDelay = 2;
         attackTime = 2;
-        armaRango = ArmaRango.Distancia;
-        //armaRango = ArmaRango.CaC;
+        //armaRango = ArmaRango.Distancia;
+        armaRango = ArmaRango.CaC;
     }
 
     // Update is called once per frame
     void Update()
     {
-        direccion = controles.Jugador.Move.ReadValue<Vector2>();
-        Moverse(direccion);
+        if (controlesEnable)
+        {
+            direccion = controles.Jugador.Move.ReadValue<Vector2>();
+            Moverse(direccion);
 
-        if(attackTime < 1)
+            if (controles.Jugador.Habilidad1.ReadValue<bool>())
+            {
+                cartaUsada = 1;
+            }else if (controles.Jugador.Habilidad2.ReadValue<bool>())
+            {
+                cartaUsada = 2;
+            }
+            else if (controles.Jugador.Habilidad3.ReadValue<bool>())
+            {
+                cartaUsada = 3;
+            }
+            else if (controles.Jugador.Habilidad4.ReadValue<bool>())
+            {
+                cartaUsada = 4;
+            }else
+            {
+                cartaUsada = 0;
+            }
+            usarCarta(cartaUsada);
+        }
+
+
+
+        if (attackTime < 1)
+        {
             zonaAtaque.GetComponent<Collider2D>().isTrigger = true;
+            zonaAtaque.gameObject.GetComponent<SpriteRenderer>().color = new Color(255, 0, 0);
+            controlesEnable = true;
+        }
 
         attackTime -= Time.deltaTime;
     }
@@ -66,7 +96,7 @@ public class PlayerController : MonoBehaviour
 
     private void Moverse(Vector2 direccion)
     {
-        playerController.Move(new Vector3(direccion.x, direccion.y, 0)* Time.deltaTime * speed);
+        playerController.velocity = new Vector3(direccion.x, direccion.y, 0) * speed;
 
         if (direccion.x > 0)   //derecha
         {
@@ -101,10 +131,33 @@ public class PlayerController : MonoBehaviour
             else if (armaRango == ArmaRango.CaC)
             {
                 zonaAtaque.GetComponent<Collider2D>().isTrigger = false;
+                zonaAtaque.gameObject.GetComponent<SpriteRenderer>().color = new Color(0, 255, 241);
                 Debug.Log("Ataque cuerpo a cuerpo");
             }
+            controlesEnable = false;
             attackTime = attackDelay;
         }        
+    }
+
+    public void usarCarta(int hueco)
+    {
+        Debug.Log("Usaste la carta " + hueco);
+    }
+
+
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        Debug.Log("colision con " + collision.gameObject.name);
+        if (collision.gameObject.CompareTag("Enemigo"))
+        {
+            vida -= collision.gameObject.GetComponent<EnemigoController>().damage;
+        }
+
+        if (vida <= 0)
+        {
+            Destroy(gameObject);
+        }
     }
 
     protected void giroX()      //girar el personaje

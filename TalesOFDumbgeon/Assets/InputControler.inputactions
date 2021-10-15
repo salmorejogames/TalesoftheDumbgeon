@@ -20,6 +20,46 @@
                     "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "Habilidad1",
+                    "type": "Button",
+                    "id": "0660f887-217b-49b5-8dba-138b6cb90692",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Habilidad2",
+                    "type": "Button",
+                    "id": "2179bafb-a7e8-43ab-b39f-e8f38f646884",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Habilidad3",
+                    "type": "Button",
+                    "id": "4086f20b-0ff5-4f55-bcea-607c9da86379",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Habilidad4",
+                    "type": "Button",
+                    "id": "916355de-f950-47c2-9064-e36e6297740a",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "SacarCartas",
+                    "type": "Button",
+                    "id": "d2421e23-d085-4350-9a62-b63185e01aee",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -88,6 +128,61 @@
                     "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "ac76bbb4-64f4-4bb6-abf9-7ae76ecc1acd",
+                    "path": "<Keyboard>/1",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "keyboard and mouse",
+                    "action": "Habilidad1",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "5bacb882-4d41-48ba-9cb9-45ea2c1f8003",
+                    "path": "<Keyboard>/2",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "keyboard and mouse",
+                    "action": "Habilidad2",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "c62dc70e-ee8f-470d-9ce7-b87ee803e902",
+                    "path": "<Keyboard>/3",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "keyboard and mouse",
+                    "action": "Habilidad3",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "737a2b04-c002-4aa0-99d4-713d77939250",
+                    "path": "<Keyboard>/4",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "keyboard and mouse",
+                    "action": "Habilidad4",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "867a2ca4-4f5b-44a3-ad82-a4e8a9efe7a7",
+                    "path": "<Keyboard>/q",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "keyboard and mouse",
+                    "action": "SacarCartas",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         }
