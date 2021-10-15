@@ -11,7 +11,7 @@ public class PlayerController : MonoBehaviour
     public GameObject bala;
     public GameObject zonaAtaque;
 
-    public int vida = 5;
+    public int vida = 20;
     public Vector2 direccion;
     public bool derecha = true;
     public float speed;
@@ -55,18 +55,18 @@ public class PlayerController : MonoBehaviour
             direccion = controles.Jugador.Move.ReadValue<Vector2>();
             Moverse(direccion);
 
-            if (controles.Jugador.Habilidad1.ReadValue<bool>())
+            if (controles.Jugador.Habilidad1.ReadValue<float>() == 1)
             {
                 cartaUsada = 1;
-            }else if (controles.Jugador.Habilidad2.ReadValue<bool>())
+            }else if (controles.Jugador.Habilidad2.ReadValue<float>() == 1)
             {
                 cartaUsada = 2;
             }
-            else if (controles.Jugador.Habilidad3.ReadValue<bool>())
+            else if (controles.Jugador.Habilidad3.ReadValue<float>() == 1)
             {
                 cartaUsada = 3;
             }
-            else if (controles.Jugador.Habilidad4.ReadValue<bool>())
+            else if (controles.Jugador.Habilidad4.ReadValue<float>() == 1)
             {
                 cartaUsada = 4;
             }else
@@ -80,7 +80,7 @@ public class PlayerController : MonoBehaviour
 
         if (attackTime < 1)
         {
-            zonaAtaque.GetComponent<Collider2D>().isTrigger = true;
+            zonaAtaque.GetComponent<Collider2D>().enabled = false;
             zonaAtaque.gameObject.GetComponent<SpriteRenderer>().color = new Color(255, 0, 0);
             controlesEnable = true;
         }
@@ -130,7 +130,7 @@ public class PlayerController : MonoBehaviour
             }
             else if (armaRango == ArmaRango.CaC)
             {
-                zonaAtaque.GetComponent<Collider2D>().isTrigger = false;
+                zonaAtaque.GetComponent<Collider2D>().enabled = true;
                 zonaAtaque.gameObject.GetComponent<SpriteRenderer>().color = new Color(0, 255, 241);
                 Debug.Log("Ataque cuerpo a cuerpo");
             }
@@ -151,13 +151,18 @@ public class PlayerController : MonoBehaviour
         Debug.Log("colision con " + collision.gameObject.name);
         if (collision.gameObject.CompareTag("Enemigo"))
         {
-            vida -= collision.gameObject.GetComponent<EnemigoController>().damage;
+            takeDamage(collision.gameObject.GetComponent<EnemigoController>().damage);
         }
 
         if (vida <= 0)
         {
             Destroy(gameObject);
         }
+    }
+
+    public void takeDamage(int damage)
+    {
+        vida -= damage;
     }
 
     protected void giroX()      //girar el personaje
