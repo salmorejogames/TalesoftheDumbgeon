@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.InputSystem;
 
 public class CardHolder : MonoBehaviour
 {
@@ -12,17 +13,27 @@ public class CardHolder : MonoBehaviour
     private List<RectTransform> cards;
     private RectTransform _thisRect;
     private int _highlitedCard;
+    private InputControler _inputContoler;
     [SerializeField] private float gap;
     [SerializeField] private Vector2 cardDimensions;
     [SerializeField] private float resizePercent;
     [SerializeField] private GameObject card;
     [SerializeField] private ButtonDown buttonDown;
-    
+
+    private void Awake()
+    {
+        _thisRect = GetComponent<RectTransform>();
+        _inputContoler = new InputControler();
+        _inputContoler.Jugador.NuevaCarta.performed += ctx => AddCard();
+        _inputContoler.Jugador.SacarCartas.performed += ctx => Resize();
+        _inputContoler.Jugador.Selection.performed += ctx => MoveSelection(ctx.ReadValue<bool>());
+        _inputContoler.Jugador.EnterSelection.performed += ctx => EnterSelection();
+    }
+
     // Start is called before the first frame update
     void Start()
     {
         _highlitedCard = -1;
-        _thisRect = GetComponent<RectTransform>();
         active = false;
         cards = new List<RectTransform>();
         _restPoint = new Vector3(0, 0, 0);
@@ -36,6 +47,7 @@ public class CardHolder : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        /*
         if (Input.GetKeyDown(KeyCode.R))
         {
             Resize();
@@ -79,7 +91,35 @@ public class CardHolder : MonoBehaviour
             if(_highlitedCard>=0 && active)
                 DeleteCard(_highlitedCard);
         }
-        
+        */
+    }
+
+    private void MoveSelection(bool right)
+    {
+        int nextIndex;
+        if (right)
+        {
+            if (_highlitedCard <= 0)
+                nextIndex = cards.Count - 1;
+            else
+                nextIndex = _highlitedCard - 1;
+        }
+        else
+        {
+            if (_highlitedCard >= cards.Count-1)
+                nextIndex = 0;
+            else
+                nextIndex = _highlitedCard + 1;
+        }
+        cards[nextIndex].gameObject.GetComponent<Card>().SetHighlight(true);
+        ResetHighlight();
+        _highlitedCard = nextIndex;
+    }
+
+    private void EnterSelection()
+    {
+        if(_highlitedCard>=0 && active)
+            DeleteCard(_highlitedCard);
     }
 
     public void AddCard()
