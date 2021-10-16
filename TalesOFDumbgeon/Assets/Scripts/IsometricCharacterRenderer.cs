@@ -17,7 +17,7 @@ public class IsometricCharacterRenderer : MonoBehaviour
     }
 
 
-    public void SetDirection(Vector2 direction)
+    public int SetDirection(Vector2 direction)
     {
         string[] directionArray = null;
 
@@ -33,8 +33,9 @@ public class IsometricCharacterRenderer : MonoBehaviour
         }*/
         directionArray = staticDirections;
         _lastDirection = DirectionToIndex(direction, 8);
-        Debug.Log(_lastDirection);
+        //Debug.Log(_lastDirection);
         _animator.Play(directionArray[_lastDirection]);
+        return _lastDirection;
     }
 
     /**
