@@ -8,6 +8,11 @@ public class ButtonManager : MonoBehaviour, IPointerDownHandler, IPointerUpHandl
 {
     [SerializeField] private int direction;
 
+    private void Awake()
+    {
+        
+    }
+
     private void Start()
     {
         if (!CheckIfMobile.isMobile())
