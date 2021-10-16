@@ -2,8 +2,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.EventSystems;
-using UnityEngine.InputSystem;
+
+
 
 public class CardHolder : MonoBehaviour
 {
@@ -13,23 +13,25 @@ public class CardHolder : MonoBehaviour
     private List<RectTransform> cards;
     private RectTransform _thisRect;
     private int _highlitedCard;
-    private InputControler _inputContoler;
+    private InputControler _inputControler;
     [SerializeField] private float gap;
     [SerializeField] private Vector2 cardDimensions;
     [SerializeField] private float resizePercent;
     [SerializeField] private GameObject card;
     [SerializeField] private ButtonDown buttonDown;
 
-    private void Awake()
+    void Awake()
     {
+        _inputControler = new InputControler();
+        _inputControler.Cartas.NuevaCarta.performed += ctx => AddCard();
+        _inputControler.Cartas.SacarCartas.performed += ctx => Resize();
+        _inputControler.Cartas.Selection.performed += ctx => MoveSelection(Convert.ToBoolean(ctx.ReadValue<float>()));
+        _inputControler.Cartas.EnterSelection.performed += ctx => EnterSelection();
+        
         _thisRect = GetComponent<RectTransform>();
-        _inputContoler = new InputControler();
-        _inputContoler.Jugador.NuevaCarta.performed += ctx => AddCard();
-        _inputContoler.Jugador.SacarCartas.performed += ctx => Resize();
-        _inputContoler.Jugador.Selection.performed += ctx => MoveSelection(ctx.ReadValue<bool>());
-        _inputContoler.Jugador.EnterSelection.performed += ctx => EnterSelection();
+        
     }
-
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -41,6 +43,7 @@ public class CardHolder : MonoBehaviour
         buttonDown = Instantiate(buttonDown, _thisRect.position, Quaternion.identity);
         buttonDown.gameObject.transform.SetParent(this.gameObject.transform);
         buttonDown.gameObject.SetActive(false);
+        AddCard();
         
     }
 
@@ -97,7 +100,7 @@ public class CardHolder : MonoBehaviour
     private void MoveSelection(bool right)
     {
         int nextIndex;
-        if (right)
+        if (!right)
         {
             if (_highlitedCard <= 0)
                 nextIndex = cards.Count - 1;
@@ -228,5 +231,15 @@ public class CardHolder : MonoBehaviour
         if(_highlitedCard>=0)
             cards[_highlitedCard].gameObject.GetComponent<Card>().SetHighlight(false);
         _highlitedCard = -1;
+    }
+
+    private void OnEnable()
+    {
+        _inputControler.Enable();
+    }
+
+    private void OnDisable()
+    {
+        _inputControler.Disable();
     }
 }
