@@ -2,7 +2,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.EventSystems;
+
+
 
 public class CardHolder : MonoBehaviour
 {
@@ -12,17 +13,29 @@ public class CardHolder : MonoBehaviour
     private List<RectTransform> cards;
     private RectTransform _thisRect;
     private int _highlitedCard;
+    private InputControler _inputControler;
     [SerializeField] private float gap;
     [SerializeField] private Vector2 cardDimensions;
     [SerializeField] private float resizePercent;
     [SerializeField] private GameObject card;
     [SerializeField] private ButtonDown buttonDown;
+
+    void Awake()
+    {
+        _inputControler = new InputControler();
+        _inputControler.Cartas.NuevaCarta.performed += ctx => AddCard();
+        _inputControler.Cartas.SacarCartas.performed += ctx => Resize();
+        _inputControler.Cartas.Selection.performed += ctx => MoveSelection(Convert.ToBoolean(ctx.ReadValue<float>()));
+        _inputControler.Cartas.EnterSelection.performed += ctx => EnterSelection();
+        
+        _thisRect = GetComponent<RectTransform>();
+        
+    }
     
     // Start is called before the first frame update
     void Start()
     {
         _highlitedCard = -1;
-        _thisRect = GetComponent<RectTransform>();
         active = false;
         cards = new List<RectTransform>();
         _restPoint = new Vector3(0, 0, 0);
@@ -30,12 +43,14 @@ public class CardHolder : MonoBehaviour
         buttonDown = Instantiate(buttonDown, _thisRect.position, Quaternion.identity);
         buttonDown.gameObject.transform.SetParent(this.gameObject.transform);
         buttonDown.gameObject.SetActive(false);
+        AddCard();
         
     }
 
     // Update is called once per frame
     void Update()
     {
+        /*
         if (Input.GetKeyDown(KeyCode.R))
         {
             Resize();
@@ -79,7 +94,35 @@ public class CardHolder : MonoBehaviour
             if(_highlitedCard>=0 && active)
                 DeleteCard(_highlitedCard);
         }
-        
+        */
+    }
+
+    private void MoveSelection(bool right)
+    {
+        int nextIndex;
+        if (!right)
+        {
+            if (_highlitedCard <= 0)
+                nextIndex = cards.Count - 1;
+            else
+                nextIndex = _highlitedCard - 1;
+        }
+        else
+        {
+            if (_highlitedCard >= cards.Count-1)
+                nextIndex = 0;
+            else
+                nextIndex = _highlitedCard + 1;
+        }
+        cards[nextIndex].gameObject.GetComponent<Card>().SetHighlight(true);
+        ResetHighlight();
+        _highlitedCard = nextIndex;
+    }
+
+    private void EnterSelection()
+    {
+        if(_highlitedCard>=0 && active)
+            DeleteCard(_highlitedCard);
     }
 
     public void AddCard()
@@ -188,5 +231,15 @@ public class CardHolder : MonoBehaviour
         if(_highlitedCard>=0)
             cards[_highlitedCard].gameObject.GetComponent<Card>().SetHighlight(false);
         _highlitedCard = -1;
+    }
+
+    private void OnEnable()
+    {
+        _inputControler.Enable();
+    }
+
+    private void OnDisable()
+    {
+        _inputControler.Disable();
     }
 }
