@@ -1,4 +1,4 @@
-// GENERATED AUTOMATICALLY FROM 'Assets/InputControler.inputactions'
+// GENERATED AUTOMATICALLY FROM 'Assets/Input/InputControler.inputactions'
 
 using System;
 using System.Collections;
@@ -62,14 +62,6 @@ public class @InputControler : IInputActionCollection, IDisposable
                     ""name"": ""Habilidad4"",
                     ""type"": ""Button"",
                     ""id"": ""916355de-f950-47c2-9064-e36e6297740a"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """"
-                },
-                {
-                    ""name"": ""SacarCartas"",
-                    ""type"": ""Button"",
-                    ""id"": ""d2421e23-d085-4350-9a62-b63185e01aee"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
@@ -185,10 +177,50 @@ public class @InputControler : IInputActionCollection, IDisposable
                     ""action"": ""Habilidad4"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                }
+            ]
+        },
+        {
+            ""name"": ""Cartas"",
+            ""id"": ""d45b7e8c-4058-4d5b-b2f3-ff1bf250f8cc"",
+            ""actions"": [
+                {
+                    ""name"": ""Selection"",
+                    ""type"": ""Button"",
+                    ""id"": ""e7b26a5e-e6f8-42f5-9467-b4907869b8b7"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 },
                 {
+                    ""name"": ""EnterSelection"",
+                    ""type"": ""Button"",
+                    ""id"": ""ade597e0-007f-4d9c-8e83-8c7d9695c7e9"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""NuevaCarta"",
+                    ""type"": ""Button"",
+                    ""id"": ""a7800c16-b3a1-4a6d-837d-52a9a34caaad"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""SacarCartas"",
+                    ""type"": ""Button"",
+                    ""id"": ""e1403435-90b3-4875-9682-ba86743463a9"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                }
+            ],
+            ""bindings"": [
+                {
                     ""name"": """",
-                    ""id"": ""867a2ca4-4f5b-44a3-ad82-a4e8a9efe7a7"",
+                    ""id"": ""6e76c20e-a7d9-4928-aded-74ac2bec6344"",
                     ""path"": ""<Keyboard>/q"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -196,6 +228,61 @@ public class @InputControler : IInputActionCollection, IDisposable
                     ""action"": ""SacarCartas"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""fce220d1-5f7e-4336-8a01-c33b6783d009"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""keyboard and mouse"",
+                    ""action"": ""NuevaCarta"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d801b3ee-7d00-4e53-b55e-ac654f1d8d19"",
+                    ""path"": ""<Keyboard>/enter"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""keyboard and mouse"",
+                    ""action"": ""EnterSelection"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""1D Axis"",
+                    ""id"": ""5ea9f418-0831-4ed6-9185-a18ac772b6d9"",
+                    ""path"": ""1DAxis(minValue=0)"",
+                    ""interactions"": """",
+                    ""processors"": ""Clamp(max=1)"",
+                    ""groups"": """",
+                    ""action"": ""Selection"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""negative"",
+                    ""id"": ""9fdbd5bd-30bc-4628-9077-383cee4b1404"",
+                    ""path"": ""<Keyboard>/leftArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""keyboard and mouse"",
+                    ""action"": ""Selection"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""positive"",
+                    ""id"": ""bbea5f70-caba-4e37-bad9-7eeb450ffbe0"",
+                    ""path"": ""<Keyboard>/rightArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""keyboard and mouse"",
+                    ""action"": ""Selection"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
                 }
             ]
         }
@@ -227,7 +314,12 @@ public class @InputControler : IInputActionCollection, IDisposable
         m_Jugador_Habilidad2 = m_Jugador.FindAction("Habilidad2", throwIfNotFound: true);
         m_Jugador_Habilidad3 = m_Jugador.FindAction("Habilidad3", throwIfNotFound: true);
         m_Jugador_Habilidad4 = m_Jugador.FindAction("Habilidad4", throwIfNotFound: true);
-        m_Jugador_SacarCartas = m_Jugador.FindAction("SacarCartas", throwIfNotFound: true);
+        // Cartas
+        m_Cartas = asset.FindActionMap("Cartas", throwIfNotFound: true);
+        m_Cartas_Selection = m_Cartas.FindAction("Selection", throwIfNotFound: true);
+        m_Cartas_EnterSelection = m_Cartas.FindAction("EnterSelection", throwIfNotFound: true);
+        m_Cartas_NuevaCarta = m_Cartas.FindAction("NuevaCarta", throwIfNotFound: true);
+        m_Cartas_SacarCartas = m_Cartas.FindAction("SacarCartas", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -283,7 +375,6 @@ public class @InputControler : IInputActionCollection, IDisposable
     private readonly InputAction m_Jugador_Habilidad2;
     private readonly InputAction m_Jugador_Habilidad3;
     private readonly InputAction m_Jugador_Habilidad4;
-    private readonly InputAction m_Jugador_SacarCartas;
     public struct JugadorActions
     {
         private @InputControler m_Wrapper;
@@ -294,7 +385,6 @@ public class @InputControler : IInputActionCollection, IDisposable
         public InputAction @Habilidad2 => m_Wrapper.m_Jugador_Habilidad2;
         public InputAction @Habilidad3 => m_Wrapper.m_Jugador_Habilidad3;
         public InputAction @Habilidad4 => m_Wrapper.m_Jugador_Habilidad4;
-        public InputAction @SacarCartas => m_Wrapper.m_Jugador_SacarCartas;
         public InputActionMap Get() { return m_Wrapper.m_Jugador; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -322,9 +412,6 @@ public class @InputControler : IInputActionCollection, IDisposable
                 @Habilidad4.started -= m_Wrapper.m_JugadorActionsCallbackInterface.OnHabilidad4;
                 @Habilidad4.performed -= m_Wrapper.m_JugadorActionsCallbackInterface.OnHabilidad4;
                 @Habilidad4.canceled -= m_Wrapper.m_JugadorActionsCallbackInterface.OnHabilidad4;
-                @SacarCartas.started -= m_Wrapper.m_JugadorActionsCallbackInterface.OnSacarCartas;
-                @SacarCartas.performed -= m_Wrapper.m_JugadorActionsCallbackInterface.OnSacarCartas;
-                @SacarCartas.canceled -= m_Wrapper.m_JugadorActionsCallbackInterface.OnSacarCartas;
             }
             m_Wrapper.m_JugadorActionsCallbackInterface = instance;
             if (instance != null)
@@ -347,13 +434,67 @@ public class @InputControler : IInputActionCollection, IDisposable
                 @Habilidad4.started += instance.OnHabilidad4;
                 @Habilidad4.performed += instance.OnHabilidad4;
                 @Habilidad4.canceled += instance.OnHabilidad4;
+            }
+        }
+    }
+    public JugadorActions @Jugador => new JugadorActions(this);
+
+    // Cartas
+    private readonly InputActionMap m_Cartas;
+    private ICartasActions m_CartasActionsCallbackInterface;
+    private readonly InputAction m_Cartas_Selection;
+    private readonly InputAction m_Cartas_EnterSelection;
+    private readonly InputAction m_Cartas_NuevaCarta;
+    private readonly InputAction m_Cartas_SacarCartas;
+    public struct CartasActions
+    {
+        private @InputControler m_Wrapper;
+        public CartasActions(@InputControler wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Selection => m_Wrapper.m_Cartas_Selection;
+        public InputAction @EnterSelection => m_Wrapper.m_Cartas_EnterSelection;
+        public InputAction @NuevaCarta => m_Wrapper.m_Cartas_NuevaCarta;
+        public InputAction @SacarCartas => m_Wrapper.m_Cartas_SacarCartas;
+        public InputActionMap Get() { return m_Wrapper.m_Cartas; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(CartasActions set) { return set.Get(); }
+        public void SetCallbacks(ICartasActions instance)
+        {
+            if (m_Wrapper.m_CartasActionsCallbackInterface != null)
+            {
+                @Selection.started -= m_Wrapper.m_CartasActionsCallbackInterface.OnSelection;
+                @Selection.performed -= m_Wrapper.m_CartasActionsCallbackInterface.OnSelection;
+                @Selection.canceled -= m_Wrapper.m_CartasActionsCallbackInterface.OnSelection;
+                @EnterSelection.started -= m_Wrapper.m_CartasActionsCallbackInterface.OnEnterSelection;
+                @EnterSelection.performed -= m_Wrapper.m_CartasActionsCallbackInterface.OnEnterSelection;
+                @EnterSelection.canceled -= m_Wrapper.m_CartasActionsCallbackInterface.OnEnterSelection;
+                @NuevaCarta.started -= m_Wrapper.m_CartasActionsCallbackInterface.OnNuevaCarta;
+                @NuevaCarta.performed -= m_Wrapper.m_CartasActionsCallbackInterface.OnNuevaCarta;
+                @NuevaCarta.canceled -= m_Wrapper.m_CartasActionsCallbackInterface.OnNuevaCarta;
+                @SacarCartas.started -= m_Wrapper.m_CartasActionsCallbackInterface.OnSacarCartas;
+                @SacarCartas.performed -= m_Wrapper.m_CartasActionsCallbackInterface.OnSacarCartas;
+                @SacarCartas.canceled -= m_Wrapper.m_CartasActionsCallbackInterface.OnSacarCartas;
+            }
+            m_Wrapper.m_CartasActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @Selection.started += instance.OnSelection;
+                @Selection.performed += instance.OnSelection;
+                @Selection.canceled += instance.OnSelection;
+                @EnterSelection.started += instance.OnEnterSelection;
+                @EnterSelection.performed += instance.OnEnterSelection;
+                @EnterSelection.canceled += instance.OnEnterSelection;
+                @NuevaCarta.started += instance.OnNuevaCarta;
+                @NuevaCarta.performed += instance.OnNuevaCarta;
+                @NuevaCarta.canceled += instance.OnNuevaCarta;
                 @SacarCartas.started += instance.OnSacarCartas;
                 @SacarCartas.performed += instance.OnSacarCartas;
                 @SacarCartas.canceled += instance.OnSacarCartas;
             }
         }
     }
-    public JugadorActions @Jugador => new JugadorActions(this);
+    public CartasActions @Cartas => new CartasActions(this);
     private int m_keyboardandmouseSchemeIndex = -1;
     public InputControlScheme keyboardandmouseScheme
     {
@@ -371,6 +512,12 @@ public class @InputControler : IInputActionCollection, IDisposable
         void OnHabilidad2(InputAction.CallbackContext context);
         void OnHabilidad3(InputAction.CallbackContext context);
         void OnHabilidad4(InputAction.CallbackContext context);
+    }
+    public interface ICartasActions
+    {
+        void OnSelection(InputAction.CallbackContext context);
+        void OnEnterSelection(InputAction.CallbackContext context);
+        void OnNuevaCarta(InputAction.CallbackContext context);
         void OnSacarCartas(InputAction.CallbackContext context);
     }
 }

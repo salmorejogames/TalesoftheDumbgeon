@@ -16,8 +16,7 @@ public class PlayerController : MonoBehaviour
     public bool derecha = true;
     public float speed;
 
-
-    private float attackTime;
+    
     private float attackDelay;
     [SerializeField] private SpriteRenderer sr;
 
@@ -25,6 +24,7 @@ public class PlayerController : MonoBehaviour
     private bool controlesEnable = true;
     private int cartaUsada;
 
+    private bool canAtack = true;
     //Variables de Objetos
     private ArmaRango armaRango;
     private string nombreArmaEquipada;
@@ -35,14 +35,18 @@ public class PlayerController : MonoBehaviour
     {
         playerController = gameObject.GetComponent<Rigidbody2D>();
         sr = gameObject.GetComponent<SpriteRenderer>();
-        controles = new InputControler();        
+        controles = new InputControler();
+        controles.Jugador.Atacar.performed += ctx => Atacar();
+        controles.Jugador.Habilidad1.performed += ctx => usarCarta(1);
+        controles.Jugador.Habilidad2.performed += ctx => usarCarta(2);
+        controles.Jugador.Habilidad3.performed += ctx => usarCarta(3);
+        controles.Jugador.Habilidad4.performed += ctx => usarCarta(4);
     }
 
     // Start is called before the first frame update
     void Start()
     {
         attackDelay = 2;
-        attackTime = 2;
         //armaRango = ArmaRango.Distancia;
         armaRango = ArmaRango.CaC;
     }
@@ -54,44 +58,21 @@ public class PlayerController : MonoBehaviour
         {
             direccion = controles.Jugador.Move.ReadValue<Vector2>();
             Moverse(direccion);
-
-            if (controles.Jugador.Habilidad1.ReadValue<float>() == 1)
-            {
-                cartaUsada = 1;
-            }else if (controles.Jugador.Habilidad2.ReadValue<float>() == 1)
-            {
-                cartaUsada = 2;
-            }
-            else if (controles.Jugador.Habilidad3.ReadValue<float>() == 1)
-            {
-                cartaUsada = 3;
-            }
-            else if (controles.Jugador.Habilidad4.ReadValue<float>() == 1)
-            {
-                cartaUsada = 4;
-            }else
-            {
-                cartaUsada = 0;
-            }
-            usarCarta(cartaUsada);
         }
-
-
-
-        if (attackTime < 1)
-        {
-            zonaAtaque.GetComponent<Collider2D>().enabled = false;
-            zonaAtaque.gameObject.GetComponent<SpriteRenderer>().color = new Color(255, 0, 0);
-            controlesEnable = true;
-        }
-
-        attackTime -= Time.deltaTime;
+        
+        
     }
 
+    private void reactiveAtack()
+    {
+        canAtack = true;
+        zonaAtaque.GetComponent<Collider2D>().enabled = false;
+        zonaAtaque.gameObject.GetComponent<SpriteRenderer>().color = new Color(255, 0, 0);
+        controlesEnable = true;
+    }
     private void FixedUpdate()
     {
-        Atacar(controles.Jugador.Atacar.ReadValue<float>());
-
+       
     }
 
     private void Moverse(Vector2 direccion)
@@ -100,12 +81,12 @@ public class PlayerController : MonoBehaviour
 
         if (direccion.x > 0)   //derecha
         {
-            giroX();
+            derecha = true;
             transform.rotation = Quaternion.Euler(0f, 0f, 0f);
         }
         else if (direccion.x < 0)  //izquierda
         {
-            giroX();
+            derecha = false;
             transform.rotation = Quaternion.Euler(0f, 180f, 0f);
         }
 
@@ -119,9 +100,9 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void Atacar(float atacar)
+    private void Atacar()
     {
-        if (atacar > 0 && attackTime < 0)
+        if (canAtack)
         {
             if (armaRango == ArmaRango.Distancia)
             {
@@ -134,8 +115,11 @@ public class PlayerController : MonoBehaviour
                 zonaAtaque.gameObject.GetComponent<SpriteRenderer>().color = new Color(0, 255, 241);
                 Debug.Log("Ataque cuerpo a cuerpo");
             }
+
+            playerController.velocity = Vector2.zero;
             controlesEnable = false;
-            attackTime = attackDelay;
+            canAtack = false;
+            Invoke(nameof(reactiveAtack), attackDelay);
         }        
     }
 
@@ -164,14 +148,7 @@ public class PlayerController : MonoBehaviour
     {
         vida -= damage;
     }
-
-    protected void giroX()      //girar el personaje
-    { 
-        derecha = !derecha;
-        //gameObject.transform.Rotate(0f, 180f, 0f);        
-    }
-
-
+    
     private void OnEnable()
     {
         controles.Enable();
