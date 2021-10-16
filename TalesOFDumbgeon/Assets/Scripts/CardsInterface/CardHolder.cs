@@ -46,57 +46,6 @@ public class CardHolder : MonoBehaviour
         AddCard();
         
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        /*
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            Resize();
-        }
-
-        if (Input.GetKeyDown(KeyCode.Q))
-        {
-            AddCard();
-        }
-        if(Input.GetKeyDown(KeyCode.LeftArrow))
-        {
-            if (active && cards.Count>0)
-            {
-                int nextIndex;
-                if (_highlitedCard <= 0)
-                    nextIndex = cards.Count - 1;
-                else
-                    nextIndex = _highlitedCard - 1;
-                cards[nextIndex].gameObject.GetComponent<Card>().SetHighlight(true);
-                ResetHighlight();
-                _highlitedCard = nextIndex;
-            }
-        }
-        if(Input.GetKeyDown(KeyCode.RightArrow))
-        {
-            if (active && cards.Count>0)
-            {
-                int nextIndex;
-                if (_highlitedCard >= cards.Count-1)
-                    nextIndex = 0;
-                else
-                    nextIndex = _highlitedCard + 1;
-                cards[nextIndex].gameObject.GetComponent<Card>().SetHighlight(true);
-                ResetHighlight();
-                _highlitedCard = nextIndex;
-            }
-        }
-
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            if(_highlitedCard>=0 && active)
-                DeleteCard(_highlitedCard);
-        }
-        */
-    }
-
     private void MoveSelection(bool right)
     {
         int nextIndex;
