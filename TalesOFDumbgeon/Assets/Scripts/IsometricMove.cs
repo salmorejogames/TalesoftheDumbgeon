@@ -7,10 +7,9 @@ public class IsometricMove : MonoBehaviour
 {
 
     [SerializeField] private float speed;
-    [SerializeField] private Sprite[] _sprites;
-    
+    [SerializeField] private float gapX;
+
     private Rigidbody2D _playerRb;
-    private SpriteRenderer _spriteRenderer;
     private InputControler _inputControler;
     private Vector2 _direccion;
     private IsometricCharacterRenderer _isoRenderer;
@@ -19,7 +18,6 @@ public class IsometricMove : MonoBehaviour
     {
         _isoRenderer = gameObject.GetComponent<IsometricCharacterRenderer>();
         _playerRb = gameObject.GetComponent<Rigidbody2D>();
-        _spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
         _inputControler = new InputControler();
         _inputControler.Jugador.Move.started += ctx => SetMoving(true);
         _inputControler.Jugador.Move.canceled += ctx => SetMoving(false);
@@ -42,56 +40,13 @@ public class IsometricMove : MonoBehaviour
 
     private Vector2 ConvertToIsometric(Vector2 input)
     {
-        Vector2 output = Vector2.zero;
-        if (input.x > 0.6 && input.y < 0.1 && input.y > -0.1)
-        {
-            output.x = 1f;
-            output.y = -0.57735f;
-            return output;
-        }
-        if (input.x < -0.6 && input.y < 0.1 && input.y > -0.1)
-        {
-            output.x = -1f;
-            output.y = 0.57735f;
-            return output;
-        }
-        if (input.y > 0.6 && input.x < 0.1 && input.x > -0.1)
-        {
-            output.x = 1f;
-            output.y = 0.57735f;
-            return output;
-        }
-        if (input.y < -0.6 && input.x < 0.1 && input.x > -0.1)
-        {
-            output.x = -1f;
-            output.y = -0.57735f;
-            return output;
-        }
-        if (input.y > 0.1 && input.x > 0.1)
-        {
-            output.x = 1f;
-            output.y = 0f;
-            return output;
-        }
-        if (input.y > 0.1 && input.x < -0.1)
-        {
-            output.x = 0f;
-            output.y =  1f;
-            return output;
-        }
-        if (input.y < -0.1 && input.x > 0.1)
-        {
-            output.x = 0f;
-            output.y = -1f;
-            return output;
-        }
-        if (input.y < -0.1 && input.x < -0.1)
-        {
-            output.x = -1f;
-            output.y = 0f;
-            return output;
-        }
-        return input;
+        float newX = input.x - input.y;
+        if (newX > 0.1)
+            newX += gapX;
+        if (newX < -0.1)
+            newX -= gapX;
+            
+        return new Vector2(newX , -(-input.x - input.y )/2 );
     }
 
     private void SetMoving(bool move)
