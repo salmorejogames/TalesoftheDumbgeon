@@ -15,7 +15,8 @@ public class PlayerController : MonoBehaviour
     public Vector2 direccion;
     public bool derecha = true;
     public float speed;
-
+    private GameObject joystick;
+    
     
     private float attackDelay;
     [SerializeField] private SpriteRenderer sr;
@@ -33,6 +34,7 @@ public class PlayerController : MonoBehaviour
 
     private void Awake()
     {
+        joystick = GameObject.FindGameObjectWithTag("Joystick");
         playerController = gameObject.GetComponent<Rigidbody2D>();
         sr = gameObject.GetComponent<SpriteRenderer>();
         controles = new InputControler();
