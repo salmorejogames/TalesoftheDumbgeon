@@ -15,7 +15,7 @@ public class PlayerController : MonoBehaviour
     public Vector2 direccion;
     public bool derecha = true;
     public float speed;
-
+    public GameObject controlMovil;
     
     private float attackDelay;
     [SerializeField] private SpriteRenderer sr;
@@ -33,6 +33,7 @@ public class PlayerController : MonoBehaviour
 
     private void Awake()
     {
+        controlMovil = GameObject.FindGameObjectWithTag("Joystick");
         playerController = gameObject.GetComponent<Rigidbody2D>();
         sr = gameObject.GetComponent<SpriteRenderer>();
         controles = new InputControler();
@@ -41,11 +42,17 @@ public class PlayerController : MonoBehaviour
         controles.Jugador.Habilidad2.performed += ctx => usarCarta(2);
         controles.Jugador.Habilidad3.performed += ctx => usarCarta(3);
         controles.Jugador.Habilidad4.performed += ctx => usarCarta(4);
+        controlMovil.SetActive(false);
     }
 
     // Start is called before the first frame update
     void Start()
     {
+        if (CheckIfMobile.isMobile())
+        {
+            controlMovil.SetActive(true);
+        }
+
         attackDelay = 2;
         //armaRango = ArmaRango.Distancia;
         armaRango = ArmaRango.CaC;
@@ -59,7 +66,6 @@ public class PlayerController : MonoBehaviour
             direccion = controles.Jugador.Move.ReadValue<Vector2>();
             Moverse(direccion);
         }
-        
         
     }
 
