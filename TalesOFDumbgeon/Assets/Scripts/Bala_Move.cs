@@ -5,7 +5,7 @@ using UnityEngine;
 public class Bala_Move : MonoBehaviour
 {
     public float speed;
-    [SerializeField] private PlayerController personaje;
+    [SerializeField] private PlayerActionsController personaje;
     [SerializeField] private SpriteRenderer sr;
     [SerializeField] private Rigidbody2D rbBullet;
     private GameObject jugador;
@@ -19,7 +19,7 @@ public class Bala_Move : MonoBehaviour
     private void Awake()
     {
         jugador = GameObject.FindGameObjectWithTag("Player");
-        personaje = jugador.GetComponent<PlayerController>();
+        personaje = jugador.GetComponent<PlayerActionsController>();
         speed = 100f;
     }
 
