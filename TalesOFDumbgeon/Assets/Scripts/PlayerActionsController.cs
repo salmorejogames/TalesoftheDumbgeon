@@ -1,26 +1,19 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerController : MonoBehaviour
+public class PlayerActionsController : MonoBehaviour
 {
     public InputControler controles;
-    public Rigidbody2D playerController;
     public GameObject ptAtaque;
     public GameObject bala;
     public GameObject zonaAtaque;
 
     public int vida = 20;
-    public Vector2 direccion;
-    public bool derecha = true;
-    public float speed;
     private GameObject joystick;
-    
-    
     private float attackDelay;
-    [SerializeField] private SpriteRenderer sr;
-
     private enum ArmaRango {CaC, Distancia};
     private bool controlesEnable = true;
     private int cartaUsada;
@@ -31,12 +24,14 @@ public class PlayerController : MonoBehaviour
     private string nombreArmaEquipada;
     public int damageArmaActual;
 
+    private float distance;
+    private IsometricMove _isometricMove;
 
     private void Awake()
     {
+        distance = Vector3.Distance(ptAtaque.transform.position, gameObject.transform.position);
+        _isometricMove = gameObject.GetComponent<IsometricMove>();
         joystick = GameObject.FindGameObjectWithTag("Joystick");
-        playerController = gameObject.GetComponent<Rigidbody2D>();
-        sr = gameObject.GetComponent<SpriteRenderer>();
         controles = new InputControler();
         controles.Jugador.Atacar.performed += ctx => Atacar();
         controles.Jugador.Habilidad1.performed += ctx => usarCarta(1);
@@ -54,17 +49,6 @@ public class PlayerController : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        if (controlesEnable)
-        {
-            direccion = controles.Jugador.Move.ReadValue<Vector2>();
-            Moverse(direccion);
-        }
-        
-        
-    }
-
     private void reactiveAtack()
     {
         canAtack = true;
@@ -72,40 +56,20 @@ public class PlayerController : MonoBehaviour
         zonaAtaque.gameObject.GetComponent<SpriteRenderer>().color = new Color(255, 0, 0);
         controlesEnable = true;
     }
-    private void FixedUpdate()
+
+    private void Update()
     {
-       
-    }
-
-    private void Moverse(Vector2 direccion)
-    {
-        playerController.velocity = new Vector3(direccion.x, direccion.y, 0) * speed;
-
-        if (direccion.x > 0)   //derecha
-        {
-            derecha = true;
-            transform.rotation = Quaternion.Euler(0f, 0f, 0f);
-        }
-        else if (direccion.x < 0)  //izquierda
-        {
-            derecha = false;
-            transform.rotation = Quaternion.Euler(0f, 180f, 0f);
-        }
-
-        if (direccion.y > 0)   //abajp
-        {
-            transform.rotation = Quaternion.Euler(0f, 0f, 90f);
-        }
-        else if (direccion.y < 0)  //arriba
-        {
-            transform.rotation = Quaternion.Euler(0f, 0f, -90f);
-        }
+        float angle = _isometricMove.angle;
+        Vector3 newCenter = gameObject.transform.position + (Vector3) IsometricUtils.PolarisToCartesian(angle, distance);
+        //newCenter = IsometricUtils.CartesianToIsometric(newCenter);
+        ptAtaque.gameObject.transform.position = newCenter;
     }
 
     private void Atacar()
     {
         if (canAtack)
         {
+            
             if (armaRango == ArmaRango.Distancia)
             {
                 Instantiate(bala, ptAtaque.transform.position, Quaternion.Euler(transform.rotation.eulerAngles));
@@ -117,8 +81,6 @@ public class PlayerController : MonoBehaviour
                 zonaAtaque.gameObject.GetComponent<SpriteRenderer>().color = new Color(0, 255, 241);
                 Debug.Log("Ataque cuerpo a cuerpo");
             }
-
-            playerController.velocity = Vector2.zero;
             controlesEnable = false;
             canAtack = false;
             Invoke(nameof(reactiveAtack), attackDelay);
@@ -134,7 +96,7 @@ public class PlayerController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log("colision con " + collision.gameObject.name);
+        //Debug.Log("colision con " + collision.gameObject.name);
         if (collision.gameObject.CompareTag("Enemigo"))
         {
             takeDamage(collision.gameObject.GetComponent<EnemigoController>().damage);
