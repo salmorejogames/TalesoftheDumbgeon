@@ -1,5 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+using ByteCode;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -40,11 +42,23 @@ public class Card : MonoBehaviour, IPointerClickHandler
         
     }
 
+    public void AplicarEfecto()
+    {
+        //De derecha a izquierda
+        //{(char) 0x000, (char) 1, (char) 0x000, (char) 0, (char) 0x000, (char) 30, (char) 0x001};
+        List<char> bytecode = Instrucciones.Interprete("setHealth#30#1#false");
+        bytecode.AddRange( Instrucciones.Interprete("setHealth#-10#0#true"));
+        bytecode.AddRange( Instrucciones.Interprete("setSpeed#10,5#-10,4"));
+        bytecode.AddRange( Instrucciones.Interprete("setHealth#-5#5#true"));
+        InstructionManager.Vm.Interpret(bytecode);
+    }
+
     public void StartDelete()
     {
         SetHighlight(false);
         StartCoroutine(nameof(Fade));
         Invoke(nameof(Delete), 1);
+        AplicarEfecto();
     }
     private void Delete()
     {

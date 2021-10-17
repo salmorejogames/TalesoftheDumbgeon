@@ -109,7 +109,7 @@ public class CardHolder : MonoBehaviour
             localWidth /= 2;                        
         }
         float width = localWidth * cards.Count + (cards.Count - 1) * localGap;
-        Debug.Log(width);
+        //Debug.Log(width);
         float lastCard = localWidth / 2;    
         foreach (var localCard in cards)
         {
