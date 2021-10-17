@@ -12,7 +12,7 @@ public class IsometricMove : MonoBehaviour
     private const float ORIENTATION_STEP = 45f;
     private const float ORIENTATION_OFFSET = 90f;  
     
-    private float _angle = 0;
+    public float angle = 0;
     private Rigidbody2D _playerRb;
     private InputControler _inputControler;
     private Vector2 _direccion;
@@ -33,26 +33,23 @@ public class IsometricMove : MonoBehaviour
         if (_moving)
         {
             _direccion = _inputControler.Jugador.Move.ReadValue<Vector2>();
-            //Vector2 currentPos = _playerRb.position;
             Vector2 movement = (ConvertToIsometric(_direccion));
-           // Vector2 newPos = currentPos + movement * Time.fixedDeltaTime;
             _playerRb.velocity = movement  * speed;
-            _angle = _isoRenderer.SetDirection(movement) * ORIENTATION_STEP + ORIENTATION_OFFSET;
-            //_playerRb.MovePosition(newPos);
-            //Debug.Log(_angle);
+            angle = _isoRenderer.SetDirection(movement) * ORIENTATION_STEP + ORIENTATION_OFFSET;
+            Debug.Log(angle);
         }
         //Moverse();
     }
 
     private Vector2 ConvertToIsometric(Vector2 input)
     {
-        float newX = input.x - input.y;
-        if (newX > 0.1)
-            newX += gapX;
-        if (newX < -0.1)
-            newX -= gapX;
-            
-        return new Vector2(newX , -(-input.x - input.y )/2 );
+        Vector2 output = IsometricUtils.CartesianToIsometric(input);
+        if (output.x > 0.1)
+            output.x += gapX;
+        if (output.x < -0.1)
+            output.x -= gapX;
+        
+        return output;
     }
 
     private void SetMoving(bool move)

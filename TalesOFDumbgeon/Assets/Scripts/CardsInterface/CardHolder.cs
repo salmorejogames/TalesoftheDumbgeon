@@ -135,13 +135,8 @@ public class CardHolder : MonoBehaviour
                 var localPosition = localCard.localPosition;
                 localPosition = new Vector3(localPosition.x, _activePoint.y, localPosition.z);
                 localCard.localPosition = localPosition;
-                RepositionateCards();
-                //if (CheckIfMobile.isMobile()) 
-                    buttonDown.gameObject.SetActive(true);
-                    
-                active = true;
-                
             }
+            buttonDown.gameObject.SetActive(true);
         }
         else
         {
@@ -151,14 +146,12 @@ public class CardHolder : MonoBehaviour
                 var localPosition = localCard.localPosition;
                 localPosition = new Vector3(localPosition.x, _restPoint.y, localPosition.z);
                 localCard.localPosition = localPosition;
-                RepositionateCards();
-                ResetHighlight();
-                //if (CheckIfMobile.isMobile())
-                    buttonDown.gameObject.SetActive(false);
-                active = false;
-                
             }
+            ResetHighlight();
         }
+        active = !active;
+        RepositionateCards();
+        buttonDown.gameObject.SetActive(active);
     }
 
     public void DeleteCard(RectTransform oldCard)
@@ -167,6 +160,9 @@ public class CardHolder : MonoBehaviour
         cards.Remove(oldCard);
         Destroy(oldCard.gameObject);
         RepositionateCards();
+        
+        if(cards.Count<=0 && active)
+            Resize();
     }
     
     public void DeleteCard(int index)
