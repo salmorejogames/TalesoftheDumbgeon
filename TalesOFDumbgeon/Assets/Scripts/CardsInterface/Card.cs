@@ -6,11 +6,13 @@ using UnityEngine.UI;
 
 public class Card : MonoBehaviour, IPointerClickHandler
 {
-   
 
+
+    public string cardName;
     private CardHolder _cardHolder;
     private RectTransform _rectTransform;
     private Image _image;
+    [SerializeField] private CardInfo cardInfo;
     [SerializeField] private Color highlightColor;
     
     // Start is called before the first frame update
@@ -19,14 +21,8 @@ public class Card : MonoBehaviour, IPointerClickHandler
         _rectTransform = gameObject.GetComponent<RectTransform>();
         _cardHolder = gameObject.transform.parent.gameObject.GetComponent<CardHolder>();
         _image = gameObject.GetComponent<Image>();
+        cardInfo = Resources.Load<CardInfo>("cards/CardsInfo/" + cardName);
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void OnPointerClick(PointerEventData eventData)
     {
         if (_cardHolder.active)
@@ -40,11 +36,17 @@ public class Card : MonoBehaviour, IPointerClickHandler
         
     }
 
+    public void ActivateEffect()
+    {
+        cardInfo.CastEffect();
+    }
+
     public void StartDelete()
     {
         SetHighlight(false);
         StartCoroutine(nameof(Fade));
         Invoke(nameof(Delete), 1);
+        ActivateEffect();
     }
     private void Delete()
     {
