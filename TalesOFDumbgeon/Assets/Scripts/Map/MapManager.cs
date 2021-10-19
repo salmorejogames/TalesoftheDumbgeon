@@ -65,9 +65,9 @@ public class MapManager : MonoBehaviour
     private Vector3 CalculatePlayerRelativeCoordinates()
     {
         if (_mod.x > 0 && _mod.y > 0)
-            return (Vector3) IsometricUtils.CartesianToIsometric(new Vector2(tilesMovedInTransition, 0));
+            return (Vector3) IsometricUtils.CartesianToIsometric(new Vector2(tilesMovedInTransition - tilesMovedInTransition*gapX, 0));
         if (_mod.x<0 && _mod.y <0)
-            return (Vector3) IsometricUtils.CartesianToIsometric(new Vector2(-tilesMovedInTransition, 0));
+            return (Vector3) IsometricUtils.CartesianToIsometric(new Vector2(-tilesMovedInTransition + tilesMovedInTransition*gapX, 0));
         if (_mod.x>0 && _mod.y <0)
             return (Vector3) IsometricUtils.CartesianToIsometric(new Vector2(0, -tilesMovedInTransition));
         return (Vector3) IsometricUtils.CartesianToIsometric(new Vector2(0, tilesMovedInTransition));
