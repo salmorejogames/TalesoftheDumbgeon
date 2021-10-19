@@ -253,7 +253,78 @@ La duración estimada del proyecto es de 3 meses, empezando el día 5 de octubre
 Al empezar sin ningún tipo de presupuesto no hay ningún coste monetario. Sin embargo, sí existe un coste temporal en el que los desarrolladores tendrán que trabajar en el proyecto.
 
 # 4. Mecánicas de Juego y Elemento de Juego
+
+En este apartado se profundizará en las diferentes mecánicas que componen a *Tales of the Dumbgeon* ahondando en los diversos fundamentos de su jugabilidad y explicando el rango de acciones de los jugadores.
+
 ## 4.1 Jugabilidad
+
+*Tales of the Dumbgeon* es un juego de género roguelike con recolección de ítems en forma de cartas, combates de acción y exploración de un escenario generado aleatoriamente. El jugador deberá tratar de llegar hasta el final de la mazmorra para completar el juego pudiendo morir en el proceso y en consecuencia teniendo que empezar desde el principio, pudiendo probar una nueva combinación de cartas que le suma valor a la rejugabilidad.
+
+El esquema jugable de *Tales of the Dumbgeon* se basa en la recolección de las cartas del mago Jojomamalo. Estas cartas funcionan como el corazón de la jugabilidad pudiendo actuar como equipamiento para el personaje, habilidades extra para la aventura o maldiciones que dificulten el transcurso de la partida.
+
+- **Cartas**: Recolección de cartas que generan habilidades y equipo
+
+	Para poder hacerse con estos ítems el jugador deberá abrirse camino por la mazmorra, explorando distintas salas generadas de forma aleatoria y enfrentándose a diferentes 	enemigos utilizando esas mismas cartas, generando así un bucle de mejora constante mientras se avanza en el juego. 
+	
+	En las salas seguras, como ya se explicará en el apartado de **Generación aleatoria del mundo y sus mazmorras**, aparecerá de vez en cuando un NPC llamado “El Cartero”. 	Este NPC cumplirá dos funciones:
+	
+	-Tendrá unas cuantas cartas, de modo que puedas cambiar la carta de tu mano que quieras por una aleatoria de las que él tiene.
+	-Tendrá un álbum en el que puedes guardar cartas que tienes en la mano para recogerlas más adelante, cuando vuelvas a encontrarte con él. Las cartas del álbum se eliminarán si mueres. No estarán disponibles cuando vuelvas a entrar a la Dumbgeon.
+	
+	A lo largo del juego se podrán encontrar los siguientes tipos de carta:
+	
+	-**Armas:** Se equipan para usarse en combate y para incrementar los stats del personaje tales como su daño, defensa y velocidad. Cada una de ellas posee un elemento que las caracteriza. (Ejemplo: Espada de Fe)
+	
+	![]()
+	
+	-**Armadura:** Se equipan para incrementar los stats del personaje tales como su daño, defensa y velocidad. Cada una de ellas posee un elemento que las caracteriza. (Ejemplo: Ki-Mono)
+	
+	![]()
+	
+	-**Hechizos:** Se equipa como habilidad para usarse en combate. (Ejemplo: Bola de fuego)
+	
+	![]()
+	
+	-**Maldiciones:** Efectos adversos sobre el personaje. Se aplican instantáneamente al ser recogidas. (Ejemplo: Analfabetismo)
+	
+	![]()
+	
+	-**Bendiciones:** Cartas que guardan en la mano del jugador para que este pueda usarlas cuando desee. Al activarlas ofrecen un efecto positivo al jugador y se consumen. (Ejemplo: Power Up)
+	
+	![]()
+	
+	Cuando el jugador muera en las partidas, podrá  elegir una de las cartas que tenía para dejar de herencia al siguiente personaje y empezar desde el inicio con ella, creando una herencia de equipo, hechizos y maldiciones que puedan ser útiles en las partidas posteriores.
+	
+	**Calidad de Carta**
+	
+	Por otro lado, cada carta puede enmarcarse en tipo de calidad:
+		-**Normal:** La carta se encuentra en un estado estándar, así como sus atributos.
+		-**Especial:** La carta está mejorada lo que hace que un atributo de la carta se duplique.
+		-**Legendaria:** La carta está mejorada lo que hace que un atributo de la carta se cuadruplique.
+
+	Para mejorar la calidad de las cartas es necesario Cuartos de Carta, una moneda interna del juego. Esta se recoge de los dropeos de los enemigos al morir y se puede utilizar en la tienda del Cuervillo. El NPC pedirá un número determinado de Cuartos de Carta para poder subir de calidad la carta que quiera el jugador.
+	
+	**Elementos**
+	
+	Tanto las cartas como los enemigos pueden tener asignado uno o varios elementos, en este caso nos centraremos en los elementos y su utilidad como mecánica. Los elementos afectan al tipo de daño que produce un arma/hechizo en el objetivo y en las armaduras proporcionan una defensa extra contra ataques de su mismo tipo elemental. Esto mismo se aplica en los enemigos, donde su elemento de ataque y de defensa sería el mismo.
+	
+	Los elementos que aparecen en el juego son: *Brisa*, *Copo*, *Guijarro*, *Brasa* y *Caos*. La eficacia que producen estos elementos contra otros viene determinado por el diagrama que aparece abajo. Con esto podemos ver:
+	
+	-Los ataques de *Copo* son muy eficaces contra enemigos de *Brasa*
+	-Los ataques de *Brasa* son muy eficaces contra enemigos de *Brisa*
+	-Los ataques de *Brisa* son muy eficaces contra enemigos de *Guijarro*
+	-Los ataques de *Guijarro* son muy eficaces contra enemigos de *Caos*
+	-Los ataques de *Caos* son muy eficaces contra enemigos de *Copo*
+	-Los ataques de un elemento son poco eficaces contra si mismos
+	
+-**Combate:** Combate rápido cuerpo a cuerpo con habilidades y hechizos
+
+El combate será de acción y en tiempo real con perspectiva isométrica. El jugador tendrá que posicionarse dentro de las salas donde crea más conveniente, medir los tiempos en los que atacar o tratar de esquivar los envites enemigos, aprovechar al máximo las habilidades de las que dispone.
+
+En la mano de combate el jugador solo puede tener cinco cartas. Si se consigue una nueva se tendrá que decidir si quedársela, eliminando una que tengas o dejarla donde la has visto y perderla.
+
+
+
 
 ## 4.2 Controles y reglas de juego
 
