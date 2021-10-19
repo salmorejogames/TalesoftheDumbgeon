@@ -82,6 +82,7 @@ public class MapManager : MonoBehaviour
         Vector3 playerObjetive = playerPos + coordinates;
         _player.SetActive(false);
         yield return new WaitForSeconds(sleepTime);
+        _player.UpdateAngle(coordinates);
         while (Vector3.Distance(playerPos, playerObjetive)>0.001)
         {
             playerPos = Vector3.MoveTowards(playerPos, playerObjetive, _player.speed*playerRelativeSpeed*Time.deltaTime);
