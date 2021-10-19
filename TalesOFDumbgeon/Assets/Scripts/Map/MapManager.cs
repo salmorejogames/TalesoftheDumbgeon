@@ -100,12 +100,12 @@ public class MapManager : MonoBehaviour
 
     private void AfterTransition(Vector3 actualPos)
     {
-        _player.SetActive(true);
         Destroy(_oldMap.gameObject);
         _actualMap.transform.position = Vector3.zero;
         _mainCamera.transform.position = new Vector3(0, 0, _mainCamera.transform.position.z);
         _player.transform.position = _player.transform.position - actualPos;
         _actualMap.SetTrigger(true);
+        _player.SetActive(true);
     }
     public void ReloadScene()
     {
