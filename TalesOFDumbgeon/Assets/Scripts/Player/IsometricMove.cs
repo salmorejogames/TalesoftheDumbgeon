@@ -18,6 +18,8 @@ public class IsometricMove : MonoBehaviour
     private Vector2 _direccion;
     private IsometricCharacterRenderer _isoRenderer;
     private bool _moving = false;
+    private Vector3 _objetive;
+    private float _transitionSpeed;
     private void Awake()
     {
         _isoRenderer = gameObject.GetComponent<IsometricCharacterRenderer>();
@@ -36,7 +38,7 @@ public class IsometricMove : MonoBehaviour
             Vector2 movement = (ConvertToIsometric(_direccion));
             _playerRb.velocity = movement  * speed;
             angle = _isoRenderer.SetDirection(movement) * ORIENTATION_STEP + ORIENTATION_OFFSET;
-            Debug.Log(angle);
+            //Debug.Log(angle);
         }
         //Moverse();
     }
@@ -67,5 +69,22 @@ public class IsometricMove : MonoBehaviour
     private void OnDisable()
     {
         _inputControler.Disable();
+    }
+
+    public void MoveTo(Vector3 destiny, float speed)
+    {
+        _moving = false;
+        _objetive = destiny;
+        _transitionSpeed = speed;
+    }
+
+    IEnumerator Transition()
+    {
+        while (Vector3.Distance(transform.position, _objetive) > 0.001)
+        {
+            transform.position = Vector3.MoveTowards(transform.position, _objetive, _transitionSpeed * Time.deltaTime);
+            yield return null;
+        }
+        _moving = true;
     }
 }
