@@ -38,11 +38,16 @@ public class IsometricMove : MonoBehaviour
             _direccion = _inputControler.Jugador.Move.ReadValue<Vector2>();
             Vector2 movement = (ConvertToIsometric(_direccion));
             _playerRb.velocity = movement  * speed;
-            angle = _isoRenderer.SetDirection(movement) * ORIENTATION_STEP + ORIENTATION_OFFSET;
+            UpdateAngle(movement);
         }
         
         //Debug.Log(angle);
         //Moverse();
+    }
+
+    public void UpdateAngle(Vector2 movement)
+    {
+        angle = _isoRenderer.SetDirection(movement) * ORIENTATION_STEP + ORIENTATION_OFFSET;
     }
 
     private Vector2 ConvertToIsometric(Vector2 input)
