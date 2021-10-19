@@ -4,13 +4,15 @@ using UnityEngine;
 
 public class PlayerCollisions : MonoBehaviour
 {
+    private int _nextMapa = 1;
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("Collision");
         if (collision.CompareTag("Escenario"))
         {
             Debug.Log("Cambiando mapa");
-            MapManager.Instance.InstantiateMap(1);
+            MapManager.Instance.InstantiateMap(_nextMapa);
+            _nextMapa++;
+            _nextMapa %=  2;
         }
     }
 }
