@@ -125,7 +125,7 @@ El videojuego se basa en los siguientes puntos:
     
 -   **Combate rápido cuerpo a cuerpo con habilidades y hechizos**: la Dumbgeon estará repleta de enemigos contra los que el jugador deberá enfrentarse usando las habilidades que haya obtenido de las cartas.
     
--  ** Jefes finales con memoria:** los distintos enemigos finales de cada zona recordarán los anteriores encuentros que han tenido con el jugador, pudiendo hacer comentarios de diversa índole en función del ratio de victorias y derrotas del jugador.
+-  **Jefes finales con memoria:** los distintos enemigos finales de cada zona recordarán los anteriores encuentros que han tenido con el jugador, pudiendo hacer comentarios de diversa índole en función del ratio de victorias y derrotas del jugador.
     
 -   **Herencia de habilidades:** al ser cada partida una incursión de un miembro de la familia Stadtnarr se incluirá una mecánica que permita la herencia de una de las cartas de antecesor al nuevo personaje.
     
@@ -193,14 +193,43 @@ En este apartado se especificará como esta organizado el equipo de desarrollo: 
 
 Existen diversos departamentos para la gestión y el desarrollo de las tareas necesarias para la realización del proyecto.Cada departamento está formado por una o más personas y está dirigido por un líder. Una persona puede estar en más de un departamento.
 
-  
-
 El jefe de cada departamento está encargado de la asignación y evaluación de las tareas dentro de su equipo. Los problemas que surgen dentro de un departamento se llevan al líder del mismo. Si el problema que surge es un problema mayor o que necesita de otros departamentos el líder debe encargarse de contactar con el equipo de Dirección para formalizar una reunión grupal que pueda solucionarlo.
 
 El equipo de dirección es un equipo especial, que se encargará de la organización de los departamentos, la resolución de problemas entre las personas y la gestión general del proyecto.
 
 
 Las reuniones se realizan mediante Microsoft Teams.
+
+### Uso de Trello
+
+Para el desarrollo del proyecto se usará la metodología Kanban. Para ello se usará un tablero en Trello donde se establecerán 4 columnas principales:
+
+ - **To do**: Tiene las tareas definidas que hay que realizar . 
+ - **En proceso**: Tareas que están actualmente en desarrollo. Cada persona puede tener mucho como 2 tareas asignadas en este columna simultáneamente.
+- **En revisión**: Tareas que se han completado, pero que están a la espera de ser revisadas por el equipo.
+- **Finalizado**: Tareas que han sido revisadas y aprobadas como completadas.
+
+Una **tarea** será representada como una tarjeta en la aplicación. Una tarea estará formada por un subconjunto de puntos a realizar (indicados como una checklist), debe ser lo suficientemente relevante como para ser una tarea individual, pero no puede ser suficientemente general como para no poder ser completada en una iteración o absorber todas las tareas a realizar de un departamento.
+
+Los jefes de cada departamento serán encargados de supervisar la definición de las tareas y sus puntos. Además, son los que tienen que autorizar el paso de una tarea de la columna **en proceso** a **en revisión**.
+
+Para que una persona tenga asignada una tarea sólo tiene que arrastrarla de la columna de **to do** a **en proceso**. Todos los miembros pueden definir tareas en to do y los puntos para estas, pero este proceso tiene que ser aprobado por su líder de departamento.
+
+Para que todo el equipo esté al tanto del avance del proyecto en general, las revisiones serán realizadas en reuniones convocadas por el equipo de dirección. En estas revisiones, se comprobará que cada tarea en la columna **en revisión** cumple con los requisitos necesarios y serán enviadas a la columna **finalizado** de ser así. Si no se cumplen, se editaran los puntos necesarios de la tarea y se moverá de vuelta a **to do**.
+
+Cada tarea tendrá un color asignado correspondiente al departamento del que forma parte. En la columna **to do** se encontraran cabeceras que corresponden a cada departamento bajo las que se encontraran las tarjetas correspondientes a este.
+
+### Uso de GitHub
+
+Todos los archivos del proyecto deben encontrarse en el repositorio de GitHub del proyecto. Cada vez que se quiera realizar un cambio en el proyecto se tendrá que generar este en una rama **(branch)** del proyecto principal. Una vez se complete este cambio se introduce en la rama principal.
+
+Este cambio generalmente estará asociado a una tarea. Cada tarea deberá ser realizada en una rama y los puntos de la tarea pueden realizarse directamente en esta o en ramas anidadas. Una vez que la tarea pase a revisión, se hará un **merge** de la rama en la rama principal.
+
+Estos principios deben seguirse siempre, con excepción de cambios ínfimos, como un cambio en los valores del atributo de velocidad de personaje, nunca se deben realizar cambios en la rama principal.
+
+### Revisiones
+
+Las revisiones a lo largo del desarrollo se ejecutarán los domingos por la mañana. En esta reunión se revisará el estado general del equipo y del desarrollo. Se utilizará la herramienta de trello para observar todas las tareas que están **en revisión** para revisarlas con el jefe de departamento y de proyecto Además se organizaron más revisiones si algún departamento en concreto los necesita para pedir ayuda u opinión del jefe de proyecto o de otro desarrollador.
 
 ## 3.2 Estimación temporal del desarrollo
     
