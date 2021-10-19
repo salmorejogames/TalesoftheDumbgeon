@@ -22,67 +22,68 @@
 
 ## Índice
 **1. Introducción**
-1.1 Descripción breve del concepto 
 
-1.2 Descripción breve de la historia y personajes
+	1.1 Descripción breve del concepto 
 
-1.3 Propósito, público objetivo y plataformas 
+	1.2 Descripción breve de la historia y personajes
 
-1.4 Características principales  
+	1.3 Propósito, público objetivo y plataformas 
 
-1.5 Jugabilidad 
+	1.4 Características principales  
 
-1.5 Estilo Visual 
+	1.5 Jugabilidad 
 
-1.6 Alcance
+	1.5 Estilo Visual 
+
+	1.6 Alcance
 
 **2. Monetización**
 
-2.1 Tipo de modelo de monetización
+	2.1 Tipo de modelo de monetización
 
-2.2 Tablas de productos y precios
+	2.2 Tablas de productos y precios
 
 **3. Planificación y Costes**
 
-3.1 El equipo humano
+	3.1 El equipo humano
 
-3.2 Estimación temporal del desarrollo
+	3.2 Estimación temporal del desarrollo
 
-3.3 Costes asociados
+	3.3 Costes asociados
 
 **4. Mecánicas de Juego y Elemento de Juego**
 
-4.1 Jugabilidad
+	4.1 Jugabilidad
 
-4.2 Controles y reglas de juego
+	4.2 Controles y reglas de juego
 
-4.3 Niveles y misiones
+	4.3 Niveles y misiones
 
-4.4 Objetos, armas y power ups
+	4.4 Objetos, armas y power ups
 
 **5. Trasfondo**
 
-5.1 Descripción detallada de la historia  y la trama
+	5.1 Descripción detallada de la historia  y la trama
 
-5.2 Personajes 
+	5.2 Personajes 
 
-5.3 Entornos y lugares
+	5.3 Entornos y lugares
 
 **6. Arte**
 
-6.1 Estética general del juego
+	6.1 Estética general del juego
 
-6.2 Apartado visual
+	6.2 Apartado visual
 
-6.3 Música
+	6.3 Música
 
-6.4 Ambiente Sonoro
+	6.4 Ambiente Sonoro
 
 **7. Interfaz**
 
-7.1 Diseños básicos de los menús
+	7.1 Diseños básicos de los menús
 
-7.2 Diagrama de flujo
+	7.2 Diagrama de flujo
 
 **8. Hoja de ruta del desarrollo**
 
