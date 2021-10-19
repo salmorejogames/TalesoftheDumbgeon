@@ -365,24 +365,24 @@ El esquema jugable de *Tales of the Dumbgeon* se basa en la recolección de las 
 
 ## 4.2 Controles y reglas de juego
 
-**Controles básicos:**
+- **Controles básicos:**
 	- Desplazamiento: WASD 
 	- Apuntar: el personaje realizará la acción hacia el lugar donde esté mirando el personaje.
 	- Mano principal: Click izq
 	- Mano secundaria: Click der
 	- 'Q': Desplegar tu mano de cartas
 	
-**Mano:**
+- **Mano:**
 	- Se dispone de un número limitado de slots para almacenar las cartas que se van recogiendo.
 	- Desde la mano podemos equipar armas, armaduras y habilidades. Las Maldiciones se activan directamente cuando llegan a tu mano.
 	- Una vez equipada una carta, NO puede volver a la mano.
 
-**Secciones del personaje:**
+- **Secciones del personaje:**
 	- *Sección de Equipamiento:* Se equipan 3 cartas/objetos pertenecientes a los elementos casco, pecho y piernas.
 	- *Sección de Maldiciones:* Las maldiciones se activan instantáneamente al recogerlas  y se equipan en esta sección.
 	- *Sección de Habilidades:* Se equipan 2 habilidades, una de ellas es un arma y la otra un hechizo. El arma se utiliza con el click derecho del ratón y el hechizo se utiliza con el click izquierdo del ratón.
 	
-**Cartas:**
+- **Cartas:**
 	- Las cartas deben tener un nombre, una ilustración y una descripción. Además se darán, si es necesario, más especificaciones de los efectos de la carta hacia el personaje.
 
 ## 4.3 Niveles
@@ -427,6 +427,14 @@ Todas las cartas ancestrales se encuentran en el documento de diseño.
 
 # 5. Trasfondo
 ## 5.1 Descripción detallada de la historia  y la trama
+
+Hace mucho mucho tiempo, en una dimensión muy lejana un joven mago llamado *Jojomamalo* descubrió el poder de las Cartas, unos misteriosos artefactos que regulan todo aquello que existe en el universo: las estrellas, los elementos, los seres vivos, los fines de semana… Con este poder el mago fue capaz de crear a su antojo como si fuera un Dios, pero algo le frenaba, su falta de originalidad. Por ello, dedicó todos sus esfuerzos en la creación de una carta que le permitiera moverse por otros universos en lo que se conoce como el Mazoverso.
+
+En sus viajes, Jojomamalo pudo conocer una gran variedad de culturas, miles de ideas, millones de mundos. Con toda esta información, todas estas historias de las que se había enamorado, decidió crear la suya propia. Creó un lugar que pudiera albergar todas sus creaciones, la Dumbgeon, y allí con el poder de las Cartas empezó a crear a todo tipo de criaturas para que poblaran el lugar. Seres de toda índole inspirados, los envidiosos dirían que plagiados, de las historias que el mago había descubierto.
+
+Así pues fueron pasando los siglos, Jojomamalo seguía creando y divirtiéndose viendo cómo actuaban sus locas criaturas. Pero había una, una que no estaba conforme con aquello. Un ser de aspecto idéntico al humano pero dotado de toda clase de defectos, un pobre alma tonta, torpe y surrealista. Un pobre ser conocido como El Tonto del Pueblo, el Stadtnarr, que solo servía como bufón, alguien del que Jojomamalo y el resto de criaturas pudieran reírse con susdesgracias. Hasta que se hartó.
+
+
 ## 5.2 Personajes 
 ## 5.3 Entornos y lugares
 
