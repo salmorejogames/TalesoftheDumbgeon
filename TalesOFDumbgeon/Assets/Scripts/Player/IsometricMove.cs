@@ -71,7 +71,7 @@ public class IsometricMove : MonoBehaviour
     public void SetActive(bool active)
     {
         _active = active;
-        SetMoving(active);
+        _playerRb.velocity = Vector2.zero;
     }
     
     
