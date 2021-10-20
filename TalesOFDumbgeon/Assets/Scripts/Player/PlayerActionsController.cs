@@ -7,30 +7,19 @@ using UnityEngine.InputSystem;
 public class PlayerActionsController : MonoBehaviour
 {
     public InputControler controles;
-    public GameObject ptAtaque;
-    public GameObject bala;
-    public GameObject zonaAtaque;
-
-    public int vida = 20;
+    public Weapon weapon;
     private GameObject joystick;
-    private float attackDelay;
-    private enum ArmaRango {CaC, Distancia};
-    private bool controlesEnable = true;
     private int cartaUsada;
-
     private bool canAtack = true;
-    //Variables de Objetos
-    private ArmaRango armaRango;
-    private string nombreArmaEquipada;
-    public int damageArmaActual;
-
     private float distance;
+    private CharacterStats _stats;
     private IsometricMove _isometricMove;
 
     private void Awake()
     {
-        distance = Vector3.Distance(ptAtaque.transform.position, gameObject.transform.position);
+        distance = Vector3.Distance(weapon.transform.position, gameObject.transform.position);
         _isometricMove = gameObject.GetComponent<IsometricMove>();
+        _stats = gameObject.GetComponent<CharacterStats>();
         joystick = GameObject.FindGameObjectWithTag("Joystick");
         controles = new InputControler();
         controles.Jugador.Atacar.performed += ctx => Atacar();
@@ -43,47 +32,33 @@ public class PlayerActionsController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        attackDelay = 2;
-        //armaRango = ArmaRango.Distancia;
-        armaRango = ArmaRango.CaC;
+        weapon.GetComponent<Collider2D>().enabled = false;
     }
 
     // Update is called once per frame
-    private void reactiveAtack()
+    private void ReactiveAtack()
     {
         canAtack = true;
-        zonaAtaque.GetComponent<Collider2D>().enabled = false;
-        zonaAtaque.gameObject.GetComponent<SpriteRenderer>().color = new Color(255, 0, 0);
-        controlesEnable = true;
+        weapon.GetComponent<Collider2D>().enabled = false;
+        weapon.gameObject.GetComponent<SpriteRenderer>().color = new Color(255, 255, 255);
     }
 
     private void Update()
     {
         float angle = _isometricMove.angle;
-        Vector3 newCenter = gameObject.transform.position + (Vector3) IsometricUtils.PolarisToCartesian(angle, distance);
+        weapon.SetOrientation(angle);
+        Vector3 newCenter = gameObject.transform.position + (Vector3) IsometricUtils.PolarToCartesian(angle, distance);
         //newCenter = IsometricUtils.CartesianToIsometric(newCenter);
-        ptAtaque.gameObject.transform.position = newCenter;
+        weapon.gameObject.transform.position = newCenter;
     }
 
     private void Atacar()
     {
         if (canAtack)
         {
-            
-            if (armaRango == ArmaRango.Distancia)
-            {
-                Instantiate(bala, ptAtaque.transform.position, Quaternion.Euler(transform.rotation.eulerAngles));
-                Debug.Log("Ataque a distancia");
-            }
-            else if (armaRango == ArmaRango.CaC)
-            {
-                zonaAtaque.GetComponent<Collider2D>().enabled = true;
-                zonaAtaque.gameObject.GetComponent<SpriteRenderer>().color = new Color(0, 255, 241);
-                Debug.Log("Ataque cuerpo a cuerpo");
-            }
-            controlesEnable = false;
+            weapon.Atack();
             canAtack = false;
-            Invoke(nameof(reactiveAtack), attackDelay);
+            Invoke(nameof(ReactiveAtack), weapon.weaponInfo.attackSpeed);
         }        
     }
 
@@ -99,18 +74,15 @@ public class PlayerActionsController : MonoBehaviour
         //Debug.Log("colision con " + collision.gameObject.name);
         if (collision.gameObject.CompareTag("Enemigo"))
         {
-            takeDamage(collision.gameObject.GetComponent<EnemigoController>().damage);
+            CharacterStats enemy_stats = collision.gameObject.GetComponent<CharacterStats>();
+            _stats.DoDamage(enemy_stats.damage * Elements.GetElementMultiplier(enemy_stats.element, _stats.element));
         }
 
-        if (vida <= 0)
+        if (!_stats.IsAlive())
         {
+            Debug.Log("Im dead");
             Destroy(gameObject);
         }
-    }
-
-    public void takeDamage(int damage)
-    {
-        vida -= damage;
     }
     
     private void OnEnable()

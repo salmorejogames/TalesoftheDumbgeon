@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed41c6ccd82907c40aec1167f9c1d023, type: 3}
+  m_Name: DefaultDistance
+  m_EditorClassIdentifier: 
+  artwork: {fileID: 21300000, guid: ec1dc663f00a06449a3c2df4123297f0, type: 3}
+  angle: 90
+  dmg: 1
+  attackSpeed: 1
+  attackDuration: 0.1
+  element: 0
+  ammoSprite: {fileID: 21300000, guid: 764f5c3712ae0e5499729f6101cbcb17, type: 3}
+  range: 5
+  ammoSpeed: 3

@@ -1,45 +1,56 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Bala_Move : MonoBehaviour
 {
-    public float speed;
-    [SerializeField] private PlayerActionsController personaje;
-    [SerializeField] private SpriteRenderer sr;
-    [SerializeField] private Rigidbody2D rbBullet;
-    private GameObject jugador;
-    private Vector2 sentido;
-    private Quaternion rotacion;
-    private Vector3 rotacion2;
+    public RangedWeapon weapon;
+    public string parentTag;
+    public float holderAtack;
+    private float _runDistance;
+    private Vector3 _lastPoint;
+    private Rigidbody2D _rb;
 
-    private bool direccion;
-    private bool arriba;
 
-    private void Awake()
-    {
-        jugador = GameObject.FindGameObjectWithTag("Player");
-        personaje = jugador.GetComponent<PlayerActionsController>();
-        speed = 100f;
-    }
 
     // Start is called before the first frame update
     void Start()
     {
-        sentido = jugador.transform.right;
-        rbBullet.AddForce(sentido * speed);
+        _rb = gameObject.GetComponent<Rigidbody2D>();
+        _runDistance = 0f;
+        _lastPoint = gameObject.transform.position;
+        GetComponent<Rigidbody2D>().velocity = transform.up * weapon.ammoSpeed;
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {        
-        if (!collision.gameObject.CompareTag("Arma"))
+    private void FixedUpdate()
+    {
+        //transform.position = transform.position + transform.up * (weapon.ammoSpeed * Time.fixedDeltaTime);
+        _runDistance += Vector3.Distance(_lastPoint, gameObject.transform.position);
+        _lastPoint = gameObject.transform.position;
+        //Debug.Log( transform.up + " " +weapon.ammoSpeed + " " +  Time.fixedDeltaTime + " " + _runDistance);
+        if (_runDistance > weapon.range)
         {
-            if (collision.gameObject.CompareTag("Enemigo"))
-            {
-                collision.GetComponent<EnemigoController>().TakeDamage(personaje.damageArmaActual);
-            }
-
             Destroy(gameObject);
+        }
+    }
+
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        GameObject impact = collision.gameObject;
+        if (impact.CompareTag("Escenario"))
+        {
+            Destroy(gameObject);
+        }
+        if (impact.CompareTag("Player") || impact.CompareTag("Enemigo"))
+        {
+            if (!impact.CompareTag(parentTag))
+            {
+                CharacterStats impactStats = impact.GetComponent<CharacterStats>();
+                impactStats.DoDamage((holderAtack+ weapon.dmg)*Elements.GetElementMultiplier(weapon.element, impactStats.element));
+                Destroy(gameObject);
+            }
         }
     }
 }
