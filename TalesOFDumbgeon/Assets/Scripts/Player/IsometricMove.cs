@@ -6,7 +6,7 @@ using UnityEngine;
 public class IsometricMove : MonoBehaviour
 {
 
-    [SerializeField] private float speed;
+    public float speed;
     [SerializeField] private float gapX;
 
     private const float ORIENTATION_STEP = 45f;
@@ -18,6 +18,9 @@ public class IsometricMove : MonoBehaviour
     private Vector2 _direccion;
     private IsometricCharacterRenderer _isoRenderer;
     private bool _moving = false;
+    private bool _active = true;
+    private Vector3 _objetive;
+    private float _transitionSpeed;
     private void Awake()
     {
         _isoRenderer = gameObject.GetComponent<IsometricCharacterRenderer>();
@@ -30,15 +33,21 @@ public class IsometricMove : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (_moving)
+        if (_moving && _active)
         {
             _direccion = _inputControler.Jugador.Move.ReadValue<Vector2>();
             Vector2 movement = (ConvertToIsometric(_direccion));
             _playerRb.velocity = movement  * speed;
-            angle = _isoRenderer.SetDirection(movement) * ORIENTATION_STEP + ORIENTATION_OFFSET;
-            Debug.Log(angle);
+            UpdateAngle(movement);
         }
+        
+        //Debug.Log(angle);
         //Moverse();
+    }
+
+    public void UpdateAngle(Vector2 movement)
+    {
+        angle = _isoRenderer.SetDirection(movement) * ORIENTATION_STEP + ORIENTATION_OFFSET;
     }
 
     private Vector2 ConvertToIsometric(Vector2 input)
@@ -58,6 +67,14 @@ public class IsometricMove : MonoBehaviour
         if(!move)
             _playerRb.velocity = Vector2.zero;
     }
+
+    public void SetActive(bool active)
+    {
+        _active = active;
+        _playerRb.velocity = Vector2.zero;
+    }
+    
+    
     
     private void OnEnable()
     {
@@ -68,4 +85,5 @@ public class IsometricMove : MonoBehaviour
     {
         _inputControler.Disable();
     }
+    
 }
