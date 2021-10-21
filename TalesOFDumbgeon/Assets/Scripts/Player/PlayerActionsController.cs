@@ -8,6 +8,7 @@ public class PlayerActionsController : MonoBehaviour
 {
     public InputControler controles;
     public Weapon weapon;
+    public bool active;
     private GameObject joystick;
     private int cartaUsada;
     private bool canAtack = true;
@@ -32,7 +33,7 @@ public class PlayerActionsController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-       // weapon.GetComponent<Collider2D>().enabled = false;
+        active = true;
     }
 
     // Update is called once per frame
@@ -45,6 +46,7 @@ public class PlayerActionsController : MonoBehaviour
 
     private void Update()
     {
+        active = !weapon.incapacited;
         float angle = _isometricMove.angle;
         weapon.SetOrientation(angle);
         Vector3 newCenter = gameObject.transform.position + (Vector3) IsometricUtils.PolarToCartesian(angle, distance);

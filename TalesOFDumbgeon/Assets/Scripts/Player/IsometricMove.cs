@@ -15,6 +15,7 @@ public class IsometricMove : MonoBehaviour
     public float angle = 0;
     private Rigidbody2D _playerRb;
     private InputControler _inputControler;
+    private PlayerActionsController _playerActions;
     private Vector2 _direccion;
     private IsometricCharacterRenderer _isoRenderer;
     private bool _moving = false;
@@ -25,6 +26,7 @@ public class IsometricMove : MonoBehaviour
     {
         _isoRenderer = gameObject.GetComponent<IsometricCharacterRenderer>();
         _playerRb = gameObject.GetComponent<Rigidbody2D>();
+        _playerActions = gameObject.GetComponent<PlayerActionsController>();
         _inputControler = new InputControler();
         _inputControler.Jugador.Move.started += ctx => SetMoving(true);
         _inputControler.Jugador.Move.canceled += ctx => SetMoving(false);
@@ -33,7 +35,7 @@ public class IsometricMove : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (_moving && _active)
+        if (CanMove())
         {
             _direccion = _inputControler.Jugador.Move.ReadValue<Vector2>();
             Vector2 movement = (ConvertToIsometric(_direccion));
@@ -43,6 +45,11 @@ public class IsometricMove : MonoBehaviour
         
         //Debug.Log(angle);
         //Moverse();
+    }
+
+    private bool CanMove()
+    {
+        return _moving && _active && _playerActions.active;
     }
 
     public void UpdateAngle(Vector2 movement)

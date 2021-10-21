@@ -13,6 +13,7 @@ public class RangedWeapon : WeaponSO
 
     public override void Atacar(Weapon weaponGO)
     {
+        weaponGO.IncapacitedFor(attackDuration);
         GameObject ammo = new GameObject("Ammo");
         
         

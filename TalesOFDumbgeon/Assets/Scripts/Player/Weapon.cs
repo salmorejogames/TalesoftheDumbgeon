@@ -6,19 +6,24 @@ using UnityEngine;
 
 public class Weapon : MonoBehaviour
 {
+    
     public WeaponSO weaponInfo;
     private SpriteRenderer _spriteRenderer;
     public CharacterStats holder;
     private Collider2D _collider;
     public float angle;
+    public float relativeAngle;
+    public bool incapacited;
 
     // Start is called before the first frame update
     void Start()
     {
+        incapacited = false;
         _spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
         _spriteRenderer.sprite = weaponInfo.artwork;
         _collider = gameObject.AddComponent<PolygonCollider2D>();
         _collider.enabled = false;
+        _collider.isTrigger = true;
     }
 
     public void ChangeWeapon(WeaponSO newWeapon)
@@ -34,7 +39,7 @@ public class Weapon : MonoBehaviour
     {
         angle = newAngle; 
         gameObject.transform.rotation =Quaternion.Euler(
-            new Vector3(transform.rotation.eulerAngles.x, transform.rotation.eulerAngles.y, newAngle));
+            new Vector3(transform.rotation.eulerAngles.x, transform.rotation.eulerAngles.y, newAngle+relativeAngle));
     }
 
     public void Atack()
@@ -46,7 +51,7 @@ public class Weapon : MonoBehaviour
     public void ReactivateCollider(float time)
     {
         _collider.enabled = true;
-        _spriteRenderer.color = Color.red;
+        _spriteRenderer.color = Color.yellow;
         Invoke(nameof(DesactivateCollider), time);
     }
 
@@ -54,6 +59,17 @@ public class Weapon : MonoBehaviour
     {
         _spriteRenderer.color = Color.white;
         _collider.enabled = false;
+    }
+
+    public void IncapacitedFor(float time)
+    {
+        incapacited = true;
+        Invoke(nameof(Reactivate), time);
+    }
+
+    public void Reactivate()
+    {
+        incapacited = false;
     }
 
     private void OnTriggerEnter2D(Collider2D other)
