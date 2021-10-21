@@ -96,10 +96,10 @@
 	8.4 Fecha de lanzamiento
 
 # 1. Introducción
-Este es el documento de diseño de juego de “Tales of the Dumbgeon”. Un juego para web que pretende explorar un roguelike frenético y desenfadado de corte fantástico, con toques de humor absurdo, armas, monstruos y un maléfico hechicero.
+Este es el documento de diseño de juego de “*Tales of the Dumbgeon*”. Un juego para web que pretende explorar un roguelike frenético y desenfadado de corte fantástico, con toques de humor absurdo, armas, monstruos y un maléfico hechicero.
 
 ## 1.1 Descripción breve del concepto     
-Tales of the Dumbgeon es un videojuego de acción tipo roguelike basado en la obtención de cartas como equipamiento y habilidades, que será la mecánica principal gracias a la cual el jugador podrá llegar hasta el final de la Dumbgeon.
+*Tales of the Dumbgeon* es un videojuego de acción tipo roguelike basado en la obtención de cartas como equipamiento y habilidades, que será la mecánica principal gracias a la cual el jugador podrá llegar hasta el final de la *Dumbgeon*.
 
 Mediante estas mecánicas el jugador podrá crear a lo largo de las partidas personajes únicos con sus virtudes y defectos, armas y armaduras legendarias y con algún que otra maldición.
 
@@ -108,11 +108,11 @@ Se inspira en juegos como *Enter the Gungeon*, *Dead Cells*, *Hades* y *The Bind
 ## 1.2 Descripción breve de la historia y personajes
     
 
-“El Pueblo Boñiga ha sido asaltado durante siglos por los monstruos y criaturas originadas en el interior de la maldita Dumbgeon. Es por eso que cada 69 años se celebra una votación amañada para elegir al héroe (carnada) que entrará en el interior de esta para liberar al pueblo de su yugo. En su interior las cartas ancestrales creadas por el Mago Jose Joaquin Martín Martinez López, más conocido como Jojomamalo, harán que el héroe se convierta en lo que quiera ser… literalmente y derrotar a los engendros de la Dumbgeon.
+“El *Pueblo Boñiga* ha sido asaltado durante siglos por los monstruos y criaturas originadas en el interior de la maldita *Dumbgeon*. Es por eso que cada 69 años se celebra una votación amañada para elegir al héroe (carnada) que entrará en el interior de esta para liberar al pueblo de su yugo. En su interior las cartas ancestrales creadas por *El Mago Jose Joaquin Martín Martinez López*, más conocido como *Jojomamalo*, harán que el héroe se convierta en lo que quiera ser… literalmente y derrotar a los engendros de la *Dumbgeon*.
 
-La familia Stadtnarr ha sido siempre el hazme reír del pueblo, los parias a los que nadie quiere. Es por eso que el pueblo los elige a ellos siempre, a lo largo de los años, para internar en la mazmorra a padres, hijos, nietos y abuelos.
+La familia *Stadtnarr* ha sido siempre el hazme reír del pueblo, los parias a los que nadie quiere. Es por eso que el pueblo los elige a ellos siempre, a lo largo de los años, para internar en la mazmorra a padres, hijos, nietos y abuelos.
 
-¿Conseguirán los Stadtnarr llegar hasta el final de la Dumbgeon? ¿Descubrirán el secreto que encierra esta misteriosa mazmorra? ¿Habrá un secreto siquiera? Eso es algo que solo se podrá descubrir llegando… al corazón de la Dumbgeon. “
+¿Conseguirán los *Stadtnarr* llegar hasta el final de la *Dumbgeon*? ¿Descubrirán el secreto que encierra esta misteriosa mazmorra? ¿Habrá un secreto siquiera? Eso es algo que solo se podrá descubrir llegando… al corazón de la *Dumbgeon*. “
 
 ## 1.3 Propósito, público objetivo y plataformas
     
@@ -130,11 +130,11 @@ El videojuego se basa en los siguientes puntos:
  
 -   **Recolección de cartas que generan habilidades y equipo:** por toda la mazmorra el jugador podrá conseguir una gran variedad de cartas, cada una representando una utilidad diferente. De esa forma habrá cartas que funcionarán como equipamiento para el personaje, nuevas habilidades o hasta maldiciones que dificulten la partida, todas ellas cargadas con un toque de humor.
     
--   **Combate rápido cuerpo a cuerpo con habilidades y hechizos**: la Dumbgeon estará repleta de enemigos contra los que el jugador deberá enfrentarse usando las habilidades que haya obtenido de las cartas.
+-   **Combate rápido cuerpo a cuerpo con habilidades y hechizos**: la *Dumbgeon* estará repleta de enemigos contra los que el jugador deberá enfrentarse usando las habilidades que haya obtenido de las cartas.
     
 -  **Jefes finales con memoria:** los distintos enemigos finales de cada zona recordarán los anteriores encuentros que han tenido con el jugador, pudiendo hacer comentarios de diversa índole en función del ratio de victorias y derrotas del jugador.
     
--   **Herencia de habilidades:** al ser cada partida una incursión de un miembro de la familia Stadtnarr se incluirá una mecánica que permita la herencia de una de las cartas de antecesor al nuevo personaje.
+-   **Herencia de habilidades:** al ser cada partida una incursión de un miembro de la familia *Stadtnarr* se incluirá una mecánica que permita la herencia de una de las cartas de antecesor al nuevo personaje.
     
 -   **Humor absurdo:** uno de los puntos más característicos del juego será su humor que le dará una aire menos serio al conjunto del título y que buscará hacer reír al jugador en cada ocasión, tomando como referente principal al juego de rol y mesa Munchkin.
     
@@ -198,14 +198,14 @@ Todo esto enmarcado en un juego web con una rejugabilidad alta, en la que cada p
     
 En este apartado se especificará como esta organizado el equipo de desarrollo: ![](https://lh4.googleusercontent.com/VwQvVz3g-nQ35B8WG8IE9GcVboM6WIImdtuAR7Xhp3liWYY4EEYPLDd6TtzaDKszB8Of4A2omb-OEMzohnLdSgncKUnkS0YRCBi2XATMQjwWjgNn5tqvOLYnaPmtyw=s1600)
 
-Existen diversos departamentos para la gestión y el desarrollo de las tareas necesarias para la realización del proyecto.Cada departamento está formado por una o más personas y está dirigido por un líder. Una persona puede estar en más de un departamento.
+Existen diversos departamentos para la gestión y el desarrollo de las tareas necesarias para la realización del proyecto. Cada departamento está formado por una o más personas y está dirigido por un líder. Una persona puede estar en más de un departamento.
 
 El jefe de cada departamento está encargado de la asignación y evaluación de las tareas dentro de su equipo. Los problemas que surgen dentro de un departamento se llevan al líder del mismo. Si el problema que surge es un problema mayor o que necesita de otros departamentos el líder debe encargarse de contactar con el equipo de Dirección para formalizar una reunión grupal que pueda solucionarlo.
 
 El equipo de dirección es un equipo especial, que se encargará de la organización de los departamentos, la resolución de problemas entre las personas y la gestión general del proyecto.
 
 
-Las reuniones se realizan mediante Microsoft Teams.
+Las reuniones se realizan mediante *Microsoft Teams*.
 
 ### Uso de Trello
 
@@ -273,30 +273,31 @@ El esquema jugable de *Tales of the Dumbgeon* se basa en la recolección de las 
 
 	Para poder hacerse con estos ítems el jugador deberá abrirse camino por la mazmorra, explorando distintas salas generadas de forma aleatoria y enfrentándose a diferentes 	enemigos utilizando esas mismas cartas, generando así un bucle de mejora constante mientras se avanza en el juego. 
 	
-	En las salas seguras, como ya se explicará en el apartado de **Generación aleatoria del mundo y sus mazmorras**, aparecerá de vez en cuando un NPC llamado “El Cartero”. 	Este NPC cumplirá dos funciones:
+	En las salas seguras, como ya se explicará en el apartado de **Generación aleatoria del mundo y sus mazmorras**, aparecerá de vez en cuando un *NPC* llamado “*El Cartero*”. 	Este *NPC* cumplirá dos funciones:
 	
 	- Tendrá unas cuantas cartas, de modo que puedas cambiar la carta de tu mano que quieras por una aleatoria de las que él tiene.
-	- Tendrá un álbum en el que puedes guardar cartas que tienes en la mano para recogerlas más adelante, cuando vuelvas a encontrarte con él. Las cartas del álbum se eliminarán si mueres. No estarán disponibles cuando vuelvas a entrar a la Dumbgeon.
+	- Tendrá un álbum en el que puedes guardar cartas que tienes en la mano para recogerlas más adelante, cuando vuelvas a encontrarte con él. Las cartas del álbum se eliminarán si mueres. No estarán disponibles cuando vuelvas a entrar a la *Dumbgeon*.
 	
 	A lo largo del juego se podrán encontrar los siguientes tipos de carta:
 	
-	- **Armas:** Se equipan para usarse en combate y para incrementar los stats del personaje tales como su daño, defensa y velocidad. Cada una de ellas posee un elemento que las caracteriza. (Ejemplo: Espada de Fe)
+	- **Armas:** Se equipan para usarse en combate y para incrementar los stats del personaje tales como su daño, defensa y velocidad. Cada una de ellas posee un elemento que las caracteriza. (Ejemplo: *Espada de Fe*)
 	
 		**![](https://lh5.googleusercontent.com/sWVmQnqZqAyYRArILtS8Xian7OBj-S4egwgiykisGWYUR4BgAGOhJcECwhFblz8zZf8rwXfrlQb4I1hCceNcJsJmaaHEhiESVDwNJLE9PCS5Y6MTfAJBHkPaw0-4=s1600)**
 	
-	- **Armadura:** Se equipan para incrementar los stats del personaje tales como su daño, defensa y velocidad. Cada una de ellas posee un elemento que las caracteriza. (Ejemplo: Ki-Mono)
+	- **Armadura:** Se equipan para incrementar los stats del personaje tales como su daño, defensa y velocidad. Cada una de ellas posee un elemento que las caracteriza. (Ejemplo: *Ki-Mono*)
 	
 	![]()
 	
-	- **Hechizos:** Se equipa como habilidad para usarse en combate. (Ejemplo: Bola de fuego)
+	- **Hechizos:** Se equipa como habilidad para usarse en combate. (Ejemplo: *Saeta de fuego*)
 	
 		**![](https://lh3.googleusercontent.com/hjMRBRkWB1QpDalhjD8k46QlYyWIlypId38colLCghIEyHAD_b1gPMTYuEV3oW7gug23s-TAT0XTPaQVG0RpneOUoDU2WFS-wpVmi0s8yIDbkpAFBMb8M35qVJ6C=s1600)**
 	
-	- **Maldiciones:** Efectos adversos sobre el personaje. Se aplican instantáneamente al ser recogidas. (Ejemplo: Analfabetismo)
+	- **Maldiciones:** Efectos adversos sobre el personaje. Se aplican instantáneamente al ser recogidas. (Ejemplo: *Analfabetismo*)
 	
 		**![](https://lh4.googleusercontent.com/pts37zA4_zCKe23nFgI7zof7oEUKbSsffSVzGSAeuZpZQAQQu3JDJoKtChMyRDQLo8TZdp0Zn1ChO7fYncnh7ZwC_n6roLXZ9e5PsBI4V29UELU09kF-aM7R4cF8=s1600)**
 	
-	- **Bendiciones:** Cartas que guardan en la mano del jugador para que este pueda usarlas cuando desee. Al activarlas ofrecen un efecto positivo al jugador y se consumen. (Ejemplo: Power Up)
+	- **Bendiciones:** Cartas que guardan en la mano del jugador para que este pueda usarlas cuando desee. Al activarlas ofrecen un efecto positivo al jugador y se consumen. (Ejemplo: *Power Up*)
+
 	
 	![]()
 	
@@ -309,7 +310,7 @@ El esquema jugable de *Tales of the Dumbgeon* se basa en la recolección de las 
 		- **Especial:** La carta está mejorada lo que hace que un atributo de la carta se duplique.
 		- **Legendaria:** La carta está mejorada lo que hace que un atributo de la carta se cuadruplique.
 
-	Para mejorar la calidad de las cartas es necesario Cuartos de Carta, una moneda interna del juego. Esta se recoge de las recompensas que sueltan los enemigos al morir y se puede utilizar en la tienda del Cuervillo. El NPC pedirá un número determinado de Cuartos de Carta para poder subir de calidad la carta que quiera el jugador.
+	Para mejorar la calidad de las cartas es necesario *Cuartos de Carta*, una moneda interna del juego. Esta se recoge de las recompensas que sueltan los enemigos al morir y se puede utilizar en la tienda del *Cuervillo*. El *NPC* pedirá un número determinado de *Cuartos de Carta* para poder subir de calidad la carta que quiera el jugador.
 	
 	**Elementos**
 	
@@ -346,7 +347,7 @@ El esquema jugable de *Tales of the Dumbgeon* se basa en la recolección de las 
 
 	**![](https://lh3.googleusercontent.com/HKDF40feN7hGjehy8COylL2AOYPxZbFQ7HRwhh-XHbbei7wzulwqk1sD-E6PW-Uq02OgUNy0mTFvv45P3-_u20qxzxxWmg5x1kxYyvAC9GkYwZKbn3mPwJ7qwoWu=s1600)**
 	
-	El movimiento del personaje se realizará con las teclas WASD, cambiando además la dirección a la que mira. Usando el click izquierdo usará el hechizo y el click derecho podrá usar el arma que tenga equipado. Mediante el botón el teclado Q, se abrirá el menú de pausa de juego en el que se visualizarán todas las secciones así como las cartas completamente que tienes en la mano y los *Cuartos de carta* que posees hasta el momento.
+	El movimiento del personaje se realizará con las teclas WASD, cambiando además la dirección a la que mira. Usando el click izquierdo usará el hechizo y el click derecho podrá usar el arma que tenga equipado. Mediante el botón el teclado Q, se abrirá el menú de pausa de juego en el que se visualizarán todas las secciones así como las cartas completamente que tienes en la mano y los *Cuartos de Carta* que posees hasta el momento.
 	
 	En cuanto a los demás elementos del combate, el personaje tendrá vida que se ira reduciendo con los golpes enemigos. La vida se representará con una barra en el que se muestre la vida actual del personaje. Además se tendrá que representar la cantidad de armadura que lleve la cual reducirá el daño hecho por los enemigos y depende del número y de cuales sean las piezas de armadura que lleve puesta el personaje.
 	
@@ -355,7 +356,11 @@ El esquema jugable de *Tales of the Dumbgeon* se basa en la recolección de las 
 	Los enemigos de la mazmorra son aleatorios a lo largo de la diferentes zonas, es decir, un enemigo no solo se encontrará en una zona si no en cualquiera de forma aleatoria. Al ser eliminados dropean los siguientes elementos:
 	
 	- Carta de cualquier tipo asociado al enemigo en cuestión. Por ejemplo, el abuesqueleto dropea  la carta “*Bastón de Yayo*”.
+
+	- Carta “*La Carta*”: una carta de bendición que hace referencia a las cartas de los restaurantes la cual regenera vida al usuario y su uso es instantáneo.
+
 	- Carta “*La Carta*”: una maldición que hace referencia a las cartas de los restaurantes la cual regenera vida al usuario y su uso es instantáneo.
+  
 	- *Cuarto de carta* que servirá para subir la calidad de la carta con *El Cuervillo*.
 	
 - **Mazmorra:** Generación aleatoria del mundo y sus mazmorras
@@ -396,39 +401,41 @@ El esquema jugable de *Tales of the Dumbgeon* se basa en la recolección de las 
 
 ## 4.3 Niveles
 
-En este apartado se detallan las diferentes zonas de la mazmorra, con su respectivo jefe, su contenido y contexto. Como se ha explicado anteriormente, la mazmorra dispondrá de diversos pisos los cuales se centran en un mismo tema. Debido a que *Jojomamalo* se cree el director que dirige la Dumbgeon, las zonas representan temáticas paródicas de géneros del cine.
+
+En este apartado se detallan las diferentes zonas de la mazmorra, con su respectivo jefe, su contenido y contexto. Como se ha explicado anteriormente, la mazmorra dispondrá de diversos pisos los cuales se centran en un mismo tema. Debido a que *Jojomamalo* se cree el director que dirige la *Dumbgeon*, las zonas representan temáticas paródicas de géneros del cine.
 
 En la primera fase solo se dispondrá de un nivel más la sala del jefe final para mostrar el funcionamiento del juego. Para las siguientes fases las zonas aumentan de número habiendo cuatro zonas principales más la última dedicada exclusivamente a *Jojomamalo*. Aquí se muestran estas zonas principales.
 
-- **La Discocueva:** es en esencia una caverna espaciosa que ha sido remodelada para actuar como lugar de ocio. Cuenta con luces de colores, barras, mucha suciedad y música a todo volumen. En su interior se encuentra la sala de baile principal donde aparece el jefe de esta zona, el Alma de la Fiesta:
+- **La Discocueva:** es en esencia una caverna espaciosa que ha sido remodelada para actuar como lugar de ocio. Cuenta con luces de colores, barras, mucha suciedad y música a todo volumen. En su interior se encuentra la sala de baile principal donde aparece el jefe de esta zona, el *Alma de la Fiesta*:
 
 	- **El Alma de la Fiesta (Comedia):** un fantasma/espectro de lo más juerguista que nunca se separa de su vaso de kalimotxo y se dedica a bailar en su pista de baile para atacar a todo aquel que quiera pasar por ella. ¿Por qué hace esto? Porque le mola bailar y porque así aquellos a quienes mate se convertirán en fantasmas de su guateque por toda la eternidad, incapaces de hacer otra cosa que bailar y volver a bailar.
 
-	El suelo de la sala está llena de baldosas de baile, el Alma de la Fiesta ataca lanzando “hechizos” que se mueven en las baldosas, según el color del que estén iluminadas tienen un efecto u otro. Además cuenta con un movimiento que consiste en que unos altavoces que tiene a sus espaldas hacen mucho ruido y le echan para atrás.
+		El suelo de la sala está llena de baldosas de baile, el *Alma de la Fiesta* ataca lanzando “hechizos” que se mueven en las baldosas, según el color del que estén iluminadas tienen un efecto u otro. Además cuenta con un movimiento que consiste en que unos altavoces que tiene a sus espaldas hacen mucho ruido y le echan para atrás.
 	
-- **Elmo Street:** cubierta de niebla, Elmo Street es una zona residencial en la que habitan gran variedad de monstruos de la Dumbgeon. A pesar de ser de noche las calles están infestadas de enemigos que tratarán de evitar que el jugador llegue hasta la rotonda de la calle donde se encuentra La Adolescente de la Curva: 
+- **Elmo Street:** cubierta de niebla, *Elmo Street* es una zona residencial en la que habitan gran variedad de monstruos de la *Dumbgeon*. A pesar de ser de noche las calles están infestadas de enemigos que tratarán de evitar que el jugador llegue hasta la rotonda de la calle donde se encuentra *La Adolescente de la Curva*: 
 
 	- **La Adolescente de la Curva (Terror):** literalmente solo puede moverse girando, no puede ir en línea recta y eso ha provocado que sea una rechazada y que nunca haya hecho amigos. Cualquiera diría que para pasar por ella solo tendrías que hacerte su amiga, pero debido a su pasado y a que está en su fase rebelde lo más probable es que vaya derechita a matarte. Bueno, derechita lo que se dice derechita no, pero tú ya me entiendes.
 
-	El combate empezará con la Adolescente de la Curva intentando llegar a por el Stradtnarr, yendo en curvas y siendo muy patética. Al recibir un poco de daño se enfada y llama a su moto infernal con la que haría más o menos lo mismo, pero con patrones de curvas diversos, mucha velocidad y dejando un pequeño rastro de llamas que quema al jugador.
+		El combate empezará con la *Adolescente de la Curva* intentando llegar a por el *Stadtnarr*, yendo en curvas y siendo muy patética. Al recibir un poco de daño se enfada y llama a su moto infernal con la que haría más o menos lo mismo, pero con patrones de curvas diversos, mucha velocidad y dejando un pequeño rastro de llamas que quema al jugador.
 	
-- **La Zona Media:** un lugar donde el mundo medieval y el moderno se unen en una extraña mezcla en la que habitan todo tipos de criaturas fantásticas pero con elementos del mundo actual como trajes o teléfonos móviles. Y el que se encarga de dirigir todo este lugar es El Presidente Demonio:
+- **La Zona Media:** un lugar donde el mundo medieval y el moderno se unen en una extraña mezcla en la que habitan todo tipos de criaturas fantásticas pero con elementos del mundo actual como trajes o teléfonos móviles. Y el que se encarga de dirigir todo este lugar es *El Presidente Demonio*:
 
-	- El Presidente Demonio (Fantasía): un demonio que se presentó al cargo con la esperanza de hacer de su zona de la Dumbgeon un lugar mejor, legalizando los saqueos, impulsando el estudio de magias negras y armas mágicas de destrucción masiva… Pero al final cambiar el mundo es mucho más difícil de lo que parece, incluso en su posición no lo ha logrado, por ello está deseando que termine su mandato para poder olvidarse de este fracaso en su vida, pero parece que la fecha no llega nunca… 
+	- **El Presidente Demonio (Fantasía)**: un demonio que se presentó al cargo con la esperanza de hacer de su zona de la *Dumbgeon* un lugar mejor, legalizando los saqueos, impulsando el estudio de magias negras y armas mágicas de destrucción masiva… Pero al final cambiar el mundo es mucho más difícil de lo que parece, incluso en su posición no lo ha logrado, por ello está deseando que termine su mandato para poder olvidarse de este fracaso en su vida, pero parece que la fecha no llega nunca… 
 
-	El Presidente Demonio es un demonio alto y fuerte, que viste una elegante chaqueta, con su camisa blanca y una corbata dignas de su puesto. Cuando llega la hora del combate, se quita su corbata que sirve como espada y con la que atacará de cerca. Según va perdiendo vida puede sacar decretos que prohíban el uso de algunas de las cartas del jugador. Además, puede volver momentáneamente dorada su corbata permitiéndole usar el Sablazo de Hacienda, que le hace daño al jugador y se lleva la mitad de esa vida para recuperarse. Como ataques a distancia puede agarrar funcionarios y lanzarlos al jugador, si le impactan el funcionario iniciará un proceso burocrático como renovar el DNI al Stradtnarr o algo así, lo cuál drena su salud un poco durante ese tiempo y le impide moverse, de manera que El Presidente Demonio puede acercarse a atacar.
+		*El Presidente Demonio* es un demonio alto y fuerte, que viste una elegante chaqueta, con su camisa blanca y una corbata dignas de su puesto. Cuando llega la hora del combate, se quita su corbata que sirve como espada y con la que atacará de cerca. Según va perdiendo vida puede sacar decretos que prohíban el uso de algunas de las cartas del jugador. Además, puede volver momentáneamente dorada su corbata permitiéndole usar el *Sablazo de Hacienda*, que le hace daño al jugador y se lleva la mitad de esa vida para recuperarse. Como ataques a distancia puede agarrar funcionarios y lanzarlos al jugador, si le impactan el funcionario iniciará un proceso burocrático como renovar el DNI al *Stadtnarr* o algo así, lo cuál drena su salud un poco durante ese tiempo y le impide moverse, de manera que *El Presidente Demonio* puede acercarse a atacar.
 	
-- **Little France:** lugar que empieza recordando a París, lleno de flores y dónde se respira el amor y poco a poco va degenerando en un oscuro lugar lleno de fotos de la familia del personaje, un lugar que se conoce como el Templo Stadtnarr cuya dueña es La Loca del Coño:
+- **Little France:** lugar que empieza recordando a París, lleno de flores y dónde se respira el amor y poco a poco va degenerando en un oscuro lugar lleno de fotos de la familia del personaje, un lugar que se conoce como el *Templo Stadtnarr* cuya dueña es *La Loca del Moño*:
 
-	- **La Loca del Moño (Romance):** Está perdidamente enamorada de El Stadnarr, da igual que sea viejo, joven o lo que sea. Está realmente obsesionada contigo que sabe perfectamente tu edad, tu altura, tu peso, tu signo zodiacal, tu DNI, tu contraseña de Tuenti, las veces que te duchas a la semana, lo que comiste ayer, el color de tu babi en infantil y por último pero no menos importante, las cartas ancestrales que llevas. El lugar donde habita es un templo dedicado a ti, lleno de fotitos tuyas y velas de colores. Te ha hecho fotos, bueno, a toda tu familia durante milenos y llenan las paredes del templo. Además tiene una estatua hecha de los huesos de tus antepasados. Hará lo que sea para que te quedes con ella. 
+	- **La Loca del Moño (Romance):** Está perdidamente enamorada de El *Stadtnarr*, da igual que sea viejo, joven o lo que sea. Está realmente obsesionada contigo que sabe perfectamente tu edad, tu altura, tu peso, tu signo zodiacal, tu DNI, tu contraseña de *Tuenti*, las veces que te duchas a la semana, lo que comiste ayer, el color de tu babi en infantil y por último pero no menos importante, las cartas ancestrales que llevas. El lugar donde habita es un templo dedicado a ti, lleno de fotitos tuyas y velas de colores. Te ha hecho fotos, bueno, a toda tu familia durante milenos y llenan las paredes del templo. Además tiene una estatua hecha de los huesos de tus antepasados. Hará lo que sea para que te quedes con ella. 
 
-	La Loca del Moño sabe todo sobre el personaje, por ello tiene la capacidad de copiar las habilidades que portas o que has portado en los dos últimos combates. Por ello es como si lucharas contra ti mismo, solo que con más vida y más loca, mucho más loca.
+		*La Loca del Moño* sabe todo sobre el personaje, por ello tiene la capacidad de copiar las habilidades que portas o que has portado en los dos últimos combates. Por ello es como si lucharas contra ti mismo, solo que con más vida y más loca, mucho más loca.
 
-- **Mostazar:** zona volcánica que en lugar de magma está conformada por mostaza picante. Para evitar tener que pisar tanto condimentado están habilitadas varias estructuras y pasarelas metálicas que conducen a la zona principal de extracción de mostaza, donde aguarda Stradt Vader:
+- **Mostazar:** zona volcánica que en lugar de magma está conformada por mostaza picante. Para evitar tener que pisar tanto condimentado están habilitadas varias estructuras y pasarelas metálicas que conducen a la zona principal de extracción de mostaza, donde aguarda *Stradt Bader*:
 
-	- **Stradt Vader(Ciencia Ficción):** un tipo enmascarado, con un traje que mezcla el de un astronauta y un samurái negro. Porta un Estoque de Protones de color naranja y es de una complexión similar al Stadnarr. El tipo asegura ser el padre del Stradtnarr con insistencia, y le pide al jugador que le de los datos de su cuenta bancaria para poder darle una herencia que les ha dejado una tía abuela que tienen en El Tíbet. Pero evidentemente, es mentira, el tipo se llama Tadeo y no tiene nada que ver contigo en realidad, pero hará todo lo posible por quedarse con tu pasta y tus cartas ya sea mediante sus estafas o teniendo que recurrir a la Fuerza. 
+	- **Stradt Bader(Ciencia Ficción):** un tipo enmascarado, con un traje que mezcla el de un astronauta y un samurái negro. Porta un *Estoque de Protones* de color naranja y es de una complexión similar al *Stadtnarr*. El tipo asegura ser el padre del *Stadtnarr* con insistencia, y le pide al jugador que le de los datos de su cuenta bancaria para poder darle una herencia que les ha dejado una tía abuela que tienen en El Tíbet. Pero evidentemente, es mentira, el tipo se llama Tadeo y no tiene nada que ver contigo en realidad, pero hará todo lo posible por quedarse con tu pasta y tus cartas ya sea mediante sus estafas o teniendo que recurrir a la Fuerza. 
 
-	Stradt Vader puede atacar usando su Estoque de Protones que dura algo más que los normales, cuando se descarga corre a la pared principal para enchufarla y que se recargue. Mientras tanto, saca un imán típico de dibujo animado y lo usa para lanzar objetos metálicos al jugador.
+	*Stradt Bader* puede atacar usando su *Estoque de Protones* que dura algo más que los normales, cuando se descarga corre a la pared principal para enchufarla y que se recargue. Mientras tanto, saca un imán típico de dibujo animado y lo usa para lanzar objetos metálicos al jugador.
+
 
 ## 4.4 Cartas ancestrales
 
@@ -436,6 +443,21 @@ Todas las cartas ancestrales se encuentran en el [documento de diseño de cartas
 
 # 5. Trasfondo
 ## 5.1 Descripción detallada de la historia  y la trama
+
+
+Hace mucho mucho tiempo, en una dimensión muy lejana un joven mago llamado *Jojomamalo* descubrió el poder de las Cartas, unos misteriosos artefactos que regulan todo aquello que existe en el universo: las estrellas, los elementos, los seres vivos, los fines de semana… Con este poder el mago fue capaz de crear a su antojo como si fuera un Dios, pero algo le frenaba, su falta de originalidad. Por ello, dedicó todos sus esfuerzos en la creación de una carta que le permitiera moverse por otros universos en lo que se conoce como el *Mazoverso*.
+
+En sus viajes, *Jojomamalo* pudo conocer una gran variedad de culturas, miles de ideas, millones de mundos. Con toda esta información, todas estas historias de las que se había enamorado, decidió crear la suya propia. Creó un lugar que pudiera albergar todas sus creaciones, la *Dumbgeon*, y allí con el poder de las Cartas empezó a crear a todo tipo de criaturas para que poblaran el lugar. Seres de toda índole inspirados, los envidiosos dirían que plagiados, de las historias que el mago había descubierto.
+
+Así pues fueron pasando los siglos, *Jojomamalo* seguía creando y divirtiéndose viendo cómo actuaban sus locas criaturas. Pero había una, una que no estaba conforme con aquello. Un ser de aspecto idéntico al humano pero dotado de toda clase de defectos, un pobre alma tonta, torpe y surrealista. Un pobre ser conocido como *El Tonto del Pueblo*, el *Stadtnarr*, que solo servía como bufón, alguien del que *Jojomamalo* y el resto de criaturas pudieran reírse con sus desgracias. Hasta que se hartó.
+
+Usando la carta especial de *Jojomamalo* abrió un portal a una dimensión particular, una en la que pudiera comenzar desde cero y huir para siempre de la *Dumbgeon*. El *Stadtnarr* se ocultó en una pequeña villa llamada *Pueblo Boñiga*, donde creó una familia y disfrutó de su nueva libertad lejos de las burlas y las bromas. Pero *Jojomamalo* no lo toleró.
+
+Cuando se enteró de que su marioneta del humor se había marchado montó en cólera, como un niño al que le quitan sus juguetes, por lo que recorrió todo el *Mazoverso* hasta encontrarse con los descendientes del *Stadtnarr* en *Pueblo Boñiga*. Sin más dilaciones, envió una horda de monstruos de la *Dumbgeon* a recuperar a los bufones, pero sin éxito. No obstante, los paletos de *Pueblo Boñiga* se dieron cuenta al décimo octavo ataque que los monstruos tenían una fijación particular por los *Stadtnarr* y que no los herían tanto como al resto.
+
+Por eso mismo acordaron en secreto enviar a uno de ellos a la *Dumbgeon*, haciéndolo pasar como una votación popular, para que disuadiera a los monstruos de atacar el pueblo una temporada. El plan salió a la perfección, pasó mucho tiempo hasta que *Pueblo Boñiga* recibiera otra incursión. Por ello, cada 69 años se envía a un nuevo *Stadtnarr* a la *Dumbgeon*.
+
+Y así es como comienza esta historia, con un pequeño aldeano que se ve obligado a entrar en un lugar aterrador y desconocido para él, ignorante del legado de su familia puesto que el primero de ellos nunca se le ocurrió comentarlo, y con la misión que todos aquellos que le precedieron no lograron cumplir. Adentrarse en la *Dumbgeon*, sobrevivir a todo monstruo que hubiera dentro, llegar hasta el final y derrotar a su dueño, el mago *Jojomamalo* y así convertirse en el *Héroe del Pueblo*.
 
 Hace mucho mucho tiempo, en una dimensión muy lejana un joven mago llamado *Jojomamalo* descubrió el poder de las Cartas, unos misteriosos artefactos que regulan todo aquello que existe en el universo: las estrellas, los elementos, los seres vivos, los fines de semana… Con este poder el mago fue capaz de crear a su antojo como si fuera un Dios, pero algo le frenaba, su falta de originalidad. Por ello, dedicó todos sus esfuerzos en la creación de una carta que le permitiera moverse por otros universos en lo que se conoce como el Mazoverso.
 
@@ -456,39 +478,41 @@ Y así es como comienza esta historia, con un pequeño aldeano que se ve obligad
 En este apartado se presentarán todos los personajes relevantes de la trama del videojuego:
 
 -   **El Stadtnarr:**
-	-   Descripción: Los Stadtnarr siempre han sido los tontos del pueblo, los parias, los marginados y los excluidos de Pueblo Boñiga. Por ello, cualquier situación con la que puedan deshacerse de ellos es buena y la Dumbgeon es la mejor opción.
+
+	-   Descripción: Los *Stadtnarr* siempre han sido los tontos del pueblo, los parias, los marginados y los excluidos de Pueblo Boñiga. Por ello, cualquier situación con la que puedan deshacerse de ellos es buena y la *Dumbgeon* es la mejor opción.
     
 
-		El Stadtnarr, ya que decir su nombre completo sería imposible, es el personaje controlado por el jugador. Cada vez que muere, un nuevo miembro de la familia Stadtnarr es mandado a la mazmorra a derrotar a Jojomamalo.
+		El *Stadtnarr*, ya que decir su nombre completo sería imposible, es el personaje controlado por el jugador. Cada vez que muere, un nuevo miembro de la familia *Stadtnarr* es mandado a la mazmorra a derrotar a *Jojomamalo*.
 
-		El Stadnarr no tiene ninguna virtud en especial, es un simple chico/a que ha vivido siempre en Pueblo Boñiga y no ha podido ir nunca a la escuela. Su sueño es poder demostrar que su familia no es tonta y que pueden valerse por sí mismos aunque siempre les sale rana.
+		El *Stadtnarr* no tiene ninguna virtud en especial, es un simple chico/a que ha vivido siempre en *Pueblo Boñiga* y no ha podido ir nunca a la escuela. Su sueño es poder demostrar que su familia no es tonta y que pueden valerse por sí mismos aunque siempre les sale rana.
+
 
 **![](https://lh5.googleusercontent.com/PSIcIteJVgadtVTyMrjo8qdxZoMfWeRjK2LKGmfA9ULzD2gmoEUxcsHV75qBi86OftO84_UTi8BsHbqniSsZl0ap38EEVWFn5qi1S_zp5j-fiRl9c8O-75J9rf9G=s1600)**
 **![](https://lh3.googleusercontent.com/q-h3PrYDNr8qV9a0p9Bd5GnKvXKsqv09wt7Akqlw1NXn_uuvSlC-qeC60wtyr5WoGcFO5gOPagwVEpkaNiN_HpC_lu9MfAAmvJSWUYeZDS8b6A-c_sYaykwwcQDh=s1600)**
 -   **El Mago Jojomamalo:** 
-	-   Descripción: El Mago Jojomamalo es el villano principal de Tales of the Dumbgeon. Su verdadera historia es la siguiente: Jojomamalo es un viajero de dimensiones el cual descubrió y aprendió el secreto de las Cartas. Con ese poder en sus manos comenzó a crear su paraíso perfecto plagiando obras de otras dimensiones y quedándose con lo que más le gustaba.
+
+	-   Descripción: *El Mago Jojomamalo* es el villano principal de Tales of the *Dumbgeon*. Su verdadera historia es la siguiente: *Jojomamalo* es un viajero de dimensiones el cual descubrió y aprendió el secreto de las Cartas. Con ese poder en sus manos comenzó a crear su paraíso perfecto plagiando obras de otras dimensiones y quedándose con lo que más le gustaba.
     
-		De esta forma y con el eterno tiempo que tenía, construyó la Dumbgeon y con ella, todos los seres que deseaba, entre ellos al Stadtnarr, un simple bufón, un torpe y mal afortunado ser del que poder reírse para la eternidad.
+		De esta forma y con el eterno tiempo que tenía, construyó la *Dumbgeon* y con ella, todos los seres que deseaba, entre ellos al *Stadtnarr*, un simple bufón, un torpe y mal afortunado ser del que poder reírse para la eternidad.
 
-		Sin embargo, El Stadtnarr después de siglos de burlas, bromas pesadas, mofa y pitorreo, consiguió abandonar a la Dumbgeon cayendo en una dimensión de fantasía medieval y se escondió en el pueblo más analfabeto que existía para pasar desapercibido. Jojomamalo no podía resistir la impotencia de haber perdido a su principal fuente de diversión.
+		Sin embargo, El *Stadtnarr* después de siglos de burlas, bromas pesadas, mofa y pitorreo, consiguió abandonar a la *Dumbgeon* cayendo en una dimensión de fantasía medieval y se escondió en el pueblo más analfabeto que existía para pasar desapercibido. Jojomamalo no podía resistir la impotencia de haber perdido a su principal fuente de diversión.
 
-		Por ello, viajó entre dimensiones buscando el rastro de mala suerte del Stadtnarr llegando a Pueblo Boñiga, pero como el tiempo pasa de forma diferente en cada plano, en ese pueblo ya habían pasado siglos desde que El Stadnarr llegó, habiendo conseguido formar una familia.
+		Por ello, viajó entre dimensiones buscando el rastro de mala suerte del *Stadtnarr* llegando a *Pueblo Boñiga*, pero como el tiempo pasa de forma diferente en cada plano, en ese pueblo ya habían pasado siglos desde que El *Stadtnarr* llegó, habiendo conseguido formar una familia.
 
-		Desde entonces, la Dumbgeon se asienta cerca de Pueblo Boñiga, mandando oleadas periódicas de monstruos con la intención de recuperar a los Stadnarr y que así Jojomamalo pueda seguir riéndose de ellos.
+		Desde entonces, la *Dumbgeon* se asienta cerca de *Pueblo Boñiga*, mandando oleadas periódicas de monstruos con la intención de recuperar a los *Stadtnarr* y que así *Jojomamalo* pueda seguir riéndose de ellos.
+
 
 **![](https://lh5.googleusercontent.com/7S3MuuG3ZevyGHt2X8DXLq8eT4yTLCF-s6dzeO6xQyB26GutVcqC-bMuJePeRymR5prVAKRUK0lsvJ85a5jVf-HWkqPqlXdVmib7CkYkA84yasTZdgw3vGm5M3mA=s1600)**
 -   **Francis “El Sabio de los Barriles:**
-  
-	- Descripción: Francis en pocas palabras es un viejo borracho que ha vivido siempre en Pueblo Boñiga. No ha salido de allí jamás y no lo hará ya que nadie le quiere llevar en su carro. Se pasa el día en la taberna del pueblo contando historias y batallitas de viejo, aunque ninguna sea cierta. Perdió su ropa hace ya mucho, en alguno de los asedios de los monstruos, por ello ahora viste con barriles. Dice que es lo que se lleva ahora y que él va a la onda. Además, siempre va sumamente borracho y los demás lugareños le apodan “El Sabio de los Barriles'' para burlarse de él.
+	- Descripción: *Francis* en pocas palabras es un viejo borracho que ha vivido siempre en *Pueblo Boñiga* No ha salido de allí jamás y no lo hará ya que nadie le quiere llevar en su carro. Se pasa el día en la taberna del pueblo contando historias y batallitas de viejo, aunque ninguna sea cierta. Perdió su ropa hace ya mucho, en alguno de los asedios de los monstruos, por ello ahora viste con barriles. Dice que es lo que se lleva ahora y que él va a la onda. Además, siempre va sumamente borracho y los demás lugareños le apodan “El Sabio de los Barriles*" para burlarse de él.
 	
 		**![](https://lh6.googleusercontent.com/ZxMyjLUoEGz5JXS_A9YXH7GKkc0CIfJHzG57fMsNDfbv_OBixBdvf3R00DcdEGWphJmuM6Uvn_uDjCdOp379-XQVf7TPbzQzdMPMRmrvUDRRQXchvVVmXG51HmVy=s1600)**
 -   **El Cartero**:
-	- Descripción: Es una más de las criaturas que se quedaron atrapadas en la Dumbgeon. Sin embargo, El Cartero no entró para acosar a los aventureros que entraran después de él, sino que busca a su “Amor” perdido. Su Amor fue secuestrado por Jojomamalo y como hizo con muchos más seres, los atrapó dentro de las cartas utilizando su magia de escritura. Colecciona las cartas ancestrales de la Dumbgeon esperando que, algun dia, pueda encontrar la carta en la que está encerrada su Amor.
+	- Descripción: Es una más de las criaturas que se quedaron atrapadas en la *Dumbgeon*. Sin embargo, *El Cartero* no entró para acosar a los aventureros que entraran después de él, sino que busca a su “*Amor*” perdido. Su *Amor* fue secuestrado por *Jojomamalo* y como hizo con muchos más seres, los atrapó dentro de las cartas utilizando su magia de escritura. Colecciona las cartas ancestrales de la *Dumbgeon* esperando que, algún día, pueda encontrar la carta en la que está encerrada su *Amor*.
 	
 		**![](https://lh4.googleusercontent.com/qfZAGcUN45ulTny__cgNGVxbD1s_ODN0g7XUuoNYZnd3wq6Zrafiww8ldqstW0Uv_rZkJlTbp0tTbKwN305jCayYNdbDNhHnX58XCHAU6M_h8O96dy5OW6agMJTW=s1600)**
 -   **El Cuervillo**:
-
-	-   Descripción: “Calderero, Hojalatero. Afilador. Zahori. Armadura de corcho. Tabaco. Pañuelos de seda traídos del Pueblo Boñiga. Papel de culo. Dulces y gominolas. Fino encaje y suaves plumas. ¡Vengan, señoras! ¡Vengan, muchachas! El Cuervillo solo se quedará un día en esta zona. ¡No esperen a que anochezca! Todo lo que necesites lo tiene el Cuervillo.”
+	-   Descripción: “Calderero, Hojalatero. Afilador. Zahorí. Armadura de corcho. Tabaco. Pañuelos de seda traídos del *Pueblo Boñiga*. Papel de culo. Dulces y gominolas. Fino encaje y suaves plumas. ¡Vengan, señoras! ¡Vengan, muchachas! *El Cuervillo* solo se quedará un día en esta zona. ¡No esperen a que anochezca! Todo lo que necesites lo tiene *El Cuervillo*.”
  
 		Este sagaz e intrépido cuervo ha vagado durante años la mazmorra y se sabe todos sus huecos y entresijos como la palma de la mano. Posee una gran colección de objetos que vende por un precio razonable, aunque a veces se le ve el plumero.
 
@@ -498,21 +522,21 @@ En este apartado se presentarán todos los personajes relevantes de la trama del
 
 -   **Pueblo Boñiga**:
 
-	-   **Gremio de aventureros**: donde hay un tablón de desafíos que al cumplirse el siguiente Stadtnarr que mire el tablón podrá reclamar la carta recompensa y se añadirá esta a las cartas que pueden aparecer en la Dumbgeon.
+	-   **Gremio de aventureros**: donde hay un tablón de desafíos que al cumplirse el siguiente *Stadtnarr* que mire el tablón podrá reclamar la carta recompensa y se añadirá esta a las cartas que pueden aparecer en la *Dumbgeon*.
     
-	- **El Hogar del los Stadnarr**:  un zulo en medio de Pueblo Boñiga el cual era una antigua biblioteca (actualmente en ruinas). Existen libros que se actualizan de forma automática guardando información esencial vista por los Stadnarr en el interior de la Dumbgeon.
+	- **El Hogar del los Stadtnarr**:  un zulo en medio de Pueblo Boñiga el cual era una antigua biblioteca (actualmente en ruinas). Existen libros que se actualizan de forma automática guardando información esencial vista por los *Stadtnarr* en el interior de la *Dumbgeon*.
 
 -   **La Dumbgeon**:
     
-	-   **La Discocueva**: es en esencia una caverna espaciosa que ha sido remodelada para actuar como lugar de ocio. Cuenta con luces de colores, barras, mucha suciedad y música a todo volumen. En su interior se encuentra la sala de baile principal donde aparece el jefe de esta zona, el Alma de la Fiesta.
+	-   **La Discocueva**: es en esencia una caverna espaciosa que ha sido remodelada para actuar como lugar de ocio. Cuenta con luces de colores, barras, mucha suciedad y música a todo volumen. En su interior se encuentra la sala de baile principal donde aparece el jefe de esta zona, el *Alma de la Fiesta*.
 
-	-   **Elmo Street**: cubierta de niebla, Elmo Street es una zona residencial en la que habitan gran variedad de monstruos de la Dumbgeon. A pesar de ser de noche las calles están infestadas de enemigos que tratarán de evitar que el jugador llegue hasta la rotonda de la calle donde se encuentra La Adolescente de la Curva.
+	-   **Elmo Street**: cubierta de niebla, *Elmo Street* es una zona residencial en la que habitan gran variedad de monstruos de la *Dumbgeon*. A pesar de ser de noche las calles están infestadas de enemigos que tratarán de evitar que el jugador llegue hasta la rotonda de la calle donde se encuentra *La Adolescente de la Curva*.
 
-	-   **La Zona Media**:  un lugar donde el mundo medieval y el moderno se unen en una extraña mezcla en la que habitan todo tipos de criaturas fantásticas pero con elementos del mundo actual como trajes o teléfonos móviles. Y el que se encarga de dirigir todo este lugar es El Presidente Demonio.
+	-   **La Zona Media**:  un lugar donde el mundo medieval y el moderno se unen en una extraña mezcla en la que habitan todo tipos de criaturas fantásticas pero con elementos del mundo actual como trajes o teléfonos móviles. Y el que se encarga de dirigir todo este lugar es *El Presidente Demonio*.
 
-	-   **Little France**: lugar que empieza recordando a París, lleno de flores y dónde se respira el amor y poco a poco va degenerando en un oscuro lugar lleno de fotos de la familia del personaje, un lugar que se conoce como el Templo Stadtnarr cuya dueña es La Loca del Coño.
+	-   **Little France**: lugar que empieza recordando a París, lleno de flores y dónde se respira el amor y poco a poco va degenerando en un oscuro lugar lleno de fotos de la familia del personaje, un lugar que se conoce como el *Templo Stadtnarr* cuya dueña es *La Loca del Moño*.
     
-	-   **Mostazar**: zona volcánica que en lugar de magma está conformada por mostaza picante. Para evitar tener que pisar tanto condimentado están habilitadas varias estructuras y pasarelas metálicas que conducen a la zona principal de extracción de mostaza, donde aguarda Stradt Vader.
+	-   **Mostazar**: zona volcánica que en lugar de magma está conformada por mostaza picante. Para evitar tener que pisar tanto condimentado están habilitadas varias estructuras y pasarelas metálicas que conducen a la zona principal de extracción de mostaza, donde aguarda *Stradt Bader*.
 
 # 6. Arte
 ## 6.1 Estética general del juego
