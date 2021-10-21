@@ -32,7 +32,7 @@ public class PlayerActionsController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        weapon.GetComponent<Collider2D>().enabled = false;
+       // weapon.GetComponent<Collider2D>().enabled = false;
     }
 
     // Update is called once per frame

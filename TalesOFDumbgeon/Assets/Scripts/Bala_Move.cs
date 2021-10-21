@@ -20,7 +20,8 @@ public class Bala_Move : MonoBehaviour
         _rb = gameObject.GetComponent<Rigidbody2D>();
         _runDistance = 0f;
         _lastPoint = gameObject.transform.position;
-        GetComponent<Rigidbody2D>().velocity = transform.up * weapon.ammoSpeed;
+        //Right = X
+        GetComponent<Rigidbody2D>().velocity = transform.right * weapon.ammoSpeed;
     }
 
     private void FixedUpdate()

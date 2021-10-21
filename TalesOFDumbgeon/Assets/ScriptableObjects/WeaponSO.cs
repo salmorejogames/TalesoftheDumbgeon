@@ -8,7 +8,6 @@ namespace ScriptableObjects
     public class WeaponSO : ScriptableObject
     {
         public Sprite artwork;
-        public float angle;
         public float dmg;
         public float attackSpeed;
         public float attackDuration;

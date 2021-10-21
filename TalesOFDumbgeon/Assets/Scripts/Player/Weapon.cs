@@ -18,6 +18,7 @@ public class Weapon : MonoBehaviour
         _spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
         _spriteRenderer.sprite = weaponInfo.artwork;
         _collider = gameObject.AddComponent<PolygonCollider2D>();
+        _collider.enabled = false;
     }
 
     public void ChangeWeapon(WeaponSO newWeapon)
@@ -33,7 +34,7 @@ public class Weapon : MonoBehaviour
     {
         angle = newAngle; 
         gameObject.transform.rotation =Quaternion.Euler(
-            new Vector3(transform.rotation.eulerAngles.x, transform.rotation.eulerAngles.y, 180 + (newAngle - weaponInfo.angle)));
+            new Vector3(transform.rotation.eulerAngles.x, transform.rotation.eulerAngles.y, newAngle));
     }
 
     public void Atack()
