@@ -11,9 +11,8 @@ public class MeleeWeapon : WeaponSO
         Slice,
         Penetrate
     }
+    
     private const float attackRange = 180f;
-
-  
     public AtackType atackType;
    
 

@@ -42,7 +42,7 @@ public class IsometricMove : MonoBehaviour
             _playerRb.velocity = movement  * speed;
             UpdateAngle(movement);
         }
-        
+
         //Debug.Log(angle);
         //Moverse();
     }

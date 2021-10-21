@@ -26,7 +26,7 @@ public class RangedWeapon : WeaponSO
         rb.bodyType = RigidbodyType2D.Kinematic;
         bala.parentTag = weaponGO.holder.gameObject.tag;
         bala.weapon = this;
-        bala.holderAtack = weaponGO.holder.GetComponent<CharacterStats>().damage;
+        bala.holderStrength = weaponGO.holder.GetComponent<CharacterStats>().strength;
         Collider2D collider2D = ammo.AddComponent<PolygonCollider2D>();
         collider2D.isTrigger = true;
         

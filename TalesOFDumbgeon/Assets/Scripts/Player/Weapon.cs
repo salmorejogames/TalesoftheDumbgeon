@@ -18,28 +18,34 @@ public class Weapon : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        angle = 0;
         incapacited = false;
         _spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
-        _spriteRenderer.sprite = weaponInfo.artwork;
-        _collider = gameObject.AddComponent<PolygonCollider2D>();
-        _collider.enabled = false;
-        _collider.isTrigger = true;
+        ChangeWeapon(weaponInfo);
     }
 
     public void ChangeWeapon(WeaponSO newWeapon)
     {
-        weaponInfo = newWeapon;
-        _spriteRenderer.sprite = weaponInfo.artwork;
+        if (weaponInfo != null)
+            weaponInfo.Unequip(holder);
         //Reset Collider
-        Destroy(_collider);
+        if(_collider!= null)
+            Destroy(_collider);
+        
+        
+        weaponInfo = newWeapon;
+        weaponInfo.Equip(holder);
+        _spriteRenderer.sprite = weaponInfo.artwork;
         _collider = gameObject.AddComponent<PolygonCollider2D>();
+        _collider.enabled = false;
+        _collider.isTrigger = true;
     }
     
     public void SetOrientation(float newAngle)
     {
         angle = newAngle; 
         gameObject.transform.rotation =Quaternion.Euler(
-            new Vector3(transform.rotation.eulerAngles.x, transform.rotation.eulerAngles.y, newAngle+relativeAngle));
+            new Vector3(transform.rotation.eulerAngles.x, transform.rotation.eulerAngles.y, angle+relativeAngle));
     }
 
     public void Atack()
@@ -47,7 +53,17 @@ public class Weapon : MonoBehaviour
         Debug.Log("Im atacking");
         weaponInfo.Atacar(this);
     }
-
+    
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (!other.gameObject.CompareTag(holder.tag) && (other.gameObject.CompareTag("Enemigo") || other.gameObject.CompareTag("Player")))
+        {
+            CharacterStats enemy = other.gameObject.GetComponent<CharacterStats>();
+            enemy.DoDamage(IsometricUtils.CalculateDamage(weaponInfo.dmg, holder.strength, weaponInfo.element, enemy.element));
+        }
+    }
+    
+    ////Activate and Desactivate Elements
     public void ReactivateCollider(float time)
     {
         _collider.enabled = true;
@@ -71,16 +87,4 @@ public class Weapon : MonoBehaviour
     {
         incapacited = false;
     }
-
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (!other.gameObject.CompareTag(holder.tag) && (other.gameObject.CompareTag("Enemigo") || other.gameObject.CompareTag("Player")))
-        {
-            CharacterStats enemy = other.gameObject.GetComponent<CharacterStats>();
-            float elementMultiplier = Elements.GetElementMultiplier(weaponInfo.element, enemy.element);
-            Debug.Log("Dmg base: " + (weaponInfo.dmg + holder.damage) +"Multiplicador de elemento: "  + elementMultiplier + "(" + weaponInfo.element.ToString() + " => " + enemy.element.ToString() + ")");
-            enemy.DoDamage((weaponInfo.dmg + holder.damage) * elementMultiplier);
-        }
-    }
-
 }

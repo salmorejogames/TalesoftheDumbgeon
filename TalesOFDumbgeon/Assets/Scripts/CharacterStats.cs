@@ -8,7 +8,7 @@ public class CharacterStats : MonoBehaviour
     
     public float maxHealth;
     public float armor;
-    public float damage;
+    public float strength;
     public Elements.Element element;
     public float speed;
     

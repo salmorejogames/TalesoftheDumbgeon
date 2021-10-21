@@ -7,9 +7,9 @@ public class Bala_Move : MonoBehaviour
 {
     public RangedWeapon weapon;
     public string parentTag;
-    public float holderAtack;
-    private float _runDistance;
-    private Vector3 _lastPoint;
+    public float holderStrength;
+    
+    private float _runedDistance;
     private Rigidbody2D _rb;
 
 
@@ -18,19 +18,15 @@ public class Bala_Move : MonoBehaviour
     void Start()
     {
         _rb = gameObject.GetComponent<Rigidbody2D>();
-        _runDistance = 0f;
-        _lastPoint = gameObject.transform.position;
+        _runedDistance = 0f;
         //Right = X
-        GetComponent<Rigidbody2D>().velocity = transform.right * weapon.ammoSpeed;
+        _rb.velocity = transform.right * weapon.ammoSpeed;
     }
 
     private void FixedUpdate()
     {
-        //transform.position = transform.position + transform.up * (weapon.ammoSpeed * Time.fixedDeltaTime);
-        _runDistance += Vector3.Distance(_lastPoint, gameObject.transform.position);
-        _lastPoint = gameObject.transform.position;
-        //Debug.Log( transform.up + " " +weapon.ammoSpeed + " " +  Time.fixedDeltaTime + " " + _runDistance);
-        if (_runDistance > weapon.range)
+        _runedDistance += Vector3.Magnitude(transform.right * (weapon.ammoSpeed * Time.fixedDeltaTime));
+        if (_runedDistance > weapon.range)
         {
             Destroy(gameObject);
         }
@@ -49,7 +45,7 @@ public class Bala_Move : MonoBehaviour
             if (!impact.CompareTag(parentTag))
             {
                 CharacterStats impactStats = impact.GetComponent<CharacterStats>();
-                impactStats.DoDamage((holderAtack+ weapon.dmg)*Elements.GetElementMultiplier(weapon.element, impactStats.element));
+                impactStats.DoDamage(IsometricUtils.CalculateDamage(weapon.dmg, holderStrength, weapon.element, impactStats.element));
                 Destroy(gameObject);
             }
         }
