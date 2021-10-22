@@ -11,9 +11,11 @@ public class Weapon : MonoBehaviour
     private SpriteRenderer _spriteRenderer;
     public CharacterStats holder;
     private Collider2D _collider;
-    public float angle;
-    public float relativeAngle;
-    public bool incapacited;
+    [NonSerialized] public float angle;
+    [NonSerialized] public float relativeAngle;
+    [NonSerialized] public float relativePosition;
+    [NonSerialized] public bool incapacited;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -69,6 +71,12 @@ public class Weapon : MonoBehaviour
         _collider.enabled = true;
         _spriteRenderer.color = Color.yellow;
         Invoke(nameof(DesactivateCollider), time);
+    }
+
+    public void UpdatePosition(Vector3 newCenter)
+    {
+        gameObject.transform.position = newCenter;
+        gameObject.transform.position += gameObject.transform.right * relativePosition;
     }
 
     public void DesactivateCollider()

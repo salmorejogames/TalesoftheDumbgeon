@@ -18,7 +18,6 @@ public class PlayerActionsController : MonoBehaviour
     
     private GameObject joystick;
     private CharacterStats _stats;
-    private IsometricMove _isometricMove;
     private InputControler _controles;
     private SpriteRenderer _spriteRenderer;
     private Rigidbody2D _rb;
@@ -26,7 +25,6 @@ public class PlayerActionsController : MonoBehaviour
     private void Awake()
     {
         _distance = Vector3.Distance(weapon.transform.position, gameObject.transform.position);
-        _isometricMove = gameObject.GetComponent<IsometricMove>();
         _stats = gameObject.GetComponent<CharacterStats>();
         _spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
         _rb = gameObject.GetComponent<Rigidbody2D>();
@@ -56,11 +54,12 @@ public class PlayerActionsController : MonoBehaviour
     private void Update()
     {
         active = (!weapon.incapacited && !invincible);
-        float angle = _isometricMove.angle;
+    }
+
+    public void UpdateWeaponPosition(float angle)
+    {
         weapon.SetOrientation(angle);
-        Vector3 newCenter = gameObject.transform.position + (Vector3) IsometricUtils.PolarToCartesian(angle, _distance);
-        //newCenter = IsometricUtils.CartesianToIsometric(newCenter);
-        weapon.gameObject.transform.position = newCenter;
+        weapon.UpdatePosition(gameObject.transform.position + (Vector3) IsometricUtils.PolarToCartesian(angle, _distance));
     }
 
     private void Atacar()
@@ -111,6 +110,7 @@ public class PlayerActionsController : MonoBehaviour
         _rb.velocity = direction;
         Debug.Log(direction);
         invincible = true;
+        _canAtack = false;
         _spriteRenderer.color = Color.red;
         Invoke(nameof(CancelInvincibility), inmunityTime);
         Invoke(nameof(ResetSpriteColor), inmunityTime);
@@ -118,6 +118,7 @@ public class PlayerActionsController : MonoBehaviour
 
     private void CancelInvincibility()
     {
+        _canAtack = true;
         invincible = false;
         _rb.velocity = Vector2.zero;
     }

@@ -18,7 +18,6 @@ public class IsometricMove : MonoBehaviour
     private PlayerActionsController _playerActions;
     private Vector2 _direccion;
     private IsometricCharacterRenderer _isoRenderer;
-    private bool _moving = true;
     private bool _active = true;
     private Vector3 _objetive;
     private float _transitionSpeed;
@@ -45,13 +44,12 @@ public class IsometricMove : MonoBehaviour
                     UpdateAngle(movement);
                 }
         }
-        //Debug.Log(angle);
-        //Moverse();
+        _playerActions.UpdateWeaponPosition(angle);
     }
 
     private bool CanMove()
     {
-        return _moving && _active && _playerActions.active;
+        return _active && _playerActions.active;
     }
 
     public void UpdateAngle(Vector2 movement)
@@ -70,20 +68,10 @@ public class IsometricMove : MonoBehaviour
         return output;
     }
 
-    private void SetMoving(bool move)
-    {
-        _moving = move;
-        if(!move)
-            _playerRb.velocity = Vector2.zero;
-    }
-
     public void SetActive(bool active)
     {
         _active = active;
-        //_playerRb.velocity = Vector2.zero;
     }
-    
-    
     
     private void OnEnable()
     {
