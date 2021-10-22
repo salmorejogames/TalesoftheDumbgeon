@@ -105,11 +105,10 @@ public class PlayerActionsController : MonoBehaviour
     public void OnDamageReceived(Vector3 damagePos)
     {
         Debug.Log("Damage Recived");
-        _rb.velocity = Vector2.zero;
         var direction = gameObject.transform.position - damagePos;
         var magnitude = direction.magnitude;
         direction = direction / magnitude;
-        _rb.AddForce(direction*2, ForceMode2D.Impulse);
+        _rb.velocity = direction;
         Debug.Log(direction);
         invincible = true;
         _spriteRenderer.color = Color.red;
@@ -120,6 +119,7 @@ public class PlayerActionsController : MonoBehaviour
     private void CancelInvincibility()
     {
         invincible = false;
+        _rb.velocity = Vector2.zero;
     }
     
     public void ResetSpriteColor()

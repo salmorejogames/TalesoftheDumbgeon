@@ -18,7 +18,7 @@ public class IsometricMove : MonoBehaviour
     private PlayerActionsController _playerActions;
     private Vector2 _direccion;
     private IsometricCharacterRenderer _isoRenderer;
-    private bool _moving = false;
+    private bool _moving = true;
     private bool _active = true;
     private Vector3 _objetive;
     private float _transitionSpeed;
@@ -28,8 +28,6 @@ public class IsometricMove : MonoBehaviour
         _playerRb = gameObject.GetComponent<Rigidbody2D>();
         _playerActions = gameObject.GetComponent<PlayerActionsController>();
         _inputControler = new InputControler();
-        _inputControler.Jugador.Move.started += ctx => SetMoving(true);
-        _inputControler.Jugador.Move.canceled += ctx => SetMoving(false);
     }
 
 
@@ -37,12 +35,16 @@ public class IsometricMove : MonoBehaviour
     {
         if (CanMove())
         {
-            _direccion = _inputControler.Jugador.Move.ReadValue<Vector2>();
-            Vector2 movement = (ConvertToIsometric(_direccion));
-            _playerRb.velocity = movement  * speed;
-            UpdateAngle(movement);
+        
+                _direccion = _inputControler.Jugador.Move.ReadValue<Vector2>();
+                if (!_direccion.Equals(Vector2.zero))
+                {
+                    Vector2 movement = (ConvertToIsometric(_direccion));
+                    Vector3 step = movement * (speed * Time.fixedDeltaTime);
+                    _playerRb.MovePosition((gameObject.transform.position + step));
+                    UpdateAngle(movement);
+                }
         }
-
         //Debug.Log(angle);
         //Moverse();
     }
@@ -78,7 +80,7 @@ public class IsometricMove : MonoBehaviour
     public void SetActive(bool active)
     {
         _active = active;
-        _playerRb.velocity = Vector2.zero;
+        //_playerRb.velocity = Vector2.zero;
     }
     
     
