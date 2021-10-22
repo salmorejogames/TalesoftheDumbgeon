@@ -55,7 +55,7 @@ public class PlayerActionsController : MonoBehaviour
 
     private void Update()
     {
-        active = !weapon.incapacited;
+        active = (!weapon.incapacited && !invincible);
         float angle = _isometricMove.angle;
         weapon.SetOrientation(angle);
         Vector3 newCenter = gameObject.transform.position + (Vector3) IsometricUtils.PolarToCartesian(angle, _distance);
@@ -80,22 +80,22 @@ public class PlayerActionsController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        //Debug.Log("colision con " + collision.gameObject.name);
         if (collision.gameObject.CompareTag("Enemigo") && !invincible)
         {
             CharacterStats enemy_stats = collision.gameObject.GetComponent<CharacterStats>();
             _stats.DoDamage(enemy_stats.strength * Elements.GetElementMultiplier(enemy_stats.element, _stats.element));
-            OnDamageReceived(collision.transform.position);
+            OnDamageReceived(collision.gameObject.transform.position);
             if (!_stats.IsAlive())
             {
                 Debug.Log("Im dead");
                 Destroy(gameObject);
             }
         }
+    }
 
-        
-        
-        if (collision.gameObject.CompareTag("EscenarioTrigger"))
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("EscenarioTrigger"))
         {
             Debug.Log("Cambiando mapa");
             MapManager.Instance.InstantiateMap((MapManager.ActualMap+1)%MapManager.MaxMaps);
@@ -105,7 +105,12 @@ public class PlayerActionsController : MonoBehaviour
     public void OnDamageReceived(Vector3 damagePos)
     {
         Debug.Log("Damage Recived");
-        _rb.AddForce((transform.position - damagePos).normalized);
+        _rb.velocity = Vector2.zero;
+        var direction = gameObject.transform.position - damagePos;
+        var magnitude = direction.magnitude;
+        direction = direction / magnitude;
+        _rb.AddForce(direction*2, ForceMode2D.Impulse);
+        Debug.Log(direction);
         invincible = true;
         _spriteRenderer.color = Color.red;
         Invoke(nameof(CancelInvincibility), inmunityTime);
