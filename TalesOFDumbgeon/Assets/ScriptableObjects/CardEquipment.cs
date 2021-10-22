@@ -9,7 +9,7 @@ namespace ScriptableObjects
         public EquipmentSo equipment;
         public override void Start()
         {
-            MapManager.Instance.ChangeEquipment(equipment);
+            SingletoneGameController.PlayerActions.ChangeEquipment(equipment);
         }
     }
 }

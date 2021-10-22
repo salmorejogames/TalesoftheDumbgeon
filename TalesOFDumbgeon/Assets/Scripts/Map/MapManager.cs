@@ -6,9 +6,7 @@ using UnityEngine;
 
 public class MapManager : MonoBehaviour
 {
-  
-
-    public static MapManager Instance;
+    
     public static int MaxMaps;
     public static int ActualMap;
     
@@ -26,16 +24,6 @@ public class MapManager : MonoBehaviour
 
     private void Awake()
     {
-        //Singleton;
-        if (Instance != null && Instance != this)
-        {
-            Destroy(this.gameObject);
-            return;
-        }
-        else
-        {
-            Instance = this;
-        }
         _mod = Vector2.zero;
         _actualMap = Instantiate(maps[0], Vector3.zero, Quaternion.identity);
         MaxMaps = maps.Count;
@@ -68,6 +56,7 @@ public class MapManager : MonoBehaviour
         _actualMap = newMapInstance;
         StartCoroutine("Transition", newCenter);
         ActualMap = id;
+        
 
     }
 
@@ -115,6 +104,7 @@ public class MapManager : MonoBehaviour
         _player.transform.position = _player.transform.position - actualPos;
         _actualMap.SetTrigger(true);
         _player.SetActive(true);
+        _actualMap.StartMap();
     }
     public void ReloadScene()
     {
@@ -122,10 +112,5 @@ public class MapManager : MonoBehaviour
         _mainCamera = Camera.main;
     }
 
-    public void ChangeEquipment(EquipmentSo newEquipment)
-    {
-        newEquipment.Equip(_player.Stats);
-        if (newEquipment.type == EquipmentSo.EquipmentType.Weapon)
-            _player.PlayerActions.weapon.ChangeWeapon((WeaponSO) newEquipment);
-    }
+    
 }

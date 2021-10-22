@@ -4047,7 +4047,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ground: {fileID: 1095925334470931654}
+  collisions: {fileID: 1095925335236233881}
   mapTrigger: {fileID: 52619093028721211}
+  posibleEnemies:
+  - {fileID: 11400000, guid: 77c446e2c387eea49b1e44b58babb87f, type: 2}
+  numEnemys: 1
 --- !u!1 &1095925335236233879
 GameObject:
   m_ObjectHideFlags: 0

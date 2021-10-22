@@ -8,7 +8,6 @@ public class PlayerActionsController : MonoBehaviour
 {
    
     public Weapon weapon;
-    public bool active;
     public bool invincible;
     
     private int _cartaUsada;
@@ -38,10 +37,7 @@ public class PlayerActionsController : MonoBehaviour
     }
 
     // Start is called before the first frame update
-    void Start()
-    {
-        active = true;
-    }
+
 
     // Update is called once per frame
     private void ReactiveAtack()
@@ -50,12 +46,6 @@ public class PlayerActionsController : MonoBehaviour
         weapon.GetComponent<Collider2D>().enabled = false;
         weapon.gameObject.GetComponent<SpriteRenderer>().color = new Color(255, 255, 255);
     }
-
-    private void Update()
-    {
-        active = (!weapon.incapacited && !invincible);
-    }
-
     public void UpdateWeaponPosition(float angle)
     {
         weapon.SetOrientation(angle);
@@ -97,7 +87,7 @@ public class PlayerActionsController : MonoBehaviour
         if (other.gameObject.CompareTag("EscenarioTrigger"))
         {
             Debug.Log("Cambiando mapa");
-            MapManager.Instance.InstantiateMap((MapManager.ActualMap+1)%MapManager.MaxMaps);
+            SingletoneGameController.MapManager.InstantiateMap((MapManager.ActualMap+1)%MapManager.MaxMaps);
         }
     }
 
@@ -112,6 +102,7 @@ public class PlayerActionsController : MonoBehaviour
         invincible = true;
         _canAtack = false;
         _spriteRenderer.color = Color.red;
+        SingletoneGameController.PlayerActions.DisableMovement(inmunityTime);
         Invoke(nameof(CancelInvincibility), inmunityTime);
         Invoke(nameof(ResetSpriteColor), inmunityTime);
     }

@@ -12,11 +12,12 @@ namespace ScriptableObjects.Equipment
             Body,
             Feet
         }
-
+        
         public EquipmentType type;
         public float strength;
         public float armor;
         public float speed;
+        public float health;
         public Elements.Element element;
         
 
@@ -28,6 +29,8 @@ namespace ScriptableObjects.Equipment
             stats.equipment[pos] = this;
             stats.armor += armor;
             stats.speed += speed;
+            stats.maxHealth += health;
+            stats.Heal(health);
             stats.strength += strength;
             if (type == EquipmentType.Body)
                 stats.element = element;
@@ -39,6 +42,8 @@ namespace ScriptableObjects.Equipment
             stats.armor -= armor;
             stats.speed -= speed;
             stats.strength -= strength;
+            stats.maxHealth -= health;
+            stats.DoDamage(health +stats.armor);
             if (type == EquipmentType.Body)
                 stats.element = Elements.Element.Caos;
         }

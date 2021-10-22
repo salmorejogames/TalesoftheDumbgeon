@@ -14,14 +14,12 @@ public class Weapon : MonoBehaviour
     [NonSerialized] public float angle;
     [NonSerialized] public float relativeAngle;
     [NonSerialized] public float relativePosition;
-    [NonSerialized] public bool incapacited;
-    
+
 
     // Start is called before the first frame update
     void Start()
     {
         angle = 0;
-        incapacited = false;
         _spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
         ChangeWeapon(weaponInfo);
     }
@@ -83,16 +81,5 @@ public class Weapon : MonoBehaviour
     {
         _spriteRenderer.color = Color.white;
         _collider.enabled = false;
-    }
-
-    public void IncapacitedFor(float time)
-    {
-        incapacited = true;
-        Invoke(nameof(Reactivate), time);
-    }
-
-    public void Reactivate()
-    {
-        incapacited = false;
     }
 }

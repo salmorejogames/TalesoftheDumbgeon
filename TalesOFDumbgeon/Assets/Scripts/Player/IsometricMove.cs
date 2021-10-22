@@ -20,6 +20,7 @@ public class IsometricMove : MonoBehaviour
     private Vector2 _direccion;
     private IsometricCharacterRenderer _isoRenderer;
     private bool _active = true;
+    public bool canMove = true;
     private Vector3 _objetive;
     private float _transitionSpeed;
     private void Awake()
@@ -30,8 +31,7 @@ public class IsometricMove : MonoBehaviour
         Stats = gameObject.GetComponent<CharacterStats>();
         _inputControler = new InputControler();
     }
-
-
+    
     void FixedUpdate()
     {
         if (CanMove())
@@ -51,7 +51,7 @@ public class IsometricMove : MonoBehaviour
 
     private bool CanMove()
     {
-        return _active && PlayerActions.active;
+        return _active && canMove;
     }
 
     public void UpdateAngle(Vector2 movement)

@@ -9,16 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a95e7e31abd82bc4cb8050b580571420, type: 3}
-  m_Name: Baguette
+  m_Script: {fileID: 11500000, guid: f4833d97f0848354096f3a175022dde0, type: 3}
+  m_Name: Goblin
   m_EditorClassIdentifier: 
-  type: 0
+  maxHealth: 0
   strength: 0
   armor: 0
   speed: 0
-  element: 2
-  artwork: {fileID: 21300000, guid: 688d5b36e60d00d46a331b8c8f04e74b, type: 3}
-  dmg: 3
-  attackSpeed: 0.5
-  attackDuration: 0.25
-  atackType: 1
+  element: 0
+  sprite: {fileID: 0}
+  baseGO: {fileID: 0}

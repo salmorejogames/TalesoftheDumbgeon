@@ -5,11 +5,23 @@ namespace Cards.CardsActions
     [CreateAssetMenu(fileName = "New Card", menuName = "Cards/Effects/Health")]
     public class SetHealth : CardEffect
     {
+        public enum Objetivo
+        {
+            Jugador
+        }
         public int cantidad;
-        public int objetivo;
+        public Objetivo objetivo;
         public override void Start()
         {
-            Debug.Log("Dmg: " + cantidad + "a" + objetivo);
+            switch (objetivo)
+            {
+                case Objetivo.Jugador:
+                    if(cantidad>0)
+                        SingletoneGameController.PlayerActions.Healh(cantidad);
+                    else
+                        SingletoneGameController.PlayerActions.Damage(cantidad);
+                    break;
+            }
         }
     }
 }
