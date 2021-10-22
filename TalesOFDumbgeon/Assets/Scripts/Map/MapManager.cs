@@ -1,5 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using ScriptableObjects;
+using ScriptableObjects.Equipment;
 using UnityEngine;
 
 public class MapManager : MonoBehaviour
@@ -92,7 +94,7 @@ public class MapManager : MonoBehaviour
         _player.UpdateAngle(coordinates);
         while (Vector3.Distance(playerPos, playerObjetive)>0.001)
         {
-            playerPos = Vector3.MoveTowards(playerPos, playerObjetive, _player.speed*playerRelativeSpeed*Time.deltaTime);
+            playerPos = Vector3.MoveTowards(playerPos, playerObjetive, _player.Stats.speed*playerRelativeSpeed*Time.deltaTime);
             _player.transform.position = playerPos;
             yield return null;
         }
@@ -118,5 +120,12 @@ public class MapManager : MonoBehaviour
     {
         _player = FindObjectOfType<IsometricMove>();
         _mainCamera = Camera.main;
+    }
+
+    public void ChangeEquipment(EquipmentSo newEquipment)
+    {
+        newEquipment.Equip(_player.Stats);
+        if (newEquipment.type == EquipmentSo.EquipmentType.Weapon)
+            _player.PlayerActions.weapon.ChangeWeapon((WeaponSO) newEquipment);
     }
 }

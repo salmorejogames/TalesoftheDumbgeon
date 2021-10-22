@@ -7,10 +7,9 @@ namespace Cards.CardsActions
     {
         public int cantidad;
         public int objetivo;
-        public override string Start()
+        public override void Start()
         {
             Debug.Log("Dmg: " + cantidad + "a" + objetivo);
-            return "";
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -8,10 +9,12 @@ public class Card : MonoBehaviour, IPointerClickHandler
 {
 
 
-    public string cardName;
+    [NonSerialized] public string CardName;
     private CardHolder _cardHolder;
     private RectTransform _rectTransform;
     private Image _image;
+    [SerializeField] private Text title;
+    [SerializeField] private Image itemImage;
     [SerializeField] private CardInfo cardInfo;
     [SerializeField] private Color highlightColor;
     
@@ -21,7 +24,10 @@ public class Card : MonoBehaviour, IPointerClickHandler
         _rectTransform = gameObject.GetComponent<RectTransform>();
         _cardHolder = gameObject.transform.parent.gameObject.GetComponent<CardHolder>();
         _image = gameObject.GetComponent<Image>();
-        cardInfo = Resources.Load<CardInfo>("cards/CardsInfo/" + cardName);
+        cardInfo = Resources.Load<CardInfo>("cards/CardsInfo/" + CardName);
+        _image.sprite = cardInfo.cardHolder;
+        itemImage.sprite = cardInfo.artwork;
+        title.text = cardInfo.cardName;
     }
     public void OnPointerClick(PointerEventData eventData)
     {

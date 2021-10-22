@@ -43,7 +43,7 @@ public class CardHolder : MonoBehaviour
         buttonDown = Instantiate(buttonDown, _thisRect.position, Quaternion.identity);
         buttonDown.gameObject.transform.SetParent(this.gameObject.transform);
         buttonDown.gameObject.SetActive(false);
-        AddCard("AspectoDelDragon");
+        AddCard("ComerBaguette");
         
     }
     private void MoveSelection(bool right)
@@ -83,7 +83,7 @@ public class CardHolder : MonoBehaviour
         newCard.SetParent(this.transform);
         newCard.localScale = new Vector3(1, 1, 1);
         newCard.localPosition = _activePoint;
-        newCard.gameObject.GetComponent<Card>().cardName = cardName;
+        newCard.gameObject.GetComponent<Card>().CardName = cardName;
         cards.Add(newCard);
 
         if (!active)

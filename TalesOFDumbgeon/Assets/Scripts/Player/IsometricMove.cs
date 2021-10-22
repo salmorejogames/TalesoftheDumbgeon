@@ -6,7 +6,7 @@ using UnityEngine;
 public class IsometricMove : MonoBehaviour
 {
 
-    public float speed;
+
     [SerializeField] private float gapX;
 
     private const float ORIENTATION_STEP = 45f;
@@ -15,7 +15,8 @@ public class IsometricMove : MonoBehaviour
     public float angle = 0;
     private Rigidbody2D _playerRb;
     private InputControler _inputControler;
-    private PlayerActionsController _playerActions;
+    [NonSerialized] public PlayerActionsController PlayerActions;
+    [NonSerialized] public CharacterStats Stats;
     private Vector2 _direccion;
     private IsometricCharacterRenderer _isoRenderer;
     private bool _active = true;
@@ -25,7 +26,8 @@ public class IsometricMove : MonoBehaviour
     {
         _isoRenderer = gameObject.GetComponent<IsometricCharacterRenderer>();
         _playerRb = gameObject.GetComponent<Rigidbody2D>();
-        _playerActions = gameObject.GetComponent<PlayerActionsController>();
+        PlayerActions = gameObject.GetComponent<PlayerActionsController>();
+        Stats = gameObject.GetComponent<CharacterStats>();
         _inputControler = new InputControler();
     }
 
@@ -39,17 +41,17 @@ public class IsometricMove : MonoBehaviour
                 if (!_direccion.Equals(Vector2.zero))
                 {
                     Vector2 movement = (ConvertToIsometric(_direccion));
-                    Vector3 step = movement * (speed * Time.fixedDeltaTime);
+                    Vector3 step = movement * (Stats.speed * Time.fixedDeltaTime);
                     _playerRb.MovePosition((gameObject.transform.position + step));
                     UpdateAngle(movement);
                 }
         }
-        _playerActions.UpdateWeaponPosition(angle);
+        PlayerActions.UpdateWeaponPosition(angle);
     }
 
     private bool CanMove()
     {
-        return _active && _playerActions.active;
+        return _active && PlayerActions.active;
     }
 
     public void UpdateAngle(Vector2 movement)
