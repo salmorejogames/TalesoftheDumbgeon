@@ -11,29 +11,29 @@ public class EnemigoController : MonoBehaviour
     public int armadura = 3;
     public int damage = 1;
     public float vision = 3;
+    public float maxDistance = 5f;
+    public float stopDistance = 0.5f;
 
     public GameObject personaje;
 
     private Rigidbody2D rb;
     private enum Estado { Wandering, Detected, Attacking};
     private Estado estadoActual = Estado.Wandering;
-    private Vector2 nextPos = Vector2.zero;
+    private Vector3 nextPos;
+    private Vector2 direccion;
     private float distanciaPlayer;
+    private float rotacion;
+
+
     public enum tipoEnemigo {Abuesqueleto, Cerebro, Duonde, Palloto};
     public tipoEnemigo especie;
-    private NavMeshAgent agente;
-
-    private void Awake()
-    {
-        
-    }
-
+    
     // Start is called before the first frame update
     void Start()
     {
+        //nextPos = transform.position * 1.2f;
         rb = gameObject.GetComponent<Rigidbody2D>();
         personaje = GameObject.FindGameObjectWithTag("Player");
-        agente = GetComponent<NavMeshAgent>();
 
         if (especie == tipoEnemigo.Abuesqueleto)
         {
@@ -63,54 +63,65 @@ public class EnemigoController : MonoBehaviour
             damage = 7;
             vision = 3;
         }
+
         distanciaPlayer = Vector2.Distance(transform.position, personaje.transform.position);
-        agente.updateRotation = false;
-        agente.updateUpAxis = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        gameObject.transform.position = Vector2.MoveTowards(transform.position, nextPos, velocidad * Time.deltaTime);
+        distanciaPlayer = Vector2.Distance(transform.position, personaje.transform.position);
+        direccion = personaje.transform.position - transform.position;
+        rotacion = Mathf.Atan2(direccion.x, direccion.y) * Mathf.Rad2Deg;
+        direccion.Normalize();
 
-        if (personaje != null && Vector2.Distance(transform.position, nextPos) < vision)
+        if (distanciaPlayer > vision)
+            estadoActual = Estado.Wandering;
+        else if (distanciaPlayer <= vision && distanciaPlayer > stopDistance)
+            estadoActual = Estado.Detected;
+        else if(distanciaPlayer <= stopDistance)
+            estadoActual = Estado.Attacking;
+               
+        Debug.Log(estadoActual);
+        //if (personaje != null && Vector2.Distance(transform.position, nextPos) <= vision && Vector2.Distance(transform.position, personaje.transform.position) <= vision)
+        
+        if (personaje != null)
         {
-            distanciaPlayer = Vector2.Distance(transform.position, personaje.transform.position);
-            if (distanciaPlayer >= 3)
-                estadoActual = Estado.Wandering;
-            else if (distanciaPlayer <= 3 && distanciaPlayer >= 0.5f)
-                estadoActual = Estado.Detected;
-            else
-                estadoActual = Estado.Attacking;
-
-
             switch (estadoActual)
             {
                 case Estado.Wandering:
+                    if (Vector2.Distance(transform.position, nextPos) < vision)
                     Wander();
                     break;
 
                 case Estado.Detected:
-                    agente.SetDestination(personaje.transform.position);
-                    //transform.LookAt(personaje.transform.position);
+                    rb.rotation = -rotacion;
+                    Debug.Log(distanciaPlayer);
                     break;
 
                 case Estado.Attacking:
-                    CanAttack();
+                    rb.rotation = -rotacion;
+                    Attack();
                     break;
-            }            
+            }
         }
-        
+
+        rb.velocity = direccion * velocidad;
+ 
     }
 
-    private void CanAttack()
+    private void Attack()
     {
+        rb.velocity = Vector2.zero;
+        nextPos = transform.position;
         Debug.Log("Esta atacando");
-    }
+    }  
 
     private void Wander()
-    {
-        nextPos = new Vector2(UnityEngine.Random.Range(-vision, vision), UnityEngine.Random.Range(-vision, vision));
+    {       
+        nextPos = new Vector3(UnityEngine.Random.Range(-maxDistance, maxDistance), UnityEngine.Random.Range(-maxDistance, maxDistance));
+        direccion = nextPos - transform.position;
+        Debug.Log("Nueva posicion " + nextPos);
     }
 
 
@@ -127,8 +138,12 @@ public class EnemigoController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            rb.velocity = Vector2.zero;
+            nextPos = transform.position;
+        }else if (collision.gameObject.CompareTag("Colisiones"))
+        {
+            direccion = -nextPos - transform.position;
         }
+        
     }
 
     public void TakeDamage(int damage)
