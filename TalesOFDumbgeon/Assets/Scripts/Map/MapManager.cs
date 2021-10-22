@@ -7,6 +7,9 @@ public class MapManager : MonoBehaviour
   
 
     public static MapManager Instance;
+    public static int MaxMaps;
+    public static int ActualMap;
+    
     [SerializeField] private List<MapInstance> maps;
     [SerializeField] private float gapX;
     [SerializeField] private float playerRelativeSpeed;
@@ -33,24 +36,27 @@ public class MapManager : MonoBehaviour
         }
         _mod = Vector2.zero;
         _actualMap = Instantiate(maps[0], Vector3.zero, Quaternion.identity);
-
+        MaxMaps = maps.Count;
+        ActualMap = 0;
     }
 
     private void Start()
     {
+        
         ReloadScene();
     }
 
     
     public void InstantiateMap(int id)
     {
+        Debug.Log("Instantiate Map");
         _mod.x = 1;
         _mod.y = 1;
         if (_player.transform.position.x < 0) _mod.x = -1;
         if (_player.transform.position.y < 0) _mod.y = -1;
         
-        float newX = _mod.x*(_actualMap.dimensions.x + _actualMap.dimensions.x * gapX)/2;
-        float newY = _mod.y*_actualMap.dimensions.y/4;
+        float newX = _mod.x*(_actualMap.Dimensions.x + _actualMap.Dimensions.x * gapX)/2;
+        float newY = _mod.y*_actualMap.Dimensions.y/4;
         Vector3 newCenter = new Vector3(newX, newY, 0);
         MapInstance newMapInstance = Instantiate(maps[id], newCenter, Quaternion.identity);
         _oldMap = _actualMap;
@@ -59,7 +65,8 @@ public class MapManager : MonoBehaviour
         _actualMap.SetTrigger(false);
         _actualMap = newMapInstance;
         StartCoroutine("Transition", newCenter);
-       
+        ActualMap = id;
+
     }
 
     private Vector3 CalculatePlayerRelativeCoordinates()
