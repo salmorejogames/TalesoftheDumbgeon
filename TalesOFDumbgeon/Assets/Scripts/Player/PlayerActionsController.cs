@@ -72,8 +72,8 @@ public class PlayerActionsController : MonoBehaviour, IDeadable
     {
         if (collision.gameObject.CompareTag("Enemigo") && !invincible)
         {
-            CharacterStats enemy_stats = collision.gameObject.GetComponent<CharacterStats>();
-            _stats.DoDamage(enemy_stats.strength * Elements.GetElementMultiplier(enemy_stats.element, _stats.element), collision.gameObject);
+            CharacterStats enemyStats = collision.gameObject.GetComponent<CharacterStats>();
+            _stats.DoDamage(enemyStats.strength, collision.gameObject, enemyStats.element);
             //OnDamageReceived(collision.gameObject.transform.position);
         }
     }
@@ -92,12 +92,7 @@ public class PlayerActionsController : MonoBehaviour, IDeadable
             other.gameObject.GetComponent<ICollectable>().Collect();
         }
     }
-
-    public void OnDamageReceived(Vector3 damagePos)
-    {
-       
-    }
-
+    
     private void CancelInvincibility()
     {
         _canAtack = true;
@@ -126,7 +121,7 @@ public class PlayerActionsController : MonoBehaviour, IDeadable
         Destroy(gameObject);
     }
 
-    public void Damage(GameObject enemy, float cantidad)
+    public void Damage(GameObject enemy, float cantidad, Elements.Element element)
     {
         Debug.Log("Damage Recived");
         var direction = gameObject.transform.position - enemy.transform.position;

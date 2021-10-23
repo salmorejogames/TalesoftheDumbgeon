@@ -12,11 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed41c6ccd82907c40aec1167f9c1d023, type: 3}
   m_Name: DefaultDistance
   m_EditorClassIdentifier: 
-  artwork: {fileID: 21300000, guid: 23b4a31a157c40a46bdd6e443dd82b1c, type: 3}
-  dmg: 1
+  type: 0
+  strength: 0
+  armor: 0
+  speed: 2
+  health: 0
+  element: 1
+  artwork: {fileID: 21300000, guid: ac871338e3bc87047ad5144a7477854d, type: 3}
+  dmg: 3
   attackSpeed: 1
   attackDuration: 0.1
-  element: 0
   ammoSprite: {fileID: 21300000, guid: c8d7b568024a47d438fea07979b23a11, type: 3}
   range: 5
   ammoSpeed: 3

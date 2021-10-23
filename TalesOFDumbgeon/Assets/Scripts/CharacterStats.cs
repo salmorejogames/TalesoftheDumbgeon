@@ -27,17 +27,17 @@ public class CharacterStats : MonoBehaviour
         _actualHealth = maxHealth;
     }
 
-    public void DoDamage(float dmg, GameObject origin)
+    public void DoDamage(float dmg, GameObject origin, Elements.Element atackElement)
     {
-        _actualHealth -= Mathf.Clamp(dmg-armor, 0, maxHealth);
-        _actions.Damage(origin, dmg-armor);
+        float totalDmg = IsometricUtils.CalculateDamage(dmg, armor, atackElement, element);
+        _actualHealth -= Mathf.Clamp(totalDmg, 0, maxHealth);
+        _actions.Damage(origin, totalDmg, atackElement);
         if (_actualHealth <= 0)
-            _alive = false;
-        Debug.Log(gameObject.name +": Me han hecho " + (dmg-armor) + " de dmg, me quedan " + _actualHealth + " de vida");
-        if (!_alive)
         {
+            _alive = false;
             _actions.Dead();
         }
+        Debug.Log(gameObject.name +": Me han hecho " + (totalDmg) + " de dmg, me quedan " + _actualHealth + " de vida");
     }
 
     public void Heal(float healh)

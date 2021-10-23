@@ -56,7 +56,7 @@ public class Weapon : MonoBehaviour
         if (!other.gameObject.CompareTag(holder.tag) && (other.gameObject.CompareTag("Enemigo") || other.gameObject.CompareTag("Player")))
         {
             CharacterStats enemy = other.gameObject.GetComponent<CharacterStats>();
-            enemy.DoDamage(IsometricUtils.CalculateDamage(weaponInfo.dmg, holder.strength, weaponInfo.element, enemy.element), gameObject);
+            enemy.DoDamage(weaponInfo.dmg + holder.strength,  gameObject, weaponInfo.element);
         }
     }
     

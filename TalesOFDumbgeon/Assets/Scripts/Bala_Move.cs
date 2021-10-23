@@ -45,7 +45,7 @@ public class Bala_Move : MonoBehaviour
             if (!impact.CompareTag(parentTag))
             {
                 CharacterStats impactStats = impact.GetComponent<CharacterStats>();
-                impactStats.DoDamage(IsometricUtils.CalculateDamage(weapon.dmg, holderStrength, weapon.element, impactStats.element), gameObject);
+                impactStats.DoDamage(weapon.dmg + holderStrength, gameObject, weapon.element);
                 Destroy(gameObject);
             }
         }
