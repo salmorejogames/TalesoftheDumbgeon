@@ -15,9 +15,9 @@ public class IsometricMove : MonoBehaviour
     public float angle = 0;
     private Rigidbody2D _playerRb;
     private InputControler _inputControler;
+    private PlayerActionsController _playerActions;
     private Vector2 _direccion;
     private IsometricCharacterRenderer _isoRenderer;
-    private bool _moving = false;
     private bool _active = true;
     private Vector3 _objetive;
     private float _transitionSpeed;
@@ -25,24 +25,31 @@ public class IsometricMove : MonoBehaviour
     {
         _isoRenderer = gameObject.GetComponent<IsometricCharacterRenderer>();
         _playerRb = gameObject.GetComponent<Rigidbody2D>();
+        _playerActions = gameObject.GetComponent<PlayerActionsController>();
         _inputControler = new InputControler();
-        _inputControler.Jugador.Move.started += ctx => SetMoving(true);
-        _inputControler.Jugador.Move.canceled += ctx => SetMoving(false);
     }
 
 
     void FixedUpdate()
     {
-        if (_moving && _active)
+        if (CanMove())
         {
-            _direccion = _inputControler.Jugador.Move.ReadValue<Vector2>();
-            Vector2 movement = (ConvertToIsometric(_direccion));
-            _playerRb.velocity = movement  * speed;
-            UpdateAngle(movement);
-        }
         
-        //Debug.Log(angle);
-        //Moverse();
+                _direccion = _inputControler.Jugador.Move.ReadValue<Vector2>();
+                if (!_direccion.Equals(Vector2.zero))
+                {
+                    Vector2 movement = (ConvertToIsometric(_direccion));
+                    Vector3 step = movement * (speed * Time.fixedDeltaTime);
+                    _playerRb.MovePosition((gameObject.transform.position + step));
+                    UpdateAngle(movement);
+                }
+        }
+        _playerActions.UpdateWeaponPosition(angle);
+    }
+
+    private bool CanMove()
+    {
+        return _active && _playerActions.active;
     }
 
     public void UpdateAngle(Vector2 movement)
@@ -61,20 +68,10 @@ public class IsometricMove : MonoBehaviour
         return output;
     }
 
-    private void SetMoving(bool move)
-    {
-        _moving = move;
-        if(!move)
-            _playerRb.velocity = Vector2.zero;
-    }
-
     public void SetActive(bool active)
     {
         _active = active;
-        _playerRb.velocity = Vector2.zero;
     }
-    
-    
     
     private void OnEnable()
     {

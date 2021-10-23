@@ -2,8 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b1d37c9d-25b2-4110-97a9-49ea663fadda" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Weapons/Baguette.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Weapons/Baguette.asset.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.TalesOFDumbgeon/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TalesOFDumbgeon/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Map/MapManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Map/MapManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Equipment/MeleeWeapon.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Equipment/MeleeWeapon.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/IsometricMove.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/IsometricMove.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerActionsController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerActionsController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/Weapon.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/Weapon.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,6 +27,8 @@
     </file-type-list>
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Elements.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/ScriptableObjects/Equipment/MeleeWeapon.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Plugins/CheckIfMobile/CheckIfMobile.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.inputsystem@1.0.2/InputSystem/Plugins/OnScreen/OnScreenStick.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../../Unity/Hub/Editor/2019.4.26f1/Editor/Data/Resources/PackageManager/BuiltInPackages/com.unity.ugui/Runtime/EventSystem/UIBehaviour.cs" root0="SKIP_HIGHLIGHTING" />
@@ -45,15 +52,26 @@
       <option value="$PROJECT_DIR$/Assets/Resources/Cards/CardsActions/SetHealth.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/CardsInterface/Card.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/PlayerController.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/CardsInterface/CardHolder.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/IsometricMove.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/IsometricUtils.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/PlayerActionsController.cs" />
+      <option value="$PROJECT_DIR$/Assets/ScriptableObjects/StaticStats.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Elements.cs" />
+      <option value="$PROJECT_DIR$/Assets/ScriptableObjects/WeaponSO.cs" />
+      <option value="$PROJECT_DIR$/Assets/ScriptableObjects/RangedWeapon.cs" />
+      <option value="$PROJECT_DIR$/Assets/ScriptableObjects/Equipment/Equipment.cs" />
+      <option value="$PROJECT_DIR$/Assets/ScriptableObjects/Equipment/WeaponSO.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/CharacterStats.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/IsometricUtils.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Bala_Move.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Map/MapInstance.cs" />
+      <option value="$PROJECT_DIR$/Assets/ScriptableObjects/Equipment/EquipmentSo.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Player/PlayerCollisions.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Player/IsometricMove.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Map/MapInstance.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Map/MapManager.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/CardsInterface/CardHolder.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Player/IsometricMove.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Player/PlayerActionsController.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Player/Weapon.cs" />
+      <option value="$PROJECT_DIR$/Assets/ScriptableObjects/Equipment/MeleeWeapon.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1zRaEkaFY4bgpmOHr8r3t8E1N2f" />
@@ -119,6 +137,9 @@
       <workItem from="1634390541399" duration="14675000" />
       <workItem from="1634480386871" duration="7586000" />
       <workItem from="1634644710505" duration="8818000" />
+      <workItem from="1634755340577" duration="13387000" />
+      <workItem from="1634825136275" duration="5190000" />
+      <workItem from="1634900020729" duration="8165000" />
     </task>
     <servers />
   </component>
