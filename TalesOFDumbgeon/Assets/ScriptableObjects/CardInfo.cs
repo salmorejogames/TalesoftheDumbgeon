@@ -7,6 +7,7 @@ public class CardInfo : ScriptableObject
 {
     public string cardName;
     public string description;
+    public Sprite cardHolder;
     public Sprite artwork;
     [SerializeField] private List<CardEffect> effects; 
     public void CastEffect()

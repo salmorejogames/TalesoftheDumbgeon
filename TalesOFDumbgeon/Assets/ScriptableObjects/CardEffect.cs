@@ -4,7 +4,5 @@ using UnityEngine;
 
 public abstract class CardEffect : ScriptableObject
 {
-    public string[] parameters;
-    
-    public abstract string Start();
+    public abstract void Start();
 }
