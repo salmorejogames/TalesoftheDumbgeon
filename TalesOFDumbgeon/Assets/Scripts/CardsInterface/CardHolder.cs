@@ -23,7 +23,7 @@ public class CardHolder : MonoBehaviour
     void Awake()
     {
         _inputControler = new InputControler();
-        _inputControler.Cartas.NuevaCarta.performed += ctx => AddCard("ComerBaguette");
+        _inputControler.Cartas.NuevaCarta.performed += ctx => AddCard("Baguette");
         _inputControler.Cartas.SacarCartas.performed += ctx => Resize();
         _inputControler.Cartas.Selection.performed += ctx => MoveSelection(Convert.ToBoolean(ctx.ReadValue<float>()));
         _inputControler.Cartas.EnterSelection.performed += ctx => EnterSelection();
@@ -43,7 +43,7 @@ public class CardHolder : MonoBehaviour
         buttonDown = Instantiate(buttonDown, _thisRect.position, Quaternion.identity);
         buttonDown.gameObject.transform.SetParent(this.gameObject.transform);
         buttonDown.gameObject.SetActive(false);
-        AddCard("ComerBaguette");
+        AddCard("Baguette");
         
     }
     private void MoveSelection(bool right)

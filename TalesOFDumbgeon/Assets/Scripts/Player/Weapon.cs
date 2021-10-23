@@ -26,12 +26,9 @@ public class Weapon : MonoBehaviour
 
     public void ChangeWeapon(WeaponSO newWeapon)
     {
-        if (weaponInfo != null)
-            weaponInfo.Unequip(holder);
         //Reset Collider
         if(_collider!= null)
             Destroy(_collider);
-        
         
         weaponInfo = newWeapon;
         weaponInfo.Equip(holder);

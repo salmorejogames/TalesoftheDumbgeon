@@ -7,6 +7,7 @@ public class SingletoneGameController : MonoBehaviour
     public static SingletoneGameController Instance;
     public static PlayerActions PlayerActions;
     public static MapManager MapManager;
+    public static CardHolder CardHolder;
     private void Awake()
     {
         //Singleton;
@@ -27,6 +28,7 @@ public class SingletoneGameController : MonoBehaviour
     {
         MapManager = gameObject.GetComponent<MapManager>();
         PlayerActions = gameObject.GetComponent<PlayerActions>();
+        CardHolder = FindObjectOfType<CardHolder>();
     }
     
 }

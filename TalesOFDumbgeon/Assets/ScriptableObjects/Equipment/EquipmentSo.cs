@@ -38,6 +38,7 @@ namespace ScriptableObjects.Equipment
         
         public virtual void Unequip(CharacterStats stats)
         {
+            SingletoneGameController.CardHolder.AddCard(name);
             stats.equipment[(int) type] = null;
             stats.armor -= armor;
             stats.speed -= speed;

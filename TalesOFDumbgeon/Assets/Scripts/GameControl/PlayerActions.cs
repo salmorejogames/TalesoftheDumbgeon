@@ -47,8 +47,11 @@ public class PlayerActions : MonoBehaviour
     }
     public void ChangeEquipment(EquipmentSo newEquipment)
     {
-        newEquipment.Equip(player.Stats);
+        
         if (newEquipment.type == EquipmentSo.EquipmentType.Weapon)
             player.PlayerActions.weapon.ChangeWeapon((WeaponSO) newEquipment);
+        else
+            newEquipment.Equip(player.Stats);
+        
     }
 }

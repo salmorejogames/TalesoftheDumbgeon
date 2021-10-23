@@ -24,7 +24,7 @@ public class Card : MonoBehaviour, IPointerClickHandler
         _rectTransform = gameObject.GetComponent<RectTransform>();
         _cardHolder = gameObject.transform.parent.gameObject.GetComponent<CardHolder>();
         cardInfo = Resources.Load<CardInfo>("cards/CardsInfo/" + CardName);
-        Debug.Log(CardName);
+        Debug.Log(CardName + " " + cardInfo.cardName);
         holderImage.sprite = cardInfo.cardHolder;
         itemImage.sprite = cardInfo.artwork;
         title.text = cardInfo.cardName;
@@ -52,10 +52,10 @@ public class Card : MonoBehaviour, IPointerClickHandler
         SetHighlight(false);
         StartCoroutine(nameof(Fade));
         Invoke(nameof(Delete), 1);
-        ActivateEffect();
     }
     private void Delete()
     {
+        ActivateEffect();
         _cardHolder.DeleteCard(_rectTransform);
     }
 
