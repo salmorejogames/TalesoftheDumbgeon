@@ -1,17 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using ScriptableObjects;
+using ScriptableObjects.Equipment;
 using UnityEngine;
 
 public class MapManager : MonoBehaviour
 {
-  
-
-    public static MapManager Instance;
+    
     public static int MaxMaps;
     public static int ActualMap;
     
     [SerializeField] private List<MapInstance> maps;
-    [SerializeField] private float gapX;
     [SerializeField] private float playerRelativeSpeed;
     [SerializeField] private float sleepTime;
     [SerializeField] private int tilesMovedInTransition;
@@ -24,16 +23,6 @@ public class MapManager : MonoBehaviour
 
     private void Awake()
     {
-        //Singleton;
-        if (Instance != null && Instance != this)
-        {
-            Destroy(this.gameObject);
-            return;
-        }
-        else
-        {
-            Instance = this;
-        }
         _mod = Vector2.zero;
         _actualMap = Instantiate(maps[0], Vector3.zero, Quaternion.identity);
         MaxMaps = maps.Count;
@@ -50,15 +39,35 @@ public class MapManager : MonoBehaviour
     public void InstantiateMap(int id)
     {
         Debug.Log("Instantiate Map");
+
         _mod.x = 1;
         _mod.y = 1;
-        if (_player.transform.position.x < 0) _mod.x = -1;
-        if (_player.transform.position.y < 0) _mod.y = -1;
-        
-        float newX = _mod.x*(_actualMap.Dimensions.x + _actualMap.Dimensions.x * gapX)/2;
-        float newY = _mod.y*_actualMap.Dimensions.y/4;
-        Vector3 newCenter = new Vector3(newX, newY, 0);
-        MapInstance newMapInstance = Instantiate(maps[id], newCenter, Quaternion.identity);
+        Vector3 pos = _player.gameObject.transform.position;
+        if (pos.x <= 0 && pos.y <= 0)
+        {
+            _mod.x = -1;
+            _mod.y = 0;
+        }else if (pos.x <= 0 && pos.y >= 0)
+        {
+            _mod.x = 0;
+        }else if (pos.x >= 0 && pos.y >= 0)
+        {
+            _mod.y = 0;
+        }
+        else
+        {
+            _mod.x = 0;
+            _mod.y = -1;
+        }
+
+        MapInstance newMapInstance = Instantiate(maps[id]);
+        //Debug.Log(_actualMap.Dimensions.ToString() + " " + newMapInstance.Dimensions.ToString() + " "  + multiplier);
+        //float newX = _mod.x*(_actualMap.Dimensions.x/4 + newMapInstance.Dimensions.x/4);
+        //float newY = _mod.y*(_actualMap.Dimensions.y*IsometricUtils.CellSizeY/4 + newMapInstance.Dimensions.y*IsometricUtils.CellSizeY/4);
+        float xPos = _mod.x*(_actualMap.Dimensions.x/2 + newMapInstance.Dimensions.x/2)*0.5f;
+        float yPos = _mod.y * (_actualMap.Dimensions.y / 2 + newMapInstance.Dimensions.y / 2)*0.5f;
+        Vector3 newCenter = IsometricUtils.CartesianToIsometric(new Vector2(xPos, yPos));
+        newMapInstance.gameObject.transform.position = newCenter;
         _oldMap = _actualMap;
         newMapInstance.SetTrigger(false);
         newMapInstance.gameObject.SetActive(true);
@@ -66,23 +75,18 @@ public class MapManager : MonoBehaviour
         _actualMap = newMapInstance;
         StartCoroutine("Transition", newCenter);
         ActualMap = id;
+        
 
     }
 
     private Vector3 CalculatePlayerRelativeCoordinates()
     {
-        if (_mod.x > 0 && _mod.y > 0)
-            return (Vector3) IsometricUtils.CartesianToIsometric(new Vector2(tilesMovedInTransition - tilesMovedInTransition*gapX, 0));
-        if (_mod.x<0 && _mod.y <0)
-            return (Vector3) IsometricUtils.CartesianToIsometric(new Vector2(-tilesMovedInTransition + tilesMovedInTransition*gapX, 0));
-        if (_mod.x>0 && _mod.y <0)
-            return (Vector3) IsometricUtils.CartesianToIsometric(new Vector2(0, -tilesMovedInTransition));
-        return (Vector3) IsometricUtils.CartesianToIsometric(new Vector2(0, tilesMovedInTransition));
+        return (Vector3) IsometricUtils.CartesianToIsometric(new Vector2(tilesMovedInTransition*_mod.x, tilesMovedInTransition*_mod.y));
     }
     private IEnumerator Transition(Vector3 destiny)
     {
         var cameraTr = _mainCamera.gameObject.transform.position;
-        var playerPos = _player.transform.position;
+        var playerPos = _player.gameObject.transform.position;
         var coordinates = CalculatePlayerRelativeCoordinates();
  
         Vector3 cameraDestiny = new Vector3(destiny.x, destiny.y, cameraTr.z);
@@ -92,7 +96,7 @@ public class MapManager : MonoBehaviour
         _player.UpdateAngle(coordinates);
         while (Vector3.Distance(playerPos, playerObjetive)>0.001)
         {
-            playerPos = Vector3.MoveTowards(playerPos, playerObjetive, _player.speed*playerRelativeSpeed*Time.deltaTime);
+            playerPos = Vector3.MoveTowards(playerPos, playerObjetive, _player.Stats.speed*playerRelativeSpeed*Time.deltaTime);
             _player.transform.position = playerPos;
             yield return null;
         }
@@ -113,10 +117,13 @@ public class MapManager : MonoBehaviour
         _player.transform.position = _player.transform.position - actualPos;
         _actualMap.SetTrigger(true);
         _player.SetActive(true);
+        _actualMap.StartMap();
     }
     public void ReloadScene()
     {
         _player = FindObjectOfType<IsometricMove>();
         _mainCamera = Camera.main;
     }
+
+    
 }

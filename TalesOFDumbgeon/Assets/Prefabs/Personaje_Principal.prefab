@@ -75,8 +75,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -390260249
-  m_SortingLayer: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 5207018984989654186, guid: 0f2e51a5e39879f449948b3a6efb6358,
     type: 3}
@@ -102,9 +102,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a5beb185fd95974f9ac35d41c942729, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2
-  gapX: -10
+  gapX: 0
   angle: 0
+  canMove: 1
 --- !u!114 &6488593195097325721
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -130,7 +130,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weapon: {fileID: 8594361203118243010}
-  active: 0
   invincible: 0
   inmunityTime: 0.5
 --- !u!114 &8328859853636097723
@@ -145,6 +144,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe75dc7e7b1608540b14bb84463aa1bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  equipment:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   maxHealth: 20
   armor: 1
   strength: 0
@@ -188,7 +194,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.42437547, y: 0.7607422}
+    oldSize: {x: 0.42871094, y: 0.7629776}
     newSize: {x: 0.16, y: 0.16}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -284,8 +290,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -390260249
-  m_SortingLayer: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -312,6 +318,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponInfo: {fileID: 0}
   holder: {fileID: 8328859853636097723}
-  angle: 0
-  relativeAngle: 0
-  incapacited: 0

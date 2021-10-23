@@ -2,13 +2,162 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b1d37c9d-25b2-4110-97a9-49ea663fadda" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Weapons/Baguette.asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Weapons/Baguette.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Animations/StaticE.anim" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Animations/StaticE.anim.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Animations/StaticN.anim" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Animations/StaticN.anim.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Animations/StaticS.anim" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Animations/StaticS.anim.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Animations/StaticW.anim" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Animations/StaticW.anim.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Sprites/cartas/armaduras.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Sprites/cartas/armaduras/carta_sombreroMexicano.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Sprites/cartas/bendiciones.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Sprites/cartas/bendiciones/carta_powerUp.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Sprites/cartas/hechizos.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Sprites/cartas/hechizos/carta_poderLimitado.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Sprites/cartas/maldiciones.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Sprites/cartas/maldiciones/carta_analfabetismo.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Sprites/escenarios/MAZMORRA-COLUMNA_BASE_01.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Sprites/escenarios/MAZMORRA-COLUMNA_BASE_02.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Sprites/escenarios/MAZMORRA-COLUMNA_PILAR_01.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Sprites/escenarios/MAZMORRA-SUELO_01.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Sprites/escenarios/MAZMORRA-SUELO_02.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Sprites/escenarios/MAZMORRA-SUELO_03.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Sprites/escenarios/MAZMORRA-SUELO_04.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Sprites/escenarios/collision.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Sprites/escenarios/collision.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Sprites/personajes/abuesqueleto.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Tiles/DISCOCUEVA-PISTA_BAILE-AMBAR.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Tiles/DISCOCUEVA-PISTA_BAILE-AMBAR.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Tiles/DISCOCUEVA-PISTA_BAILE-AZUL.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Tiles/DISCOCUEVA-PISTA_BAILE-AZUL.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Tiles/DISCOCUEVA-PISTA_BAILE-LIMA.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Tiles/DISCOCUEVA-PISTA_BAILE-LIMA.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Tiles/DISCOCUEVA-PISTA_BAILE-MAGENTA.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Tiles/DISCOCUEVA-PISTA_BAILE-MAGENTA.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Tiles/DISCOCUEVA-PISTA_BAILE-ROJO.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Tiles/DISCOCUEVA-PISTA_BAILE-ROJO.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Tiles/DefaultPalette.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Tiles/DefaultPalette.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Tiles/MAZMORRA-COLUMNA_BASE_01.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Tiles/MAZMORRA-COLUMNA_BASE_01.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Tiles/MAZMORRA-COLUMNA_BASE_02.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Tiles/MAZMORRA-COLUMNA_BASE_02.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Tiles/MAZMORRA-COLUMNA_PILAR_01.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Tiles/MAZMORRA-COLUMNA_PILAR_01.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Tiles/MAZMORRA-SUELO_01.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Tiles/MAZMORRA-SUELO_01.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Tiles/MAZMORRA-SUELO_02.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Tiles/MAZMORRA-SUELO_02.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Tiles/MAZMORRA-SUELO_03.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Tiles/MAZMORRA-SUELO_03.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Tiles/MAZMORRA-SUELO_04.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Tiles/MAZMORRA-SUELO_04.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Tiles/collision.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Tiles/collision.asset.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.TalesOFDumbgeon/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TalesOFDumbgeon/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Equipment/MeleeWeapon.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Equipment/MeleeWeapon.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/IsometricMove.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/IsometricMove.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Player.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animations/Player.controller" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/StaticNE.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animations/StaticNE.anim" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/StaticNE.anim.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animations/StaticNE.anim.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/StaticNW.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animations/StaticNW.anim" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/StaticNW.anim.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animations/StaticNW.anim.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/StaticSE.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animations/StaticSE.anim" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/StaticSE.anim.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animations/StaticSE.anim.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/StaticSW.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animations/StaticSW.anim" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/StaticSW.anim.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animations/StaticSW.anim.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets_DevilsWorkShop.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets_DevilsWorkShop/Low_Poly_Pixel_2D_Blocks_DevilsWorkShop_v04.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets_DevilsWorkShop/Low_Poly_Pixel_2D_Blocks_DevilsWorkShop_v04/Textures.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets_DevilsWorkShop/Low_Poly_Pixel_2D_Blocks_DevilsWorkShop_v04/Textures/assets_1024x1024.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets_DevilsWorkShop/Low_Poly_Pixel_2D_Blocks_DevilsWorkShop_v04/Textures/assets_1024x1024/LateralSE - copia.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets_DevilsWorkShop/Low_Poly_Pixel_2D_Blocks_DevilsWorkShop_v04/Textures/assets_1024x1024/LateralSE - copia.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets_DevilsWorkShop/Low_Poly_Pixel_2D_Blocks_DevilsWorkShop_v04/Textures/assets_1024x1024/LateralSW.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets_DevilsWorkShop/Low_Poly_Pixel_2D_Blocks_DevilsWorkShop_v04/Textures/assets_1024x1024/LateralSW.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets_DevilsWorkShop/Low_Poly_Pixel_2D_Blocks_DevilsWorkShop_v04/Textures/assets_1024x1024/Tiles.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets_DevilsWorkShop/Low_Poly_Pixel_2D_Blocks_DevilsWorkShop_v04/Textures/assets_1024x1024/Tiles/LateralSE - copia.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets_DevilsWorkShop/Low_Poly_Pixel_2D_Blocks_DevilsWorkShop_v04/Textures/assets_1024x1024/Tiles/LateralSE - copia.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets_DevilsWorkShop/Low_Poly_Pixel_2D_Blocks_DevilsWorkShop_v04/Textures/assets_1024x1024/Tiles/aquarev3.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets_DevilsWorkShop/Low_Poly_Pixel_2D_Blocks_DevilsWorkShop_v04/Textures/assets_1024x1024/Tiles/aquarev3.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets_DevilsWorkShop/Low_Poly_Pixel_2D_Blocks_DevilsWorkShop_v04/Textures/assets_1024x1024/Tiles/isometric_0006.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets_DevilsWorkShop/Low_Poly_Pixel_2D_Blocks_DevilsWorkShop_v04/Textures/assets_1024x1024/Tiles/isometric_0006.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets_DevilsWorkShop/Low_Poly_Pixel_2D_Blocks_DevilsWorkShop_v04/Textures/assets_1024x1024/Tiles/isometric_0007.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets_DevilsWorkShop/Low_Poly_Pixel_2D_Blocks_DevilsWorkShop_v04/Textures/assets_1024x1024/Tiles/isometric_0007.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets_DevilsWorkShop/Low_Poly_Pixel_2D_Blocks_DevilsWorkShop_v04/Textures/assets_1024x1024/Tiles/isometric_0009.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets_DevilsWorkShop/Low_Poly_Pixel_2D_Blocks_DevilsWorkShop_v04/Textures/assets_1024x1024/Tiles/isometric_0009.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets_DevilsWorkShop/Low_Poly_Pixel_2D_Blocks_DevilsWorkShop_v04/Textures/assets_1024x1024/Tiles/isometric_0019.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets_DevilsWorkShop/Low_Poly_Pixel_2D_Blocks_DevilsWorkShop_v04/Textures/assets_1024x1024/Tiles/isometric_0019.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets_DevilsWorkShop/Low_Poly_Pixel_2D_Blocks_DevilsWorkShop_v04/Textures/assets_1024x1024/Tiles/isometric_0035.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets_DevilsWorkShop/Low_Poly_Pixel_2D_Blocks_DevilsWorkShop_v04/Textures/assets_1024x1024/Tiles/isometric_0035.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets_DevilsWorkShop/Low_Poly_Pixel_2D_Blocks_DevilsWorkShop_v04/Textures/assets_1024x1024/Tiles/isometric_0037.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets_DevilsWorkShop/Low_Poly_Pixel_2D_Blocks_DevilsWorkShop_v04/Textures/assets_1024x1024/Tiles/isometric_0037.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets_DevilsWorkShop/Low_Poly_Pixel_2D_Blocks_DevilsWorkShop_v04/Textures/assets_1024x1024/Tiles/isometric_0043.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets_DevilsWorkShop/Low_Poly_Pixel_2D_Blocks_DevilsWorkShop_v04/Textures/assets_1024x1024/Tiles/isometric_0043.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets_DevilsWorkShop/Low_Poly_Pixel_2D_Blocks_DevilsWorkShop_v04/Textures/assets_1024x1024/aquarev3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets_DevilsWorkShop/Low_Poly_Pixel_2D_Blocks_DevilsWorkShop_v04/Textures/assets_1024x1024/aquarev3.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets_DevilsWorkShop/Low_Poly_Pixel_2D_Blocks_DevilsWorkShop_v04/Textures/assets_1024x1024/isometric_0006.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets_DevilsWorkShop/Low_Poly_Pixel_2D_Blocks_DevilsWorkShop_v04/Textures/assets_1024x1024/isometric_0006.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets_DevilsWorkShop/Low_Poly_Pixel_2D_Blocks_DevilsWorkShop_v04/Textures/assets_1024x1024/isometric_0007.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets_DevilsWorkShop/Low_Poly_Pixel_2D_Blocks_DevilsWorkShop_v04/Textures/assets_1024x1024/isometric_0007.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets_DevilsWorkShop/Low_Poly_Pixel_2D_Blocks_DevilsWorkShop_v04/Textures/assets_1024x1024/isometric_0008.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets_DevilsWorkShop/Low_Poly_Pixel_2D_Blocks_DevilsWorkShop_v04/Textures/assets_1024x1024/isometric_0008.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets_DevilsWorkShop/Low_Poly_Pixel_2D_Blocks_DevilsWorkShop_v04/Textures/assets_1024x1024/isometric_0009.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets_DevilsWorkShop/Low_Poly_Pixel_2D_Blocks_DevilsWorkShop_v04/Textures/assets_1024x1024/isometric_0009.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets_DevilsWorkShop/Low_Poly_Pixel_2D_Blocks_DevilsWorkShop_v04/Textures/assets_1024x1024/isometric_0014.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets_DevilsWorkShop/Low_Poly_Pixel_2D_Blocks_DevilsWorkShop_v04/Textures/assets_1024x1024/isometric_0014.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets_DevilsWorkShop/Low_Poly_Pixel_2D_Blocks_DevilsWorkShop_v04/Textures/assets_1024x1024/isometric_0015.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets_DevilsWorkShop/Low_Poly_Pixel_2D_Blocks_DevilsWorkShop_v04/Textures/assets_1024x1024/isometric_0015.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets_DevilsWorkShop/Low_Poly_Pixel_2D_Blocks_DevilsWorkShop_v04/Textures/assets_1024x1024/isometric_0019.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets_DevilsWorkShop/Low_Poly_Pixel_2D_Blocks_DevilsWorkShop_v04/Textures/assets_1024x1024/isometric_0019.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets_DevilsWorkShop/Low_Poly_Pixel_2D_Blocks_DevilsWorkShop_v04/Textures/assets_1024x1024/isometric_0021.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets_DevilsWorkShop/Low_Poly_Pixel_2D_Blocks_DevilsWorkShop_v04/Textures/assets_1024x1024/isometric_0021.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets_DevilsWorkShop/Low_Poly_Pixel_2D_Blocks_DevilsWorkShop_v04/Textures/assets_1024x1024/isometric_0022.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets_DevilsWorkShop/Low_Poly_Pixel_2D_Blocks_DevilsWorkShop_v04/Textures/assets_1024x1024/isometric_0022.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets_DevilsWorkShop/Low_Poly_Pixel_2D_Blocks_DevilsWorkShop_v04/Textures/assets_1024x1024/isometric_0023.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets_DevilsWorkShop/Low_Poly_Pixel_2D_Blocks_DevilsWorkShop_v04/Textures/assets_1024x1024/isometric_0023.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets_DevilsWorkShop/Low_Poly_Pixel_2D_Blocks_DevilsWorkShop_v04/Textures/assets_1024x1024/isometric_0025.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets_DevilsWorkShop/Low_Poly_Pixel_2D_Blocks_DevilsWorkShop_v04/Textures/assets_1024x1024/isometric_0025.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets_DevilsWorkShop/Low_Poly_Pixel_2D_Blocks_DevilsWorkShop_v04/Textures/assets_1024x1024/isometric_0029.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets_DevilsWorkShop/Low_Poly_Pixel_2D_Blocks_DevilsWorkShop_v04/Textures/assets_1024x1024/isometric_0029.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets_DevilsWorkShop/Low_Poly_Pixel_2D_Blocks_DevilsWorkShop_v04/Textures/assets_1024x1024/isometric_0035.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets_DevilsWorkShop/Low_Poly_Pixel_2D_Blocks_DevilsWorkShop_v04/Textures/assets_1024x1024/isometric_0035.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets_DevilsWorkShop/Low_Poly_Pixel_2D_Blocks_DevilsWorkShop_v04/Textures/assets_1024x1024/isometric_0037.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets_DevilsWorkShop/Low_Poly_Pixel_2D_Blocks_DevilsWorkShop_v04/Textures/assets_1024x1024/isometric_0037.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets_DevilsWorkShop/Low_Poly_Pixel_2D_Blocks_DevilsWorkShop_v04/Textures/assets_1024x1024/isometric_0043.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets_DevilsWorkShop/Low_Poly_Pixel_2D_Blocks_DevilsWorkShop_v04/Textures/assets_1024x1024/isometric_0043.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Card.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Card.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/GameManager.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/GameManager.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Maps/Mapa1.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Maps/Mapa1.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Maps/Mapa1.prefab.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Maps/Mapa1.prefab.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Maps/Mapa2.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Maps/Mapa2.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Maps/Mapa2.prefab.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Maps/Mapa2.prefab.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Personaje_Principal.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Personaje_Principal.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Cards/CardsInfo/ComerBaguette.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Cards/CardsInfo/ComerBaguette.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Goblin.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Goblin.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/IsometricScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/IsometricScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CardsInterface/Card.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CardsInterface/Card.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CardsInterface/CardHolder.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CardsInterface/CardHolder.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/IsometricUtils.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/IsometricUtils.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Map/MapInstance.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Map/MapInstance.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Map/MapManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Map/MapManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/IsometricCharacterRenderer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/IsometricCharacterRenderer.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerActionsController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerActionsController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/Weapon.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/Weapon.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Idk.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Idk.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/escenarios/DISCOCUEVA-PISTA_BAILE-AMBAR.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/escenarios/DISCOCUEVA-PISTA_BAILE-AMBAR.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/escenarios/DISCOCUEVA-PISTA_BAILE-AZUL.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/escenarios/DISCOCUEVA-PISTA_BAILE-AZUL.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/escenarios/DISCOCUEVA-PISTA_BAILE-LIMA.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/escenarios/DISCOCUEVA-PISTA_BAILE-LIMA.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/escenarios/DISCOCUEVA-PISTA_BAILE-MAGENTA.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/escenarios/DISCOCUEVA-PISTA_BAILE-MAGENTA.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/escenarios/DISCOCUEVA-PISTA_BAILE-ROJO.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/escenarios/DISCOCUEVA-PISTA_BAILE-ROJO.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/escenarios/template02.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/escenarios/template02.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/personajes/sprite_stadtnarr_chica.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/personajes/sprite_stadtnarr_chica.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Tiles/ExamplePallete.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Tiles/ExamplePallete/ExamplePallete.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Tiles/ExamplePallete/ExamplePallete.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Tiles/ExamplePallete/isometric_0043.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Tiles/ExamplePallete/isometric_0043.asset.meta" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,11 +176,14 @@
     </file-type-list>
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Elements.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/ScriptableObjects/Equipment/MeleeWeapon.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/ScriptableObjects/Enemy.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Plugins/CheckIfMobile/CheckIfMobile.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Elements.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.inputsystem@1.0.2/InputSystem/Plugins/OnScreen/OnScreenStick.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../../Unity/Hub/Editor/2019.4.26f1/Editor/Data/Resources/PackageManager/BuiltInPackages/com.unity.ugui/Runtime/EventSystem/UIBehaviour.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/GameControl/PlayerActions.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.inputsystem@1.0.2/InputSystem/Utilities/DelegateHelpers.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/IsometricUtils.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
@@ -50,7 +202,6 @@
       <option value="$PROJECT_DIR$/Assets/Cards/CardsActions/SetHealth.cs" />
       <option value="$PROJECT_DIR$/Assets/Cards/CardsInfo/CardInfo.cs" />
       <option value="$PROJECT_DIR$/Assets/Resources/Cards/CardsActions/SetHealth.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/CardsInterface/Card.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/PlayerController.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/IsometricMove.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/PlayerActionsController.cs" />
@@ -60,18 +211,29 @@
       <option value="$PROJECT_DIR$/Assets/ScriptableObjects/RangedWeapon.cs" />
       <option value="$PROJECT_DIR$/Assets/ScriptableObjects/Equipment/Equipment.cs" />
       <option value="$PROJECT_DIR$/Assets/ScriptableObjects/Equipment/WeaponSO.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/CharacterStats.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/IsometricUtils.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Bala_Move.cs" />
-      <option value="$PROJECT_DIR$/Assets/ScriptableObjects/Equipment/EquipmentSo.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Player/PlayerCollisions.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Map/MapInstance.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Map/MapManager.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/CardsInterface/CardHolder.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Player/IsometricMove.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Player/PlayerActionsController.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Player/Weapon.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/CharacterStats.cs" />
+      <option value="$PROJECT_DIR$/Assets/ScriptableObjects/CardEffect.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/SingletoneGameController.cs" />
+      <option value="$PROJECT_DIR$/Assets/ScriptableObjects/CardEquipment.cs" />
+      <option value="$PROJECT_DIR$/Assets/ScriptableObjects/SetHealth.cs" />
       <option value="$PROJECT_DIR$/Assets/ScriptableObjects/Equipment/MeleeWeapon.cs" />
+      <option value="$PROJECT_DIR$/Assets/ScriptableObjects/Equipment/RangedWeapon.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/GameControl/SingletoneGameController.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/GameControl/PlayerActions.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Player/IsometricMove.cs" />
+      <option value="$PROJECT_DIR$/Assets/ScriptableObjects/Equipment/EquipmentSo.cs" />
+      <option value="$PROJECT_DIR$/Assets/ScriptableObjects/Enemy.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Player/CharacterBehaviour.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Player/IsometricCharacterRenderer.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/CardsInterface/Card.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/CardsInterface/CardHolder.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Player/Weapon.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Player/PlayerActionsController.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Map/MapInstance.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/IsometricUtils.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Map/MapManager.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1zRaEkaFY4bgpmOHr8r3t8E1N2f" />
@@ -140,6 +302,7 @@
       <workItem from="1634755340577" duration="13387000" />
       <workItem from="1634825136275" duration="5190000" />
       <workItem from="1634900020729" duration="8165000" />
+      <workItem from="1634990597386" duration="8639000" />
     </task>
     <servers />
   </component>
