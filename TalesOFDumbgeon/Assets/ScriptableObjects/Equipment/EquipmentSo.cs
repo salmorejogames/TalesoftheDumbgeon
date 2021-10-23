@@ -43,8 +43,7 @@ namespace ScriptableObjects.Equipment
             stats.armor -= armor;
             stats.speed -= speed;
             stats.strength -= strength;
-            stats.maxHealth -= health;
-            stats.DoDamage(health +stats.armor);
+            stats.ReduceMaxHealth(health);
             if (type == EquipmentType.Body)
                 stats.element = Elements.Element.Caos;
         }

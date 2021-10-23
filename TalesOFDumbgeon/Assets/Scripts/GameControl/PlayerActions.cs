@@ -43,7 +43,7 @@ public class PlayerActions : MonoBehaviour
 
     public void Damage(int cantidad)
     {
-        player.Stats.DoDamage(cantidad);
+        player.Stats.DoDamage(cantidad, gameObject);
     }
     public void ChangeEquipment(EquipmentSo newEquipment)
     {

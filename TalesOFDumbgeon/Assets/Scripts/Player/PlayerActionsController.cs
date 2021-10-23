@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using Interfaces;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerActionsController : MonoBehaviour
+public class PlayerActionsController : MonoBehaviour, IDeadable
 {
    
     public Weapon weapon;
@@ -72,19 +73,14 @@ public class PlayerActionsController : MonoBehaviour
         if (collision.gameObject.CompareTag("Enemigo") && !invincible)
         {
             CharacterStats enemy_stats = collision.gameObject.GetComponent<CharacterStats>();
-            _stats.DoDamage(enemy_stats.strength * Elements.GetElementMultiplier(enemy_stats.element, _stats.element));
-            OnDamageReceived(collision.gameObject.transform.position);
-            if (!_stats.IsAlive())
-            {
-                Debug.Log("Im dead");
-                Destroy(gameObject);
-            }
+            _stats.DoDamage(enemy_stats.strength * Elements.GetElementMultiplier(enemy_stats.element, _stats.element), collision.gameObject);
+            //OnDamageReceived(collision.gameObject.transform.position);
         }
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("Trigger enter with " + other.name);
+        //Debug.Log("Trigger enter with " + other.name);
         if (other.gameObject.CompareTag("EscenarioTrigger"))
         {
             Debug.Log("Cambiando mapa");
@@ -99,18 +95,7 @@ public class PlayerActionsController : MonoBehaviour
 
     public void OnDamageReceived(Vector3 damagePos)
     {
-        Debug.Log("Damage Recived");
-        var direction = gameObject.transform.position - damagePos;
-        var magnitude = direction.magnitude;
-        direction = direction / magnitude;
-        _rb.velocity = direction;
-        Debug.Log(direction);
-        invincible = true;
-        _canAtack = false;
-        _spriteRenderer.color = Color.red;
-        SingletoneGameController.PlayerActions.DisableMovement(inmunityTime);
-        Invoke(nameof(CancelInvincibility), inmunityTime);
-        Invoke(nameof(ResetSpriteColor), inmunityTime);
+       
     }
 
     private void CancelInvincibility()
@@ -133,5 +118,27 @@ public class PlayerActionsController : MonoBehaviour
     private void OnDisable()
     {
         _controles.Disable();
+    }
+
+    public void Dead()
+    {
+        Debug.Log("Im dead");
+        Destroy(gameObject);
+    }
+
+    public void Damage(GameObject enemy, float cantidad)
+    {
+        Debug.Log("Damage Recived");
+        var direction = gameObject.transform.position - enemy.transform.position;
+        var magnitude = direction.magnitude;
+        direction = direction / magnitude;
+        _rb.velocity = direction;
+        Debug.Log(direction);
+        invincible = true;
+        _canAtack = false;
+        _spriteRenderer.color = Color.red;
+        SingletoneGameController.PlayerActions.DisableMovement(inmunityTime);
+        Invoke(nameof(CancelInvincibility), inmunityTime);
+        Invoke(nameof(ResetSpriteColor), inmunityTime);
     }
 }

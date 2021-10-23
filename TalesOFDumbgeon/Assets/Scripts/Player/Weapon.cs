@@ -19,7 +19,7 @@ public class Weapon : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        angle = 0;
+        SetOrientation(270);
         _spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
         ChangeWeapon(weaponInfo);
     }
@@ -56,7 +56,7 @@ public class Weapon : MonoBehaviour
         if (!other.gameObject.CompareTag(holder.tag) && (other.gameObject.CompareTag("Enemigo") || other.gameObject.CompareTag("Player")))
         {
             CharacterStats enemy = other.gameObject.GetComponent<CharacterStats>();
-            enemy.DoDamage(IsometricUtils.CalculateDamage(weaponInfo.dmg, holder.strength, weaponInfo.element, enemy.element));
+            enemy.DoDamage(IsometricUtils.CalculateDamage(weaponInfo.dmg, holder.strength, weaponInfo.element, enemy.element), gameObject);
         }
     }
     

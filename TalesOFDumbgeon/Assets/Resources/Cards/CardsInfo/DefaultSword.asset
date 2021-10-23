@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 622656e6d8a4caf438c0f0cef9dccca9, type: 3}
   m_Name: DefaultSword
   m_EditorClassIdentifier: 
-  cardName: 
+  cardName: Default Sword
   description: 
-  cardHolder: {fileID: 0}
-  artwork: {fileID: 0}
-  effects: []
+  cardHolder: {fileID: 21300000, guid: fff37dfec2edd084bb3d7c394f6e54e7, type: 3}
+  artwork: {fileID: 21300000, guid: 764f5c3712ae0e5499729f6101cbcb17, type: 3}
+  effects:
+  - {fileID: 11400000, guid: 842fba4540b43f9468f125a951456408, type: 2}

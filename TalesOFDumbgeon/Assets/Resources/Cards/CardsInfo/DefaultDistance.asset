@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 622656e6d8a4caf438c0f0cef9dccca9, type: 3}
   m_Name: DefaultDistance
   m_EditorClassIdentifier: 
-  cardName: 
+  cardName: Default Ranged Weapon
   description: 
-  cardHolder: {fileID: 0}
-  artwork: {fileID: 0}
-  effects: []
+  cardHolder: {fileID: 21300000, guid: fff37dfec2edd084bb3d7c394f6e54e7, type: 3}
+  artwork: {fileID: 21300000, guid: ec1dc663f00a06449a3c2df4123297f0, type: 3}
+  effects:
+  - {fileID: 11400000, guid: b4b74f69cced96b45a39292e9aa11a42, type: 2}

@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 622656e6d8a4caf438c0f0cef9dccca9, type: 3}
   m_Name: EspadaDeFe
   m_EditorClassIdentifier: 
-  cardName: 
-  description: 
-  cardHolder: {fileID: 0}
-  artwork: {fileID: 0}
-  effects: []
+  cardName: Espada De Fe
+  description: Espade de fe
+  cardHolder: {fileID: 21300000, guid: fff37dfec2edd084bb3d7c394f6e54e7, type: 3}
+  artwork: {fileID: 21300000, guid: 688d5b36e60d00d46a331b8c8f04e74b, type: 3}
+  effects:
+  - {fileID: 11400000, guid: 2e8797cb344a37e41842ba22a4559265, type: 2}
