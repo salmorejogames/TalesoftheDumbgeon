@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class MainMenuController : MonoBehaviour
+public class CreditsController : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
     {
-               
+        Invoke("TerminarCreditos", 31.5f);
     }
 
     // Update is called once per frame
@@ -17,13 +17,8 @@ public class MainMenuController : MonoBehaviour
         
     }
 
-    public void Jugar()
+    public void TerminarCreditos()
     {
-        SceneManager.LoadScene("IsometricScene");
-    }
-
-    public void Creditos()
-    {
-        SceneManager.LoadScene("CreditsScene");
+        SceneManager.LoadScene("MainMenuScene");
     }
 }
