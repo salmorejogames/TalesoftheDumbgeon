@@ -22,7 +22,6 @@ public class RangedWeapon : WeaponSO
         Rigidbody2D rb =ammo.AddComponent<Rigidbody2D>();
         
         spriteR.sprite = ammoSprite;
-        spriteR.sortingLayerName = "H2";
         rb.bodyType = RigidbodyType2D.Kinematic;
         bala.parentTag = weaponGO.holder.gameObject.tag;
         bala.weapon = this;

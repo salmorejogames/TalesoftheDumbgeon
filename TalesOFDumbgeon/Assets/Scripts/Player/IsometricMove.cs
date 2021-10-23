@@ -10,6 +10,8 @@ public class IsometricMove : MonoBehaviour
     [SerializeField] private float gapX;
 
     private const float ORIENTATION_STEP = 45f;
+    private const float ORIENTATION_STEP_SMALL = 30f;
+    private const float ORIENTATION_STEP_BIG = 60f;
     private const float ORIENTATION_OFFSET = 90f;  
     
     public float angle = 0;
@@ -56,7 +58,23 @@ public class IsometricMove : MonoBehaviour
 
     public void UpdateAngle(Vector2 movement)
     {
-        angle = _isoRenderer.SetDirection(movement) * ORIENTATION_STEP + ORIENTATION_OFFSET;
+        int direction = _isoRenderer.SetDirection(movement);
+        switch (direction)
+        {
+            case 0:
+            case 2:
+            case 4:
+            case 6:
+                angle = direction * ORIENTATION_STEP + ORIENTATION_OFFSET;
+                break;
+            case 1:
+            case 5:
+                angle = (direction - 1) * ORIENTATION_STEP + ORIENTATION_OFFSET  + ORIENTATION_STEP_BIG;
+                break;
+            default:
+                angle = (direction - 1) * ORIENTATION_STEP + ORIENTATION_OFFSET  + ORIENTATION_STEP_SMALL;
+                break;
+        }
     }
 
     private Vector2 ConvertToIsometric(Vector2 input)

@@ -90,6 +90,11 @@ public class PlayerActionsController : MonoBehaviour
             Debug.Log("Cambiando mapa");
             SingletoneGameController.MapManager.InstantiateMap((MapManager.ActualMap+1)%MapManager.MaxMaps);
         }
+
+        if (other.gameObject.CompareTag("Collectionable"))
+        {
+            other.gameObject.GetComponent<ICollectable>().Collect();
+        }
     }
 
     public void OnDamageReceived(Vector3 damagePos)
