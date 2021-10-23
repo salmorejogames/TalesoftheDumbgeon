@@ -50,7 +50,7 @@ public class Weapon : MonoBehaviour
 
     public void Atack()
     {
-        Debug.Log("Im atacking");
+        //Debug.Log("Im atacking");
         weaponInfo.Atacar(this);
     }
     

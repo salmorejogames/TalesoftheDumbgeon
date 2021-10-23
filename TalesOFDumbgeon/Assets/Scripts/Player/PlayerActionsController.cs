@@ -84,6 +84,7 @@ public class PlayerActionsController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        Debug.Log("Trigger enter with " + other.name);
         if (other.gameObject.CompareTag("EscenarioTrigger"))
         {
             Debug.Log("Cambiando mapa");

@@ -11,7 +11,7 @@ public class MapInstance : MonoBehaviour
     [NonSerialized] public Vector2Int Dimensions;
     [SerializeField] private Tilemap ground;
     [SerializeField] private Tilemap collisions;
-    [SerializeField] private Collider2D mapTrigger;
+    [SerializeField] private TilemapCollider2D mapTrigger;
     [SerializeField] private List<Enemy> posibleEnemies;
     [NonSerialized] public List<GameObject> enemys;
     [SerializeField] private int numEnemys; 
@@ -24,7 +24,7 @@ public class MapInstance : MonoBehaviour
 
     public void StartMap()
     {
-        Debug.Log(collisions.GetTile(Vector3Int.zero));
+        //Debug.Log(collisions.GetTile(Vector3Int.zero));
         Debug.Log("Starting Map");
         for (int i = 0; i < numEnemys; i++)
         {
@@ -42,6 +42,7 @@ public class MapInstance : MonoBehaviour
     
     public void SetTrigger(bool active)
     {
+        Debug.Log(gameObject.name + " triggers : " + active);
         mapTrigger.enabled = active;
     }
     

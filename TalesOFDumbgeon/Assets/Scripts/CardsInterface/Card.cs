@@ -12,7 +12,7 @@ public class Card : MonoBehaviour, IPointerClickHandler
     [NonSerialized] public string CardName;
     private CardHolder _cardHolder;
     private RectTransform _rectTransform;
-    private Image _image;
+    [SerializeField] private Image holderImage;
     [SerializeField] private Text title;
     [SerializeField] private Image itemImage;
     [SerializeField] private CardInfo cardInfo;
@@ -23,9 +23,9 @@ public class Card : MonoBehaviour, IPointerClickHandler
     {
         _rectTransform = gameObject.GetComponent<RectTransform>();
         _cardHolder = gameObject.transform.parent.gameObject.GetComponent<CardHolder>();
-        _image = gameObject.GetComponent<Image>();
         cardInfo = Resources.Load<CardInfo>("cards/CardsInfo/" + CardName);
-        _image.sprite = cardInfo.cardHolder;
+        Debug.Log(CardName);
+        holderImage.sprite = cardInfo.cardHolder;
         itemImage.sprite = cardInfo.artwork;
         title.text = cardInfo.cardName;
     }
@@ -62,9 +62,9 @@ public class Card : MonoBehaviour, IPointerClickHandler
     public void SetHighlight(bool active)
     {
         if (active)
-            _image.color = highlightColor;
+            holderImage.color = highlightColor;
         else
-            _image.color = Color.white;
+            holderImage.color = Color.white;
     }
     IEnumerator Fade() {
         Image image = GetComponent<Image>();

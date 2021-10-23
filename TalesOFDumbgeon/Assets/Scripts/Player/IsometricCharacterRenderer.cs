@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class IsometricCharacterRenderer : MonoBehaviour
 {
-    public static readonly string[] staticDirections = {"Static NW", "Static NW",  "Static SW", "Static SW", "Static SE", "Static SE", "Static NE", "Static NE"};
+    public static readonly string[] staticDirections = {"StaticN", "StaticNW",  "StaticW", "StaticSW", "StaticS", "StaticSE", "StaticE", "StaticNE"};
     public static readonly string[] runDirections = {"Run NW", "Run NE", "Run SW", "Run SE"};
 
     private Animator _animator;

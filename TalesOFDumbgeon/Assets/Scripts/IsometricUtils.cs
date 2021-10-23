@@ -4,10 +4,10 @@ using UnityEngine;
 
 public static class IsometricUtils
 {
-    private const float CellSizeY = 0.5f;
+    public const float CellSizeY = 0.57735f;
     public static Vector2 CartesianToIsometric(Vector2 input)
     {
-        return new Vector2(input.x - input.y , -(-input.x - input.y )/2 );
+        return new Vector2(input.x - input.y , -(-input.x - input.y )*CellSizeY );
     }
 
     public static Vector2 PolarToCartesian(float angle, float distance)
