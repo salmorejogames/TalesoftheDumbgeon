@@ -547,10 +547,11 @@ En este apartado se presentarán todos los personajes relevantes de la trama del
 En este apartado se ofrecen los assets creados originalmente por el equipo de desarrollo
 
  - Armadura Gorro Sombrero Mexicano
-![](https://user-images.githubusercontent.com/72553373/138588763-36fca268-b983-4a7b-88b3-9751f32de6b9.png)
+![CARTAS](https://user-images.githubusercontent.com/72553373/138589435-12b7a248-3a0a-46c5-9a4b-a4763e2c3703.png)
+
 
 - Bendición Power Up!
-![](https://user-images.githubusercontent.com/72553373/138588801-54c05576-41d9-477c-8cd3-4106d32438dc.png)
+![powerUP_carta](https://user-images.githubusercontent.com/72553373/138589444-301cf79a-3cf0-4359-ac54-1095caefb245.png)
 
 - Hechizo Poder Limitado
 ![](https://user-images.githubusercontent.com/72553373/138588829-b1e545bc-b765-4c2c-a180-794df4950be2.png)
