@@ -564,16 +564,10 @@ En este apartado se ofrecen los assets creados originalmente por el equipo de de
 ![](https://cdn.discordapp.com/attachments/808761273884999771/901763707871305728/MAZMORRA-Suelo.png)
 
  - Armadura Gorro Sombrero Mexicano
-![CARTAS](https://user-images.githubusercontent.com/72553373/138589435-12b7a248-3a0a-46c5-9a4b-a4763e2c3703.png)
+![](https://lh5.googleusercontent.com/ssNaZ0wMsHouOKi9MBFLz3pewrim8VlWrhY150XyHZcXIJ4Adc3T7_EyiNOr3g3BZXMbQRyIoabRnzLAYhWZ-xC-ZcV8H41z8JJQogKo0ahxkaFK78szzvAn5n8OSA=s1600)
 
 - Bendición Power Up!
-![powerUP_carta](https://user-images.githubusercontent.com/72553373/138589444-301cf79a-3cf0-4359-ac54-1095caefb245.png)
-
-- Hechizo Poder Limitado
-![](https://user-images.githubusercontent.com/72553373/138588829-b1e545bc-b765-4c2c-a180-794df4950be2.png)
-
-- Maldicion Analfabetismo
-![](https://user-images.githubusercontent.com/72553373/138588850-2c58958f-d716-46d4-96c0-13374ea54d04.png)
+![](https://lh5.googleusercontent.com/H_L5fF57BfE9qQRWVIOaRNownc0u505Be5RZuYDLElOr3sz1YbKPw6YtOg0zEVjtR9qKmR9qSSTyIIm-waMgAJN-pf-RvWvU_ucJhM6R3-xwZggxbnqHRG4axOF-ow=s1600)
 
 
 ## 6.3 Música
