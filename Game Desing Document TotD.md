@@ -643,7 +643,56 @@ En la siguiente imagen se presenta el diagrama de flujo de *Tales of the Dumbgeo
 
  # 8. Hoja de ruta del desarrollo
     
- ## 8.1 Hito 1
+## Hito 1 - Versión Alpha
+
+La fecha límite del hito 1 es el día 31 del mes de octubre del año 2021. En él se ha desarrollado el prototipo de Tales of the Dumbgeon hasta conseguir una versión Alpha apta para la continuación del proyecto. Para ello los diferentes departamentos del estudio han realizado las labores explicadas en los siguientes apartados:
+
+-   **Diseño:**
+    
+	En el apartado de diseño se realizó, antes de cualquier otro elemento, un documento de diseño en el que se explicaban todas los componentes de diseño necesario para comenzar el trabajo y a futuro. Entre estos componentes se encuentran los siguientes:
+
+	-   **Cartas:** las cartas son la base mecánica de *Tales of the Dumbgeon*. Como se ha explicado a lo largo de este documento, las cartas son el elemento que da habilidades, armas, armaduras, maldiciones y bendiciones al jugador. Para tener organizado los tipos, sus stats y efectos se ha realizado un documento excel que se actualiza con el tiempo cuando se generan más cartas nuevas. El enlace para llegar hasta él es el siguiente: [DocumentoCartas](https://docs.google.com/spreadsheets/d/1_EQh6-Omko_iLok0002eK7mrBMM10u9T01P8n-8xUPw/edit?usp=sharing).
+    
+	-   **Enemigos:** Estos son generados en la mazmorra y atacarán si descaro al jugador para hacer más difícil el viaje a lo largo de ésta. Se ha realizado una lista y a futuro se creará un documento excel similar al de las cartas para tener todos sus datos.
+    
+	-  **Zonas de la mazmorra:** Se han diseñado en concepto el aspecto y relación con la trama las zonas de la *Dumbgeon*. En el próximo hito se diseñará su estructura.
+    
+	-   **Jefes:** Se han diseñado los jefes de cada una de las zonas así como la forma del combate y en qué partes consiste aunque están sometidos a cambios futuros.
+    
+	-   **NPCs**: Se han generado personajes relevantes para la trama que sirvan como mecánicas en la mazmorra como El Cartero y El Cuervillo.
+    
+
+Por otro lado, se han producido algunas preguntas a responder por el departamento de diseño:
+
+-   ¿Qué tipo de guardado se va realizar?
+    
+-   ¿Se realizará una cinemática inicial?
+    
+
+Por último, se ha realizado completamente el documento de diseño de juego y se irá actualizando con los diferentes hitos.
+
+  
+
+-  **Programación**:
+    
+
+	En el apartado de programación se implementaron una serie de características que conforman la base jugable del juego, siguiendo las pautas definidas por el departamento de Diseño:
+
+	-   Adaptación a diferentes navegadores y a dispositivos móviles.
+    
+	-   Implementación del sistema de estadísticas aplicable al personaje principal y a los enemigos.
+    
+	-   Implementación de un sistema de movimiento en coordenadas isométricas para el personaje principal.
+    
+	-   Generación de las salas de la mazmorra.
+    
+	-   Implementación de una IA capaz de seguir al jugador para atacar.
+    
+	-   Implementación de un sistema de equipamiento de armaduras, armas y hechizos para el personaje principal.
+    
+	-   Implementación del sistema de cartas definido por el equipo de diseño.
+    
+	-   Sistema de combate basado en armas de 3 categorías.
     
 ## 8.2 Hito 2
     
