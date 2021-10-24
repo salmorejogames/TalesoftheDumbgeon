@@ -555,18 +555,23 @@ En este apartado se ofrecen los assets creados originalmente por el equipo de de
 ![](https://user-images.githubusercontent.com/72553373/138588690-49a056b3-8e47-4caf-8f6e-592bf8478d66.png)
 
 - Suelo de la Discocueva
+
 ![](https://cdn.discordapp.com/attachments/808761273884999771/901763700833288232/DISCOCUEVA-PistaDeBaile.png)
 
 - Columna de la Dumbgeon
+
 ![](https://cdn.discordapp.com/attachments/808761273884999771/901763704150954005/MAZMORRA-Columna.png)
 
 - Suelo de la Dumbegon
+
 ![](https://cdn.discordapp.com/attachments/808761273884999771/901763707871305728/MAZMORRA-Suelo.png)
 
- - Armadura Gorro Sombrero Mexicano
+- Armadura --> Sombrero Mexicano
+
 ![](https://cdn.discordapp.com/attachments/808761273884999771/901776879919464459/CARTAS.png)
 
-- Bendición Power Up!
+- Bendición --> Power Up
+- 
 ![](https://cdn.discordapp.com/attachments/808761273884999771/901776873636372490/powerUP_carta.png)
 
 
