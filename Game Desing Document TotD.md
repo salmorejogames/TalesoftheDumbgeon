@@ -659,7 +659,7 @@ La fecha límite del hito 1 es el día 31 del mes de octubre del año 2021. En �
     
 	-   **Jefes:** Se han diseñado los jefes de cada una de las zonas así como la forma del combate y en qué partes consiste aunque están sometidos a cambios futuros.
     
-	-   **NPCs**: Se han generado personajes relevantes para la trama que sirvan como mecánicas en la mazmorra como El Cartero y El Cuervillo.
+	-   **NPCs**: Se han generado personajes relevantes para la trama que sirvan como mecánicas en la mazmorra como *El Cartero* y *El Cuervillo*.
     
 
 Por otro lado, se han producido algunas preguntas a responder por el departamento de diseño:
@@ -676,7 +676,7 @@ Por último, se ha realizado completamente el documento de diseño de juego y se
 -  **Programación**:
     
 
-	En el apartado de programación se implementaron una serie de características que conforman la base jugable del juego, siguiendo las pautas definidas por el departamento de Diseño:
+	En el apartado de programación se implementaron una serie de características que conforman la base jugable del juego, siguiendo las pautas definidas por el departamento de **Diseño**:
 
 	-   Adaptación a diferentes navegadores y a dispositivos móviles.
     
