@@ -571,8 +571,19 @@ En este apartado se ofrecen los assets creados originalmente por el equipo de de
 ![](https://cdn.discordapp.com/attachments/808761273884999771/901776879919464459/CARTAS.png)
 
 - Bendición --> Power Up
-- 
+
 ![](https://cdn.discordapp.com/attachments/808761273884999771/901776873636372490/powerUP_carta.png)
+
+- Hechizo --> Poder Limitado
+
+![](https://user-images.githubusercontent.com/72553373/138589934-0599b7f5-40c8-40d6-8bfe-aa0357152724.png)
+
+- Maldición --> Analfabetismo
+
+![](https://user-images.githubusercontent.com/72553373/138589947-54eb4694-2725-4190-b4cb-94e1ed7b547f.png)
+
+
+
 
 
 
