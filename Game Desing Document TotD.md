@@ -562,7 +562,9 @@ En este apartado se presentarán todos los personajes relevantes de la trama del
 # 6. Arte
 ## 6.1 Estética general del juego
 
-Como se ha mencionado anteriormente el juego tendrá una vista isométrica y un estilo de dibujo que juega entre el *cartoon* americano y el *chibi* nipón.
+Como se ha mencionado anteriormente el juego tendrá una vista isométrica y un estilo de dibujo que juega entre el *cartoon* americano y el *chibi* nipón. Además se ha inspirado fuertemente en la serie de animación: *"Hora de Aventuras"*. 
+
+![image](https://user-images.githubusercontent.com/72553373/138601967-6c38dc81-12da-4d79-9b4a-bd80290cb64b.png)
 
 Esta estética se ha elegido para dotar de personalidad al mundo y a sus personajes con una mezcla de corrientes algo atípica y que contribuyen en gran medida a construir la atmósfera desenfadada y cómica del título.
 
