@@ -546,33 +546,34 @@ En este apartado se presentarán todos los personajes relevantes de la trama del
 ## 6.2 Apartado visual
 En este apartado se ofrecen los assets creados originalmente por el equipo de desarrollo
 
-Armadura Gorro Sombrero Mexicano
- ![image](https://user-images.githubusercontent.com/72553373/138588763-36fca268-b983-4a7b-88b3-9751f32de6b9.png)
+ - Armadura Gorro Sombrero Mexicano
+![](https://user-images.githubusercontent.com/72553373/138588763-36fca268-b983-4a7b-88b3-9751f32de6b9.png)
 
-Bendicion Power Up!
-![image](https://user-images.githubusercontent.com/72553373/138588801-54c05576-41d9-477c-8cd3-4106d32438dc.png)
+- Bendición Power Up!
+![](https://user-images.githubusercontent.com/72553373/138588801-54c05576-41d9-477c-8cd3-4106d32438dc.png)
 
-Hechizo Poder Limitado
-![image](https://user-images.githubusercontent.com/72553373/138588829-b1e545bc-b765-4c2c-a180-794df4950be2.png)
+- Hechizo Poder Limitado
+![](https://user-images.githubusercontent.com/72553373/138588829-b1e545bc-b765-4c2c-a180-794df4950be2.png)
 
-Maldicion Analfabetismo
-![image](https://user-images.githubusercontent.com/72553373/138588850-2c58958f-d716-46d4-96c0-13374ea54d04.png)
+- Maldicion Analfabetismo
+![](https://user-images.githubusercontent.com/72553373/138588850-2c58958f-d716-46d4-96c0-13374ea54d04.png)
 
-Enemigo Abuesqueleto
-![image](https://user-images.githubusercontent.com/72553373/138588708-aadeacae-704f-4838-9d9d-a42278a18751.png)
+- Enemigo Abuesqueleto
 
-Entrada a la Dumbgeon
-![image](https://user-images.githubusercontent.com/72553373/138588690-49a056b3-8e47-4caf-8f6e-592bf8478d66.png)
+![](https://user-images.githubusercontent.com/72553373/138588708-aadeacae-704f-4838-9d9d-a42278a18751.png)
 
-Suelo de la Discocueva
+- Entrada a la Dumbgeon
+
+![](https://user-images.githubusercontent.com/72553373/138588690-49a056b3-8e47-4caf-8f6e-592bf8478d66.png)
+
+- Suelo de la Discocueva
 ![](https://cdn.discordapp.com/attachments/808761273884999771/901763700833288232/DISCOCUEVA-PistaDeBaile.png)
 
-Columna de la Dumbgeon
+- Columna de la Dumbgeon
 ![](https://cdn.discordapp.com/attachments/808761273884999771/901763704150954005/MAZMORRA-Columna.png)
 
-Suelo de la Dumbegon
+- Suelo de la Dumbegon
 ![](https://cdn.discordapp.com/attachments/808761273884999771/901763707871305728/MAZMORRA-Suelo.png)
-
 ## 6.3 Música
 ## 6.4 Ambiente Sonoro
 
