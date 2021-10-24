@@ -562,7 +562,11 @@ En este apartado se presentarán todos los personajes relevantes de la trama del
 # 6. Arte
 ## 6.1 Estética general del juego
 
+Como se ha mencionado anteriormente el juego tendrá una vista isométrica y un estilo de dibujo que juega entre el *cartoon* americano y el *chibi* nipón.
 
+Esta estética se ha elegido para dotar de personalidad al mundo y a sus personajes con una mezcla de corrientes algo atípica y que contribuyen en gran medida a construir la atmósfera desenfadada y cómica del título.
+
+Además, esperamos que el uso de una estética más simple y menos detallista permita al equipo de arte agilizar su trabajo, encontrar una cohesión visual entre los diferente miembros e incluso dar la posibilidad de que miembros ajenos a este departamento puedan ayudar con tareas menores en caso de ser necesario.
 
 ## 6.2 Apartado visual
 En este apartado se ofrecen los assets creados originalmente por el equipo de desarrollo
@@ -609,8 +613,17 @@ En este apartado se ofrecen los assets creados originalmente por el equipo de de
 
 
 ## 6.3 Música
+
+Actualmente las piezas compuestas son: 
+	 
+ - [Tema de *Pueblo Boñiga*](https://github.com/salmorejogames/TalesoftheDumbgeon/blob/main/TalesOFDumbgeon/Assets/Music/PuebloBo%C3%B1iga.wav)
+ - [Tema de la *Dumbgeon*](https://github.com/salmorejogames/TalesoftheDumbgeon/blob/main/TalesOFDumbgeon/Assets/Music/Walking%20in%20the%20Dumbgeon.wav)
+ - [Tema de *Elmo Street*](https://github.com/salmorejogames/TalesoftheDumbgeon/blob/main/TalesOFDumbgeon/Assets/Music/ElmoStreet.wav)
+ - [Tema de *Game Over*](https://github.com/salmorejogames/TalesoftheDumbgeon/blob/main/TalesOFDumbgeon/Assets/Music/FUNeral.wav)
+
 ## 6.4 Ambiente Sonoro
 
+Cada piso de la mazmorra contará con su propia temática y por lo tanto con una composición musical diferente, que irá acompañada por efectos sonoros particulares que ayuden a la inmersión del jugador dentro del mundo del juego
 # 7. Interfaz
 ## 7.1 Diseños básicos de los menús
 **Menu principal**
