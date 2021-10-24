@@ -546,19 +546,6 @@ En este apartado se presentarán todos los personajes relevantes de la trama del
 ## 6.2 Apartado visual
 En este apartado se ofrecen los assets creados originalmente por el equipo de desarrollo
 
- - Armadura Gorro Sombrero Mexicano
-![CARTAS](https://user-images.githubusercontent.com/72553373/138589435-12b7a248-3a0a-46c5-9a4b-a4763e2c3703.png)
-
-
-- Bendición Power Up!
-![powerUP_carta](https://user-images.githubusercontent.com/72553373/138589444-301cf79a-3cf0-4359-ac54-1095caefb245.png)
-
-- Hechizo Poder Limitado
-![](https://user-images.githubusercontent.com/72553373/138588829-b1e545bc-b765-4c2c-a180-794df4950be2.png)
-
-- Maldicion Analfabetismo
-![](https://user-images.githubusercontent.com/72553373/138588850-2c58958f-d716-46d4-96c0-13374ea54d04.png)
-
 - Enemigo Abuesqueleto
 
 ![](https://user-images.githubusercontent.com/72553373/138588708-aadeacae-704f-4838-9d9d-a42278a18751.png)
@@ -575,6 +562,20 @@ En este apartado se ofrecen los assets creados originalmente por el equipo de de
 
 - Suelo de la Dumbegon
 ![](https://cdn.discordapp.com/attachments/808761273884999771/901763707871305728/MAZMORRA-Suelo.png)
+
+ - Armadura Gorro Sombrero Mexicano
+![CARTAS](https://user-images.githubusercontent.com/72553373/138589435-12b7a248-3a0a-46c5-9a4b-a4763e2c3703.png)
+
+- Bendición Power Up!
+![powerUP_carta](https://user-images.githubusercontent.com/72553373/138589444-301cf79a-3cf0-4359-ac54-1095caefb245.png)
+
+- Hechizo Poder Limitado
+![](https://user-images.githubusercontent.com/72553373/138588829-b1e545bc-b765-4c2c-a180-794df4950be2.png)
+
+- Maldicion Analfabetismo
+![](https://user-images.githubusercontent.com/72553373/138588850-2c58958f-d716-46d4-96c0-13374ea54d04.png)
+
+
 ## 6.3 Música
 ## 6.4 Ambiente Sonoro
 
