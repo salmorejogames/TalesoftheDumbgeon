@@ -15,6 +15,7 @@ public class MapInstance : MonoBehaviour
     [SerializeField] private CompositeCollider2D mapTrigger;
     private TilemapRenderer _triggerRenderer;
     [SerializeField] private List<GameObject> enemyList;
+    [SerializeField] private List<GameObject> powerUpList;
     [NonSerialized] public List<CharacterStats> enemys;
     private bool doors = false;
     private void Awake()
@@ -65,6 +66,20 @@ public class MapInstance : MonoBehaviour
             newEnemy.transform.localScale = new Vector3(1, 1, 1);
             enemys.Add(newEnemy.GetComponent<CharacterStats>());
         }
+        for (int i = 0; i < powerUpList.Count ; i++)
+        {
+            int xx;
+            int yy;
+            do
+            {
+                xx = Random.Range((-Dimensions.x + 3) / 2, (Dimensions.x - 2) / 2);
+                yy = Random.Range((-Dimensions.y + 3) / 2, (Dimensions.y - 2) / 2);
+            } while (!IsValidPosition(xx, yy));
+            var newPowerUp = Instantiate(powerUpList[i], gameObject.transform, true);
+            newPowerUp.transform.position = IsometricUtils.CoordinatesToWorldSpace(xx, yy);
+            newPowerUp.transform.localScale = new Vector3(1, 1, 1);
+        }
+        
         OpenDors(false);
     }
 
