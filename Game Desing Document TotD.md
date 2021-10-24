@@ -564,10 +564,11 @@ En este apartado se ofrecen los assets creados originalmente por el equipo de de
 ![](https://cdn.discordapp.com/attachments/808761273884999771/901763707871305728/MAZMORRA-Suelo.png)
 
  - Armadura Gorro Sombrero Mexicano
-![](https://lh5.googleusercontent.com/ssNaZ0wMsHouOKi9MBFLz3pewrim8VlWrhY150XyHZcXIJ4Adc3T7_EyiNOr3g3BZXMbQRyIoabRnzLAYhWZ-xC-ZcV8H41z8JJQogKo0ahxkaFK78szzvAn5n8OSA=s1600.png)
+![](https://cdn.discordapp.com/attachments/808761273884999771/901776879919464459/CARTAS.png)
 
 - Bendición Power Up!
-![](https://lh5.googleusercontent.com/H_L5fF57BfE9qQRWVIOaRNownc0u505Be5RZuYDLElOr3sz1YbKPw6YtOg0zEVjtR9qKmR9qSSTyIIm-waMgAJN-pf-RvWvU_ucJhM6R3-xwZggxbnqHRG4axOF-ow=s1600.png)
+![](https://cdn.discordapp.com/attachments/808761273884999771/901776873636372490/powerUP_carta.png)
+
 
 
 ## 6.3 Música
