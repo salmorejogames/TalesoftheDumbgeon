@@ -127,6 +127,7 @@ public class CardHolder : MonoBehaviour
     {
         if (!active)
         {
+            SingletoneGameController.InterfaceController.MostrarUI(true);
             foreach (var localCard in cards)
             {
                 localCard.localScale = new Vector3(1, 1, 1);
@@ -138,6 +139,7 @@ public class CardHolder : MonoBehaviour
         }
         else
         {
+            SingletoneGameController.InterfaceController.MostrarUI(false);
             foreach (var localCard in cards)
             {
                 localCard.localScale = new Vector3(resizePercent, resizePercent, resizePercent);

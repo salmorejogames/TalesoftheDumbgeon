@@ -13,9 +13,12 @@ public class ExampleEnemyBehaviour : MonoBehaviour, IDeadable
 
     private void Update()
     {
-        if(_player==null)
-            _player = SingletoneGameController.PlayerActions.player;
-        gameObject.transform.position = Vector3.MoveTowards(gameObject.transform.position, _player.transform.position, _stats.speed*Time.deltaTime);
+        if (!SingletoneGameController.PlayerActions.dead)
+        {
+            if(_player==null)
+                _player = SingletoneGameController.PlayerActions.player;
+            gameObject.transform.position = Vector3.MoveTowards(gameObject.transform.position, _player.transform.position, _stats.speed*Time.deltaTime);
+        }
     }
 
     private void Start()

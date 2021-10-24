@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Inteface;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SingletoneGameController : MonoBehaviour
 {
@@ -8,6 +10,7 @@ public class SingletoneGameController : MonoBehaviour
     public static PlayerActions PlayerActions;
     public static MapManager MapManager;
     public static CardHolder CardHolder;
+    public static GameplayInterfaceController InterfaceController;
     private void Awake()
     {
         //Singleton;
@@ -29,6 +32,12 @@ public class SingletoneGameController : MonoBehaviour
         MapManager = gameObject.GetComponent<MapManager>();
         PlayerActions = gameObject.GetComponent<PlayerActions>();
         CardHolder = FindObjectOfType<CardHolder>();
+        InterfaceController = FindObjectOfType<GameplayInterfaceController>();
+    }
+
+    public void ChangeScene(string sceneName)
+    {
+        SceneManager.LoadScene(sceneName);
     }
     
 }

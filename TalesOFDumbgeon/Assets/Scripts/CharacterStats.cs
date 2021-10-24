@@ -27,6 +27,10 @@ public class CharacterStats : MonoBehaviour
         _actualHealth = maxHealth;
     }
 
+    public float GetActualHealth()
+    {
+        return _actualHealth;
+    }
     public void DoDamage(float dmg, GameObject origin, Elements.Element atackElement)
     {
         float totalDmg = IsometricUtils.CalculateDamage(dmg, armor, atackElement, element);

@@ -125,5 +125,17 @@ public class MapManager : MonoBehaviour
         _mainCamera = Camera.main;
     }
 
+    public void NextMap()
+    {
+        int nextMap = ActualMap + 1;
+        if (nextMap >= MaxMaps)
+        {
+            SingletoneGameController.Instance.ChangeScene("CreditsScene");
+            return;
+        }
+            
+        InstantiateMap(nextMap);
+    }
+
     
 }

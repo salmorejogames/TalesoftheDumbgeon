@@ -84,7 +84,7 @@ public class PlayerActionsController : MonoBehaviour, IDeadable
         if (other.gameObject.CompareTag("EscenarioTrigger"))
         {
             Debug.Log("Cambiando mapa");
-            SingletoneGameController.MapManager.InstantiateMap((MapManager.ActualMap+1)%MapManager.MaxMaps);
+            SingletoneGameController.MapManager.NextMap();
         }
 
         if (other.gameObject.CompareTag("Collectionable"))
@@ -117,13 +117,17 @@ public class PlayerActionsController : MonoBehaviour, IDeadable
 
     public void Dead()
     {
+        SingletoneGameController.PlayerActions.dead = true;
+        SingletoneGameController.Instance.ChangeScene("GameOverScene");
         Debug.Log("Im dead");
-        Destroy(gameObject);
+        gameObject.SetActive(false);
+        
     }
 
     public void Damage(GameObject enemy, float cantidad, Elements.Element element)
     {
         Debug.Log("Damage Recived");
+        SingletoneGameController.InterfaceController.UpdateLife(_stats.GetActualHealth()/_stats.maxHealth);
         var direction = gameObject.transform.position - enemy.transform.position;
         var magnitude = direction.magnitude;
         direction = direction / magnitude;

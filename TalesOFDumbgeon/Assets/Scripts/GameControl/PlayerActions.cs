@@ -9,6 +9,7 @@ public class PlayerActions : MonoBehaviour
 
     public IsometricMove player;
     private int _movementImpediments;
+    public bool dead;
     
     // Start is called before the first frame update
     void Start()
@@ -19,6 +20,7 @@ public class PlayerActions : MonoBehaviour
     public void ReloadCharacter()
     {
         player = FindObjectOfType<IsometricMove>();
+        dead = false;
         _movementImpediments = 0;
     }
 
