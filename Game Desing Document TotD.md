@@ -693,6 +693,101 @@ Por último, se ha realizado completamente el documento de diseño de juego y se
 	-   Implementación del sistema de cartas definido por el equipo de diseño.
     
 	-   Sistema de combate basado en armas de 3 categorías.
+
+-   **Arte:**
+    
+
+	El departamento de arte trabajó en la elaboración de diferentes *assets* para el juego entre los que se encuentran:
+		
+	-   *Sprite* del personaje principal masculino en 8 direcciones
+    
+	-   *Sprite* del personaje principal femenino en 8 direcciones
+    
+	-   *Sprite* del enemigo *Abuesqueleto* en 8 direcciones
+    
+	-   *Sprite* del arma *Espada de Fe*
+    
+	-   *Sprite* del arma *Bastón de Yayo*
+    
+	-   Arte de las cartas de Arma
+    
+	-   Arte de las cartas de Equipamiento
+    
+	-   Arte de las cartas de Maldición
+    
+	-   Arte de las cartas de Hechizo
+    
+	-   Arte de las cartas de Bendición
+    
+	-   *Tileset* de la *Discocueva*
+    
+	-   *Tileset* de Mazmorra
+    
+
+-   **Interfaces**
+    
+
+	El departamento de interfaces llevó a cabo los interfaces mínimos que se debían de entregar en este hito, entre ellos:
+
+	-   Menú Principal
+    
+	-   Menú Pausa
+    
+	-   Escena de créditos
+    
+	-   *HUD* del jugador
+    
+	-   Escena de muerte
+
+-   **Marketing**
+    
+
+	El equipo de marketing se ha encargado de promocionar el juego y darlo a conocer al mundo, para ello han realizado las siguientes acciones:
+
+	-  	 Crear una cuenta de *Twitter* y usarla para dar difusión al juego.
+    
+	-   Crear una cuenta de *Instagram* y usarla para dar difusión al juego.
+    
+	-   Crear una cuenta de *Tik Tok* y usarla para dar difusión al juego.
+    
+	-   Crear un canal de *YouTube* para mostrar avances y trailers del título.
+    
+	-   Creación de un teaser trailer.
+    
+	-   Contacto con un *streamer* para que participe en las pruebas beta y de difusión al juego.
+
+-   **Música**
+    
+	El compositor de la banda sonora de *Tales of the Dumbgeon* ha realizado los siguientes temas para este primer hito:
+
+	-  	 [Tema de *Pueblo Boñiga*](https://github.com/salmorejogames/TalesoftheDumbgeon/blob/main/TalesOFDumbgeon/Assets/Music/PuebloBo%C3%B1iga.wav)
+    
+	-   [Tema de la *Dumbgeon*](https://github.com/salmorejogames/TalesoftheDumbgeon/blob/main/TalesOFDumbgeon/Assets/Music/Walking%20in%20the%20Dumbgeon.wav)
+    
+	-   [Tema de *Elmo Street*](https://github.com/salmorejogames/TalesoftheDumbgeon/blob/main/TalesOFDumbgeon/Assets/Music/ElmoStreet.wav)
+    
+	-   [Tema de *Game Over*](https://github.com/salmorejogames/TalesoftheDumbgeon/blob/main/TalesOFDumbgeon/Assets/Music/FUNeral.wav)
+    
+-   **Gestión**
+
+	El departamento de gestión del proyecto ha realizado un documento para gestionar la producción del proyecto. En él se han tratado lo siguientes temas:
+
+	-   Jerarquía de los equipos de desarrollo
+    
+	-   Uso de *Trello*
+    
+	-   Uso de *GitHub*
+    
+	-   Organización de los *sprints*
+    
+	-   Configuración de las revisiones
+    
+
+	Además se han celebrado diferentes reuniones a lo largo del hito entre ellas:
+
+	-   *Daily Meeting*: Reuniones llevadas a cabo todos los días por la tarde.
+
+	- *Revisiones de Sprint*: Realizadas los jueves y domingos para examinar el transcurso del proyecto. 
     
 ## 8.2 Hito 2
     
