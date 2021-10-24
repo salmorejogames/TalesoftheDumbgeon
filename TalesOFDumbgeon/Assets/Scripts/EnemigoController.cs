@@ -11,10 +11,14 @@ public class EnemigoController : MonoBehaviour
     public int armadura = 3;
     public int damage = 1;
     public float vision = 3;
-    public float maxDistance = 5f;
+    public float maxDistance = 1f;
     public float stopDistance = 0.5f;
+    public float decisionTime = 500f;
+    public float decisionClock = 0f;
 
     public GameObject personaje;
+    public GameObject Bala;
+    public GameObject zonaAtaque;
 
     private Rigidbody2D rb;
     private enum Estado { Wandering, Detected, Attacking};
@@ -23,17 +27,21 @@ public class EnemigoController : MonoBehaviour
     private Vector2 direccion;
     private float distanciaPlayer;
     private float rotacion;
-
+    private RaycastHit2D hit;
+    private Collider2D choque;
+    private bool canAtack = true;
+    private float attackDelay;
 
     public enum tipoEnemigo {Abuesqueleto, Cerebro, Duonde, Palloto};
     public tipoEnemigo especie;
     
     // Start is called before the first frame update
     void Start()
-    {
-        //nextPos = transform.position * 1.2f;
+    {        
         rb = gameObject.GetComponent<Rigidbody2D>();
         personaje = GameObject.FindGameObjectWithTag("Player");
+        rb.velocity = Vector2.zero;
+        attackDelay = 2;
 
         if (especie == tipoEnemigo.Abuesqueleto)
         {
@@ -64,16 +72,24 @@ public class EnemigoController : MonoBehaviour
             vision = 3;
         }
 
-        distanciaPlayer = Vector2.Distance(transform.position, personaje.transform.position);
     }
 
     // Update is called once per frame
     void Update()
-    {
+    {        
         distanciaPlayer = Vector2.Distance(transform.position, personaje.transform.position);
         direccion = personaje.transform.position - transform.position;
         rotacion = Mathf.Atan2(direccion.x, direccion.y) * Mathf.Rad2Deg;
         direccion.Normalize();
+
+        decisionClock++;
+        attackDelay++;
+
+        if (attackDelay >= 200)
+        {
+            canAtack = true;
+            zonaAtaque.GetComponent<Collider2D>().isTrigger = true;
+        }
 
         if (distanciaPlayer > vision)
             estadoActual = Estado.Wandering;
@@ -83,45 +99,96 @@ public class EnemigoController : MonoBehaviour
             estadoActual = Estado.Attacking;
                
         Debug.Log(estadoActual);
-        //if (personaje != null && Vector2.Distance(transform.position, nextPos) <= vision && Vector2.Distance(transform.position, personaje.transform.position) <= vision)
-        
-        if (personaje != null)
+
+        if (decisionClock > decisionTime || Vector3.Distance(transform.position, personaje.transform.position) < vision && personaje != null)
         {
+            decisionClock = 0;
             switch (estadoActual)
             {
                 case Estado.Wandering:
-                    if (Vector2.Distance(transform.position, nextPos) < vision)
-                    Wander();
+                    Wander();                    
                     break;
 
                 case Estado.Detected:
+                    Alcanzable();
                     rb.rotation = -rotacion;
-                    Debug.Log(distanciaPlayer);
                     break;
 
                 case Estado.Attacking:
-                    rb.rotation = -rotacion;
+                    rb.rotation = -rotacion;                    
                     Attack();
                     break;
             }
-        }
+        }        
 
-        rb.velocity = direccion * velocidad;
- 
+        transform.position = Vector3.MoveTowards(transform.position, nextPos, velocidad * Time.deltaTime); 
+    }
+
+    private void Alcanzable()
+    {
+        nextPos = personaje.transform.position;
+
+        //!!!!!!!!!!!!!!!!!!!!!!!!!NO BORRAR, ES CODIGO QUE NO FUNCIONA PERO QUE QUIERO IMPLEMETAR PARA QUE FUNCIONE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+        /*hit = Physics2D.Raycast(transform.position, nextPos);
+        choque = hit.collider;
+
+        if (choque.gameObject.CompareTag("Player"))
+        {
+            nextPos = choque.transform.position;
+            Debug.Log("Estoy igualando al jugador");
+        }
+        else
+        {
+            Vector3 punto = choque.bounds.center;
+            Vector3 puntoA = punto + choque.bounds.extents;
+            Vector3 puntoB = punto - choque.bounds.extents;
+            Vector3 puntoCercano = choque.bounds.ClosestPoint(transform.position);
+            Debug.Log("Me meto a recalcular el camino");
+
+            if(transform.position.y != puntoCercano.y)
+            {
+                if(Vector3.Distance(personaje.transform.position, puntoA) < Vector3.Distance(personaje.transform.position, puntoB)){
+                    nextPos = new Vector3(puntoA.x + 0.5f, puntoCercano.y, 0);  
+                }else
+                {
+                    nextPos = new Vector3(puntoB.x + 0.5f, puntoCercano.y, 0);
+                }
+            }
+            else
+            {
+                if (Vector3.Distance(personaje.transform.position, puntoA) < Vector3.Distance(personaje.transform.position, puntoB))
+                {
+                    nextPos = new Vector3(puntoCercano.x, puntoA.y + 0.5f, 0);
+                }
+                else
+                {
+                    nextPos = new Vector3(puntoCercano.x, puntoB.y + 0.5f, 0);
+                }
+            }
+        }*/
+        
+        //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!NO BORRAR, ES CODIGO QUE NO FUNCIONA PERO QUE QUIERO HACER QUE FUNCIONE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     }
 
     private void Attack()
     {
-        rb.velocity = Vector2.zero;
-        nextPos = transform.position;
-        Debug.Log("Esta atacando");
-    }  
+        if (canAtack)
+        {            
+            zonaAtaque.GetComponent<Collider2D>().isTrigger = false;
+            rb.velocity = Vector2.zero;
+            canAtack = false;
+            nextPos = transform.position;
+        }
+    }
+
 
     private void Wander()
     {       
-        nextPos = new Vector3(UnityEngine.Random.Range(-maxDistance, maxDistance), UnityEngine.Random.Range(-maxDistance, maxDistance));
-        direccion = nextPos - transform.position;
-        Debug.Log("Nueva posicion " + nextPos);
+        nextPos = new Vector3(UnityEngine.Random.Range(-maxDistance, maxDistance) + transform.position.x, UnityEngine.Random.Range(-maxDistance, maxDistance) + transform.position.y);
+        //Alcanzable();
+        Instantiate(Bala, nextPos, Quaternion.identity);
+        Debug.Log("hago un wander: " + nextPos);
     }
 
 
@@ -134,17 +201,19 @@ public class EnemigoController : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
             nextPos = transform.position;
         }else if (collision.gameObject.CompareTag("Colisiones"))
         {
-            direccion = -nextPos - transform.position;
+            decisionClock = 500;            
         }
-        
+        Debug.Log("decision CLock: " + decisionClock);
     }
+
+
 
     public void TakeDamage(int damage)
     {
