@@ -60,6 +60,8 @@
 	4.3 Niveles y misiones
 
 	4.4 Objetos, armas y power ups
+	
+	4.5 Planificación del modelo de juego para móvil
 
 **5. Trasfondo**
 
@@ -440,6 +442,25 @@ En la primera fase solo se dispondrá de un nivel más la sala del jefe final pa
 ## 4.4 Cartas ancestrales
 
 Todas las cartas ancestrales se encuentran en el [documento de diseño de cartas](https://docs.google.com/spreadsheets/d/1_EQh6-Omko_iLok0002eK7mrBMM10u9T01P8n-8xUPw/edit?usp=sharing).
+
+## 4.5 Planificación del modelo de juego para móvil
+Para poder adaptar *Tales of the Dumbgeon* a dispositivos móviles se han establecido diferentes rutas de trabajo, que tratan de llevar la experiencia disponible en ordenadores a *smartphones* de diferente maneras.
+Tratando siempre de que esta versión sea lo más fiel posible al juego original, pero sin descartar la posibilidad de tener que realizar recortes en varios apartados. Estos planes, ordenados por su prioridad, son:
+
+-   **Plan A:** Cuando el juego se ejecute en un dispositivo móvil aparecerá un joystick y dos botones que emulen el funcionamiento de las teclas WASD y del click izquierdo y derecho.  
+    - **Plan A.2:** Modificar el tamaño de la cámara si los botones no ocupan demasiado en la pantalla.  
+    
+    - **Plan A.3:** Establecer un *padding* en negro alrededor del juego que sirva como área para establecer los botones si el resultado no es convincente.
+    
+-   **Plan B:** *Autorun*, es decir, el juego se ejecutará similarmente en móvil y PC, pero en la versión móvil el combate se hará automáticamente, el jugador todavía podrá elegir a qué salas moverse y que cartas usar en cada momento.      
+
+	-   **Plan B.2:** Introducir una mecánica sencilla de combate, como hacer click si el juego resulta demasiado aburrido.   
+
+-   **Plan C:** Si todos los planes anteriores fallan u otorgan resultados no satisfactorios realizar una aplicación alternativa en el móvil que sirva de apoyo para el juego en pc, permitiendo abrir la biblioteca, hablar con personajes, modificar mazos e ideas similares sin que se pueda jugar realmente al juego.
+    
+
+  
+Actualmente el desarrollo seguido para la implementación de *Tales of the Dumbgeon* en dispositivos móviles se corresponde con el **Plan A.3**.
 
 # 5. Trasfondo
 ## 5.1 Descripción detallada de la historia  y la trama
