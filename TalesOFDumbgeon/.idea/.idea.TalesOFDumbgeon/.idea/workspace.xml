@@ -2,27 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b1d37c9d-25b2-4110-97a9-49ea663fadda" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Sprites/GameElements.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Sprites/GameElements/Weapons.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Sprites/GameElements/Weapons/bastonDeYayo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Sprites/GameElements/Weapons/bastonDeYayo.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Sprites/GameElements/Weapons/espadaDeFe.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Sprites/GameElements/Weapons/espadaDeFe.png.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.TalesOFDumbgeon/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TalesOFDumbgeon/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Weapons/Baguette.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Weapons/Baguette.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Weapons/BastonDeYayo.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Weapons/BastonDeYayo.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Weapons/DefaultDistance.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Weapons/DefaultDistance.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Weapons/EspadaDeFe.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Weapons/EspadaDeFe.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/IsometricScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/IsometricScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/SetHealth.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/SetHealth.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Bala_Move.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Bala_Move.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CharacterStats.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CharacterStats.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Abuesqueleto.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Abuesqueleto.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Maps/Mapa1.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Maps/Mapa1.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Maps/Mapa2.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Maps/Mapa2.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Goblin.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Goblin.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Enemy.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Enemy.cs.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/ExampleEnemyBehaviour.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ExampleEnemyBehaviour.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameControl/PlayerActions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameControl/PlayerActions.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Interfaces/IDeadable.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Interfaces/IDeadable.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/IsometricUtils.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/IsometricUtils.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerActionsController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerActionsController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/Weapon.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/Weapon.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Map/MapInstance.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Map/MapInstance.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Map/MapManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Map/MapManager.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,7 +32,6 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Assets/ScriptableObjects/Equipment/MeleeWeapon.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/ScriptableObjects/Enemy.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Collectionable.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Plugins/CheckIfMobile/CheckIfMobile.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Elements.cs" root0="FORCE_HIGHLIGHTING" />
@@ -84,11 +73,8 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/SingletoneGameController.cs" />
       <option value="$PROJECT_DIR$/Assets/ScriptableObjects/CardEquipment.cs" />
       <option value="$PROJECT_DIR$/Assets/ScriptableObjects/Equipment/MeleeWeapon.cs" />
-      <option value="$PROJECT_DIR$/Assets/ScriptableObjects/Enemy.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Player/CharacterBehaviour.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Player/IsometricCharacterRenderer.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Map/MapInstance.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Map/MapManager.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/GameControl/SingletoneGameController.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/CardsInterface/Card.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/ICollectable.cs" />
@@ -105,7 +91,10 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/Interfaces/IDeadable.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/CharacterStats.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Player/PlayerActionsController.cs" />
+      <option value="$PROJECT_DIR$/Assets/ScriptableObjects/Enemy.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/ExampleEnemyBehaviour.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Map/MapInstance.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Map/MapManager.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1zRaEkaFY4bgpmOHr8r3t8E1N2f" />
@@ -175,7 +164,8 @@
       <workItem from="1634825136275" duration="5190000" />
       <workItem from="1634900020729" duration="8165000" />
       <workItem from="1634990597386" duration="8639000" />
-      <workItem from="1635031108511" duration="1551000" />
+      <workItem from="1635031108511" duration="1951000" />
+      <workItem from="1635085781587" duration="2851000" />
     </task>
     <servers />
   </component>

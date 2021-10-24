@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using ScriptableObjects;
+using UnityEditor.U2D.Animation;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 using Random = UnityEngine.Random;
@@ -11,39 +12,96 @@ public class MapInstance : MonoBehaviour
     [NonSerialized] public Vector2Int Dimensions;
     [SerializeField] private Tilemap ground;
     [SerializeField] private Tilemap collisions;
-    [SerializeField] private TilemapCollider2D mapTrigger;
-    [SerializeField] private List<Enemy> posibleEnemies;
-    [NonSerialized] public List<GameObject> enemys;
-    [SerializeField] private int numEnemys; 
+    [SerializeField] private CompositeCollider2D mapTrigger;
+    private TilemapRenderer _triggerRenderer;
+    [SerializeField] private List<GameObject> enemyList;
+    [NonSerialized] public List<CharacterStats> enemys;
+    private bool doors = false;
     private void Awake()
     {
         ground.CompressBounds();
         Dimensions = (Vector2Int) ground.size;
-        enemys = new List<GameObject>();
+        enemys = new List<CharacterStats>();
+        _triggerRenderer = mapTrigger.gameObject.GetComponent<TilemapRenderer>();
+    }
+
+    private void Update()
+    {
+        CheckAlive();
+        if (enemys.Count <= 0 && !doors)
+        {
+            OpenDors(true);
+        }
+    }
+
+    /**
+     * True-> Open the door
+     * False-> Close the door
+     */
+    private void OpenDors(bool open)
+    {
+        SetTrigger(open);
+        SetTriggerRenderers(!open);
+        doors = open;
     }
 
     public void StartMap()
     {
         //Debug.Log(collisions.GetTile(Vector3Int.zero));
         Debug.Log("Starting Map");
-        for (int i = 0; i < numEnemys; i++)
+        SetCollisions(true);
+        for (int i = 0; i < enemyList.Count ; i++)
         {
             Debug.Log("Genrating Enemy " + i);
-            int index = Random.Range(0, posibleEnemies.Count);
-            float xx = Random.Range((-Dimensions.x+3)/2, (Dimensions.x-2)/2);
-            float yy = Random.Range((-Dimensions.y+3)/2, (Dimensions.y-2)/2);
-            var newEnemy = posibleEnemies[index].Instantiate();
-            newEnemy.transform.parent = gameObject.transform;
+            int xx;
+            int yy;
+            do
+            {
+                xx = Random.Range((-Dimensions.x + 3) / 2, (Dimensions.x - 2) / 2);
+                yy = Random.Range((-Dimensions.y + 3) / 2, (Dimensions.y - 2) / 2);
+            } while (!IsValidPosition(xx, yy));
+            var newEnemy = Instantiate(enemyList[i], gameObject.transform, true);
             newEnemy.transform.position = IsometricUtils.CoordinatesToWorldSpace(xx, yy);
             newEnemy.transform.localScale = new Vector3(1, 1, 1);
-            enemys.Add(newEnemy);
+            enemys.Add(newEnemy.GetComponent<CharacterStats>());
+        }
+        OpenDors(false);
+    }
+
+    private void CheckAlive()
+    {
+        for (int i = enemys.Count-1; i>=0; i--)
+        {
+            var stats = enemys[i];
+            if (!stats.IsAlive())
+                enemys.Remove(stats);
         }
     }
-    
+
+    private bool IsValidPosition(int x, int y)
+    {
+        Vector3Int pos = new Vector3Int(x, y, 0);
+        if(ground.GetTile(pos)!=null && collisions.GetTile(pos)==null)
+            return true;
+        return false;
+    }
     public void SetTrigger(bool active)
     {
-        Debug.Log(gameObject.name + " triggers : " + active);
-        mapTrigger.enabled = active;
+        Debug.Log("SetTrigger: " + active );
+        mapTrigger.isTrigger = active;
+       
+    }
+
+    public void SetCollisions(bool active)
+    {
+        //mapTrigger.enabled = active;
+        _triggerRenderer.GetComponent<TilemapCollider2D>().enabled = active;
+    }
+
+    public void SetTriggerRenderers(bool active)
+    {
+        _triggerRenderer.enabled = active;
+        
     }
     
 }

@@ -27,7 +27,7 @@ public class ExampleEnemyBehaviour : MonoBehaviour, IDeadable
 
     public void Dead()
     {
-        Destroy(gameObject);
+        gameObject.SetActive(false);
     }
 
     public void Damage(GameObject enemy, float cantidad, Elements.Element element)

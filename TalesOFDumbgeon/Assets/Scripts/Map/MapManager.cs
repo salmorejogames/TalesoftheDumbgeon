@@ -25,6 +25,7 @@ public class MapManager : MonoBehaviour
     {
         _mod = Vector2.zero;
         _actualMap = Instantiate(maps[0], Vector3.zero, Quaternion.identity);
+        _actualMap.StartMap();
         MaxMaps = maps.Count;
         ActualMap = 0;
     }
@@ -69,9 +70,9 @@ public class MapManager : MonoBehaviour
         Vector3 newCenter = IsometricUtils.CartesianToIsometric(new Vector2(xPos, yPos));
         newMapInstance.gameObject.transform.position = newCenter;
         _oldMap = _actualMap;
-        newMapInstance.SetTrigger(false);
         newMapInstance.gameObject.SetActive(true);
-        _actualMap.SetTrigger(false);
+        _actualMap.SetCollisions(false);
+        newMapInstance.SetCollisions(false);
         _actualMap = newMapInstance;
         StartCoroutine("Transition", newCenter);
         ActualMap = id;
@@ -115,7 +116,6 @@ public class MapManager : MonoBehaviour
         _actualMap.transform.position = Vector3.zero;
         _mainCamera.transform.position = new Vector3(0, 0, _mainCamera.transform.position.z);
         _player.transform.position = _player.transform.position - actualPos;
-        _actualMap.SetTrigger(true);
         _player.SetActive(true);
         _actualMap.StartMap();
     }
