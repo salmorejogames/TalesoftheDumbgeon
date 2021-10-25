@@ -28,10 +28,16 @@ public class PlayerActions : MonoBehaviour
     {
         _movementImpediments++;
         player.canMove = false;
-        Invoke(nameof(ReenableMovement), tiempo);
+        Invoke(nameof(EnableMovement), tiempo);
     }
 
-    private void ReenableMovement()
+    public void DisableMovement()
+    {
+        _movementImpediments++;
+        player.canMove = false;
+    }
+
+    public void EnableMovement()
     {
         _movementImpediments--;
         if (_movementImpediments == 0)
