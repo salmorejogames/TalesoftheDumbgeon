@@ -23,16 +23,25 @@ public class SingletoneGameController : MonoBehaviour
         {
             DontDestroyOnLoad(gameObject);
             Instance = this;
+            SceneManager.sceneLoaded += OnSceneLoaded;
+            MapManager = gameObject.GetComponent<MapManager>();
+            PlayerActions = gameObject.GetComponent<PlayerActions>();
+            ReloadComponents();
         }
+        
+    }
+
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
         ReloadComponents();
     }
 
     public void ReloadComponents()
     {
-        MapManager = gameObject.GetComponent<MapManager>();
-        PlayerActions = gameObject.GetComponent<PlayerActions>();
+       
         CardHolder = FindObjectOfType<CardHolder>();
         InterfaceController = FindObjectOfType<GameplayInterfaceController>();
+        PlayerActions.ReloadCharacter();
     }
 
     public void ChangeScene(string sceneName)
