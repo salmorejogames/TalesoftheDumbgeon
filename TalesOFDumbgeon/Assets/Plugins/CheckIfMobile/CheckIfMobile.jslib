@@ -1,8 +1,7 @@
- var MyPlugin = {
-     IsMobile: function()
-     {
-         return UnityLoader.SystemInfo.mobile;
-     }
- };
- 
- mergeInto(LibraryManager.library, MyPlugin);
+var CheckMobile = {
+	IsMobile : function()
+        {
+            return /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+        }
+};
+mergeInto(LibraryManager.library, CheckMobile);
