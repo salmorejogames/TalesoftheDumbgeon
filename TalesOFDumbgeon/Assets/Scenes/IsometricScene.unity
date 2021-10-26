@@ -257,6 +257,11 @@ PrefabInstance:
       propertyPath: gapX
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4711098443936322420, guid: 3a9afe470fc87a14889f9b0eb94b4289,
+        type: 3}
+      propertyPath: joystick
+      value: 
+      objectReference: {fileID: 1309541746}
     - target: {fileID: 4711098443936322421, guid: 3a9afe470fc87a14889f9b0eb94b4289,
         type: 3}
       propertyPath: m_RootOrder
@@ -1198,7 +1203,7 @@ PrefabInstance:
     - target: {fileID: 7803559078374033062, guid: f7d8b04a9a3d676408435273389cf36e,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7803559079766777638, guid: f7d8b04a9a3d676408435273389cf36e,
         type: 3}
@@ -1337,6 +1342,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1252999700}
   m_CullTransparentMesh: 0
+--- !u!1 &1309541746 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7803559078374033062, guid: f7d8b04a9a3d676408435273389cf36e,
+    type: 3}
+  m_PrefabInstance: {fileID: 1086874665}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1375698479
 GameObject:
   m_ObjectHideFlags: 0

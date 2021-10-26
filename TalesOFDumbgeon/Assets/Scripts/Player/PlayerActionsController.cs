@@ -10,13 +10,13 @@ public class PlayerActionsController : MonoBehaviour, IDeadable
    
     public Weapon weapon;
     public bool invincible;
-    
+
+    [SerializeField] private float inmunityTime;
+    [SerializeField] private GameObject joystick;
     private int _cartaUsada;
     private bool _canAtack = true;
     private float _distance;
-    [SerializeField] private float inmunityTime;
-    
-    private GameObject joystick;
+  
     private CharacterStats _stats;
     private InputControler _controles;
     private SpriteRenderer _spriteRenderer;
@@ -28,17 +28,21 @@ public class PlayerActionsController : MonoBehaviour, IDeadable
         _stats = gameObject.GetComponent<CharacterStats>();
         _spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
         _rb = gameObject.GetComponent<Rigidbody2D>();
-        joystick = GameObject.FindGameObjectWithTag("Joystick");
         _controles = new InputControler();
         _controles.Jugador.Atacar.performed += ctx => Atacar();
         _controles.Jugador.Habilidad1.performed += ctx => UsarCarta(1);
         _controles.Jugador.Habilidad2.performed += ctx => UsarCarta(2);
         _controles.Jugador.Habilidad3.performed += ctx => UsarCarta(3);
         _controles.Jugador.Habilidad4.performed += ctx => UsarCarta(4);
+        if (CheckIfMobile.isMobile())
+        {
+            joystick.SetActive(true);
+        }
+        else
+        {
+            joystick.SetActive(false);
+        }
     }
-
-    // Start is called before the first frame update
-
 
     // Update is called once per frame
     private void ReactiveAtack()
@@ -47,6 +51,7 @@ public class PlayerActionsController : MonoBehaviour, IDeadable
         weapon.GetComponent<Collider2D>().enabled = false;
         weapon.gameObject.GetComponent<SpriteRenderer>().color = new Color(255, 255, 255);
     }
+
     public void UpdateWeaponPosition(float angle)
     {
         weapon.SetOrientation(angle);
@@ -74,13 +79,11 @@ public class PlayerActionsController : MonoBehaviour, IDeadable
         {
             CharacterStats enemyStats = collision.gameObject.GetComponent<CharacterStats>();
             _stats.DoDamage(enemyStats.strength, collision.gameObject, enemyStats.element);
-            //OnDamageReceived(collision.gameObject.transform.position);
         }
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        //Debug.Log("Trigger enter with " + other.name);
         if (other.gameObject.CompareTag("EscenarioTrigger"))
         {
             Debug.Log("Cambiando mapa");
@@ -105,16 +108,6 @@ public class PlayerActionsController : MonoBehaviour, IDeadable
         _spriteRenderer.color = Color.white;
     }
     
-    private void OnEnable()
-    {
-        _controles.Enable();
-    }
-
-    private void OnDisable()
-    {
-        _controles.Disable();
-    }
-
     public void Dead()
     {
         SingletoneGameController.PlayerActions.dead = true;
@@ -139,5 +132,15 @@ public class PlayerActionsController : MonoBehaviour, IDeadable
         SingletoneGameController.PlayerActions.DisableMovement(inmunityTime);
         Invoke(nameof(CancelInvincibility), inmunityTime);
         Invoke(nameof(ResetSpriteColor), inmunityTime);
+    }
+
+    private void OnEnable()
+    {
+        _controles.Enable();
+    }
+
+    private void OnDisable()
+    {
+        _controles.Disable();
     }
 }
