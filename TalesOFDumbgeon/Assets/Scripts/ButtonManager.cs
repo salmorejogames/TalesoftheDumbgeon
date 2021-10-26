@@ -15,10 +15,10 @@ public class ButtonManager : MonoBehaviour, IPointerDownHandler, IPointerUpHandl
 
     private void Start()
     {
-        if (!CheckIfMobile.isMobile())
+        /*if (!CheckIfMobile.isMobile())
         {
             gameObject.SetActive(false);
-        }
+        }*/
     }
 
     public void OnPointerDown(PointerEventData eventData)

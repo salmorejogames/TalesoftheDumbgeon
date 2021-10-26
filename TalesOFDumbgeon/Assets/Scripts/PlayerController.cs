@@ -38,20 +38,16 @@ public class PlayerController : MonoBehaviour
         sr = gameObject.GetComponent<SpriteRenderer>();
         controles = new InputControler();
         controles.Jugador.Atacar.performed += ctx => Atacar();
-        controles.Jugador.Habilidad1.performed += ctx => usarCarta(1);
-        controles.Jugador.Habilidad2.performed += ctx => usarCarta(2);
-        controles.Jugador.Habilidad3.performed += ctx => usarCarta(3);
-        controles.Jugador.Habilidad4.performed += ctx => usarCarta(4);
-        controlMovil.SetActive(false);
+        controlMovil.SetActive(true);
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        if (CheckIfMobile.isMobile())
+        /*if (CheckIfMobile.isMobile())
         {
             controlMovil.SetActive(true);
-        }
+        }*/
 
         attackDelay = 2;
         //armaRango = ArmaRango.Distancia;
