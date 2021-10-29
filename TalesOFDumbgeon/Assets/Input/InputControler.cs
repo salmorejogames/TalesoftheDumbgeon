@@ -80,6 +80,17 @@ public class @InputControler : IInputActionCollection, IDisposable
                     ""isPartOfComposite"": false
                 },
                 {
+                    ""name"": """",
+                    ""id"": ""316e1c9c-37f6-4eb5-b890-249a553e87fa"",
+                    ""path"": ""<Keyboard>/p"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Movil;keyboard and mouse"",
+                    ""action"": ""Atacar"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
                     ""name"": ""2D Vector"",
                     ""id"": ""2f1cda3b-13cd-42ac-a098-14c446858477"",
                     ""path"": ""2DVector"",
@@ -139,8 +150,8 @@ public class @InputControler : IInputActionCollection, IDisposable
                     ""id"": ""c010437f-915e-49aa-af78-f4feae2401c2"",
                     ""path"": ""<Gamepad>/leftStick"",
                     ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
+                    ""processors"": ""StickDeadzone"",
+                    ""groups"": ""Movil;keyboard and mouse"",
                     ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -314,6 +325,11 @@ public class @InputControler : IInputActionCollection, IDisposable
                     ""isOR"": false
                 }
             ]
+        },
+        {
+            ""name"": ""Movil"",
+            ""bindingGroup"": ""Movil"",
+            ""devices"": []
         }
     ]
 }");
@@ -513,6 +529,15 @@ public class @InputControler : IInputActionCollection, IDisposable
         {
             if (m_keyboardandmouseSchemeIndex == -1) m_keyboardandmouseSchemeIndex = asset.FindControlSchemeIndex("keyboard and mouse");
             return asset.controlSchemes[m_keyboardandmouseSchemeIndex];
+        }
+    }
+    private int m_MovilSchemeIndex = -1;
+    public InputControlScheme MovilScheme
+    {
+        get
+        {
+            if (m_MovilSchemeIndex == -1) m_MovilSchemeIndex = asset.FindControlSchemeIndex("Movil");
+            return asset.controlSchemes[m_MovilSchemeIndex];
         }
     }
     public interface IJugadorActions
