@@ -92,7 +92,7 @@ public class MapManager : MonoBehaviour
  
         Vector3 cameraDestiny = new Vector3(destiny.x, destiny.y, cameraTr.z);
         Vector3 playerObjetive = playerPos + coordinates;
-        _player.SetActive(false);
+        SingletoneGameController.PlayerActions.DisableMovement();
         yield return new WaitForSeconds(sleepTime);
         _player.UpdateAngle(coordinates);
         while (Vector3.Distance(playerPos, playerObjetive)>0.001)
@@ -116,7 +116,7 @@ public class MapManager : MonoBehaviour
         _actualMap.transform.position = Vector3.zero;
         _mainCamera.transform.position = new Vector3(0, 0, _mainCamera.transform.position.z);
         _player.transform.position = _player.transform.position - actualPos;
-        _player.SetActive(true);
+        SingletoneGameController.PlayerActions.EnableMovement();
         _actualMap.StartMap();
     }
     public void ReloadScene()
