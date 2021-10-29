@@ -13,6 +13,7 @@ public class PlayerActionsController : MonoBehaviour, IDeadable
 
     [SerializeField] private float inmunityTime;
     [SerializeField] private GameObject joystick;
+    [SerializeField] private GameObject BtnAttack;
     private int _cartaUsada;
     private bool _canAtack = true;
     private float _distance;
@@ -37,10 +38,12 @@ public class PlayerActionsController : MonoBehaviour, IDeadable
         if (CheckIfMobile.isMobile())
         {
             joystick.SetActive(true);
+            BtnAttack.SetActive(true);
         }
         else
         {
             joystick.SetActive(false);
+            BtnAttack.SetActive(false);
         }
     }
 
@@ -58,7 +61,7 @@ public class PlayerActionsController : MonoBehaviour, IDeadable
         weapon.UpdatePosition(gameObject.transform.position + (Vector3) IsometricUtils.PolarToCartesian(angle, _distance));
     }
 
-    private void Atacar()
+    public void Atacar()
     {
         if (_canAtack)
         {

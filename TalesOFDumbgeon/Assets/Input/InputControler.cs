@@ -85,7 +85,7 @@ public class @InputControler : IInputActionCollection, IDisposable
                     ""path"": ""<XInputController>/buttonSouth"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Movil"",
+                    ""groups"": ""Movil;keyboard and mouse"",
                     ""action"": ""Atacar"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -151,7 +151,7 @@ public class @InputControler : IInputActionCollection, IDisposable
                     ""path"": ""<Gamepad>/leftStick"",
                     ""interactions"": """",
                     ""processors"": ""StickDeadzone"",
-                    ""groups"": ""Movil"",
+                    ""groups"": ""Movil;keyboard and mouse"",
                     ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
