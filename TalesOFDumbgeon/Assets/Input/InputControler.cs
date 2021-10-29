@@ -82,7 +82,7 @@ public class @InputControler : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""316e1c9c-37f6-4eb5-b890-249a553e87fa"",
-                    ""path"": ""<XInputController>/buttonSouth"",
+                    ""path"": ""<Keyboard>/p"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Movil;keyboard and mouse"",
