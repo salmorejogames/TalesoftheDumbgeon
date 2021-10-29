@@ -35,7 +35,7 @@ public class PlayerActionsController : MonoBehaviour, IDeadable
         _controles.Jugador.Habilidad2.performed += ctx => UsarCarta(2);
         _controles.Jugador.Habilidad3.performed += ctx => UsarCarta(3);
         _controles.Jugador.Habilidad4.performed += ctx => UsarCarta(4);
-        if (CheckIfMobile.isMobile())
+        /*if (CheckIfMobile.isMobile())
         {
             joystick.SetActive(true);
             BtnAttack.SetActive(true);
@@ -44,7 +44,7 @@ public class PlayerActionsController : MonoBehaviour, IDeadable
         {
             joystick.SetActive(false);
             BtnAttack.SetActive(false);
-        }
+        }*/
     }
 
     // Update is called once per frame
@@ -61,7 +61,7 @@ public class PlayerActionsController : MonoBehaviour, IDeadable
         weapon.UpdatePosition(gameObject.transform.position + (Vector3) IsometricUtils.PolarToCartesian(angle, _distance));
     }
 
-    public void Atacar()
+    private void Atacar()
     {
         if (_canAtack)
         {
