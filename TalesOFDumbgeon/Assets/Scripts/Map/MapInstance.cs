@@ -6,8 +6,20 @@ using UnityEngine;
 using UnityEngine.Tilemaps;
 using Random = UnityEngine.Random;
 
+
+
 public class MapInstance : MonoBehaviour
 {
+
+    [Serializable] public struct Orientations
+    {
+        public bool North;
+        public bool East;
+        public bool South;
+        public bool West;
+    }
+
+    [SerializeField] public Orientations doorsOrientations;
     [NonSerialized] public Vector2Int Dimensions;
     [SerializeField] private Tilemap ground;
     [SerializeField] private Tilemap collisions;
@@ -17,6 +29,7 @@ public class MapInstance : MonoBehaviour
     [SerializeField] private List<GameObject> powerUpList;
     [NonSerialized] public List<CharacterStats> enemys;
     private bool doors = false;
+
     private void Awake()
     {
         ground.CompressBounds();
