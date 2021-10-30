@@ -189,11 +189,14 @@ Todo esto enmarcado en un juego web con una rejugabilidad alta, en la que cada p
   
 ## 2.1 Tipo de modelo de monetización
        
-El videojuego seguirá un modelo *free to play*, en el que los jugadores no tendrán que pagar para jugar al título. 
+El videojuego seguirá un modelo *free to play*, en el que los jugadores no tendrán que pagar para jugar al título.
 
-*Tales of the Dumbgeon* estará subido a una web propia donde se alojen anuncios de terceros para generar beneficios con cada visita. Para dar a conocer el juego, este también se subirá a páginas web gratuitas de videojuegos, como puedan ser **Minijuegos.com** o **itch.io**, donde se podrá jugar a una versión reducida del juego, recomendando encarecidamente dirigirse a la página principal para poder disfrutar de la versión completa.
+*Tales of the Dumbgeon* estará subido a una web propia donde se alojen anuncios de terceros para generar beneficios con cada visita. Para dar a conocer el juego, este también se subirá a páginas web gratuitas de videojuegos, como puedan ser *Minijuegos* o *itch.io*, donde se podrá jugar a una versión reducida del juego, recomendando encarecidamente dirigirse a la página principal para poder disfrutar de la versión completa.
 
 Se espera que gracias a la constante actividad en redes sociales y a la accesibilidad para jugar al juego se puedan conseguir una base de jugadores que generen ingresos.
+
+Estos ingresos se generarán gracias a los anuncios ubicados en la página principal y desde un *Patreon* en el que los usuarios que apoyen monetariamente tendrán acceso a nuevos contenidos que se irán introduciendo al juego de forma periódica. Además, para que los jugadores sientan que les escuchamos y se sientan parte del proyecto pensamos ofrecerles la oportunidad de votar por una serie de contenidos para que elijan cuales quieren ver en el título a futuro.
+
 
 
 # 3. Planificación y Costes
