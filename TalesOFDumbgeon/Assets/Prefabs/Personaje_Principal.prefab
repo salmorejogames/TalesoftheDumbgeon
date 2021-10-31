@@ -54,6 +54,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -102,9 +103,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a5beb185fd95974f9ac35d41c942729, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gapX: 0
-  angle: 0
-  canMove: 1
 --- !u!114 &6488593195097325721
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -132,6 +130,8 @@ MonoBehaviour:
   weapon: {fileID: 8594361203118243010}
   invincible: 0
   inmunityTime: 0.5
+  joystick: {fileID: 0}
+  BtnAttack: {fileID: 0}
 --- !u!114 &8328859853636097723
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -154,8 +154,8 @@ MonoBehaviour:
   maxHealth: 20
   armor: 1
   strength: 0
-  element: 0
   speed: 2
+  element: 0
 --- !u!50 &7701864338981015134
 Rigidbody2D:
   serializedVersion: 4
@@ -233,6 +233,7 @@ GameObject:
   - component: {fileID: 4711098444759327452}
   - component: {fileID: 8441729219444189544}
   - component: {fileID: 8594361203118243010}
+  - component: {fileID: 2036489190023171482}
   m_Layer: 0
   m_Name: CharacterWeapon
   m_TagString: Arma
@@ -269,6 +270,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -318,3 +320,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponInfo: {fileID: 11400000, guid: 0f19ae75541c2484c89af8ab79920c7f, type: 2}
   holder: {fileID: 8328859853636097723}
+--- !u!50 &2036489190023171482
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4711098444759327453}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0

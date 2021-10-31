@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections;
-using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -13,7 +13,8 @@ public class Card : MonoBehaviour, IPointerClickHandler
     private CardHolder _cardHolder;
     private RectTransform _rectTransform;
     [SerializeField] private Image holderImage;
-    [SerializeField] private Text title;
+    [SerializeField] private TextMeshProUGUI title;
+    [SerializeField] private TextMeshProUGUI description;
     [SerializeField] private Image itemImage;
     [SerializeField] private CardInfo cardInfo;
     [SerializeField] private Color highlightColor;
@@ -30,6 +31,7 @@ public class Card : MonoBehaviour, IPointerClickHandler
         holderImage.sprite = cardInfo.cardHolder;
         itemImage.sprite = cardInfo.artwork;
         title.text = cardInfo.cardName;
+        description.text = cardInfo.description;
     }
     public void OnPointerClick(PointerEventData eventData)
     {

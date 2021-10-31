@@ -21,7 +21,7 @@ public class SingletoneGameController : MonoBehaviour
         }
         else
         {
-            DontDestroyOnLoad(gameObject);
+            //DontDestroyOnLoad(gameObject);
             Instance = this;
             SceneManager.sceneLoaded += OnSceneLoaded;
             MapManager = gameObject.GetComponent<MapManager>();
