@@ -11338,6 +11338,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dde52d0996ece654b8f92286db37d223, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  roomType: 1
   doorsOrientations:
     North: 1
     South: 0
@@ -11348,7 +11349,6 @@ MonoBehaviour:
   doors: {fileID: 8576097724210664354}
   mapTrigger: {fileID: 7881152534294381081}
   enemyList:
-  - {fileID: 637891789699987269, guid: 5f88e00d5e63a584091809526e5d85b0, type: 3}
   - {fileID: 637891789699987269, guid: 5f88e00d5e63a584091809526e5d85b0, type: 3}
   powerUpList:
   - {fileID: 2459301831363257181, guid: 224f0d67d284d4744ba421578a9fa1ae, type: 3}

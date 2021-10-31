@@ -71,7 +71,7 @@ public class MapManager : MonoBehaviour
         {
             _mod.x = 0;
             _mod.y = -1;
-            yPos = -(_actualMap.dims[3] - newMapInstance.dims[2]);
+            yPos = (_actualMap.dims[3] - newMapInstance.dims[2]);
         }
 
         

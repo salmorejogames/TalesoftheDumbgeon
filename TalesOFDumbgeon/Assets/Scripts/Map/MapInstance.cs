@@ -11,6 +11,14 @@ using Random = UnityEngine.Random;
 public class MapInstance : MonoBehaviour
 {
 
+    public enum RoomType
+    {
+        Big,
+        Small,
+        Corridor,
+        Start,
+        End
+    }
     [Serializable] public struct Orientations
     {
         public bool North;
@@ -19,6 +27,7 @@ public class MapInstance : MonoBehaviour
         public bool West;
     }
 
+    public RoomType roomType;
     [SerializeField] public Orientations doorsOrientations;
     [NonSerialized] public Vector2Int Dimensions;
     [NonSerialized] public int[] dims;
@@ -44,6 +53,7 @@ public class MapInstance : MonoBehaviour
         dims[2] = bounds.yMax;
         dims[3] = bounds.yMin;
         _closed = true;
+        SetTriggerRenderers(false);
 
     }
 
