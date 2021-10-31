@@ -89,7 +89,7 @@ public class MapManager : MonoBehaviour
         var cameraTr = _mainCamera.gameObject.transform.position;
         var playerPos = _player.gameObject.transform.position;
         var coordinates = CalculatePlayerRelativeCoordinates();
- 
+        CameraFollow.activeFollow = false;
         Vector3 cameraDestiny = new Vector3(destiny.x, destiny.y, cameraTr.z);
         Vector3 playerObjetive = playerPos + coordinates;
         SingletoneGameController.PlayerActions.DisableMovement();
@@ -117,6 +117,7 @@ public class MapManager : MonoBehaviour
         _mainCamera.transform.position = new Vector3(0, 0, _mainCamera.transform.position.z);
         _player.transform.position = _player.transform.position - actualPos;
         SingletoneGameController.PlayerActions.EnableMovement();
+        CameraFollow.activeFollow = true;
         _actualMap.StartMap();
     }
     public void ReloadScene()
