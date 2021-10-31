@@ -127,6 +127,7 @@ public class CardHolder : MonoBehaviour
     {
         if (!active)
         {
+            //Time.timeScale = 0f;
             SingletoneGameController.InterfaceController.MostrarUI(true);
             foreach (var localCard in cards)
             {
@@ -139,6 +140,7 @@ public class CardHolder : MonoBehaviour
         }
         else
         {
+            //Time.timeScale = 1f;
             SingletoneGameController.InterfaceController.MostrarUI(false);
             foreach (var localCard in cards)
             {
