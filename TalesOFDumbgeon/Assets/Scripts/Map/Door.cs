@@ -1,25 +1,24 @@
-public class Door 
+using System;
+using UnityEngine;
+
+namespace Map
 {
-    public int tile1;
-    public int tile2;
-    public bool exists;
-
-    public Door()
+    public class Door : MonoBehaviour
     {
+        public enum Orientation
+        {
+            North,
+            South,
+            West,
+            East
+        }
+
+        public Orientation orientation;
+
+        private void Start()
+        {
+            Debug.Log(orientation.ToString());
+        }
 
     }
-
-    public Door(bool exists)
-    {
-        this.exists = exists;
-    }
-
-    public Door(int tile1, int tile2, bool exists)
-    {
-        this.tile1 = tile1;
-        this.tile2 = tile2;
-        this.exists = exists;
-    }
-
-
 }

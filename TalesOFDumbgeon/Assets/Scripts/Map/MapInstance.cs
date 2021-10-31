@@ -14,34 +14,49 @@ public class MapInstance : MonoBehaviour
     [Serializable] public struct Orientations
     {
         public bool North;
-        public bool East;
         public bool South;
+        public bool East;
         public bool West;
     }
 
     [SerializeField] public Orientations doorsOrientations;
     [NonSerialized] public Vector2Int Dimensions;
+    [NonSerialized] public int[] dims;
     [SerializeField] private Tilemap ground;
     [SerializeField] private Tilemap collisions;
+    [SerializeField] private Tilemap doors;
     [SerializeField] private CompositeCollider2D mapTrigger;
-    private TilemapRenderer _triggerRenderer;
     [SerializeField] private List<GameObject> enemyList;
     [SerializeField] private List<GameObject> powerUpList;
     [NonSerialized] public List<CharacterStats> enemys;
-    private bool doors = false;
+    private bool _closed;
+
 
     private void Awake()
     {
         ground.CompressBounds();
         Dimensions = (Vector2Int) ground.size;
         enemys = new List<CharacterStats>();
-        _triggerRenderer = mapTrigger.gameObject.GetComponent<TilemapRenderer>();
+        dims = new int[4];
+        BoundsInt bounds = ground.cellBounds;
+        dims[0] = bounds.xMax;
+        dims[1] = bounds.xMin;
+        dims[2] = bounds.yMax;
+        dims[3] = bounds.yMin;
+        _closed = true;
+
+    }
+
+    private void Start()
+    {
+        BoundsInt bounds = ground.cellBounds;
+        Debug.Log("X: " +bounds.xMax + " " + bounds.xMin+ " Y: " + bounds.yMax + " " + bounds.yMin);
     }
 
     private void Update()
     {
         CheckAlive();
-        if (enemys.Count <= 0 && !doors)
+        if (enemys.Count <= 0 && !_closed)
         {
             OpenDors(true);
         }
@@ -55,7 +70,6 @@ public class MapInstance : MonoBehaviour
     {
         SetTrigger(open);
         SetTriggerRenderers(!open);
-        doors = open;
     }
 
     public void StartMap()
@@ -122,13 +136,13 @@ public class MapInstance : MonoBehaviour
     public void SetCollisions(bool active)
     {
         //mapTrigger.enabled = active;
-        _triggerRenderer.GetComponent<TilemapCollider2D>().enabled = active;
+        _closed = !active;
+        mapTrigger.GetComponent<TilemapCollider2D>().enabled = active;
     }
 
     public void SetTriggerRenderers(bool active)
     {
-        _triggerRenderer.enabled = active;
-        
+        doors.GetComponent<TilemapRenderer>().enabled = active;
     }
     
 }

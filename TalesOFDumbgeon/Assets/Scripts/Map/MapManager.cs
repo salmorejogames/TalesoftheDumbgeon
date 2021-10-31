@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using ScriptableObjects;
 using ScriptableObjects.Equipment;
@@ -41,33 +42,47 @@ public class MapManager : MonoBehaviour
     {
         Debug.Log("Instantiate Map");
 
+        float xPos = 0;
+        float yPos = 0;
         _mod.x = 1;
         _mod.y = 1;
+        MapInstance newMapInstance = Instantiate(maps[id]);
         Vector3 pos = _player.gameObject.transform.position;
+        
         if (pos.x <= 0 && pos.y <= 0)
         {
             _mod.x = -1;
             _mod.y = 0;
+            Debug.Log("SOUTH");
+            xPos = _actualMap.dims[1] - newMapInstance.dims[0];
         }else if (pos.x <= 0 && pos.y >= 0)
         {
+            Debug.Log("WEST");
             _mod.x = 0;
+            yPos = _actualMap.dims[2] - newMapInstance.dims[3];
+            
         }else if (pos.x >= 0 && pos.y >= 0)
         {
+            Debug.Log("NORTH");
             _mod.y = 0;
+            xPos = _actualMap.dims[0] - newMapInstance.dims[1];
         }
         else
         {
             _mod.x = 0;
             _mod.y = -1;
+            yPos = -(_actualMap.dims[3] - newMapInstance.dims[2]);
         }
 
-        MapInstance newMapInstance = Instantiate(maps[id]);
+        
         //Debug.Log(_actualMap.Dimensions.ToString() + " " + newMapInstance.Dimensions.ToString() + " "  + multiplier);
         //float newX = _mod.x*(_actualMap.Dimensions.x/4 + newMapInstance.Dimensions.x/4);
         //float newY = _mod.y*(_actualMap.Dimensions.y*IsometricUtils.CellSizeY/4 + newMapInstance.Dimensions.y*IsometricUtils.CellSizeY/4);
-        float xPos = _mod.x*(_actualMap.Dimensions.x/2 + newMapInstance.Dimensions.x/2)*0.5f;
-        float yPos = _mod.y * (_actualMap.Dimensions.y / 2 + newMapInstance.Dimensions.y / 2)*0.5f;
-        Vector3 newCenter = IsometricUtils.CartesianToIsometric(new Vector2(xPos, yPos));
+        //float xPos = _mod.x*(_actualMap.Dimensions.x/2 + newMapInstance.Dimensions.x/2)*0.5f;
+        //float yPos = _mod.y * (_actualMap.Dimensions.y / 2 + newMapInstance.Dimensions.y / 2)*0.5f;
+        //float xPos = _actualMap
+        Debug.Log("NEW MAP COORDS: " + xPos + " " + yPos);
+        Vector3 newCenter = IsometricUtils.CoordinatesToWorldSpace(xPos, yPos);
         newMapInstance.gameObject.transform.position = newCenter;
         _oldMap = _actualMap;
         newMapInstance.gameObject.SetActive(true);
