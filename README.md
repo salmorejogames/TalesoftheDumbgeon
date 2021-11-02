@@ -265,6 +265,13 @@ La duración estimada del proyecto es de 3 meses, empezando el día 5 de octubre
     
 Al empezar sin ningún tipo de presupuesto no hay ningún coste monetario. Sin embargo, sí existe un coste temporal en el que los desarrolladores tendrán que trabajar en el proyecto.
 
+## 3.4 Modelo de Lienzo
+
+![image](https://user-images.githubusercontent.com/72553373/139840443-341361c7-5dc8-4c57-aa2e-7bb056e0a6e0.png)
+![image](https://user-images.githubusercontent.com/72553373/139840520-ac595f80-4f0a-4ff1-ba72-139a66828402.png)
+![image](https://user-images.githubusercontent.com/72553373/139840585-f4cca384-e5df-4e68-a476-6b5d357bf6c2.png)
+
+
 # 4. Mecánicas de Juego y Elemento de Juego
 
 En este apartado se profundizará en las diferentes mecánicas que componen a *Tales of the Dumbgeon* ahondando en los diversos fundamentos de su jugabilidad y explicando el rango de acciones de los jugadores.
