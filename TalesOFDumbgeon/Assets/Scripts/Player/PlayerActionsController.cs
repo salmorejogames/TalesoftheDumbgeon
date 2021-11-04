@@ -42,8 +42,8 @@ public class PlayerActionsController : MonoBehaviour, IDeadable
         }
         else
         {
-            joystick.SetActive(false);
-            BtnAttack.SetActive(false);
+            //joystick.SetActive(false);
+            //BtnAttack.SetActive(false);
         }
     }
 

@@ -15,7 +15,7 @@ public class ZonaAtaqueEnemigo : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            collision.gameObject.GetComponent<PlayerController>().takeDamage(damage);
+            collision.gameObject.GetComponent<PlayerActions>().Damage(damage, Elements.Element.Brasa);
         }
     }
 

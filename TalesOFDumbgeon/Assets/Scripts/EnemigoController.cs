@@ -31,8 +31,13 @@ public class EnemigoController : MonoBehaviour
     private Collider2D choque;
     private bool canAtack = true;
     private float attackDelay;
+    private float dashTime;
+    private float startDashTime = 2f;
+    private bool attaking = false;
+    private float tiempoParado;
+    private float startTiempoParado = 2;
 
-    public enum tipoEnemigo {Abuesqueleto, Cerebro, Duonde, Palloto};
+    public enum tipoEnemigo {Abuesqueleto, Cerebro, Duonde, Palloto, Banana};
     public tipoEnemigo especie;
     
     // Start is called before the first frame update
@@ -71,16 +76,66 @@ public class EnemigoController : MonoBehaviour
             damage = 7;
             vision = 3;
         }
+        else if(especie == tipoEnemigo.Banana)
+        {
+            velocidad = 2;
+            armadura = 2;
+            damage = 10;
+            vision = 5;
+            stopDistance = 5;
+        }
 
     }
 
     // Update is called once per frame
     void Update()
+    {
+
+        if (!attaking)
+        {
+            distanciaPlayer = Vector2.Distance(transform.position, personaje.transform.position);
+            direccion = personaje.transform.position - transform.position;
+            rotacion = Mathf.Atan2(direccion.x, direccion.y) * Mathf.Rad2Deg;
+            direccion.Normalize();
+
+            if (tiempoParado <= 0)
+            {
+                Logica();
+                Debug.Log("Entramos en la logica");
+            }
+            else
+            {
+                tiempoParado -= Time.deltaTime;
+                Debug.Log("Restamos tiempo transcurrido");
+                rb.velocity = Vector2.zero;
+            }
+        }
+        else
+        {
+            if (tiempoParado <= 0)
+            {
+                if (dashTime <= 0)
+                {
+                    attaking = false;
+                    dashTime = startDashTime;
+                    rb.velocity = Vector2.zero;
+                }
+                else
+                {
+                    dashTime -= Time.deltaTime;
+
+                    rb.velocity = direccion * velocidad * 1.5f;
+                }
+            }
+            else
+            {
+                tiempoParado -= Time.deltaTime;
+            }
+        }
+    }
+
+    private void Logica()
     {        
-        distanciaPlayer = Vector2.Distance(transform.position, personaje.transform.position);
-        direccion = personaje.transform.position - transform.position;
-        rotacion = Mathf.Atan2(direccion.x, direccion.y) * Mathf.Rad2Deg;
-        direccion.Normalize();
 
         decisionClock++;
         attackDelay++;
@@ -95,9 +150,9 @@ public class EnemigoController : MonoBehaviour
             estadoActual = Estado.Wandering;
         else if (distanciaPlayer <= vision && distanciaPlayer > stopDistance)
             estadoActual = Estado.Detected;
-        else if(distanciaPlayer <= stopDistance)
+        else if (distanciaPlayer <= stopDistance)
             estadoActual = Estado.Attacking;
-               
+
         Debug.Log(estadoActual);
 
         if (decisionClock > decisionTime || Vector3.Distance(transform.position, personaje.transform.position) < vision && personaje != null)
@@ -106,7 +161,7 @@ public class EnemigoController : MonoBehaviour
             switch (estadoActual)
             {
                 case Estado.Wandering:
-                    Wander();                    
+                    Wander();
                     break;
 
                 case Estado.Detected:
@@ -115,13 +170,13 @@ public class EnemigoController : MonoBehaviour
                     break;
 
                 case Estado.Attacking:
-                    rb.rotation = -rotacion;                    
+                    rb.rotation = -rotacion;
                     Attack();
                     break;
             }
-        }        
+        }
 
-        transform.position = Vector3.MoveTowards(transform.position, nextPos, velocidad * Time.deltaTime); 
+        transform.position = Vector3.MoveTowards(transform.position, nextPos, velocidad * Time.deltaTime);
     }
 
     private void Alcanzable()
@@ -174,11 +229,18 @@ public class EnemigoController : MonoBehaviour
     private void Attack()
     {
         if (canAtack)
-        {            
-            zonaAtaque.GetComponent<Collider2D>().isTrigger = false;
-            rb.velocity = Vector2.zero;
-            canAtack = false;
-            nextPos = transform.position;
+        {
+            if (especie == tipoEnemigo.Abuesqueleto)
+            {
+                zonaAtaque.GetComponent<Collider2D>().isTrigger = false;
+                rb.velocity = Vector2.zero;
+                canAtack = false;
+                nextPos = transform.position;
+            }else if(especie == tipoEnemigo.Banana)
+            {
+                zonaAtaque.GetComponent<Collider2D>().isTrigger = false;
+                attaking = true;
+            }
         }
     }
 
@@ -187,7 +249,7 @@ public class EnemigoController : MonoBehaviour
     {       
         nextPos = new Vector3(UnityEngine.Random.Range(-maxDistance, maxDistance) + transform.position.x, UnityEngine.Random.Range(-maxDistance, maxDistance) + transform.position.y);
         //Alcanzable();
-        Instantiate(Bala, nextPos, Quaternion.identity);
+        //Instantiate(Bala, nextPos, Quaternion.identity);
         Debug.Log("hago un wander: " + nextPos);
     }
 
