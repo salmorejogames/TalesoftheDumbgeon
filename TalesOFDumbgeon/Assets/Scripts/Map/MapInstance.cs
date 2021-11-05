@@ -39,10 +39,12 @@ public class MapInstance : MonoBehaviour
     [SerializeField] private List<GameObject> powerUpList;
     [NonSerialized] public List<CharacterStats> enemys;
     private bool _closed;
+    private bool _started;
 
 
     private void Awake()
     {
+        _started = false;
         ground.CompressBounds();
         Dimensions = (Vector2Int) ground.size;
         enemys = new List<CharacterStats>();
@@ -69,6 +71,7 @@ public class MapInstance : MonoBehaviour
         if (enemys.Count <= 0 && !_closed)
         {
             OpenDors(true);
+            _closed = true;
         }
     }
 
@@ -84,39 +87,50 @@ public class MapInstance : MonoBehaviour
 
     public void StartMap()
     {
-        //Debug.Log(collisions.GetTile(Vector3Int.zero));
-        Debug.Log("Starting Map");
-        SetCollisions(true);
-        for (int i = 0; i < enemyList.Count ; i++)
+        if (!_started)
         {
-            Debug.Log("Genrating Enemy " + i);
-            int xx;
-            int yy;
-            do
+            //Debug.Log(collisions.GetTile(Vector3Int.zero));
+            Debug.Log("Starting Map");
+            SetCollisions(true);
+            for (int i = 0; i < enemyList.Count; i++)
             {
-                xx = Random.Range((-Dimensions.x + 3) / 2, (Dimensions.x - 2) / 2);
-                yy = Random.Range((-Dimensions.y + 3) / 2, (Dimensions.y - 2) / 2);
-            } while (!IsValidPosition(xx, yy));
-            var newEnemy = Instantiate(enemyList[i], gameObject.transform, true);
-            newEnemy.transform.position = IsometricUtils.CoordinatesToWorldSpace(xx, yy);
-            newEnemy.transform.localScale = new Vector3(1, 1, 1);
-            enemys.Add(newEnemy.GetComponent<CharacterStats>());
+                Debug.Log("Genrating Enemy " + i);
+                int xx;
+                int yy;
+                do
+                {
+                    xx = Random.Range((-Dimensions.x + 3) / 2, (Dimensions.x - 2) / 2);
+                    yy = Random.Range((-Dimensions.y + 3) / 2, (Dimensions.y - 2) / 2);
+                } while (!IsValidPosition(xx, yy));
+
+                var newEnemy = Instantiate(enemyList[i], gameObject.transform, true);
+                newEnemy.transform.position = IsometricUtils.CoordinatesToWorldSpace(xx, yy);
+                newEnemy.transform.localScale = new Vector3(1, 1, 1);
+                enemys.Add(newEnemy.GetComponent<CharacterStats>());
+            }
+
+            for (int i = 0; i < powerUpList.Count; i++)
+            {
+                int xx;
+                int yy;
+                do
+                {
+                    xx = Random.Range((-Dimensions.x + 3) / 2, (Dimensions.x - 2) / 2);
+                    yy = Random.Range((-Dimensions.y + 3) / 2, (Dimensions.y - 2) / 2);
+                } while (!IsValidPosition(xx, yy));
+
+                var newPowerUp = Instantiate(powerUpList[i], gameObject.transform, true);
+                newPowerUp.transform.position = IsometricUtils.CoordinatesToWorldSpace(xx, yy);
+                newPowerUp.transform.localScale = new Vector3(1, 1, 1);
+            }
+
+            _started = true;
+            OpenDors(false);
         }
-        for (int i = 0; i < powerUpList.Count ; i++)
+        else
         {
-            int xx;
-            int yy;
-            do
-            {
-                xx = Random.Range((-Dimensions.x + 3) / 2, (Dimensions.x - 2) / 2);
-                yy = Random.Range((-Dimensions.y + 3) / 2, (Dimensions.y - 2) / 2);
-            } while (!IsValidPosition(xx, yy));
-            var newPowerUp = Instantiate(powerUpList[i], gameObject.transform, true);
-            newPowerUp.transform.position = IsometricUtils.CoordinatesToWorldSpace(xx, yy);
-            newPowerUp.transform.localScale = new Vector3(1, 1, 1);
+            SetCollisions(true);
         }
-        
-        OpenDors(false);
     }
 
     private void CheckAlive()

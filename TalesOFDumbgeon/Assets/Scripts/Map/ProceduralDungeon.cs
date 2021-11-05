@@ -17,8 +17,8 @@ public class ProceduralDungeon : MonoBehaviour
     private bool endRoom = false;
     [SerializeField] private List<MapInstance> posibleMaps;
     private RoomNode[,] _rooms;
-    [NonSerialized] public Vector2 ActualPos;
-    void Start()
+    [NonSerialized] public Vector2Int InitialPos;
+    void Awake()
     {
         _rooms = new RoomNode[MaxSizeX,MaxSizeY];
         for (int i = 0; i < MaxSizeX; i++)
@@ -30,7 +30,7 @@ public class ProceduralDungeon : MonoBehaviour
         }
         int posX = Random.Range(0, MaxSizeX);;
         int posY = 0;
-        ActualPos = new Vector2(posX, posY);
+        InitialPos = new Vector2Int(posX, posY);
         MapInstance newMap = null;
         foreach (var map in posibleMaps)
         {
@@ -40,22 +40,30 @@ public class ProceduralDungeon : MonoBehaviour
                 break;
             }
         }
-        if(newMap ==null) 
+
+        if (newMap == null)
+        {
             newMap = Instantiate(posibleMaps[0]);
-        
+        }
+
         newMap.gameObject.transform.position = Vector3.zero;
+        Debug.Log("Initial map in " + posX + "," + posY);
         UpdateMap(newMap, posX, posY);
         int maxIterations = 1;
         int numSalas;
-        do
-        {
+        //do
+        //{
             actualBigRooms = 0;
             endRoom = false;
             numSalas = MapIteration(posX, posY+1);
             maxIterations--;
-        } while (((numSalas < MaxMaps) || !endRoom));
+        //} while (((numSalas < MaxMaps) || !endRoom));
     }
 
+    public MapInstance GetRoom(int x, int y)
+    {
+        return _rooms[x, y].Map;
+    }
     private int MapIteration(int posX, int posY)
     {
         bool validMap = false;
@@ -76,8 +84,9 @@ public class ProceduralDungeon : MonoBehaviour
                 validMap = false;
         } while (!validMap);
 
-        _rooms[posX, posY].Map = Instantiate(newMap);
-        _rooms[posX, posY].RoomState = RoomNode.State.Complete;
+        Debug.Log("Map generated in " + posX + "," + posY + " map: " + newMap.name + " rooms: N:" + newMap.doorsOrientations.North + " S: " + newMap.doorsOrientations.South + " E: " + newMap.doorsOrientations.East + " W: " + newMap.doorsOrientations.West);
+        newMap = Instantiate(newMap);
+        UpdateMap(newMap, posX, posY);
 
         if (newMap.roomType == MapInstance.RoomType.End)
         {
@@ -93,9 +102,10 @@ public class ProceduralDungeon : MonoBehaviour
             
         
         int numHijos = 1;
+        
         if (newMap.doorsOrientations.North)
         {
-            if (_rooms[posX, posY + 1].RoomState != RoomNode.State.Null)
+            if (_rooms[posX, posY + 1].RoomState == RoomNode.State.Complete)
             {
                 _rooms[posX, posY + 1].Directions[(int) RoomNode.Cardinal.South] = RoomNode.State.Complete;
             }
@@ -106,9 +116,9 @@ public class ProceduralDungeon : MonoBehaviour
         }
         if (newMap.doorsOrientations.South)
         {
-            if (_rooms[posX, posY - 1].RoomState != RoomNode.State.Null)
+            if (_rooms[posX, posY - 1].RoomState == RoomNode.State.Complete)
             {
-                _rooms[posX, posY - 1].Directions[(int) RoomNode.Cardinal.South] = RoomNode.State.Complete;
+                _rooms[posX, posY - 1].Directions[(int) RoomNode.Cardinal.North] = RoomNode.State.Complete;
             }
             else
             {
@@ -117,20 +127,20 @@ public class ProceduralDungeon : MonoBehaviour
         }
         if (newMap.doorsOrientations.East)
         {
-            if (_rooms[posX + 1 , posY].RoomState != RoomNode.State.Null)
+            if (_rooms[posX + 1 , posY].RoomState == RoomNode.State.Complete)
             {
-                _rooms[posX + 1, posY].Directions[(int) RoomNode.Cardinal.South] = RoomNode.State.Complete;
+                _rooms[posX + 1, posY].Directions[(int) RoomNode.Cardinal.West] = RoomNode.State.Complete;
             }
             else
             {
                 numHijos += MapIteration(posX  + 1, posY);
             }
         }
-        if (newMap.doorsOrientations.South)
+        if (newMap.doorsOrientations.West)
         {
-            if (_rooms[posX-1, posY].RoomState != RoomNode.State.Null)
+            if (_rooms[posX-1, posY].RoomState == RoomNode.State.Complete)
             {
-                _rooms[posX-1, posY].Directions[(int) RoomNode.Cardinal.South] = RoomNode.State.Complete;
+                _rooms[posX-1, posY].Directions[(int) RoomNode.Cardinal.East] = RoomNode.State.Complete;
             }
             else
             {
@@ -161,17 +171,17 @@ public class ProceduralDungeon : MonoBehaviour
         if (orientations.West && posX <= 0)
             return false;
         
-        //Check there arent existing rooms
-        /*
-        if (orientations.North && _rooms[posX, posY+1].RoomState == RoomNode.State.Complete)
+        //Check there arent existing rooms without doors towards our new room
+        
+        if (orientations.North && _rooms[posX, posY+1].RoomState == RoomNode.State.Complete && !_rooms[posX, posY+1].Map.doorsOrientations.South)
             return false;
-        if (orientations.South && _rooms[posX, posY-1].RoomState == RoomNode.State.Complete)
+        if (orientations.South && _rooms[posX, posY-1].RoomState == RoomNode.State.Complete && !_rooms[posX, posY-1].Map.doorsOrientations.North)
             return false;
-        if (orientations.East && _rooms[posX+1, posY].RoomState == RoomNode.State.Complete)
+        if (orientations.East && _rooms[posX+1, posY].RoomState == RoomNode.State.Complete && !_rooms[posX+1, posY].Map.doorsOrientations.West)
             return false;
-        if (orientations.West && _rooms[posX-1, posY].RoomState == RoomNode.State.Complete)
+        if (orientations.West && _rooms[posX-1, posY].RoomState == RoomNode.State.Complete && !_rooms[posX-1, posY].Map.doorsOrientations.East)
             return false;
-        */
+        
         return true;
 
     }
@@ -179,25 +189,26 @@ public class ProceduralDungeon : MonoBehaviour
     {
         _rooms[posX, posY].Map = map;
         _rooms[posX, posY].RoomState = RoomNode.State.Complete;
+        _rooms[posX, posY].Map.gameObject.SetActive(false);
         MapInstance.Orientations orientations = map.doorsOrientations;
         if (orientations.North)
         {
-            _rooms[posX, posY + 1].RoomState = RoomNode.State.Empty;
+            //_rooms[posX, posY + 1].RoomState = RoomNode.State.Empty;
             _rooms[posX, posY+ 1].Directions[(int) RoomNode.Cardinal.South] = RoomNode.State.Complete;
         }
         if (orientations.South)
         {
-            _rooms[posX, posY - 1].RoomState = RoomNode.State.Empty;
+            //_rooms[posX, posY - 1].RoomState = RoomNode.State.Empty;
             _rooms[posX, posY - 1].Directions[(int) RoomNode.Cardinal.North] = RoomNode.State.Complete;
         }
         if (orientations.East)
         {
-            _rooms[posX+1, posY].RoomState = RoomNode.State.Empty;
+            //rooms[posX+1, posY].RoomState = RoomNode.State.Empty;
             _rooms[posX+1, posY].Directions[(int) RoomNode.Cardinal.West] = RoomNode.State.Complete;
         }
         if (orientations.West)
         {
-            _rooms[posX-1, posY].RoomState = RoomNode.State.Empty;
+            //_rooms[posX-1, posY].RoomState = RoomNode.State.Empty;
             _rooms[posX-1, posY].Directions[(int) RoomNode.Cardinal.East] = RoomNode.State.Complete;
         }
     }
