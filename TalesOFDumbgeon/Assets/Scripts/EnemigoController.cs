@@ -6,14 +6,13 @@ using UnityEngine.AI;
 
 public class EnemigoController : MonoBehaviour
 {
-
     public int velocidad = 5;
     public int armadura = 3;
     public int damage = 1;
     public float vision = 3;
     public float maxDistance = 1f;
     public float stopDistance = 0.5f;
-    public float decisionTime = 500f;
+    public float decisionTime = 2f;
     public float decisionClock = 0f;
 
     public GameObject personaje;
@@ -31,11 +30,11 @@ public class EnemigoController : MonoBehaviour
     private Collider2D choque;
     private bool canAtack = true;
     private float attackDelay;
-    private float dashTime;
-    private float startDashTime = 2f;
+    private float dashTime = 0f;
+    private float startDashTime = 0.5f;
     private bool attaking = false;
-    private float tiempoParado;
-    private float startTiempoParado = 2;
+    private float tiempoParado = 0f;
+    private float startTiempoParado = 1f;
 
     public enum tipoEnemigo {Abuesqueleto, Cerebro, Duonde, Palloto, Banana};
     public tipoEnemigo especie;
@@ -98,17 +97,13 @@ public class EnemigoController : MonoBehaviour
             rotacion = Mathf.Atan2(direccion.x, direccion.y) * Mathf.Rad2Deg;
             direccion.Normalize();
 
-            if (tiempoParado <= 0)
-            {
-                Logica();
-                Debug.Log("Entramos en la logica");
-            }
-            else
-            {
-                tiempoParado -= Time.deltaTime;
-                Debug.Log("Restamos tiempo transcurrido");
-                rb.velocity = Vector2.zero;
-            }
+            DecisionEstado();
+            tiempoParado = startTiempoParado;
+            Debug.Log("Entramos en la logica");
+            
+            /*tiempoParado -= Time.deltaTime;
+            Debug.Log("Restamos tiempo transcurrido");
+            rb.velocity = Vector2.zero;*/
         }
         else
         {
@@ -124,7 +119,7 @@ public class EnemigoController : MonoBehaviour
                 {
                     dashTime -= Time.deltaTime;
 
-                    rb.velocity = direccion * velocidad * 1.5f;
+                    rb.velocity = direccion * velocidad * 3f;
                 }
             }
             else
@@ -134,7 +129,7 @@ public class EnemigoController : MonoBehaviour
         }
     }
 
-    private void Logica()
+    private void DecisionEstado()
     {        
 
         decisionClock++;
@@ -155,7 +150,7 @@ public class EnemigoController : MonoBehaviour
 
         Debug.Log(estadoActual);
 
-        if (decisionClock > decisionTime || Vector3.Distance(transform.position, personaje.transform.position) < vision && personaje != null)
+        if (decisionClock > decisionTime || distanciaPlayer < vision && personaje != null)
         {
             decisionClock = 0;
             switch (estadoActual)
@@ -270,7 +265,7 @@ public class EnemigoController : MonoBehaviour
             nextPos = transform.position;
         }else if (collision.gameObject.CompareTag("Colisiones"))
         {
-            decisionClock = 500;            
+            decisionClock = 5f;            
         }
         Debug.Log("decision CLock: " + decisionClock);
     }

@@ -20,7 +20,7 @@ public class MeleeWeapon : WeaponSO
     public override void Atacar(Weapon weaponGO)
     {
         weaponGO.ReactivateCollider(attackDuration);
-        SingletoneGameController.PlayerActions.DisableMovement(attackDuration);
+        //SingletoneGameController.PlayerActions.DisableMovement(attackDuration);
         switch (atackType)
         {
             case AtackType.Slice:
