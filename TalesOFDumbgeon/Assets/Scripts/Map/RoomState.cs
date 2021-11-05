@@ -21,7 +21,7 @@ namespace Map
                 directions[i] = State.Empty;
         }
 
-        public void setMapInstance(MapInstance map)
+        public void SetMapInstance(MapInstance map)
         {
             _mapInstance = map;
             MapInstance.Orientations orientations = _mapInstance.doorsOrientations;
@@ -45,15 +45,24 @@ namespace Map
             else
                 directions[3] = State.Empty;
         }
-        
-        public MapInstance getMapInstance()
+
+        public void UpdateState()
+        {
+            for (int i = 0; i < 4; i++)
+            {
+                if (directions[i] == State.Open)
+                    return;
+            }
+            state = State.Full;
+        }
+        public MapInstance GetMapInstance()
         {
             return _mapInstance;
         }
         
         public RoomState(MapInstance map)
         {
-            setMapInstance(map);
+            SetMapInstance(map);
             state = State.Open;
         }
     }
