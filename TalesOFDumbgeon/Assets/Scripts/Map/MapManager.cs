@@ -173,5 +173,5 @@ public class MapManager : MonoBehaviour
         InstantiateMap();
     }
 
-    
+    public MapInstance ActualMap => _actualMap;
 }

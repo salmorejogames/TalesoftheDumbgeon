@@ -24,7 +24,7 @@ public static class IsometricUtils
 
     public static Vector3 CoordinatesToWorldSpace(float x, float y)
     {
-        Debug.Log(x + " " + y);
+        //Debug.Log(x + " " + y);
         return  CartesianToIsometric(new Vector2(x/2, y/2));
     }
 }

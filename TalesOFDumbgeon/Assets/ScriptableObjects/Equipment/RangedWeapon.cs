@@ -34,6 +34,6 @@ public class RangedWeapon : WeaponSO
         Debug.Log(weaponGO.angle);
         ammo.transform.rotation =
             Quaternion.Euler(new Vector3(transform.rotation.x, transform.rotation.y, weaponGO.angle));;
-        Debug.Log(ammo.transform.rotation.eulerAngles.ToString());
+        //Debug.Log(ammo.transform.rotation.eulerAngles.ToString());
     }
 }

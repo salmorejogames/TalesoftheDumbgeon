@@ -2,19 +2,28 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b1d37c9d-25b2-4110-97a9-49ea663fadda" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/JojoMamalo.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/JojoMamalo.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Enemys.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Enemys/EnemigoController.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Enemys/EnemigoController.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Enemys/ExampleEnemyBehaviour.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Enemys/ExampleEnemyBehaviour.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Enemys/JojoMamaloBehaviour.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Enemys/JojoMamaloBehaviour.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.TalesOFDumbgeon/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TalesOFDumbgeon/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Maps/MapaEnd1.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Maps/MapaEnd1.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Maps/MapaEnd2.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Maps/MapaEnd2.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Maps/MapaEnd3.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Maps/MapaEnd3.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Maps/MapaEnd4.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Maps/MapaEnd4.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Maps/MapaFin.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Maps/MapaFin.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Maps/MapaInicio.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Maps/MapaInicio.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/IsometricScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/IsometricScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Equipment/RangedWeapon.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Equipment/RangedWeapon.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/EnemigoController.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/EnemigoController.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ExampleEnemyBehaviour.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ExampleEnemyBehaviour.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/IsometricUtils.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/IsometricUtils.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Map/MapInstance.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Map/MapInstance.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Map/MapManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Map/MapManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Map/ProceduralDungeon.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Map/ProceduralDungeon.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Map/RoomState.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Map/RoomState.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/personajes/abuesqueleto/abuesqueleto.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/personajes/abuesqueleto/abuesqueleto.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/personajes/jojomamalo/jojomamalo_dAbajoDER.psb.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/personajes/jojomamalo/jojomamalo_dAbajoDER.psb.meta" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,7 +42,6 @@
     </file-type-list>
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/ExampleEnemyBehaviour.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Map/ProceduralDungeon.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/IsometricUtils.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Collectionable.cs" root0="FORCE_HIGHLIGHTING" />
@@ -43,7 +51,9 @@
     <setting file="file://$PROJECT_DIR$/../../../Unity/Hub/Editor/2019.4.26f1/Editor/Data/Resources/PackageManager/BuiltInPackages/com.unity.ugui/Runtime/EventSystem/UIBehaviour.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Map/RoomNode.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.inputsystem@1.0.2/InputSystem/Utilities/DelegateHelpers.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Enemys/JojoMamaloBehaviour.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/GameControl/PlayerActions.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Enemys/ExampleEnemyBehaviour.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/ScriptableObjects/Equipment/MeleeWeapon.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.inputsystem@1.0.2/InputSystem/Plugins/OnScreen/OnScreenStick.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Interfaces/IDeadable.cs" root0="FORCE_HIGHLIGHTING" />
@@ -77,7 +87,6 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/Player/IsometricCharacterRenderer.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/ICollectable.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Collectionable.cs" />
-      <option value="$PROJECT_DIR$/Assets/ScriptableObjects/Equipment/RangedWeapon.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Player/IsometricMove.cs" />
       <option value="$PROJECT_DIR$/Assets/ScriptableObjects/Equipment/EquipmentSo.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Bala_Move.cs" />
@@ -94,12 +103,14 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/Player/PlayerActionsController.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Inteface/GameplayInterfaceController.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Elements.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/IsometricUtils.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Map/RoomState.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Map/RoomNode.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Map/MapInstance.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Map/ProceduralDungeon.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Map/MapManager.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Enemys/JojoMamaloBehaviour.cs" />
+      <option value="$PROJECT_DIR$/Assets/ScriptableObjects/Equipment/RangedWeapon.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Map/ProceduralDungeon.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/IsometricUtils.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Map/MapInstance.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1zRaEkaFY4bgpmOHr8r3t8E1N2f" />
