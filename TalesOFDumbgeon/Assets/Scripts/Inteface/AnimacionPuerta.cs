@@ -18,6 +18,8 @@ public class AnimacionPuerta : MonoBehaviour
     [SerializeField] private GameObject ojos;
     [SerializeField] private GameObject clickEmpezar;
 
+    private bool click;
+
     private void Awake()
     {
         iuInput = new InterfaceControls();
@@ -27,13 +29,8 @@ public class AnimacionPuerta : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        LeanTween.init(1600);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
+        click = false;
+        LeanTween.init(3200);
     }
 
     private void OnEnable()
@@ -45,31 +42,20 @@ public class AnimacionPuerta : MonoBehaviour
     {
         iuInput.Menuprincipal.Disable();
     }
-    /*
-    void OnMouseOver()
-    {
-        if (Input.GetMouseButtonDown(0))
-        {
-            clickEmpezar.SetActive(false);
-            LeanTween.moveLocalX(cejaIzda, -42, .25f);
-            LeanTween.moveLocalX(cejaDcha, 34, .25f);
-            LeanTween.rotateZ(cejaIzda, -20, .25f);
-            LeanTween.rotateZ(cejaDcha, 20, .25f);
-
-            StartCoroutine(AbrirDumbgeon());
-        }
-    }
-    */
 
     void HacerClick()
     {
-        clickEmpezar.SetActive(false);
-        LeanTween.moveLocalX(cejaIzda, -58, .25f);
-        LeanTween.moveLocalX(cejaDcha, 58, .25f);
-        LeanTween.rotateZ(cejaIzda, -20, .25f);
-        LeanTween.rotateZ(cejaDcha, 20, .25f);
+        if (!click)
+        {
+            clickEmpezar.SetActive(false);
+            LeanTween.moveLocalX(cejaIzda, -58, .25f);
+            LeanTween.moveLocalX(cejaDcha, 58, .25f);
+            LeanTween.rotateZ(cejaIzda, -20, .25f);
+            LeanTween.rotateZ(cejaDcha, 20, .25f);
+            click = true;
 
-        StartCoroutine(AbrirDumbgeon());
+            StartCoroutine(AbrirDumbgeon());
+        }
     }
 
     IEnumerator AbrirDumbgeon()

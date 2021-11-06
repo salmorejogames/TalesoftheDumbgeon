@@ -9,21 +9,16 @@ public class AnimacionMenuPrincipal : MonoBehaviour
     [SerializeField] private GameObject botonAjustes;
     [SerializeField] private GameObject botonCreditos;
 
+    private bool terminado;
+
     // Start is called before the first frame update
     void Start()
     {
-        LeanTween.init(1600);
+        terminado = false;
+        //LeanTween.init(3200);
         LeanTween.moveLocalY(titulo, 190, 1.5f).setEaseOutCubic();
-        LeanTween.rotateZ(titulo, -75, 1f).setEaseOutCubic();
-    }
+        LeanTween.rotateZ(titulo, -85, 1f).setEaseOutCubic();
 
-    // Update is called once per frame
-    void Update()
-    {
-        //LeanTween.rotateZ(titulo, 0, .5f).setEaseInCubic();
-        //LeanTween.moveLocalY(botonJugar, -150, .5f).setDelay(1.5f);
-        //LeanTween.moveLocalY(botonAjustes, -150, .5f).setDelay(1.5f);
-        //LeanTween.moveLocalY(botonCreditos, -150, .5f).setDelay(1.5f);
         LeanTween.moveLocalX(botonJugar, -13, 1.5f).setEaseOutCubic().setDelay(1.5f);
         LeanTween.moveLocalY(botonJugar, -190, 1.5f).setEaseOutCubic().setDelay(1.5f);
         LeanTween.rotateZ(botonJugar, -5, 1f).setEaseOutCubic().setDelay(1.5f);
