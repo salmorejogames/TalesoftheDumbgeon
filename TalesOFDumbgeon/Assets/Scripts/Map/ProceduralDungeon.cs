@@ -1,7 +1,6 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using Map;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -11,24 +10,20 @@ public class ProceduralDungeon : MonoBehaviour
     //Max Room sizes
     public const int MaxSizeX = 10;
     public const int MaxSizeY = 10;
-    public int MaxMaps;
+    [SerializeField] private int minRooms;
+    [SerializeField] private int maxRooms;
     public int MaxBigRooms;
     private int actualBigRooms;
     private bool endRoom = false;
     [SerializeField] private List<MapInstance> posibleMaps;
     private RoomNode[,] _rooms;
     [NonSerialized] public Vector2Int InitialPos;
+    private MapInstance endMap;
     void Awake()
     {
+        endMap = posibleMaps.Find((map) => map.roomType == MapInstance.RoomType.End);
         _rooms = new RoomNode[MaxSizeX,MaxSizeY];
-        for (int i = 0; i < MaxSizeX; i++)
-        {
-            for (int j = 0; j < MaxSizeY; j++)
-            {
-                _rooms[i, j] = new RoomNode();
-            }
-        }
-        int posX = Random.Range(0, MaxSizeX);;
+        int posX = Random.Range(1, MaxSizeX-1);;
         int posY = 0;
         InitialPos = new Vector2Int(posX, posY);
         MapInstance newMap = null;
@@ -36,44 +31,108 @@ public class ProceduralDungeon : MonoBehaviour
         {
             if (map.roomType == MapInstance.RoomType.Start)
             {
-                newMap = Instantiate(map);
+                newMap = map;
                 break;
             }
         }
 
         if (newMap == null)
         {
-            newMap = Instantiate(posibleMaps[0]);
+            newMap = posibleMaps[0];
         }
 
         newMap.gameObject.transform.position = Vector3.zero;
         Debug.Log("Initial map in " + posX + "," + posY);
-        UpdateMap(newMap, posX, posY);
+       
         int maxIterations = 1;
         int numSalas;
-        //do
-        //{
+        do
+        {
+            ResetRooms();
+            UpdateMap(newMap, posX, posY);
             actualBigRooms = 0;
             endRoom = false;
-            numSalas = MapIteration(posX, posY+1);
+            numSalas = MapIteration(posX, posY+1, newMap);
             maxIterations--;
-        //} while (((numSalas < MaxMaps) || !endRoom));
+            Debug.Log(numSalas);
+        } while (((numSalas < minRooms) || numSalas>maxRooms) || !AddBossRoom());
+        InstantiateMaps();
     }
 
+    public bool AddBossRoom()
+    {
+        if (endRoom)
+            return true;
+
+        for (int i = MaxSizeX - 1; i >= 0; i--)
+        {
+            for (int j = MaxSizeY - 1; j >= 0; j--)
+            {
+                if (_rooms[i, j].RoomState != RoomNode.State.Null &&
+                    _rooms[i, j].Map.roomType == MapInstance.RoomType.Close && _rooms[i, j].Map.doorsOrientations.South)
+                {
+                    Debug.Log("Boss Room Created");
+                    _rooms[i, j].Map = endMap;
+                    endRoom = true;
+                    return true;
+                }
+            }
+        }
+        Debug.Log("Couldnt generate Boos Room");
+        return false;
+    }
+    
     public MapInstance GetRoom(int x, int y)
     {
         return _rooms[x, y].Map;
     }
-    private int MapIteration(int posX, int posY)
+
+    private void InstantiateMaps()
+    {
+        for (int i = 0; i < MaxSizeX; i++)
+        {
+            for (int j = 0; j < MaxSizeY; j++)
+            {
+                if (_rooms[i, j].RoomState != RoomNode.State.Null)
+                {
+                    _rooms[i, j].Map = Instantiate(_rooms[i, j].Map);
+                    _rooms[i, j].Map.gameObject.SetActive(false); 
+                }
+            }
+        }
+        
+    }
+    private int MapIteration(int posX, int posY, MapInstance previous)
     {
         bool validMap = false;
         MapInstance newMap;
+        List<MapInstance> posibles;
+        switch (previous.roomType)
+        {
+            case MapInstance.RoomType.Big:
+                posibles = posibleMaps.FindAll((map) => (map.roomType != MapInstance.RoomType.Start && map.roomType != MapInstance.RoomType.Big));
+                break;
+            case MapInstance.RoomType.Small:
+                posibles = posibleMaps.FindAll((map) => (map.roomType != MapInstance.RoomType.Start));
+                break;
+            case MapInstance.RoomType.Corridor:
+                posibles = posibleMaps.FindAll((map) => (map.roomType != MapInstance.RoomType.Start && map.roomType != MapInstance.RoomType.Corridor));
+                break;
+            case MapInstance.RoomType.Start:
+                posibles = posibleMaps.FindAll((map) => (map.roomType == MapInstance.RoomType.Big));
+                break;
+            default:
+                posibles = posibleMaps.FindAll((map) => (map.roomType != MapInstance.RoomType.Start));
+                Debug.LogError("Generando una sala despues de una sala cerrada");
+                break;
+        }
+        
         do
         {
             validMap = true;
-            int nextMap = Random.Range(0, posibleMaps.Count);
+            int nextMap = Random.Range(0, posibles.Count);
             
-            newMap = posibleMaps[nextMap];
+            newMap = posibles[nextMap];
             if (newMap.roomType == MapInstance.RoomType.Start)
                 validMap = false;
             else  if (newMap.roomType == MapInstance.RoomType.Big && actualBigRooms>=MaxBigRooms)
@@ -85,7 +144,7 @@ public class ProceduralDungeon : MonoBehaviour
         } while (!validMap);
 
         Debug.Log("Map generated in " + posX + "," + posY + " map: " + newMap.name + " rooms: N:" + newMap.doorsOrientations.North + " S: " + newMap.doorsOrientations.South + " E: " + newMap.doorsOrientations.East + " W: " + newMap.doorsOrientations.West);
-        newMap = Instantiate(newMap);
+       
         UpdateMap(newMap, posX, posY);
 
         if (newMap.roomType == MapInstance.RoomType.End)
@@ -103,17 +162,7 @@ public class ProceduralDungeon : MonoBehaviour
         
         int numHijos = 1;
         
-        if (newMap.doorsOrientations.North)
-        {
-            if (_rooms[posX, posY + 1].RoomState == RoomNode.State.Complete)
-            {
-                _rooms[posX, posY + 1].Directions[(int) RoomNode.Cardinal.South] = RoomNode.State.Complete;
-            }
-            else
-            {
-                numHijos += MapIteration(posX, posY + 1);
-            }
-        }
+       
         if (newMap.doorsOrientations.South)
         {
             if (_rooms[posX, posY - 1].RoomState == RoomNode.State.Complete)
@@ -122,7 +171,7 @@ public class ProceduralDungeon : MonoBehaviour
             }
             else
             {
-                numHijos += MapIteration(posX, posY - 1);
+                numHijos += MapIteration(posX, posY - 1, newMap);
             }
         }
         if (newMap.doorsOrientations.East)
@@ -133,7 +182,7 @@ public class ProceduralDungeon : MonoBehaviour
             }
             else
             {
-                numHijos += MapIteration(posX  + 1, posY);
+                numHijos += MapIteration(posX  + 1, posY, newMap);
             }
         }
         if (newMap.doorsOrientations.West)
@@ -144,7 +193,18 @@ public class ProceduralDungeon : MonoBehaviour
             }
             else
             {
-                numHijos += MapIteration(posX-1, posY );
+                numHijos += MapIteration(posX-1, posY, newMap );
+            }
+        }
+        if (newMap.doorsOrientations.North)
+        {
+            if (_rooms[posX, posY + 1].RoomState == RoomNode.State.Complete)
+            {
+                _rooms[posX, posY + 1].Directions[(int) RoomNode.Cardinal.South] = RoomNode.State.Complete;
+            }
+            else
+            {
+                numHijos += MapIteration(posX, posY + 1, newMap);
             }
         }
         return numHijos;
@@ -185,11 +245,22 @@ public class ProceduralDungeon : MonoBehaviour
         return true;
 
     }
+
+    private void ResetRooms()
+    {
+        for (int i = 0; i < MaxSizeX; i++)
+        {
+            for (int j = 0; j < MaxSizeY; j++)
+            {
+                _rooms[i, j] = new RoomNode();
+            }
+        }
+    }
     private void UpdateMap(MapInstance map, int posX, int posY)
     {
         _rooms[posX, posY].Map = map;
         _rooms[posX, posY].RoomState = RoomNode.State.Complete;
-        _rooms[posX, posY].Map.gameObject.SetActive(false);
+        
         MapInstance.Orientations orientations = map.doorsOrientations;
         if (orientations.North)
         {

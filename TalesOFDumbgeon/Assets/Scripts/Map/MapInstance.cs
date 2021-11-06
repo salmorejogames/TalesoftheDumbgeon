@@ -16,6 +16,7 @@ public class MapInstance : MonoBehaviour
         Big,
         Small,
         Corridor,
+        Close,
         Start,
         End
     }

@@ -402,7 +402,6 @@ GameObject:
   - component: {fileID: 1115182075542822013}
   - component: {fileID: 7881152534294381081}
   - component: {fileID: 833516864745792791}
-  - component: {fileID: 390491204221114259}
   m_Layer: 0
   m_Name: Triggers
   m_TagString: EscenarioTrigger
@@ -1018,19 +1017,6 @@ TilemapCollider2D:
   m_Offset: {x: 0, y: 0}
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0.00001
---- !u!114 &390491204221114259
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3907298092584946237}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1dd94c2ef1993a34fb613d7d2fb05d4d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  orientation: 0
 --- !u!1 &6146247401845435747
 GameObject:
   m_ObjectHideFlags: 0
@@ -14752,7 +14738,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dde52d0996ece654b8f92286db37d223, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  roomType: 3
+  roomType: 4
   doorsOrientations:
     North: 1
     South: 0

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using ScriptableObjects;
 using ScriptableObjects.Equipment;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MapManager : MonoBehaviour
 {
@@ -161,6 +162,13 @@ public class MapManager : MonoBehaviour
 
     public void NextMap()
     {
+        if (_actualMap.roomType == MapInstance.RoomType.End && _player.gameObject.transform.position.x > 0 &&
+            _player.transform.position.y > 0)
+        {
+            SceneManager.LoadScene("CreditsScene");
+            return;
+        }
+            
         InstantiateMap();
     }
 
