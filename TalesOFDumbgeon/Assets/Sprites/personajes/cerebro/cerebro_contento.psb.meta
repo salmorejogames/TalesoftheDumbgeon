@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: d00e018fcb158a647bd090f7a885dfe1
+guid: 62c1073d16b85d640b384189e2267249
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -91,7 +91,7 @@ ScriptedImporter:
     uvTransform: {x: 0, y: 0}
   mosaicSpriteImportData: []
   rigSpriteImportData:
-  - name: diagonal arriba cabeza
+  - name: 0_cerebro_boteDELANTE
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -100,9 +100,9 @@ ScriptedImporter:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 683
-      height: 760
-    spriteID: c7ba9c1c947536a49be925d4b6f96176
+      width: 672
+      height: 990
+    spriteID: 34d9a476be965d448b0e99472bf88450
     internalID: 0
     spriteBone: []
     spriteOutline: []
@@ -112,8 +112,30 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: -92, y: -770}
-  - name: 1_brazo_derecho
+    uvTransform: {x: -167, y: -3}
+  - name: 1_cerebro_ojos
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 568
+      y: 1384
+      width: 162
+      height: 120
+    spriteID: e91a4cb8fb3ce244a86d3971d5bdcf97
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 43, y: 1088}
+  - name: 2_cerebro_cerebro
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -121,10 +143,10 @@ ScriptedImporter:
     rect:
       serializedVersion: 2
       x: 4
-      y: 1309
-      width: 133
-      height: 455
-    spriteID: 6764e1baf054cce40a04d0018a4006b8
+      y: 1002
+      width: 463
+      height: 374
+    spriteID: 3ac41e148e424344aa1b723a676719a5
     internalID: 0
     spriteBone: []
     spriteOutline: []
@@ -134,30 +156,8 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: -500, y: 1029}
-  - name: 2_pierna_derecha
-    originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 300
-      y: 1605
-      width: 129
-      height: 405
-    spriteID: 6c948cbea41c16e43a14de663adde9a6
-    internalID: 0
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    parentGroupIndex: -1
-    uvTransform: {x: -164, y: 1588}
-  - name: diagonal cuerpo
+    uvTransform: {x: -281, y: 858}
+  - name: 3_cerebro_boteDETRAS
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -165,10 +165,10 @@ ScriptedImporter:
     rect:
       serializedVersion: 2
       x: 4
-      y: 772
-      width: 288
-      height: 529
-    spriteID: b37ef90888ac7984fbeb0d1d300869f9
+      y: 1384
+      width: 556
+      height: 188
+    spriteID: 2b7844f1fdec78646b827f9f923a710b
     internalID: 0
     spriteBone: []
     spriteOutline: []
@@ -178,51 +178,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: -272, y: 489}
-  - name: 4_pierna_izq
-    originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 300
-      y: 772
-      width: 333
-      height: 457
-    spriteID: 95679e370d2189d41be6a85fb8faae39
-    internalID: 0
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    parentGroupIndex: -1
-    uvTransform: {x: 71, y: 714}
-  - name: 5_brazo_izq
-    originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 300
-      y: 1237
-      width: 158
-      height: 360
-    spriteID: 4d0107804e8834344b15f72edd136233
-    internalID: 0
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    parentGroupIndex: -1
-    uvTransform: {x: 113, y: 794}
+    uvTransform: {x: -225, y: 1236}
   platformSettings: []
   mosaicLayers: 1
   documentPivot: {x: 0, y: 0}
@@ -230,7 +186,7 @@ ScriptedImporter:
   importHiddenLayers: 0
   importedTextureWidth: 1024
   importedTextureHeight: 2048
-  documentSize: {x: 885, y: 1562}
+  documentSize: {x: 1000, y: 1000}
   paperDollMode: 0
   keepDupilcateSpriteName: 0
   spriteCategoryList:
@@ -242,55 +198,41 @@ ScriptedImporter:
   characterMode: 1
   mosaicPSDLayers: []
   rigPSDLayers:
-  - name: diagonal arriba cabeza
-    spriteName: diagonal arriba cabeza
+  - name: 0_cerebro_boteDELANTE
+    spriteName: 0_cerebro_boteDELANTE
     isGroup: 0
     parentIndex: -1
-    spriteID: c7ba9c1c947536a49be925d4b6f96176
-    layerID: 21
+    spriteID: 34d9a476be965d448b0e99472bf88450
+    layerID: 7
     mosaicPosition: {x: 4, y: 4}
-  - name: 1_brazo_derecho
-    spriteName: 1_brazo_derecho
+  - name: 1_cerebro_ojos
+    spriteName: 1_cerebro_ojos
     isGroup: 0
     parentIndex: -1
-    spriteID: 6764e1baf054cce40a04d0018a4006b8
-    layerID: 17
-    mosaicPosition: {x: 4, y: 1309}
-  - name: 2_pierna_derecha
-    spriteName: 2_pierna_derecha
+    spriteID: e91a4cb8fb3ce244a86d3971d5bdcf97
+    layerID: 8
+    mosaicPosition: {x: 568, y: 1384}
+  - name: 2_cerebro_cerebro
+    spriteName: 2_cerebro_cerebro
     isGroup: 0
     parentIndex: -1
-    spriteID: 6c948cbea41c16e43a14de663adde9a6
-    layerID: 18
-    mosaicPosition: {x: 300, y: 1605}
-  - name: diagonal cuerpo
-    spriteName: diagonal cuerpo
+    spriteID: 3ac41e148e424344aa1b723a676719a5
+    layerID: 5
+    mosaicPosition: {x: 4, y: 1002}
+  - name: 3_cerebro_boteDETRAS
+    spriteName: 3_cerebro_boteDETRAS
     isGroup: 0
     parentIndex: -1
-    spriteID: b37ef90888ac7984fbeb0d1d300869f9
-    layerID: 22
-    mosaicPosition: {x: 4, y: 772}
-  - name: 4_pierna_izq
-    spriteName: 4_pierna_izq
-    isGroup: 0
-    parentIndex: -1
-    spriteID: 95679e370d2189d41be6a85fb8faae39
-    layerID: 19
-    mosaicPosition: {x: 300, y: 772}
-  - name: 5_brazo_izq
-    spriteName: 5_brazo_izq
-    isGroup: 0
-    parentIndex: -1
-    spriteID: 4d0107804e8834344b15f72edd136233
-    layerID: 20
-    mosaicPosition: {x: 300, y: 1237}
+    spriteID: 2b7844f1fdec78646b827f9f923a710b
+    layerID: 6
+    mosaicPosition: {x: 4, y: 1384}
   characterData:
     bones: []
     parts: []
     dimension: {x: 0, y: 0}
     characterGroups: []
   generateGOHierarchy: 0
-  textureAssetName: stadtnarr_chica_diagArribaDER Texture
-  prefabAssetName: stadtnarr_chica_diagArribaDER Prefab
-  spriteLibAssetName: stadtnarr_chica_diagArribaDER Sprite Lib
+  textureAssetName: cerebro_contento Texture
+  prefabAssetName: cerebro_contento Prefab
+  spriteLibAssetName: cerebro_contento Sprite Lib
   secondarySpriteTextures: []

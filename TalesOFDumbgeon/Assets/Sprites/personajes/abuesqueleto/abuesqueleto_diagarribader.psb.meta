@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 955c192758c74a3469167ddaec059add
+guid: e62c93873cde08842a35556ab9c58bdc
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -91,7 +91,51 @@ ScriptedImporter:
     uvTransform: {x: 0, y: 0}
   mosaicSpriteImportData: []
   rigSpriteImportData:
-  - name: 0_cabeza
+  - name: 0_diagarribader_brazoder
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 378
+      y: 434
+      width: 458
+      height: 208
+    spriteID: f5f0a35bac6737348b5706f968cd9244
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 27, y: -110}
+  - name: 1_diagarribader_brazoder
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 378
+      y: 1594
+      width: 174
+      height: 411
+    spriteID: 487f2aab58d37fa4e90365a7380f97ab
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 152, y: 1567}
+  - name: 2_diagarribader_cuerpo
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -100,9 +144,9 @@ ScriptedImporter:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 855
-      height: 640
-    spriteID: 10fd581c9a037de40ba8ffe0051ffeaf
+      width: 366
+      height: 512
+    spriteID: bb22bdbd9c611c645827c4afc9a86e52
     internalID: 0
     spriteBone: []
     spriteOutline: []
@@ -112,19 +156,19 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: -12, y: -778}
-  - name: 1_cuerpo
+    uvTransform: {x: -84, y: -353}
+  - name: 3_diagarribader_cabeza
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 4
-      y: 652
-      width: 328
-      height: 463
-    spriteID: 6f83c344dc938c64881d2ec2245e013f
+      x: 378
+      y: 4
+      width: 386
+      height: 422
+    spriteID: fd504fc950d416545a8481951992fc28
     internalID: 0
     spriteBone: []
     spriteOutline: []
@@ -134,19 +178,19 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: -275, y: 272}
-  - name: 2_brazo_derecho
+    uvTransform: {x: 232, y: -747}
+  - name: 4_diagarribader_piernaizq
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 340
-      y: 1586
-      width: 173
-      height: 432
-    spriteID: 203d313585e2ad149ba5384e390dab6f
+      x: 378
+      y: 650
+      width: 191
+      height: 498
+    spriteID: 961930bbe2cfefd49837eca551bb30f6
     internalID: 0
     spriteBone: []
     spriteOutline: []
@@ -156,19 +200,19 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: -212, y: 1257}
-  - name: 3_brazo_izq
+    uvTransform: {x: 350, y: 642}
+  - name: 5_diagarribader_brazoizq
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 340
-      y: 1135
-      width: 178
-      height: 443
-    spriteID: 38a3880c5746fc548948f5011bd9c846
+      x: 577
+      y: 650
+      width: 120
+      height: 439
+    spriteID: e6ca1d8be49d225449f27f9dbc5726ee
     internalID: 0
     spriteBone: []
     spriteOutline: []
@@ -178,19 +222,19 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: 179, y: 810}
-  - name: 4_pierna_derecha
+    uvTransform: {x: 556, y: 281}
+  - name: 6_diagarribader_baston
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 340
-      y: 652
-      width: 183
-      height: 475
-    spriteID: 5bd11d039a7409041b39b5673362bf9a
+      x: 378
+      y: 1156
+      width: 182
+      height: 430
+    spriteID: fdaaa70edeab8464bb79b67332f7c859
     internalID: 0
     spriteBone: []
     spriteOutline: []
@@ -200,29 +244,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: -156, y: 633}
-  - name: 5_pierna izq
-    originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 4
-      y: 1123
-      width: 194
-      height: 491
-    spriteID: d77571ede3980ce48b969baf248880ec
-    internalID: 0
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    parentGroupIndex: -1
-    uvTransform: {x: -193, y: 1114}
+    uvTransform: {x: -272, y: 975}
   platformSettings: []
   mosaicLayers: 1
   documentPivot: {x: 0, y: 0}
@@ -230,7 +252,7 @@ ScriptedImporter:
   importHiddenLayers: 0
   importedTextureWidth: 1024
   importedTextureHeight: 2048
-  documentSize: {x: 885, y: 1422}
+  documentSize: {x: 832, y: 1176}
   paperDollMode: 0
   keepDupilcateSpriteName: 0
   spriteCategoryList:
@@ -242,55 +264,62 @@ ScriptedImporter:
   characterMode: 1
   mosaicPSDLayers: []
   rigPSDLayers:
-  - name: 0_cabeza
-    spriteName: 0_cabeza
+  - name: 0_diagarribader_brazoder
+    spriteName: 0_diagarribader_brazoder
     isGroup: 0
     parentIndex: -1
-    spriteID: 10fd581c9a037de40ba8ffe0051ffeaf
-    layerID: 16
+    spriteID: f5f0a35bac6737348b5706f968cd9244
+    layerID: 4
+    mosaicPosition: {x: 378, y: 434}
+  - name: 1_diagarribader_brazoder
+    spriteName: 1_diagarribader_brazoder
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 487f2aab58d37fa4e90365a7380f97ab
+    layerID: 5
+    mosaicPosition: {x: 378, y: 1594}
+  - name: 2_diagarribader_cuerpo
+    spriteName: 2_diagarribader_cuerpo
+    isGroup: 0
+    parentIndex: -1
+    spriteID: bb22bdbd9c611c645827c4afc9a86e52
+    layerID: 6
     mosaicPosition: {x: 4, y: 4}
-  - name: 1_cuerpo
-    spriteName: 1_cuerpo
+  - name: 3_diagarribader_cabeza
+    spriteName: 3_diagarribader_cabeza
     isGroup: 0
     parentIndex: -1
-    spriteID: 6f83c344dc938c64881d2ec2245e013f
-    layerID: 17
-    mosaicPosition: {x: 4, y: 652}
-  - name: 2_brazo_derecho
-    spriteName: 2_brazo_derecho
+    spriteID: fd504fc950d416545a8481951992fc28
+    layerID: 7
+    mosaicPosition: {x: 378, y: 4}
+  - name: 4_diagarribader_piernaizq
+    spriteName: 4_diagarribader_piernaizq
     isGroup: 0
     parentIndex: -1
-    spriteID: 203d313585e2ad149ba5384e390dab6f
-    layerID: 14
-    mosaicPosition: {x: 340, y: 1586}
-  - name: 3_brazo_izq
-    spriteName: 3_brazo_izq
+    spriteID: 961930bbe2cfefd49837eca551bb30f6
+    layerID: 8
+    mosaicPosition: {x: 378, y: 650}
+  - name: 5_diagarribader_brazoizq
+    spriteName: 5_diagarribader_brazoizq
     isGroup: 0
     parentIndex: -1
-    spriteID: 38a3880c5746fc548948f5011bd9c846
-    layerID: 15
-    mosaicPosition: {x: 340, y: 1135}
-  - name: 4_pierna_derecha
-    spriteName: 4_pierna_derecha
+    spriteID: e6ca1d8be49d225449f27f9dbc5726ee
+    layerID: 9
+    mosaicPosition: {x: 577, y: 650}
+  - name: 6_diagarribader_baston
+    spriteName: 6_diagarribader_baston
     isGroup: 0
     parentIndex: -1
-    spriteID: 5bd11d039a7409041b39b5673362bf9a
-    layerID: 19
-    mosaicPosition: {x: 340, y: 652}
-  - name: 5_pierna izq
-    spriteName: 5_pierna izq
-    isGroup: 0
-    parentIndex: -1
-    spriteID: d77571ede3980ce48b969baf248880ec
-    layerID: 18
-    mosaicPosition: {x: 4, y: 1123}
+    spriteID: fdaaa70edeab8464bb79b67332f7c859
+    layerID: 10
+    mosaicPosition: {x: 378, y: 1156}
   characterData:
     bones: []
     parts: []
     dimension: {x: 0, y: 0}
     characterGroups: []
   generateGOHierarchy: 0
-  textureAssetName: stadtnarr_chico_back Texture
-  prefabAssetName: stadtnarr_chico_back Prefab
-  spriteLibAssetName: stadtnarr_chico_back Sprite Lib
+  textureAssetName: abuesqueleto_diagarribader Texture
+  prefabAssetName: abuesqueleto_diagarribader Prefab
+  spriteLibAssetName: abuesqueleto_diagarribader Sprite Lib
   secondarySpriteTextures: []
