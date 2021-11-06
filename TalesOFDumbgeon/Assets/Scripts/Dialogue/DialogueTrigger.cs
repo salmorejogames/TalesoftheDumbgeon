@@ -9,7 +9,7 @@ public class DialogueTrigger : MonoBehaviour {
 	private Dialogue dialogue;
 	public static bool running = false;
     public bool click = false;
-    private string basePath = "Assets/Dialogues/txt";
+    private string basePath = "Assets/DialogueFiles";
     public string language = "/ENG";
     public string character = "/Adan";
     private string[] path = new string[9];// = "Assets/Dialogues/Spanish.txt";
@@ -53,7 +53,7 @@ public class DialogueTrigger : MonoBehaviour {
         dialogue = new Dialogue();
         //Resources.Load
         //Addressables.LoadAsset<GameObject>("AssetAddress");
-        Addressables.LoadAsset<TextAsset>(path[0]);
+        //Addressables.LoadAsset<TextAsset>(path[0]);
         StreamReader reader = new StreamReader(path[0]);
         linea = Int32.Parse(reader.ReadLine());
         Debug.Log(linea);

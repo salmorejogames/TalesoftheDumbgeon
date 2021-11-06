@@ -16,9 +16,10 @@ public class DialogueManager : MonoBehaviour {
 	private Queue<string> sentences;
 	private Queue<string> faces;
 
+	/*
 	public Sprite spriteUp;
 	public Sprite spriteThink;
-	public Sprite spriteDown;
+	public Sprite spriteDown;*/
 
 	GameObject Comentarios;
 
@@ -91,7 +92,9 @@ public class DialogueManager : MonoBehaviour {
 	{
 		Debug.Log("Estoy en TypeSentence");
 		written = true;
-		nameText.text = "";
+		nameText.text = name;
+		//nameText.text = "";
+		/*
 		if(name == "Prota")
 		{
 			Comentarios.GetComponent<Image>().sprite = spriteUp;
@@ -104,9 +107,9 @@ public class DialogueManager : MonoBehaviour {
 		{
 			Comentarios.GetComponent<Image>().sprite = spriteDown;
 			nameText.text = name;
-		}
+		}*/
 
-		FindObjectOfType<FaceChanger>().UpdateFace(Int32.Parse(face));
+		//FindObjectOfType<FaceChanger>().UpdateFace(Int32.Parse(face));
 
 		dialogueText.text = "";
 		float contTemp = 0;
@@ -127,8 +130,8 @@ public class DialogueManager : MonoBehaviour {
 		}
 		clicks = -1;
 		written = false;
-		yield return new WaitForSeconds(2.8f - contTemp);
-		DisplayNextSentence();
+		//yield return new WaitForSeconds(2.8f - contTemp);
+		//DisplayNextSentence();
 	}
 
 	IEnumerator ChangeSentence()
