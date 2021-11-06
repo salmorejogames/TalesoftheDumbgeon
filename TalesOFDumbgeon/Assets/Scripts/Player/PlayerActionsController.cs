@@ -128,7 +128,7 @@ public class PlayerActionsController : MonoBehaviour, IDeadable
         var magnitude = direction.magnitude;
         direction = direction / magnitude;
         _rb.velocity = direction;
-        Debug.Log(direction);
+        //Debug.Log(direction);
         invincible = true;
         _canAtack = false;
         _spriteRenderer.color = Color.red;
