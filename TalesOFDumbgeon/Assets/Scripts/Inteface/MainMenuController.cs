@@ -10,7 +10,6 @@ public class MainMenuController : MonoBehaviour
     [SerializeField] private GameObject botonAjustes;
     [SerializeField] private GameObject botonCreditos;
 
-
     // Start is called before the first frame update
     void Start()
     {
