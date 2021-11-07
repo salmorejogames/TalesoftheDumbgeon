@@ -23,6 +23,7 @@ namespace ScriptableObjects.Equipment
 
         public virtual void Equip(CharacterStats stats)
         {
+            /*
             int pos = (int) type;
             if(stats.equipment[pos]!=null)
                 stats.equipment[pos].Unequip(stats);
@@ -33,7 +34,7 @@ namespace ScriptableObjects.Equipment
             stats.Heal(health);
             stats.strength += strength;
             if (type == EquipmentType.Body)
-                stats.element = element;
+                stats.element = element;*/
         }
         
         public virtual void Unequip(CharacterStats stats)

@@ -10,7 +10,7 @@ public class CharacterStats : MonoBehaviour
 
     private const int EquipmentParts = 6;
 
-    public EquipmentSo[] equipment = new EquipmentSo[EquipmentParts];
+    public BaseEquipment[] equipment = new BaseEquipment[EquipmentParts];
     public float maxHealth;
     public float armor;
     public float strength;

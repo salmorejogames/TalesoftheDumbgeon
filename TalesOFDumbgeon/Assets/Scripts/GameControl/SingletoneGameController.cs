@@ -10,6 +10,7 @@ public class SingletoneGameController : MonoBehaviour
     public static PlayerActions PlayerActions;
     public static MapManager MapManager;
     public static CardHolder CardHolder;
+    public static StaticInfoHolder InfoHolder;
     public static GameplayInterfaceController InterfaceController;
     private void Awake()
     {
@@ -26,6 +27,7 @@ public class SingletoneGameController : MonoBehaviour
             SceneManager.sceneLoaded += OnSceneLoaded;
             MapManager = gameObject.GetComponent<MapManager>();
             PlayerActions = gameObject.GetComponent<PlayerActions>();
+            InfoHolder = gameObject.GetComponent<StaticInfoHolder>();
             ReloadComponents();
         }
         
