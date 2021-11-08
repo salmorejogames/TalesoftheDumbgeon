@@ -38,7 +38,7 @@ public class BaseEquipment
     {
         int pos = (int) Type;
         if(Stats.equipment[pos]!=null)
-            Stats.equipment[pos].Unequip(Stats);
+            Stats.equipment[pos].Unequip();
         Stats.equipment[pos] = this;
         Stats.armor += Armor;
         Stats.speed += Speed;
@@ -49,15 +49,15 @@ public class BaseEquipment
             Stats.element = Element;
     }
         
-    public virtual void Unequip(CharacterStats stats)
+    public virtual void Unequip()
     {
-        stats.equipment[(int) Type] = null;
-        stats.armor -= Armor;
-        stats.speed -= Speed;
-        stats.strength -= Strength;
-        stats.ReduceMaxHealth(Health);
+        Stats.equipment[(int) Type] = null;
+        Stats.armor -= Armor;
+        Stats.speed -= Speed;
+        Stats.strength -= Strength;
+        Stats.ReduceMaxHealth(Health);
         if (Type == EquipmentType.Body)
-            stats.element = Elements.Element.Caos;
+            Stats.element = Elements.Element.Caos;
     }
 
     public virtual void Randomize(int level)

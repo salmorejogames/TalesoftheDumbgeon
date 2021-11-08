@@ -13,11 +13,15 @@ public class WeaponCard : BaseCard
         //Make it random 
         Weapon = new AreaWeapon();
         Weapon.Randomize(1);
+        CardHolder = SingletoneGameController.InfoHolder.cartaArma;
+        Artwork = Weapon.artwork;
+
     }
 
     public WeaponCard(BaseWeapon weapon)
     {
         Weapon = weapon;
+        CardHolder = SingletoneGameController.InfoHolder.cartaArma;
     }
     
     public override void CastEffect()

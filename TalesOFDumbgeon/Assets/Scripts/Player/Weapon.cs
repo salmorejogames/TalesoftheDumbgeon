@@ -7,7 +7,7 @@ using UnityEngine;
 public class Weapon : MonoBehaviour
 {
     
-    public WeaponSO weaponInfo;
+    public BaseWeapon weaponInfo;
     private SpriteRenderer _spriteRenderer;
     public CharacterStats holder;
     private Collider2D _collider;
@@ -24,14 +24,14 @@ public class Weapon : MonoBehaviour
         ChangeWeapon(weaponInfo);
     }
 
-    public void ChangeWeapon(WeaponSO newWeapon)
+    public void ChangeWeapon(BaseWeapon newWeapon)
     {
         //Reset Collider
         if(_collider!= null)
             Destroy(_collider);
         
         weaponInfo = newWeapon;
-        weaponInfo.Equip(holder);
+        weaponInfo.Equip();
         _spriteRenderer.sprite = weaponInfo.artwork;
         _collider = gameObject.AddComponent<PolygonCollider2D>();
         _collider.enabled = false;
@@ -48,7 +48,7 @@ public class Weapon : MonoBehaviour
     public void Atack()
     {
         //Debug.Log("Im atacking");
-        weaponInfo.Atacar(this);
+        weaponInfo.Atacar();
     }
     
     private void OnTriggerEnter2D(Collider2D other)
@@ -56,7 +56,7 @@ public class Weapon : MonoBehaviour
         if (!other.gameObject.CompareTag(holder.tag) && (other.gameObject.CompareTag("Enemigo") || other.gameObject.CompareTag("Player")))
         {
             CharacterStats enemy = other.gameObject.GetComponent<CharacterStats>();
-            enemy.DoDamage(weaponInfo.dmg + holder.strength,  gameObject, weaponInfo.element);
+            enemy.DoDamage(weaponInfo.dmg + holder.strength,  gameObject, weaponInfo.Element);
         }
     }
     

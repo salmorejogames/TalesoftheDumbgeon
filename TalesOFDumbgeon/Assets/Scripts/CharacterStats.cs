@@ -71,7 +71,7 @@ public class CharacterStats : MonoBehaviour
     
     public void Unequip(int pos)
     {
-        equipment[pos].Unequip(this);
+        equipment[pos].Unequip();
     }
 
    

@@ -53,13 +53,13 @@ public class PlayerActions : MonoBehaviour
     {
         player.Stats.DoDamage(cantidad, gameObject, tipo);
     }
-    public void ChangeEquipment(EquipmentSo newEquipment)
+    public void ChangeEquipment(BaseEquipment newEquipment)
     {
         
-        if (newEquipment.type == EquipmentSo.EquipmentType.Weapon)
-            player.PlayerActions.weapon.ChangeWeapon((WeaponSO) newEquipment);
+        if (newEquipment.Type == BaseEquipment.EquipmentType.Weapon)
+            player.PlayerActions.weapon.ChangeWeapon((BaseWeapon) newEquipment);
         else
-            newEquipment.Equip(player.Stats);
+            newEquipment.Equip();
         
     }
 }
