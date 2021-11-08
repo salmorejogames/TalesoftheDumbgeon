@@ -10,11 +10,18 @@ public class StaticInfoHolder : MonoBehaviour
     [SerializeField] public Sprite smashingWeapon;
     [SerializeField] public Sprite piercingWeapon;
     
+    [SerializeField] public Sprite areaWeaponArtwork;
+    [SerializeField] public Sprite rangedWeaponArtwork;
+    [SerializeField] public Sprite smashingWeaponArtwork;
+    [SerializeField] public Sprite piercingWeaponArtwork;
+    
     [SerializeField] public Sprite cartaArma;
     [SerializeField] public Sprite cartaArmadura;
     [SerializeField] public Sprite cartaBendicion;
     [SerializeField] public Sprite cartaMaldicion;
     [SerializeField] public Sprite cartaHechizo;
+    
+    
     
     [SerializeField] private List<Color> colors;
     

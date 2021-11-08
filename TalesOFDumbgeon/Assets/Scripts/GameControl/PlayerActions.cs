@@ -1,7 +1,5 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using ScriptableObjects;
-using ScriptableObjects.Equipment;
 using UnityEngine;
 
 public class PlayerActions : MonoBehaviour

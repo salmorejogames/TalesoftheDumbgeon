@@ -14,6 +14,12 @@ public abstract class BaseCard
     public float Speed;
     public float Health;
     public Elements.Element Element;
+    
+    public enum CardType
+    {
+        Weapon,
+        Equipment
+    }
 
     public BaseCard()
     {

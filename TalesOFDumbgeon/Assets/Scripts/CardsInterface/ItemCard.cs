@@ -5,18 +5,24 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class Card : MonoBehaviour, IPointerClickHandler
+public class ItemCard : MonoBehaviour, IPointerClickHandler
 {
 
 
-    [NonSerialized] public string CardName;
+    [NonSerialized] public int CardType;
+    [NonSerialized] public int CardId;
+    public BaseCard CardInfo = null;
+    
     private CardHolder _cardHolder;
     private RectTransform _rectTransform;
     [SerializeField] private Image holderImage;
     [SerializeField] private TextMeshProUGUI title;
     [SerializeField] private TextMeshProUGUI description;
+    [SerializeField] private TextMeshProUGUI health;
+    [SerializeField] private TextMeshProUGUI strength;
+    [SerializeField] private TextMeshProUGUI armor;
+    [SerializeField] private TextMeshProUGUI speed;
     [SerializeField] private Image itemImage;
-    [SerializeField] private CardInfo cardInfo;
     [SerializeField] private Color highlightColor;
     [SerializeField] private float fadeTime;
     [SerializeField] private int distanceLaunch;
@@ -26,12 +32,28 @@ public class Card : MonoBehaviour, IPointerClickHandler
     {
         _rectTransform = gameObject.GetComponent<RectTransform>();
         _cardHolder = gameObject.transform.parent.gameObject.GetComponent<CardHolder>();
-        cardInfo = Resources.Load<CardInfo>("cards/CardsInfo/" + CardName);
-        Debug.Log(CardName + " " + cardInfo.cardName);
-        holderImage.sprite = cardInfo.cardHolder;
-        itemImage.sprite = cardInfo.artwork;
-        title.text = cardInfo.cardName;
-        description.text = cardInfo.description;
+        if (CardInfo == null)
+        {
+            switch ((BaseCard.CardType) CardType)
+            {
+                case BaseCard.CardType.Weapon:
+                    CardInfo = new WeaponCard((BaseWeapon.WeaponType) CardId, SingletoneGameController.PlayerActions.player.PlayerActions.weapon);
+                    break;
+                case BaseCard.CardType.Equipment:
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException();
+            }
+        }
+        holderImage.sprite = CardInfo.CardHolder;
+        itemImage.sprite = CardInfo.Artwork;
+        itemImage.color = SingletoneGameController.InfoHolder.LoadColor(CardInfo.Element);
+        title.text = CardInfo.CardName;
+        description.text = CardInfo.Description;
+        armor.text = CardInfo.Armor.ToString();
+        strength.text = CardInfo.Strength.ToString();
+        speed.text = CardInfo.Speed.ToString();
+        health.text = CardInfo.Health.ToString();
     }
     public void OnPointerClick(PointerEventData eventData)
     {
@@ -48,7 +70,7 @@ public class Card : MonoBehaviour, IPointerClickHandler
 
     public void ActivateEffect()
     {
-        cardInfo.CastEffect();
+        CardInfo.CastEffect();
     }
 
     public void StartDelete()

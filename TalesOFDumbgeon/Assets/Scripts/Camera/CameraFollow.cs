@@ -23,6 +23,7 @@ public class CameraFollow : MonoBehaviour
     void LateUpdate () {
         if (activeFollow)
         {
+            speed = SingletoneGameController.PlayerActions.player.Stats.speed*2/3;
             if ((target.position - projection).magnitude > MAX_DISTANCE )
             {
                 projection = Vector3.MoveTowards(projection, target.position, Time.deltaTime * speed);

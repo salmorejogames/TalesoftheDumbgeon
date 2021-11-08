@@ -5,16 +5,34 @@ using UnityEngine;
 public class AreaWeapon : BaseWeapon
 {
     private const float attackRange = 120f;
-    public Weapon Holder;
+    
 
     public AreaWeapon()
     {
-        weaponType = WeaponType.Area;
-        artwork = SingletoneGameController.InfoHolder.areaWeapon;
+        AttackSpeed = 0.5f;
+        AttackDuration = 0.25f;
+        AttackType = WeaponType.Area;
+        WeaponSprite = SingletoneGameController.InfoHolder.areaWeapon;
     }
     public override void Atacar()
     {
-        Holder.ReactivateCollider(attackDuration);
-        SingletoneGameController.PlayerActions.DisableMovement(attackDuration);
+        WeaponHolder.ReactivateCollider(AttackDuration);
+        SingletoneGameController.PlayerActions.DisableMovement(AttackDuration);
+        WeaponHolder.StartCoroutine(SliceAtack(WeaponHolder, AttackDuration));
     }
+    
+    public IEnumerator SliceAtack(Weapon weaponGO, float attackDuration)
+    {
+        weaponGO.relativeAngle = - attackRange / 2;
+        while (weaponGO.relativeAngle < attackRange / 2)
+        {
+            weaponGO.relativeAngle += attackRange / attackDuration * Time.deltaTime; ;
+            yield return new WaitForEndOfFrame();
+        }
+            
+        weaponGO.relativeAngle = 0;
+        yield return new WaitForEndOfFrame();
+    }
+    
+
 }

@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using ScriptableObjects;
 using UnityEngine;
 
 public class Weapon : MonoBehaviour
@@ -21,7 +20,10 @@ public class Weapon : MonoBehaviour
     {
         SetOrientation(270);
         _spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
-        ChangeWeapon(weaponInfo);
+        AreaWeapon weapon = new AreaWeapon();
+        weapon.SetWeaponHolder(this);
+        weapon.Randomize(1);
+        ChangeWeapon(weapon);
     }
 
     public void ChangeWeapon(BaseWeapon newWeapon)
@@ -29,13 +31,13 @@ public class Weapon : MonoBehaviour
         //Reset Collider
         if(_collider!= null)
             Destroy(_collider);
-        
         weaponInfo = newWeapon;
         weaponInfo.Equip();
-        _spriteRenderer.sprite = weaponInfo.artwork;
+        _spriteRenderer.sprite = weaponInfo.WeaponSprite;
         _collider = gameObject.AddComponent<PolygonCollider2D>();
         _collider.enabled = false;
         _collider.isTrigger = true;
+        _spriteRenderer.color = SingletoneGameController.InfoHolder.LoadColor(weaponInfo.Element);
     }
     
     public void SetOrientation(float newAngle)
@@ -56,7 +58,7 @@ public class Weapon : MonoBehaviour
         if (!other.gameObject.CompareTag(holder.tag) && (other.gameObject.CompareTag("Enemigo") || other.gameObject.CompareTag("Player")))
         {
             CharacterStats enemy = other.gameObject.GetComponent<CharacterStats>();
-            enemy.DoDamage(weaponInfo.dmg + holder.strength,  gameObject, weaponInfo.Element);
+            enemy.DoDamage(weaponInfo.Dmg + holder.strength,  gameObject, weaponInfo.Element);
         }
     }
     
@@ -76,7 +78,7 @@ public class Weapon : MonoBehaviour
 
     public void DesactivateCollider()
     {
-        _spriteRenderer.color = Color.white;
+        _spriteRenderer.color = SingletoneGameController.InfoHolder.LoadColor(weaponInfo.Element);
         _collider.enabled = false;
     }
 }
