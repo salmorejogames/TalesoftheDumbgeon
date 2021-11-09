@@ -2,13 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b1d37c9d-25b2-4110-97a9-49ea663fadda" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Equipment/RangedWeapon.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Equipment/RangedWeapon.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.TalesOFDumbgeon/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TalesOFDumbgeon/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Bala_Move.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Bala_Move.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CardsInterface/CardHolder.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CardsInterface/CardHolder.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CardsInterface/CardsInfo/WeaponCard.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CardsInterface/CardsInfo/WeaponCard.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Equipment/StaticInfoHolder.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Equipment/StaticInfoHolder.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Fonts/comic-sans-ms_[allfont.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Fonts/comic-sans-ms_[allfont.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Abuesqueleto.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Abuesqueleto.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Main Camera.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Main Camera.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/IsometricScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/IsometricScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ExampleEnemyBehaviour.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ExampleEnemyBehaviour.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,10 +47,10 @@
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.inputsystem@1.0.2/InputSystem/Plugins/OnScreen/OnScreenStick.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Interfaces/IDeadable.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.textmeshpro@3.0.1/Scripts/Runtime/TextMeshProUGUI.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/DamageNumber.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
-      <option value="$PROJECT_DIR$/Assets/Scripts/PlayerActionsController.cs" />
       <option value="$PROJECT_DIR$/Assets/ScriptableObjects/StaticStats.cs" />
       <option value="$PROJECT_DIR$/Assets/ScriptableObjects/WeaponSO.cs" />
       <option value="$PROJECT_DIR$/Assets/ScriptableObjects/RangedWeapon.cs" />
@@ -69,7 +68,6 @@
       <option value="$PROJECT_DIR$/Assets/ScriptableObjects/SetHealth.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Interfaces/IDeadable.cs" />
       <option value="$PROJECT_DIR$/Assets/ScriptableObjects/Enemy.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/ExampleEnemyBehaviour.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Timer.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Map/Door.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Inteface/GameplayInterfaceController.cs" />
@@ -78,7 +76,6 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/Map/ProceduralDungeon.cs" />
       <option value="$PROJECT_DIR$/Assets/ScriptableObjects/Equipment/EquipmentSo.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/GameControl/SingletoneGameController.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Elements.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/CardsInterface/CardInfo.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/CardsInterface/BaseCard.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/CharacterStats.cs" />
@@ -102,6 +99,9 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/CardsInterface/CardsInfo/WeaponCard.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/CardsInterface/CardHolder.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Equipment/StaticInfoHolder.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Elements.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/ExampleEnemyBehaviour.cs" />
+      <option value="$PROJECT_DIR$/Assets/DamageNumber.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1zRaEkaFY4bgpmOHr8r3t8E1N2f" />
@@ -180,7 +180,7 @@
       <workItem from="1636199009308" duration="8414000" />
       <workItem from="1636312567996" duration="4959000" />
       <workItem from="1636394152608" duration="10164000" />
-      <workItem from="1636458882660" duration="1786000" />
+      <workItem from="1636458882660" duration="4517000" />
     </task>
     <servers />
   </component>
