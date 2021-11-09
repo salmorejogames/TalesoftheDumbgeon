@@ -18,6 +18,8 @@ public class WeaponCard : BaseCard
                 Artwork =  SingletoneGameController.InfoHolder.areaWeaponArtwork;
                 break;
             case BaseWeapon.WeaponType.Ranged:
+                Weapon = new RangedWeapon();
+                Artwork =  SingletoneGameController.InfoHolder.rangedWeaponArtwork;
                 break;
             case BaseWeapon.WeaponType.Smashing:
                 break;
@@ -50,6 +52,7 @@ public class WeaponCard : BaseCard
                 Artwork =  SingletoneGameController.InfoHolder.areaWeaponArtwork;
                 break;
             case BaseWeapon.WeaponType.Ranged:
+                Artwork =  SingletoneGameController.InfoHolder.rangedWeaponArtwork;
                 break;
             case BaseWeapon.WeaponType.Smashing:
                 break;

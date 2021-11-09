@@ -2,90 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b1d37c9d-25b2-4110-97a9-49ea663fadda" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Equipment/RangedWeapon.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Equipment/RangedWeapon.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.TalesOFDumbgeon/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TalesOFDumbgeon/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Card.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Card.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/GameManager.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/GameManager.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Cards.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Cards/CardsActions.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Cards/CardsActions/EquipBaguette.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Cards/CardsActions/EquipBaguette.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Cards/CardsActions/EquipBastonDeYayo.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Cards/CardsActions/EquipBastonDeYayo.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Cards/CardsActions/EquipDefaultDistance.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Cards/CardsActions/EquipDefaultDistance.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Cards/CardsActions/EquipDefaultSword.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Cards/CardsActions/EquipDefaultSword.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Cards/CardsActions/EquipEspadaDeFe.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Cards/CardsActions/EquipEspadaDeFe.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Cards/CardsActions/HealthCarta.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Cards/CardsActions/HealthCarta.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Cards/CardsInfo.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Cards/CardsInfo/Analfabetismo.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Cards/CardsInfo/Analfabetismo.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Cards/CardsInfo/Baguette.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Cards/CardsInfo/Baguette.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Cards/CardsInfo/BastonDeYayo.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Cards/CardsInfo/BastonDeYayo.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Cards/CardsInfo/DefaultDistance.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Cards/CardsInfo/DefaultDistance.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Cards/CardsInfo/DefaultSword.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Cards/CardsInfo/DefaultSword.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Cards/CardsInfo/EspadaDeFe.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Cards/CardsInfo/EspadaDeFe.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Cards/CardsInfo/PoderLimitado.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Cards/CardsInfo/PoderLimitado.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Cards/CardsInfo/PowerUp.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Cards/CardsInfo/PowerUp.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Cards/CardsInfo/SombreroMexicano.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Cards/CardsInfo/SombreroMexicano.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Weapons.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Weapons/Baguette.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Weapons/Baguette.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Weapons/BastonDeYayo.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Weapons/BastonDeYayo.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Weapons/DefaultDistance.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Weapons/DefaultDistance.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Weapons/DefaultSword.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Weapons/DefaultSword.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Weapons/EspadaDeFe.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Weapons/EspadaDeFe.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/CardEffect.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/CardEffect.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/CardEquipment.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/CardEquipment.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/CardInfo.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/CardInfo.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Equipment.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Equipment/EquipmentSo.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Equipment/EquipmentSo.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Equipment/MeleeWeapon.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Equipment/MeleeWeapon.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Equipment/RangedWeapon.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Equipment/RangedWeapon.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Equipment/WeaponSO.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Equipment/WeaponSO.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/SetHealth.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/SetHealth.cs.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Bala_Move.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Bala_Move.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Camera/CameraFollow.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Camera/CameraFollow.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CardsInterface/Card.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CardsInterface/ItemCard.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CardsInterface/Card.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CardsInterface/ItemCard.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/CardsInterface/CardHolder.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CardsInterface/CardHolder.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CardsInterface/CardsInfo/BaseCard.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CardsInterface/CardsInfo/BaseCard.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/CardsInterface/CardsInfo/WeaponCard.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CardsInterface/CardsInfo/WeaponCard.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CharacterStats.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CharacterStats.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Collectionable.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Collectionable.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Equipment/AreaWeapon.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Equipment/AreaWeapon.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Equipment/BaseWeapon.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Equipment/BaseWeapon.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Equipment/StaticInfoHolder.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Equipment/StaticInfoHolder.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameControl/PlayerActions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameControl/PlayerActions.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/IsometricUtils.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/IsometricUtils.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Map/MapInstance.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Map/MapInstance.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Map/MapManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Map/MapManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerActionsController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerActionsController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/Weapon.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/Weapon.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -128,7 +51,6 @@
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
-      <option value="$PROJECT_DIR$/Assets/Scripts/IsometricMove.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/PlayerActionsController.cs" />
       <option value="$PROJECT_DIR$/Assets/ScriptableObjects/StaticStats.cs" />
       <option value="$PROJECT_DIR$/Assets/ScriptableObjects/WeaponSO.cs" />
@@ -164,21 +86,22 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/Map/MapInstance.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Map/MapManager.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/IsometricUtils.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Bala_Move.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Collectionable.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Equipment/StaticInfoHolder.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Camera/CameraFollow.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/CardsInterface/CardHolder.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Equipment/BaseEquipment.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Player/IsometricMove.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/CardsInterface/Card.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Equipment/AreaWeapon.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/CardsInterface/CardsInfo/BaseCard.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Equipment/BaseWeapon.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/CardsInterface/ItemCard.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/CardsInterface/CardsInfo/WeaponCard.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Player/Weapon.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Player/PlayerActionsController.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Equipment/BaseWeapon.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Bala_Move.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Equipment/RangedWeapon.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/CardsInterface/CardsInfo/WeaponCard.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/CardsInterface/CardHolder.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Equipment/StaticInfoHolder.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1zRaEkaFY4bgpmOHr8r3t8E1N2f" />
@@ -217,10 +140,10 @@
       </option>
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="17652">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" value="17652" />
+      <option name="pid" />
       <option name="projectPathOnTarget" />
       <option name="selectedOptions">
         <list />
@@ -256,7 +179,8 @@
       <workItem from="1636131473618" duration="6614000" />
       <workItem from="1636199009308" duration="8414000" />
       <workItem from="1636312567996" duration="4959000" />
-      <workItem from="1636394152608" duration="9545000" />
+      <workItem from="1636394152608" duration="10164000" />
+      <workItem from="1636458882660" duration="1786000" />
     </task>
     <servers />
   </component>
@@ -282,6 +206,23 @@
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
   </component>
   <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/Equipment/StaticInfoHolder.cs</url>
+          <line>65</line>
+          <properties documentPath="D:\proyectos\TalesoftheDumbgeon\TalesOFDumbgeon\Assets\Scripts\Equipment\StaticInfoHolder.cs" initialLine="65" containingFunctionPresentation="method 'LoadName'">
+            <startOffsets>
+              <option value="2782" />
+            </startOffsets>
+            <endOffsets>
+              <option value="2798" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
     <pin-to-top-manager>
       <pinned-members>
         <PinnedItemInfo parentTag="Type#MapInstance+Orientations" memberName="East" />

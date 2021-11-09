@@ -20,7 +20,8 @@ public class StaticInfoHolder : MonoBehaviour
     [SerializeField] public Sprite cartaBendicion;
     [SerializeField] public Sprite cartaMaldicion;
     [SerializeField] public Sprite cartaHechizo;
-    
+
+    [SerializeField] public Sprite ammoSprite;
     
     
     [SerializeField] private List<Color> colors;
@@ -62,6 +63,35 @@ public class StaticInfoHolder : MonoBehaviour
                 }
                 break;
             case BaseWeapon.WeaponType.Ranged:
+                switch (element)
+                {
+                    case Elements.Element.Normal:
+                        info[0] = "Pistola de Gomas";
+                        info[1] = "Vuelve a tu infancia y atiza a tus amigos (o enemigos) con un daño elaaaaaaastico";
+                        break;
+                    case Elements.Element.Caos:
+                        info[0] = "La mano disparo";
+                        info[1] = "Putrefacta mano vudú para destruir a tus enemigos de formas menos sutiles";
+                        break;
+                    case Elements.Element.Brisa:
+                        info[0] = "Aire.zip";
+                        info[1] = "Aire ultra mega mazo comprimido";
+                        break;
+                    case Elements.Element.Copo:
+                        info[0] = "Chorrimanguera";
+                        info[1] = "Especialmente recomendable cuando tu adversario lleva ropa y riega tu playa";
+                        break;
+                    case Elements.Element.Guijarro:
+                        info[0] = "Tirachinas Plus";
+                        info[1] = "Refinado diseño, ¡ahora disparando piedras y no inocentes personas asiáticas!";
+                        break;
+                    case Elements.Element.Brasa:
+                        info[0] = "Makarov";
+                        info[1] = "Pura magia sovietica";
+                        break;
+                    default:
+                        throw new ArgumentOutOfRangeException(nameof(element), element, null);
+                }
                 break;
             case BaseWeapon.WeaponType.Smashing:
                 break;

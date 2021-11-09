@@ -20,9 +20,10 @@ public static class Elements
             if(starter==Element.Normal || objetive == Element.Normal)
                 return 1;
             
-            if ((int) objetive == ((int) starter + 2 % 5))
+            //Debug.Log("Objetive: " +  ((int) objetive) + " Starter: " + (((int) starter + 2) % 5));
+            if ((int) objetive == (((int) starter + 2) % 5))
                 return 2;
-            if ((int) starter == ((int) objetive + 2 % 5))
+            if ((int) starter == (((int) objetive + 2) % 5))
                 return 0.5f;
             
             return 1;
