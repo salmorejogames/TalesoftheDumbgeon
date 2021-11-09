@@ -8,7 +8,7 @@ public class CreditsController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Invoke("TerminarCreditos", 33.5f);
+        Invoke("ClickParaEmpezar", 33.5f);
     }
 
     // Update is called once per frame
