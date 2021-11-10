@@ -1,0 +1,33 @@
+{
+    "name": "InterfaceControls",
+    "maps": [
+        {
+            "name": "Menu principal",
+            "id": "ea2ff777-5172-4a88-b68d-b39a85b8879e",
+            "actions": [
+                {
+                    "name": "Animacion puerta",
+                    "type": "Button",
+                    "id": "ea65e7a6-970a-4649-998c-a1bf88c6bef1",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "ce05256d-c4e2-4727-91ba-702fa3fd815d",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Animacion puerta",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
