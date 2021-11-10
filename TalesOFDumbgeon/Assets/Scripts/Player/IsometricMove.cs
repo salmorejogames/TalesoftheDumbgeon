@@ -5,77 +5,76 @@ using UnityEngine;
 
 public class IsometricMove : MonoBehaviour
 {
-
-    public float speed;
-    [SerializeField] private float gapX;
-
     private const float ORIENTATION_STEP = 45f;
-    private const float ORIENTATION_OFFSET = 90f;  
-    
-    public float angle = 0;
+    private const float ORIENTATION_STEP_SMALL = 30f;
+    private const float ORIENTATION_STEP_BIG = 60f;
+    private const float ORIENTATION_OFFSET = 90f;
+
+    [NonSerialized] public PlayerActionsController PlayerActions;
+    [NonSerialized] public CharacterStats Stats;
+    [NonSerialized] public float angle = 0;
+    [NonSerialized] public bool canMove = true;
+
     private Rigidbody2D _playerRb;
     private InputControler _inputControler;
-    private Vector2 _direccion;
     private IsometricCharacterRenderer _isoRenderer;
-    private bool _moving = false;
-    private bool _active = true;
-    private Vector3 _objetive;
-    private float _transitionSpeed;
+   
+   
+
     private void Awake()
     {
         _isoRenderer = gameObject.GetComponent<IsometricCharacterRenderer>();
         _playerRb = gameObject.GetComponent<Rigidbody2D>();
+        PlayerActions = gameObject.GetComponent<PlayerActionsController>();
+        Stats = gameObject.GetComponent<CharacterStats>();
         _inputControler = new InputControler();
-        _inputControler.Jugador.Move.started += ctx => SetMoving(true);
-        _inputControler.Jugador.Move.canceled += ctx => SetMoving(false);
     }
-
-
+    
     void FixedUpdate()
     {
-        if (_moving && _active)
+        if (CanMove())
         {
-            _direccion = _inputControler.Jugador.Move.ReadValue<Vector2>();
-            Vector2 movement = (ConvertToIsometric(_direccion));
-            _playerRb.velocity = movement  * speed;
-            UpdateAngle(movement);
+                Vector2 _direccion = _inputControler.Jugador.Move.ReadValue<Vector2>();
+                if (!_direccion.Equals(Vector2.zero))
+                {
+                    Vector2 movement =  IsometricUtils.CartesianToIsometric(_direccion);
+                    Vector3 step = movement * (Stats.speed * Time.fixedDeltaTime);
+                    _playerRb.MovePosition((gameObject.transform.position + step));
+                    UpdateAngle(movement);
+                }
         }
-        
-        //Debug.Log(angle);
-        //Moverse();
+        PlayerActions.UpdateWeaponPosition(angle);
+    }
+
+    private bool CanMove()
+    {
+        return canMove;
     }
 
     public void UpdateAngle(Vector2 movement)
     {
-        angle = _isoRenderer.SetDirection(movement) * ORIENTATION_STEP + ORIENTATION_OFFSET;
+        int direction = _isoRenderer.SetDirection(movement);
+        switch (direction)
+        {
+            //CASE N, W, E, S
+            case 0:
+            case 2:
+            case 4:
+            case 6:
+                angle = direction * ORIENTATION_STEP + ORIENTATION_OFFSET;
+                break;
+            //CASE NE, SW
+            case 1:
+            case 5:
+                angle = (direction - 1) * ORIENTATION_STEP + ORIENTATION_OFFSET  + ORIENTATION_STEP_BIG;
+                break;
+            //CASE NW, SE
+            default:
+                angle = (direction - 1) * ORIENTATION_STEP + ORIENTATION_OFFSET  + ORIENTATION_STEP_SMALL;
+                break;
+        }
     }
 
-    private Vector2 ConvertToIsometric(Vector2 input)
-    {
-        Vector2 output = IsometricUtils.CartesianToIsometric(input);
-        if (output.x > 0.1)
-            output.x += gapX;
-        if (output.x < -0.1)
-            output.x -= gapX;
-        
-        return output;
-    }
-
-    private void SetMoving(bool move)
-    {
-        _moving = move;
-        if(!move)
-            _playerRb.velocity = Vector2.zero;
-    }
-
-    public void SetActive(bool active)
-    {
-        _active = active;
-        _playerRb.velocity = Vector2.zero;
-    }
-    
-    
-    
     private void OnEnable()
     {
         _inputControler.Enable();

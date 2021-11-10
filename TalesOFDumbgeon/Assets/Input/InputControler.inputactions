@@ -67,6 +67,17 @@
                     "isPartOfComposite": false
                 },
                 {
+                    "name": "",
+                    "id": "316e1c9c-37f6-4eb5-b890-249a553e87fa",
+                    "path": "<Keyboard>/p",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Movil;keyboard and mouse",
+                    "action": "Atacar",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
                     "name": "2D Vector",
                     "id": "2f1cda3b-13cd-42ac-a098-14c446858477",
                     "path": "2DVector",
@@ -126,8 +137,8 @@
                     "id": "c010437f-915e-49aa-af78-f4feae2401c2",
                     "path": "<Gamepad>/leftStick",
                     "interactions": "",
-                    "processors": "",
-                    "groups": "",
+                    "processors": "StickDeadzone",
+                    "groups": "Movil;keyboard and mouse",
                     "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -301,6 +312,11 @@
                     "isOR": false
                 }
             ]
+        },
+        {
+            "name": "Movil",
+            "bindingGroup": "Movil",
+            "devices": []
         }
     ]
 }

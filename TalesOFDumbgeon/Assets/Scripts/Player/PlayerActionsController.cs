@@ -1,125 +1,149 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using Interfaces;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerActionsController : MonoBehaviour
+public class PlayerActionsController : MonoBehaviour, IDeadable
 {
-    public InputControler controles;
-    public GameObject ptAtaque;
-    public GameObject bala;
-    public GameObject zonaAtaque;
+   
+    public Weapon weapon;
+    public bool invincible;
 
-    public int vida = 20;
-    private GameObject joystick;
-    private float attackDelay;
-    private enum ArmaRango {CaC, Distancia};
-    private bool controlesEnable = true;
-    private int cartaUsada;
-
-    private bool canAtack = true;
-    //Variables de Objetos
-    private ArmaRango armaRango;
-    private string nombreArmaEquipada;
-    public int damageArmaActual;
-
-    private float distance;
-    private IsometricMove _isometricMove;
+    [SerializeField] private float inmunityTime;
+    [SerializeField] private GameObject joystick;
+    [SerializeField] private GameObject BtnAttack;
+    private int _cartaUsada;
+    private bool _canAtack = true;
+    private float _distance;
+  
+    private CharacterStats _stats;
+    private InputControler _controles;
+    private SpriteRenderer _spriteRenderer;
+    private Rigidbody2D _rb;
 
     private void Awake()
     {
-        distance = Vector3.Distance(ptAtaque.transform.position, gameObject.transform.position);
-        _isometricMove = gameObject.GetComponent<IsometricMove>();
-        joystick = GameObject.FindGameObjectWithTag("Joystick");
-        controles = new InputControler();
-        controles.Jugador.Atacar.performed += ctx => Atacar();
-        controles.Jugador.Habilidad1.performed += ctx => usarCarta(1);
-        controles.Jugador.Habilidad2.performed += ctx => usarCarta(2);
-        controles.Jugador.Habilidad3.performed += ctx => usarCarta(3);
-        controles.Jugador.Habilidad4.performed += ctx => usarCarta(4);
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        attackDelay = 2;
-        //armaRango = ArmaRango.Distancia;
-        armaRango = ArmaRango.CaC;
+        _distance = Vector3.Distance(weapon.transform.position, gameObject.transform.position);
+        _stats = gameObject.GetComponent<CharacterStats>();
+        _spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
+        _rb = gameObject.GetComponent<Rigidbody2D>();
+        _controles = new InputControler();
+        _controles.Jugador.Atacar.performed += ctx => Atacar();
+        _controles.Jugador.Habilidad1.performed += ctx => UsarCarta(1);
+        _controles.Jugador.Habilidad2.performed += ctx => UsarCarta(2);
+        _controles.Jugador.Habilidad3.performed += ctx => UsarCarta(3);
+        _controles.Jugador.Habilidad4.performed += ctx => UsarCarta(4);
+        if (CheckIfMobile.isMobile())
+        {
+            joystick.SetActive(true);
+            BtnAttack.SetActive(true);
+        }
+        else
+        {
+            joystick.SetActive(false);
+            BtnAttack.SetActive(false);
+        }
     }
 
     // Update is called once per frame
-    private void reactiveAtack()
+    private void ReactiveAtack()
     {
-        canAtack = true;
-        zonaAtaque.GetComponent<Collider2D>().enabled = false;
-        zonaAtaque.gameObject.GetComponent<SpriteRenderer>().color = new Color(255, 0, 0);
-        controlesEnable = true;
+        _canAtack = true;
+        weapon.GetComponent<Collider2D>().enabled = false;
+        weapon.gameObject.GetComponent<SpriteRenderer>().color = new Color(255, 255, 255);
     }
 
-    private void Update()
+    public void UpdateWeaponPosition(float angle)
     {
-        float angle = _isometricMove.angle;
-        Vector3 newCenter = gameObject.transform.position + (Vector3) IsometricUtils.PolarisToCartesian(angle, distance);
-        //newCenter = IsometricUtils.CartesianToIsometric(newCenter);
-        ptAtaque.gameObject.transform.position = newCenter;
+        weapon.SetOrientation(angle);
+        weapon.UpdatePosition(gameObject.transform.position + (Vector3) IsometricUtils.PolarToCartesian(angle, _distance));
     }
 
     private void Atacar()
     {
-        if (canAtack)
+        if (_canAtack)
         {
-            
-            if (armaRango == ArmaRango.Distancia)
-            {
-                Instantiate(bala, ptAtaque.transform.position, Quaternion.Euler(transform.rotation.eulerAngles));
-                Debug.Log("Ataque a distancia");
-            }
-            else if (armaRango == ArmaRango.CaC)
-            {
-                zonaAtaque.GetComponent<Collider2D>().enabled = true;
-                zonaAtaque.gameObject.GetComponent<SpriteRenderer>().color = new Color(0, 255, 241);
-                Debug.Log("Ataque cuerpo a cuerpo");
-            }
-            controlesEnable = false;
-            canAtack = false;
-            Invoke(nameof(reactiveAtack), attackDelay);
+            weapon.Atack();
+            _canAtack = false;
+            Invoke(nameof(ReactiveAtack), weapon.weaponInfo.attackSpeed);
         }        
     }
 
-    public void usarCarta(int hueco)
+    public void UsarCarta(int hueco)
     {
         Debug.Log("Usaste la carta " + hueco);
     }
 
-
-
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        //Debug.Log("colision con " + collision.gameObject.name);
-        if (collision.gameObject.CompareTag("Enemigo"))
+        if (collision.gameObject.CompareTag("Enemigo") && !invincible)
         {
-            takeDamage(collision.gameObject.GetComponent<EnemigoController>().damage);
-        }
-
-        if (vida <= 0)
-        {
-            Destroy(gameObject);
+            CharacterStats enemyStats = collision.gameObject.GetComponent<CharacterStats>();
+            _stats.DoDamage(enemyStats.strength, collision.gameObject, enemyStats.element);
         }
     }
 
-    public void takeDamage(int damage)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        vida -= damage;
+        if (other.gameObject.CompareTag("EscenarioTrigger"))
+        {
+            Debug.Log("Cambiando mapa");
+            SingletoneGameController.MapManager.NextMap();
+        }
+
+        if (other.gameObject.CompareTag("Collectionable"))
+        {
+            other.gameObject.GetComponent<ICollectable>().Collect();
+        }
     }
     
+    private void CancelInvincibility()
+    {
+        _canAtack = true;
+        invincible = false;
+        _rb.velocity = Vector2.zero;
+    }
+    
+    public void ResetSpriteColor()
+    {
+        _spriteRenderer.color = Color.white;
+    }
+    
+    public void Dead()
+    {
+        SingletoneGameController.PlayerActions.dead = true;
+        SingletoneGameController.Instance.ChangeScene("GameOverScene");
+        Debug.Log("Im dead");
+        gameObject.SetActive(false);
+        
+    }
+
+    public void Damage(GameObject enemy, float cantidad, Elements.Element element)
+    {
+        Debug.Log("Damage Recived");
+        SingletoneGameController.InterfaceController.UpdateLife(_stats.GetActualHealth()/_stats.maxHealth);
+        var direction = gameObject.transform.position - enemy.transform.position;
+        var magnitude = direction.magnitude;
+        direction = direction / magnitude;
+        _rb.velocity = direction;
+        //Debug.Log(direction);
+        invincible = true;
+        _canAtack = false;
+        _spriteRenderer.color = Color.red;
+        SingletoneGameController.PlayerActions.DisableMovement(inmunityTime);
+        Invoke(nameof(CancelInvincibility), inmunityTime);
+        Invoke(nameof(ResetSpriteColor), inmunityTime);
+    }
+
     private void OnEnable()
     {
-        controles.Enable();
+        _controles.Enable();
     }
 
     private void OnDisable()
     {
-        controles.Disable();
+        _controles.Disable();
     }
 }

@@ -23,7 +23,7 @@ public class CardHolder : MonoBehaviour
     void Awake()
     {
         _inputControler = new InputControler();
-        _inputControler.Cartas.NuevaCarta.performed += ctx => AddCard("AspectoDelDragon");
+        _inputControler.Cartas.NuevaCarta.performed += ctx => AddCard("Baguette");
         _inputControler.Cartas.SacarCartas.performed += ctx => Resize();
         _inputControler.Cartas.Selection.performed += ctx => MoveSelection(Convert.ToBoolean(ctx.ReadValue<float>()));
         _inputControler.Cartas.EnterSelection.performed += ctx => EnterSelection();
@@ -43,7 +43,7 @@ public class CardHolder : MonoBehaviour
         buttonDown = Instantiate(buttonDown, _thisRect.position, Quaternion.identity);
         buttonDown.gameObject.transform.SetParent(this.gameObject.transform);
         buttonDown.gameObject.SetActive(false);
-        AddCard("AspectoDelDragon");
+        AddCard("Baguette");
         
     }
     private void MoveSelection(bool right)
@@ -78,12 +78,11 @@ public class CardHolder : MonoBehaviour
     {
         RectTransform newCard = Instantiate(card, _thisRect.position, Quaternion.identity).GetComponent<RectTransform>();
         
-        
         newCard.sizeDelta = cardDimensions;
         newCard.SetParent(this.transform);
         newCard.localScale = new Vector3(1, 1, 1);
         newCard.localPosition = _activePoint;
-        newCard.gameObject.GetComponent<Card>().cardName = cardName;
+        newCard.gameObject.GetComponent<Card>().CardName = cardName;
         cards.Add(newCard);
 
         if (!active)
@@ -110,7 +109,6 @@ public class CardHolder : MonoBehaviour
             localWidth /= 2;                        
         }
         float width = localWidth * cards.Count + (cards.Count - 1) * localGap;
-        Debug.Log(width);
         float lastCard = localWidth / 2;    
         foreach (var localCard in cards)
         {
@@ -129,6 +127,8 @@ public class CardHolder : MonoBehaviour
     {
         if (!active)
         {
+            //Time.timeScale = 0f;
+            SingletoneGameController.InterfaceController.MostrarUI(true);
             foreach (var localCard in cards)
             {
                 localCard.localScale = new Vector3(1, 1, 1);
@@ -140,6 +140,8 @@ public class CardHolder : MonoBehaviour
         }
         else
         {
+            //Time.timeScale = 1f;
+            SingletoneGameController.InterfaceController.MostrarUI(false);
             foreach (var localCard in cards)
             {
                 localCard.localScale = new Vector3(resizePercent, resizePercent, resizePercent);

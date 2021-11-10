@@ -5,9 +5,10 @@ using UnityEngine;
 
 public class IsometricCharacterRenderer : MonoBehaviour
 {
-    public static readonly string[] staticDirections = {"Static NW", "Static NW",  "Static SW", "Static SW", "Static SE", "Static SE", "Static NE", "Static NE"};
-    public static readonly string[] runDirections = {"Run NW", "Run NE", "Run SW", "Run SE"};
+    public static readonly string[] staticDirections = {"StaticN", "StaticNW",  "StaticW", "StaticSW", "StaticS", "StaticSE", "StaticE", "StaticNE"};
+    public static readonly string[] runDirections = {"RunN", "RunNW", "RunW", "RunSW", "RunS", "RunSE", "RunE", "RunNE"};
 
+    private const int SliceCount = 8;
     private Animator _animator;
     private int _lastDirection;
 
@@ -32,7 +33,7 @@ public class IsometricCharacterRenderer : MonoBehaviour
             _lastDirection = DirectionToIndex(direction, 4);
         }*/
         directionArray = staticDirections;
-        _lastDirection = DirectionToIndex(direction, 8);
+        _lastDirection = DirectionToIndex(direction, SliceCount);
         //Debug.Log(_lastDirection);
         _animator.Play(directionArray[_lastDirection]);
         return _lastDirection;

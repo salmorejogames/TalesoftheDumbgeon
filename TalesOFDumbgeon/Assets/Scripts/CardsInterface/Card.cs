@@ -1,5 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System;
+using System.Collections;
+using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -8,20 +9,29 @@ public class Card : MonoBehaviour, IPointerClickHandler
 {
 
 
-    public string cardName;
+    [NonSerialized] public string CardName;
     private CardHolder _cardHolder;
     private RectTransform _rectTransform;
-    private Image _image;
+    [SerializeField] private Image holderImage;
+    [SerializeField] private TextMeshProUGUI title;
+    [SerializeField] private TextMeshProUGUI description;
+    [SerializeField] private Image itemImage;
     [SerializeField] private CardInfo cardInfo;
     [SerializeField] private Color highlightColor;
+    [SerializeField] private float fadeTime;
+    [SerializeField] private int distanceLaunch;
     
     // Start is called before the first frame update
     void Start()
     {
         _rectTransform = gameObject.GetComponent<RectTransform>();
         _cardHolder = gameObject.transform.parent.gameObject.GetComponent<CardHolder>();
-        _image = gameObject.GetComponent<Image>();
-        cardInfo = Resources.Load<CardInfo>("cards/CardsInfo/" + cardName);
+        cardInfo = Resources.Load<CardInfo>("cards/CardsInfo/" + CardName);
+        Debug.Log(CardName + " " + cardInfo.cardName);
+        holderImage.sprite = cardInfo.cardHolder;
+        itemImage.sprite = cardInfo.artwork;
+        title.text = cardInfo.cardName;
+        description.text = cardInfo.description;
     }
     public void OnPointerClick(PointerEventData eventData)
     {
@@ -45,44 +55,48 @@ public class Card : MonoBehaviour, IPointerClickHandler
     {
         SetHighlight(false);
         StartCoroutine(nameof(Fade));
-        Invoke(nameof(Delete), 1);
-        ActivateEffect();
+        Invoke(nameof(Delete), fadeTime);
     }
     private void Delete()
     {
+        ActivateEffect();
         _cardHolder.DeleteCard(_rectTransform);
     }
 
     public void SetHighlight(bool active)
     {
         if (active)
-            _image.color = highlightColor;
+            holderImage.color = highlightColor;
         else
-            _image.color = Color.white;
+            holderImage.color = Color.white;
     }
     IEnumerator Fade() {
         Image image = GetComponent<Image>();
         var color = image.color;
-        while (true)
+        float elapsedTime = 0;
+        while (elapsedTime<fadeTime)
         {
+            float step = 1 / fadeTime * Time.deltaTime;
+            float stepPos = distanceLaunch / fadeTime * Time.deltaTime;
             var tempColor = color;
-            tempColor.a = color.a - 0.01f;
+            tempColor.a = color.a - step;
             image.color = tempColor;
             color = tempColor;
             var localPosition = _rectTransform.localPosition;
             var localScale = _rectTransform.localScale;
             //var localRotation = _rectTransform.localEulerAngles;
             
-            localPosition = new Vector3(localPosition.x, localPosition.y + 1.0f, localPosition.z);
+            localPosition = new Vector3(localPosition.x, localPosition.y + stepPos, localPosition.z);
             _rectTransform.localPosition = localPosition;
            
-            localScale = new Vector3(localScale.x - 0.005f, localScale.y - 0.005f, localScale.z - 0.005f);
+            localScale = new Vector3(localScale.x - step, localScale.y - step, localScale.z - step);
             _rectTransform.localScale = localScale;
             /*
             localRotation = new Vector3(localRotation.x - 0.5f, localRotation.y, localRotation.z);
             _rectTransform.eulerAngles = localRotation;
             */
-            yield return null;
+            elapsedTime += Time.deltaTime;
+            yield return new WaitForEndOfFrame();
         }
     }
 }
