@@ -4,10 +4,11 @@ using System.Collections.Generic;
 using Interfaces;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Rendering;
+using UnityEngine.Rendering.PostProcessing;
 
 public class PlayerActionsController : MonoBehaviour, IDeadable
 {
-   
     public Weapon weapon;
     public bool invincible;
 
@@ -22,6 +23,10 @@ public class PlayerActionsController : MonoBehaviour, IDeadable
     private InputControler _controles;
     private SpriteRenderer _spriteRenderer;
     private Rigidbody2D _rb;
+
+    [SerializeField] private PostProcessVolume greyscalePostP;
+    [SerializeField] private Camera mainCamera;
+    private ColorGrading colorGrading;
 
     private void Awake()
     {
@@ -45,6 +50,11 @@ public class PlayerActionsController : MonoBehaviour, IDeadable
             joystick.SetActive(false);
             BtnAttack.SetActive(false);
         }
+    }
+
+    private void Start()
+    {
+        greyscalePostP.profile.TryGetSettings(out colorGrading);
     }
 
     // Update is called once per frame
@@ -114,7 +124,8 @@ public class PlayerActionsController : MonoBehaviour, IDeadable
     public void Dead()
     {
         SingletoneGameController.PlayerActions.dead = true;
-        SingletoneGameController.Instance.ChangeScene("GameOverScene");
+        Greyscale();
+        //SingletoneGameController.Instance.ChangeScene("GameOverScene");
         Debug.Log("Im dead");
         gameObject.SetActive(false);
         
@@ -146,4 +157,27 @@ public class PlayerActionsController : MonoBehaviour, IDeadable
     {
         _controles.Disable();
     }
+
+    public void Greyscale()
+    {
+        colorGrading.saturation.value = -100;
+        mainCamera.orthographicSize = .5f;
+        //float greyValue = 0.0f;
+        //StartCoroutine(GreyScaleCoroutine(greyValue));
+    }
+
+    /*
+    IEnumerator GreyScaleCoroutine(float greyValue)
+    {
+        while (true)
+        {
+            while (greyValue < 100)
+            {
+                greyValue -= 1;
+                colorGrading.saturation.value = greyValue;
+                yield return null;
+            }
+        }
+    }
+    */
 }

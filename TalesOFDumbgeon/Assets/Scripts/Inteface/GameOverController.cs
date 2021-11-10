@@ -24,6 +24,6 @@ public class GameOverController : MonoBehaviour
 
     public void Salir()
     {
-        SceneManager.LoadScene("MainMenuScene");
+        SceneManager.LoadScene("ClickParaEmpezar");
     }
 }
