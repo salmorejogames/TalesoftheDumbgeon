@@ -296,12 +296,12 @@ PrefabInstance:
     - target: {fileID: 1305524535482785504, guid: cb799e543e13cfe45ab03ddcc66b9ae8,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.76
+      value: 4.87
       objectReference: {fileID: 0}
     - target: {fileID: 1305524535482785504, guid: cb799e543e13cfe45ab03ddcc66b9ae8,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.43
+      value: -1.23
       objectReference: {fileID: 0}
     - target: {fileID: 1305524535482785504, guid: cb799e543e13cfe45ab03ddcc66b9ae8,
         type: 3}
@@ -355,6 +355,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1305524535482785505, guid: cb799e543e13cfe45ab03ddcc66b9ae8,
         type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1305524535482785505, guid: cb799e543e13cfe45ab03ddcc66b9ae8,
+        type: 3}
       propertyPath: personaje
       value: 
       objectReference: {fileID: 4711098444191936012}
@@ -372,6 +377,42 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5633646339907591679, guid: cb799e543e13cfe45ab03ddcc66b9ae8,
+        type: 3}
+      propertyPath: speed
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5633646339907591679, guid: cb799e543e13cfe45ab03ddcc66b9ae8,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5753537193114362022, guid: cb799e543e13cfe45ab03ddcc66b9ae8,
+        type: 3}
+      propertyPath: Bala
+      value: 
+      objectReference: {fileID: 2652884022069426807, guid: be9b9faf661ed2744b549e7dfa9127bd,
+        type: 3}
+    - target: {fileID: 5753537193114362022, guid: cb799e543e13cfe45ab03ddcc66b9ae8,
+        type: 3}
+      propertyPath: vision
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5753537193114362022, guid: cb799e543e13cfe45ab03ddcc66b9ae8,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5753537193114362022, guid: cb799e543e13cfe45ab03ddcc66b9ae8,
+        type: 3}
+      propertyPath: personaje
+      value: 
+      objectReference: {fileID: 4711098444191936012}
+    - target: {fileID: 5753537193114362022, guid: cb799e543e13cfe45ab03ddcc66b9ae8,
+        type: 3}
+      propertyPath: stopDistance
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7142195723488006319, guid: cb799e543e13cfe45ab03ddcc66b9ae8,
         type: 3}

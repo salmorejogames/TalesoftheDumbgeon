@@ -13,7 +13,6 @@ public class Bala_Move : MonoBehaviour
     private Rigidbody2D _rb;
 
 
-
     // Start is called before the first frame update
     void Start()
     {
