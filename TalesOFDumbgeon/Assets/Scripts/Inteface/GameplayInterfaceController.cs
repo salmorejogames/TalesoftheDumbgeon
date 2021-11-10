@@ -34,9 +34,9 @@ namespace Inteface
 
         public void UpdateLife(float amount)
         {
-            Debug.Log(amount);
+            //Debug.Log(amount);
             amount = Mathf.Clamp01(amount);
-            Debug.Log(amount);
+            //Debug.Log(amount);
             StartCoroutine(nameof(UpdateHealthBar), amount);
         }
 
