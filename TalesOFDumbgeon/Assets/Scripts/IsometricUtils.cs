@@ -1,5 +1,4 @@
 ﻿using System;
-using ScriptableObjects;
 using UnityEngine;
 
 public static class IsometricUtils
