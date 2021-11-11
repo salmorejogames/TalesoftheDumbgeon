@@ -11,6 +11,9 @@ public class ExampleEnemyBehaviour : MonoBehaviour, IDeadable
     private IsometricMove _player;
     private CharacterStats _stats;
 
+    [SerializeField]
+    private DamageNumber DmgPrefab;
+
     private void Update()
     {
         if (!SingletoneGameController.PlayerActions.dead)
@@ -36,12 +39,15 @@ public class ExampleEnemyBehaviour : MonoBehaviour, IDeadable
     public void Damage(GameObject enemy, float cantidad, Elements.Element element)
     {
         float multiplier = Elements.GetElementMultiplier(element, _stats.element);
+        DamageNumber dmgN = Instantiate(DmgPrefab, transform.position, Quaternion.identity);
+        dmgN.Inicializar(cantidad, transform);
         if(multiplier>1.1f)
             _spr.color = Color.red;
         else if(multiplier<0.9f)
             _spr.color = Color.cyan;
         else 
             _spr.color = Color.yellow;
+        dmgN.number.color = _spr.color;
         Invoke(nameof(RevertColor), 0.2f);
     }
 

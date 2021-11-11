@@ -2,7 +2,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using Interfaces;
-using ScriptableObjects.Equipment;
 using UnityEngine;
 
 public class CharacterStats : MonoBehaviour
@@ -10,7 +9,7 @@ public class CharacterStats : MonoBehaviour
 
     private const int EquipmentParts = 6;
 
-    public EquipmentSo[] equipment = new EquipmentSo[EquipmentParts];
+    public BaseEquipment[] equipment = new BaseEquipment[EquipmentParts];
     public float maxHealth;
     public float armor;
     public float strength;
@@ -71,7 +70,7 @@ public class CharacterStats : MonoBehaviour
     
     public void Unequip(int pos)
     {
-        equipment[pos].Unequip(this);
+        equipment[pos].Unequip();
     }
 
    
