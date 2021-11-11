@@ -1,9 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Interfaces;
 
-public class Enemigo_Pelusa : MonoBehaviour
+
+public class Enemigo_Pelusa : MonoBehaviour, IDeadable
 {
+    //IDeadable 
+    private SpriteRenderer _spr;
+    private IsometricMove _player;
+    private CharacterStats _stats;
+
+    //Enemigo 
     public int velocidad = 5;
     public int armadura = 3;
     public int damage = 1;
@@ -31,6 +39,11 @@ public class Enemigo_Pelusa : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //IDeadable
+        _stats = gameObject.GetComponent<CharacterStats>();
+        _spr = gameObject.GetComponent<SpriteRenderer>();
+        _player = SingletoneGameController.PlayerActions.player;
+
         rb = gameObject.GetComponent<Rigidbody2D>();
         personaje = GameObject.FindGameObjectWithTag("Player");
         rb.velocity = Vector2.zero;
@@ -87,13 +100,19 @@ public class Enemigo_Pelusa : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        direccion = personaje.transform.position - transform.position;
-        direccion.Normalize();
-        attackDelay -= Time.deltaTime;
-        if(attackDelay <= 0)
+        if (!SingletoneGameController.PlayerActions.dead)
         {
-            Attack();
-            attackDelay = startDelayTime;
+            if (_player == null)
+                _player = SingletoneGameController.PlayerActions.player;
+
+            direccion = personaje.transform.position - transform.position;
+            direccion.Normalize();
+            attackDelay -= Time.deltaTime;
+            if (attackDelay <= 0)
+            {
+                Attack();
+                attackDelay = startDelayTime;
+            }
         }
     }
 
@@ -120,17 +139,32 @@ public class Enemigo_Pelusa : MonoBehaviour
         Debug.Log("decision CLock: " + decisionClock);
     }
 
-
-
-    public void TakeDamage(int damage)
-    {
-        armadura -= damage;
-    }
-
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.green;
         Gizmos.DrawWireSphere(transform.position, vision);
         Gizmos.DrawWireSphere(transform.position, stopDistance);
+    }
+
+    public void Dead()
+    {
+        gameObject.SetActive(false);
+    }
+
+    public void Damage(GameObject enemy, float cantidad, Elements.Element element)
+    {
+        float multiplier = Elements.GetElementMultiplier(element, _stats.element);
+        if (multiplier > 1.1f)
+            _spr.color = Color.red;
+        else if (multiplier < 0.9f)
+            _spr.color = Color.cyan;
+        else
+            _spr.color = Color.yellow;
+        Invoke(nameof(RevertColor), 0.2f);
+    }
+
+    public void RevertColor()
+    {
+        _spr.color = Color.white;
     }
 }

@@ -2,10 +2,16 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Interfaces;
 using UnityEngine.AI;
 
-public class Enemigo_Pistola : MonoBehaviour
+public class Enemigo_Pistola : MonoBehaviour, IDeadable
 {
+    //IDeadable 
+    private SpriteRenderer _spr;
+    private IsometricMove _player;
+    private CharacterStats _stats;
+
     public int velocidad = 5;
     public int armadura = 3;
     public int damage = 1;
@@ -47,6 +53,11 @@ public class Enemigo_Pistola : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //IDeadable
+        _stats = gameObject.GetComponent<CharacterStats>();
+        _spr = gameObject.GetComponent<SpriteRenderer>();
+        _player = SingletoneGameController.PlayerActions.player;
+
         rb = gameObject.GetComponent<Rigidbody2D>();
         personaje = GameObject.FindGameObjectWithTag("Player");
         rb.velocity = Vector2.zero;
@@ -96,20 +107,21 @@ public class Enemigo_Pistola : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!SingletoneGameController.PlayerActions.dead)
+        {
+            distanciaPlayer = Vector2.Distance(transform.position, personaje.transform.position);
+            direccion = personaje.transform.position - transform.position;
+            rotacion = Mathf.Atan2(direccion.x, direccion.y) * Mathf.Rad2Deg;
+            direccion.Normalize();
 
-        distanciaPlayer = Vector2.Distance(transform.position, personaje.transform.position);
-        direccion = personaje.transform.position - transform.position;
-        rotacion = Mathf.Atan2(direccion.x, direccion.y) * Mathf.Rad2Deg;
-        direccion.Normalize();
+            DecisionEstado();
+            //tiempoParado = startTiempoParado;
+            Debug.Log("Entramos en la logica");
 
-        DecisionEstado();
-        //tiempoParado = startTiempoParado;
-        Debug.Log("Entramos en la logica");
-
-        /*tiempoParado -= Time.deltaTime;
-        Debug.Log("Restamos tiempo transcurrido");
-        rb.velocity = Vector2.zero;*/
-        
+            /*tiempoParado -= Time.deltaTime;
+            Debug.Log("Restamos tiempo transcurrido");
+            rb.velocity = Vector2.zero;*/
+        }
     }
 
     private void DecisionEstado()
@@ -289,13 +301,6 @@ public class Enemigo_Pistola : MonoBehaviour
         Debug.Log("decision CLock: " + decisionClock);
     }
 
-
-
-    public void TakeDamage(int damage)
-    {
-        armadura -= damage;
-    }
-
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.green;
@@ -303,4 +308,25 @@ public class Enemigo_Pistola : MonoBehaviour
         Gizmos.DrawWireSphere(transform.position, stopDistance);
     }
 
+    public void Dead()
+    {
+        gameObject.SetActive(false);
+    }
+
+    public void Damage(GameObject enemy, float cantidad, Elements.Element element)
+    {
+        float multiplier = Elements.GetElementMultiplier(element, _stats.element);
+        if (multiplier > 1.1f)
+            _spr.color = Color.red;
+        else if (multiplier < 0.9f)
+            _spr.color = Color.cyan;
+        else
+            _spr.color = Color.yellow;
+        Invoke(nameof(RevertColor), 0.2f);
+    }
+
+    public void RevertColor()
+    {
+        _spr.color = Color.white;
+    }
 }
