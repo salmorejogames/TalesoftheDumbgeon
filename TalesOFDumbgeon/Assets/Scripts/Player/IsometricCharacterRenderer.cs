@@ -7,6 +7,7 @@ public class IsometricCharacterRenderer : MonoBehaviour
 {
     public static readonly string[] staticDirections = {"StaticN", "StaticNW",  "StaticW", "StaticSW", "StaticS", "StaticSE", "StaticE", "StaticNE"};
     public static readonly string[] runDirections = {"RunN", "RunNW", "RunW", "RunSW", "RunS", "RunSE", "RunE", "RunNE"};
+    public static readonly string[] atackDiractions = {"AtackN", "AtackNW", "AtackW", "AtackSW", "AtackS", "AtackSE", "AtackE", "AtackNE"};
 
     private const int SliceCount = 8;
     private Animator _animator;
