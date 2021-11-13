@@ -24,7 +24,8 @@ public class Enemigo_Pistola : MonoBehaviour, IDeadable
     public GameObject personaje;
     public GameObject Bala;
     public GameObject zonaAtaque;
-    public Weapon arma;
+    public RangedWeapon arma;
+    private Weapon armaHolder;
 
     private Rigidbody2D rb;
     //Bala
@@ -58,12 +59,15 @@ public class Enemigo_Pistola : MonoBehaviour, IDeadable
         _stats = gameObject.GetComponent<CharacterStats>();
         _spr = gameObject.GetComponent<SpriteRenderer>();
         _player = SingletoneGameController.PlayerActions.player;
+        arma = new RangedWeapon();
+        armaHolder = zonaAtaque.GetComponent<Weapon>();
 
         rb = gameObject.GetComponent<Rigidbody2D>();
         personaje = GameObject.FindGameObjectWithTag("Player");
         rb.velocity = Vector2.zero;
         attackDelay = 5f;
         attackTime = 5f;
+        arma.SetWeaponHolder(zonaAtaque.GetComponent<Weapon>());
 
         if (especie == tipoEnemigo.Abuesqueleto)
         {
@@ -84,10 +88,6 @@ public class Enemigo_Pistola : MonoBehaviour, IDeadable
             _stats.strength = 10f;
             _stats.speed = 3.5f;
             _stats.element = Elements.Element.Brasa;
-            //arma.attackSpeed = attackTime;
-            //arma.dmg = _stats.strength;
-            //arma.speed = _stats.speed;
-            //arma.strength = _stats.strength;
         }
         else if (especie == tipoEnemigo.Duonde)
         {
@@ -125,6 +125,8 @@ public class Enemigo_Pistola : MonoBehaviour, IDeadable
             direccion = personaje.transform.position - transform.position;
             rotacion = Mathf.Atan2(direccion.x, direccion.y) * Mathf.Rad2Deg;
             direccion.Normalize();
+            armaHolder.SetOrientation(rotacion);
+            armaHolder.UpdatePosition(gameObject.transform.position + (Vector3)IsometricUtils.PolarToCartesian(-(rotacion - 90), 0f));
 
             DecisionEstado();
             //tiempoParado = startTiempoParado;
@@ -245,7 +247,7 @@ public class Enemigo_Pistola : MonoBehaviour, IDeadable
                 //arma.Atacar(rayos);
                 canAtack = false;
                 Debug.Log("Intento generar balas");
-                Invoke(nameof(ReactiveAttack), arma.weaponInfo.attackSpeed);
+                Invoke(nameof(ReactiveAttack), arma.AttackSpeed);
             }
             else if (especie == tipoEnemigo.Banana)
             {
@@ -258,8 +260,7 @@ public class Enemigo_Pistola : MonoBehaviour, IDeadable
     private void ReactiveAttack()
     {
         canAtack = true;
-        arma.GetComponent<Collider2D>().enabled = false;
-        arma.gameObject.GetComponent<SpriteRenderer>().color = new Color(255, 255, 255);
+        arma.Atacar();
         /*
         zonaAtaque.GetComponent<Collider2D>().isTrigger = false;
         rb.velocity = Vector2.zero;
