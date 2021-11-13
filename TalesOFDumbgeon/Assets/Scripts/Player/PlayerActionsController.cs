@@ -32,6 +32,11 @@ public class PlayerActionsController : MonoBehaviour, IDeadable
     [SerializeField] private Camera mainCamera;
     private ColorGrading colorGrading;
 
+    [SerializeField] private GameObject menuGameOver;
+    [SerializeField] private GameObject titulo;
+    [SerializeField] private GameObject botonReintentar;
+    [SerializeField] private GameObject botonSalir;
+
     private void Awake()
     {
         _distance = Vector3.Distance(weapon.transform.position, gameObject.transform.position);
@@ -129,18 +134,13 @@ public class PlayerActionsController : MonoBehaviour, IDeadable
     {
         SingletoneGameController.PlayerActions.dead = true;
         Greyscale();
+        DesactivarMenuGameplay();
+
+        menuGameOver.SetActive(true);
+
+        AnimarMenuGameOver();
         //SingletoneGameController.Instance.ChangeScene("GameOverScene");
         Debug.Log("Im dead");
-        if (CheckIfMobile.isMobile())
-        {
-            joystick.SetActive(false);
-            BtnAttack.SetActive(false);
-        }
-
-        barraVida.SetActive(false);
-        habilidades.SetActive(false);
-        cartas.SetActive(false);
-        gameObject.SetActive(false);
 
         //mainCamera.transform.position = gameObject.transform.position;
         //mainCamera.orthographicSize = 1f;
@@ -171,6 +171,34 @@ public class PlayerActionsController : MonoBehaviour, IDeadable
     private void OnDisable()
     {
         _controles.Disable();
+    }
+
+    public void AnimarMenuGameOver()
+    {
+        LeanTween.moveLocalY(titulo, 135, 1.5f).setEaseOutCubic().setDelay(1.5f);
+        LeanTween.rotateZ(titulo, -6, 1f).setEaseOutCubic().setDelay(1.5f);
+
+        LeanTween.moveLocalX(botonReintentar, -265, 1.5f).setEaseOutCubic().setDelay(2f);
+        LeanTween.moveLocalY(botonReintentar, -200, 1.5f).setEaseOutCubic().setDelay(2f);
+        LeanTween.rotateZ(botonReintentar, 3, 1f).setEaseOutCubic().setDelay(2f);
+
+        LeanTween.moveLocalX(botonSalir, 265, 1.5f).setEaseOutCubic().setDelay(2f);
+        LeanTween.moveLocalY(botonSalir, -200, 1.5f).setEaseOutCubic().setDelay(2f);
+        LeanTween.rotateZ(botonSalir, -5, 1f).setEaseOutCubic().setDelay(2f);
+    }
+
+    public void DesactivarMenuGameplay()
+    {
+        if (CheckIfMobile.isMobile())
+        {
+            joystick.SetActive(false);
+            BtnAttack.SetActive(false);
+        }
+
+        barraVida.SetActive(false);
+        habilidades.SetActive(false);
+        cartas.SetActive(false);
+        gameObject.SetActive(false);
     }
 
     public void Greyscale()
