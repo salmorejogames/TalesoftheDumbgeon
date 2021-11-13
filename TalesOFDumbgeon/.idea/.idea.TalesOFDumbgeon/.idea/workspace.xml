@@ -2,27 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b1d37c9d-25b2-4110-97a9-49ea663fadda" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Interface/DamageNumber.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Interface/DamageNumber.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Animations/PlayerAnimationController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.TalesOFDumbgeon/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TalesOFDumbgeon/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/DamageNumber.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/DamageNumber.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Character/stadtnarr_chico_back.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Character/stadtnarr_chico_back.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Character/stadtnarr_chico_diagAbajoDER.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Character/stadtnarr_chico_diagAbajoDER.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Character/stadtnarr_chico_diagAbajoIZQ.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Character/stadtnarr_chico_diagAbajoIZQ.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Character/stadtnarr_chico_diagArribaDER.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Character/stadtnarr_chico_diagArribaDER.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Character/stadtnarr_chico_diagArribaIZQ.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Character/stadtnarr_chico_diagArribaIZQ.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Character/stadtnarr_chico_front.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Character/stadtnarr_chico_front.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Character/stadtnarr_chico_left.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Character/stadtnarr_chico_left.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Character/stadtnarr_chico_right.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Character/stadtnarr_chico_right.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Personaje_Principal.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Personaje_Principal.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Animations/AnimationController.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Animations/AnimationController.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Animations/PlayerAnimationController.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Animations/AnimationDirection.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Animations/AnimationDirection.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Animations/BodyParts.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Animations/BodyParts.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Animations/EquipmentClass.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Animations/EquipmentClass.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/IsometricCharacterRenderer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/IsometricCharacterRenderer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Animations/PlayerAnimationController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Animations/PlayerAnimationController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/IsometricUtils.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/IsometricUtils.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/IsometricMove.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/IsometricMove.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -94,7 +76,6 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/GameControl/PlayerActions.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Map/MapInstance.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Map/MapManager.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/IsometricUtils.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Collectionable.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Camera/CameraFollow.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Equipment/BaseEquipment.cs" />
@@ -117,10 +98,11 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/Animations/EquipmentClass.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Animations/AnimationController.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Animations/AnimationDirection.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Animations/PlayerAnimationController.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Animations/BodyParts.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Player/IsometricMove.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Player/IsometricCharacterRenderer.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Player/IsometricMove.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Animations/PlayerAnimationController.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/IsometricUtils.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1zRaEkaFY4bgpmOHr8r3t8E1N2f" />
@@ -201,7 +183,7 @@
       <workItem from="1636394152608" duration="10164000" />
       <workItem from="1636458882660" duration="9263000" />
       <workItem from="1636731234247" duration="3529000" />
-      <workItem from="1636807903660" duration="9102000" />
+      <workItem from="1636807903660" duration="11779000" />
     </task>
     <servers />
   </component>

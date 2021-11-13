@@ -55,7 +55,7 @@ public class PlayerAnimationController : MonoBehaviour
         southEast.Animator.SetBool(Walk, moving);
         southWest.Animator.SetBool(Walk, moving);*/
         Current.Animator.SetBool(Walk, moving);
-        Debug.Log(moving);
+        //Debug.Log(moving);
         _move = moving;
     }
 
