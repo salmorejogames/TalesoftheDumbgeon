@@ -9,23 +9,23 @@ public class Bala_Enemigo : MonoBehaviour
     Rigidbody2D bulletRB;
     Vector2 posicion;
     Vector2 moveDir;
-    GameObject parent;
+    Transform parent;
 
     // Start is called before the first frame update
     void Start()
     {
-        speed = 10f;
+        speed = 0.1f;
         bulletRB = GetComponent<Rigidbody2D>();
         target = GameObject.FindGameObjectWithTag("Player");
-        posicion = target.transform.position;
         moveDir = (target.transform.position - transform.position);
-        parent = gameObject.GetComponentInParent<GameObject>();
+        moveDir.Normalize();
+        parent = gameObject.GetComponentInParent<Transform>();
     }
 
     private void Update()
     {
         bulletRB.AddForce(moveDir * Time.deltaTime * speed);
-
+        Debug.Log(speed);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -37,6 +37,7 @@ public class Bala_Enemigo : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             collision.gameObject.GetComponent<CharacterStats>().DoDamage(5, gameObject, Elements.Element.Caos);
+            Destroy(gameObject);
         }
     }
 }

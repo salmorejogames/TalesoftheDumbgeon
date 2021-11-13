@@ -103,7 +103,7 @@ public class Enemigo_Pelusa : MonoBehaviour, IDeadable
         if (!SingletoneGameController.PlayerActions.dead)
         {
             if (_player == null)
-                _player = SingletoneGameController.PlayerActions.player;
+               // _player = SingletoneGameController.PlayerActions.player;
 
             direccion = personaje.transform.position - transform.position;
             direccion.Normalize();

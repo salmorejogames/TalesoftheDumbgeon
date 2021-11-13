@@ -24,6 +24,7 @@ public class Enemigo_Pistola : MonoBehaviour, IDeadable
     public GameObject personaje;
     public GameObject Bala;
     public GameObject zonaAtaque;
+    public Weapon arma;
 
     private Rigidbody2D rb;
     //Bala
@@ -41,7 +42,7 @@ public class Enemigo_Pistola : MonoBehaviour, IDeadable
     private Collider2D choque;
     private bool canAtack = true;
     private float attackDelay;
-    private float dashTime = 0f;
+    private float attackTime;
     private float startDashTime = 0.5f;
     private bool attaking = false;
     private float tiempoParado = 0f;
@@ -62,22 +63,31 @@ public class Enemigo_Pistola : MonoBehaviour, IDeadable
         personaje = GameObject.FindGameObjectWithTag("Player");
         rb.velocity = Vector2.zero;
         attackDelay = 5f;
+        attackTime = 5f;
 
         if (especie == tipoEnemigo.Abuesqueleto)
         {
-            velocidad = 1;
-            armadura = 3;
-            damage = 6;
             vision = 3;
             stopDistance = 0.5f;
+            _stats.armor = 3f;
+            _stats.maxHealth = 6f;
+            _stats.strength = 6f;
+            _stats.speed = 1f;
+            _stats.element = Elements.Element.Copo;
         }
         else if (especie == tipoEnemigo.Cerebro)
         {
-            velocidad = 4;
-            armadura = 1;
-            damage = 10;
             vision = 7;
-            stopDistance = 5;
+            stopDistance = 5f;
+            _stats.armor = 1f;
+            _stats.maxHealth = 4f;
+            _stats.strength = 10f;
+            _stats.speed = 3.5f;
+            _stats.element = Elements.Element.Brasa;
+            //arma.attackSpeed = attackTime;
+            //arma.dmg = _stats.strength;
+            //arma.speed = _stats.speed;
+            //arma.strength = _stats.strength;
         }
         else if (especie == tipoEnemigo.Duonde)
         {
@@ -95,11 +105,13 @@ public class Enemigo_Pistola : MonoBehaviour, IDeadable
         }
         else if (especie == tipoEnemigo.Banana)
         {
-            velocidad = 2;
-            armadura = 2;
-            damage = 10;
             vision = 5.5f;
             stopDistance = 5;
+            _stats.armor = 2f;
+            _stats.maxHealth = 3f;
+            _stats.strength = 8f;
+            _stats.speed = 2f;
+            _stats.element = Elements.Element.Brisa;
         }
 
     }
@@ -128,12 +140,12 @@ public class Enemigo_Pistola : MonoBehaviour, IDeadable
     {
 
         decisionClock += Time.deltaTime;
-        attackDelay += Time.deltaTime;
+        attackDelay -= Time.deltaTime;
 
-        if (attackDelay >= 2)
+        if (attackDelay <= 0)
         {
             canAtack = true;
-            zonaAtaque.GetComponent<Collider2D>().isTrigger = true;
+            attackDelay = attackTime;
         }
 
         if (distanciaPlayer > vision)
@@ -230,8 +242,10 @@ public class Enemigo_Pistola : MonoBehaviour, IDeadable
             }
             else if(especie == tipoEnemigo.Cerebro)
             {
+                //arma.Atacar(rayos);
+                canAtack = false;
                 Debug.Log("Intento generar balas");
-                Invoke(nameof(ReactiveAttack), 2);
+                Invoke(nameof(ReactiveAttack), arma.weaponInfo.attackSpeed);
             }
             else if (especie == tipoEnemigo.Banana)
             {
@@ -243,8 +257,9 @@ public class Enemigo_Pistola : MonoBehaviour, IDeadable
 
     private void ReactiveAttack()
     {
-        Debug.Log("Genero balas");
-        Instantiate(Bala, zonaAtaque.transform.position, Quaternion.identity);
+        canAtack = true;
+        arma.GetComponent<Collider2D>().enabled = false;
+        arma.gameObject.GetComponent<SpriteRenderer>().color = new Color(255, 255, 255);
         /*
         zonaAtaque.GetComponent<Collider2D>().isTrigger = false;
         rb.velocity = Vector2.zero;
