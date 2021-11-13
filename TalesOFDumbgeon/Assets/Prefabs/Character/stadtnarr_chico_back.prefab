@@ -446,6 +446,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3369703787446904475}
   - component: {fileID: 8287467265394714641}
+  - component: {fileID: 3822113450883516628}
   m_Layer: 0
   m_Name: stadtnarr_chico_back
   m_TagString: Untagged
@@ -493,6 +494,25 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &3822113450883516628
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2471369160058441149}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b157cdc02a8404948a2886b5cccdf512, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  head: {fileID: 1203814633275688453}
+  body: {fileID: 5702757179283032653}
+  leftArm: {fileID: 4568952527871303634}
+  rightArm: {fileID: 5764188563411157237}
+  leftLeg: {fileID: 5026553625532485359}
+  rightLeg: {fileID: 7111826052838633101}
+  direction: 0
 --- !u!1 &2767292996862733769
 GameObject:
   m_ObjectHideFlags: 0

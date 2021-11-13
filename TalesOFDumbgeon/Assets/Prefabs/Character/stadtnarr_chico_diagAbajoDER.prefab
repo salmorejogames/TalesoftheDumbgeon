@@ -947,6 +947,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7312708633266051640}
   - component: {fileID: 657716019182122319}
+  - component: {fileID: 2177105972051713995}
   m_Layer: 0
   m_Name: stadtnarr_chico_diagAbajoDER
   m_TagString: Untagged
@@ -994,6 +995,25 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &2177105972051713995
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8668220653738041296}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b157cdc02a8404948a2886b5cccdf512, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  head: {fileID: 4107738007344676727}
+  body: {fileID: 6829969600766115}
+  leftArm: {fileID: 9184070385062521136}
+  rightArm: {fileID: 1886211965911748219}
+  leftLeg: {fileID: 5046826377059437042}
+  rightLeg: {fileID: 4839024356058414472}
+  direction: 6
 --- !u!1 &8841340492017202981
 GameObject:
   m_ObjectHideFlags: 0

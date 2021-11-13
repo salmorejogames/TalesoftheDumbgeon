@@ -9,7 +9,7 @@ public class EquipmentClass : ScriptableObject
     public BodyParts south;
     public BodyParts east;
     public BodyParts west;
-    public BodyParts nothEast;
+    public BodyParts northEast;
     public BodyParts northWest;
     public BodyParts southEast;
     public BodyParts southWest;

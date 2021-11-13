@@ -8,14 +8,14 @@ public class BodyParts : ScriptableObject
 {
     public enum Direction
     {
-        North,
-        South,
-        East,
-        West,
-        NorthEast,
-        NorthWest,
-        SouthEast,
-        SouthWest
+        North = 2,
+        South = 6,
+        East = 0,
+        West = 4,
+        NorthEast = 1,
+        NorthWest = 3,
+        SouthEast = 7,
+        SouthWest = 5
     }
 
     public enum Sex

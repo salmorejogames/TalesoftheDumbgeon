@@ -12,7 +12,15 @@ public class AnimationDirection : MonoBehaviour
     public SpriteRenderer rightArm;
     public SpriteRenderer leftLeg;
     public SpriteRenderer rightLeg;
-    public BodyParts.Direction Direction;
+    public BodyParts.Direction direction;
+    
+
+    [NonSerialized] public Animator Animator;
+
+    private void Awake()
+    {
+        Animator = gameObject.GetComponent<Animator>();
+    }
 
     public enum EquipmentParts
     {
@@ -46,4 +54,5 @@ public class AnimationDirection : MonoBehaviour
     {
         //TODO CambiarColor
     }
+    
 }

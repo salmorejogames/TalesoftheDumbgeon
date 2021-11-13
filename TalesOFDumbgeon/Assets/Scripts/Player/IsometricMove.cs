@@ -35,14 +35,23 @@ public class IsometricMove : MonoBehaviour
         if (CanMove())
         {
                 Vector2 _direccion = _inputControler.Jugador.Move.ReadValue<Vector2>();
-                if (!_direccion.Equals(Vector2.zero))
+                if (_direccion.magnitude > 0.1f)
                 {
                     Vector2 movement =  IsometricUtils.CartesianToIsometric(_direccion);
                     Vector3 step = movement * (Stats.speed * Time.fixedDeltaTime);
                     _playerRb.MovePosition((gameObject.transform.position + step));
                     UpdateAngle(movement);
+                    _isoRenderer.animatorController.SetMoving(true);
                 }
+                else
+                {
+                    _isoRenderer.animatorController.SetMoving(false);
+                }
+        }else
+        {
+            _isoRenderer.animatorController.SetMoving(false);
         }
+        
         PlayerActions.UpdateWeaponPosition(angle);
     }
 
