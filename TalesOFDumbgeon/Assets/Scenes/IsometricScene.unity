@@ -259,6 +259,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4711098443936322420, guid: 3a9afe470fc87a14889f9b0eb94b4289,
         type: 3}
+      propertyPath: cartas
+      value: 
+      objectReference: {fileID: 1660504320}
+    - target: {fileID: 4711098443936322420, guid: 3a9afe470fc87a14889f9b0eb94b4289,
+        type: 3}
       propertyPath: BtnAtack
       value: 
       objectReference: {fileID: 0}
@@ -274,9 +279,19 @@ PrefabInstance:
       objectReference: {fileID: 1086874666}
     - target: {fileID: 4711098443936322420, guid: 3a9afe470fc87a14889f9b0eb94b4289,
         type: 3}
+      propertyPath: barraVida
+      value: 
+      objectReference: {fileID: 844444147}
+    - target: {fileID: 4711098443936322420, guid: 3a9afe470fc87a14889f9b0eb94b4289,
+        type: 3}
       propertyPath: mainCamera
       value: 
       objectReference: {fileID: 792722767}
+    - target: {fileID: 4711098443936322420, guid: 3a9afe470fc87a14889f9b0eb94b4289,
+        type: 3}
+      propertyPath: habilidades
+      value: 
+      objectReference: {fileID: 1339952251}
     - target: {fileID: 4711098443936322420, guid: 3a9afe470fc87a14889f9b0eb94b4289,
         type: 3}
       propertyPath: greyscalePostP
@@ -1007,6 +1022,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 823302868}
   m_CullTransparentMesh: 0
+--- !u!1 &844444147 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4650572160568782655, guid: f7d8b04a9a3d676408435273389cf36e,
+    type: 3}
+  m_PrefabInstance: {fileID: 1086874665}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &855976987 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4866709762593516682, guid: f7d8b04a9a3d676408435273389cf36e,
@@ -1452,6 +1473,11 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1389746363}
+    - target: {fileID: 5659168529170615440, guid: f7d8b04a9a3d676408435273389cf36e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6703862077135298774, guid: f7d8b04a9a3d676408435273389cf36e,
         type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -1546,6 +1572,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8027235814408158172, guid: f7d8b04a9a3d676408435273389cf36e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8579168217585251413, guid: f7d8b04a9a3d676408435273389cf36e,
         type: 3}
@@ -1696,6 +1727,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1252999700}
   m_CullTransparentMesh: 0
+--- !u!1 &1339952251 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5659168529170615440, guid: f7d8b04a9a3d676408435273389cf36e,
+    type: 3}
+  m_PrefabInstance: {fileID: 1086874665}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1375698479
 GameObject:
   m_ObjectHideFlags: 0
@@ -2033,6 +2070,12 @@ LightingSettings:
   m_PVRFilteringAtrousPositionSigmaDirect: 0.5
   m_PVRFilteringAtrousPositionSigmaIndirect: 2
   m_PVRFilteringAtrousPositionSigmaAO: 1
+--- !u!1 &1660504320 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7803559078947283195, guid: f7d8b04a9a3d676408435273389cf36e,
+    type: 3}
+  m_PrefabInstance: {fileID: 1086874665}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1665384567
 PrefabInstance:
   m_ObjectHideFlags: 0

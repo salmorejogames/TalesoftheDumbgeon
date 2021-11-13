@@ -15,10 +15,14 @@ public class PlayerActionsController : MonoBehaviour, IDeadable
     [SerializeField] private float inmunityTime;
     [SerializeField] private GameObject joystick;
     [SerializeField] private GameObject BtnAttack;
+    [SerializeField] private GameObject barraVida;
+    [SerializeField] private GameObject habilidades;
+    [SerializeField] private GameObject cartas;
+
     private int _cartaUsada;
     private bool _canAtack = true;
     private float _distance;
-  
+
     private CharacterStats _stats;
     private InputControler _controles;
     private SpriteRenderer _spriteRenderer;
@@ -68,7 +72,7 @@ public class PlayerActionsController : MonoBehaviour, IDeadable
     public void UpdateWeaponPosition(float angle)
     {
         weapon.SetOrientation(angle);
-        weapon.UpdatePosition(gameObject.transform.position + (Vector3) IsometricUtils.PolarToCartesian(angle, _distance));
+        weapon.UpdatePosition(gameObject.transform.position + (Vector3)IsometricUtils.PolarToCartesian(angle, _distance));
     }
 
     private void Atacar()
@@ -78,7 +82,7 @@ public class PlayerActionsController : MonoBehaviour, IDeadable
             weapon.Atack();
             _canAtack = false;
             Invoke(nameof(ReactiveAtack), weapon.weaponInfo.attackSpeed);
-        }        
+        }
     }
 
     public void UsarCarta(int hueco)
@@ -108,33 +112,44 @@ public class PlayerActionsController : MonoBehaviour, IDeadable
             other.gameObject.GetComponent<ICollectable>().Collect();
         }
     }
-    
+
     private void CancelInvincibility()
     {
         _canAtack = true;
         invincible = false;
         _rb.velocity = Vector2.zero;
     }
-    
+
     public void ResetSpriteColor()
     {
         _spriteRenderer.color = Color.white;
     }
-    
+
     public void Dead()
     {
         SingletoneGameController.PlayerActions.dead = true;
         Greyscale();
         //SingletoneGameController.Instance.ChangeScene("GameOverScene");
         Debug.Log("Im dead");
+        if (CheckIfMobile.isMobile())
+        {
+            joystick.SetActive(false);
+            BtnAttack.SetActive(false);
+        }
+
+        barraVida.SetActive(false);
+        habilidades.SetActive(false);
+        cartas.SetActive(false);
         gameObject.SetActive(false);
-        
+
+        //mainCamera.transform.position = gameObject.transform.position;
+        //mainCamera.orthographicSize = 1f;
     }
 
     public void Damage(GameObject enemy, float cantidad, Elements.Element element)
     {
         Debug.Log("Damage Recived");
-        SingletoneGameController.InterfaceController.UpdateLife(_stats.GetActualHealth()/_stats.maxHealth);
+        SingletoneGameController.InterfaceController.UpdateLife(_stats.GetActualHealth() / _stats.maxHealth);
         var direction = gameObject.transform.position - enemy.transform.position;
         var magnitude = direction.magnitude;
         direction = direction / magnitude;
@@ -160,24 +175,21 @@ public class PlayerActionsController : MonoBehaviour, IDeadable
 
     public void Greyscale()
     {
-        colorGrading.saturation.value = -100;
-        mainCamera.orthographicSize = .5f;
-        //float greyValue = 0.0f;
-        //StartCoroutine(GreyScaleCoroutine(greyValue));
+        //colorGrading.saturation.value = -100;
+        //mainCamera.orthographicSize = .5f;
+        float greyValue = 0;
+        StartCoroutine(GreyScaleCoroutine(greyValue));
     }
 
-    /*
+
     IEnumerator GreyScaleCoroutine(float greyValue)
     {
-        while (true)
+        while (greyValue >= -100)
         {
-            while (greyValue < 100)
-            {
-                greyValue -= 1;
-                colorGrading.saturation.value = greyValue;
-                yield return null;
-            }
+            greyValue -= .01f * Time.realtimeSinceStartup;
+            colorGrading.saturation.value = greyValue;
         }
+
+        yield return null;
     }
-    */
 }
