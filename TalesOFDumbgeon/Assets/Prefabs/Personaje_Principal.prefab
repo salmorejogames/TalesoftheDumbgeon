@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1375047292193720492}
   - component: {fileID: 4737638527724844720}
+  - component: {fileID: 1631064289040217682}
   m_Layer: 0
   m_Name: Animation
   m_TagString: Untagged
@@ -50,6 +51,22 @@ SortingGroup:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &1631064289040217682
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1844771582853517725}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a075fd68c3364544b064db073fdb295, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  south: {fileID: 2971971678011466765}
+  north: {fileID: 0}
+  east: {fileID: 0}
+  west: {fileID: 0}
 --- !u!1 &4711098443936322423
 GameObject:
   m_ObjectHideFlags: 0
@@ -929,6 +946,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 6565029560277896613}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2971971678011466765 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8225046147419908520, guid: 396a49383fa4f984c8ca1c5ecbebe282,
+    type: 3}
+  m_PrefabInstance: {fileID: 6565029560277896613}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b157cdc02a8404948a2886b5cccdf512, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &7004830316428451390
 PrefabInstance:
   m_ObjectHideFlags: 0
