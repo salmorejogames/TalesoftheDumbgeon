@@ -52,7 +52,6 @@ public class PlayerActionsController : MonoBehaviour, IDeadable
     {
         _canAtack = true;
         weapon.GetComponent<Collider2D>().enabled = false;
-        weapon.gameObject.GetComponent<SpriteRenderer>().color = new Color(255, 255, 255);
     }
 
     public void UpdateWeaponPosition(float angle)
@@ -67,7 +66,7 @@ public class PlayerActionsController : MonoBehaviour, IDeadable
         {
             weapon.Atack();
             _canAtack = false;
-            Invoke(nameof(ReactiveAtack), weapon.weaponInfo.attackSpeed);
+            Invoke(nameof(ReactiveAtack), weapon.weaponInfo.AttackSpeed);
         }        
     }
 
@@ -128,7 +127,7 @@ public class PlayerActionsController : MonoBehaviour, IDeadable
         var magnitude = direction.magnitude;
         direction = direction / magnitude;
         _rb.velocity = direction;
-        Debug.Log(direction);
+        //Debug.Log(direction);
         invincible = true;
         _canAtack = false;
         _spriteRenderer.color = Color.red;

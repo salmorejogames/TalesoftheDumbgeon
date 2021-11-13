@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 1473594604174954154}
   - component: {fileID: 1473594604174954155}
   - component: {fileID: 489631308209606453}
+  - component: {fileID: 9206628190395768521}
+  - component: {fileID: 2127909819551563593}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -46,9 +48,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1bbd48b2f636074d99079b9c08b44cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maps:
-  - {fileID: 3734589841681980758, guid: 8b3e69f0f899cb8448b56c4301735452, type: 3}
-  - {fileID: 3734589841681980758, guid: 6383a5a0045fbd44fa3febfa9f2b50b1, type: 3}
   playerRelativeSpeed: 1.25
   sleepTime: 0.1
   tilesMovedInTransition: 2
@@ -175,3 +174,66 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &9206628190395768521
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1473594604174954158}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e5cfff4bd025ea4fac7e1538ea6d898, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minRooms: 10
+  maxRooms: 30
+  MaxBigRooms: 2
+  posibleMaps:
+  - {fileID: 3734589841681980758, guid: cecdde28025fab340a7d8f74874bdf10, type: 3}
+  - {fileID: 3734589841681980758, guid: c30d14d441455b44f83a9609eba52fd2, type: 3}
+  - {fileID: 3734589841681980758, guid: 8b3e69f0f899cb8448b56c4301735452, type: 3}
+  - {fileID: 3734589841681980758, guid: 6383a5a0045fbd44fa3febfa9f2b50b1, type: 3}
+  - {fileID: 3734589841681980758, guid: 31523ba346625924bb092d5625492bb3, type: 3}
+  - {fileID: 3734589841681980758, guid: df7f62d49eba99340b18e07e06774e6a, type: 3}
+  - {fileID: 3734589841681980758, guid: 4066e692dd218394f81d04ebc3d6b99e, type: 3}
+  - {fileID: 3734589841681980758, guid: 9e21eff2900b93a4196dbfa30ef0e2ee, type: 3}
+  - {fileID: 3734589841681980758, guid: 630f49fa74936e1459b3098831e2eca2, type: 3}
+  - {fileID: 3734589841681980758, guid: e0322cf095980654c9422c3473313c41, type: 3}
+  - {fileID: 3734589841681980758, guid: a57675d956a0afb419bf0ed31e3adf55, type: 3}
+  - {fileID: 3734589841681980758, guid: a0dfa1fef3281184cb48eb0b994bbb3c, type: 3}
+  - {fileID: 3734589841681980758, guid: 750c6b0d4f2604f4bafdd85132c8439f, type: 3}
+  - {fileID: 3734589841681980758, guid: b239c27ce60b006438b6c1428e42773f, type: 3}
+--- !u!114 &2127909819551563593
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1473594604174954158}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efd57d5dd4d82c34e9b3ff5a2f1dede6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  areaWeapon: {fileID: 21300000, guid: 6fb5e7dcb6494a14db2d7c4fdd4c35af, type: 3}
+  rangedWeapon: {fileID: 0}
+  smashingWeapon: {fileID: 0}
+  piercingWeapon: {fileID: 0}
+  areaWeaponArtwork: {fileID: 21300000, guid: 688d5b36e60d00d46a331b8c8f04e74b, type: 3}
+  rangedWeaponArtwork: {fileID: 0}
+  smashingWeaponArtwork: {fileID: 0}
+  piercingWeaponArtwork: {fileID: 0}
+  cartaArma: {fileID: 21300000, guid: fff37dfec2edd084bb3d7c394f6e54e7, type: 3}
+  cartaArmadura: {fileID: 0}
+  cartaBendicion: {fileID: 0}
+  cartaMaldicion: {fileID: 0}
+  cartaHechizo: {fileID: 0}
+  ammoSprite: {fileID: 0}
+  colors:
+  - {r: 0.43921572, g: 0.43921572, b: 0.43921572, a: 1}
+  - {r: 0.4644816, g: 0, b: 0.6981132, a: 1}
+  - {r: 0.48584908, g: 1, b: 0.57154095, a: 1}
+  - {r: 0.6179246, g: 1, b: 0.9809152, a: 1}
+  - {r: 0.3962264, g: 0.27768904, b: 0.0990566, a: 1}
+  - {r: 0.6603774, g: 0, b: 0, a: 1}

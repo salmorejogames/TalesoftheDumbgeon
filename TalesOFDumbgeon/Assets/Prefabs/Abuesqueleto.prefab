@@ -146,13 +146,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe75dc7e7b1608540b14bb84463aa1bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  equipment:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
   maxHealth: 20
   armor: 1
   strength: 5
@@ -170,13 +163,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f2fcb009a46fc749b94e67f23643deb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  personaje: {fileID: 0}
-  vision: 3
-  maxDistance: 1
-  stopDistance: 0.5
-  decisionTime: 5
-  decisionClock: 0
-  estadoActual: 0
-  _estadosAttack: 0
-  especie: 4
-  attaking: 0
+  DmgPrefab: {fileID: 7413456247700845425, guid: d04ec14520fae5f44b0e829368e66535,
+    type: 3}

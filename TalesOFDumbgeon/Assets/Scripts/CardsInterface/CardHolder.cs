@@ -23,7 +23,7 @@ public class CardHolder : MonoBehaviour
     void Awake()
     {
         _inputControler = new InputControler();
-        _inputControler.Cartas.NuevaCarta.performed += ctx => AddCard("Baguette");
+        _inputControler.Cartas.NuevaCarta.performed += ctx => AddCard(0, 0);
         _inputControler.Cartas.SacarCartas.performed += ctx => Resize();
         _inputControler.Cartas.Selection.performed += ctx => MoveSelection(Convert.ToBoolean(ctx.ReadValue<float>()));
         _inputControler.Cartas.EnterSelection.performed += ctx => EnterSelection();
@@ -43,7 +43,7 @@ public class CardHolder : MonoBehaviour
         buttonDown = Instantiate(buttonDown, _thisRect.position, Quaternion.identity);
         buttonDown.gameObject.transform.SetParent(this.gameObject.transform);
         buttonDown.gameObject.SetActive(false);
-        AddCard("Baguette");
+        AddCard(0, 1);
         
     }
     private void MoveSelection(bool right)
@@ -63,7 +63,7 @@ public class CardHolder : MonoBehaviour
             else
                 nextIndex = _highlitedCard + 1;
         }
-        cards[nextIndex].gameObject.GetComponent<Card>().SetHighlight(true);
+        cards[nextIndex].gameObject.GetComponent<ItemCard>().SetHighlight(true);
         ResetHighlight();
         _highlitedCard = nextIndex;
     }
@@ -74,7 +74,7 @@ public class CardHolder : MonoBehaviour
             DeleteCard(_highlitedCard);
     }
 
-    public void AddCard(string cardName)
+    public void AddCard(int cardType, int cardId)
     {
         RectTransform newCard = Instantiate(card, _thisRect.position, Quaternion.identity).GetComponent<RectTransform>();
         
@@ -82,7 +82,32 @@ public class CardHolder : MonoBehaviour
         newCard.SetParent(this.transform);
         newCard.localScale = new Vector3(1, 1, 1);
         newCard.localPosition = _activePoint;
-        newCard.gameObject.GetComponent<Card>().CardName = cardName;
+        ItemCard cardInfo = newCard.gameObject.GetComponent<ItemCard>();
+        cardInfo.CardId = cardId;
+        cardInfo.CardType = cardType;
+        cards.Add(newCard);
+
+        if (!active)
+        {
+            newCard.localScale = new Vector3(resizePercent, resizePercent, resizePercent);
+            newCard.localPosition = _restPoint;
+        }
+        
+        RepositionateCards();
+
+        
+    }
+    
+    public void AddCard(BaseCard baseCard)
+    {
+        RectTransform newCard = Instantiate(card, _thisRect.position, Quaternion.identity).GetComponent<RectTransform>();
+        
+        newCard.sizeDelta = cardDimensions;
+        newCard.SetParent(this.transform);
+        newCard.localScale = new Vector3(1, 1, 1);
+        newCard.localPosition = _activePoint;
+        ItemCard cardInfo = newCard.gameObject.GetComponent<ItemCard>();
+        cardInfo.CardInfo = baseCard;
         cards.Add(newCard);
 
         if (!active)
@@ -171,13 +196,13 @@ public class CardHolder : MonoBehaviour
     {
         ResetHighlight();
         GameObject go = cards[index].gameObject;
-        go.GetComponent<Card>().StartDelete();
+        go.GetComponent<ItemCard>().StartDelete();
     }
 
     private void ResetHighlight()
     {
         if(_highlitedCard>=0)
-            cards[_highlitedCard].gameObject.GetComponent<Card>().SetHighlight(false);
+            cards[_highlitedCard].gameObject.GetComponent<ItemCard>().SetHighlight(false);
         _highlitedCard = -1;
     }
 

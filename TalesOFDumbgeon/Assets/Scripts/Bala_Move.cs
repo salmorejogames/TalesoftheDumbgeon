@@ -19,13 +19,13 @@ public class Bala_Move : MonoBehaviour
         _rb = gameObject.GetComponent<Rigidbody2D>();
         _runedDistance = 0f;
         //Right = X
-        _rb.velocity = transform.right * weapon.ammoSpeed;
+        _rb.velocity = transform.right * weapon.AmmoSpeed;
     }
 
     private void FixedUpdate()
     {
-        _runedDistance += Vector3.Magnitude(transform.right * (weapon.ammoSpeed * Time.fixedDeltaTime));
-        if (_runedDistance > weapon.range)
+        _runedDistance += Vector3.Magnitude(transform.right * (weapon.AmmoSpeed * Time.fixedDeltaTime));
+        if (_runedDistance > weapon.Range)
         {
             Destroy(gameObject);
         }
@@ -44,7 +44,7 @@ public class Bala_Move : MonoBehaviour
             if (!impact.CompareTag(parentTag))
             {
                 CharacterStats impactStats = impact.GetComponent<CharacterStats>();
-                impactStats.DoDamage(weapon.dmg + holderStrength, gameObject, weapon.element);
+                impactStats.DoDamage(weapon.Dmg + holderStrength, gameObject, weapon.Element);
                 Destroy(gameObject);
             }
         }

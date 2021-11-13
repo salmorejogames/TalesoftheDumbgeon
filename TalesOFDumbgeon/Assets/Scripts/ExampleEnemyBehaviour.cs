@@ -11,13 +11,16 @@ public class ExampleEnemyBehaviour : MonoBehaviour, IDeadable
     private IsometricMove _player;
     private CharacterStats _stats;
 
+    [SerializeField]
+    private DamageNumber DmgPrefab;
+
     private void Update()
     {
         if (!SingletoneGameController.PlayerActions.dead)
         {
-            if (_player == null)
+            if(_player==null)
                 _player = SingletoneGameController.PlayerActions.player;
-            gameObject.transform.position = Vector3.MoveTowards(gameObject.transform.position, _player.transform.position, _stats.speed * Time.deltaTime);
+            gameObject.transform.position = Vector3.MoveTowards(gameObject.transform.position, _player.transform.position, _stats.speed*Time.deltaTime);
         }
     }
 
@@ -36,12 +39,15 @@ public class ExampleEnemyBehaviour : MonoBehaviour, IDeadable
     public void Damage(GameObject enemy, float cantidad, Elements.Element element)
     {
         float multiplier = Elements.GetElementMultiplier(element, _stats.element);
-        if (multiplier > 1.1f)
+        DamageNumber dmgN = Instantiate(DmgPrefab, transform.position, Quaternion.identity);
+        dmgN.Inicializar(cantidad, transform);
+        if(multiplier>1.1f)
             _spr.color = Color.red;
-        else if (multiplier < 0.9f)
+        else if(multiplier<0.9f)
             _spr.color = Color.cyan;
-        else
+        else 
             _spr.color = Color.yellow;
+        dmgN.number.color = _spr.color;
         Invoke(nameof(RevertColor), 0.2f);
     }
 
