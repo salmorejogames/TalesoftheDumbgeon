@@ -40,6 +40,33 @@ public class @InterfaceControls : IInputActionCollection, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""Menu pausa"",
+            ""id"": ""4d92297b-d550-4c94-82e2-6f07f11e1f14"",
+            ""actions"": [
+                {
+                    ""name"": ""Pausa"",
+                    ""type"": ""Button"",
+                    ""id"": ""205ba98d-ebad-4bd3-a24e-74fffc568048"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""1f657d1a-a428-4621-87aa-fd0a9eb7e420"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pausa"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": []
@@ -47,6 +74,9 @@ public class @InterfaceControls : IInputActionCollection, IDisposable
         // Menu principal
         m_Menuprincipal = asset.FindActionMap("Menu principal", throwIfNotFound: true);
         m_Menuprincipal_Animacionpuerta = m_Menuprincipal.FindAction("Animacion puerta", throwIfNotFound: true);
+        // Menu pausa
+        m_Menupausa = asset.FindActionMap("Menu pausa", throwIfNotFound: true);
+        m_Menupausa_Pausa = m_Menupausa.FindAction("Pausa", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -125,8 +155,45 @@ public class @InterfaceControls : IInputActionCollection, IDisposable
         }
     }
     public MenuprincipalActions @Menuprincipal => new MenuprincipalActions(this);
+
+    // Menu pausa
+    private readonly InputActionMap m_Menupausa;
+    private IMenupausaActions m_MenupausaActionsCallbackInterface;
+    private readonly InputAction m_Menupausa_Pausa;
+    public struct MenupausaActions
+    {
+        private @InterfaceControls m_Wrapper;
+        public MenupausaActions(@InterfaceControls wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Pausa => m_Wrapper.m_Menupausa_Pausa;
+        public InputActionMap Get() { return m_Wrapper.m_Menupausa; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(MenupausaActions set) { return set.Get(); }
+        public void SetCallbacks(IMenupausaActions instance)
+        {
+            if (m_Wrapper.m_MenupausaActionsCallbackInterface != null)
+            {
+                @Pausa.started -= m_Wrapper.m_MenupausaActionsCallbackInterface.OnPausa;
+                @Pausa.performed -= m_Wrapper.m_MenupausaActionsCallbackInterface.OnPausa;
+                @Pausa.canceled -= m_Wrapper.m_MenupausaActionsCallbackInterface.OnPausa;
+            }
+            m_Wrapper.m_MenupausaActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @Pausa.started += instance.OnPausa;
+                @Pausa.performed += instance.OnPausa;
+                @Pausa.canceled += instance.OnPausa;
+            }
+        }
+    }
+    public MenupausaActions @Menupausa => new MenupausaActions(this);
     public interface IMenuprincipalActions
     {
         void OnAnimacionpuerta(InputAction.CallbackContext context);
+    }
+    public interface IMenupausaActions
+    {
+        void OnPausa(InputAction.CallbackContext context);
     }
 }

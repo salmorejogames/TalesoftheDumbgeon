@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.InputSystem;
 
 namespace Inteface
 {
@@ -16,6 +17,7 @@ namespace Inteface
         [SerializeField] private RectTransform lifeBar;
         private List<Vector3> _originalPos;
         private List<Vector3> _hiddenPos;
+
         // Start is called before the first frame update
         void Start()
         {
