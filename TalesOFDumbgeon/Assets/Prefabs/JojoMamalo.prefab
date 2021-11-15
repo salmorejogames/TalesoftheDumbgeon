@@ -246,7 +246,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
-  armor: 3
+  armor: 0
   strength: 3
   speed: 1
   element: 0
@@ -279,6 +279,8 @@ MonoBehaviour:
   body: {fileID: 3528424684480511700}
   mind: {fileID: 6293534581657644274}
   weapon: {fileID: 7074768991149250718}
-  areaTile: {fileID: 4502738475322825310, guid: 2004dfe2e36dd504384985b952d37195,
+  areaTile: {fileID: 4502738475322825310, guid: 104efad943e71b5479ceb3bba9fc5c0a,
+    type: 3}
+  explosionCounterTile: {fileID: 4502738475322825310, guid: 2004dfe2e36dd504384985b952d37195,
     type: 3}
   movementSpeed: 0.3

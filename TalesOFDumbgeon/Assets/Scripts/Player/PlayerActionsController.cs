@@ -82,11 +82,13 @@ public class PlayerActionsController : MonoBehaviour, IDeadable
             CharacterStats enemyStats = collision.gameObject.GetComponent<CharacterStats>();
             _stats.DoDamage(enemyStats.strength, collision.gameObject.transform.position, enemyStats.element);
         }
+
+        
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("TriggerEnter");
+        //Debug.Log("TriggerEnter");
         if (other.gameObject.CompareTag("EscenarioTrigger"))
         {
             Debug.Log("Cambiando mapa");
@@ -100,13 +102,13 @@ public class PlayerActionsController : MonoBehaviour, IDeadable
 
         if (other.gameObject.CompareTag("SpellDmg"))
         {
-            Debug.Log("Spell colision");
             SpellDmg spell = other.gameObject.GetComponent<SpellDmg>();
-            if (spell.OwnerTag != "Player")
+            if (spell.OwnerTag != "Player" && !invincible)
             {
                 _stats.DoDamage(spell.Amount, spell.Origen, spell.Element);
             }
         }
+        
     }
     
     private void CancelInvincibility()

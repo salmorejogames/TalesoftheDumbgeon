@@ -12,6 +12,7 @@ public class JojoMamaloBehaviour : MonoBehaviour, IDeadable, IMovil
     private float _damageAcumulated = 0;
     private bool _active = true;
     private Transform _target;
+    private bool _explosion = false;
     private Vector2[] _locations = new Vector2[NumPositions];
 
     private CharacterStats _stats;
@@ -68,14 +69,21 @@ public class JojoMamaloBehaviour : MonoBehaviour, IDeadable, IMovil
         {
             ColorDmg(element);
             _damageAcumulated += cantidad;
+            if (_damageAcumulated >= 10 && !_explosion)
+            {
+                skills.ActivateSkill(JojomaloSkills.Skills.ExplosionCounter, _damageAcumulated.ToString());
+                skills.ActivateSkill(JojomaloSkills.Skills.ChangueElement, "" + (int) Elements.GetCounter(SingletoneGameController.PlayerActions.player.Stats.element));
+                _explosion = true;
+            }
             if (_damageAcumulated >= 20)
             {
                 skills.ActivateSkill(JojomaloSkills.Skills.Tp);
                 _damageAcumulated = 0;
+                _explosion = false;
             }
                 
         }
-        skills.ActivateSkill(JojomaloSkills.Skills.AreaAttack);
+        skills.ActivateSkill(JojomaloSkills.Skills.BowAttack);
     }
 
     public void UpdatePosition(int newPos)

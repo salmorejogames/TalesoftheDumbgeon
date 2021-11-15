@@ -12,6 +12,8 @@ public class JojomaloSkills : MonoBehaviour
     [SerializeField] private Weapon weapon;
     
     [SerializeField] private AreaTileAtack areaTile;
+    [SerializeField] private AreaTileAtack explosionCounterTile;
+    
     [SerializeField] private float movementSpeed = 0.3f;
 
     public enum Skills
@@ -20,7 +22,9 @@ public class JojomaloSkills : MonoBehaviour
         BowAttack,
         SnakeAttack,
         Tp,
-        AreaAttack
+        AreaAttack,
+        ExplosionCounter,
+        ChangueElement
     }
 
     public void ActivateSkill(Skills skill, string argument)
@@ -35,6 +39,12 @@ public class JojomaloSkills : MonoBehaviour
                 break;
             case Skills.Tp:
                 TeleportInvulnerable(float.Parse(argument));
+                break;
+            case Skills.ExplosionCounter:
+                CounterAttack(float.Parse(argument));
+                break;
+            case Skills.ChangueElement:
+                ChangueElement((Elements.Element) int.Parse(argument));
                 break;
             default:
                 throw new ArgumentOutOfRangeException(nameof(skill), skill, null);
@@ -59,6 +69,12 @@ public class JojomaloSkills : MonoBehaviour
                 break;
             case Skills.AreaAttack:
                 AreaAttack();
+                break;
+            case Skills.ExplosionCounter:
+                CounterAttack(5);
+                break;
+            case Skills.ChangueElement:
+                ChangueElement(Elements.Element.Caos);
                 break;
             default:
                 throw new ArgumentOutOfRangeException(nameof(skill), skill, null);
@@ -88,7 +104,7 @@ public class JojomaloSkills : MonoBehaviour
                 float originalAngle = weapon.angle;
                 for (float j = -attackRange / 2; j <= attackRange / 2; j += attackRange / 4)
                 {
-                    Debug.Log(weapon.angle + " " + j);
+                    //Debug.Log(weapon.angle + " " + j);
                     weapon.SetOrientation(originalAngle + j);
                     weapon.Atack();
                 }
@@ -159,6 +175,17 @@ public class JojomaloSkills : MonoBehaviour
             newArea.gameObject.transform.tag = "SpellDmg";
             newArea.spellDmg.SetSpellDmgStats(4, mind.Stats.element, pos, body.tag);
         }
+        private void CounterAttack(float dmg)
+        {
+            Vector2 playerPos = gameObject.transform.position;
+            Vector2 isometricPos = IsometricUtils.ScreenCordsToTilesPos(new Vector2(playerPos.x-0.25f, playerPos.y -0.25f), true);
+            Debug.Log(isometricPos.ToString());
+            Vector3 pos = IsometricUtils.CoordinatesToWorldSpace(isometricPos.x, isometricPos.y);
+            AreaTileAtack newArea = Instantiate(explosionCounterTile, pos, Quaternion.identity);
+            newArea.gameObject.transform.parent = body.parent;
+            newArea.gameObject.transform.tag = "SpellDmg";
+            newArea.spellDmg.SetSpellDmgStats(dmg, mind.Stats.element, pos, body.tag);
+        }
         private void TeleportInvulnerable(float cantidad)
         {
         
@@ -170,5 +197,12 @@ public class JojomaloSkills : MonoBehaviour
             mind.UpdatePosition(ran);
             if(cantidad>0)
                 mind.Stats.Heal( cantidad);
+        }
+
+        private void ChangueElement(Elements.Element newElement)
+        {
+            weapon.weaponInfo.Element = newElement;
+            //TODO->ANIMATION
+            
         }
 }
