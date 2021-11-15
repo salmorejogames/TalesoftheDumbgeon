@@ -7,6 +7,10 @@ public class PauseMenuController : MonoBehaviour
 {
     private InterfaceControls iuInput;
     [SerializeField] private GameObject menuPausa;
+    [SerializeField] private GameObject titulo;
+    [SerializeField] private GameObject botonVolver;
+    [SerializeField] private GameObject botonAjustes;
+    [SerializeField] private GameObject botonSalir;
 
     private void Awake()
     {
@@ -40,21 +44,53 @@ public class PauseMenuController : MonoBehaviour
     {
         Time.timeScale = 0f;
         menuPausa.SetActive(true);
+
+        LeanTween.moveLocalY(titulo, 175, 1.5f).setEaseOutCubic().setIgnoreTimeScale(true);
+        LeanTween.rotateZ(titulo, -2, 1f).setEaseOutCubic().setIgnoreTimeScale(true);
+
+        LeanTween.moveLocalX(botonVolver, -400, 1.5f).setEaseOutCubic().setDelay(.5f).setIgnoreTimeScale(true);
+        LeanTween.moveLocalY(botonVolver, -170, 1.5f).setEaseOutCubic().setDelay(.5f).setIgnoreTimeScale(true);
+        LeanTween.rotateZ(botonVolver, 4, 1f).setEaseOutCubic().setDelay(.5f).setIgnoreTimeScale(true);
+
+        LeanTween.moveLocalX(botonAjustes, 0, 1.5f).setEaseOutCubic().setDelay(.5f).setIgnoreTimeScale(true);
+        LeanTween.moveLocalY(botonAjustes, -130, 1.5f).setEaseOutCubic().setDelay(.5f).setIgnoreTimeScale(true);
+        LeanTween.rotateZ(botonAjustes, 2, 1f).setEaseOutCubic().setDelay(.5f).setIgnoreTimeScale(true);
+
+        LeanTween.moveLocalX(botonSalir, 400, 1.5f).setEaseOutCubic().setDelay(.5f).setIgnoreTimeScale(true);
+        LeanTween.moveLocalY(botonSalir, -180, 1.5f).setEaseOutCubic().setDelay(.5f).setIgnoreTimeScale(true);
+        LeanTween.rotateZ(botonSalir, -6, 1f).setEaseOutCubic().setDelay(.5f).setIgnoreTimeScale(true);
     }
 
     public void Volver()
     {
+        LeanTween.moveLocalY(botonVolver, -470, .25f).setIgnoreTimeScale(true);
+        LeanTween.moveLocalY(botonAjustes, -470, .25f).setIgnoreTimeScale(true);
+        LeanTween.moveLocalY(botonSalir, -470, .25f).setIgnoreTimeScale(true);
+
+        LeanTween.moveLocalX(botonVolver, 0, .25f).setIgnoreTimeScale(true);
+        LeanTween.moveLocalX(botonSalir, 0, .25f).setIgnoreTimeScale(true);
+
+        LeanTween.moveLocalY(titulo, 520, .25f).setIgnoreTimeScale(true);
+
+        StartCoroutine(EsperarVolver());
+
         Time.timeScale = 1f;
-        menuPausa.SetActive(false);
     }
 
     public void Ajustes()
     {
-
+        Time.timeScale = 1f;
     }
 
     public void Salir()
     {
+        Time.timeScale = 1f;
         SceneManager.LoadScene("ClickParaEmpezar");
+    }
+
+    IEnumerator EsperarVolver()
+    {
+        yield return new WaitForSeconds(1f);
+        menuPausa.SetActive(false);
     }
 }
