@@ -7,7 +7,7 @@ public class Weapon : MonoBehaviour
 {
     
     public BaseWeapon weaponInfo;
-    private SpriteRenderer _spriteRenderer;
+    [SerializeField] private SpriteRenderer _spriteRenderer;
     public CharacterStats holder;
     private Collider2D _collider;
     [NonSerialized] public float angle;
@@ -16,10 +16,10 @@ public class Weapon : MonoBehaviour
 
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         SetOrientation(270);
-        _spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
+        //_spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
         AreaWeapon weapon = new AreaWeapon();
         weapon.SetWeaponHolder(this);
         weapon.Randomize(1);
@@ -31,6 +31,7 @@ public class Weapon : MonoBehaviour
         //Reset Collider
         if(_collider!= null)
             Destroy(_collider);
+        newWeapon.SetWeaponHolder(this);
         weaponInfo = newWeapon;
         weaponInfo.Equip();
         _spriteRenderer.sprite = weaponInfo.WeaponSprite;
@@ -58,7 +59,7 @@ public class Weapon : MonoBehaviour
         if (!other.gameObject.CompareTag(holder.tag) && (other.gameObject.CompareTag("Enemigo") || other.gameObject.CompareTag("Player")))
         {
             CharacterStats enemy = other.gameObject.GetComponent<CharacterStats>();
-            enemy.DoDamage(weaponInfo.Dmg + holder.strength,  gameObject, weaponInfo.Element);
+            enemy.DoDamage(weaponInfo.Dmg + holder.strength,  gameObject.transform.position, weaponInfo.Element);
         }
     }
     
@@ -81,4 +82,5 @@ public class Weapon : MonoBehaviour
         _spriteRenderer.color = SingletoneGameController.InfoHolder.LoadColor(weaponInfo.Element);
         _collider.enabled = false;
     }
+    
 }

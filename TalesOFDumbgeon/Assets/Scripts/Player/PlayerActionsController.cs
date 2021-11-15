@@ -80,12 +80,13 @@ public class PlayerActionsController : MonoBehaviour, IDeadable
         if (collision.gameObject.CompareTag("Enemigo") && !invincible)
         {
             CharacterStats enemyStats = collision.gameObject.GetComponent<CharacterStats>();
-            _stats.DoDamage(enemyStats.strength, collision.gameObject, enemyStats.element);
+            _stats.DoDamage(enemyStats.strength, collision.gameObject.transform.position, enemyStats.element);
         }
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        Debug.Log("TriggerEnter");
         if (other.gameObject.CompareTag("EscenarioTrigger"))
         {
             Debug.Log("Cambiando mapa");
@@ -95,6 +96,16 @@ public class PlayerActionsController : MonoBehaviour, IDeadable
         if (other.gameObject.CompareTag("Collectionable"))
         {
             other.gameObject.GetComponent<ICollectable>().Collect();
+        }
+
+        if (other.gameObject.CompareTag("SpellDmg"))
+        {
+            Debug.Log("Spell colision");
+            SpellDmg spell = other.gameObject.GetComponent<SpellDmg>();
+            if (spell.OwnerTag != "Player")
+            {
+                _stats.DoDamage(spell.Amount, spell.Origen, spell.Element);
+            }
         }
     }
     
@@ -119,11 +130,11 @@ public class PlayerActionsController : MonoBehaviour, IDeadable
         
     }
 
-    public void Damage(GameObject enemy, float cantidad, Elements.Element element)
+    public void Damage(Vector3 enemyPos, float cantidad, Elements.Element element)
     {
         Debug.Log("Damage Recived");
         SingletoneGameController.InterfaceController.UpdateLife(_stats.GetActualHealth()/_stats.maxHealth);
-        var direction = gameObject.transform.position - enemy.transform.position;
+        var direction = gameObject.transform.position - enemyPos;
         var magnitude = direction.magnitude;
         direction = direction / magnitude;
         _rb.velocity = direction;
