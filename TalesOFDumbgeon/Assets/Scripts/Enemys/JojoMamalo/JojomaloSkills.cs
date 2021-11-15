@@ -16,6 +16,7 @@ public class JojomaloSkills : MonoBehaviour
     
     [SerializeField] private float movementSpeed = 0.3f;
 
+    [SerializeField] private InGameCard cardPrefab;
     public enum Skills
     {
         LineAttack,
@@ -201,8 +202,13 @@ public class JojomaloSkills : MonoBehaviour
 
         private void ChangueElement(Elements.Element newElement)
         {
-            weapon.weaponInfo.Element = newElement;
-            //TODO->ANIMATION
             
+            weapon.weaponInfo.Element = newElement;
+            InGameCard newCard = Instantiate(cardPrefab, gameObject.transform.position + new Vector3(0, 0.5f, 0),
+                Quaternion.identity);
+            newCard.card.CardInfo = new WeaponCard(weapon.weaponInfo);
+            newCard.PlayAnimaton();
+            //TODO->ANIMATION
+
         }
 }
