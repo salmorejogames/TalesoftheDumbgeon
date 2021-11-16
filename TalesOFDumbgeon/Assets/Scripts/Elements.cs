@@ -29,6 +29,14 @@ public static class Elements
             return 1;
         }
 
+        public static Element GetCounter(Element baseElement)
+        {
+            if (baseElement == Element.Normal)
+                return Element.Normal;
+            else
+                return (Element) (((int) baseElement + 2) % 5);
+        }
+
         public static Element GetRandomElement()
         {
             int opcion = Random.Range(-1, 5);
