@@ -33,8 +33,7 @@ public abstract class BaseWeapon : BaseEquipment
     public override void Unequip()
     {
         base.Unequip();
-        if(WeaponHolder.holder.CompareTag("Player"))
-            SingletoneGameController.CardHolder.AddCard(new WeaponCard(this));
+        SingletoneGameController.CardHolder.AddCard(new WeaponCard(this));
     }
 
     public Weapon GetWeaponHolder()

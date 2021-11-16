@@ -5,6 +5,6 @@ namespace Interfaces
     public interface IDeadable
     {
         void Dead();
-        void Damage(Vector3 enemyPos, float cantidad, Elements.Element element);
+        void Damage(GameObject enemy, float cantidad, Elements.Element element);
     }
 }

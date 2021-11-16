@@ -33,7 +33,7 @@ public class RangedWeapon : BaseWeapon
     }
     public override void Atacar()
     {
-        WeaponHolder.holder.Immobilize(AttackDuration);
+        SingletoneGameController.PlayerActions.DisableMovement(AttackDuration);
         GameObject ammo = new GameObject("Ammo");
         
         
@@ -48,7 +48,7 @@ public class RangedWeapon : BaseWeapon
         bala.parentTag = WeaponHolder.holder.gameObject.tag;
         bala.weapon = this;
         bala.holderStrength = Stats.strength;
-        Collider2D collider2D = ammo.AddComponent<BoxCollider2D>();
+        Collider2D collider2D = ammo.AddComponent<PolygonCollider2D>();
         collider2D.isTrigger = true;
         
         var transform = WeaponHolder.transform;

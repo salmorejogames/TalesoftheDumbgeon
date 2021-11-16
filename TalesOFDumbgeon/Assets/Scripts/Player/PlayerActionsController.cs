@@ -4,38 +4,24 @@ using System.Collections.Generic;
 using Interfaces;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.Rendering;
-using UnityEngine.Rendering.PostProcessing;
 
 public class PlayerActionsController : MonoBehaviour, IDeadable
 {
+   
     public Weapon weapon;
     public bool invincible;
 
     [SerializeField] private float inmunityTime;
     [SerializeField] private GameObject joystick;
     [SerializeField] private GameObject BtnAttack;
-    [SerializeField] private GameObject barraVida;
-    [SerializeField] private GameObject habilidades;
-    [SerializeField] private GameObject cartas;
-
     private int _cartaUsada;
     private bool _canAtack = true;
     private float _distance;
-
+  
     private CharacterStats _stats;
     private InputControler _controles;
     private SpriteRenderer _spriteRenderer;
     private Rigidbody2D _rb;
-
-    [SerializeField] private PostProcessVolume greyscalePostP;
-    [SerializeField] private Camera mainCamera;
-    private ColorGrading colorGrading;
-
-    [SerializeField] private GameObject menuGameOver;
-    [SerializeField] private GameObject titulo;
-    [SerializeField] private GameObject botonReintentar;
-    [SerializeField] private GameObject botonSalir;
 
     private void Awake()
     {
@@ -61,11 +47,6 @@ public class PlayerActionsController : MonoBehaviour, IDeadable
         }
     }
 
-    private void Start()
-    {
-        greyscalePostP.profile.TryGetSettings(out colorGrading);
-    }
-
     // Update is called once per frame
     private void ReactiveAtack()
     {
@@ -76,7 +57,7 @@ public class PlayerActionsController : MonoBehaviour, IDeadable
     public void UpdateWeaponPosition(float angle)
     {
         weapon.SetOrientation(angle);
-        weapon.UpdatePosition(gameObject.transform.position + (Vector3)IsometricUtils.PolarToCartesian(angle, _distance));
+        weapon.UpdatePosition(gameObject.transform.position + (Vector3) IsometricUtils.PolarToCartesian(angle, _distance));
     }
 
     private void Atacar()
@@ -99,15 +80,12 @@ public class PlayerActionsController : MonoBehaviour, IDeadable
         if (collision.gameObject.CompareTag("Enemigo") && !invincible)
         {
             CharacterStats enemyStats = collision.gameObject.GetComponent<CharacterStats>();
-            _stats.DoDamage(enemyStats.strength, collision.gameObject.transform.position, enemyStats.element);
+            _stats.DoDamage(enemyStats.strength, collision.gameObject, enemyStats.element);
         }
-
-        
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        //Debug.Log("TriggerEnter");
         if (other.gameObject.CompareTag("EscenarioTrigger"))
         {
             Debug.Log("Cambiando mapa");
@@ -118,50 +96,33 @@ public class PlayerActionsController : MonoBehaviour, IDeadable
         {
             other.gameObject.GetComponent<ICollectable>().Collect();
         }
-
-        if (other.gameObject.CompareTag("SpellDmg"))
-        {
-            SpellDmg spell = other.gameObject.GetComponent<SpellDmg>();
-            if (spell.OwnerTag != "Player" && !invincible)
-            {
-                _stats.DoDamage(spell.Amount, spell.Origen, spell.Element);
-            }
-        }
-        
     }
-
+    
     private void CancelInvincibility()
     {
         _canAtack = true;
         invincible = false;
         _rb.velocity = Vector2.zero;
     }
-
+    
     public void ResetSpriteColor()
     {
         _spriteRenderer.color = Color.white;
     }
-
+    
     public void Dead()
     {
         SingletoneGameController.PlayerActions.dead = true;
-        Greyscale();
-        DesactivarMenuGameplay();
-
-        menuGameOver.SetActive(true);
-
-        AnimarMenuGameOver();
-        //SingletoneGameController.Instance.ChangeScene("GameOverScene");
+        SingletoneGameController.Instance.ChangeScene("GameOverScene");
         Debug.Log("Im dead");
-
-        //mainCamera.transform.position = gameObject.transform.position;
-        //mainCamera.orthographicSize = 1f;
+        gameObject.SetActive(false);
+        
     }
 
-    public void Damage(Vector3 enemyPos, float cantidad, Elements.Element element)
+    public void Damage(GameObject enemy, float cantidad, Elements.Element element)
     {
         Debug.Log("Damage Recived");
-        SingletoneGameController.InterfaceController.UpdateLife(_stats.GetActualHealth() / _stats.maxHealth);
+        SingletoneGameController.InterfaceController.UpdateLife(_stats.GetActualHealth()/_stats.maxHealth);
         var direction = gameObject.transform.position - enemy.transform.position;
         var magnitude = direction.magnitude;
         direction = direction / magnitude;
@@ -183,53 +144,5 @@ public class PlayerActionsController : MonoBehaviour, IDeadable
     private void OnDisable()
     {
         _controles.Disable();
-    }
-
-    public void AnimarMenuGameOver()
-    {
-        LeanTween.moveLocalY(titulo, 135, 1.5f).setEaseOutCubic().setDelay(1.5f);
-        LeanTween.rotateZ(titulo, -6, 1f).setEaseOutCubic().setDelay(1.5f);
-
-        LeanTween.moveLocalX(botonReintentar, -265, 1.5f).setEaseOutCubic().setDelay(2f);
-        LeanTween.moveLocalY(botonReintentar, -200, 1.5f).setEaseOutCubic().setDelay(2f);
-        LeanTween.rotateZ(botonReintentar, 3, 1f).setEaseOutCubic().setDelay(2f);
-
-        LeanTween.moveLocalX(botonSalir, 265, 1.5f).setEaseOutCubic().setDelay(2f);
-        LeanTween.moveLocalY(botonSalir, -200, 1.5f).setEaseOutCubic().setDelay(2f);
-        LeanTween.rotateZ(botonSalir, -5, 1f).setEaseOutCubic().setDelay(2f);
-    }
-
-    public void DesactivarMenuGameplay()
-    {
-        if (CheckIfMobile.isMobile())
-        {
-            joystick.SetActive(false);
-            BtnAttack.SetActive(false);
-        }
-
-        barraVida.SetActive(false);
-        habilidades.SetActive(false);
-        cartas.SetActive(false);
-        gameObject.SetActive(false);
-    }
-
-    public void Greyscale()
-    {
-        //colorGrading.saturation.value = -100;
-        //mainCamera.orthographicSize = .5f;
-        float greyValue = 0;
-        StartCoroutine(GreyScaleCoroutine(greyValue));
-    }
-
-
-    IEnumerator GreyScaleCoroutine(float greyValue)
-    {
-        while (greyValue >= -100)
-        {
-            greyValue -= .01f * Time.realtimeSinceStartup;
-            colorGrading.saturation.value = greyValue;
-        }
-
-        yield return null;
     }
 }

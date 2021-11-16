@@ -18,14 +18,12 @@ public class CharacterStats : MonoBehaviour
     
 
     private IDeadable _actions;
-    private IMovil _movement;
     private bool _alive;
     private float _actualHealth;
    
     void Start()
     {
         _actions = gameObject.GetComponent<IDeadable>();
-        _movement = gameObject.GetComponent<IMovil>();
         _alive = true;
         _actualHealth = maxHealth;
     }
@@ -40,7 +38,7 @@ public class CharacterStats : MonoBehaviour
         return _alive;
     }
 
-    public void DoDamage(float dmg, Vector3 origin, Elements.Element atackElement)
+    public void DoDamage(float dmg, GameObject origin, Elements.Element atackElement)
     {
         float totalDmg = IsometricUtils.CalculateDamage(dmg, armor, atackElement, element);
         _actualHealth -= Mathf.Clamp(totalDmg, 0, maxHealth);
@@ -75,8 +73,6 @@ public class CharacterStats : MonoBehaviour
         equipment[pos].Unequip();
     }
 
-    public void Immobilize(float time)
-    {
-        _movement.DisableMovement(time);
-    }
+   
+    
 }

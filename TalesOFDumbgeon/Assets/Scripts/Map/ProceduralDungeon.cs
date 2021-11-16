@@ -143,7 +143,7 @@ public class ProceduralDungeon : MonoBehaviour
                 validMap = false;
         } while (!validMap);
 
-        //Debug.Log("Map generated in " + posX + "," + posY + " map: " + newMap.name + " rooms: N:" + newMap.doorsOrientations.North + " S: " + newMap.doorsOrientations.South + " E: " + newMap.doorsOrientations.East + " W: " + newMap.doorsOrientations.West);
+        Debug.Log("Map generated in " + posX + "," + posY + " map: " + newMap.name + " rooms: N:" + newMap.doorsOrientations.North + " S: " + newMap.doorsOrientations.South + " E: " + newMap.doorsOrientations.East + " W: " + newMap.doorsOrientations.West);
        
         UpdateMap(newMap, posX, posY);
 

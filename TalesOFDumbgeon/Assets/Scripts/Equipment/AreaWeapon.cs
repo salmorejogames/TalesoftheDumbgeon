@@ -17,8 +17,7 @@ public class AreaWeapon : BaseWeapon
     public override void Atacar()
     {
         WeaponHolder.ReactivateCollider(AttackDuration);
-        //SingletoneGameController.PlayerActions.DisableMovement(AttackDuration);
-        WeaponHolder.holder.Immobilize(AttackDuration);
+        SingletoneGameController.PlayerActions.DisableMovement(AttackDuration);
         WeaponHolder.StartCoroutine(SliceAtack(WeaponHolder, AttackDuration));
     }
     
