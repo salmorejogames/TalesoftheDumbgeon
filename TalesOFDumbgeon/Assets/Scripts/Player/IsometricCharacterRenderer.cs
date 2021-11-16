@@ -1,41 +1,31 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Animations;
 using UnityEngine;
 
 public class IsometricCharacterRenderer : MonoBehaviour
 {
-    public static readonly string[] staticDirections = {"StaticN", "StaticNW",  "StaticW", "StaticSW", "StaticS", "StaticSE", "StaticE", "StaticNE"};
-    public static readonly string[] runDirections = {"RunN", "RunNW", "RunW", "RunSW", "RunS", "RunSE", "RunE", "RunNE"};
-
+    
     private const int SliceCount = 8;
-    private Animator _animator;
+    [SerializeField] public PlayerAnimationController animatorController;
     private int _lastDirection;
-
-    private void Awake()
-    {
-        _animator = GetComponent<Animator>();
-    }
-
 
     public int SetDirection(Vector2 direction)
     {
-        string[] directionArray = null;
-
+        //string[] directionArray = null;
         //If player is nto moving
-        /*if (direction.magnitude < .01f)
-        {
-            directionArray = staticDirections;
-        }
+        /*
         else
         {
             directionArray = runDirections;
             _lastDirection = DirectionToIndex(direction, 4);
         }*/
-        directionArray = staticDirections;
+        //directionArray = staticDirections;
         _lastDirection = DirectionToIndex(direction, SliceCount);
+        animatorController.ChangeAnimation((BodyParts.Direction)((_lastDirection+2)%8));
         //Debug.Log(_lastDirection);
-        _animator.Play(directionArray[_lastDirection]);
+        //_animator.Play(directionArray[_lastDirection]);
         return _lastDirection;
     }
 
