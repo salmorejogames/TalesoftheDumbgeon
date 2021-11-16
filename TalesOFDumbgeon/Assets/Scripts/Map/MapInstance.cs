@@ -62,7 +62,7 @@ public class MapInstance : MonoBehaviour
     private void Start()
     {
         BoundsInt bounds = ground.cellBounds;
-        Debug.Log("X: " +bounds.xMax + " " + bounds.xMin+ " Y: " + bounds.yMax + " " + bounds.yMin);
+        //Debug.Log("X: " +bounds.xMax + " " + bounds.xMin+ " Y: " + bounds.yMax + " " + bounds.yMin);
     }
 
     private void Update()
@@ -152,7 +152,7 @@ public class MapInstance : MonoBehaviour
     }
     public void SetTrigger(bool active)
     {
-        Debug.Log("SetTrigger: " + active );
+        //Debug.Log("SetTrigger: " + active );
         mapTrigger.isTrigger = active;
        
     }

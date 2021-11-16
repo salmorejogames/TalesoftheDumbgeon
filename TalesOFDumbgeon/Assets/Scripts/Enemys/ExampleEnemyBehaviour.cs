@@ -36,7 +36,7 @@ public class ExampleEnemyBehaviour : MonoBehaviour, IDeadable
         gameObject.SetActive(false);
     }
 
-    public void Damage(GameObject enemy, float cantidad, Elements.Element element)
+    public void Damage(Vector3 enemyPos, float cantidad, Elements.Element element)
     {
         float multiplier = Elements.GetElementMultiplier(element, _stats.element);
         DamageNumber dmgN = Instantiate(DmgPrefab, transform.position, Quaternion.identity);

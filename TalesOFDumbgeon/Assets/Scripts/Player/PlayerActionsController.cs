@@ -13,8 +13,7 @@ public class PlayerActionsController : MonoBehaviour, IDeadable
     public bool invincible;
 
     [SerializeField] private float inmunityTime;
-    [SerializeField] private GameObject joystick;
-    [SerializeField] private GameObject BtnAttack;
+    [SerializeField] private GameObject movileInterface;
     [SerializeField] private GameObject barraVida;
     [SerializeField] private GameObject habilidades;
     [SerializeField] private GameObject cartas;
@@ -51,13 +50,11 @@ public class PlayerActionsController : MonoBehaviour, IDeadable
         _controles.Jugador.Habilidad4.performed += ctx => UsarCarta(4);
         if (CheckIfMobile.isMobile())
         {
-            joystick.SetActive(true);
-            BtnAttack.SetActive(true);
+            movileInterface.SetActive(true);
         }
         else
         {
-            joystick.SetActive(false);
-            BtnAttack.SetActive(false);
+            movileInterface.SetActive(false);
         }
     }
 
@@ -99,12 +96,15 @@ public class PlayerActionsController : MonoBehaviour, IDeadable
         if (collision.gameObject.CompareTag("Enemigo") && !invincible)
         {
             CharacterStats enemyStats = collision.gameObject.GetComponent<CharacterStats>();
-            _stats.DoDamage(enemyStats.strength, collision.gameObject, enemyStats.element);
+            _stats.DoDamage(enemyStats.strength, collision.gameObject.transform.position, enemyStats.element);
         }
+
+        
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        //Debug.Log("TriggerEnter");
         if (other.gameObject.CompareTag("EscenarioTrigger"))
         {
             Debug.Log("Cambiando mapa");
@@ -115,6 +115,16 @@ public class PlayerActionsController : MonoBehaviour, IDeadable
         {
             other.gameObject.GetComponent<ICollectable>().Collect();
         }
+
+        if (other.gameObject.CompareTag("SpellDmg"))
+        {
+            SpellDmg spell = other.gameObject.GetComponent<SpellDmg>();
+            if (spell.OwnerTag != "Player" && !invincible)
+            {
+                _stats.DoDamage(spell.Amount, spell.Origen, spell.Element);
+            }
+        }
+        
     }
 
     private void CancelInvincibility()
@@ -145,11 +155,11 @@ public class PlayerActionsController : MonoBehaviour, IDeadable
         //mainCamera.orthographicSize = 1f;
     }
 
-    public void Damage(GameObject enemy, float cantidad, Elements.Element element)
+    public void Damage(Vector3 enemyPos, float cantidad, Elements.Element element)
     {
         Debug.Log("Damage Recived");
         SingletoneGameController.InterfaceController.UpdateLife(_stats.GetActualHealth() / _stats.maxHealth);
-        var direction = gameObject.transform.position - enemy.transform.position;
+        var direction = gameObject.transform.position - enemyPos;
         var magnitude = direction.magnitude;
         direction = direction / magnitude;
         _rb.velocity = direction;
@@ -190,8 +200,7 @@ public class PlayerActionsController : MonoBehaviour, IDeadable
     {
         if (CheckIfMobile.isMobile())
         {
-            joystick.SetActive(false);
-            BtnAttack.SetActive(false);
+            movileInterface.SetActive(false);
         }
 
         barraVida.SetActive(false);
