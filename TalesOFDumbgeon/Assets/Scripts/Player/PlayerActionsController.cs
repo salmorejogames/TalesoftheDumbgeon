@@ -162,7 +162,7 @@ public class PlayerActionsController : MonoBehaviour, IDeadable
     {
         Debug.Log("Damage Recived");
         SingletoneGameController.InterfaceController.UpdateLife(_stats.GetActualHealth() / _stats.maxHealth);
-        var direction = gameObject.transform.position - enemy.transform.position;
+        var direction = gameObject.transform.position - enemyPos;
         var magnitude = direction.magnitude;
         direction = direction / magnitude;
         _rb.velocity = direction;
