@@ -88,6 +88,7 @@ GameObject:
   - component: {fileID: 7701864338981015134}
   - component: {fileID: 1786938860740282667}
   - component: {fileID: 3953147539745567089}
+  - component: {fileID: 8569530494058341474}
   m_Layer: 0
   m_Name: Personaje_Principal
   m_TagString: Player
@@ -288,6 +289,14 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!81 &8569530494058341474
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4711098443936322423}
+  m_Enabled: 1
 --- !u!1 &4711098444759327453
 GameObject:
   m_ObjectHideFlags: 0
