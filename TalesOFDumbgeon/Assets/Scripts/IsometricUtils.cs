@@ -27,6 +27,17 @@ public static class IsometricUtils
         return  CartesianToIsometric(new Vector2(x/2, y/2));
     }
 
+    public static Vector2 ScreenCordsToTilesPos(Vector2 screenPos, bool index)
+    {
+
+        float x = (screenPos.x + screenPos.y / CellSizeY);
+        float y = (-screenPos.x + screenPos.y / CellSizeY);
+        if (index)
+            return new Vector2(Mathf.Floor(x), Mathf.Floor(y));
+        else
+            return new Vector2(x, y);
+    }
+    
     public static Vector2 AxisToIsometric(Vector2 axis)
     {
         //Debug.Log(axis.ToString());
@@ -53,8 +64,7 @@ public static class IsometricUtils
                 axis.y = -1;
             }
         }
-        else
-        {
+        else{
             if (axis.y > 0)
             {
                 axis.x = 0;
