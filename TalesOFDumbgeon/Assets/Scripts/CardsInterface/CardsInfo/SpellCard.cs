@@ -69,12 +69,4 @@ public class SpellCard : BaseCard
     {
         Spell.GetWeaponHolder().ChangeSpell(Spell);
     }
-
-    public override void Randomize()
-    {
-        Spell.Randomize(1);
-        String[] info = StaticInfoHolder.LoadName(Spell.SpellKind, Spell.Element);
-        CardName = info[0];
-        Description = info[1];
-    }
 }

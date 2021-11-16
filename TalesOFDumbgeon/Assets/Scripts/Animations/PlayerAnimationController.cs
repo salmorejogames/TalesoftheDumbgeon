@@ -18,7 +18,7 @@ public class PlayerAnimationController : MonoBehaviour
     private bool _move;
     private static readonly int Walk = Animator.StringToHash("Walk");
 
-    private const string PathName = "EquipmentClass/";
+    public const string PathName = "EquipmentClass/";
 
     private void Awake()
     {
@@ -28,7 +28,7 @@ public class PlayerAnimationController : MonoBehaviour
         Current.Animator.SetBool(Walk, _move);
     }
 
-    void ChangeSprite(AnimationDirection.EquipmentParts part, BodyParts.Sex sex, string equipmentName)
+    public void ChangeSprite(AnimationDirection.EquipmentParts part, BodyParts.Sex sex, string equipmentName)
     {
         var equipment = Resources.Load<EquipmentClass>(PathName + equipmentName);
         south.ChangeEquipment(equipment.south, part, sex);
