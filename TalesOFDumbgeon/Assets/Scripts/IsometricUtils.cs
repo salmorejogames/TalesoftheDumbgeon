@@ -23,7 +23,17 @@ public static class IsometricUtils
 
     public static Vector3 CoordinatesToWorldSpace(float x, float y)
     {
-        Debug.Log(x + " " + y);
+        //Debug.Log(x + " " + y);
         return  CartesianToIsometric(new Vector2(x/2, y/2));
+    }
+
+    public static Vector2 ScreenCordsToTilesPos(Vector2 screenPos, bool index)
+    {
+        float x =  (screenPos.x + screenPos.y / CellSizeY);
+        float y =  (-screenPos.x + screenPos.y / CellSizeY );
+        if (index)
+            return new Vector2(Mathf.Floor(x), Mathf.Floor(y));
+        else
+            return new Vector2(x, y);
     }
 }
