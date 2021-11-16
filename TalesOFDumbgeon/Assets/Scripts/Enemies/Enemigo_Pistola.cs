@@ -12,7 +12,7 @@ public class Enemigo_Pistola : MonoBehaviour, IDeadable
     private IsometricMove _player;
     private CharacterStats _stats;
 
-    public int velocidad = 5;
+    public float velocidad = 5;
     public int armadura = 3;
     public int damage = 1;
     public float vision = 4;
@@ -81,12 +81,13 @@ public class Enemigo_Pistola : MonoBehaviour, IDeadable
         }
         else if (especie == tipoEnemigo.Cerebro)
         {
-            vision = 7;
-            stopDistance = 5f;
+            vision = 4f;
+            stopDistance = 5f;            
             _stats.armor = 1f;
             _stats.maxHealth = 4f;
             _stats.strength = 10f;
             _stats.speed = 3.5f;
+            velocidad = _stats.speed;
             _stats.element = Elements.Element.Brasa;
         }
         else if (especie == tipoEnemigo.Duonde)
@@ -122,11 +123,12 @@ public class Enemigo_Pistola : MonoBehaviour, IDeadable
         if (!SingletoneGameController.PlayerActions.dead)
         {
             distanciaPlayer = Vector2.Distance(transform.position, personaje.transform.position);
+            Debug.Log("Distancia al jugador: " + distanciaPlayer);
             direccion = personaje.transform.position - transform.position;
             rotacion = Mathf.Atan2(direccion.x, direccion.y) * Mathf.Rad2Deg;
             direccion.Normalize();
-            armaHolder.SetOrientation(rotacion);
-            armaHolder.UpdatePosition(gameObject.transform.position + (Vector3)IsometricUtils.PolarToCartesian(-(rotacion - 90), 0f));
+            armaHolder.SetOrientation(-rotacion + 90);
+            armaHolder.UpdatePosition(gameObject.transform.position + (Vector3)IsometricUtils.PolarToCartesian(-(rotacion), 0f));
 
             DecisionEstado();
             //tiempoParado = startTiempoParado;
@@ -179,6 +181,7 @@ public class Enemigo_Pistola : MonoBehaviour, IDeadable
                     Attack();
                     break;
             }
+            decisionClock = 0;
         }
 
         //transform.position = Vector2.MoveTowards(transform.position, nextPos, velocidad * Time.deltaTime);
