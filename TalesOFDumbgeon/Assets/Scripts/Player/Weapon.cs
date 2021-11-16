@@ -7,6 +7,7 @@ public class Weapon : MonoBehaviour
 {
     
     public BaseWeapon weaponInfo;
+    public BaseSpell spellInfo;
     [SerializeField] private SpriteRenderer _spriteRenderer;
     public CharacterStats holder;
     private Collider2D _collider;
@@ -41,6 +42,13 @@ public class Weapon : MonoBehaviour
         _spriteRenderer.color = SingletoneGameController.InfoHolder.LoadColor(weaponInfo.Element);
     }
     
+    public void ChangeSpell(BaseSpell newSpell)
+    {
+        newSpell.SetWeaponHolder(this);
+        spellInfo = newSpell;
+        spellInfo.Equip();
+    }
+    
     public void SetOrientation(float newAngle)
     {
         angle = newAngle; 
@@ -52,6 +60,14 @@ public class Weapon : MonoBehaviour
     {
         //Debug.Log("Im atacking");
         weaponInfo.Atacar();
+    }
+
+    public void CastSpell()
+    {
+        if (spellInfo != null)
+        {
+            spellInfo.Cast();
+        }
     }
     
     private void OnTriggerEnter2D(Collider2D other)

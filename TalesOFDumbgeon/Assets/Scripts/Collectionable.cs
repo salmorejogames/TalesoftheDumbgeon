@@ -11,7 +11,7 @@ public class Collectionable : MonoBehaviour, ICollectable
     
     public void Collect()
     {
-        //SingletoneGameController.CardHolder.AddCard(card.name);
+        SingletoneGameController.CardHolder.AddCard(new SpellCard(BaseSpell.SpellType.Damage, SingletoneGameController.PlayerActions.player.PlayerActions.weapon));
         Destroy(gameObject);
     }
     

@@ -20,7 +20,7 @@ public abstract class BaseWeapon : BaseEquipment
     protected Weapon WeaponHolder;
     public BaseWeapon()
     {
-        
+        Type = EquipmentType.Weapon;
     }
     public abstract void Atacar();
 

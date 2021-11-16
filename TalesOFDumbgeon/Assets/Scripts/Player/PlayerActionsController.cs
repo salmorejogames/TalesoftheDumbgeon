@@ -21,6 +21,7 @@ public class PlayerActionsController : MonoBehaviour, IDeadable
 
     private int _cartaUsada;
     private bool _canAtack = true;
+    private bool _canSpell = true;
     private float _distance;
 
     private CharacterStats _stats;
@@ -45,6 +46,7 @@ public class PlayerActionsController : MonoBehaviour, IDeadable
         _rb = gameObject.GetComponent<Rigidbody2D>();
         _controles = new InputControler();
         _controles.Jugador.Atacar.performed += ctx => Atacar();
+        _controles.Jugador.Hechizo.performed += ctx => CastSpell();
         _controles.Jugador.Habilidad1.performed += ctx => UsarCarta(1);
         _controles.Jugador.Habilidad2.performed += ctx => UsarCarta(2);
         _controles.Jugador.Habilidad3.performed += ctx => UsarCarta(3);
@@ -72,6 +74,11 @@ public class PlayerActionsController : MonoBehaviour, IDeadable
         _canAtack = true;
         weapon.GetComponent<Collider2D>().enabled = false;
     }
+    
+    private void ReactiveSpell()
+    {
+        _canSpell = true;
+    }
 
     public void UpdateWeaponPosition(float angle)
     {
@@ -86,6 +93,16 @@ public class PlayerActionsController : MonoBehaviour, IDeadable
             weapon.Atack();
             _canAtack = false;
             Invoke(nameof(ReactiveAtack), weapon.weaponInfo.AttackSpeed);
+        }        
+    }
+    
+    private void CastSpell()
+    {
+        if (_canSpell && weapon.spellInfo!=null)
+        {
+            weapon.CastSpell();
+            _canSpell = false;
+            Invoke(nameof(ReactiveSpell), weapon.spellInfo.Cooldown);
         }        
     }
 
