@@ -13,8 +13,8 @@ public class RangedWeapon : BaseWeapon
     {
         Range = 10f;
         AmmoSpeed = 3f;
-        AttackSpeed = 0.5f;
-        AttackDuration = 0.1f;
+        AttackSpeed = 1f;
+        AttackDuration = 0.4f;
         AttackType = WeaponType.Ranged;
         WeaponSprite = SingletoneGameController.InfoHolder.rangedWeapon;
         AmmoSprite = SingletoneGameController.InfoHolder.ammoSprite;
