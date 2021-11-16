@@ -29,11 +29,53 @@ public static class IsometricUtils
 
     public static Vector2 ScreenCordsToTilesPos(Vector2 screenPos, bool index)
     {
-        float x =  (screenPos.x + screenPos.y / CellSizeY);
-        float y =  (-screenPos.x + screenPos.y / CellSizeY );
+
+        float x = (screenPos.x + screenPos.y / CellSizeY);
+        float y = (-screenPos.x + screenPos.y / CellSizeY);
         if (index)
             return new Vector2(Mathf.Floor(x), Mathf.Floor(y));
         else
             return new Vector2(x, y);
+    }
+    
+    public static Vector2 AxisToIsometric(Vector2 axis)
+    {
+        //Debug.Log(axis.ToString());
+        if (axis.y > -0.1f && axis.y < 0.1f && axis.x < 0.1f && axis.x > -0.1f)
+            return new Vector2(0, 0);
+        if (axis.x > 0.8f && axis.y < 0.2f && axis.y > -0.2f)
+            return new Vector2(1, 0);
+        if (axis.x < -0.8f && axis.y < 0.2f && axis.y > -0.2f)
+            return new Vector2(-1, 0);
+        if (axis.y > 0.8f && axis.x < 0.2f && axis.x > -0.2f)
+            return new Vector2(0, 1);
+        if (axis.y < -0.8f && axis.x < 0.2f && axis.x > -0.2f)
+            return new Vector2(0, -1);
+        if (axis.x > 0)
+        {
+            if (axis.y > 0)
+            {
+                axis.x = 1;
+                axis.y = 0;
+            }
+            else
+            {
+                axis.x = 0;
+                axis.y = -1;
+            }
+        }
+        else{
+            if (axis.y > 0)
+            {
+                axis.x = 0;
+                axis.y = 1;
+            }
+            else
+            {
+                axis.x = -1;
+                axis.y = 0;
+            }
+        }
+        return CartesianToIsometric(axis);
     }
 }

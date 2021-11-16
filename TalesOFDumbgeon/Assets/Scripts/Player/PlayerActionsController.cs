@@ -13,8 +13,7 @@ public class PlayerActionsController : MonoBehaviour, IDeadable
     public bool invincible;
 
     [SerializeField] private float inmunityTime;
-    [SerializeField] private GameObject joystick;
-    [SerializeField] private GameObject BtnAttack;
+    [SerializeField] private GameObject movileInterface;
     [SerializeField] private GameObject barraVida;
     [SerializeField] private GameObject habilidades;
     [SerializeField] private GameObject cartas;
@@ -53,13 +52,11 @@ public class PlayerActionsController : MonoBehaviour, IDeadable
         _controles.Jugador.Habilidad4.performed += ctx => UsarCarta(4);
         if (CheckIfMobile.isMobile())
         {
-            joystick.SetActive(true);
-            BtnAttack.SetActive(true);
+            movileInterface.SetActive(true);
         }
         else
         {
-            joystick.SetActive(false);
-            BtnAttack.SetActive(false);
+            movileInterface.SetActive(false);
         }
     }
 
@@ -220,8 +217,7 @@ public class PlayerActionsController : MonoBehaviour, IDeadable
     {
         if (CheckIfMobile.isMobile())
         {
-            joystick.SetActive(false);
-            BtnAttack.SetActive(false);
+            movileInterface.SetActive(false);
         }
 
         barraVida.SetActive(false);

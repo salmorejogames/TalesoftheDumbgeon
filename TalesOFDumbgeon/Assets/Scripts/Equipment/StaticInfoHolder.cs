@@ -22,6 +22,12 @@ public class StaticInfoHolder : MonoBehaviour
     [SerializeField] public Sprite cartaMaldicion;
     [SerializeField] public Sprite cartaHechizo;
 
+    public static string Normal = "Normal";
+    public static string Warrior = "Warrior";
+    public static string Wizard = "Wizard";
+    public static string Rogue = "Rogue";
+    
+
     [SerializeField] public Sprite ammoSprite;
     [SerializeField] public Sprite dmgSpellSprite;
     
