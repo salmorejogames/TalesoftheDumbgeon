@@ -46,7 +46,10 @@ public class RangedWeapon : BaseWeapon
         
         rb.bodyType = RigidbodyType2D.Kinematic;
         bala.parentTag = WeaponHolder.holder.gameObject.tag;
-        bala.weapon = this;
+        bala.Damage = Dmg;
+        bala.Element = Element;
+        bala.Range = Range;
+        bala.AmmoSpeed = AmmoSpeed;
         bala.holderStrength = Stats.strength;
         Collider2D collider2D = ammo.AddComponent<BoxCollider2D>();
         collider2D.isTrigger = true;

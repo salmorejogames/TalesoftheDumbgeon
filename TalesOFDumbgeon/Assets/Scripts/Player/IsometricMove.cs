@@ -18,8 +18,8 @@ public class IsometricMove : MonoBehaviour, IMovil
     private Rigidbody2D _playerRb;
     private InputControler _inputControler;
     private IsometricCharacterRenderer _isoRenderer;
-   
-   
+
+    public IsometricCharacterRenderer IsoRenderer => _isoRenderer;
 
     private void Awake()
     {

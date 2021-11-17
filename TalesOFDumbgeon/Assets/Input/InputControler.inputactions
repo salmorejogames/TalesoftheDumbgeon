@@ -14,6 +14,14 @@
                     "interactions": ""
                 },
                 {
+                    "name": "Hechizo",
+                    "type": "Button",
+                    "id": "f74cebfa-95a1-43e9-a10a-7c9591b9464b",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
                     "name": "Move",
                     "type": "Value",
                     "id": "9db0b795-d70f-4922-8658-4ea12e7945d5",
@@ -184,6 +192,28 @@
                     "processors": "",
                     "groups": "keyboard and mouse",
                     "action": "Habilidad4",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "49a76a04-deb1-48ee-a40f-176df16535e1",
+                    "path": "<Mouse>/rightButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "keyboard and mouse",
+                    "action": "Hechizo",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "d63718d3-a41b-4da2-8669-5d4b61f7d180",
+                    "path": "<Keyboard>/o",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "keyboard and mouse;Movil",
+                    "action": "Hechizo",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

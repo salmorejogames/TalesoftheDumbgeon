@@ -14,6 +14,7 @@ public class StaticInfoHolder : MonoBehaviour
     [SerializeField] public Sprite rangedWeaponArtwork;
     [SerializeField] public Sprite smashingWeaponArtwork;
     [SerializeField] public Sprite piercingWeaponArtwork;
+    [SerializeField] public Sprite dmgSpellArtwork;
     
     [SerializeField] public Sprite cartaArma;
     [SerializeField] public Sprite cartaArmadura;
@@ -28,6 +29,7 @@ public class StaticInfoHolder : MonoBehaviour
     
 
     [SerializeField] public Sprite ammoSprite;
+    [SerializeField] public Sprite dmgSpellSprite;
     
     
     [SerializeField] private List<Color> colors;
@@ -112,5 +114,51 @@ public class StaticInfoHolder : MonoBehaviour
     public Color LoadColor(Elements.Element element)
     {
         return colors[((int) element) + 1];
+    }
+
+    public static string[] LoadName(BaseSpell.SpellType spellKind, Elements.Element spellElement)
+    {
+        string[] info = new string[2];
+        switch (spellKind)
+        {
+            case BaseSpell.SpellType.Damage:
+                switch (spellElement)
+                {
+                    case Elements.Element.Normal:
+                        info[0] = "Bola de papel";
+                        info[1] = "Un trozo de papel que llevabas en los bolsillos. Esta afilado";
+                        break;
+                    case Elements.Element.Caos:
+                        info[0] = "Tiromancia suprema";
+                        info[1] = "Convierte a tus enemigos en deliciosas cuñas de queso curado de oveja. Que hambre, ¿no?";
+                        break;
+                    case Elements.Element.Brisa:
+                        info[0] = "Poder limitado";
+                        info[1] = "Dispara rayos por tus manos y trae la paz, libertad, justicia y seguridad a tu barrio";
+                        break;
+                    case Elements.Element.Copo:
+                        info[0] = "Frío burgalés";
+                        info[1] = "Lanza una brisa capaz de congelar hasta el mismo sol";
+                        break;
+                    case Elements.Element.Guijarro:
+                        info[0] = "Petrotari";
+                        info[1] = "Envía una pelota dura como una montaña que los enemigos no verán venir";
+                        break;
+                    case Elements.Element.Brasa:
+                        info[0] = "Saeta de fuego";
+                        info[1] = "Entona una canción con una pasión tan ardiente que abrasa lo que se encuentra delante";
+                        break;
+                    default:
+                        throw new ArgumentOutOfRangeException(nameof(spellElement), spellElement, null);
+                }
+                break;
+            case BaseSpell.SpellType.Hability:
+                break;
+            case BaseSpell.SpellType.EspecialDmg:
+                break;
+            default:
+                throw new ArgumentOutOfRangeException(nameof(spellKind), spellKind, null);
+        }
+        return info;
     }
 }

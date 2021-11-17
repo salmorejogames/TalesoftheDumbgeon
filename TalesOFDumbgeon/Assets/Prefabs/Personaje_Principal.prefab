@@ -71,6 +71,7 @@ MonoBehaviour:
   northWest: {fileID: 5378553288275965088}
   southEast: {fileID: 5679513744551214508}
   southWest: {fileID: 7539850262835343364}
+  _stats: {fileID: 8328859853636097723}
 --- !u!1 &4711098443936322423
 GameObject:
   m_ObjectHideFlags: 0
@@ -1068,6 +1069,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9078395010514051519, guid: 396a49383fa4f984c8ca1c5ecbebe282,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 396a49383fa4f984c8ca1c5ecbebe282, type: 3}
 --- !u!4 &3180904652383129506 stripped

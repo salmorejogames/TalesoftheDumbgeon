@@ -5,7 +5,11 @@ using UnityEngine;
 
 public class Bala_Move : MonoBehaviour
 {
-    public RangedWeapon weapon;
+    public float AmmoSpeed;
+    public float Range;
+    public float Damage;
+    public Elements.Element Element;
+    
     public string parentTag;
     public float holderStrength;
     
@@ -20,13 +24,13 @@ public class Bala_Move : MonoBehaviour
         _rb = gameObject.GetComponent<Rigidbody2D>();
         _runedDistance = 0f;
         //Right = X
-        _rb.velocity = transform.right * weapon.AmmoSpeed;
+        _rb.velocity = transform.right * AmmoSpeed;
     }
 
     private void FixedUpdate()
     {
-        _runedDistance += Vector3.Magnitude(transform.right * (weapon.AmmoSpeed * Time.fixedDeltaTime));
-        if (_runedDistance > weapon.Range)
+        _runedDistance += Vector3.Magnitude(transform.right * (AmmoSpeed * Time.fixedDeltaTime));
+        if (_runedDistance > Range)
         {
             Destroy(gameObject);
         }
@@ -45,7 +49,7 @@ public class Bala_Move : MonoBehaviour
             if (!impact.CompareTag(parentTag))
             {
                 CharacterStats impactStats = impact.GetComponent<CharacterStats>();
-                impactStats.DoDamage(weapon.Dmg + holderStrength, gameObject.transform.position, weapon.Element);
+                impactStats.DoDamage(Damage + holderStrength, gameObject.transform.position, Element);
                 Destroy(gameObject);
             }
         }
