@@ -8,6 +8,7 @@ public class AnimacionMenuPrincipal : MonoBehaviour
     [SerializeField] private GameObject botonJugar;
     [SerializeField] private GameObject botonAjustes;
     [SerializeField] private GameObject botonCreditos;
+    [SerializeField] private GameObject botonGuia;
 
     //[SerializeField] private AudioClip cartaAudio;
     [SerializeField] private AudioSource audioSource;
@@ -24,7 +25,7 @@ public class AnimacionMenuPrincipal : MonoBehaviour
         audioSource.PlayDelayed(1.5f);
 
         LeanTween.moveLocalX(botonJugar, -13, 1.5f).setEaseOutCubic().setDelay(1.5f);
-        LeanTween.moveLocalY(botonJugar, -190, 1.5f).setEaseOutCubic().setDelay(1.5f);
+        LeanTween.moveLocalY(botonJugar, -120, 1.5f).setEaseOutCubic().setDelay(1.5f);
         LeanTween.rotateZ(botonJugar, -5, 1f).setEaseOutCubic().setDelay(1.5f);
 
         //audioSource.PlayOneShot(cartaAudio);
@@ -40,5 +41,8 @@ public class AnimacionMenuPrincipal : MonoBehaviour
         LeanTween.rotateZ(botonCreditos, 5, 1f).setEaseOutCubic().setDelay(1.5f);
 
         //audioSource.PlayOneShot(cartaAudio);
+
+        LeanTween.moveLocalY(botonGuia, -320, 1.5f).setEaseOutCubic().setDelay(2.5f);
+        LeanTween.rotateZ(botonGuia, 1, 1f).setEaseOutCubic().setDelay(2.5f);
     }
 }
