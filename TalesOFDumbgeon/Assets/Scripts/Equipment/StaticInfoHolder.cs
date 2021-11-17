@@ -5,17 +5,20 @@ using UnityEngine;
 
 public class StaticInfoHolder : MonoBehaviour
 {
+    [Header("Weapons InGame")]
     [SerializeField] public Sprite areaWeapon;
     [SerializeField] public Sprite rangedWeapon;
     [SerializeField] public Sprite smashingWeapon;
     [SerializeField] public Sprite piercingWeapon;
     
+    [Header("Weapons Artwork")]
     [SerializeField] public Sprite areaWeaponArtwork;
     [SerializeField] public Sprite rangedWeaponArtwork;
     [SerializeField] public Sprite smashingWeaponArtwork;
     [SerializeField] public Sprite piercingWeaponArtwork;
     [SerializeField] public Sprite dmgSpellArtwork;
     
+    [Header("Cards")]
     [SerializeField] public Sprite cartaArma;
     [SerializeField] public Sprite cartaArmadura;
     [SerializeField] public Sprite cartaBendicion;
@@ -26,8 +29,14 @@ public class StaticInfoHolder : MonoBehaviour
     public static string Warrior = "Warrior";
     public static string Wizard = "Wizard";
     public static string Rogue = "Rogue";
-    
 
+    [Header("Armor Artwork")] 
+    [SerializeField] public List<Sprite> warrior;
+    [SerializeField] public List<Sprite> wizard;
+    [SerializeField] public List<Sprite> rogue;
+    
+    
+    [Header("Other sprites")]
     [SerializeField] public Sprite ammoSprite;
     [SerializeField] public Sprite dmgSpellSprite;
     

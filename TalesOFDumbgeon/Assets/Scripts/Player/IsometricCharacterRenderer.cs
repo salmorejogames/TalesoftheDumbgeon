@@ -22,9 +22,11 @@ public class IsometricCharacterRenderer : MonoBehaviour
             _lastDirection = DirectionToIndex(direction, 4);
         }*/
         //directionArray = staticDirections;
-        _lastDirection = DirectionToIndex(direction, SliceCount);
-        animatorController.ChangeAnimation((BodyParts.Direction)((_lastDirection+2)%8));
+        int newDirection = DirectionToIndex(direction, SliceCount);
+        if(newDirection != _lastDirection)
+            animatorController.ChangeAnimation((BodyParts.Direction)((newDirection+2)%8));
         //Debug.Log(_lastDirection);
+        _lastDirection = newDirection;
         //_animator.Play(directionArray[_lastDirection]);
         return _lastDirection;
     }
