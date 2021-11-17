@@ -50,9 +50,33 @@ public class AnimationDirection : MonoBehaviour
         }
     }
 
-    void ChangeColor(Color color)
+    public void ChangeEquipment(BodyParts sprite, EquipmentParts equipmentParts, BodyParts.Sex sex,
+        Elements.Element element)
     {
-        //TODO CambiarColor
+        ChangeEquipment(sprite, equipmentParts, sex);
+        ChangeColor(SingletoneGameController.ColorShaders.GetMaterial(element), equipmentParts);
+    }
+
+    public void ChangeColor(Material material, EquipmentParts part)
+    {
+        switch (part)
+        {
+            case EquipmentParts.Head:
+                head.material = material;
+                break;
+            case EquipmentParts.Body:
+                body.material = material;
+                leftArm.material = material;
+                rightArm.material = material;
+                break;
+            case EquipmentParts.Legs:
+                
+                leftLeg.material = material;
+                rightLeg.material = material;
+                break;
+            default:
+                throw new ArgumentOutOfRangeException(nameof(part), part, null);
+        }
     }
     
 }

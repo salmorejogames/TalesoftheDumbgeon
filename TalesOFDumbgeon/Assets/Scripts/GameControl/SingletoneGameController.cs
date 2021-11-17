@@ -12,6 +12,7 @@ public class SingletoneGameController : MonoBehaviour
     public static CardHolder CardHolder;
     public static StaticInfoHolder InfoHolder;
     public static GameplayInterfaceController InterfaceController;
+    public static ColorShader ColorShaders;
     private void Awake()
     {
         //Singleton;
@@ -28,6 +29,7 @@ public class SingletoneGameController : MonoBehaviour
             MapManager = gameObject.GetComponent<MapManager>();
             PlayerActions = gameObject.GetComponent<PlayerActions>();
             InfoHolder = gameObject.GetComponent<StaticInfoHolder>();
+            ColorShaders = gameObject.GetComponent<ColorShader>();
             ReloadComponents();
         }
         

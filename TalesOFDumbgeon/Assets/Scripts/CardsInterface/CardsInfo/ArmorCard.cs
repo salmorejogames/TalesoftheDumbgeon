@@ -111,6 +111,7 @@ public class ArmorCard : BaseCard
 
     public override void CastEffect()
     {
-        NewArmor.AnimationController.ChangeSprite(parts, BodyParts.Sex.Boy, equipmentName);
+        NewArmor.AnimationController.ChangeSprite(parts, BodyParts.Sex.Boy, equipmentName, Element);
+        NewArmor.AnimationController.EquipArmor(NewArmor);
     }
 }

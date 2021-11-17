@@ -13,7 +13,8 @@ public class PlayerAnimationController : MonoBehaviour
     public AnimationDirection northWest;
     public AnimationDirection southEast;
     public AnimationDirection southWest;
-
+    
+    [SerializeField] private CharacterStats _stats;
     [NonSerialized] public AnimationDirection Current;
     private bool _move;
     private static readonly int Walk = Animator.StringToHash("Walk");
@@ -26,6 +27,13 @@ public class PlayerAnimationController : MonoBehaviour
         Current = south;
         Current.gameObject.SetActive(true);
         Current.Animator.SetBool(Walk, _move);
+    }
+    
+    public void EquipArmor(BaseArmor newArmor)
+    {
+        newArmor.AnimationController = this;
+        newArmor.Stats = _stats;
+        newArmor.Equip();
     }
 
     public void ChangeSprite(AnimationDirection.EquipmentParts part, BodyParts.Sex sex, string equipmentName)
@@ -40,6 +48,21 @@ public class PlayerAnimationController : MonoBehaviour
         southEast.ChangeEquipment(equipment.southEast, part, sex);
         southWest.ChangeEquipment(equipment.southWest, part, sex);
     }
+    
+    public void ChangeSprite(AnimationDirection.EquipmentParts part, BodyParts.Sex sex, string equipmentName, Elements.Element element)
+    {
+        var equipment = Resources.Load<EquipmentClass>(PathName + equipmentName);
+        south.ChangeEquipment(equipment.south, part, sex,element);
+        north.ChangeEquipment(equipment.north, part, sex,element);
+        east.ChangeEquipment(equipment.east, part, sex,element);
+        west.ChangeEquipment(equipment.west, part, sex,element);
+        northEast.ChangeEquipment(equipment.northEast, part, sex,element);
+        northWest.ChangeEquipment(equipment.northWest, part, sex,element);
+        southEast.ChangeEquipment(equipment.southEast, part, sex,element);
+        southWest.ChangeEquipment(equipment.southWest, part, sex,element );
+        
+    }
+
 
     public void SetMoving(bool moving)
     {
