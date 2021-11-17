@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class MainMenuController : MonoBehaviour
 {
@@ -13,7 +14,12 @@ public class MainMenuController : MonoBehaviour
     [SerializeField] private GameObject tutorial1;
     [SerializeField] private GameObject tutorial2;
 
-    private Vector3 tutorialPos = new Vector3(1260, 0, 0);
+    [SerializeField] private Image tutorial1Imagen;
+    [SerializeField] private Image tutorial2Imagen;
+
+    [SerializeField] private Sprite tutorial1Movil;
+    [SerializeField] private Sprite tutorial2Movil;
+
     private int pagina = 0;
 
     // Start is called before the first frame update
@@ -68,6 +74,13 @@ public class MainMenuController : MonoBehaviour
 
     public void Tutorial()
     {
+        if (CheckIfMobile.isMobile())
+        {
+            tutorial1Imagen.sprite = tutorial1Movil;
+            tutorial2Imagen.sprite = tutorial2Movil;
+
+        }
+
         LeanTween.moveLocalY(botonJugar, -550, .25f);
         LeanTween.moveLocalY(botonAjustes, -550, .25f);
         LeanTween.moveLocalY(botonCreditos, -550, .25f);
@@ -99,9 +112,6 @@ public class MainMenuController : MonoBehaviour
                 LeanTween.moveLocalY(tutorial2, 0, 1f).setEaseOutCubic();
 
                 AnimacionMenuPrincipal();
-
-                //tutorial1.transform.localPosition = tutorialPos;
-                //tutorial2.transform.localPosition = tutorialPos;
 
                 break;
         }

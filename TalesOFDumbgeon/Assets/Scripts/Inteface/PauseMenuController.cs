@@ -74,6 +74,8 @@ public class PauseMenuController : MonoBehaviour
 
         StartCoroutine(EsperarVolver());
 
+        menuPausa.SetActive(false);
+
         Time.timeScale = 1f;
     }
 
