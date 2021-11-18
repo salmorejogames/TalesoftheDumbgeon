@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 1305524535482785505}
   - component: {fileID: 5633646339907591679}
   - component: {fileID: 5753537193114362022}
-  - component: {fileID: 3591624881585876570}
+  - component: {fileID: 8638282061624261275}
   m_Layer: 0
   m_Name: Enemigo
   m_TagString: Enemigo
@@ -143,7 +143,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1305524535482785509}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4432395d09fe69242b3efd8fe98ead3e, type: 3}
   m_Name: 
@@ -157,9 +157,9 @@ MonoBehaviour:
   decisionTime: 500
   decisionClock: 0
   personaje: {fileID: 0}
-  Bala: {fileID: 0}
+  Bala: {fileID: 2652884022069426807, guid: be9b9faf661ed2744b549e7dfa9127bd, type: 3}
   zonaAtaque: {fileID: 7742089658824697865}
-  especie: 0
+  especie: 4
 --- !u!114 &5633646339907591679
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -167,18 +167,11 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1305524535482785509}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe75dc7e7b1608540b14bb84463aa1bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  equipment:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
   maxHealth: 0
   armor: 0
   strength: 0
@@ -207,9 +200,8 @@ MonoBehaviour:
   personaje: {fileID: 0}
   Bala: {fileID: 2652884022069426807, guid: be9b9faf661ed2744b549e7dfa9127bd, type: 3}
   zonaAtaque: {fileID: 7742089658824697865}
-  arma: {fileID: 254033182328914962}
   especie: 1
---- !u!114 &3591624881585876570
+--- !u!114 &8638282061624261275
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -231,7 +223,7 @@ MonoBehaviour:
   personaje: {fileID: 0}
   Bala: {fileID: 6853246064305900786, guid: a8993e45c423b2d4393fcacc8c3ae2fb, type: 3}
   zonaAtaque: {fileID: 7742089658824697865}
-  especie: 5
+  especie: 0
 --- !u!1 &7742089658824697865
 GameObject:
   m_ObjectHideFlags: 0
@@ -315,5 +307,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 874e63734376e5a4c8d21743cae91650, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponInfo: {fileID: 11400000, guid: 88c6ef7853c412741809bc35a9bcd249, type: 2}
   holder: {fileID: 5633646339907591679}
