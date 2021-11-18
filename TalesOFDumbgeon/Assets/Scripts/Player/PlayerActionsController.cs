@@ -10,7 +10,7 @@ using UnityEngine.Rendering.PostProcessing;
 public class PlayerActionsController : MonoBehaviour, IDeadable
 {
     public Weapon weapon;
-    public bool invincible;
+    [NonSerialized] public bool invincible;
 
     [SerializeField] private float inmunityTime;
     [SerializeField] private GameObject movileInterface;
@@ -30,6 +30,7 @@ public class PlayerActionsController : MonoBehaviour, IDeadable
 
     [SerializeField] private PostProcessVolume greyscalePostP;
     [SerializeField] private Camera mainCamera;
+    [SerializeField] private PlayerAnimationController _playerAnimationController;
     private ColorGrading colorGrading;
 
     [SerializeField] private GameObject menuGameOver;
@@ -87,6 +88,7 @@ public class PlayerActionsController : MonoBehaviour, IDeadable
     {
         if (_canAtack)
         {
+            _playerAnimationController.SetAtacking();
             weapon.Atack();
             _canAtack = false;
             Invoke(nameof(ReactiveAtack), weapon.weaponInfo.AttackSpeed);

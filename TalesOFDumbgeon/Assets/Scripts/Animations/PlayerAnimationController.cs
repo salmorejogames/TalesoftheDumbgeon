@@ -18,6 +18,7 @@ public class PlayerAnimationController : MonoBehaviour
     [NonSerialized] public AnimationDirection Current;
     private bool _move;
     private static readonly int Walk = Animator.StringToHash("Walk");
+    private static readonly int Attack = Animator.StringToHash("Attack");
 
     public const string PathName = "EquipmentClass/";
 
@@ -63,11 +64,18 @@ public class PlayerAnimationController : MonoBehaviour
         
     }
 
+    
 
+    public void SetAtacking()
+    {
+        Current.Animator.speed = 4f;
+        Current.Animator.SetTrigger(Attack);
+    }
     public void SetMoving(bool moving)
     {
         if(moving==_move)
             return;
+        Current.Animator.speed = _stats.speed;
         /*
         south.Animator.SetBool(Walk, moving);
         north.Animator.SetBool(Walk, moving);
