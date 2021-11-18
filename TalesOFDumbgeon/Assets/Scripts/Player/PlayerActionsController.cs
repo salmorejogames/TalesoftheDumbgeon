@@ -37,6 +37,9 @@ public class PlayerActionsController : MonoBehaviour, IDeadable
     [SerializeField] private GameObject botonReintentar;
     [SerializeField] private GameObject botonSalir;
 
+    [SerializeField] private AudioSource gameplayMusic;
+
+
     private void Awake()
     {
         _distance = Vector3.Distance(weapon.transform.position, gameObject.transform.position);
@@ -185,6 +188,8 @@ public class PlayerActionsController : MonoBehaviour, IDeadable
         LeanTween.moveLocalX(botonSalir, 265, 1.5f).setEaseOutCubic().setDelay(2f);
         LeanTween.moveLocalY(botonSalir, -200, 1.5f).setEaseOutCubic().setDelay(2f);
         LeanTween.rotateZ(botonSalir, -5, 1f).setEaseOutCubic().setDelay(2f);
+
+        gameplayMusic.Stop();
     }
 
     public void DesactivarMenuGameplay()
