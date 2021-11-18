@@ -69,31 +69,30 @@ public class ArmorCard : BaseCard
                 equipmentName = StaticInfoHolder.Normal;
                 break;
             case BaseArmor.ArmorPart.Wizard:
+                Artwork = SingletoneGameController.InfoHolder.wizard[(int) NewArmor.Part];
                 equipmentName = StaticInfoHolder.Wizard;
                 break;
             case BaseArmor.ArmorPart.Warrior:
+                Artwork = SingletoneGameController.InfoHolder.warrior[(int) NewArmor.Part];
                 equipmentName = StaticInfoHolder.Warrior;
                 break;
             case BaseArmor.ArmorPart.Rogue:
+                Artwork = SingletoneGameController.InfoHolder.rogue[(int) NewArmor.Part];
                 equipmentName = StaticInfoHolder.Rogue;
                 break;
             default:
                 throw new ArgumentOutOfRangeException();
         }
-        var equipment = Resources.Load<EquipmentClass>(PlayerAnimationController.PathName + equipmentName);
         switch (NewArmor.Part)
         {
             case BaseArmor.BodyPart.Head:
                 parts = AnimationDirection.EquipmentParts.Head;
-                Artwork = equipment.south.head_male;
                 break;
             case BaseArmor.BodyPart.Body:
                 parts = AnimationDirection.EquipmentParts.Body;
-                Artwork = equipment.south.body_male;
                 break;
             case BaseArmor.BodyPart.Legs:
                 parts = AnimationDirection.EquipmentParts.Legs;
-                Artwork = equipment.south.rightLeg;
                 break;
             default:
                 throw new ArgumentOutOfRangeException(nameof(NewArmor.Part), NewArmor.Part, null);

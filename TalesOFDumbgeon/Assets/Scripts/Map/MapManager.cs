@@ -129,7 +129,7 @@ public class MapManager : MonoBehaviour
         _player.UpdateAngle(coordinates);
         while (Vector3.Distance(playerPos, playerObjetive)>0.001)
         {
-            playerPos = Vector3.MoveTowards(playerPos, playerObjetive, _player.Stats.speed*playerRelativeSpeed*Time.deltaTime);
+            playerPos = Vector3.MoveTowards(playerPos, playerObjetive, _player.Stats.GetSpeedValue()*playerRelativeSpeed*Time.deltaTime);
             _player.transform.position = playerPos;
             yield return null;
         }

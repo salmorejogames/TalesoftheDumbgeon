@@ -30,6 +30,14 @@ public class CharacterStats : MonoBehaviour
         _actualHealth = maxHealth;
     }
 
+    public float GetSpeedValue()
+    {
+        if (speed <= 0)
+            return 0.1f;
+
+        return (float) Math.Sqrt(speed);
+    }
+
     public float GetActualHealth()
     {
         return _actualHealth;

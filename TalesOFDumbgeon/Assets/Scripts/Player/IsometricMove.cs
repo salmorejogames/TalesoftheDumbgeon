@@ -75,10 +75,10 @@ public class IsometricMove : MonoBehaviour, IMovil
     public void Move()
     {
         Vector2 _direccion = _inputControler.Jugador.Move.ReadValue<Vector2>();
-        if (_direccion.magnitude > 0.1f)
+        if (_direccion.magnitude > 0.01f )
         {
             Vector2 movement = IsometricUtils.AxisToIsometric(_direccion);//IsometricUtils.CartesianToIsometric(_direccion);
-            Vector3 step = movement * (Stats.speed * Time.fixedDeltaTime);
+            Vector3 step = movement * (Stats.GetSpeedValue() * Time.fixedDeltaTime);
             _playerRb.MovePosition((gameObject.transform.position + step));
             UpdateAngle(movement);
             _isoRenderer.animatorController.SetMoving(true);

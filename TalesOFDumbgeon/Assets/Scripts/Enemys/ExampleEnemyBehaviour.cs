@@ -9,7 +9,8 @@ public class ExampleEnemyBehaviour : MonoBehaviour, IDeadable
 {
     private SpriteRenderer _spr;
     private IsometricMove _player;
-    private CharacterStats _stats;
+    [NonSerialized] public  CharacterStats stats;
+    public int difficulty;
 
     [SerializeField]
     private DamageNumber DmgPrefab;
@@ -20,13 +21,13 @@ public class ExampleEnemyBehaviour : MonoBehaviour, IDeadable
         {
             if(_player==null)
                 _player = SingletoneGameController.PlayerActions.player;
-            gameObject.transform.position = Vector3.MoveTowards(gameObject.transform.position, _player.transform.position, _stats.speed*Time.deltaTime);
+            gameObject.transform.position = Vector3.MoveTowards(gameObject.transform.position, _player.transform.position, stats.GetSpeedValue()*Time.deltaTime);
         }
     }
 
-    private void Start()
+    private void Awake()
     {
-        _stats = gameObject.GetComponent<CharacterStats>();
+        stats = gameObject.GetComponent<CharacterStats>();
         _spr = gameObject.GetComponent<SpriteRenderer>();
         _player = SingletoneGameController.PlayerActions.player;
     }
@@ -38,7 +39,7 @@ public class ExampleEnemyBehaviour : MonoBehaviour, IDeadable
 
     public void Damage(Vector3 enemyPos, float cantidad, Elements.Element element)
     {
-        float multiplier = Elements.GetElementMultiplier(element, _stats.element);
+        float multiplier = Elements.GetElementMultiplier(element, stats.element);
         DamageNumber dmgN = Instantiate(DmgPrefab, transform.position, Quaternion.identity);
         dmgN.Inicializar(cantidad, transform);
         if(multiplier>1.1f)
