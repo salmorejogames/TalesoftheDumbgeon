@@ -27,6 +27,14 @@ public class @InputControler : IInputActionCollection, IDisposable
                     ""interactions"": """"
                 },
                 {
+                    ""name"": ""Hechizo"",
+                    ""type"": ""Button"",
+                    ""id"": ""f74cebfa-95a1-43e9-a10a-7c9591b9464b"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
                     ""name"": ""Move"",
                     ""type"": ""Value"",
                     ""id"": ""9db0b795-d70f-4922-8658-4ea12e7945d5"",
@@ -199,6 +207,28 @@ public class @InputControler : IInputActionCollection, IDisposable
                     ""action"": ""Habilidad4"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""49a76a04-deb1-48ee-a40f-176df16535e1"",
+                    ""path"": ""<Mouse>/rightButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""keyboard and mouse"",
+                    ""action"": ""Hechizo"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d63718d3-a41b-4da2-8669-5d4b61f7d180"",
+                    ""path"": ""<Keyboard>/o"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""keyboard and mouse;Movil"",
+                    ""action"": ""Hechizo"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -336,6 +366,7 @@ public class @InputControler : IInputActionCollection, IDisposable
         // Jugador
         m_Jugador = asset.FindActionMap("Jugador", throwIfNotFound: true);
         m_Jugador_Atacar = m_Jugador.FindAction("Atacar", throwIfNotFound: true);
+        m_Jugador_Hechizo = m_Jugador.FindAction("Hechizo", throwIfNotFound: true);
         m_Jugador_Move = m_Jugador.FindAction("Move", throwIfNotFound: true);
         m_Jugador_Habilidad1 = m_Jugador.FindAction("Habilidad1", throwIfNotFound: true);
         m_Jugador_Habilidad2 = m_Jugador.FindAction("Habilidad2", throwIfNotFound: true);
@@ -397,6 +428,7 @@ public class @InputControler : IInputActionCollection, IDisposable
     private readonly InputActionMap m_Jugador;
     private IJugadorActions m_JugadorActionsCallbackInterface;
     private readonly InputAction m_Jugador_Atacar;
+    private readonly InputAction m_Jugador_Hechizo;
     private readonly InputAction m_Jugador_Move;
     private readonly InputAction m_Jugador_Habilidad1;
     private readonly InputAction m_Jugador_Habilidad2;
@@ -407,6 +439,7 @@ public class @InputControler : IInputActionCollection, IDisposable
         private @InputControler m_Wrapper;
         public JugadorActions(@InputControler wrapper) { m_Wrapper = wrapper; }
         public InputAction @Atacar => m_Wrapper.m_Jugador_Atacar;
+        public InputAction @Hechizo => m_Wrapper.m_Jugador_Hechizo;
         public InputAction @Move => m_Wrapper.m_Jugador_Move;
         public InputAction @Habilidad1 => m_Wrapper.m_Jugador_Habilidad1;
         public InputAction @Habilidad2 => m_Wrapper.m_Jugador_Habilidad2;
@@ -424,6 +457,9 @@ public class @InputControler : IInputActionCollection, IDisposable
                 @Atacar.started -= m_Wrapper.m_JugadorActionsCallbackInterface.OnAtacar;
                 @Atacar.performed -= m_Wrapper.m_JugadorActionsCallbackInterface.OnAtacar;
                 @Atacar.canceled -= m_Wrapper.m_JugadorActionsCallbackInterface.OnAtacar;
+                @Hechizo.started -= m_Wrapper.m_JugadorActionsCallbackInterface.OnHechizo;
+                @Hechizo.performed -= m_Wrapper.m_JugadorActionsCallbackInterface.OnHechizo;
+                @Hechizo.canceled -= m_Wrapper.m_JugadorActionsCallbackInterface.OnHechizo;
                 @Move.started -= m_Wrapper.m_JugadorActionsCallbackInterface.OnMove;
                 @Move.performed -= m_Wrapper.m_JugadorActionsCallbackInterface.OnMove;
                 @Move.canceled -= m_Wrapper.m_JugadorActionsCallbackInterface.OnMove;
@@ -446,6 +482,9 @@ public class @InputControler : IInputActionCollection, IDisposable
                 @Atacar.started += instance.OnAtacar;
                 @Atacar.performed += instance.OnAtacar;
                 @Atacar.canceled += instance.OnAtacar;
+                @Hechizo.started += instance.OnHechizo;
+                @Hechizo.performed += instance.OnHechizo;
+                @Hechizo.canceled += instance.OnHechizo;
                 @Move.started += instance.OnMove;
                 @Move.performed += instance.OnMove;
                 @Move.canceled += instance.OnMove;
@@ -543,6 +582,7 @@ public class @InputControler : IInputActionCollection, IDisposable
     public interface IJugadorActions
     {
         void OnAtacar(InputAction.CallbackContext context);
+        void OnHechizo(InputAction.CallbackContext context);
         void OnMove(InputAction.CallbackContext context);
         void OnHabilidad1(InputAction.CallbackContext context);
         void OnHabilidad2(InputAction.CallbackContext context);

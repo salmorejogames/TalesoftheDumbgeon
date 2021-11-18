@@ -31,6 +31,4 @@ public abstract class BaseCard
     }
 
     public abstract void CastEffect();
-
-    public abstract void Randomize();
 }

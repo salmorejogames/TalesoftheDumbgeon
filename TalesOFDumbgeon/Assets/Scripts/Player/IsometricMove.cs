@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class IsometricMove : MonoBehaviour
+public class IsometricMove : MonoBehaviour, IMovil
 {
     private const float ORIENTATION_STEP = 45f;
     private const float ORIENTATION_STEP_SMALL = 30f;
@@ -18,8 +18,8 @@ public class IsometricMove : MonoBehaviour
     private Rigidbody2D _playerRb;
     private InputControler _inputControler;
     private IsometricCharacterRenderer _isoRenderer;
-   
-   
+
+    public IsometricCharacterRenderer IsoRenderer => _isoRenderer;
 
     private void Awake()
     {
@@ -34,15 +34,12 @@ public class IsometricMove : MonoBehaviour
     {
         if (CanMove())
         {
-                Vector2 _direccion = _inputControler.Jugador.Move.ReadValue<Vector2>();
-                if (!_direccion.Equals(Vector2.zero))
-                {
-                    Vector2 movement =  IsometricUtils.CartesianToIsometric(_direccion);
-                    Vector3 step = movement * (Stats.speed * Time.fixedDeltaTime);
-                    _playerRb.MovePosition((gameObject.transform.position + step));
-                    UpdateAngle(movement);
-                }
+            Move();          
+        }else
+        {
+            _isoRenderer.animatorController.SetMoving(false);
         }
+        
         PlayerActions.UpdateWeaponPosition(angle);
     }
 
@@ -74,6 +71,28 @@ public class IsometricMove : MonoBehaviour
                 break;
         }
     }
+    
+    public void Move()
+    {
+        Vector2 _direccion = _inputControler.Jugador.Move.ReadValue<Vector2>();
+        if (_direccion.magnitude > 0.1f)
+        {
+            Vector2 movement = IsometricUtils.AxisToIsometric(_direccion);//IsometricUtils.CartesianToIsometric(_direccion);
+            Vector3 step = movement * (Stats.speed * Time.fixedDeltaTime);
+            _playerRb.MovePosition((gameObject.transform.position + step));
+            UpdateAngle(movement);
+            _isoRenderer.animatorController.SetMoving(true);
+        }
+        else
+        {
+            _isoRenderer.animatorController.SetMoving(false);
+        }
+    }
+
+    public void DisableMovement(float time)
+    {
+        SingletoneGameController.PlayerActions.DisableMovement(time);
+    }
 
     private void OnEnable()
     {
@@ -84,5 +103,6 @@ public class IsometricMove : MonoBehaviour
     {
         _inputControler.Disable();
     }
+
     
 }

@@ -76,12 +76,4 @@ public class WeaponCard : BaseCard
     {
         Weapon.GetWeaponHolder().ChangeWeapon(Weapon);
     }
-
-    public override void Randomize()
-    {
-        Weapon.Randomize(1);
-        String[] info = StaticInfoHolder.LoadName(Weapon.AttackType, Weapon.Element);
-        CardName = info[0];
-        Description = info[1];
-    }
 }
