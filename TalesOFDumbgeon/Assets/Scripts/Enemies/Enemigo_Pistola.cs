@@ -332,7 +332,7 @@ public class Enemigo_Pistola : MonoBehaviour, IDeadable
         gameObject.SetActive(false);
     }
 
-    public void Damage(GameObject enemy, float cantidad, Elements.Element element)
+    public void Damage(Vector3 enemy, float cantidad, Elements.Element element)
     {
         float multiplier = Elements.GetElementMultiplier(element, _stats.element);
         if (multiplier > 1.1f)

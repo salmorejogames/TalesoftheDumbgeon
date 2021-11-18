@@ -36,7 +36,7 @@ public class Bala_Enemigo : MonoBehaviour
         }
         if (collision.gameObject.CompareTag("Player"))
         {
-            collision.gameObject.GetComponent<CharacterStats>().DoDamage(5, gameObject, Elements.Element.Caos);
+            collision.gameObject.GetComponent<CharacterStats>().DoDamage(5, gameObject.transform.position, Elements.Element.Caos);
             Destroy(gameObject);
         }
     }
