@@ -8,7 +8,6 @@ namespace Inteface
 {
     public class GameplayInterfaceController : MonoBehaviour
     {
-
         [SerializeField] private List<RectTransform> icons;
         [SerializeField] private List<RectTransform> banners;
         [SerializeField] private float animationTime;
@@ -16,6 +15,9 @@ namespace Inteface
         [SerializeField] private RectTransform lifeBar;
         private List<Vector3> _originalPos;
         private List<Vector3> _hiddenPos;
+
+        public Image contArma;
+
         // Start is called before the first frame update
         void Start()
         {
@@ -109,6 +111,16 @@ namespace Inteface
                     banners[i].anchoredPosition = _hiddenPos[i];
             }
             yield return null;
+        }
+
+        public void CambiarSprite(Image imagenActual, Sprite nuevoSprite)
+        {
+            switch (imagenActual.gameObject.name)
+            {
+                case "SpriteArma":
+                    contArma.sprite = nuevoSprite;
+                    break;
+            }
         }
     }
 }
