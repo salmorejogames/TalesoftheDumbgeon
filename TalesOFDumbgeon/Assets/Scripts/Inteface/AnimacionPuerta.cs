@@ -29,9 +29,6 @@ public class AnimacionPuerta : MonoBehaviour
 
     private void Awake()
     {
-        //audioSource = GetComponent<AudioSource>();
-        //audioSourceFondo = GetComponent<AudioSource>();
-
         iuInput = new InterfaceControls();
         iuInput.Menuprincipal.Animacionpuerta.performed += ctx => HacerClick();
     }

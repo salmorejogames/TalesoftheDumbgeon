@@ -38,8 +38,8 @@ public class PlayerActionsController : MonoBehaviour, IDeadable
     [SerializeField] private GameObject botonReintentar;
     [SerializeField] private GameObject botonSalir;
 
-    [SerializeField] private AudioSource gameplayMusic;
-
+    [SerializeField] private AudioSource musicaGameOver;
+    [SerializeField] private AudioSource musicaGameplay;
 
     private void Awake()
     {
@@ -166,15 +166,10 @@ public class PlayerActionsController : MonoBehaviour, IDeadable
         SingletoneGameController.PlayerActions.dead = true;
         Greyscale();
         DesactivarMenuGameplay();
-
+        musicaGameplay.Stop();
         menuGameOver.SetActive(true);
-
+        musicaGameOver.Play();
         AnimarMenuGameOver();
-        //SingletoneGameController.Instance.ChangeScene("GameOverScene");
-        Debug.Log("Im dead");
-
-        //mainCamera.transform.position = gameObject.transform.position;
-        //mainCamera.orthographicSize = 1f;
     }
 
     public void Damage(Vector3 enemyPos, float cantidad, Elements.Element element)
@@ -216,8 +211,6 @@ public class PlayerActionsController : MonoBehaviour, IDeadable
         LeanTween.moveLocalX(botonSalir, 265, 1.5f).setEaseOutCubic().setDelay(2f);
         LeanTween.moveLocalY(botonSalir, -200, 1.5f).setEaseOutCubic().setDelay(2f);
         LeanTween.rotateZ(botonSalir, -5, 1f).setEaseOutCubic().setDelay(2f);
-
-        gameplayMusic.Stop();
     }
 
     public void DesactivarMenuGameplay()
@@ -235,21 +228,7 @@ public class PlayerActionsController : MonoBehaviour, IDeadable
 
     public void Greyscale()
     {
-        //colorGrading.saturation.value = -100;
+        colorGrading.saturation.value = -100;
         //mainCamera.orthographicSize = .5f;
-        float greyValue = 0;
-        StartCoroutine(GreyScaleCoroutine(greyValue));
-    }
-
-
-    IEnumerator GreyScaleCoroutine(float greyValue)
-    {
-        while (greyValue >= -100)
-        {
-            greyValue -= .01f * Time.realtimeSinceStartup;
-            colorGrading.saturation.value = greyValue;
-        }
-
-        yield return null;
     }
 }

@@ -43,12 +43,12 @@ public class @InterfaceControls : IInputActionCollection, IDisposable
         },
         {
             ""name"": ""Menu pausa"",
-            ""id"": ""4d92297b-d550-4c94-82e2-6f07f11e1f14"",
+            ""id"": ""816d2441-a456-43dc-9f06-055af2fecf42"",
             ""actions"": [
                 {
                     ""name"": ""Pausa"",
                     ""type"": ""Button"",
-                    ""id"": ""205ba98d-ebad-4bd3-a24e-74fffc568048"",
+                    ""id"": ""fdf406b5-3bcf-44f3-ba27-05c43fa53c21"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
@@ -57,7 +57,7 @@ public class @InterfaceControls : IInputActionCollection, IDisposable
             ""bindings"": [
                 {
                     ""name"": """",
-                    ""id"": ""1f657d1a-a428-4621-87aa-fd0a9eb7e420"",
+                    ""id"": ""dd32c09e-38a9-4391-ad09-a7e041bb14a1"",
                     ""path"": ""<Keyboard>/escape"",
                     ""interactions"": """",
                     ""processors"": """",
