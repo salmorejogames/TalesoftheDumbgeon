@@ -25,7 +25,7 @@ public class ExampleEnemyBehaviour : MonoBehaviour, IDeadable
                 _player = SingletoneGameController.PlayerActions.player;
             //gameObject.transform.position = Vector3.MoveTowards(gameObject.transform.position, _player.transform.position, stats.GetSpeedValue()*Time.deltaTime);
             agent.destination = _player.transform.position;
-            agent.speed = stats.GetSpeedValue();
+            
         }
     }
 
@@ -35,6 +35,7 @@ public class ExampleEnemyBehaviour : MonoBehaviour, IDeadable
         _spr = gameObject.GetComponent<SpriteRenderer>();
         _player = SingletoneGameController.PlayerActions.player;
         agent.updateUpAxis = false;
+        agent.speed = stats.GetSpeedValue();
         agent.updateRotation = false;
     }
 
