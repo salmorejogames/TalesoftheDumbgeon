@@ -27,6 +27,33 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "Menu pausa",
+            "id": "816d2441-a456-43dc-9f06-055af2fecf42",
+            "actions": [
+                {
+                    "name": "Pausa",
+                    "type": "Button",
+                    "id": "fdf406b5-3bcf-44f3-ba27-05c43fa53c21",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "dd32c09e-38a9-4391-ad09-a7e041bb14a1",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Pausa",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": []
