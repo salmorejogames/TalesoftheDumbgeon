@@ -10,12 +10,12 @@ GameObject:
   m_Component:
   - component: {fileID: 2652884022069426812}
   - component: {fileID: 2652884022069426811}
-  - component: {fileID: 2652884022069426810}
   - component: {fileID: 2652884022069426809}
   - component: {fileID: 2652884022069426808}
+  - component: {fileID: 7802470693893842864}
   m_Layer: 0
   m_Name: Bala
-  m_TagString: Bala
+  m_TagString: BalaEnemiga
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -49,6 +49,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -75,7 +76,7 @@ SpriteRenderer:
   m_SortingOrder: 10
   m_Sprite: {fileID: 21300000, guid: 3da0271931c3b714599219e5681de2a4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 7, y: 3.76}
@@ -84,22 +85,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &2652884022069426810
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2652884022069426807}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1721d3b244cd243478db0b2dcd6ea9f7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 100
-  personaje: {fileID: 0}
-  sr: {fileID: 2652884022069426811}
-  rbBullet: {fileID: 2652884022069426809}
 --- !u!50 &2652884022069426809
 Rigidbody2D:
   serializedVersion: 4
@@ -112,9 +97,9 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 0.0001
   m_LinearDrag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 0
   m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
@@ -136,4 +121,17 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 1.44
+  m_Radius: 0.81
+--- !u!114 &7802470693893842864
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2652884022069426807}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de98726fa7c56084ab42381aa530900b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 4

@@ -35,11 +35,11 @@ public class Weapon : MonoBehaviour
         newWeapon.SetWeaponHolder(this);
         weaponInfo = newWeapon;
         weaponInfo.Equip();
-        _spriteRenderer.sprite = weaponInfo.WeaponSprite;
+        //_spriteRenderer.sprite = weaponInfo.WeaponSprite;
         _collider = gameObject.AddComponent<PolygonCollider2D>();
         _collider.enabled = false;
         _collider.isTrigger = true;
-        _spriteRenderer.color = SingletoneGameController.InfoHolder.LoadColor(weaponInfo.Element);
+        //_spriteRenderer.color = SingletoneGameController.InfoHolder.LoadColor(weaponInfo.Element);
     }
     
     public void ChangeSpell(BaseSpell newSpell)
