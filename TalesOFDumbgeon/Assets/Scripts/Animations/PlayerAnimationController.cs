@@ -50,6 +50,7 @@ public class PlayerAnimationController : MonoBehaviour
         northWest.ChangeWeapon(weaponType, element);
         southEast.ChangeWeapon(weaponType, element);
         southWest.ChangeWeapon(weaponType, element);
+        Current.UpdateWeaponType(_weapon);
         _weapon = weaponType;
 
     }
