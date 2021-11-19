@@ -832,6 +832,7 @@ GameObject:
   - component: {fileID: 1115182075542822013}
   - component: {fileID: 7881152534294381081}
   - component: {fileID: 833516864745792791}
+  - component: {fileID: 7982931082988318929}
   m_Layer: 0
   m_Name: Triggers
   m_TagString: EscenarioTrigger
@@ -2724,6 +2725,22 @@ TilemapCollider2D:
   m_Offset: {x: 0, y: 0}
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0.00001
+--- !u!114 &7982931082988318929
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3907298092584946237}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_OverrideArea: 1
+  m_Area: 1
+  m_IgnoreFromBuild: 0
+  m_AffectedAgents: ffffffff
 --- !u!1 &6356500553481987202
 GameObject:
   m_ObjectHideFlags: 0
@@ -2738,6 +2755,7 @@ GameObject:
   - component: {fileID: 7329575102646037817}
   - component: {fileID: 123078062479638412}
   - component: {fileID: 6619574719327875077}
+  - component: {fileID: 5231770876076933631}
   m_Layer: 0
   m_Name: Collisions
   m_TagString: Escenario
@@ -3248,6 +3266,16 @@ Tilemap:
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
+  - first: {x: 3, y: 3, z: 0}
+    second:
+      serializedVersion: 2
+      m_TileIndex: 0
+      m_TileSpriteIndex: 0
+      m_TileMatrixIndex: 0
+      m_TileColorIndex: 0
+      m_TileObjectToInstantiateIndex: 65535
+      dummyAlignment: 0
+      m_AllTileFlags: 1073741825
   - first: {x: 10, y: 3, z: 0}
     second:
       serializedVersion: 2
@@ -3560,13 +3588,13 @@ Tilemap:
       m_AllTileFlags: 1073741825
   m_AnimatedTiles: {}
   m_TileAssetArray:
-  - m_RefCount: 79
+  - m_RefCount: 80
     m_Data: {fileID: 11400000, guid: 41b9850ddb47b454cb3404c2730735aa, type: 2}
   m_TileSpriteArray:
-  - m_RefCount: 79
+  - m_RefCount: 80
     m_Data: {fileID: 21300000, guid: d8d0cc927abad1141b6c793164509420, type: 3}
   m_TileMatrixArray:
-  - m_RefCount: 79
+  - m_RefCount: 80
     m_Data:
       e00: 1
       e01: 0
@@ -3585,7 +3613,7 @@ Tilemap:
       e32: 0
       e33: 1
   m_TileColorArray:
-  - m_RefCount: 79
+  - m_RefCount: 80
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
@@ -9443,6 +9471,230 @@ CompositeCollider2D:
       - X: -64921876
         Y: -31758124
     - - X: 78153
+        Y: 17316530
+      - X: 175822
+        Y: 17355597
+      - X: 175829
+        Y: 17355600
+      - X: 468800
+        Y: 17531381
+      - X: 878956
+        Y: 17765757
+      - X: 1230517
+        Y: 17961069
+      - X: 1230519
+        Y: 17961070
+      - X: 1328176
+        Y: 18019664
+      - X: 1562545
+        Y: 18156379
+      - X: 1679737
+        Y: 18214975
+      - X: 1875049
+        Y: 18332163
+      - X: 2187549
+        Y: 18507945
+      - X: 2187550
+        Y: 18507946
+      - X: 2519580
+        Y: 18703257
+      - X: 3242236
+        Y: 19113413
+      - X: 3515675
+        Y: 19269663
+      - X: 3515676
+        Y: 19269664
+      - X: 3710986
+        Y: 19386851
+      - X: 4160206
+        Y: 19640757
+      - X: 4160207
+        Y: 19640758
+      - X: 4257861
+        Y: 19699351
+      - X: 4609424
+        Y: 19894663
+      - X: 4824269
+        Y: 20011852
+      - X: 4824273
+        Y: 20011854
+      - X: 5000076
+        Y: 20129057
+      - X: 5000100
+        Y: 20129101
+      - X: 5000100
+        Y: 20246324
+      - X: 5000095
+        Y: 20246346
+      - X: 4980552
+        Y: 20285434
+      - X: 4980531
+        Y: 20285456
+      - X: 4394580
+        Y: 20617493
+      - X: 4335991
+        Y: 20656552
+      - X: 4335989
+        Y: 20656554
+      - X: 3769581
+        Y: 20988586
+      - X: 3769580
+        Y: 20988587
+      - X: 3457080
+        Y: 21164369
+      - X: 3261769
+        Y: 21281554
+      - X: 3261767
+        Y: 21281555
+      - X: 2910205
+        Y: 21476869
+      - X: 2617238
+        Y: 21652648
+      - X: 2617237
+        Y: 21652649
+      - X: 2168017
+        Y: 21906555
+      - X: 2070363
+        Y: 21965148
+      - X: 2070362
+        Y: 21965149
+      - X: 1386768
+        Y: 22355775
+      - X: 1230520
+        Y: 22453429
+      - X: 1230518
+        Y: 22453431
+      - X: 781299
+        Y: 22707337
+      - X: 644580
+        Y: 22785463
+      - X: 351613
+        Y: 22961242
+      - X: 117226
+        Y: 23097969
+      - X: 117200
+        Y: 23097976
+      - X: -97668
+        Y: 23097976
+      - X: -97690
+        Y: 23097971
+      - X: -136764
+        Y: 23078433
+      - X: -136766
+        Y: 23078432
+      - X: -488330
+        Y: 22883119
+      - X: -898487
+        Y: 22648743
+      - X: -898487
+        Y: 22648742
+      - X: -1230519
+        Y: 22453430
+      - X: -1621144
+        Y: 22219054
+      - X: -2070362
+        Y: 21965149
+      - X: -2070363
+        Y: 21965148
+      - X: -2363332
+        Y: 21789368
+      - X: -2617235
+        Y: 21652649
+      - X: -2617237
+        Y: 21652648
+      - X: -2812551
+        Y: 21535462
+      - X: -2988330
+        Y: 21437805
+      - X: -2988331
+        Y: 21437805
+      - X: -3359425
+        Y: 21222962
+      - X: -3359426
+        Y: 21222962
+      - X: -3457081
+        Y: 21164369
+      - X: -3730519
+        Y: 21008118
+      - X: -3730522
+        Y: 21008116
+      - X: -3847705
+        Y: 20929993
+      - X: -4199268
+        Y: 20734681
+      - X: -4472706
+        Y: 20578430
+      - X: -4472708
+        Y: 20578429
+      - X: -4628959
+        Y: 20480773
+      - X: -4980531
+        Y: 20285456
+      - X: -4980552
+        Y: 20285434
+      - X: -5000095
+        Y: 20246346
+      - X: -5000100
+        Y: 20246324
+      - X: -5000100
+        Y: 20129100
+      - X: -5000075
+        Y: 20129055
+      - X: -4843801
+        Y: 20031382
+      - X: -4843797
+        Y: 20031380
+      - X: -4648488
+        Y: 19933726
+      - X: -4160207
+        Y: 19640758
+      - X: -4160206
+        Y: 19640757
+      - X: -4023487
+        Y: 19562631
+      - X: -3515675
+        Y: 19269663
+      - X: -3203175
+        Y: 19093881
+      - X: -2871143
+        Y: 18898569
+      - X: -2871141
+        Y: 18898568
+      - X: -2617238
+        Y: 18761852
+      - X: -2226613
+        Y: 18527476
+      - X: -1992237
+        Y: 18390757
+      - X: -1992235
+        Y: 18390756
+      - X: -1738334
+        Y: 18254041
+      - X: -1582083
+        Y: 18156382
+      - X: -1582080
+        Y: 18156381
+      - X: -1367235
+        Y: 18039194
+      - X: -1191459
+        Y: 17922009
+      - X: -1191454
+        Y: 17922006
+      - X: -1074263
+        Y: 17863411
+      - X: -625049
+        Y: 17609507
+      - X: -527394
+        Y: 17550914
+      - X: -527393
+        Y: 17550913
+      - X: -117225
+        Y: 17316533
+      - X: -117200
+        Y: 17316526
+      - X: 78135
+        Y: 17316526
+    - - X: 78153
         Y: -51965476
       - X: 175822
         Y: -51926407
@@ -12862,6 +13114,45 @@ CompositeCollider2D:
       - {x: -5.884765, y: -2.237134}
       - {x: -5.9472666, y: -2.2722912}
       - {x: -5.962891, y: -2.2820563}
+    - - {x: -0.4980483, y: 2.0285473}
+      - {x: -0.50001, y: 2.0246265}
+      - {x: -0.499995, y: 2.0128977}
+      - {x: -0.484378, y: 2.003137}
+      - {x: -0.464848, y: 1.9933721}
+      - {x: -0.2871126, y: 1.889856}
+      - {x: -0.2617236, y: 1.8761852}
+      - {x: -0.1992217, y: 1.8390744}
+      - {x: -0.1738332, y: 1.825404}
+      - {x: -0.1582089, y: 1.8156388}
+      - {x: -0.1367216, y: 1.803918}
+      - {x: -0.1191437, y: 1.7921996}
+      - {x: -0.1074251, y: 1.7863405}
+      - {x: -0.0117133, y: 1.7316526}
+      - {x: 0.0078181, y: 1.7316544}
+      - {x: 0.017584201, y: 1.7355608}
+      - {x: 0.1562558, y: 1.8156387}
+      - {x: 0.1679731, y: 1.8214972}
+      - {x: 0.4258236, y: 1.9699558}
+      - {x: 0.4824284, y: 2.0011861}
+      - {x: 0.50001, y: 2.0129244}
+      - {x: 0.5000068, y: 2.02464}
+      - {x: 0.4980464, y: 2.0285497}
+      - {x: 0.3261781, y: 2.1281548}
+      - {x: 0.29102, y: 2.1476872}
+      - {x: 0.1386765, y: 2.2355776}
+      - {x: 0.1230516, y: 2.2453432}
+      - {x: 0.0644564, y: 2.2785473}
+      - {x: 0.011713, y: 2.3097975}
+      - {x: -0.009775, y: 2.309794}
+      - {x: -0.0898471, y: 2.2648752}
+      - {x: -0.162117, y: 2.221904}
+      - {x: -0.2070357, y: 2.1965153}
+      - {x: -0.2363353, y: 2.1789355}
+      - {x: -0.261727, y: 2.165263}
+      - {x: -0.3730519, y: 2.1008117}
+      - {x: -0.3847701, y: 2.0929997}
+      - {x: -0.44727162, y: 2.0578425}
+      - {x: -0.4628959, y: 2.048077}
     - - {x: 0.8007773, y: -5.0891256}
       - {x: 0.8261668, y: -5.102797}
       - {x: 0.8417911, y: -5.1125617}
@@ -13344,6 +13635,22 @@ CompositeCollider2D:
       - {x: 0.7382763, y: -5.052016}
   m_VertexDistance: 0.0005
   m_OffsetDistance: 0.00005
+--- !u!114 &5231770876076933631
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6356500553481987202}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_OverrideArea: 1
+  m_Area: 1
+  m_IgnoreFromBuild: 0
+  m_AffectedAgents: ffffffff
 --- !u!1 &7057899662538505117
 GameObject:
   m_ObjectHideFlags: 0
@@ -13355,6 +13662,7 @@ GameObject:
   - component: {fileID: 9122831036906614678}
   - component: {fileID: 3471779580378091689}
   - component: {fileID: 8801667228055804920}
+  - component: {fileID: 1628712895768253737}
   m_Layer: 0
   m_Name: Ground
   m_TagString: Untagged
@@ -17126,6 +17434,22 @@ TilemapRenderer:
   m_Mode: 1
   m_DetectChunkCullingBounds: 0
   m_MaskInteraction: 0
+--- !u!114 &1628712895768253737
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7057899662538505117}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_OverrideArea: 1
+  m_Area: 0
+  m_IgnoreFromBuild: 0
+  m_AffectedAgents: ffffffff
 --- !u!1 &8120898947645969636
 GameObject:
   m_ObjectHideFlags: 0

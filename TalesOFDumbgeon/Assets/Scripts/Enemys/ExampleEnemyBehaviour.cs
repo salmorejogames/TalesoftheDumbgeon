@@ -4,11 +4,13 @@ using System.Collections.Generic;
 using Interfaces;
 using UnityEditor.UIElements;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class ExampleEnemyBehaviour : MonoBehaviour, IDeadable
 {
     private SpriteRenderer _spr;
     private IsometricMove _player;
+    [SerializeField] private NavMeshAgent agent;
     [NonSerialized] public  CharacterStats stats;
     public int difficulty;
 
@@ -21,7 +23,9 @@ public class ExampleEnemyBehaviour : MonoBehaviour, IDeadable
         {
             if(_player==null)
                 _player = SingletoneGameController.PlayerActions.player;
-            gameObject.transform.position = Vector3.MoveTowards(gameObject.transform.position, _player.transform.position, stats.GetSpeedValue()*Time.deltaTime);
+            //gameObject.transform.position = Vector3.MoveTowards(gameObject.transform.position, _player.transform.position, stats.GetSpeedValue()*Time.deltaTime);
+            agent.destination = _player.transform.position;
+            agent.speed = stats.GetSpeedValue();
         }
     }
 
@@ -30,6 +34,8 @@ public class ExampleEnemyBehaviour : MonoBehaviour, IDeadable
         stats = gameObject.GetComponent<CharacterStats>();
         _spr = gameObject.GetComponent<SpriteRenderer>();
         _player = SingletoneGameController.PlayerActions.player;
+        agent.updateUpAxis = false;
+        agent.updateRotation = false;
     }
 
     public void Dead()
