@@ -14,6 +14,7 @@ public class Weapon : MonoBehaviour
     [NonSerialized] public float angle;
     [NonSerialized] public float relativeAngle;
     [NonSerialized] public float relativePosition;
+    
 
 
     // Start is called before the first frame update
@@ -26,7 +27,7 @@ public class Weapon : MonoBehaviour
         weapon.Randomize(1);
         ChangeWeapon(weapon);
     }
-
+    
     public void ChangeWeapon(BaseWeapon newWeapon)
     {
         //Reset Collider

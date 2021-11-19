@@ -7,10 +7,12 @@ public abstract class BaseWeapon : BaseEquipment
 
     public enum WeaponType
     {
-        Area,
-        Ranged,
-        Smashing,
-        Piercing,
+        Area = 4,
+        Ranged = 3,
+        Smashing = 5,
+        Piercing = 1,
+        Frisbie = 2,
+        Rapier = 0
     }
     public Sprite WeaponSprite;
     public float Dmg;
@@ -35,6 +37,13 @@ public abstract class BaseWeapon : BaseEquipment
         base.Unequip();
         if(WeaponHolder.holder.CompareTag("Player"))
             SingletoneGameController.CardHolder.AddCard(new WeaponCard(this));
+    }
+
+    public override void Equip()
+    {
+        base.Equip();
+        if(WeaponHolder.holder.CompareTag("Player"))
+            SingletoneGameController.PlayerActions.playerAnimation.EquipWeapon(AttackType, Element);
     }
 
     public Weapon GetWeaponHolder()

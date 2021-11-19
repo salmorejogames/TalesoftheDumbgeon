@@ -6,6 +6,7 @@ public class PlayerActions : MonoBehaviour
 {
 
     public IsometricMove player;
+    public PlayerAnimationController playerAnimation;
     private int _movementImpediments;
     public bool dead;
     
@@ -18,6 +19,7 @@ public class PlayerActions : MonoBehaviour
     public void ReloadCharacter()
     {
         player = FindObjectOfType<IsometricMove>();
+        playerAnimation = FindObjectOfType<PlayerAnimationController>();
         dead = false;
         _movementImpediments = 0;
     }

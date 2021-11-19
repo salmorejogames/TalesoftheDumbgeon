@@ -164,8 +164,8 @@ MonoBehaviour:
   - {fileID: 4917202165667057915}
   - {fileID: 2178275575775887672}
   m_Bounds:
-    m_Center: {x: -0.9907714, y: 0.06161928, z: 0}
-    m_Extent: {x: 1.2046129, y: 2.2586675, z: 0}
+    m_Center: {x: 0.00000029802322, y: 0.00000023841858, z: 0}
+    m_Extent: {x: 0.62000036, y: 2.315, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
 --- !u!1 &1523808984834337320
@@ -413,8 +413,8 @@ MonoBehaviour:
   - {fileID: 9139910638845243101}
   - {fileID: 6785375780030892677}
   m_Bounds:
-    m_Center: {x: 1.7026762, y: 1.3628817, z: 0}
-    m_Extent: {x: 1.8471407, y: 0.6729163, z: 0}
+    m_Center: {x: 2.0156083, y: 0.7116643, z: 0}
+    m_Extent: {x: 1.8047962, y: 1.3821791, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
 --- !u!1 &2235718991510547216
@@ -551,8 +551,8 @@ MonoBehaviour:
   - {fileID: 681804553980909032}
   - {fileID: 6609541232373569430}
   m_Bounds:
-    m_Center: {x: -0.20307195, y: -0.03257823, z: 0}
-    m_Extent: {x: 1.007241, y: 2.162772, z: 0}
+    m_Center: {x: 0.00000047683716, y: 0.0006351471, z: 0}
+    m_Extent: {x: 0.89500034, y: 2.1959853, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
 --- !u!1 &3649196942157518018
@@ -655,8 +655,8 @@ MonoBehaviour:
   m_BoneTransforms:
   - {fileID: 6908407501853742397}
   m_Bounds:
-    m_Center: {x: -0.5479636, y: -0.023907423, z: 0}
-    m_Extent: {x: 3.1424918, y: 3.1160955, z: 0}
+    m_Center: {x: -0.000374794, y: 0.00000047683716, z: 0}
+    m_Extent: {x: 3.141885, y: 3.115, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
 --- !u!1 &4261358674135811642
@@ -751,6 +751,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2272733269004216067}
   - component: {fileID: 5135066150221297547}
+  - component: {fileID: 6081053373019375583}
   m_Layer: 0
   m_Name: armaEquipada
   m_TagString: Untagged
@@ -829,6 +830,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &6081053373019375583
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5033970710758894627}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebef9bc978ad7a94daeaf22338d87946, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  activeWeapon: {fileID: 7648333441182737057}
+  sword: {fileID: 7648333441182737057}
+  swordColor: {fileID: 6260277880844145612}
+  baston: {fileID: 7156200674546907815}
+  bastonColor: {fileID: 35784256083100380}
+  frisbie: {fileID: 4219106350836261772}
+  gun: {fileID: 8786654438810104487}
+  rapier: {fileID: 1424424900018894763}
+  spear: {fileID: 8031835433563996359}
 --- !u!1 &5049928152445602357
 GameObject:
   m_ObjectHideFlags: 0
@@ -967,7 +989,9 @@ MonoBehaviour:
   rightArm: {fileID: 2075028469048843415}
   leftLeg: {fileID: 4678959184413635707}
   rightLeg: {fileID: 4509466691451933193}
-  direction: 6
+  direction: 0
+  weaponController: {fileID: 6081053373019375583}
+  animator: {fileID: 8359341688112780794}
 --- !u!1 &5944669636061163667
 GameObject:
   m_ObjectHideFlags: 0
@@ -1069,8 +1093,8 @@ MonoBehaviour:
   - {fileID: 2996693206593230962}
   - {fileID: 2149601771190397275}
   m_Bounds:
-    m_Center: {x: 0.36804998, y: 0.58884037, z: 0}
-    m_Extent: {x: 1.2564412, y: 1.390516, z: 0}
+    m_Center: {x: -0.96824133, y: 0.60001767, z: 0}
+    m_Extent: {x: 1.6809098, y: 1.5472282, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
 --- !u!1 &6021385420025899473
@@ -1204,8 +1228,8 @@ MonoBehaviour:
   - {fileID: 2994814300427498189}
   - {fileID: 672446054655831877}
   m_Bounds:
-    m_Center: {x: 0.38595194, y: 0.07661247, z: 0}
-    m_Extent: {x: 1.0219834, y: 2.2246423, z: 0}
+    m_Center: {x: 0.0015904307, y: -0.00000023841858, z: 0}
+    m_Extent: {x: 0.61841047, y: 2.3150008, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
 --- !u!1 &7839974108447261853
@@ -1548,9 +1572,21 @@ PrefabInstance:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 2927092084554182104, guid: e0b058b0413eb70428f689e948adbfd7,
     type: 3}
+--- !u!212 &35784256083100380 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 602022954702753929, guid: e0b058b0413eb70428f689e948adbfd7,
+    type: 3}
+  m_PrefabInstance: {fileID: 587140478023160405}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &3948990559658029443 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4532961924867646422, guid: e0b058b0413eb70428f689e948adbfd7,
+    type: 3}
+  m_PrefabInstance: {fileID: 587140478023160405}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &7156200674546907815 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -1483338225252194062, guid: e0b058b0413eb70428f689e948adbfd7,
     type: 3}
   m_PrefabInstance: {fileID: 587140478023160405}
   m_PrefabAsset: {fileID: 0}
@@ -1654,9 +1690,21 @@ PrefabInstance:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: -4415822081607775289, guid: b16db189708067c4a9f454754d9d0380,
     type: 3}
+--- !u!1 &7648333441182737057 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -3808370872465518772, guid: b16db189708067c4a9f454754d9d0380,
+    type: 3}
+  m_PrefabInstance: {fileID: 2378362825498144237}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &5965055796409712306 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8343347973982065503, guid: b16db189708067c4a9f454754d9d0380,
+    type: 3}
+  m_PrefabInstance: {fileID: 2378362825498144237}
+  m_PrefabAsset: {fileID: 0}
+--- !u!212 &6260277880844145612 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 8638288862595841569, guid: b16db189708067c4a9f454754d9d0380,
     type: 3}
   m_PrefabInstance: {fileID: 2378362825498144237}
   m_PrefabAsset: {fileID: 0}

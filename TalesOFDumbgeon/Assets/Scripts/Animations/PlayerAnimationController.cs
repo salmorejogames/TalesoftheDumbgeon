@@ -19,15 +19,17 @@ public class PlayerAnimationController : MonoBehaviour
     private bool _move;
     private static readonly int Walk = Animator.StringToHash("Walk");
     private static readonly int Attack = Animator.StringToHash("Attack");
+    private BaseWeapon.WeaponType _weapon;
 
     public const string PathName = "EquipmentClass/";
 
     private void Awake()
     {
+        _weapon = 0;
         _move = false;
         Current = south;
         Current.gameObject.SetActive(true);
-        Current.Animator.SetBool(Walk, _move);
+        Current.animator.SetBool(Walk, _move);
     }
     
     public void EquipArmor(BaseArmor newArmor)
@@ -35,6 +37,21 @@ public class PlayerAnimationController : MonoBehaviour
         newArmor.AnimationController = this;
         newArmor.Stats = _stats;
         newArmor.Equip();
+    }
+
+    public void EquipWeapon(BaseWeapon.WeaponType weaponType, Elements.Element element)
+    {
+        Debug.Log("ChangeWeapon: " + weaponType);
+        south.ChangeWeapon(weaponType, element);
+        north.ChangeWeapon(weaponType, element);
+        east.ChangeWeapon(weaponType, element);
+        west.ChangeWeapon(weaponType, element);
+        northEast.ChangeWeapon(weaponType, element);
+        northWest.ChangeWeapon(weaponType, element);
+        southEast.ChangeWeapon(weaponType, element);
+        southWest.ChangeWeapon(weaponType, element);
+        _weapon = weaponType;
+
     }
 
     public void ChangeSprite(AnimationDirection.EquipmentParts part, BodyParts.Sex sex, string equipmentName)
@@ -69,7 +86,7 @@ public class PlayerAnimationController : MonoBehaviour
     public void SetAtacking()
     {
         //Current.Animator.speed = 4f;
-        Current.Animator.SetTrigger(Attack);
+        Current.animator.SetTrigger(Attack);
     }
     public void SetMoving(bool moving)
     {
@@ -86,14 +103,16 @@ public class PlayerAnimationController : MonoBehaviour
         northWest.Animator.SetBool(Walk, moving);
         southEast.Animator.SetBool(Walk, moving);
         southWest.Animator.SetBool(Walk, moving);*/
-        Current.Animator.SetBool(Walk, moving);
+        
+        Current.UpdateWeaponType(_weapon);
+        Current.animator.SetBool(Walk, moving);
         //Debug.Log(moving);
         _move = moving;
     }
 
     public void UpdateAnimationSpeed()
     {
-        Current.Animator.speed = _stats.GetSpeedValue();
+        Current.animator.speed = _stats.GetSpeedValue();
     }
     public void ChangeAnimation(BodyParts.Direction direction)
     {
@@ -148,7 +167,7 @@ public class PlayerAnimationController : MonoBehaviour
             default:
                 throw new ArgumentOutOfRangeException(nameof(direction), direction, null);
         }
-        Current.Animator.SetBool(Walk, _move);
+        Current.animator.SetBool(Walk, _move);
     }
     #region Debug
 

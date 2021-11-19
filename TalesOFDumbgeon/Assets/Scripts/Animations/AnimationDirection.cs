@@ -13,20 +13,28 @@ public class AnimationDirection : MonoBehaviour
     public SpriteRenderer leftLeg;
     public SpriteRenderer rightLeg;
     public BodyParts.Direction direction;
-    
+    public WeaponController weaponController;
+    public Animator animator;
 
-    [NonSerialized] public Animator Animator;
-
-    private void Awake()
-    {
-        Animator = gameObject.GetComponent<Animator>();
-    }
+  
 
     public enum EquipmentParts
     {
         Head,
         Body,
         Legs
+    }
+
+    public void ChangeWeapon(BaseWeapon.WeaponType weaponType, Elements.Element element)
+    {
+        //Debug.Log("Chanwing Weapon: " + direction.ToString() + " " + weaponType.ToString());
+        weaponController.ChangeActiveWeapon(weaponType, element);
+        //animator.GetCurrentAnimatorClipInfo(0)[0].clip.
+    }
+
+    public void UpdateWeaponType(BaseWeapon.WeaponType weaponType)
+    {
+        animator.SetInteger("Weapon", (int) weaponType);
     }
 
     public void ChangeEquipment(BodyParts sprite, EquipmentParts equipmentParts, BodyParts.Sex sex)
