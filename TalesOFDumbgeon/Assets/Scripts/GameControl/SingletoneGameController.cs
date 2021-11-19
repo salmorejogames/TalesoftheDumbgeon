@@ -13,6 +13,7 @@ public class SingletoneGameController : MonoBehaviour
     public static StaticInfoHolder InfoHolder;
     public static GameplayInterfaceController InterfaceController;
     public static ColorShader ColorShaders;
+    public static NavMeshManager NavMeshManager;
     private void Awake()
     {
         //Singleton;
@@ -45,6 +46,7 @@ public class SingletoneGameController : MonoBehaviour
        
         CardHolder = FindObjectOfType<CardHolder>();
         InterfaceController = FindObjectOfType<GameplayInterfaceController>();
+        NavMeshManager = FindObjectOfType<NavMeshManager>();
         PlayerActions.ReloadCharacter();
     }
 

@@ -35,8 +35,9 @@ public class MapInstance : MonoBehaviour
     [SerializeField] private Tilemap collisions;
     [SerializeField] private Tilemap doors;
     [SerializeField] private CompositeCollider2D mapTrigger;
-    [SerializeField] private List<GameObject> enemyList;
+    [SerializeField] private List<ExampleEnemyBehaviour> enemyList;
     [SerializeField] private List<GameObject> powerUpList;
+    [SerializeField] private List<Generator> generators;
     [NonSerialized] public List<CharacterStats> enemys;
     private bool _closed;
     private bool _started;
@@ -61,6 +62,7 @@ public class MapInstance : MonoBehaviour
 
     private void Start()
     {
+        //enemyList.Sort((a, b) => a.difficulty.CompareTo(b.difficulty));
         BoundsInt bounds = ground.cellBounds;
         //Debug.Log("X: " +bounds.xMax + " " + bounds.xMin+ " Y: " + bounds.yMax + " " + bounds.yMin);
     }
@@ -89,6 +91,14 @@ public class MapInstance : MonoBehaviour
     {
         if (!_started)
         {
+            SetCollisions(true);
+            foreach (var generator in generators)
+            {
+                generator.map = this;
+                generator.InstantiateEnemys(enemyList);
+            }
+           
+            /*
             //Debug.Log(collisions.GetTile(Vector3Int.zero));
             Debug.Log("Starting Map");
             SetCollisions(true);
@@ -107,7 +117,7 @@ public class MapInstance : MonoBehaviour
                 newEnemy.transform.position = IsometricUtils.CoordinatesToWorldSpace(xx, yy);
                 newEnemy.transform.localScale = new Vector3(1, 1, 1);
                 enemys.Add(newEnemy.GetComponent<CharacterStats>());
-            }
+            }*/
 
             for (int i = 0; i < powerUpList.Count; i++)
             {

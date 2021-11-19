@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 4988939038215573875}
   - component: {fileID: 3699361427768509052}
   - component: {fileID: 210292057612706183}
+  - component: {fileID: 1634661290755254708}
   m_Layer: 0
   m_Name: Abuesqueleto
   m_TagString: Enemigo
@@ -163,5 +164,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f2fcb009a46fc749b94e67f23643deb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  agent: {fileID: 1634661290755254708}
+  difficulty: 1
   DmgPrefab: {fileID: 7413456247700845425, guid: d04ec14520fae5f44b0e829368e66535,
     type: 3}
+--- !u!195 &1634661290755254708
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 637891789699987269}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.2
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 0.36
+  m_BaseOffset: 0.4
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4

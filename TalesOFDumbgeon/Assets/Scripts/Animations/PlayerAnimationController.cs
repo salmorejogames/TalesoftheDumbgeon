@@ -68,14 +68,15 @@ public class PlayerAnimationController : MonoBehaviour
 
     public void SetAtacking()
     {
-        Current.Animator.speed = 4f;
+        //Current.Animator.speed = 4f;
         Current.Animator.SetTrigger(Attack);
     }
     public void SetMoving(bool moving)
     {
+       
         if(moving==_move)
             return;
-        Current.Animator.speed = _stats.speed;
+        UpdateAnimationSpeed();
         /*
         south.Animator.SetBool(Walk, moving);
         north.Animator.SetBool(Walk, moving);
@@ -90,6 +91,10 @@ public class PlayerAnimationController : MonoBehaviour
         _move = moving;
     }
 
+    public void UpdateAnimationSpeed()
+    {
+        Current.Animator.speed = _stats.GetSpeedValue();
+    }
     public void ChangeAnimation(BodyParts.Direction direction)
     {
         if (direction.Equals(Current.direction))
