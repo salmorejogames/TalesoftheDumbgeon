@@ -2,7 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Interfaces;
-
+using System;
+using UnityEngine.AI;
 
 public class Enemigo_Pelusa : MonoBehaviour, IDeadable
 {
@@ -10,6 +11,11 @@ public class Enemigo_Pelusa : MonoBehaviour, IDeadable
     private SpriteRenderer _spr;
     private IsometricMove _player;
     private CharacterStats _stats;
+
+    public int difficulty;
+
+    [SerializeField]
+    private DamageNumber DmgPrefab;
 
     //Enemigo 
     public int velocidad = 5;
@@ -35,6 +41,15 @@ public class Enemigo_Pelusa : MonoBehaviour, IDeadable
 
     public enum tipoEnemigo { Abuesqueleto, Cerebro, Duonde, Palloto, Banana, Pelusa};
     public tipoEnemigo especie;
+
+
+    private void Awake()
+    {
+        _stats = gameObject.GetComponent<CharacterStats>();
+        _spr = gameObject.GetComponent<SpriteRenderer>();
+        _player = SingletoneGameController.PlayerActions.player;
+    }
+
 
     // Start is called before the first frame update
     void Start()
@@ -154,12 +169,15 @@ public class Enemigo_Pelusa : MonoBehaviour, IDeadable
     public void Damage(Vector3 enemy, float cantidad, Elements.Element element)
     {
         float multiplier = Elements.GetElementMultiplier(element, _stats.element);
+        DamageNumber dmgN = Instantiate(DmgPrefab, transform.position, Quaternion.identity);
+        dmgN.Inicializar(cantidad, transform);
         if (multiplier > 1.1f)
             _spr.color = Color.red;
         else if (multiplier < 0.9f)
             _spr.color = Color.cyan;
         else
             _spr.color = Color.yellow;
+        dmgN.number.color = _spr.color;
         Invoke(nameof(RevertColor), 0.2f);
     }
 
