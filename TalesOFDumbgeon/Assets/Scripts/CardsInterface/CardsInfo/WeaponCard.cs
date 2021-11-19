@@ -10,6 +10,7 @@ public class WeaponCard : BaseCard
     //Creating Random WeaponCard
     public WeaponCard(BaseWeapon.WeaponType weaponType, Weapon weaponHolder)
     {
+        cardType = CardType.Weapon;
         //Make it random 
         switch (weaponType)
         {
@@ -45,6 +46,7 @@ public class WeaponCard : BaseCard
     //CreatingCard with a Created Weapon
     public WeaponCard(BaseWeapon weapon)
     {
+        cardType = CardType.Weapon;
         Weapon = weapon;
         switch (Weapon.AttackType)
         {

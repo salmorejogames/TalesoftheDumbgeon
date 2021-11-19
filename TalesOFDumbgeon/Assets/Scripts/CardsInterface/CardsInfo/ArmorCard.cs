@@ -11,6 +11,7 @@ public class ArmorCard : BaseCard
     public ArmorCard(PlayerAnimationController animationController)
     {
         //Make it random 
+        cardType = CardType.Equipment;
         NewArmor = new BaseArmor();
         NewArmor.Randomize(1);
         switch (NewArmor.ArmorType)
@@ -62,6 +63,7 @@ public class ArmorCard : BaseCard
 
     public ArmorCard(BaseArmor baseArmor)
     {
+        cardType = CardType.Equipment;
         NewArmor = baseArmor;
         switch (NewArmor.ArmorType)
         {

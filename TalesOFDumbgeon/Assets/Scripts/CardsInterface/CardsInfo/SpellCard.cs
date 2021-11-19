@@ -9,6 +9,7 @@ public class SpellCard : BaseCard
 
     public SpellCard(BaseSpell.SpellType spellType, Weapon weaponHolder)
     {
+        cardType = CardType.Spell;
         //Make it random 
         switch (spellType)
         {
@@ -40,6 +41,7 @@ public class SpellCard : BaseCard
 
     public SpellCard(BaseSpell baseSpell)
     {
+        cardType = CardType.Spell;
         Spell = baseSpell;
         switch (Spell.SpellKind)
         {

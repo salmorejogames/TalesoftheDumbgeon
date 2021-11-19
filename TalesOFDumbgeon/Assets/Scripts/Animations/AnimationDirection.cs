@@ -34,6 +34,7 @@ public class AnimationDirection : MonoBehaviour
 
     public void UpdateWeaponType(BaseWeapon.WeaponType weaponType)
     {
+        animator.Play(String.Empty);
         animator.SetInteger("Weapon", (int) weaponType);
     }
 
