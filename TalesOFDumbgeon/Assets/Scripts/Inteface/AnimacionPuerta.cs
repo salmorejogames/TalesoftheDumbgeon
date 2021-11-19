@@ -23,15 +23,12 @@ public class AnimacionPuerta : MonoBehaviour
     [SerializeField] private AudioClip abrirDumbbgeonAudio;
     [SerializeField] private AudioClip entrarDumbgeonAudio;
     [SerializeField] private AudioSource audioSource;
-    //[SerializeField] private AudioSource audioSourceFondo;
+    [SerializeField] private AudioSource audioSourceFondo;
 
     private bool click;
 
     private void Awake()
     {
-        audioSource = GetComponent<AudioSource>();
-        //audioSourceFondo = GetComponent<AudioSource>();
-
         iuInput = new InterfaceControls();
         iuInput.Menuprincipal.Animacionpuerta.performed += ctx => HacerClick();
     }
@@ -97,7 +94,7 @@ public class AnimacionPuerta : MonoBehaviour
         LeanTween.scale(puerta, new Vector2(15f, 15f), .5f);
         LeanTween.scale(fondo, new Vector2(15f, 15f), .5f);
 
-        //audioSourceFondo.Stop();
+        audioSourceFondo.Stop();
 
         StartCoroutine(MenuPrincipal());
     }
