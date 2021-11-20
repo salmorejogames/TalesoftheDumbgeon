@@ -9,17 +9,17 @@ public class AreaWeapon : BaseWeapon
 
     public AreaWeapon()
     {
-        AttackSpeed = 0.5f;
+        AttackSpeed = 0.2f;
         AttackDuration = 0.25f;
         AttackType = WeaponType.Area;
         WeaponSprite = SingletoneGameController.InfoHolder.areaWeapon;
     }
     public override void Atacar()
     {
-        WeaponHolder.ReactivateCollider(AttackDuration);
+        WeaponHolder.ReactivateCollider();
         //SingletoneGameController.PlayerActions.DisableMovement(AttackDuration);
-        WeaponHolder.holder.Immobilize(AttackDuration);
-        WeaponHolder.StartCoroutine(SliceAtack(WeaponHolder, AttackDuration));
+        //WeaponHolder.holder.Immobilize(AttackDuration);
+        //WeaponHolder.StartCoroutine(SliceAtack(WeaponHolder, AttackDuration));
     }
     
     public IEnumerator SliceAtack(Weapon weaponGO, float attackDuration)

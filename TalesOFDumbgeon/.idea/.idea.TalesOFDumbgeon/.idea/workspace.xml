@@ -2,8 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b1d37c9d-25b2-4110-97a9-49ea663fadda" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/DamageArea.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Sprites/Areas.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Sprites/Areas/AtaqueArea.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Sprites/Areas/AtaqueArea.png.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.TalesOFDumbgeon/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TalesOFDumbgeon/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Equipment/StaticInfoHolder.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Equipment/StaticInfoHolder.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Personaje_Principal.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Personaje_Principal.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/IsometricScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/IsometricScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Animations/AnimationDirection.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Animations/AnimationDirection.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Equipment/Weapons/AreaWeapon.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Equipment/Weapons/AreaWeapon.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerActionsController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerActionsController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/Weapon.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/Weapon.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,6 +45,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Animations/WeaponController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.inputsystem@1.0.2/InputSystem/Utilities/DelegateHelpers.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/CardsInterface/CardsInfo/WeaponCard.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/DamageArea.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/NavMeshManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Interfaces/IDeadable.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.textmeshpro@3.0.1/Scripts/Runtime/TextMeshProUGUI.cs" root0="SKIP_HIGHLIGHTING" />
@@ -55,8 +65,6 @@
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
-      <option value="$PROJECT_DIR$/Assets/ScriptableObjects/Equipment/EquipmentSo.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/CardsInterface/CardInfo.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/CardsInterface/BaseCard.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Map/MapInstance.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Camera/CameraFollow.cs" />
@@ -88,24 +96,26 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/Equipment/DamageSpell.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Equipment/BaseSpell.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Player/IsometricCharacterRenderer.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Player/PlayerActionsController.cs" />
       <option value="$PROJECT_DIR$/Assets/NavMeshManager.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Map/MapManager.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Enemys/ExampleEnemyBehaviour.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/IsometricUtils.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Animations/WeaponController.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/GameControl/PlayerActions.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Equipment/Weapons/BaseWeapon.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Player/Weapon.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/CardsInterface/CardHolder.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Animations/PlayerAnimationController.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Animations/AnimationDirection.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/GameControl/SingletoneGameController.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/CardsInterface/CardsInfo/BaseCard.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/CardsInterface/CardsInfo/ArmorCard.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/CardsInterface/CardsInfo/SpellCard.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/CardsInterface/CardsInfo/WeaponCard.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Equipment/StaticInfoHolder.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Equipment/Weapons/BaseWeapon.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Animations/AnimationDirection.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/DamageArea.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Player/Weapon.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Player/PlayerActionsController.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Equipment/Weapons/AreaWeapon.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1zRaEkaFY4bgpmOHr8r3t8E1N2f" />
@@ -189,6 +199,7 @@
       <workItem from="1636995284656" duration="3849000" />
       <workItem from="1637236389742" duration="1199000" />
       <workItem from="1637323971907" duration="795000" />
+      <workItem from="1637407440142" duration="2040000" />
     </task>
     <servers />
   </component>
