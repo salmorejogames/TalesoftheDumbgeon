@@ -7,6 +7,8 @@ using Random = UnityEngine.Random;
 
 public class CardHolder : MonoBehaviour
 {
+    public static int MAX_CARDS = 6;
+    public int CurentCardCount => cards.Count;
     private Vector3 _restPoint;
     private Vector3 _activePoint;
     public bool active;
@@ -14,11 +16,13 @@ public class CardHolder : MonoBehaviour
     private RectTransform _thisRect;
     private int _highlitedCard;
     private InputControler _inputControler;
+    [NonSerialized]public bool modeDelete = false;
     [SerializeField] private float gap;
     [SerializeField] private Vector2 cardDimensions;
     [SerializeField] private float resizePercent;
     [SerializeField] private GameObject card;
     [SerializeField] private ButtonDown buttonDown;
+    [SerializeField] private ButtonClose buttonDelete;
 
     void Awake()
     {
@@ -27,11 +31,25 @@ public class CardHolder : MonoBehaviour
         _inputControler.Cartas.SacarCartas.performed += ctx => Resize();
         _inputControler.Cartas.Selection.performed += ctx => MoveSelection(Convert.ToBoolean(ctx.ReadValue<float>()));
         _inputControler.Cartas.EnterSelection.performed += ctx => EnterSelection();
+        _inputControler.Cartas.ModoEliminar.performed += ctx => SwapMode();
         
         _thisRect = GetComponent<RectTransform>();
         
     }
-    
+
+    public void SwapMode()
+    {
+        if(!active)
+            return;
+        modeDelete = !modeDelete;
+        for (int i = 0; i < cards.Count; i++)
+        {
+            if (_highlitedCard != i)
+            {
+                cards[i].GetComponent<ItemCard>().SetDeleteleColor(modeDelete);
+            }
+        }
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -43,6 +61,10 @@ public class CardHolder : MonoBehaviour
         buttonDown = Instantiate(buttonDown, _thisRect.position, Quaternion.identity);
         buttonDown.gameObject.transform.SetParent(this.gameObject.transform);
         buttonDown.gameObject.SetActive(false);
+        
+        buttonDelete = Instantiate(buttonDelete, _thisRect.position, Quaternion.identity);
+        buttonDelete.gameObject.transform.SetParent(this.gameObject.transform);
+        buttonDelete.gameObject.SetActive(false);
         AddCard(0, 3);
         
     }
@@ -115,6 +137,11 @@ public class CardHolder : MonoBehaviour
             newCard.localScale = new Vector3(resizePercent, resizePercent, resizePercent);
             newCard.localPosition = _restPoint;
         }
+
+        if (modeDelete)
+        {
+            cardInfo.SetDeleteleColor(true);
+        }
         
         RepositionateCards();
 
@@ -144,8 +171,8 @@ public class CardHolder : MonoBehaviour
         }
 
         //if (CheckIfMobile.isMobile())
-            buttonDown.SetPos(new Vector3(width/2+gap, cardDimensions[1]/2, 0 ));
-        
+            buttonDown.SetPos(new Vector3(width/2+gap, cardDimensions[1]/4, 0 ));
+            buttonDelete.SetPos(new Vector3(width/2+gap, cardDimensions[1]*3/4, 0 ));
     }
 
     public void Resize()
@@ -162,6 +189,7 @@ public class CardHolder : MonoBehaviour
                 localCard.localPosition = localPosition;
             }
             buttonDown.gameObject.SetActive(true);
+            buttonDelete.gameObject.SetActive(true);
         }
         else
         {
@@ -175,10 +203,13 @@ public class CardHolder : MonoBehaviour
                 localCard.localPosition = localPosition;
             }
             ResetHighlight();
+            if(modeDelete)
+                SwapMode();
         }
         active = !active;
         RepositionateCards();
         buttonDown.gameObject.SetActive(active);
+        buttonDelete.gameObject.SetActive(active);
     }
 
     public void DeleteCard(RectTransform oldCard)

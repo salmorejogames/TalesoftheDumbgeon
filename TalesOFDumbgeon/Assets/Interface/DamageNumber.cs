@@ -23,6 +23,14 @@ public class DamageNumber : MonoBehaviour
         number.text = dmg.ToString(CultureInfo.CurrentCulture);
         Destroy(gameObject, lifetime);
     }
+    
+    public void Inicializar(String dmg, Transform reference)
+    {
+        gameObject.transform.position = reference.position + offset + (Vector3) Random.insideUnitCircle * 0.5f;
+        _started = true;
+        number.text = dmg;
+        Destroy(gameObject, lifetime);
+    }
 
     // Update is called once per frame
     void Update()

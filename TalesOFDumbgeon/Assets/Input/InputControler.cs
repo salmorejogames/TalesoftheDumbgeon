@@ -267,6 +267,14 @@ public class @InputControler : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""ModoEliminar"",
+                    ""type"": ""Button"",
+                    ""id"": ""978e5f93-af25-411b-8992-d990a8ae92fa"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -335,6 +343,17 @@ public class @InputControler : IInputActionCollection, IDisposable
                     ""action"": ""Selection"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""8e2e4203-293e-4af8-a1e6-2f0fd75ffe35"",
+                    ""path"": ""<Keyboard>/r"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ModoEliminar"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -378,6 +397,7 @@ public class @InputControler : IInputActionCollection, IDisposable
         m_Cartas_EnterSelection = m_Cartas.FindAction("EnterSelection", throwIfNotFound: true);
         m_Cartas_NuevaCarta = m_Cartas.FindAction("NuevaCarta", throwIfNotFound: true);
         m_Cartas_SacarCartas = m_Cartas.FindAction("SacarCartas", throwIfNotFound: true);
+        m_Cartas_ModoEliminar = m_Cartas.FindAction("ModoEliminar", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -512,6 +532,7 @@ public class @InputControler : IInputActionCollection, IDisposable
     private readonly InputAction m_Cartas_EnterSelection;
     private readonly InputAction m_Cartas_NuevaCarta;
     private readonly InputAction m_Cartas_SacarCartas;
+    private readonly InputAction m_Cartas_ModoEliminar;
     public struct CartasActions
     {
         private @InputControler m_Wrapper;
@@ -520,6 +541,7 @@ public class @InputControler : IInputActionCollection, IDisposable
         public InputAction @EnterSelection => m_Wrapper.m_Cartas_EnterSelection;
         public InputAction @NuevaCarta => m_Wrapper.m_Cartas_NuevaCarta;
         public InputAction @SacarCartas => m_Wrapper.m_Cartas_SacarCartas;
+        public InputAction @ModoEliminar => m_Wrapper.m_Cartas_ModoEliminar;
         public InputActionMap Get() { return m_Wrapper.m_Cartas; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -541,6 +563,9 @@ public class @InputControler : IInputActionCollection, IDisposable
                 @SacarCartas.started -= m_Wrapper.m_CartasActionsCallbackInterface.OnSacarCartas;
                 @SacarCartas.performed -= m_Wrapper.m_CartasActionsCallbackInterface.OnSacarCartas;
                 @SacarCartas.canceled -= m_Wrapper.m_CartasActionsCallbackInterface.OnSacarCartas;
+                @ModoEliminar.started -= m_Wrapper.m_CartasActionsCallbackInterface.OnModoEliminar;
+                @ModoEliminar.performed -= m_Wrapper.m_CartasActionsCallbackInterface.OnModoEliminar;
+                @ModoEliminar.canceled -= m_Wrapper.m_CartasActionsCallbackInterface.OnModoEliminar;
             }
             m_Wrapper.m_CartasActionsCallbackInterface = instance;
             if (instance != null)
@@ -557,6 +582,9 @@ public class @InputControler : IInputActionCollection, IDisposable
                 @SacarCartas.started += instance.OnSacarCartas;
                 @SacarCartas.performed += instance.OnSacarCartas;
                 @SacarCartas.canceled += instance.OnSacarCartas;
+                @ModoEliminar.started += instance.OnModoEliminar;
+                @ModoEliminar.performed += instance.OnModoEliminar;
+                @ModoEliminar.canceled += instance.OnModoEliminar;
             }
         }
     }
@@ -595,5 +623,6 @@ public class @InputControler : IInputActionCollection, IDisposable
         void OnEnterSelection(InputAction.CallbackContext context);
         void OnNuevaCarta(InputAction.CallbackContext context);
         void OnSacarCartas(InputAction.CallbackContext context);
+        void OnModoEliminar(InputAction.CallbackContext context);
     }
 }

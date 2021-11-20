@@ -1039,6 +1039,11 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 785119330}
+    - target: {fileID: 1224128818235111631, guid: f7d8b04a9a3d676408435273389cf36e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1224128819531413700, guid: f7d8b04a9a3d676408435273389cf36e,
         type: 3}
       propertyPath: m_IsActive
@@ -1231,15 +1236,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2208423518114130156, guid: f1130666115412e4fb8b424d17d71b09,
         type: 3}
+      propertyPath: dmgSpellArtwork
+      value: 
+      objectReference: {fileID: 21300000, guid: 8e8c2a2bc9e3db842a7f5a61a3f1c525,
+        type: 3}
+    - target: {fileID: 2208423518114130156, guid: f1130666115412e4fb8b424d17d71b09,
+        type: 3}
+      propertyPath: rangedWeaponArtwork
+      value: 
+      objectReference: {fileID: 21300000, guid: 630478ddf63bba94c8a3340919fb7c31,
+        type: 3}
+    - target: {fileID: 2208423518114130156, guid: f1130666115412e4fb8b424d17d71b09,
+        type: 3}
       propertyPath: rapierWeaponArtwork
       value: 
-      objectReference: {fileID: 21300000, guid: 9747441666a32d940a604ebe6d18eb8d,
+      objectReference: {fileID: 21300000, guid: b749cb64f0ed53942ab58192a75837f3,
         type: 3}
     - target: {fileID: 2208423518114130156, guid: f1130666115412e4fb8b424d17d71b09,
         type: 3}
       propertyPath: piercingWeaponArtwork
       value: 
-      objectReference: {fileID: 21300000, guid: 3c415f5f237a85b4d917ffdfe406ddfb,
+      objectReference: {fileID: 21300000, guid: 889eaf1a9b83bec44a58a6b7e148bbde,
         type: 3}
     - target: {fileID: 2208423518114130156, guid: f1130666115412e4fb8b424d17d71b09,
         type: 3}
@@ -1251,7 +1268,7 @@ PrefabInstance:
         type: 3}
       propertyPath: boomerangWeaponArtwork
       value: 
-      objectReference: {fileID: 21300000, guid: ef016701efdde564e841f53ce2188890,
+      objectReference: {fileID: 21300000, guid: a21aa97bb8416d04eb603921c3534984,
         type: 3}
     - target: {fileID: 2208423518114130159, guid: f1130666115412e4fb8b424d17d71b09,
         type: 3}

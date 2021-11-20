@@ -254,6 +254,14 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "ModoEliminar",
+                    "type": "Button",
+                    "id": "978e5f93-af25-411b-8992-d990a8ae92fa",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -322,6 +330,17 @@
                     "action": "Selection",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "8e2e4203-293e-4af8-a1e6-2f0fd75ffe35",
+                    "path": "<Keyboard>/r",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ModoEliminar",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         }

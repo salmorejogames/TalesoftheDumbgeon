@@ -66,6 +66,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
+  playerAnimation: {fileID: 0}
   dead: 0
 --- !u!114 &2208423518114130155
 MonoBehaviour:
@@ -217,16 +218,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efd57d5dd4d82c34e9b3ff5a2f1dede6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  areaWeapon: {fileID: 21300000, guid: 6fb5e7dcb6494a14db2d7c4fdd4c35af, type: 3}
-  rangedWeapon: {fileID: 21300000, guid: ac871338e3bc87047ad5144a7477854d, type: 3}
-  smashingWeapon: {fileID: 0}
-  piercingWeapon: {fileID: 0}
   areaWeaponArtwork: {fileID: 21300000, guid: 688d5b36e60d00d46a331b8c8f04e74b, type: 3}
-  rangedWeaponArtwork: {fileID: 21300000, guid: ec1dc663f00a06449a3c2df4123297f0,
+  rangedWeaponArtwork: {fileID: 21300000, guid: 630478ddf63bba94c8a3340919fb7c31,
     type: 3}
-  smashingWeaponArtwork: {fileID: 0}
-  piercingWeaponArtwork: {fileID: 0}
-  dmgSpellArtwork: {fileID: 21300000, guid: 70141d51621e24facbca9196bbde84b4, type: 3}
+  smashingWeaponArtwork: {fileID: 21300000, guid: ec1dc663f00a06449a3c2df4123297f0,
+    type: 3}
+  piercingWeaponArtwork: {fileID: 21300000, guid: 889eaf1a9b83bec44a58a6b7e148bbde,
+    type: 3}
+  boomerangWeaponArtwork: {fileID: 21300000, guid: a21aa97bb8416d04eb603921c3534984,
+    type: 3}
+  rapierWeaponArtwork: {fileID: 21300000, guid: b749cb64f0ed53942ab58192a75837f3,
+    type: 3}
+  dmgSpellArtwork: {fileID: 21300000, guid: 8e8c2a2bc9e3db842a7f5a61a3f1c525, type: 3}
   cartaArma: {fileID: 21300000, guid: fff37dfec2edd084bb3d7c394f6e54e7, type: 3}
   cartaArmadura: {fileID: 21300000, guid: dc97f445b0e37494d9d7bf58a88a825d, type: 3}
   cartaBendicion: {fileID: 0}

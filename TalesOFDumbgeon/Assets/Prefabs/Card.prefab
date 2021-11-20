@@ -228,8 +228,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 10
-  m_fontSizeBase: 10
+  m_fontSize: 8
+  m_fontSizeBase: 8
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -843,11 +843,11 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 10
-  m_fontSizeBase: 10
+  m_fontSize: 8
+  m_fontSizeBase: 8
   m_fontWeight: 400
   m_enableAutoSizing: 0
-  m_fontSizeMin: 18
+  m_fontSizeMin: 6
   m_fontSizeMax: 72
   m_fontStyle: 0
   m_HorizontalAlignment: 2
@@ -989,11 +989,6 @@ MonoBehaviour:
   speed: {fileID: 6013841384634917962}
   itemImage: {fileID: 7962094318744394080}
   highlightColor: {r: 0.9716981, g: 0.80403256, b: 0, a: 1}
+  deleteColor: {r: 1, g: 0, b: 0, a: 1}
   fadeTime: 1
   distanceLaunch: 100
-  arma: {fileID: 7962094318744394080}
-  contArma: {fileID: 3960478978622428476, guid: d8c41d02f677a1049a280e8512cbd766,
-    type: 3}
-  contArmaduraCabeza: {fileID: 0}
-  contArmaduraCuerpo: {fileID: 0}
-  contArmaduraPiernas: {fileID: 0}
