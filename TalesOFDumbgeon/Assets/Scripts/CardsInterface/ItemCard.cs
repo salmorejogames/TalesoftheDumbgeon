@@ -32,13 +32,10 @@ public class ItemCard : MonoBehaviour, IPointerClickHandler
         _cardHolder = gameObject.transform.parent.gameObject.GetComponent<CardHolder>();
         if (CardInfo == null)
         {
-            Debug.Log("DENTRO DEL IF");
             switch ((BaseCard.CardType) CardType)
             {
                 case BaseCard.CardType.Weapon:
-                    Debug.Log("DENTRO DEL ARMA");
                     CardInfo = new WeaponCard((BaseWeapon.WeaponType) CardId, SingletoneGameController.PlayerActions.player.PlayerActions.weapon);
-                    SingletoneGameController.InterfaceController.CambiarSprite(SingletoneGameController.InterfaceController.contArma ,CardInfo.Artwork);
                     break;
                 case BaseCard.CardType.Equipment:
                     break;
@@ -72,7 +69,6 @@ public class ItemCard : MonoBehaviour, IPointerClickHandler
     public void ActivateEffect()
     {
         CardInfo.CastEffect();
-        SingletoneGameController.InterfaceController.CambiarSprite(SingletoneGameController.InterfaceController.contArma, CardInfo.Artwork);
     }
 
     public void StartDelete()
@@ -84,6 +80,7 @@ public class ItemCard : MonoBehaviour, IPointerClickHandler
     private void Delete()
     {
         ActivateEffect();
+        SingletoneGameController.InterfaceController.CambiarSprite(CardInfo.cardType, CardInfo.Artwork);
         _cardHolder.DeleteCard(_rectTransform);
     }
 
