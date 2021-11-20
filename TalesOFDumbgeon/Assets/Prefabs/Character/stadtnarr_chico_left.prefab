@@ -1206,7 +1206,7 @@ MonoBehaviour:
   sword: {fileID: 3087637794448668609}
   swordColor: {fileID: 1593659754950788780}
   baston: {fileID: 7039331203926316970}
-  bastonColor: {fileID: 180273045942579153}
+  bastonColor: {fileID: 6722296126185987741}
   frisbie: {fileID: 5188647624140681268}
   gun: {fileID: 8227941864659021}
   rapier: {fileID: 7741675740211246767}
@@ -1572,21 +1572,15 @@ PrefabInstance:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 2927092084554182104, guid: e0b058b0413eb70428f689e948adbfd7,
     type: 3}
---- !u!4 &3761338070567689358 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4532961924867646422, guid: e0b058b0413eb70428f689e948adbfd7,
-    type: 3}
-  m_PrefabInstance: {fileID: 782119803850358616}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &7039331203926316970 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -1483338225252194062, guid: e0b058b0413eb70428f689e948adbfd7,
     type: 3}
   m_PrefabInstance: {fileID: 782119803850358616}
   m_PrefabAsset: {fileID: 0}
---- !u!212 &180273045942579153 stripped
-SpriteRenderer:
-  m_CorrespondingSourceObject: {fileID: 602022954702753929, guid: e0b058b0413eb70428f689e948adbfd7,
+--- !u!4 &3761338070567689358 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4532961924867646422, guid: e0b058b0413eb70428f689e948adbfd7,
     type: 3}
   m_PrefabInstance: {fileID: 782119803850358616}
   m_PrefabAsset: {fileID: 0}
@@ -1690,6 +1684,12 @@ PrefabInstance:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: -4415822081607775289, guid: b16db189708067c4a9f454754d9d0380,
     type: 3}
+--- !u!212 &6722296126185987741 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 4374939572369204752, guid: b16db189708067c4a9f454754d9d0380,
+    type: 3}
+  m_PrefabInstance: {fileID: 7060673250053945485}
+  m_PrefabAsset: {fileID: 0}
 --- !u!212 &1593659754950788780 stripped
 SpriteRenderer:
   m_CorrespondingSourceObject: {fileID: 8638288862595841569, guid: b16db189708067c4a9f454754d9d0380,

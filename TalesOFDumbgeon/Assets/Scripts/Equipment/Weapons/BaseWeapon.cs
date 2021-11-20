@@ -14,7 +14,7 @@ public abstract class BaseWeapon : BaseEquipment
         Frisbie = 2,
         Rapier = 0
     }
-    public Sprite WeaponSprite;
+    
     public float Dmg;
     public float AttackSpeed;
     public float AttackDuration;

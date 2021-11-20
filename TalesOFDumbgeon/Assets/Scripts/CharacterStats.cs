@@ -32,8 +32,8 @@ public class CharacterStats : MonoBehaviour
 
     public float GetSpeedValue()
     {
-        if (speed <= 0)
-            return 0.1f;
+        if (speed <= 0.25f)
+            return 0.5f;
 
         return (float) Math.Sqrt(speed);
     }

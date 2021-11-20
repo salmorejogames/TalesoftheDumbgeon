@@ -16,7 +16,6 @@ public class RangedWeapon : BaseWeapon
         AttackSpeed = 1f;
         AttackDuration = 0.4f;
         AttackType = WeaponType.Ranged;
-        WeaponSprite = SingletoneGameController.InfoHolder.rangedWeapon;
         AmmoSprite = SingletoneGameController.InfoHolder.ammoSprite;
 
     }
@@ -28,7 +27,6 @@ public class RangedWeapon : BaseWeapon
         AttackSpeed = 0.5f;
         AttackDuration = 0.1f;
         AttackType = WeaponType.Ranged;
-        WeaponSprite = SingletoneGameController.InfoHolder.rangedWeapon;
         AmmoSprite = SingletoneGameController.InfoHolder.ammoSprite;
     }
     public override void Atacar()

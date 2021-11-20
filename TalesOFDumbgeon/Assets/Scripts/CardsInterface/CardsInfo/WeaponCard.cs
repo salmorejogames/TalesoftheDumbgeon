@@ -23,8 +23,20 @@ public class WeaponCard : BaseCard
                 Artwork =  SingletoneGameController.InfoHolder.rangedWeaponArtwork;
                 break;
             case BaseWeapon.WeaponType.Smashing:
+                Weapon = new SmashingWeapon();
+                Artwork =  SingletoneGameController.InfoHolder.smashingWeaponArtwork;
                 break;
             case BaseWeapon.WeaponType.Piercing:
+                Weapon = new PiercingWeapon();
+                Artwork =  SingletoneGameController.InfoHolder.piercingWeaponArtwork;
+                break;
+            case BaseWeapon.WeaponType.Frisbie:
+                Weapon = new BomerangWeapon();
+                Artwork =  SingletoneGameController.InfoHolder.boomerangWeaponArtwork;
+                break;
+            case BaseWeapon.WeaponType.Rapier:
+                Weapon = new RapierWeapon();
+                Artwork =  SingletoneGameController.InfoHolder.rapierWeaponArtwork;
                 break;
             default:
                 Weapon = new AreaWeapon();
@@ -57,8 +69,16 @@ public class WeaponCard : BaseCard
                 Artwork =  SingletoneGameController.InfoHolder.rangedWeaponArtwork;
                 break;
             case BaseWeapon.WeaponType.Smashing:
+                Artwork =  SingletoneGameController.InfoHolder.smashingWeaponArtwork;
                 break;
             case BaseWeapon.WeaponType.Piercing:
+                Artwork =  SingletoneGameController.InfoHolder.piercingWeaponArtwork;
+                break;
+            case BaseWeapon.WeaponType.Frisbie:
+                Artwork =  SingletoneGameController.InfoHolder.boomerangWeaponArtwork;
+                break;
+            case BaseWeapon.WeaponType.Rapier:
+                Artwork =  SingletoneGameController.InfoHolder.rapierWeaponArtwork;
                 break;
             default:
                 break;

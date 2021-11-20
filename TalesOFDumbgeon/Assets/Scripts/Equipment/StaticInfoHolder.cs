@@ -5,17 +5,14 @@ using UnityEngine;
 
 public class StaticInfoHolder : MonoBehaviour
 {
-    [Header("Weapons InGame")]
-    [SerializeField] public Sprite areaWeapon;
-    [SerializeField] public Sprite rangedWeapon;
-    [SerializeField] public Sprite smashingWeapon;
-    [SerializeField] public Sprite piercingWeapon;
-    
+
     [Header("Weapons Artwork")]
     [SerializeField] public Sprite areaWeaponArtwork;
     [SerializeField] public Sprite rangedWeaponArtwork;
     [SerializeField] public Sprite smashingWeaponArtwork;
     [SerializeField] public Sprite piercingWeaponArtwork;
+    [SerializeField] public Sprite boomerangWeaponArtwork;
+    [SerializeField] public Sprite rapierWeaponArtwork;
     [SerializeField] public Sprite dmgSpellArtwork;
     
     [Header("Cards")]

@@ -73,7 +73,7 @@ public class PlayerActionsController : MonoBehaviour, IDeadable
     private void ReactiveAtack()
     {
         _canAtack = true;
-        weapon.GetComponent<Collider2D>().enabled = false;
+        //weapon.GetComponent<Collider2D>().enabled = false;
     }
     
     private void ReactiveSpell()
@@ -94,7 +94,7 @@ public class PlayerActionsController : MonoBehaviour, IDeadable
             _playerAnimationController.SetAtacking();
             weapon.Atack();
             _canAtack = false;
-            Invoke(nameof(ReactiveAtack), weapon.weaponInfo.AttackSpeed);
+            Invoke(nameof(ReactiveAtack), weapon.weaponInfo.AttackSpeed + weapon.AttackDuration);
         }        
     }
     
