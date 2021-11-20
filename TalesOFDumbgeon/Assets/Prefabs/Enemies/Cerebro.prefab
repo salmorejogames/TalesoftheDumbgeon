@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 703087695551291146}
   m_Layer: 0
   m_Name: GameObject
-  m_TagString: Untagged
+  m_TagString: Enemigo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -62,7 +62,7 @@ GameObject:
   - component: {fileID: 2789365599019592910}
   m_Layer: 0
   m_Name: Cerebro
-  m_TagString: Untagged
+  m_TagString: Enemigo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -144,7 +144,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.002761364, y: -0.21263623}
@@ -168,7 +168,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2789365599019592752}
-  m_BodyType: 0
+  m_BodyType: 2
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -347,7 +347,7 @@ MonoBehaviour:
   m_BoneTransforms:
   - {fileID: 6572546566666048875}
   m_Bounds:
-    m_Center: {x: -0.0004969239, y: 0.000729084, z: 0}
+    m_Center: {x: -0.0004954934, y: 0.00073194504, z: 0}
     m_Extent: {x: 0.8057751, y: 0.59713995, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
@@ -630,7 +630,7 @@ MonoBehaviour:
   m_BoneTransforms:
   - {fileID: 6572546566666048875}
   m_Bounds:
-    m_Center: {x: 0, y: 0.0018738508, z: 0}
+    m_Center: {x: 0, y: 0.0018767118, z: 0}
     m_Extent: {x: 2.315, y: 1.8680447, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
@@ -734,7 +734,7 @@ MonoBehaviour:
   m_BoneTransforms:
   - {fileID: 2658185554183291841}
   m_Bounds:
-    m_Center: {x: 0.0072999, y: -0.0018348694, z: 0}
+    m_Center: {x: 0.0072999, y: -0.001832962, z: 0}
     m_Extent: {x: 3.3527007, y: 4.948166, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1

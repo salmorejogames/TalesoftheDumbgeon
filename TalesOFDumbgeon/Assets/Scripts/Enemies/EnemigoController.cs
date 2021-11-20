@@ -270,7 +270,11 @@ public class EnemigoController : MonoBehaviour, IDeadable
         if (collision.gameObject.CompareTag("Bala"))
         {
             Debug.Log(collision.gameObject);
-            Destroy(gameObject);
+            
+        }else if (collision.gameObject.CompareTag("Player"))
+        {
+            nextPos = transform.position;
+            collision.gameObject.GetComponent<CharacterStats>().DoDamage(damage, this.transform.position, _stats.element);
         }
     }
 
@@ -279,6 +283,7 @@ public class EnemigoController : MonoBehaviour, IDeadable
         if (collision.gameObject.CompareTag("Player"))
         {
             nextPos = transform.position;
+            collision.gameObject.GetComponent<CharacterStats>().DoDamage(damage, this.transform.position, _stats.element);
         }/*else if (collision.gameObject.CompareTag("Colisiones"))
         {
             decisionClock = 5f;
@@ -288,7 +293,7 @@ public class EnemigoController : MonoBehaviour, IDeadable
 
     public void Dead()
     {
-        throw new NotImplementedException();
+        gameObject.SetActive(false);
     }
 
     public void Damage(Vector3 enemyPos, float cantidad, Elements.Element element)

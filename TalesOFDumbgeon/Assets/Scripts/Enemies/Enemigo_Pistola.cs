@@ -313,6 +313,7 @@ public class Enemigo_Pistola : MonoBehaviour, IDeadable, IMovil
         {
             Debug.Log(collision.gameObject);
             //Destroy(gameObject);
+            
         }
     }
 
@@ -321,6 +322,7 @@ public class Enemigo_Pistola : MonoBehaviour, IDeadable, IMovil
         if (collision.gameObject.CompareTag("Player"))
         {
             nextPos = transform.position;
+            _stats.DoDamage(arma.Dmg, this.transform.position, _stats.element);
         }
         /*else if (collision.gameObject.CompareTag("Colisiones"))
         {

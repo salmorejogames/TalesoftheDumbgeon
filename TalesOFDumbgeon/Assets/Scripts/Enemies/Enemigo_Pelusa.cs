@@ -125,7 +125,7 @@ public class Enemigo_Pelusa : MonoBehaviour, IDeadable
 
     private void Attack()
     {
-        Instantiate(Bala, zonaAtaque.transform.position, Quaternion.identity);
+        Instantiate(Bala, zonaAtaque.transform.position, Quaternion.identity, gameObject.transform);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
