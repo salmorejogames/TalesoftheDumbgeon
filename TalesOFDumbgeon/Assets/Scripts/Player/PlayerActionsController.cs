@@ -73,7 +73,7 @@ public class PlayerActionsController : MonoBehaviour, IDeadable
     private void ReactiveAtack()
     {
         _canAtack = true;
-        weapon.GetComponent<Collider2D>().enabled = false;
+        //weapon.GetComponent<Collider2D>().enabled = false;
     }
     
     private void ReactiveSpell()
@@ -94,7 +94,7 @@ public class PlayerActionsController : MonoBehaviour, IDeadable
             _playerAnimationController.SetAtacking();
             weapon.Atack();
             _canAtack = false;
-            Invoke(nameof(ReactiveAtack), weapon.weaponInfo.AttackSpeed);
+            Invoke(nameof(ReactiveAtack), weapon.weaponInfo.AttackSpeed + weapon.AttackDuration);
         }        
     }
     
@@ -174,6 +174,8 @@ public class PlayerActionsController : MonoBehaviour, IDeadable
 
     public void Damage(Vector3 enemyPos, float cantidad, Elements.Element element)
     {
+        //Aqui cuando recibe daño Stadnar
+        SingletoneGameController.SoundManager.PlaySound("stadtnarrhurt");
         Debug.Log("Damage Recived");
         SingletoneGameController.InterfaceController.UpdateLife(_stats.GetActualHealth() / _stats.maxHealth);
         var direction = gameObject.transform.position - enemyPos;

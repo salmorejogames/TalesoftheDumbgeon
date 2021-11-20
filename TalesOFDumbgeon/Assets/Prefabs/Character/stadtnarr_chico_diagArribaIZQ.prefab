@@ -71,7 +71,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 4
+  m_SortingOrder: 5
   m_Sprite: {fileID: 1439373967826530031, guid: c0093bf3cc8281e43b328ff68c72b445,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -101,7 +101,7 @@ MonoBehaviour:
   - {fileID: 6411603781703795250}
   m_Bounds:
     m_Center: {x: 0.001455307, y: -0.00000047683716, z: 0}
-    m_Extent: {x: 3.3985457, y: 3.0600004, z: 0}
+    m_Extent: {x: 3.3985453, y: 3.06, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
 --- !u!1 &1570749452147478033
@@ -336,7 +336,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 5
+  m_SortingOrder: 3
   m_Sprite: {fileID: 1757082616853660797, guid: c0093bf3cc8281e43b328ff68c72b445,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -367,7 +367,7 @@ MonoBehaviour:
   - {fileID: 7948697106361369625}
   m_Bounds:
     m_Center: {x: -0.0020343661, y: -0.00026988983, z: 0}
-    m_Extent: {x: 0.6429653, y: 2.0242, z: 0}
+    m_Extent: {x: 0.6429653, y: 2.0242002, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
 --- !u!1 &2579999657246174985
@@ -534,8 +534,8 @@ MonoBehaviour:
   - {fileID: 6985151247667625735}
   - {fileID: 7167515927971907358}
   m_Bounds:
-    m_Center: {x: 0.00014483929, y: 0.00000023841858, z: 0}
-    m_Extent: {x: 0.66189486, y: 2.2749991, z: 0}
+    m_Center: {x: 0.00014483929, y: 0.00000047683716, z: 0}
+    m_Extent: {x: 0.6618949, y: 2.2749994, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
 --- !u!1 &3689940846059914040
@@ -639,7 +639,7 @@ MonoBehaviour:
   - {fileID: 3204212992058229645}
   - {fileID: 2703016681455688034}
   m_Bounds:
-    m_Center: {x: 0.004445672, y: 0.03761983, z: 0}
+    m_Center: {x: 0.004445672, y: 0.037620068, z: 0}
     m_Extent: {x: 1.6605556, y: 2.24262, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
@@ -986,7 +986,7 @@ MonoBehaviour:
   sword: {fileID: 4793524739203481181}
   swordColor: {fileID: 9098021629241741104}
   baston: {fileID: 8924080363692919307}
-  bastonColor: {fileID: 1794821621275521648}
+  bastonColor: {fileID: 1748546427715060899}
   frisbie: {fileID: 3510878581662269396}
   gun: {fileID: 4366833209664759576}
   rapier: {fileID: 6060420478072673955}
@@ -1296,8 +1296,8 @@ MonoBehaviour:
   - {fileID: 6141067346800194570}
   - {fileID: 9014815016221322890}
   m_Bounds:
-    m_Center: {x: -0.00076943636, y: 0.0014644861, z: 0}
-    m_Extent: {x: 0.78655976, y: 1.7983543, z: 0}
+    m_Center: {x: -0.00076949596, y: 0.0014643669, z: 0}
+    m_Extent: {x: 0.7865597, y: 1.7983541, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
 --- !u!1 &9013817709201841756
@@ -1453,7 +1453,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 3
+  m_SortingOrder: 4
   m_Sprite: {fileID: -8709404738447612572, guid: c0093bf3cc8281e43b328ff68c72b445,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1483,7 +1483,7 @@ MonoBehaviour:
   - {fileID: 7081711175230832206}
   - {fileID: 6483926557542334646}
   m_Bounds:
-    m_Center: {x: -0.0015151501, y: -0.001430273, z: 0}
+    m_Center: {x: -0.0015150309, y: -0.0014300346, z: 0}
     m_Extent: {x: 1.347575, y: 2.5220304, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
@@ -1702,9 +1702,9 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1203213653317329657}
   m_PrefabAsset: {fileID: 0}
---- !u!212 &1794821621275521648 stripped
+--- !u!212 &1748546427715060899 stripped
 SpriteRenderer:
-  m_CorrespondingSourceObject: {fileID: 602022954702753929, guid: e0b058b0413eb70428f689e948adbfd7,
+  m_CorrespondingSourceObject: {fileID: 645907862599312986, guid: e0b058b0413eb70428f689e948adbfd7,
     type: 3}
   m_PrefabInstance: {fileID: 1203213653317329657}
   m_PrefabAsset: {fileID: 0}

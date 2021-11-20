@@ -51,9 +51,9 @@ public class ArmorCard : BaseCard
         }
         
         NewArmor.AnimationController = animationController; 
-        //String[] info = StaticInfoHolder.LoadName(Spell.SpellKind, Spell.Element);
-        CardName = equipmentName;
-        Description = "xd";
+        String[] info = StaticInfoHolder.LoadName(NewArmor.Part, NewArmor.ArmorType, NewArmor.Element);
+        CardName = info[0];
+        Description = info[1];
         Armor = NewArmor.Armor;
         Speed = NewArmor.Speed;
         Health = NewArmor.Health;
@@ -100,9 +100,9 @@ public class ArmorCard : BaseCard
                 throw new ArgumentOutOfRangeException(nameof(NewArmor.Part), NewArmor.Part, null);
         }
 
-        //String[] info = StaticInfoHolder.LoadName(Spell.SpellKind, Spell.Element);
-        CardName = equipmentName;
-        Description = "xd";
+        String[] info = StaticInfoHolder.LoadName(NewArmor.Part, NewArmor.ArmorType, NewArmor.Element);
+        CardName = info[0];
+        Description = info[1];
         Armor = NewArmor.Armor;
         Speed = NewArmor.Speed;
         Health = NewArmor.Health;

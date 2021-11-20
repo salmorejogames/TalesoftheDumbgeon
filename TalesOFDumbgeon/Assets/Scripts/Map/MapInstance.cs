@@ -131,7 +131,7 @@ public class MapInstance : MonoBehaviour
 
                 var newPowerUp = Instantiate(powerUpList[i], gameObject.transform, true);
                 newPowerUp.transform.position = IsometricUtils.CoordinatesToWorldSpace(xx, yy);
-                newPowerUp.transform.localScale = new Vector3(1, 1, 1);
+                newPowerUp.transform.localScale = new Vector3(0.1f, 0.1f, 1f);
             }
 
             _started = true;

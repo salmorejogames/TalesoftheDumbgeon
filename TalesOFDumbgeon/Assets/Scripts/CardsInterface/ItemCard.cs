@@ -22,6 +22,7 @@ public class ItemCard : MonoBehaviour, IPointerClickHandler
     [SerializeField] private TextMeshProUGUI speed;
     [SerializeField] private Image itemImage;
     [SerializeField] private Color highlightColor;
+    [SerializeField] private Color deleteColor;
     [SerializeField] private float fadeTime;
     [SerializeField] private int distanceLaunch;
 
@@ -80,7 +81,8 @@ public class ItemCard : MonoBehaviour, IPointerClickHandler
     }
     private void Delete()
     {
-        ActivateEffect();
+        if(!_cardHolder.modeDelete)
+            ActivateEffect();
         _cardHolder.DeleteCard(_rectTransform);
     }
 
@@ -88,6 +90,16 @@ public class ItemCard : MonoBehaviour, IPointerClickHandler
     {
         if (active)
             holderImage.color = highlightColor;
+        else if (_cardHolder.modeDelete)
+            holderImage.color = deleteColor;
+        else
+            holderImage.color = Color.white;
+    }
+
+    public void SetDeleteleColor(bool active)
+    {
+        if (active)
+            holderImage.color = deleteColor;
         else
             holderImage.color = Color.white;
     }

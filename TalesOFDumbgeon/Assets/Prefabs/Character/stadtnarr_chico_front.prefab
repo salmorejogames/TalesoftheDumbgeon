@@ -218,7 +218,7 @@ MonoBehaviour:
   sword: {fileID: 469089329195540857}
   swordColor: {fileID: 4199084865488097300}
   baston: {fileID: 4343776014079578416}
-  bastonColor: {fileID: 6879528030842562891}
+  bastonColor: {fileID: 6905310413137371032}
   frisbie: {fileID: 7331365235423669803}
   gun: {fileID: 6181001324580411052}
   rapier: {fileID: 6686017209530513692}
@@ -324,8 +324,8 @@ MonoBehaviour:
   - {fileID: 927978983300140287}
   - {fileID: 9206348783499650209}
   m_Bounds:
-    m_Center: {x: 0.0012245774, y: 0.0015461445, z: 0}
-    m_Extent: {x: 0.8620146, y: 2.1584554, z: 0}
+    m_Center: {x: 0.001224637, y: 0.0015461445, z: 0}
+    m_Extent: {x: 0.86201465, y: 2.1584554, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
 --- !u!1 &1482869366795816365
@@ -525,7 +525,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: 3698032863799420383, guid: a4da568c022a5bd4fa83214f10a1f313,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -555,7 +555,7 @@ MonoBehaviour:
   - {fileID: 7130702623009368606}
   - {fileID: 2429613849177673981}
   m_Bounds:
-    m_Center: {x: -0.00000023841858, y: 0.00000071525574, z: 0}
+    m_Center: {x: -0.00000023841858, y: 0.0000009536743, z: 0}
     m_Extent: {x: 1.6399999, y: 2.3150003, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
@@ -691,8 +691,8 @@ MonoBehaviour:
   - {fileID: 3816880340686053758}
   - {fileID: 4187442002548273679}
   m_Bounds:
-    m_Center: {x: -0.0018050671, y: -0.00000047683716, z: 0}
-    m_Extent: {x: 0.8868053, y: 2.2150002, z: 0}
+    m_Center: {x: -0.0018050075, y: -0.00000047683716, z: 0}
+    m_Extent: {x: 0.8868052, y: 2.2150002, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
 --- !u!1 &4161510735999929572
@@ -766,7 +766,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 0
   m_Sprite: {fileID: -8374288606664850188, guid: a4da568c022a5bd4fa83214f10a1f313,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -796,8 +796,8 @@ MonoBehaviour:
   - {fileID: 2875850169476374383}
   - {fileID: 8760134086130156312}
   m_Bounds:
-    m_Center: {x: -0.0007650256, y: 0, z: 0}
-    m_Extent: {x: 0.9664949, y: 2.4549997, z: 0}
+    m_Center: {x: -0.0007650852, y: -0.00000023841858, z: 0}
+    m_Extent: {x: 0.966495, y: 2.455, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
 --- !u!1 &4601777065776517634
@@ -1318,7 +1318,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 3
   m_Sprite: {fileID: -5407055728456018076, guid: a4da568c022a5bd4fa83214f10a1f313,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1347,7 +1347,7 @@ MonoBehaviour:
   m_BoneTransforms:
   - {fileID: 7475634751121267317}
   m_Bounds:
-    m_Center: {x: 0, y: -0.0020098686, z: 0}
+    m_Center: {x: 0, y: -0.0020096302, z: 0}
     m_Extent: {x: 4.2750006, y: 3.2079906, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
@@ -1453,7 +1453,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 3
+  m_SortingOrder: 1
   m_Sprite: {fileID: -7918096302667556808, guid: a4da568c022a5bd4fa83214f10a1f313,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1483,8 +1483,8 @@ MonoBehaviour:
   - {fileID: 8615518022999903292}
   - {fileID: 3351732834136825435}
   m_Bounds:
-    m_Center: {x: 0.0000004172325, y: 0.00000023841858, z: 0}
-    m_Extent: {x: 0.9150003, y: 2.3749998, z: 0}
+    m_Center: {x: 0.00000047683716, y: 0.00000023841858, z: 0}
+    m_Extent: {x: 0.9150004, y: 2.3749998, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
 --- !u!1001 &5595573673695112757
@@ -1707,9 +1707,9 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 6278632488177170882}
   m_PrefabAsset: {fileID: 0}
---- !u!212 &6879528030842562891 stripped
+--- !u!212 &6905310413137371032 stripped
 SpriteRenderer:
-  m_CorrespondingSourceObject: {fileID: 602022954702753929, guid: e0b058b0413eb70428f689e948adbfd7,
+  m_CorrespondingSourceObject: {fileID: 645907862599312986, guid: e0b058b0413eb70428f689e948adbfd7,
     type: 3}
   m_PrefabInstance: {fileID: 6278632488177170882}
   m_PrefabAsset: {fileID: 0}
