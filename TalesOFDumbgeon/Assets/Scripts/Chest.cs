@@ -6,21 +6,16 @@ public class Chest : MonoBehaviour
 {
     public GameObject carta;
     public Sprite cofreAbierto;
-    public int a;
+    private bool closed = true;
 
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Arma"))
+        if (collision.gameObject.CompareTag("Arma") && closed == true)
         {
-            if(a == 0)
-            {
-                Instantiate(carta,gameObject.transform.position + new Vector3(1f,0f,0f));
-                a++;
-                gameObject.GetComponent<SpriteRenderer>().sprite = cofreAbierto;
-            }
-
-
+            Instantiate(carta,gameObject.transform.position + new Vector3(1.0f,0.0f,0.0f), gameObject.transform.rotation);
+            gameObject.GetComponent<SpriteRenderer>().sprite = cofreAbierto;
+            closed = false;
         }
         
     }
