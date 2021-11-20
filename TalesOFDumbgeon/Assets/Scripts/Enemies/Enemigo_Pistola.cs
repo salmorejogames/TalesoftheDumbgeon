@@ -12,6 +12,12 @@ public class Enemigo_Pistola : MonoBehaviour, IDeadable
     private IsometricMove _player;
     private CharacterStats _stats;
 
+    [SerializeField] private NavMeshAgent agent;
+    public int difficulty;
+
+    [SerializeField]
+    private DamageNumber DmgPrefab;
+
     public float velocidad = 5;
     public int armadura = 3;
     public int damage = 1;
@@ -22,7 +28,6 @@ public class Enemigo_Pistola : MonoBehaviour, IDeadable
     public float decisionClock = 0f;
 
     public GameObject personaje;
-    public GameObject Bala;
     public GameObject zonaAtaque;
     public RangedWeapon arma;
     private Weapon armaHolder;
@@ -51,6 +56,16 @@ public class Enemigo_Pistola : MonoBehaviour, IDeadable
 
     public enum tipoEnemigo { Abuesqueleto, Cerebro, Duonde, Palloto, Banana };
     public tipoEnemigo especie;
+
+    private void Awake()
+    {
+        _stats = gameObject.GetComponent<CharacterStats>();
+        _spr = gameObject.GetComponent<SpriteRenderer>();
+        _player = SingletoneGameController.PlayerActions.player;
+        agent.updateUpAxis = false;
+        agent.speed = _stats.GetSpeedValue();
+        agent.updateRotation = false;
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -335,12 +350,15 @@ public class Enemigo_Pistola : MonoBehaviour, IDeadable
     public void Damage(Vector3 enemy, float cantidad, Elements.Element element)
     {
         float multiplier = Elements.GetElementMultiplier(element, _stats.element);
+        DamageNumber dmgN = Instantiate(DmgPrefab, transform.position, Quaternion.identity);
+        dmgN.Inicializar(cantidad, transform);
         if (multiplier > 1.1f)
             _spr.color = Color.red;
         else if (multiplier < 0.9f)
             _spr.color = Color.cyan;
         else
             _spr.color = Color.yellow;
+        dmgN.number.color = _spr.color;
         Invoke(nameof(RevertColor), 0.2f);
     }
 
