@@ -17,12 +17,6 @@ namespace Inteface
         private List<Vector3> _hiddenPos;
 
         public Image contArma;
-        public Image contArmadura1;
-        public Image contArmadura2;
-        public Image contArmadura3;
-        public Image contHechizo;
-        public Image contMaldicion1;
-        public Image contMaldicion2;
 
         // Start is called before the first frame update
         void Start()
@@ -119,36 +113,13 @@ namespace Inteface
             yield return null;
         }
 
-        public void CambiarSprite(BaseCard.CardType cardType, Sprite nuevoSprite)
+        public void CambiarSprite(Image imagenActual, Sprite nuevoSprite)
         {
-            switch (cardType)
+            switch (imagenActual.gameObject.name)
             {
-                case BaseCard.CardType.Weapon:
+                case "SpriteArma":
                     contArma.sprite = nuevoSprite;
                     break;
-
-                case BaseCard.CardType.Spell:
-                    contHechizo.sprite = nuevoSprite;
-                    break;
-
-                    /*
-                case BaseCard.CardType.Equipment:
-                    switch (bodyPart)
-                    {
-                        case BaseArmor.BodyPart.Head:
-                            contArmadura1.sprite = nuevoSprite;
-                            break;
-
-                        case BaseArmor.BodyPart.Body:
-                            contArmadura2.sprite = nuevoSprite;
-                            break;
-
-                        case BaseArmor.BodyPart.Legs:
-                            contArmadura3.sprite = nuevoSprite;
-                            break;
-                    }
-                    break;
-                    */
             }
         }
     }
