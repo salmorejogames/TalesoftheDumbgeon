@@ -13,7 +13,8 @@ public class Chest : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Arma") && closed == true)
         {
-            Instantiate(carta,gameObject.transform.position + new Vector3(1.0f,0.0f,0.0f), gameObject.transform.rotation);
+            GameObject newCard = Instantiate(carta,gameObject.transform.position + new Vector3(1.0f,0.0f,0.0f), gameObject.transform.rotation);
+            newCard.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
             gameObject.GetComponent<SpriteRenderer>().sprite = cofreAbierto;
             closed = false;
         }
