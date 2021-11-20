@@ -70,7 +70,14 @@ public class ItemCard : MonoBehaviour, IPointerClickHandler
     public void ActivateEffect()
     {
         CardInfo.CastEffect();
-        SingletoneGameController.InterfaceController.CambiarSprite(CardInfo.cardType, CardInfo.Artwork);
+
+        BaseArmor.BodyPart bodyPart = BaseArmor.BodyPart.Body;
+        if (CardInfo.cardType == BaseCard.CardType.Equipment)
+        {
+            bodyPart = ((ArmorCard)CardInfo).NewArmor.Part;
+        }
+
+        SingletoneGameController.InterfaceController.CambiarSprite(CardInfo.cardType, bodyPart, CardInfo.Artwork);
     }
 
     public void StartDelete()

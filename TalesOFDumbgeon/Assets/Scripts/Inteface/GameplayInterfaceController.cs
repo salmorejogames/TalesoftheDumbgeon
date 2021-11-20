@@ -119,7 +119,7 @@ namespace Inteface
             yield return null;
         }
 
-        public void CambiarSprite(BaseCard.CardType cardType, Sprite nuevoSprite)
+        public void CambiarSprite(BaseCard.CardType cardType, BaseArmor.BodyPart bodyPart, Sprite nuevoSprite)
         {
             switch (cardType)
             {
@@ -131,7 +131,6 @@ namespace Inteface
                     contHechizo.sprite = nuevoSprite;
                     break;
 
-                    /*
                 case BaseCard.CardType.Equipment:
                     switch (bodyPart)
                     {
@@ -148,7 +147,6 @@ namespace Inteface
                             break;
                     }
                     break;
-                    */
             }
         }
     }
