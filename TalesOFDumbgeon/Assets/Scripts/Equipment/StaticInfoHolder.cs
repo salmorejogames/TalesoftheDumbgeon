@@ -114,8 +114,62 @@ public class StaticInfoHolder : MonoBehaviour
                 break;
             case BaseWeapon.WeaponType.Piercing:
                 break;
+            case BaseWeapon.WeaponType.Frisbie:
+                break;
+            case BaseWeapon.WeaponType.Rapier:
+                break;
             default:
                 throw new ArgumentOutOfRangeException(nameof(weaponType), weaponType, null);
+        }
+        return info;
+    }
+
+    public static string[] LoadName(BaseArmor.BodyPart armorType, BaseArmor.ArmorPart armorKind, Elements.Element element)
+    {
+        string[] info = new string[2];
+        switch (armorKind)
+        {
+            case BaseArmor.ArmorPart.Wizard:
+                switch (armorType)
+                {
+                    case BaseArmor.BodyPart.Head:
+                        break;
+                    case BaseArmor.BodyPart.Body:
+                        break;
+                    case BaseArmor.BodyPart.Legs:
+                        break;
+                    default:
+                        throw new ArgumentOutOfRangeException(nameof(armorType), armorType, null);
+                }
+                break;
+            case BaseArmor.ArmorPart.Warrior:
+                switch (armorType)
+                {
+                    case BaseArmor.BodyPart.Head:
+                        break;
+                    case BaseArmor.BodyPart.Body:
+                        break;
+                    case BaseArmor.BodyPart.Legs:
+                        break;
+                    default:
+                        throw new ArgumentOutOfRangeException(nameof(armorType), armorType, null);
+                }
+                break;
+            case BaseArmor.ArmorPart.Rogue:
+                switch (armorType)
+                {
+                    case BaseArmor.BodyPart.Head:
+                        break;
+                    case BaseArmor.BodyPart.Body:
+                        break;
+                    case BaseArmor.BodyPart.Legs:
+                        break;
+                    default:
+                        throw new ArgumentOutOfRangeException(nameof(armorType), armorType, null);
+                }
+                break;
+            default:
+                throw new ArgumentOutOfRangeException(nameof(armorKind), armorKind, null);
         }
         return info;
     }
