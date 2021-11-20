@@ -52,7 +52,7 @@ namespace Inteface
         {
             float distance = amount - lifeBar.localScale.x;
             float timeElapsed = 0f;
-            while (timeElapsed<=animationTime)
+            while (timeElapsed <= animationTime)
             {
                 float step = distance / animationTime * Time.deltaTime;
                 float newX = lifeBar.localScale.x + step;
@@ -75,11 +75,11 @@ namespace Inteface
         {
             Debug.Log("Ocultando");
             float elapsedTime = 0f;
-            while (elapsedTime<animationTime)
+            while (elapsedTime < animationTime)
             {
                 for (int i = 0; i < banners.Count; i++)
                 {
-                    float relativeDistance = Mathf.Abs(_hiddenPos[i].x) -Mathf.Abs(_originalPos[i].x);
+                    float relativeDistance = Mathf.Abs(_hiddenPos[i].x) - Mathf.Abs(_originalPos[i].x);
                     float step = relativeDistance / animationTime * Time.deltaTime;
                     int mult = 1;
                     if (_originalPos[i].x < 0) mult = -1;
@@ -95,12 +95,12 @@ namespace Inteface
                     float step = relativeDistance / animationTime * Time.deltaTime;
                     Vector3 originalSize = icons[i].localScale;
                     icons[i].localScale =
-                        new Vector3(originalSize.x + step , originalSize.y + step, originalSize.z);
+                        new Vector3(originalSize.x + step, originalSize.y + step, originalSize.z);
                 }
                 elapsedTime += Time.deltaTime;
                 yield return new WaitForEndOfFrame();
             }
-            
+
             //MakeSure the UI elements are in place.
             foreach (var icon in icons)
             {
@@ -109,7 +109,7 @@ namespace Inteface
                 else
                     icon.localScale = Vector3.zero;
             }
-            for(int i = 0; i< banners.Count; i++)
+            for (int i = 0; i < banners.Count; i++)
             {
                 if (activated)
                     banners[i].anchoredPosition = _originalPos[i];

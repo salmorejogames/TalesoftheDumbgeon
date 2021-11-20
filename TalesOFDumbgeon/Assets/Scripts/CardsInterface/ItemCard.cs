@@ -69,6 +69,7 @@ public class ItemCard : MonoBehaviour, IPointerClickHandler
     public void ActivateEffect()
     {
         CardInfo.CastEffect();
+        SingletoneGameController.InterfaceController.CambiarSprite(CardInfo.cardType, CardInfo.Artwork);
     }
 
     public void StartDelete()
@@ -80,7 +81,6 @@ public class ItemCard : MonoBehaviour, IPointerClickHandler
     private void Delete()
     {
         ActivateEffect();
-        SingletoneGameController.InterfaceController.CambiarSprite(CardInfo.cardType, CardInfo.Artwork);
         _cardHolder.DeleteCard(_rectTransform);
     }
 
