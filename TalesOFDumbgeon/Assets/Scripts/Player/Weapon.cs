@@ -66,18 +66,47 @@ public class Weapon : MonoBehaviour
     public void Atack()
     {
         //Debug.Log("Im atacking");
+
+    
+
         weaponInfo.Atacar();
         StartCoroutine(nameof(AttackCoroutine));
     }
 
     public void CastSpell()
     {
+        if (holder.gameObject.CompareTag("Player"))
+        {
+            switch (spellInfo.Element)
+            {
+              
+                case Elements.Element.Normal:
+                    break;
+                case Elements.Element.Brasa:
+                    SingletoneGameController.SoundManager.PlaySound("hechizofuego");
+                    break;
+                case Elements.Element.Caos:
+                    SingletoneGameController.SoundManager.PlaySound("hechizocaos");
+                    break;
+                case Elements.Element.Brisa:
+                    SingletoneGameController.SoundManager.PlaySound("hechizoaire");
+                    break;
+                case Elements.Element.Copo:
+                    SingletoneGameController.SoundManager.PlaySound("hechizohielo");
+                    break;
+                case Elements.Element.Guijarro:
+                    SingletoneGameController.SoundManager.PlaySound("hechizoroca");
+                    break;
+            }
+
+        }
+
         if (spellInfo != null)
         {
             spellInfo.Cast();
         }
     }
-    
+
     /*
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -116,9 +145,37 @@ public class Weapon : MonoBehaviour
         float duration = _actualDmgArea.fixedAnimationTime / holder.GetSpeedValue();
         holder.Immobilize(duration);
         yield return new WaitForSeconds(duration*_actualDmgArea.percentStartDmg);
+        //sonidos
+
+        if (holder.gameObject.CompareTag("Player"))
+        {
+            switch (weaponInfo.AttackType)
+            {
+                case BaseWeapon.WeaponType.Area:
+                    SingletoneGameController.SoundManager.PlaySound("golpeespada");
+                    break;
+                case BaseWeapon.WeaponType.Ranged:
+                    SingletoneGameController.SoundManager.PlaySound("golpebaston");
+                    break;
+                case BaseWeapon.WeaponType.Smashing:
+                    SingletoneGameController.SoundManager.PlaySound("golpebaston");
+                    break;
+                case BaseWeapon.WeaponType.Piercing:
+                    SingletoneGameController.SoundManager.PlaySound("golpelanza");
+                    break;
+                case BaseWeapon.WeaponType.Frisbie:
+                    SingletoneGameController.SoundManager.PlaySound("golpeespada");
+                    break;
+                case BaseWeapon.WeaponType.Rapier:
+                    SingletoneGameController.SoundManager.PlaySound("golpelanza");
+                    break;
+            }
+
+        }
+
         _actualDmgArea.gameObject.SetActive(true);
         yield return new WaitForSeconds(duration*(_actualDmgArea.percentStopDmgg-_actualDmgArea.percentStartDmg));
         _actualDmgArea.gameObject.SetActive(false);
     }
-    
+
 }
