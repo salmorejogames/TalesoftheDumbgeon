@@ -51,16 +51,6 @@ public class EnemigoController : MonoBehaviour, IDeadable
     public enum tipoEnemigo {Abuesqueleto, Cerebro, Duonde, Palloto, Banana};
     public tipoEnemigo especie;
 
-    private void Awake()
-    {
-        _stats = gameObject.GetComponent<CharacterStats>();
-        _spr = gameObject.GetComponent<SpriteRenderer>();
-        _player = SingletoneGameController.PlayerActions.player;
-        agent.updateUpAxis = false;
-        agent.speed = _stats.GetSpeedValue();
-        agent.updateRotation = false;
-    }
-
     // Start is called before the first frame update
     void Start()
     {
@@ -68,6 +58,9 @@ public class EnemigoController : MonoBehaviour, IDeadable
         _stats = gameObject.GetComponent<CharacterStats>();
         _spr = gameObject.GetComponent<SpriteRenderer>();
         _player = SingletoneGameController.PlayerActions.player;
+        agent.updateUpAxis = false;
+        agent.speed = _stats.GetSpeedValue();
+        agent.updateRotation = false;
 
         rb = gameObject.GetComponent<Rigidbody2D>();
         personaje = GameObject.FindGameObjectWithTag("Player");

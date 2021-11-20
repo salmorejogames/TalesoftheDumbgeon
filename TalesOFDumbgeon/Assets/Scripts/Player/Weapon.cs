@@ -21,7 +21,7 @@ public class Weapon : MonoBehaviour
     {
         SetOrientation(270);
         //_spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
-        AreaWeapon weapon = new AreaWeapon();
+        RangedWeapon weapon = new RangedWeapon();
         weapon.SetWeaponHolder(this);
         weapon.Randomize(1);
         ChangeWeapon(weapon);

@@ -148,6 +148,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4fc0e643ad0dbe94489255a03f473bbf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  agent: {fileID: 0}
+  difficulty: 0
+  DmgPrefab: {fileID: 0}
   velocidad: 5
   armadura: 3
   damage: 1
@@ -157,7 +160,6 @@ MonoBehaviour:
   decisionTime: 2
   decisionClock: 0
   personaje: {fileID: 0}
-  Bala: {fileID: 0}
   zonaAtaque: {fileID: 7742089658824697865}
   especie: 0
 --- !u!114 &5633646339907591679
@@ -184,11 +186,14 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1305524535482785509}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dc0977d932099d141b31a68f47ecbff0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  agent: {fileID: 0}
+  difficulty: 0
+  DmgPrefab: {fileID: 0}
   velocidad: 5
   armadura: 3
   damage: 1
@@ -198,7 +203,6 @@ MonoBehaviour:
   decisionTime: 2
   decisionClock: 0
   personaje: {fileID: 0}
-  Bala: {fileID: 2652884022069426807, guid: be9b9faf661ed2744b549e7dfa9127bd, type: 3}
   zonaAtaque: {fileID: 7742089658824697865}
   especie: 1
 --- !u!114 &3591624881585876570
@@ -213,6 +217,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdf4ef12545494845882955a67bb2d5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  difficulty: 0
+  DmgPrefab: {fileID: 0}
   velocidad: 5
   armadura: 3
   damage: 1

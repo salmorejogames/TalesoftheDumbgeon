@@ -43,14 +43,6 @@ public class Enemigo_Pelusa : MonoBehaviour, IDeadable
     public tipoEnemigo especie;
 
 
-    private void Awake()
-    {
-        _stats = gameObject.GetComponent<CharacterStats>();
-        _spr = gameObject.GetComponent<SpriteRenderer>();
-        _player = SingletoneGameController.PlayerActions.player;
-    }
-
-
     // Start is called before the first frame update
     void Start()
     {

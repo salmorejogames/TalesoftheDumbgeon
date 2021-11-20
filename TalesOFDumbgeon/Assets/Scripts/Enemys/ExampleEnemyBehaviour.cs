@@ -29,7 +29,7 @@ public class ExampleEnemyBehaviour : MonoBehaviour, IDeadable
         }
     }
 
-    private void Awake()
+    private void Start()
     {
         stats = gameObject.GetComponent<CharacterStats>();
         _spr = gameObject.GetComponent<SpriteRenderer>();

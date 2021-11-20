@@ -5,7 +5,7 @@ using UnityEngine;
 using Interfaces;
 using UnityEngine.AI;
 
-public class Enemigo_Pistola : MonoBehaviour, IDeadable
+public class Enemigo_Pistola : MonoBehaviour, IDeadable, IMovil
 {
     //IDeadable 
     private SpriteRenderer _spr;
@@ -57,16 +57,6 @@ public class Enemigo_Pistola : MonoBehaviour, IDeadable
     public enum tipoEnemigo { Abuesqueleto, Cerebro, Duonde, Palloto, Banana };
     public tipoEnemigo especie;
 
-    private void Awake()
-    {
-        _stats = gameObject.GetComponent<CharacterStats>();
-        _spr = gameObject.GetComponent<SpriteRenderer>();
-        _player = SingletoneGameController.PlayerActions.player;
-        agent.updateUpAxis = false;
-        agent.speed = _stats.GetSpeedValue();
-        agent.updateRotation = false;
-    }
-
     // Start is called before the first frame update
     void Start()
     {
@@ -74,6 +64,10 @@ public class Enemigo_Pistola : MonoBehaviour, IDeadable
         _stats = gameObject.GetComponent<CharacterStats>();
         _spr = gameObject.GetComponent<SpriteRenderer>();
         _player = SingletoneGameController.PlayerActions.player;
+        agent.updateUpAxis = false;
+        agent.speed = _stats.GetSpeedValue();
+        agent.updateRotation = false;
+
         arma = new RangedWeapon();
         armaHolder = zonaAtaque.GetComponent<Weapon>();
 
@@ -82,7 +76,7 @@ public class Enemigo_Pistola : MonoBehaviour, IDeadable
         rb.velocity = Vector2.zero;
         attackDelay = 5f;
         attackTime = 5f;
-        arma.SetWeaponHolder(zonaAtaque.GetComponent<Weapon>());
+        arma.SetWeaponHolder(armaHolder);
 
         if (especie == tipoEnemigo.Abuesqueleto)
         {
@@ -365,5 +359,15 @@ public class Enemigo_Pistola : MonoBehaviour, IDeadable
     public void RevertColor()
     {
         _spr.color = Color.white;
+    }
+
+    public void Move()
+    {
+        
+    }
+
+    public void DisableMovement(float time)
+    {
+        
     }
 }
