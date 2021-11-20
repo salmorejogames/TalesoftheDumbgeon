@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using Random = UnityEngine.Random;
 
 
 public class CardHolder : MonoBehaviour
@@ -23,7 +23,7 @@ public class CardHolder : MonoBehaviour
     void Awake()
     {
         _inputControler = new InputControler();
-        _inputControler.Cartas.NuevaCarta.performed += ctx => AddCard(0, 4);
+        _inputControler.Cartas.NuevaCarta.performed += ctx => AddCard(0, Random.Range(0,6));
         _inputControler.Cartas.SacarCartas.performed += ctx => Resize();
         _inputControler.Cartas.Selection.performed += ctx => MoveSelection(Convert.ToBoolean(ctx.ReadValue<float>()));
         _inputControler.Cartas.EnterSelection.performed += ctx => EnterSelection();

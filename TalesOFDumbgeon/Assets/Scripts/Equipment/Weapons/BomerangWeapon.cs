@@ -2,16 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AreaWeapon : BaseWeapon
+public class BomerangWeapon : BaseWeapon
 {
-
     
-
-    public AreaWeapon()
+    public BomerangWeapon()
     {
         AttackSpeed = 0.2f;
-        AttackDuration = 0.25f;
-        AttackType = WeaponType.Area;
+        AttackDuration = 0.3f;
+        AttackType = WeaponType.Frisbie;
     }
     public override void Atacar()
     {
@@ -20,7 +18,6 @@ public class AreaWeapon : BaseWeapon
         //WeaponHolder.holder.Immobilize(AttackDuration);
         //WeaponHolder.StartCoroutine(SliceAtack(WeaponHolder, AttackDuration));
     }
-    
-    
+
 
 }

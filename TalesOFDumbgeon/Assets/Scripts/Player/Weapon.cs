@@ -15,8 +15,8 @@ public class Weapon : MonoBehaviour
     [NonSerialized] public float relativeAngle;
     [NonSerialized] public float relativePosition;
     [SerializeField] private List<DamageArea> damageAreas;
-    private DamageArea actualDmgArea;
-    public float AttackDuration => actualDmgArea.fixedAnimationTime / holder.GetSpeedValue();
+    private DamageArea _actualDmgArea;
+    public float AttackDuration => _actualDmgArea.fixedAnimationTime / holder.GetSpeedValue();
 
 
     // Start is called before the first frame update
@@ -25,7 +25,7 @@ public class Weapon : MonoBehaviour
         SetOrientation(270);
         //_spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
         AreaWeapon weapon = new AreaWeapon();
-        actualDmgArea = damageAreas[(int) BaseWeapon.WeaponType.Area];
+        _actualDmgArea = damageAreas[(int) BaseWeapon.WeaponType.Area];
         weapon.SetWeaponHolder(this);
         weapon.Randomize(1);
         ChangeWeapon(weapon);
@@ -39,8 +39,8 @@ public class Weapon : MonoBehaviour
         newWeapon.SetWeaponHolder(this);
         weaponInfo = newWeapon;
         weaponInfo.Equip();
-        actualDmgArea.gameObject.SetActive(false);
-        actualDmgArea = damageAreas[(int) weaponInfo.AttackType];
+        _actualDmgArea.gameObject.SetActive(false);
+        _actualDmgArea = damageAreas[(int) weaponInfo.AttackType];
         //_spriteRenderer.sprite = weaponInfo.WeaponSprite;
         /*
         _collider = gameObject.AddComponent<PolygonCollider2D>();
@@ -108,17 +108,17 @@ public class Weapon : MonoBehaviour
     {
         //_spriteRenderer.color = SingletoneGameController.InfoHolder.LoadColor(weaponInfo.Element);
         //_collider.enabled = false;
-        actualDmgArea.gameObject.SetActive(false);
+        _actualDmgArea.gameObject.SetActive(false);
     }
 
     private IEnumerator AttackCoroutine()
     {
-        float duration = actualDmgArea.fixedAnimationTime / holder.GetSpeedValue();
+        float duration = _actualDmgArea.fixedAnimationTime / holder.GetSpeedValue();
         holder.Immobilize(duration);
-        yield return new WaitForSeconds(duration*actualDmgArea.percentStartDmg);
-        actualDmgArea.gameObject.SetActive(true);
-        yield return new WaitForSeconds(duration*actualDmgArea.percentStopDmgg-actualDmgArea.percentStartDmg);
-        actualDmgArea.gameObject.SetActive(false);
+        yield return new WaitForSeconds(duration*_actualDmgArea.percentStartDmg);
+        _actualDmgArea.gameObject.SetActive(true);
+        yield return new WaitForSeconds(duration*(_actualDmgArea.percentStopDmgg-_actualDmgArea.percentStartDmg));
+        _actualDmgArea.gameObject.SetActive(false);
     }
     
 }

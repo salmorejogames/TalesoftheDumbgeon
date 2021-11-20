@@ -130,21 +130,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 629650482343505335, guid: 3a9afe470fc87a14889f9b0eb94b4289,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 629650482343505335, guid: 3a9afe470fc87a14889f9b0eb94b4289,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -1
-      objectReference: {fileID: 0}
-    - target: {fileID: 629650482343505335, guid: 3a9afe470fc87a14889f9b0eb94b4289,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: -180
-      objectReference: {fileID: 0}
     - target: {fileID: 1559653254139748270, guid: 3a9afe470fc87a14889f9b0eb94b4289,
         type: 3}
       propertyPath: m_IsActive
@@ -157,23 +142,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1653819302101835510, guid: 3a9afe470fc87a14889f9b0eb94b4289,
         type: 3}
-      propertyPath: percentStartDmg
-      value: 0.9
-      objectReference: {fileID: 0}
-    - target: {fileID: 1653819302101835510, guid: 3a9afe470fc87a14889f9b0eb94b4289,
-        type: 3}
-      propertyPath: percentStopDmgg
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1653819302101835510, guid: 3a9afe470fc87a14889f9b0eb94b4289,
-        type: 3}
       propertyPath: fixedStartDmgTime
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 1653819302101835510, guid: 3a9afe470fc87a14889f9b0eb94b4289,
+    - target: {fileID: 2073190869400343497, guid: 3a9afe470fc87a14889f9b0eb94b4289,
         type: 3}
-      propertyPath: fixedAnimationTime
-      value: 1.16
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2553066645487058727, guid: 3a9afe470fc87a14889f9b0eb94b4289,
         type: 3}
@@ -211,10 +186,20 @@ PrefabInstance:
       propertyPath: weaponController
       value: 
       objectReference: {fileID: 1393725114}
+    - target: {fileID: 3155644830788174904, guid: 3a9afe470fc87a14889f9b0eb94b4289,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3251779786003171712, guid: 3a9afe470fc87a14889f9b0eb94b4289,
         type: 3}
       propertyPath: gapX
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4251125739439225072, guid: 3a9afe470fc87a14889f9b0eb94b4289,
+        type: 3}
+      propertyPath: percentStartDmg
+      value: 0.9
       objectReference: {fileID: 0}
     - target: {fileID: 4287583346445489641, guid: 3a9afe470fc87a14889f9b0eb94b4289,
         type: 3}
@@ -232,11 +217,6 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
-    - target: {fileID: 4677141966238078428, guid: 3a9afe470fc87a14889f9b0eb94b4289,
-        type: 3}
-      propertyPath: m_Offset.x
-      value: -0.25
-      objectReference: {fileID: 0}
     - target: {fileID: 4711098443936322420, guid: 3a9afe470fc87a14889f9b0eb94b4289,
         type: 3}
       propertyPath: cartas
@@ -451,12 +431,17 @@ PrefabInstance:
     - target: {fileID: 8441729219444189544, guid: 3a9afe470fc87a14889f9b0eb94b4289,
         type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8441729219444189544, guid: 3a9afe470fc87a14889f9b0eb94b4289,
         type: 3}
       propertyPath: m_WasSpriteAssigned
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9211385869288918768, guid: 3a9afe470fc87a14889f9b0eb94b4289,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 3953147539745567089, guid: 3a9afe470fc87a14889f9b0eb94b4289, type: 3}
@@ -1244,6 +1229,30 @@ PrefabInstance:
       propertyPath: m_Volume
       value: 0.3
       objectReference: {fileID: 0}
+    - target: {fileID: 2208423518114130156, guid: f1130666115412e4fb8b424d17d71b09,
+        type: 3}
+      propertyPath: rapierWeaponArtwork
+      value: 
+      objectReference: {fileID: 21300000, guid: 9747441666a32d940a604ebe6d18eb8d,
+        type: 3}
+    - target: {fileID: 2208423518114130156, guid: f1130666115412e4fb8b424d17d71b09,
+        type: 3}
+      propertyPath: piercingWeaponArtwork
+      value: 
+      objectReference: {fileID: 21300000, guid: 3c415f5f237a85b4d917ffdfe406ddfb,
+        type: 3}
+    - target: {fileID: 2208423518114130156, guid: f1130666115412e4fb8b424d17d71b09,
+        type: 3}
+      propertyPath: smashingWeaponArtwork
+      value: 
+      objectReference: {fileID: 21300000, guid: ec1dc663f00a06449a3c2df4123297f0,
+        type: 3}
+    - target: {fileID: 2208423518114130156, guid: f1130666115412e4fb8b424d17d71b09,
+        type: 3}
+      propertyPath: boomerangWeaponArtwork
+      value: 
+      objectReference: {fileID: 21300000, guid: ef016701efdde564e841f53ce2188890,
+        type: 3}
     - target: {fileID: 2208423518114130159, guid: f1130666115412e4fb8b424d17d71b09,
         type: 3}
       propertyPath: m_Name
