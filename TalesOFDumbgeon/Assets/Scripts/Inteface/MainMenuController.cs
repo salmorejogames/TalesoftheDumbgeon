@@ -11,8 +11,12 @@ public class MainMenuController : MonoBehaviour
     [SerializeField] private GameObject botonAjustes;
     [SerializeField] private GameObject botonCreditos;
     [SerializeField] private GameObject botonGuia;
+    [SerializeField] private GameObject botonVolver;
     [SerializeField] private GameObject tutorial1;
     [SerializeField] private GameObject tutorial2;
+    [SerializeField] private GameObject volumen;
+
+    [SerializeField] private GameObject menuAjustes;
 
     [SerializeField] private Image tutorial1Imagen;
     [SerializeField] private Image tutorial2Imagen;
@@ -21,18 +25,6 @@ public class MainMenuController : MonoBehaviour
     [SerializeField] private Sprite tutorial2Movil;
 
     private int pagina = 0;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
 
     public void Jugar()
     {
@@ -161,5 +153,44 @@ public class MainMenuController : MonoBehaviour
 
         LeanTween.moveLocalY(botonGuia, -320, 1.5f).setEaseOutCubic().setDelay(1f);
         LeanTween.rotateZ(botonGuia, 1, 1f).setEaseOutCubic().setDelay(1f);
+    }
+
+    public void Ajustes()
+    {
+        LeanTween.moveLocalY(botonJugar, -550, .25f);
+        LeanTween.moveLocalY(botonCreditos, -550, .25f);
+        LeanTween.moveLocalY(botonGuia, -550, .25f);
+        LeanTween.moveLocalY(titulo, 550, .25f);
+
+        LeanTween.moveLocalX(botonAjustes, 0, 1f).setEaseOutCubic();
+        LeanTween.moveLocalY(botonAjustes, 225, 1f).setEaseOutCubic();
+        LeanTween.rotateZ(botonAjustes, 10, .5f).setEaseOutCubic();
+
+        LeanTween.moveLocalY(volumen, 0, 1f).setEaseOutCubic().setDelay(.5f);
+        LeanTween.moveLocalY(botonVolver, -100, 1f).setEaseOutCubic().setDelay(.75f);
+    }
+
+    public void Volver()
+    {
+        LeanTween.moveLocalY(titulo, 190, 1.5f).setEaseOutCubic();
+        LeanTween.rotateZ(titulo, -85, 1f).setEaseOutCubic();
+
+        LeanTween.moveLocalX(botonJugar, -13, 1.5f).setEaseOutCubic().setDelay(.5f);
+        LeanTween.moveLocalY(botonJugar, -120, 1.5f).setEaseOutCubic().setDelay(.5f);
+        LeanTween.rotateZ(botonJugar, -5, 1f).setEaseOutCubic().setDelay(.5f);
+
+        LeanTween.moveLocalX(botonAjustes, -420, 1.5f).setEaseOutCubic();
+        LeanTween.moveLocalY(botonAjustes, -180, 1.5f).setEaseOutCubic();
+        LeanTween.rotateZ(botonAjustes, 15, 1f).setEaseOutCubic();
+
+        LeanTween.moveLocalX(botonCreditos, 385, 1.5f).setEaseOutCubic().setDelay(.5f);
+        LeanTween.moveLocalY(botonCreditos, -160, 1.5f).setEaseOutCubic().setDelay(.5f);
+        LeanTween.rotateZ(botonCreditos, 5, 1f).setEaseOutCubic().setDelay(.5f);
+
+        LeanTween.moveLocalY(botonGuia, -320, 1.5f).setEaseOutCubic().setDelay(1f);
+        LeanTween.rotateZ(botonGuia, 1, 1f).setEaseOutCubic().setDelay(1f);
+
+        LeanTween.moveLocalY(volumen, -500, .25f);
+        LeanTween.moveLocalY(botonVolver, -500, .25f);
     }
 }
