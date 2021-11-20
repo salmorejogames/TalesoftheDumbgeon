@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class SingletoneGameController : MonoBehaviour
 {
+    public static SoundManager SoundManager;
     public static SingletoneGameController Instance;
     public static PlayerActions PlayerActions;
     public static MapManager MapManager;
@@ -43,7 +44,7 @@ public class SingletoneGameController : MonoBehaviour
 
     public void ReloadComponents()
     {
-       
+        SoundManager = FindObjectOfType<SoundManager>();
         CardHolder = FindObjectOfType<CardHolder>();
         InterfaceController = FindObjectOfType<GameplayInterfaceController>();
         NavMeshManager = FindObjectOfType<NavMeshManager>();

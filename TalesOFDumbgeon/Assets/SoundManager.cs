@@ -66,7 +66,7 @@ public class SoundManager : MonoBehaviour
             case "sonidomaldicion":
                 audioSrc.PlayOneShot(SonidoMaldicion);
                 break;
-            case "Stadtnarr_hurt":
+            case "stadtnarrhurt":
                 audioSrc.PlayOneShot(Stadtnarr_hurt);
                 break;
 
