@@ -5,15 +5,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class EnemigoBanana : MonoBehaviour, IDeadable
+public class EnemigoBanana : BaseEnemy, IDeadable
 {
     //IDeadable 
     private SpriteRenderer _spr;
     private IsometricMove _player;
-    private CharacterStats _stats;
 
     [SerializeField] private NavMeshAgent agent;
-    public int difficulty;
 
     [SerializeField]
     private DamageNumber DmgPrefab;
@@ -48,18 +46,18 @@ public class EnemigoBanana : MonoBehaviour, IDeadable
     private float tiempoParado = 0f;
     private float startTiempoParado = 1f;
 
-    public enum tipoEnemigo {Abuesqueleto, Cerebro, Duonde, Palloto, Banana};
+    public enum tipoEnemigo { Abuesqueleto, Cerebro, Duonde, Palloto, Banana, Pelusa };
     public tipoEnemigo especie;
 
     // Start is called before the first frame update
     void Start()
     {
         //IDeadable
-        _stats = gameObject.GetComponent<CharacterStats>();
+        stats = gameObject.GetComponent<CharacterStats>();
         _spr = gameObject.GetComponent<SpriteRenderer>();
         _player = SingletoneGameController.PlayerActions.player;
         agent.updateUpAxis = false;
-        agent.speed = _stats.GetSpeedValue();
+        agent.speed = stats.GetSpeedValue();
         agent.updateRotation = false;
 
         rb = gameObject.GetComponent<Rigidbody2D>();
@@ -67,35 +65,7 @@ public class EnemigoBanana : MonoBehaviour, IDeadable
         rb.velocity = Vector2.zero;
         attackDelay = 2;
 
-        if (especie == tipoEnemigo.Abuesqueleto)
-        {
-            velocidad = 1;
-            armadura = 3;
-            damage = 6;
-            vision = 3;
-        }
-        else if (especie == tipoEnemigo.Cerebro)
-        {
-            velocidad = 6;
-            armadura = 1;
-            damage = 10;
-            vision = 3;
-        }
-        else if (especie == tipoEnemigo.Duonde)
-        {
-            velocidad = 1;
-            armadura = 15;
-            damage = 3;
-            vision = 3;
-        }
-        else if (especie == tipoEnemigo.Palloto)
-        {
-            velocidad = 15;
-            armadura = 2;
-            damage = 7;
-            vision = 3;
-        }
-        else if(especie == tipoEnemigo.Banana)
+        if(especie == tipoEnemigo.Banana)
         {
             velocidad = 2;
             armadura = 2;
@@ -103,7 +73,6 @@ public class EnemigoBanana : MonoBehaviour, IDeadable
             vision = 5;
             stopDistance = 5;
         }
-
     }
 
     // Update is called once per frame
@@ -274,7 +243,7 @@ public class EnemigoBanana : MonoBehaviour, IDeadable
         }else if (collision.gameObject.CompareTag("Player"))
         {
             nextPos = transform.position;
-            collision.gameObject.GetComponent<CharacterStats>().DoDamage(damage, this.transform.position, _stats.element);
+            collision.gameObject.GetComponent<CharacterStats>().DoDamage(damage, this.transform.position, stats.element);
         }
     }
 
@@ -283,7 +252,7 @@ public class EnemigoBanana : MonoBehaviour, IDeadable
         if (collision.gameObject.CompareTag("Player"))
         {
             nextPos = transform.position;
-            collision.gameObject.GetComponent<CharacterStats>().DoDamage(damage, this.transform.position, _stats.element);
+            collision.gameObject.GetComponent<CharacterStats>().DoDamage(damage, this.transform.position, stats.element);
         }/*else if (collision.gameObject.CompareTag("Colisiones"))
         {
             decisionClock = 5f;
@@ -298,7 +267,7 @@ public class EnemigoBanana : MonoBehaviour, IDeadable
 
     public void Damage(Vector3 enemyPos, float cantidad, Elements.Element element)
     {
-        float multiplier = Elements.GetElementMultiplier(element, _stats.element);
+        float multiplier = Elements.GetElementMultiplier(element, stats.element);
         DamageNumber dmgN = Instantiate(DmgPrefab, transform.position, Quaternion.identity);
         dmgN.Inicializar(cantidad, transform);
         if (multiplier > 1.1f)
