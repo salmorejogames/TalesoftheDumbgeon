@@ -278,43 +278,49 @@ En este apartado se profundizará en las diferentes mecánicas que componen a *T
 
 ## 4.1 Jugabilidad
 
-*Tales of the Dumbgeon* es un juego de género roguelike con recolección de ítems en forma de cartas, combates de acción y exploración de un escenario generado aleatoriamente. El jugador deberá tratar de llegar hasta el final de la mazmorra para completar el juego pudiendo morir en el proceso y en consecuencia teniendo que empezar desde el principio, pudiendo probar una nueva combinación de cartas que le suma valor a la rejugabilidad.
+*Tales of the Dumbgeon* es un juego de género roguelike con recolección de ítems en forma de cartas, combates de acción y exploración de un escenario generado proceduralmente. El jugador deberá tratar de llegar hasta el final de la mazmorra para completar el juego pudiendo morir en el proceso y en consecuencia teniendo que empezar desde el principio, pudiendo probar una nueva combinación de cartas que le suma valor a la rejugabilidad.
 
 El esquema jugable de *Tales of the Dumbgeon* se basa en la recolección de las cartas del mago Jojomamalo. Estas cartas funcionan como el corazón de la jugabilidad pudiendo actuar como equipamiento para el personaje, habilidades extra para la aventura o maldiciones que dificulten el transcurso de la partida.
 
 - **Cartas**: Recolección de cartas que generan habilidades y equipo
 
-	Para poder hacerse con estos ítems el jugador deberá abrirse camino por la mazmorra, explorando distintas salas generadas de forma aleatoria y enfrentándose a diferentes 	enemigos utilizando esas mismas cartas, generando así un bucle de mejora constante mientras se avanza en el juego. 
+	Para poder hacerse con estos ítems el jugador deberá abrirse camino por la mazmorra, explorando distintas salas generadas de forma procedural y enfrentándose a diferentes enemigos utilizando esas mismas cartas, generando así un bucle de mejora constante mientras se avanza en el juego. 
 	
+				----- Patreon Ace up your sleeve -----
+		
 	En las salas seguras, como ya se explicará en el apartado de **Generación aleatoria del mundo y sus mazmorras**, aparecerá de vez en cuando un *NPC* llamado “*El Cartero*”. 	Este *NPC* cumplirá dos funciones:
 	
 	- Tendrá unas cuantas cartas, de modo que puedas cambiar la carta de tu mano que quieras por una aleatoria de las que él tiene.
 	- Tendrá un álbum en el que puedes guardar cartas que tienes en la mano para recogerlas más adelante, cuando vuelvas a encontrarte con él. Las cartas del álbum se eliminarán si mueres. No estarán disponibles cuando vuelvas a entrar a la *Dumbgeon*.
 	
+			  ----- ------------------------- -----
+
 	A lo largo del juego se podrán encontrar los siguientes tipos de carta:
 	
-	- **Armas:** Se equipan para usarse en combate y para incrementar los stats del personaje tales como su daño, defensa y velocidad. Cada una de ellas posee un elemento que las caracteriza. (Ejemplo: *Espada de Fe*)
+	- **Armas:** Se equipan para usarse en combate y para incrementar los stats del personaje tales como su daño, defensa y velocidad. Cada una de ellas posee un elemento que las caracteriza. (Ejemplo: *Espada de Fe*).
 	
 		**![](https://lh5.googleusercontent.com/sWVmQnqZqAyYRArILtS8Xian7OBj-S4egwgiykisGWYUR4BgAGOhJcECwhFblz8zZf8rwXfrlQb4I1hCceNcJsJmaaHEhiESVDwNJLE9PCS5Y6MTfAJBHkPaw0-4=s1600)**
 	
-	- **Armadura:** Se equipan para incrementar los stats del personaje tales como su daño, defensa y velocidad. Cada una de ellas posee un elemento que las caracteriza. (Ejemplo: *Ki-Mono*)
+	- **Armadura:** Se equipan para incrementar los stats del personaje tales como su daño, defensa y velocidad. Cada una de ellas posee un elemento que las caracteriza. (Ejemplo: *Sayo de Saya*).
 	
-	![]()
+	![](https://cdn.discordapp.com/attachments/503507632418455564/912095416307302430/unknown.png)
+
+	- **Hechizos:** Se equipa como habilidad para usarse en combate. (Ejemplo: *Saeta de fuego*).
 	
-	- **Hechizos:** Se equipa como habilidad para usarse en combate. (Ejemplo: *Saeta de fuego*)
+	![](https://lh3.googleusercontent.com/hjMRBRkWB1QpDalhjD8k46QlYyWIlypId38colLCghIEyHAD_b1gPMTYuEV3oW7gug23s-TAT0XTPaQVG0RpneOUoDU2WFS-wpVmi0s8yIDbkpAFBMb8M35qVJ6C=s1600)
 	
-		**![](https://lh3.googleusercontent.com/hjMRBRkWB1QpDalhjD8k46QlYyWIlypId38colLCghIEyHAD_b1gPMTYuEV3oW7gug23s-TAT0XTPaQVG0RpneOUoDU2WFS-wpVmi0s8yIDbkpAFBMb8M35qVJ6C=s1600)**
+	- **Maldiciones:** Efectos adversos sobre el personaje. Se aplican instantáneamente al ser recogidas. (Ejemplo: *Analfabetismo*).
 	
-	- **Maldiciones:** Efectos adversos sobre el personaje. Se aplican instantáneamente al ser recogidas. (Ejemplo: *Analfabetismo*)
+	![](https://lh4.googleusercontent.com/pts37zA4_zCKe23nFgI7zof7oEUKbSsffSVzGSAeuZpZQAQQu3JDJoKtChMyRDQLo8TZdp0Zn1ChO7fYncnh7ZwC_n6roLXZ9e5PsBI4V29UELU09kF-aM7R4cF8=s1600)
 	
-		**![](https://lh4.googleusercontent.com/pts37zA4_zCKe23nFgI7zof7oEUKbSsffSVzGSAeuZpZQAQQu3JDJoKtChMyRDQLo8TZdp0Zn1ChO7fYncnh7ZwC_n6roLXZ9e5PsBI4V29UELU09kF-aM7R4cF8=s1600)**
+	- **Bendiciones:** Cartas que guardan en la mano del jugador para que este pueda usarlas cuando desee. Al activarlas ofrecen un efecto positivo al jugador y se consumen. (Ejemplo: *Power Up*).
 	
-	- **Bendiciones:** Cartas que guardan en la mano del jugador para que este pueda usarlas cuando desee. Al activarlas ofrecen un efecto positivo al jugador y se consumen. (Ejemplo: *Power Up*)
+	![](https://cdn.discordapp.com/attachments/503507632418455564/912096482130296872/unknown.png)
 
 	
-	![]()
+	Cuando el jugador muera en las partidas, una de las cartas que tenia equipadas se dejara de herencia al siguiente personaje y empezar desde el inicio con ella, creando una herencia de equipo, hechizos y maldiciones que puedan ser útiles en las partidas posteriores.
 	
-	Cuando el jugador muera en las partidas, podrá  elegir una de las cartas que tenía para dejar de herencia al siguiente personaje y empezar desde el inicio con ella, creando una herencia de equipo, hechizos y maldiciones que puedan ser útiles en las partidas posteriores.
+			----- Patreon Ace up your sleeve -----
 	
 	**Calidad de Carta**
 	
@@ -324,6 +330,8 @@ El esquema jugable de *Tales of the Dumbgeon* se basa en la recolección de las 
 		- **Legendaria:** La carta está mejorada lo que hace que un atributo de la carta se cuadruplique.
 
 	Para mejorar la calidad de las cartas es necesario *Cuartos de Carta*, una moneda interna del juego. Esta se recoge de las recompensas que sueltan los enemigos al morir y se puede utilizar en la tienda del *Cuervillo*. El *NPC* pedirá un número determinado de *Cuartos de Carta* para poder subir de calidad la carta que quiera el jugador.
+	
+				----- ------------------------- -----
 	
 	**Elementos**
 	
@@ -344,7 +352,7 @@ El esquema jugable de *Tales of the Dumbgeon* se basa en la recolección de las 
 
 	El combate será de acción y en tiempo real con perspectiva isométrica. El jugador tendrá que posicionarse dentro de las salas donde crea más conveniente, medir los tiempos en los que atacar o tratar de esquivar los envites enemigos, aprovechar al máximo las habilidades de las que dispone.
 
-	En la mano de combate el jugador solo puede tener cinco cartas. Si se consigue una nueva se tendrá que decidir si quedársela, eliminando una que tengas o dejarla donde la has visto y perderla.
+	En la mano de combate el jugador solo puede tener 4 cartas. Si se consigue una nueva se tendrá que decidir si quedársela, eliminando una que tengas o dejarla donde la has visto y perderla.
 	
 	En la sección de equipamiento solo se puede llevar 3 piezas de armadura (cabeza, pecho y piernas).
 	
@@ -360,21 +368,15 @@ El esquema jugable de *Tales of the Dumbgeon* se basa en la recolección de las 
 
 	**![](https://lh3.googleusercontent.com/HKDF40feN7hGjehy8COylL2AOYPxZbFQ7HRwhh-XHbbei7wzulwqk1sD-E6PW-Uq02OgUNy0mTFvv45P3-_u20qxzxxWmg5x1kxYyvAC9GkYwZKbn3mPwJ7qwoWu=s1600)**
 	
-	El movimiento del personaje se realizará con las teclas WASD, cambiando además la dirección a la que mira. Usando el click izquierdo usará el hechizo y el click derecho podrá usar el arma que tenga equipado. Mediante el botón el teclado Q, se abrirá el menú de pausa de juego en el que se visualizarán todas las secciones así como las cartas completamente que tienes en la mano y los *Cuartos de Carta* que posees hasta el momento.
+	El movimiento del personaje se realizará con las teclas WASD, cambiando además la dirección a la que mira. Usando el click izquierdo usará el hechizo y el click derecho podrá usar el arma que tenga equipado. Mediante el botón el teclado Q, se abrirá el menú de pausa de juego en el que se visualizarán todas las secciones así como las cartas completamente que tienes en la mano.
 	
-	En cuanto a los demás elementos del combate, el personaje tendrá vida que se ira reduciendo con los golpes enemigos. La vida se representará con una barra en el que se muestre la vida actual del personaje. Además se tendrá que representar la cantidad de armadura que lleve la cual reducirá el daño hecho por los enemigos y depende del número y de cuales sean las piezas de armadura que lleve puesta el personaje.
+	En cuanto a los demás elementos del combate, el personaje tendrá vida que se ira reduciendo con los golpes enemigos. La vida se representará con una barra en el que se muestre la vida actual del personaje.
 	
 	**Enemigos**
 	
-	Los enemigos de la mazmorra son aleatorios a lo largo de la diferentes zonas, es decir, un enemigo no solo se encontrará en una zona si no en cualquiera de forma aleatoria. Al ser eliminados dropean los siguientes elementos:
+	Los enemigos de la mazmorra son procedimentales a lo largo de la diferentes zonas, es decir, un enemigo no solo se encontrará en una zona si no en cualquiera de forma aleatoria. Estos enemigos custodian cofres los cuales, dropean cuando son golpeados lo siguientes elementos::
 	
-	- Carta de cualquier tipo asociado al enemigo en cuestión. Por ejemplo, el abuesqueleto dropea  la carta “*Bastón de Yayo*”.
-
-	- Carta “*La Carta*”: una carta de bendición que hace referencia a las cartas de los restaurantes la cual regenera vida al usuario y su uso es instantáneo.
-
-	- Carta “*La Carta*”: una maldición que hace referencia a las cartas de los restaurantes la cual regenera vida al usuario y su uso es instantáneo.
-  
-	- *Cuarto de carta* que servirá para subir la calidad de la carta con *El Cuervillo*.
+	- Carta de armadura, arma o hechizo de cualquier elemento
 	
 - **Mazmorra:** Generación aleatoria del mundo y sus mazmorras
 
@@ -387,8 +389,6 @@ El esquema jugable de *Tales of the Dumbgeon* se basa en la recolección de las 
 	Las salas se organizan en las salas estándar donde el jugador puede encontrar cofres, enemigos, personajes secundarios, etc; y las salas de jefe en donde el jugador tendrá que derrotar al jefe de esa zona. 
 	
 	Cuanto más se baje en los niveles, el número de salas a explorar hasta llegar a la sala del jefe aumentará y los enemigos que se encuentren estas, serán más fuertes otorgándoles más vida o daño. Como compensación las cartas que se encuentran en los niveles más bajos son más raras y poderosas.
-
-	Cada vez que se supere una sala de jefe, el jugador llegará a una sala segura donde habrá una cierta probabilidad de encontrarse con “*El Cartero*” ya mencionado antes.
 
 ## 4.2 Controles y reglas de juego
 
@@ -414,7 +414,82 @@ El esquema jugable de *Tales of the Dumbgeon* se basa en la recolección de las 
 
 ## 4.3 Niveles
 
+### El Mago Jojomamalo
 
+Jojomamalo comenzará la batalla en el lado contrario por el que entre el personaje principal. Es decir, si el jugador entra por la pared sureste, Jojomamalo estará en la pared noroeste. El combate contra Jojomamalo se divide en tres partes diferenciadas por el porcentaje de vida que tiene:
+
+**Entre 100% y 70% de vida:**
+
+El jugador no podrá golpear a Jojomamalo ya que este se teletransporta a una zona libre alrededor de la sala burlandose del jugador. Al tercer intento de golpe este si que será golpeado y aturdido durante 4 segundos en el que el jugador le molera a palos. En caso de que su vida esté fuera del rango comentado antes, pasará a la siguiente fase. En el caso contrario se seguirá este flujo hasta que se de la condición.
+
+ 
+Mientras sucede este movimiento, Jojomamalo expulsará bolas de energía similar a un bullet hell. Las bolas de energía harán daño del elemento del que sea Jojomamalo en ese instante. Por ahora el daño estándar de la bola son 2 puntos, en caso de que su elemento sea el counter hará 4 puntos y si es del mismo 1. Estos disparos serán de la siguiente manera:
+
+
+-  *En línea:* 5 bolas de energía que saldrán directas hacia el jugador formando un zig zag y no cambiarán su trayectoria.
+    
+
+![](https://lh3.googleusercontent.com/cfSb0DB5_n8adjmZGe_wcCsj5y3jkQ2I1Y9XEWd3c_mM78mrxR914iyFwq_sjADXrnp49RRaNiMpLMMkpDjm2T5YDvjVxEp6FCPhcDC1B1O4kGocVu7vYRYXG_TnHAwHeMorN6UI)
+
+  
+
+-   *En arco*: 5 bolas de energía saldrán del centro de Jojomamalo para separarse formando un arco. Este disparo en concreto puede hacerlo hasta 3 veces seguidas.
+    
+
+ ![](https://lh3.googleusercontent.com/pCbxk-1yjAeYw2eA_vEbiDmoCTgv01_uWNm4Upw9AjEu7zLkUOlysvAFt7oi3NmoEO0TZkBUcrXirvuPY73R4QfXdiIjVt9Y2EuyRkJ0ZFU4oPSqGD3CNhHlgDn0Sbe51TUNQb9E)
+    
+
+  
+
+-   *En serpiente:* Comenzará una ristra de hasta 15 bolas que se dispara hacia delante mientras Jojomamalo se mueve de un lado al otro de la pared en la que se encuentra.
+    
+![](https://lh4.googleusercontent.com/FIXFn7Sbek0ENjTd8zlpf9tCmYrXFfuQ6op7WfB53Yki00UOq7AkCBiLLcbDU-55_xcfsmTLN8CLLPvGppTYVA-WOBrqW2reFG1SuBGq9fgEWlvmNgGTn4hXJxbDfOjC-QglGn9t)
+
+  
+
+La decisión de utilizar un ataque u otro es tomada dependiendo de cuales han sido sus últimos dos ataques. Si los dos últimos ataques han sido el mismo (LL) , se elegirá al azar entre los otros dos ataques sobrantes a realizar (S ó A). En el caso de que los dos últimos ataques son diferentes habrá un 70% de probabilidad de que el próximo ataque sea uno de los dos que acaban de salir y un 30% de otro diferente, es decir:
+
+Si LS → 60% para L ó S // 40% para A
+
+Entre cada ataque Jojomamalo tendrá que recargar energía y tardará 6 segundos en volver a disparar.
+
+Estas reglas del disparo se aplican en cualquier momento del combate a menos que se mencione lo contrario.
+
+**Entre 69 y 40% de vida:**
+
+Durante esta fase Jojomamalo podrá cambiar su elemento. Su elemento será escogido al azar en las primeras batallas contra el. Después de 3 batallas contra él, empezará la batalla con el elemento counter al elemento que más haya escogido el jugador para así dañar mucho más al jugador y que este tenga que escoger otra estrategia.
+
+El cambio de elemento ocurrirá cuando, estando en esta fase, el jugador reste 10% de la vida de Jojomamalo con elemento principal de su arma y Jojomamalo cambiará a su elemento counter.
+
+Jojomamalo añadirá un ataque más: las cartas trampa. Este ataque funciona de la siguiente manera: Jojomamalo detectará la posición del jugador y colocará en esa misma posición una zona de 9 “tiles” centrada en el personaje. 
+
+Esta zona espera 2 segundos para crearse y avisar al jugador y después explotará del elemento en concreto que sea Jojomamalo, haciendo 4 puntos de daño de ese elemento al jugador. En caso de que Jojomamalo tenga elemento counter al jugador hará el doble de daño y si es el mismo la mitad.
+
+  
+
+![](https://lh4.googleusercontent.com/SiRyrJ3wpgOo8k3mRgfuD9EBWpEmMyye6D2k7_uzOda-PL9wQn5nYew6Bj5-WzFGnfBEEhXcBHUFIj8KGZ8XFmse1eglb0pjgsL2hkJt7504ueTUSfqW6EQY-OXvdry3ka2mlL4c)
+
+La carta trampa podrá funcionar a la vez que las bolas de energía y sus tiempos son individuales.
+
+Por otro lado, la mecánica del teletransporte funcionará de la misma manera solo que en vez de tener un contaje de dos teletransportes será solo de 1. Para añadir sorpresa al combate se implementará la mecánica de descarga.
+
+Cuando el jugador vaya a golpear a Jojomamalo una segunda vez después del teletransporte este habrá comenzado, nada más teletransporte, a cargar energía. Tarda 5 segundos en explotar y mientras se carga el ataque, el jugador podrá golpear y Jojomamalo recibirá el daño. Sin embargo, ese daño no solo lo recibirá si no que lo irá acumulando como energía. Cuando termine el tiempo establecido explotará haciendo daño en área, si el jugador se encuentra a dos casillas o menos del Jojomamalo recibirá el daño del escudo de energía 10 puntos + el daño acumulado recibido por el jugador y que ha ido acumulando.
+
+(Cuando el jugador vaya a golpear a Jojomamalo una segunda vez después del teletransporte, un símbolo de maldición saldrá sobre su cabeza haciendo que el jugador se coma el doble del daño que iba a recibir el Jojomamalo. El daño de elemento se transforma al que tiene Jojomamalo en ese momento por lo que sí es elemento counter del que tiene el jugador le hará el doble del daño. Por lo tanto en este ataque el jugador podrá recibir el cuádruple del daño que él iba a hacer. Debido a que es una mecánica muy especial, Jojomamalo solo podrá realizarla cada 40 segundos.)
+
+**Entre 39 y 1% de vida:**
+
+Durante esta fase Jojomamalo se da cuenta de que el jugador es un peligro y tendra que utilizar todo su poder. Para ello utiliza la última mecánica implementada: invocación de enemigos. Esta mecánica funciona de la siguiente manera:
+
+Jojomamalo se aparta del combate en cuanto empieza esta fase a la pared más lejana del jugador. Tras esto, comenzará a hacer aparecer monstruos ya vistos en la mazmorra, entre ellos:
+
+-   Abuesqueleto: Aparecerán cada 5 segundos uno de ellos y no podrá haber más de cuatro de ellos a la vez. Si el jugador elimina a uno de ellos y ya han pasado 5 segundos, aparecerá uno automáticamente.
+    
+-   Caballero de la Banana: Aparecerán cada 5 segundos uno de ellos y no podrá haber más de 3 de ellos a la vez. Si el jugador elimina a uno de ellos y ya han pasado 5 segundos, aparecerá automáticamente.
+    
+Las demás técnicas se seguirán aplicando en esta fase tanto las bolas de energía como las cartas trampas.
+
+		----- Patreon Ace up your sleeve -----
 En este apartado se detallan las diferentes zonas de la mazmorra, con su respectivo jefe, su contenido y contexto. Como se ha explicado anteriormente, la mazmorra dispondrá de diversos pisos los cuales se centran en un mismo tema. Debido a que *Jojomamalo* se cree el director que dirige la *Dumbgeon*, las zonas representan temáticas paródicas de géneros del cine.
 
 En la primera fase solo se dispondrá de un nivel más la sala del jefe final para mostrar el funcionamiento del juego. Para las siguientes fases las zonas aumentan de número habiendo cuatro zonas principales más la última dedicada exclusivamente a *Jojomamalo*. Aquí se muestran estas zonas principales.
@@ -449,6 +524,7 @@ En la primera fase solo se dispondrá de un nivel más la sala del jefe final pa
 
 	*Stradt Bader* puede atacar usando su *Estoque de Protones* que dura algo más que los normales, cuando se descarga corre a la pared principal para enchufarla y que se recargue. Mientras tanto, saca un imán típico de dibujo animado y lo usa para lanzar objetos metálicos al jugador.
 
+		----- ------------------------- -----
 
 ## 4.4 Cartas ancestrales
 
@@ -535,6 +611,9 @@ En este apartado se presentarán todos los personajes relevantes de la trama del
 
 
 **![](https://lh5.googleusercontent.com/7S3MuuG3ZevyGHt2X8DXLq8eT4yTLCF-s6dzeO6xQyB26GutVcqC-bMuJePeRymR5prVAKRUK0lsvJ85a5jVf-HWkqPqlXdVmib7CkYkA84yasTZdgw3vGm5M3mA=s1600)**
+
+		----- Patreon Ace up your sleeve -----
+
 -   **Francis “El Sabio de los Barriles:**
 	- Descripción: *Francis* en pocas palabras es un viejo borracho que ha vivido siempre en *Pueblo Boñiga* No ha salido de allí jamás y no lo hará ya que nadie le quiere llevar en su carro. Se pasa el día en la taberna del pueblo contando historias y batallitas de viejo, aunque ninguna sea cierta. Perdió su ropa hace ya mucho, en alguno de los asedios de los monstruos, por ello ahora viste con barriles. Dice que es lo que se lleva ahora y que él va a la onda. Además, siempre va sumamente borracho y los demás lugareños le apodan “El Sabio de los Barriles*" para burlarse de él.
 	
@@ -549,9 +628,16 @@ En este apartado se presentarán todos los personajes relevantes de la trama del
 		Este sagaz e intrépido cuervo ha vagado durante años la mazmorra y se sabe todos sus huecos y entresijos como la palma de la mano. Posee una gran colección de objetos que vende por un precio razonable, aunque a veces se le ve el plumero.
 
 		**![](https://lh5.googleusercontent.com/U8FYk8k6t_P2XrXrjD2Wp4C38Wo-U3YtVx9XCFh69xAE7Wx1mUE7BVvwuwx1s9dhJPjynK58cr_qkw3hYbOU11u8FTi_9806tjl2HzxXzd6BzsNnBLNzI2KurYsJ=s1600)**
+		
+			----- ------------------------- -----
 
 ## 5.3 Entornos y lugares
 
+**La Dumbgeon**: La disparatada morada de Jojomamalo con eternos pasillos y absurdos enemigos representan la prueba final de los Stadtnarr.
+![](https://cdn.discordapp.com/attachments/503507632418455564/912105593106481172/unknown.png)
+
+	----- Patreon Ace up your sleeve -----
+	
 -   **Pueblo Boñiga**:
 
 	-   **Gremio de aventureros**: donde hay un tablón de desafíos que al cumplirse el siguiente *Stadtnarr* que mire el tablón podrá reclamar la carta recompensa y se añadirá esta a las cartas que pueden aparecer en la *Dumbgeon*.
@@ -569,6 +655,8 @@ En este apartado se presentarán todos los personajes relevantes de la trama del
 	-   **Little France**: lugar que empieza recordando a París, lleno de flores y dónde se respira el amor y poco a poco va degenerando en un oscuro lugar lleno de fotos de la familia del personaje, un lugar que se conoce como el *Templo Stadtnarr* cuya dueña es *La Loca del Moño*.
     
 	-   **Mostazar**: zona volcánica que en lugar de magma está conformada por mostaza picante. Para evitar tener que pisar tanto condimentado están habilitadas varias estructuras y pasarelas metálicas que conducen a la zona principal de extracción de mostaza, donde aguarda *Stradt Bader*.
+	
+				------ ------------------------- -----
 
 # 6. Arte
 ## 6.1 Estética general del juego
@@ -637,15 +725,23 @@ Actualmente las piezas compuestas son:
 ## 6.4 Ambiente Sonoro
 
 Cada piso de la mazmorra contará con su propia temática y por lo tanto con una composición musical diferente, que irá acompañada por efectos sonoros particulares que ayuden a la inmersión del jugador dentro del mundo del juego
+
 # 7. Interfaz
 ## 7.1 Diseños básicos de los menús
-**Menu principal**
-![](https://lh6.googleusercontent.com/VJDgo9R6Am4oiIVVqNORmBLLV__7oS6JxU-0fHdbjyTuhp-e6VzhG-g1WN1LA7cfoCsntWyonaaFVzrG1Na6eHkIShmRuyNVha_xBaqPKFg2AE_Glx4ojm_ACd0mtw=s1600)
+**Pantalla inicial**
+![](https://cdn.discordapp.com/attachments/503507632418455564/912102026266161203/unknown.png)
+**Menu principal**![](https://cdn.discordapp.com/attachments/503507632418455564/912102128795922492/unknown.png)
+**Tutorial**
+![](https://cdn.discordapp.com/attachments/503507632418455564/912102230201602138/unknown.png)
 
-**Menu de Pausa**
-![](https://lh3.googleusercontent.com/VZFGt3eZW-g9TLr_M6_D0tc0I_VR8HLu88EHXlbYC6Y27X1LefO8QPb-DtswItoTrbnrrJve_5elhFt1xOR2cEN96Z4iHQDg9k-_Zq3ORrVt2jGu1Gas7FzjvPT1iA=s1600)
-
-
+**Menu de Ajustes**
+![](https://cdn.discordapp.com/attachments/503507632418455564/912102321977167872/unknown.png)
+**Pantalla de gameplay**
+![](https://cdn.discordapp.com/attachments/503507632418455564/912102427577176085/unknown.png)
+**Menu de pausa**
+![](https://cdn.discordapp.com/attachments/503507632418455564/912102575107604500/unknown.png)
+**Game Over**
+![](https://cdn.discordapp.com/attachments/503507632418455564/912102748747616276/unknown.png)
 
 
 ## 7.2 Diagrama de flujo
