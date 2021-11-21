@@ -45,6 +45,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _spriteRenderer: {fileID: 0}
   holder: {fileID: 2789365599019592755}
+  damageAreas: []
 --- !u!1 &2789365599019592752
 GameObject:
   m_ObjectHideFlags: 0
@@ -210,8 +211,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc0977d932099d141b31a68f47ecbff0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  difficulty: 2
+  stats: {fileID: 0}
   agent: {fileID: 2789365599019592910}
-  difficulty: 1
   DmgPrefab: {fileID: 7413456247700845425, guid: d04ec14520fae5f44b0e829368e66535,
     type: 3}
   velocidad: 5
@@ -347,7 +349,7 @@ MonoBehaviour:
   m_BoneTransforms:
   - {fileID: 6572546566666048875}
   m_Bounds:
-    m_Center: {x: -0.0004954934, y: 0.00073194504, z: 0}
+    m_Center: {x: -0.0004969239, y: 0.000729084, z: 0}
     m_Extent: {x: 0.8057751, y: 0.59713995, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
@@ -630,7 +632,7 @@ MonoBehaviour:
   m_BoneTransforms:
   - {fileID: 6572546566666048875}
   m_Bounds:
-    m_Center: {x: 0, y: 0.0018767118, z: 0}
+    m_Center: {x: 0, y: 0.0018738508, z: 0}
     m_Extent: {x: 2.315, y: 1.8680447, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
@@ -734,7 +736,7 @@ MonoBehaviour:
   m_BoneTransforms:
   - {fileID: 2658185554183291841}
   m_Bounds:
-    m_Center: {x: 0.0072999, y: -0.001832962, z: 0}
+    m_Center: {x: 0.0072999, y: -0.0018348694, z: 0}
     m_Extent: {x: 3.3527007, y: 4.948166, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1

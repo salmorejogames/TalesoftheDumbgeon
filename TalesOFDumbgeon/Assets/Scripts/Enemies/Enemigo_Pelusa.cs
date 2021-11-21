@@ -10,7 +10,7 @@ public class Enemigo_Pelusa : BaseEnemy, IDeadable
     //IDeadable 
     private SpriteRenderer _spr;
     private IsometricMove _player;
-    private CharacterStats stats;
+  
 
 
     [SerializeField]

@@ -1602,7 +1602,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tilesArea: 2
-  difficulty: 2
+  difficulty: 3
 --- !u!1 &5243479797619593303
 GameObject:
   m_ObjectHideFlags: 0
@@ -11751,6 +11751,7 @@ MonoBehaviour:
   doors: {fileID: 1176874997438997337}
   mapTrigger: {fileID: 7881152534294381081}
   enemyList:
+  - {fileID: 6890831708604781748, guid: 84b3b78ead76a9144ba945d8c2ebf4ac, type: 3}
   - {fileID: 210292057612706183, guid: 5f88e00d5e63a584091809526e5d85b0, type: 3}
   powerUpList:
   - {fileID: 2459301831363257181, guid: 224f0d67d284d4744ba421578a9fa1ae, type: 3}
