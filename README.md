@@ -802,17 +802,18 @@ Por último, se ha realizado completamente el documento de diseño de juego y se
     
 ## 8.2 Hito 2
     
-    La fecha límite del hito 2 es el día 21 del mes de noviembre del año 2021. En él se ha desarrollado el juego de Tales of the Dumbgeon hasta conseguir una versión Beta apta para hacer las pruebas sobre el proyecto. Para ello los diferentes departamentos del estudio han realizado las labores explicadas en los siguientes apartados:
+La fecha límite del hito 2 es el día 21 del mes de noviembre del año 2021. En él se ha desarrollado el juego de Tales of the Dumbgeon hasta conseguir una versión Beta apta para hacer las pruebas sobre el proyecto. Para ello los diferentes departamentos del estudio han realizado las labores explicadas en los siguientes apartados:
 
--   **Diseño**:
+-   **Diseño**: En el apartado de diseño se redefinieron varios conceptos ya presentes en la fase Alpha con el objetivo de facilitar su implementación en el juego y para dar un acabado final mejor de cara al jugador.
     
-En el apartado de diseño se redefinieron varios conceptos ya presentes en la fase Alpha con el objetivo de facilitar su implementación en el juego y para dar un acabado final mejor de cara al jugador.
+	-   Cartas: las cartas han sufrido varios cambios. Para empezar, ahora una misma carta cuenta con varias versiones de sí misma, variando según el elemento que tenga. Esto permite una mayor variabilidad de elementos de juego con menos carga de trabajo. También se ha hecho que las estadísticas de la carta se generan aleatoriamente para que incluso con la misma arma cada partida sea diferente.
+    
+	-   Uso de *GitHub*
+    
+	-    Enemigos: se han definido los enemigos que pueden aparecer en el juego en el [DocumentoEnemigos](https://docs.google.com/spreadsheets/d/1288McVY26tAJtyNOAYZ1yEiYjnWewbAjJ_9ze4wnu2g/edit#gid=0). Estos tienen estadísticas aleatorias y su generación depende del nivel de dificultad de la sala en la que se encuentran. Además, pueden ser de cualquier elemento, generando así más variedad mecánica.
+    
+	-    Jefe Final: Jojomamalo cuenta con una variedad de movimientos mucho mayor al del resto de enemigos y un plan a futuro de contar con varias fases así como de diferentes patrones de acción siguiendo la ruta marcada en la asignatura de
 
--  Cartas: las cartas han sufrido varios cambios. Para empezar, ahora una misma carta cuenta con varias versiones de sí misma, variando según el elemento que tenga. Esto permite una mayor variabilidad de elementos de juego con menos carga de trabajo. También se ha hecho que las estadísticas de la carta se generan aleatoriamente para que incluso con la misma arma cada partida sea diferente.
-    
--   Enemigos: se han definido los enemigos que pueden aparecer en el juego en el [DocumentoEnemigos](https://docs.google.com/spreadsheets/d/1288McVY26tAJtyNOAYZ1yEiYjnWewbAjJ_9ze4wnu2g/edit#gid=0). Estos tienen estadísticas aleatorias y su generación depende del nivel de dificultad de la sala en la que se encuentran. Además, pueden ser de cualquier elemento, generando así más variedad mecánica.
-    
--   Jefe Final: Jojomamalo cuenta con una variedad de movimientos mucho mayor al del resto de enemigos y un plan a futuro de contar con varias fases así como de diferentes patrones de acción siguiendo la ruta marcada en la asignatura de
 
 -   **Programación:**
     
