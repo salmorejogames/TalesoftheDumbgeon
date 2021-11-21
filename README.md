@@ -802,6 +802,155 @@ Por último, se ha realizado completamente el documento de diseño de juego y se
     
 ## 8.2 Hito 2
     
+    La fecha límite del hito 2 es el día 21 del mes de noviembre del año 2021. En él se ha desarrollado el juego de Tales of the Dumbgeon hasta conseguir una versión Beta apta para hacer las pruebas sobre el proyecto. Para ello los diferentes departamentos del estudio han realizado las labores explicadas en los siguientes apartados:
+
+-   **Diseño**:
+    
+En el apartado de diseño se redefinieron varios conceptos ya presentes en la fase Alpha con el objetivo de facilitar su implementación en el juego y para dar un acabado final mejor de cara al jugador.
+
+-  Cartas: las cartas han sufrido varios cambios. Para empezar, ahora una misma carta cuenta con varias versiones de sí misma, variando según el elemento que tenga. Esto permite una mayor variabilidad de elementos de juego con menos carga de trabajo. También se ha hecho que las estadísticas de la carta se generan aleatoriamente para que incluso con la misma arma cada partida sea diferente.
+    
+-   Enemigos: se han definido los enemigos que pueden aparecer en el juego en el [DocumentoEnemigos](https://docs.google.com/spreadsheets/d/1288McVY26tAJtyNOAYZ1yEiYjnWewbAjJ_9ze4wnu2g/edit#gid=0). Estos tienen estadísticas aleatorias y su generación depende del nivel de dificultad de la sala en la que se encuentran. Además, pueden ser de cualquier elemento, generando así más variedad mecánica.
+    
+-   Jefe Final: Jojomamalo cuenta con una variedad de movimientos mucho mayor al del resto de enemigos y un plan a futuro de contar con varias fases así como de diferentes patrones de acción siguiendo la ruta marcada en la asignatura de
+
+-   **Programación:**
+    
+
+En el apartado de programación se implementaron todas las características básicas que conforman la base jugable del juego, siguiendo las pautas definidas por el departamento de Diseño:
+
+-   Se han implementado varias mecánicas como la herencia aleatoria de cartas, el equipamiento de objetos o la posibilidad de eliminar cartas del inventario entre otras
+    
+-   Se han pulido las mecánicas del personaje añadiendo todas las armas, hechizos y armaduras para poder jugar una partida completa con todas las mecánicas que ofrece el título.
+    
+-   Cada enemigo tiene sus acciones únicas implementadas
+    
+-   La mazmorra se genera proceduralmente pudiendo encontrar en sus salas generadores de enemigos o cofres para obtener nuevas cartas.
+    
+-   Se ha mejorado la interfaz en móviles, personalizando los controles del joystick y botones y adaptando el tamaño de elementos de la interfaz.
+    
+-   Se ha implementado el jefe final con una gran variedad de ataques.
+
+-   **Arte**
+    
+El departamento de arte trabajó en la elaboración de diferentes assets para el juego entre los que se encuentran:
+
+-   Sprites del conjunto pícaro
+    
+-   Sprites del conjunto guerrero
+    
+-   Sprites del conjunto mago
+    
+-   Sprite del enemigo Caballero Banana
+    
+-   Sprite del enemigo Cerebro en un Tarro
+    
+-   Sprite del enemigo Madre Pelusa
+    
+-   Sprite del enemigo Hijo Pelusa
+    
+-   Sprite del jefe Jojomamalo
+    
+-   Sprite del arma Florete
+    
+-   Sprite del arma Lanza
+    
+-   Sprite del arma Pistola
+    
+-   Sprite de los Hechizos
+    
+-   Sprites de los proyectiles
+    
+-   Tilesets extra de la Discocueva
+    
+-   Animaciones del personaje principal
+    
+-   Animaciones del Abuesqueleto
+    
+-   Animaciones del Caballero Banana
+    
+-   Animaciones del Cerebro en un Tarro
+    
+-   Animaciones de la Madre Pelusa
+    
+-   Animaciones del Hijo Pelusa
+    
+-   Animaciones de Jojomamalo
+
+-   **Interfaces**
+    
+El departamento de interfaces llevó a cabo varias mejoras en interfaces ya existentes y añadió unas nuevas:
+
+-   Se ha mejorado el Menú Principal con una animación de introducción y animaciones en los botones, añadiendo además un pequeño tutorial
+    
+-   El Menú de Pausa también se ha pulido visualmente
+    
+-   Menú de Ajustes para poder regular el sonido
+    
+-   Escena de créditos pulida visualmente corrigiendo errores del fondo de la Alpha
+    
+-   El HUD del jugador también ha sido mejorado usando ya los assets finales
+    
+-   La Pantalla de Muerte también ha sido mejorada visualmente
+
+-   **Marketing**
+  
+El equipo de marketing se ha encargado de promocionar el juego y darlo a conocer al mundo, para ello han realizado las siguientes acciones:
+
+-   Se ha cuidado la cuenta de Twitter tratando de nutrirla de contenido constante para mantener el interés del público
+    
+-   Se ha cuidado la cuenta de Instagram tratando de nutrirla de contenido constante para mantener el interés del público
+    
+-   Se ha cuidado la cuenta de Tik Tok tratando de nutrirla de contenido constante para mantener el interés del público
+    
+-   Se ha subido al canal de YouTube el teaser trailer así como la banda sonora del juego
+    
+-   **Sonidos**
+    
+El compositor de la banda sonora de Tales of the Dumbgeon ha realizado los siguientes sonidos para este segundo hito:
+
+-   Golpe de Bastón
+    
+-   Golpe de Espada
+    
+-   Golpe de Lanza
+    
+-   Hechizo de aire
+    
+-   Hechizo de caos
+    
+-   Hechizo de fuego
+    
+-   Hechizo de hielo
+    
+-   Hechizo de roca
+    
+-   Hacer daño al monstruo
+    
+-   Hacer daño al Stadnarr
+    
+-   Pasos en la mazmorra
+    
+-   Sonido de Bendición
+    
+-   Sonido de Maldición
+    
+-   **Gestión**
+
+El departamento de gestión del proyecto ha continuado con los documentos para gestión del proyecto. Entre otras cosas se han realizado:
+
+-   Actualizaciones de varios documentos como el GDD o los excels de cartas y enemigos
+    
+-   Se ha continuado usando Trello
+    
+-   Se ha continuado usando GitHub
+    
+Además se han celebrado diferentes reuniones a lo largo del hito entre ellas:
+
+	-   Daily Meeting: Reuniones llevadas a cabo todos los días por la tarde.
+    
+-   Revisiones de Sprint: Realizadas los jueves y domingos para examinar el transcurso del proyecto.
+    
 ## 8.3 Hito 3
     
 ## 8.4 Fecha de lanzamiento
