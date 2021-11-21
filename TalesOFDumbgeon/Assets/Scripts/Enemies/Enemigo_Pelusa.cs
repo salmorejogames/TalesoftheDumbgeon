@@ -35,7 +35,7 @@ public class Enemigo_Pelusa : MonoBehaviour, IDeadable
     private Vector2 direccion;
     private RaycastHit2D hit;
     private Collider2D choque;
-    private float startDelayTime = 5f;
+    private float startDelayTime = 2f;
     private float attackDelay;
     private bool attaking = false;
 
@@ -125,6 +125,8 @@ public class Enemigo_Pelusa : MonoBehaviour, IDeadable
 
     private void Attack()
     {
+        Instantiate(Bala, zonaAtaque.transform.position, Quaternion.identity, gameObject.transform);
+        Instantiate(Bala, zonaAtaque.transform.position, Quaternion.identity, gameObject.transform);
         Instantiate(Bala, zonaAtaque.transform.position, Quaternion.identity, gameObject.transform);
     }
 
