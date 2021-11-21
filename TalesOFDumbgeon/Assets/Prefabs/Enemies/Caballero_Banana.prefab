@@ -70,7 +70,7 @@ GameObject:
   - component: {fileID: 9165684829455639667}
   - component: {fileID: 9165684829455639666}
   - component: {fileID: 9165684829455639661}
-  - component: {fileID: 9165684829455639660}
+  - component: {fileID: 2116294338088829018}
   - component: {fileID: 9165684829455639663}
   m_Layer: 0
   m_Name: Caballero_Banana
@@ -210,7 +210,7 @@ MonoBehaviour:
   strength: 1
   speed: 0.5
   element: 0
---- !u!114 &9165684829455639660
+--- !u!114 &2116294338088829018
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -219,7 +219,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 9165684829455639662}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4fc0e643ad0dbe94489255a03f473bbf, type: 3}
+  m_Script: {fileID: 11500000, guid: e774dff563453834b9b00c1451e34e13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   agent: {fileID: 9165684829455639663}
@@ -230,7 +230,7 @@ MonoBehaviour:
   armadura: 3
   damage: 1
   vision: 3
-  maxDistance: 2
+  maxDistance: 1
   stopDistance: 0.5
   decisionTime: 2
   decisionClock: 0
@@ -274,12 +274,12 @@ PrefabInstance:
     - target: {fileID: -3496376650467336521, guid: 33b0f3cc374136146a8672ff7fd0cb20,
         type: 3}
       propertyPath: m_Bounds.m_Center.x
-      value: -0.012475967
+      value: -0.012476921
       objectReference: {fileID: 0}
     - target: {fileID: -3496376650467336521, guid: 33b0f3cc374136146a8672ff7fd0cb20,
         type: 3}
       propertyPath: m_Bounds.m_Center.y
-      value: -0.00000047683716
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -3496376650467336521, guid: 33b0f3cc374136146a8672ff7fd0cb20,
         type: 3}
@@ -289,12 +289,12 @@ PrefabInstance:
     - target: {fileID: 1979296576822329034, guid: 33b0f3cc374136146a8672ff7fd0cb20,
         type: 3}
       propertyPath: m_Bounds.m_Center.x
-      value: 0.0049393177
+      value: 0.004938364
       objectReference: {fileID: 0}
     - target: {fileID: 1979296576822329034, guid: 33b0f3cc374136146a8672ff7fd0cb20,
         type: 3}
       propertyPath: m_Bounds.m_Center.y
-      value: -0.00000047683716
+      value: 0.0000009536743
       objectReference: {fileID: 0}
     - target: {fileID: 1979296576822329034, guid: 33b0f3cc374136146a8672ff7fd0cb20,
         type: 3}
