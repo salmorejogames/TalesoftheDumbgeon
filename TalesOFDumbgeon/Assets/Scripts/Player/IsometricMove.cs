@@ -94,6 +94,16 @@ public class IsometricMove : MonoBehaviour, IMovil
         SingletoneGameController.PlayerActions.DisableMovement(time);
     }
 
+    public void DisableMovement()
+    {
+        SingletoneGameController.PlayerActions.DisableMovement();
+    }
+
+    public void AbleMovement()
+    {
+        SingletoneGameController.PlayerActions.EnableMovement();
+    }
+
     private void OnEnable()
     {
         _inputControler.Enable();

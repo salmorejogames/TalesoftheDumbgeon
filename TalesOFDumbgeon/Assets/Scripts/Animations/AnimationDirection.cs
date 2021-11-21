@@ -15,6 +15,7 @@ public class AnimationDirection : MonoBehaviour
     public BodyParts.Direction direction;
     public WeaponController weaponController;
     public Animator animator;
+    public GameObject CharacterWeapon;
 
   
 
@@ -87,5 +88,15 @@ public class AnimationDirection : MonoBehaviour
                 throw new ArgumentOutOfRangeException(nameof(part), part, null);
         }
     }
-    
+
+    public void setWeaponActive()
+    {
+        CharacterWeapon.GetComponent<Weapon>().ActivateCollider();
+    }
+
+    public void setWeaponDeactive()
+    {
+        CharacterWeapon.GetComponent<Weapon>().DesactivateCollider();
+    }
+
 }

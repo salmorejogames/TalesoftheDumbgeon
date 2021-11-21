@@ -126,8 +126,19 @@ public class JojoMamaloBehaviour : MonoBehaviour, IDeadable, IMovil
         Invoke(nameof(EnableMovement), time);
     }
 
+    public void DisableMovement()
+    {
+        _active = false;
+    }
+
     private void EnableMovement()
     {
         _active = true;
     }
+
+    public void AbleMovement()
+    {
+        _active = true;
+    }
+
 }

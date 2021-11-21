@@ -87,4 +87,14 @@ public class CharacterStats : MonoBehaviour
     {
         _movement.DisableMovement(time);
     }
+
+    public void Immobilize()
+    {
+        _movement.DisableMovement();
+    }
+
+    public void Mobilize()
+    {
+        _movement.AbleMovement();
+    }
 }
