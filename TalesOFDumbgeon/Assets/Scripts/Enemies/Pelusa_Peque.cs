@@ -1,14 +1,16 @@
+using System;
 using Interfaces;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class Pelusa_Peque : BaseEnemy, IDeadable
 {
     //IDeadable 
-    private SpriteRenderer _spr;
+    [SerializeField] private SpriteRenderer _spr;
     private IsometricMove _player;
-
+    private NavMeshAgent _navMeshAgent;
 
     [SerializeField]
     private DamageNumber DmgPrefab;
@@ -29,6 +31,14 @@ public class Pelusa_Peque : BaseEnemy, IDeadable
         this.padreInfo = padreInfo;
     }
 
+    private void Awake()
+    {
+        stats = gameObject.GetComponent<CharacterStats>();
+        _navMeshAgent = gameObject.GetComponent<NavMeshAgent>();
+        _navMeshAgent.updateRotation = false;
+        _navMeshAgent.updateUpAxis = false;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -44,9 +54,10 @@ public class Pelusa_Peque : BaseEnemy, IDeadable
     void Update()
     {
         //if (gameObject.GetComponentInParent<GameObject>() != null)
-            transform.position = Vector2.MoveTowards(transform.position, player.position, speed * Time.deltaTime);
+           // transform.position = Vector2.MoveTowards(transform.position, player.position, speed * Time.deltaTime);
         /*else
             Destroy(gameObject);*/
+        _navMeshAgent.destination = player.position;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -60,7 +71,7 @@ public class Pelusa_Peque : BaseEnemy, IDeadable
 
     public void Dead()
     {
-        gameObject.SetActive(false);
+        Destroy(gameObject);
     }
 
     public void Damage(Vector3 enemyPos, float cantidad, Elements.Element element)

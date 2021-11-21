@@ -10,10 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 5884712855834309614}
   - component: {fileID: 8170780638888047293}
-  - component: {fileID: 8647313563588318539}
   - component: {fileID: -1527342707241959579}
   - component: {fileID: 1161626625190952694}
   - component: {fileID: 3269034242793378523}
+  - component: {fileID: 2917352997623125636}
   m_Layer: 0
   m_Name: CofreObject
   m_TagString: Untagged
@@ -86,32 +86,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &8647313563588318539
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4010171714479182251}
-  m_Enabled: 0
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.044633985, y: -0.20234051}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1.1533203}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.73219633, y: 0.37966567}
-  m_EdgeRadius: 0
 --- !u!114 &-1527342707241959579
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -172,15 +146,23 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -0.040593505, y: -0.48952013}
-      - {x: 0.22558594, y: -0.35009766}
-      - {x: 0.24511719, y: -0.33935547}
-      - {x: 0.24232417, y: -0.34073707}
-      - {x: 0.27436027, y: -0.3176211}
-      - {x: 0.32215238, y: -0.29838163}
-      - {x: 0.31286895, y: -0.2278248}
-      - {x: 0.30941525, y: -0.1544991}
-      - {x: 0.27965385, y: 0.0073248744}
-      - {x: 0.18477216, y: 0.14742011}
-      - {x: -0.31692028, y: -0.125506}
-      - {x: -0.33140796, y: -0.31719264}
+    - - {x: -0.34979948, y: -0.3017879}
+      - {x: -0.042208552, y: -0.4853753}
+      - {x: 0.41904557, y: -0.23996782}
+      - {x: 0.11532883, y: -0.045334913}
+--- !u!114 &2917352997623125636
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4010171714479182251}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_OverrideArea: 1
+  m_Area: 1
+  m_IgnoreFromBuild: 0
+  m_AffectedAgents: ffffffff

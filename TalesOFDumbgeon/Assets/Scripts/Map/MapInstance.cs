@@ -36,7 +36,7 @@ public class MapInstance : MonoBehaviour
     [SerializeField] private Tilemap doors;
     [SerializeField] private CompositeCollider2D mapTrigger;
     [SerializeField] private List<BaseEnemy> enemyList;
-    [SerializeField] private List<GameObject> powerUpList;
+    //[SerializeField] private List<GameObject> powerUpList;
     [SerializeField] private List<Generator> generators;
     [NonSerialized] public List<CharacterStats> enemys;
     private bool _closed;
@@ -119,7 +119,7 @@ public class MapInstance : MonoBehaviour
                 newEnemy.transform.localScale = new Vector3(1, 1, 1);
                 enemys.Add(newEnemy.GetComponent<CharacterStats>());
             }*/
-
+/*
             for (int i = 0; i < powerUpList.Count; i++)
             {
                 int xx;
@@ -133,7 +133,7 @@ public class MapInstance : MonoBehaviour
                 var newPowerUp = Instantiate(powerUpList[i], gameObject.transform, true);
                 newPowerUp.transform.position = IsometricUtils.CoordinatesToWorldSpace(xx, yy);
                 newPowerUp.transform.localScale = new Vector3(0.1f, 0.1f, 1f);
-            }
+            }*/
             
             _started = true;
             OpenDors(false);
