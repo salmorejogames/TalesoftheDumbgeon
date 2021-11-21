@@ -24,6 +24,16 @@ namespace Inteface
         public Image contMaldicion1;
         public Image contMaldicion2;
 
+        private float vidaTresCuartos;
+        private float vidaMitad;
+        private float vidaUnCuarto;
+
+        public Image caraStadtnarr;
+        public Sprite caraFeliz;
+        public Sprite caraNormal;
+        public Sprite caraPreocupada;
+        public Sprite caraNoFeliz;
+
         // Start is called before the first frame update
         void Start()
         {
@@ -40,12 +50,35 @@ namespace Inteface
             MostrarUI(false);
         }
 
-        public void UpdateLife(float amount)
+        public void UpdateLife(float amount, float actualHealth, float maxHealth)
         {
-            //Debug.Log(amount);
+            vidaTresCuartos = maxHealth * .75f;
+            vidaMitad = maxHealth * .5f;
+            vidaUnCuarto = maxHealth * .25f;
+
             amount = Mathf.Clamp01(amount);
-            //Debug.Log(amount);
             StartCoroutine(nameof(UpdateHealthBar), amount);
+            CambiarSpriteVida(actualHealth, maxHealth);        
+        }
+
+        public void CambiarSpriteVida(float vida, float vidaMaxima)
+        {
+            if (vida <= vidaMaxima && vida > vidaTresCuartos)
+            {
+                caraStadtnarr.sprite = caraFeliz;
+            }
+            else if (vida <= vidaTresCuartos && vida > vidaMitad)
+            {
+                caraStadtnarr.sprite = caraNormal;
+            }
+            else if (vida <= vidaMitad && vida > vidaUnCuarto)
+            {
+                caraStadtnarr.sprite = caraPreocupada;
+            }
+            else if (vida <= vidaUnCuarto)
+            {
+                caraStadtnarr.sprite = caraNoFeliz;
+            }
         }
 
         IEnumerator UpdateHealthBar(float amount)
@@ -65,6 +98,7 @@ namespace Inteface
             lifeBar.localScale = new Vector3(amount, 1, 1);
             yield return null;
         }
+
         public void MostrarUI(bool activated)
         {
             Debug.Log("Mostrar UI: " + activated);

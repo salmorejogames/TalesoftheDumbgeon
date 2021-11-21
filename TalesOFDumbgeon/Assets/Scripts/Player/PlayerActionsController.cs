@@ -177,7 +177,7 @@ public class PlayerActionsController : MonoBehaviour, IDeadable
         //Aqui cuando recibe daño Stadnar
         SingletoneGameController.SoundManager.PlaySound("stadtnarrhurt");
         Debug.Log("Damage Recived");
-        SingletoneGameController.InterfaceController.UpdateLife(_stats.GetActualHealth() / _stats.maxHealth);
+        SingletoneGameController.InterfaceController.UpdateLife(_stats.GetActualHealth() / _stats.maxHealth, _stats.GetActualHealth(),_stats.maxHealth);
         var direction = gameObject.transform.position - enemyPos;
         var magnitude = direction.magnitude;
         direction = direction / magnitude;
