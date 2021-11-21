@@ -75,17 +75,17 @@ public class Enemigo_Pistola : BaseEnemy, IDeadable, IMovil
         rb = gameObject.GetComponent<Rigidbody2D>();
         personaje = GameObject.FindGameObjectWithTag("Player");
         rb.velocity = Vector2.zero;
-        attackDelay = 5f;
-        attackTime = 5f;
+        attackDelay = 2f;
+        attackTime = 2f;
         arma.SetWeaponHolder(armaHolder);
                
         if (especie == tipoEnemigo.Cerebro)
         {
-            vision = 4f;
-            stopDistance = 5f;            
+            vision = 10f;
+            stopDistance = 7f;            
             stats.armor = 1f;
             stats.maxHealth = 4f;
-            stats.strength = 10f;
+            stats.strength = 3f;
             stats.speed = 3.5f;
             velocidad = stats.speed;
             stats.element = Elements.Element.Brasa;
@@ -237,7 +237,7 @@ public class Enemigo_Pistola : BaseEnemy, IDeadable, IMovil
 
     private void ReactiveAttack()
     {
-        canAtack = true;
+        //canAtack = true;
         arma.Atacar();
         /*
         zonaAtaque.GetComponent<Collider2D>().isTrigger = false;

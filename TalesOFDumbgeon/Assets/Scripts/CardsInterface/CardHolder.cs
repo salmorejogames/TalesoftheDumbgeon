@@ -7,7 +7,7 @@ using Random = UnityEngine.Random;
 
 public class CardHolder : MonoBehaviour
 {
-    public static int MAX_CARDS = 6;
+    public static int MAX_CARDS = 4;
     public int CurentCardCount => cards.Count;
     private Vector3 _restPoint;
     private Vector3 _activePoint;

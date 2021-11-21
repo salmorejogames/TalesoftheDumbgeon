@@ -21,7 +21,7 @@ public class Weapon : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        SetOrientation(270);
+        SetOrientation(0);
         //_spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
         if(holder.gameObject.CompareTag("Player"))
             _actualDmgArea = damageAreas[(int) BaseWeapon.WeaponType.Area];

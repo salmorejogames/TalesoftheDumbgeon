@@ -66,15 +66,15 @@ public class EnemigoBanana : BaseEnemy, IDeadable
         rb = gameObject.GetComponent<Rigidbody2D>();
         personaje = GameObject.FindGameObjectWithTag("Player");
         rb.velocity = Vector2.zero;
-        attackDelay = 2;
+        attackDelay = 4;
 
         if(especie == tipoEnemigo.Banana)
         {
             velocidad = 2;
             armadura = 2;
-            damage = 10;
-            vision = 5;
-            stopDistance = 5;
+            damage = 4;
+            vision = 10;
+            stopDistance = 7;
         }
     }
 
@@ -107,7 +107,7 @@ public class EnemigoBanana : BaseEnemy, IDeadable
                 {
                     dashTime -= Time.deltaTime;
 
-                    rb.velocity = direccion * velocidad * 3f;
+                    rb.velocity = direccion * (velocidad * 3f);
                 }
             }
             else
@@ -223,6 +223,7 @@ public class EnemigoBanana : BaseEnemy, IDeadable
             {
                 zonaAtaque.GetComponent<Collider2D>().isTrigger = false;
                 attaking = true;
+                canAtack = false;
             }
         }
     }

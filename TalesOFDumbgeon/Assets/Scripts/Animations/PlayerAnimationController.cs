@@ -33,6 +33,7 @@ public class PlayerAnimationController : MonoBehaviour
         Current.animator.SetBool(Walk, _move);
     }
     
+
     public void EquipArmor(BaseArmor newArmor)
     {
         newArmor.AnimationController = this;
@@ -51,8 +52,9 @@ public class PlayerAnimationController : MonoBehaviour
         northWest.ChangeWeapon(weaponType, element);
         southEast.ChangeWeapon(weaponType, element);
         southWest.ChangeWeapon(weaponType, element);
-        Current.UpdateWeaponType(_weapon);
         _weapon = weaponType;
+        Current.UpdateWeaponType(_weapon);
+       
 
     }
 

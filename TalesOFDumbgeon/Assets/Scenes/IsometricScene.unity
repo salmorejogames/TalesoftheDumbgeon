@@ -167,7 +167,6 @@ MonoBehaviour:
   SonidoBendicion: {fileID: 8300000, guid: 76bdcc8585a27b84b97157dcfdf3b5c2, type: 3}
   SonidoMaldicion: {fileID: 8300000, guid: 94d27447a81bb6e4bbe1e4f910928856, type: 3}
   Stadtnarr_hurt: {fileID: 8300000, guid: 31baa5c479a95ec41b1159dd83df5996, type: 3}
-  audioSrc: {fileID: 0}
 --- !u!82 &18478276
 AudioSource:
   m_ObjectHideFlags: 0
@@ -351,6 +350,11 @@ PrefabInstance:
         type: 3}
       propertyPath: gapX
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3397873100332644644, guid: 3a9afe470fc87a14889f9b0eb94b4289,
+        type: 3}
+      propertyPath: fixedAnimationTime
+      value: 1.4
       objectReference: {fileID: 0}
     - target: {fileID: 4251125739439225072, guid: 3a9afe470fc87a14889f9b0eb94b4289,
         type: 3}
@@ -601,6 +605,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 3953147539745567089, guid: 3a9afe470fc87a14889f9b0eb94b4289, type: 3}
+    - {fileID: 569950104343330017, guid: 3a9afe470fc87a14889f9b0eb94b4289, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 3a9afe470fc87a14889f9b0eb94b4289, type: 3}
 --- !u!114 &136558225 stripped
 MonoBehaviour:

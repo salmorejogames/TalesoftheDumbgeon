@@ -280,19 +280,8 @@ public class @InputControler : IInputActionCollection, IDisposable
             ""bindings"": [
                 {
                     ""name"": """",
-                    ""id"": ""6e76c20e-a7d9-4928-aded-74ac2bec6344"",
-                    ""path"": ""<Keyboard>/q"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""keyboard and mouse"",
-                    ""action"": ""SacarCartas"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
                     ""id"": ""fce220d1-5f7e-4336-8a01-c33b6783d009"",
-                    ""path"": ""<Keyboard>/e"",
+                    ""path"": ""<Keyboard>/pageDown"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""keyboard and mouse"",
@@ -352,6 +341,17 @@ public class @InputControler : IInputActionCollection, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""ModoEliminar"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""cbd63b1c-edda-4398-9f50-5b6325c5a5cd"",
+                    ""path"": ""<Keyboard>/q"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SacarCartas"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }

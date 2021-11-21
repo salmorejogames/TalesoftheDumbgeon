@@ -43,7 +43,7 @@ public class Pelusa_Peque : BaseEnemy, IDeadable
     void Start()
     {
         player = SingletoneGameController.PlayerActions.player.gameObject.transform;
-        dmg = 5f;
+        dmg = 2f;
         elemento = Elements.Element.Caos;
         //padreInfo = padre.GetComponent<CharacterStats>();
         //dmg = padreStats.damage;

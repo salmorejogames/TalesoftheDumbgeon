@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,7 +7,7 @@ public class SoundManager : MonoBehaviour
 {
 
     public AudioClip FlipCard, GolpeBaston, GolpeEspada, GolpeLanza, HechizoAire, HechizoCaos, HechizoFuego, HechizoHielo, HechizoRoca, MonsterHurt, PasosMazmorra, SonidoBendicion, SonidoMaldicion, Stadtnarr_hurt;
-    public AudioSource audioSrc;
+    [NonSerialized] public AudioSource audioSrc;
     // Start is called before the first frame update
     void Start()
     {
