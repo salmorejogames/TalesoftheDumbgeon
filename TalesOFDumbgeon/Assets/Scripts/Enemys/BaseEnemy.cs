@@ -7,4 +7,5 @@ public class BaseEnemy : MonoBehaviour
 {
     public int difficulty = 1;
     public CharacterStats stats;
+
 }

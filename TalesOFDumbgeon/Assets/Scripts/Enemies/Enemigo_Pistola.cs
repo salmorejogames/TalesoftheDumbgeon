@@ -5,15 +5,13 @@ using UnityEngine;
 using Interfaces;
 using UnityEngine.AI;
 
-public class Enemigo_Pistola : MonoBehaviour, IDeadable, IMovil
+public class Enemigo_Pistola : BaseEnemy, IDeadable, IMovil
 {
     //IDeadable 
     private SpriteRenderer _spr;
     private IsometricMove _player;
-    private CharacterStats _stats;
 
     [SerializeField] private NavMeshAgent agent;
-    public int difficulty;
 
     [SerializeField]
     private DamageNumber DmgPrefab;
@@ -54,18 +52,18 @@ public class Enemigo_Pistola : MonoBehaviour, IDeadable, IMovil
     private float tiempoParado = 0f;
     private float startTiempoParado = 1f;
 
-    public enum tipoEnemigo { Abuesqueleto, Cerebro, Duonde, Palloto, Banana };
+    public enum tipoEnemigo { Abuesqueleto, Cerebro, Duonde, Palloto, Banana, Pelusa };
     public tipoEnemigo especie;
 
     // Start is called before the first frame update
     void Start()
     {
         //IDeadable
-        _stats = gameObject.GetComponent<CharacterStats>();
+        stats = gameObject.GetComponent<CharacterStats>();
         _spr = gameObject.GetComponent<SpriteRenderer>();
         _player = SingletoneGameController.PlayerActions.player;
         agent.updateUpAxis = false;
-        agent.speed = _stats.GetSpeedValue();
+        agent.speed = stats.GetSpeedValue();
         agent.updateRotation = false;
 
         arma = new RangedWeapon();
@@ -77,53 +75,18 @@ public class Enemigo_Pistola : MonoBehaviour, IDeadable, IMovil
         attackDelay = 5f;
         attackTime = 5f;
         arma.SetWeaponHolder(armaHolder);
-
-        if (especie == tipoEnemigo.Abuesqueleto)
-        {
-            vision = 3;
-            stopDistance = 0.5f;
-            _stats.armor = 3f;
-            _stats.maxHealth = 6f;
-            _stats.strength = 6f;
-            _stats.speed = 1f;
-            _stats.element = Elements.Element.Copo;
-        }
-        else if (especie == tipoEnemigo.Cerebro)
+               
+        if (especie == tipoEnemigo.Cerebro)
         {
             vision = 4f;
             stopDistance = 5f;            
-            _stats.armor = 1f;
-            _stats.maxHealth = 4f;
-            _stats.strength = 10f;
-            _stats.speed = 3.5f;
-            velocidad = _stats.speed;
-            _stats.element = Elements.Element.Brasa;
+            stats.armor = 1f;
+            stats.maxHealth = 4f;
+            stats.strength = 10f;
+            stats.speed = 3.5f;
+            velocidad = stats.speed;
+            stats.element = Elements.Element.Brasa;
         }
-        else if (especie == tipoEnemigo.Duonde)
-        {
-            velocidad = 1;
-            armadura = 15;
-            damage = 3;
-            vision = 4;
-        }
-        else if (especie == tipoEnemigo.Palloto)
-        {
-            velocidad = 15;
-            armadura = 2;
-            damage = 7;
-            vision = 6;
-        }
-        else if (especie == tipoEnemigo.Banana)
-        {
-            vision = 5.5f;
-            stopDistance = 5;
-            _stats.armor = 2f;
-            _stats.maxHealth = 3f;
-            _stats.strength = 8f;
-            _stats.speed = 2f;
-            _stats.element = Elements.Element.Brisa;
-        }
-
     }
 
     // Update is called once per frame
@@ -322,7 +285,7 @@ public class Enemigo_Pistola : MonoBehaviour, IDeadable, IMovil
         if (collision.gameObject.CompareTag("Player"))
         {
             nextPos = transform.position;
-            _stats.DoDamage(arma.Dmg, this.transform.position, _stats.element);
+            stats.DoDamage(arma.Dmg, this.transform.position, stats.element);
         }
         /*else if (collision.gameObject.CompareTag("Colisiones"))
         {
@@ -345,7 +308,7 @@ public class Enemigo_Pistola : MonoBehaviour, IDeadable, IMovil
 
     public void Damage(Vector3 enemy, float cantidad, Elements.Element element)
     {
-        float multiplier = Elements.GetElementMultiplier(element, _stats.element);
+        float multiplier = Elements.GetElementMultiplier(element, stats.element);
         DamageNumber dmgN = Instantiate(DmgPrefab, transform.position, Quaternion.identity);
         dmgN.Inicializar(cantidad, transform);
         if (multiplier > 1.1f)

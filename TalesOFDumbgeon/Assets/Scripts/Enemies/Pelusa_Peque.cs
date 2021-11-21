@@ -3,14 +3,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Pelusa_Peque : MonoBehaviour, IDeadable
+public class Pelusa_Peque : BaseEnemy, IDeadable
 {
     //IDeadable 
     private SpriteRenderer _spr;
     private IsometricMove _player;
-    private CharacterStats _stats;
 
-    public int difficulty;
 
     [SerializeField]
     private DamageNumber DmgPrefab;
@@ -67,7 +65,7 @@ public class Pelusa_Peque : MonoBehaviour, IDeadable
 
     public void Damage(Vector3 enemyPos, float cantidad, Elements.Element element)
     {
-        float multiplier = Elements.GetElementMultiplier(element, _stats.element);
+        float multiplier = Elements.GetElementMultiplier(element, stats.element);
         DamageNumber dmgN = Instantiate(DmgPrefab, transform.position, Quaternion.identity);
         dmgN.Inicializar(cantidad, transform);
         if (multiplier > 1.1f)
