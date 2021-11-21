@@ -85,16 +85,19 @@ public class JojomaloSkills : MonoBehaviour
         {
             
             mind.DisableMovement(weapon.weaponInfo.AttackSpeed*5);
+            mind.animationController.SetAttack();
             for (int i = 0; i < 5; i++)
             {
                 yield return new WaitForSeconds(weapon.weaponInfo.AttackSpeed);
+                
                 Vector3 translate = weapon.gameObject.transform.up * Random.Range(-1f, 1f);
                 weapon.gameObject.transform.Translate(translate);
                 weapon.Atack();
                 weapon.gameObject.transform.position = body.position;
                 
             }
-            weapon.gameObject.transform.position = body.position;;
+            weapon.gameObject.transform.position = body.position;
+            mind.animationController.SetStop();
         }
         
         public IEnumerator RangedAttack2()
@@ -104,8 +107,11 @@ public class JojomaloSkills : MonoBehaviour
             for (int i = 0; i < 3; i++)
             {
                 Debug.Log("Ronda " + i);
+               
                 mind.DisableMovement(weapon.weaponInfo.AttackSpeed*3);
+                mind.animationController.SetAttack();
                 yield return new WaitForSeconds(weapon.weaponInfo.AttackSpeed);
+                
                 float originalAngle = weapon.angle;
                 for (float j = -attackRange / 2; j <= attackRange / 2; j += attackRange / 4)
                 {
@@ -114,7 +120,7 @@ public class JojomaloSkills : MonoBehaviour
                     weapon.Atack();
                 }
                 weapon.SetOrientation(originalAngle);
-                
+                mind.animationController.SetStop();
             }
         }
         /*
@@ -173,6 +179,7 @@ public class JojomaloSkills : MonoBehaviour
             int numAtaques = 10;
             float distance = 2f;
             mind.DisableMovement(weapon.weaponInfo.AttackSpeed*numAtaques/2);
+            mind.animationController.SetAttack();
             for (int i = 0; i < numAtaques; i++)
             {
                 yield return new WaitForSeconds(weapon.weaponInfo.AttackSpeed/2);
@@ -182,10 +189,12 @@ public class JojomaloSkills : MonoBehaviour
                 mind.UpdateWeaponAngle();
                 weapon.Atack();
             }
+            mind.animationController.SetStop();
             TeleportInvulnerable(0);
         }
         private void AreaAttack()
         {
+            mind.animationController.SetAttack();
             Vector2 playerPos = SingletoneGameController.PlayerActions.player.gameObject.transform
                 .position;
             Vector2 isometricPos = IsometricUtils.ScreenCordsToTilesPos(new Vector2(playerPos.x-0.25f, playerPos.y -0.25f), true);
@@ -195,9 +204,11 @@ public class JojomaloSkills : MonoBehaviour
             newArea.gameObject.transform.parent = body.parent;
             newArea.gameObject.transform.tag = "SpellDmg";
             newArea.spellDmg.SetSpellDmgStats(4, mind.stats.element, pos, body.tag);
+            mind.animationController.SetStop();
         }
         private void CounterAttack(float dmg)
         {
+            mind.animationController.SetCharge();
             Vector2 playerPos = gameObject.transform.position;
             Vector2 isometricPos = IsometricUtils.ScreenCordsToTilesPos(new Vector2(playerPos.x-0.25f, playerPos.y -0.25f), true);
             Debug.Log(isometricPos.ToString());
@@ -206,6 +217,8 @@ public class JojomaloSkills : MonoBehaviour
             newArea.gameObject.transform.parent = body.parent;
             newArea.gameObject.transform.tag = "SpellDmg";
             newArea.spellDmg.SetSpellDmgStats(dmg, mind.stats.element, pos, body.tag);
+            mind.animationController.SetAttack();
+            mind.animationController.SetStop();
         }
         private void TeleportInvulnerable(float cantidad)
         {

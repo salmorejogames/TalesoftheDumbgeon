@@ -19,6 +19,8 @@ public class JojoMamaloBehaviour : BaseEnemy, IDeadable, IMovil
     private bool _explosion = false;
     private Vector2[] _locations = new Vector2[NumPositions];
     private NavMeshAgent _navMeshAgent;
+    public DamageNumber prefabDamage;
+    public JojomamaloAnimationController animationController;
 
     public float attackCooldown;
     private float _elapsedTime = 0;
@@ -70,6 +72,7 @@ public class JojoMamaloBehaviour : BaseEnemy, IDeadable, IMovil
         Vector3 dir = _target.position - jojoarma.gameObject.transform.position;
         float angle = Mathf.Atan2(dir.y,dir.x) * Mathf.Rad2Deg;
         jojoarma.SetOrientation(angle);
+        animationController.UpdateDirection(angle);
     }
 
     private void FixedUpdate()
@@ -104,13 +107,17 @@ public class JojoMamaloBehaviour : BaseEnemy, IDeadable, IMovil
 
     public void Damage(Vector3 enemyPos, float cantidad, Elements.Element element)
     {
+        DamageNumber dmgN = Instantiate(prefabDamage, transform.position, Quaternion.identity);
+       
         if (_hitsCountdown > 0)
-        {
+        { 
+            dmgN.Inicializar(0, transform);
             _hitsCountdown--;
             skills.ActivateSkill(JojomaloSkills.Skills.Tp, cantidad.ToString(CultureInfo.InvariantCulture));
         }
         else
         {
+            dmgN.Inicializar(cantidad, transform);
             ColorDmg(element);
             _damageAcumulated += cantidad;
             if (_damageAcumulated >= 10 && !_explosion)
