@@ -25,7 +25,8 @@ public class Weapon : MonoBehaviour
         SetOrientation(270);
         //_spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
         AreaWeapon weapon = new AreaWeapon();
-        _actualDmgArea = damageAreas[(int) BaseWeapon.WeaponType.Area];
+        if(holder.gameObject.CompareTag("Player"))
+            _actualDmgArea = damageAreas[(int) BaseWeapon.WeaponType.Area];
         weapon.SetWeaponHolder(this);
         weapon.Randomize(1);
         ChangeWeapon(weapon);
@@ -39,8 +40,12 @@ public class Weapon : MonoBehaviour
         newWeapon.SetWeaponHolder(this);
         weaponInfo = newWeapon;
         weaponInfo.Equip();
-        _actualDmgArea.gameObject.SetActive(false);
-        _actualDmgArea = damageAreas[(int) weaponInfo.AttackType];
+        if (holder.gameObject.CompareTag("Player"))
+        {
+            _actualDmgArea.gameObject.SetActive(false);
+            _actualDmgArea = damageAreas[(int) weaponInfo.AttackType];
+        }
+        
         //_spriteRenderer.sprite = weaponInfo.WeaponSprite;
         /*
         _collider = gameObject.AddComponent<PolygonCollider2D>();
@@ -142,7 +147,9 @@ public class Weapon : MonoBehaviour
 
     private IEnumerator AttackCoroutine()
     {
-        float duration = _actualDmgArea.fixedAnimationTime / holder.GetSpeedValue();
+        float duration = 0f;
+        if (holder.gameObject.CompareTag("Player"))
+            duration = _actualDmgArea.fixedAnimationTime / holder.GetSpeedValue();
         holder.Immobilize(duration);
         yield return new WaitForSeconds(duration*_actualDmgArea.percentStartDmg);
         //sonidos
@@ -170,12 +177,12 @@ public class Weapon : MonoBehaviour
                     SingletoneGameController.SoundManager.PlaySound("golpelanza");
                     break;
             }
-
+            _actualDmgArea.gameObject.SetActive(true);
+            yield return new WaitForSeconds(duration*(_actualDmgArea.percentStopDmgg-_actualDmgArea.percentStartDmg));
+            _actualDmgArea.gameObject.SetActive(false);
         }
 
-        _actualDmgArea.gameObject.SetActive(true);
-        yield return new WaitForSeconds(duration*(_actualDmgArea.percentStopDmgg-_actualDmgArea.percentStartDmg));
-        _actualDmgArea.gameObject.SetActive(false);
+        
     }
 
 }

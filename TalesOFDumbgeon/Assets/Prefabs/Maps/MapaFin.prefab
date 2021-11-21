@@ -17606,6 +17606,7 @@ GameObject:
   - component: {fileID: 3275907474395139997}
   - component: {fileID: 4165900803572800607}
   - component: {fileID: 3734589841681980758}
+  - component: {fileID: 2360585405710263447}
   m_Layer: 0
   m_Name: MapaFin
   m_TagString: Untagged
@@ -17669,5 +17670,21 @@ MonoBehaviour:
   doors: {fileID: 4866712653336851032}
   mapTrigger: {fileID: 7881152534294381081}
   enemyList:
-  - {fileID: 5057302173578858087, guid: 1dd5e250aca8e284ca6cbe25b6d6e977, type: 3}
+  - {fileID: 6293534581657644274, guid: 1dd5e250aca8e284ca6cbe25b6d6e977, type: 3}
   powerUpList: []
+  generators:
+  - {fileID: 2360585405710263447}
+--- !u!114 &2360585405710263447
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8120898947645969636}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 800004a9d53455b48b41b1da63685c74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tilesArea: 1
+  difficulty: 1

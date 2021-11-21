@@ -174,7 +174,7 @@ public class JojomaloSkills : MonoBehaviour
             AreaTileAtack newArea = Instantiate(areaTile, pos, Quaternion.identity);
             newArea.gameObject.transform.parent = body.parent;
             newArea.gameObject.transform.tag = "SpellDmg";
-            newArea.spellDmg.SetSpellDmgStats(4, mind.Stats.element, pos, body.tag);
+            newArea.spellDmg.SetSpellDmgStats(4, mind.stats.element, pos, body.tag);
         }
         private void CounterAttack(float dmg)
         {
@@ -185,7 +185,7 @@ public class JojomaloSkills : MonoBehaviour
             AreaTileAtack newArea = Instantiate(explosionCounterTile, pos, Quaternion.identity);
             newArea.gameObject.transform.parent = body.parent;
             newArea.gameObject.transform.tag = "SpellDmg";
-            newArea.spellDmg.SetSpellDmgStats(dmg, mind.Stats.element, pos, body.tag);
+            newArea.spellDmg.SetSpellDmgStats(dmg, mind.stats.element, pos, body.tag);
         }
         private void TeleportInvulnerable(float cantidad)
         {
@@ -197,7 +197,7 @@ public class JojomaloSkills : MonoBehaviour
             } while (ran == mind.ActualPos);
             mind.UpdatePosition(ran);
             if(cantidad>0)
-                mind.Stats.Heal( cantidad);
+                mind.stats.Heal( cantidad);
         }
 
         private void ChangueElement(Elements.Element newElement)
