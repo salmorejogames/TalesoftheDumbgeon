@@ -130,6 +130,7 @@ public class Enemigo_Pelusa : BaseEnemy, IDeadable
 
     public void Damage(Vector3 enemy, float cantidad, Elements.Element element)
     {
+        audio.Play();
         float multiplier = Elements.GetElementMultiplier(element, stats.element);
         DamageNumber dmgN = Instantiate(DmgPrefab, transform.position, Quaternion.identity);
         dmgN.Inicializar(cantidad, transform);
