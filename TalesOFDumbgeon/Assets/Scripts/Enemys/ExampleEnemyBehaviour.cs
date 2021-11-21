@@ -27,7 +27,7 @@ public class ExampleEnemyBehaviour : BaseEnemy, IDeadable
         }
     }
 
-    private void Start()
+    private void Awake()
     {
         stats = gameObject.GetComponent<CharacterStats>();
         _spr = gameObject.GetComponent<SpriteRenderer>();

@@ -10,10 +10,12 @@ public class Weapon : MonoBehaviour
     public BaseSpell spellInfo;
     [SerializeField] private SpriteRenderer _spriteRenderer;
     public CharacterStats holder;
-    private Collider2D _collider;
     [NonSerialized] public float angle;
     [NonSerialized] public float relativeAngle;
     [NonSerialized] public float relativePosition;
+    [SerializeField] private List<DamageArea> damageAreas;
+    private DamageArea _actualDmgArea; 
+    public float AttackDuration => _actualDmgArea.fixedAnimationTime / holder.GetSpeedValue();
 
 
     // Start is called before the first frame update
@@ -35,16 +37,19 @@ public class Weapon : MonoBehaviour
 
     public void ChangeWeapon(BaseWeapon newWeapon)
     {
-        //Reset Collider
-        if(_collider!= null)
-            Destroy(_collider);
         newWeapon.SetWeaponHolder(this);
         weaponInfo = newWeapon;
         weaponInfo.Equip();
+        if (holder.gameObject.CompareTag("Player"))
+        {
+            _actualDmgArea.gameObject.SetActive(false);
+            _actualDmgArea = damageAreas[(int) weaponInfo.AttackType];
+        }
         //_spriteRenderer.sprite = weaponInfo.WeaponSprite;
+        /*
         _collider = gameObject.AddComponent<PolygonCollider2D>();
         _collider.enabled = false;
-        _collider.isTrigger = true;
+        _collider.isTrigger = true;*/
         //_spriteRenderer.color = SingletoneGameController.InfoHolder.LoadColor(weaponInfo.Element);
     }
     
@@ -74,6 +79,29 @@ public class Weapon : MonoBehaviour
         if (spellInfo != null)
         {
             spellInfo.Cast();
+            if (holder.gameObject.CompareTag("Player"))
+            {
+                switch (spellInfo.Element)
+                {
+                    case Elements.Element.Normal:
+                        break;
+                    case Elements.Element.Brasa:
+                        SingletoneGameController.SoundManager.PlaySound("hechizofuego");
+                        break;
+                    case Elements.Element.Caos:
+                        SingletoneGameController.SoundManager.PlaySound("hechizocaos");
+                        break;
+                    case Elements.Element.Brisa:
+                        SingletoneGameController.SoundManager.PlaySound("hechizoaire");
+                        break;
+                    case Elements.Element.Copo:
+                        SingletoneGameController.SoundManager.PlaySound("hechizohielo");
+                        break;
+                    case Elements.Element.Guijarro:
+                        SingletoneGameController.SoundManager.PlaySound("hechizoroca");
+                        break;
+                }
+            }
         }
     }
     
@@ -87,7 +115,7 @@ public class Weapon : MonoBehaviour
     }
     
     ////Activate and Desactivate Elements
-    public void ReactivateCollider(float time)
+    public void ReactivateCollider()
     {
         //_collider.enabled = true;
         //_spriteRenderer.color = Color.yellow;
