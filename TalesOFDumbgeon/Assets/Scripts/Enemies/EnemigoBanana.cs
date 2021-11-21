@@ -49,8 +49,7 @@ public class EnemigoBanana : BaseEnemy, IDeadable
     public enum tipoEnemigo { Abuesqueleto, Cerebro, Duonde, Palloto, Banana, Pelusa };
     public tipoEnemigo especie;
 
-    // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
         //IDeadable
         stats = gameObject.GetComponent<CharacterStats>();
@@ -59,7 +58,11 @@ public class EnemigoBanana : BaseEnemy, IDeadable
         agent.updateUpAxis = false;
         agent.speed = stats.GetSpeedValue();
         agent.updateRotation = false;
+    }
 
+    // Start is called before the first frame update
+    void Start()
+    {
         rb = gameObject.GetComponent<Rigidbody2D>();
         personaje = GameObject.FindGameObjectWithTag("Player");
         rb.velocity = Vector2.zero;

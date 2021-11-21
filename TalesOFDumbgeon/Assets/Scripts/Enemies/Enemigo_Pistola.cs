@@ -55,8 +55,7 @@ public class Enemigo_Pistola : BaseEnemy, IDeadable, IMovil
     public enum tipoEnemigo { Abuesqueleto, Cerebro, Duonde, Palloto, Banana, Pelusa };
     public tipoEnemigo especie;
 
-    // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
         //IDeadable
         stats = gameObject.GetComponent<CharacterStats>();
@@ -65,7 +64,11 @@ public class Enemigo_Pistola : BaseEnemy, IDeadable, IMovil
         agent.updateUpAxis = false;
         agent.speed = stats.GetSpeedValue();
         agent.updateRotation = false;
+    }
 
+    // Start is called before the first frame update
+    void Start()
+    {
         arma = new RangedWeapon();
         armaHolder = zonaAtaque.GetComponent<Weapon>();
 
