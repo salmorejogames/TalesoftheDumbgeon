@@ -65,8 +65,39 @@ public class CardHolder : MonoBehaviour
         buttonDelete = Instantiate(buttonDelete, _thisRect.position, Quaternion.identity);
         buttonDelete.gameObject.transform.SetParent(this.gameObject.transform);
         buttonDelete.gameObject.SetActive(false);
-        AddCard(0, 3);
+
+        LoadHerencyCard();
         
+    }
+
+    private void LoadHerencyCard()
+    {
+        BaseEquipment newEquipment = PlayerPrefsCardSerializer.LoadData();
+        
+        BaseCard newCard;
+        switch (newEquipment.Type)
+        {
+            case BaseEquipment.EquipmentType.Weapon:
+                BaseWeapon newWeapon = (BaseWeapon) newEquipment;
+                newWeapon.SetWeaponHolder(SingletoneGameController.PlayerActions.player.PlayerActions.weapon);
+                newCard = new WeaponCard(newWeapon);
+                break;
+            case BaseEquipment.EquipmentType.Magic:
+                BaseSpell newSpell = (BaseSpell) newEquipment;
+                newSpell.SetWeaponHolder(SingletoneGameController.PlayerActions.player.PlayerActions.weapon);
+                newCard = new SpellCard(newSpell);
+                break;
+            case BaseEquipment.EquipmentType.Head:
+            case BaseEquipment.EquipmentType.Body:
+            case BaseEquipment.EquipmentType.Feet:
+                BaseArmor newArmor = (BaseArmor) newEquipment;
+                newArmor.AnimationController = SingletoneGameController.PlayerActions.playerAnimation;
+                newCard = new ArmorCard(newArmor);
+                break;
+            default:
+                throw new ArgumentOutOfRangeException();
+        }
+        AddCard(newCard);
     }
     private void MoveSelection(bool right)
     {

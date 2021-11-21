@@ -27,6 +27,26 @@ public class BaseArmor : BaseEquipment
     public BaseArmor()
     {
     }
+    
+    public BaseArmor(BodyPart bodyPart, ArmorPart armorPart)
+    {
+        Part = bodyPart;
+        ArmorType = armorPart;
+        switch (Part)
+        {
+            case BodyPart.Head:
+                Type = EquipmentType.Head;
+                break;
+            case BodyPart.Body:
+                Type = EquipmentType.Body;
+                break;
+            case BodyPart.Legs:
+                Type = EquipmentType.Feet;
+                break;
+            default:
+                throw new ArgumentOutOfRangeException();
+        }
+    }
 
     public virtual void OnHit() { }
     public override void Randomize(int level)

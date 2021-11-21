@@ -20,6 +20,7 @@ public class PlayerAnimationController : MonoBehaviour
     private static readonly int Walk = Animator.StringToHash("Walk");
     private static readonly int Attack = Animator.StringToHash("Attack");
     private BaseWeapon.WeaponType _weapon;
+    private static readonly int Magic = Animator.StringToHash("Magic");
 
     public const string PathName = "EquipmentClass/";
 
@@ -88,6 +89,13 @@ public class PlayerAnimationController : MonoBehaviour
     {
         //Current.Animator.speed = 4f;
         Current.animator.SetTrigger(Attack);
+    }
+    
+    public void SetSpell()
+    {
+        //Current.Animator.speed = 4f;
+        Debug.Log("Spell");
+        Current.animator.SetTrigger(Magic);
     }
     public void SetMoving(bool moving)
     {

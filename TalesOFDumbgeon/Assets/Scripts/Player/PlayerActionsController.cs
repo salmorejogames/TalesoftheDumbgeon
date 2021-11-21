@@ -102,6 +102,8 @@ public class PlayerActionsController : MonoBehaviour, IDeadable
     {
         if (_canSpell && weapon.spellInfo!=null)
         {
+            Debug.Log("CastingSpell");
+            _playerAnimationController.SetSpell();
             weapon.CastSpell();
             _canSpell = false;
             Invoke(nameof(ReactiveSpell), weapon.spellInfo.Cooldown);
@@ -164,6 +166,7 @@ public class PlayerActionsController : MonoBehaviour, IDeadable
     public void Dead()
     {
         SingletoneGameController.PlayerActions.dead = true;
+        PlayerPrefsCardSerializer.SaveData(weapon.weaponInfo);
         Greyscale();
         DesactivarMenuGameplay();
         musicaGameplay.Stop();
