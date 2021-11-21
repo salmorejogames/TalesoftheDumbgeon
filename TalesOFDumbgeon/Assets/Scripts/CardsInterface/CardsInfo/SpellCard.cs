@@ -15,7 +15,8 @@ public class SpellCard : BaseCard
         {
             case BaseSpell.SpellType.Damage:
                 Spell = new DamageSpell();
-                Artwork = SingletoneGameController.InfoHolder.dmgSpellArtwork;
+                Spell.Randomize(1);
+                Artwork = SingletoneGameController.InfoHolder.dmgSpellArtworks[(int)Spell.Element+1];
                 Strength = Spell.Strength + ((DamageSpell) Spell).Damage;
                 break;
             case BaseSpell.SpellType.Hability:
@@ -27,7 +28,7 @@ public class SpellCard : BaseCard
             default:
                 throw new ArgumentOutOfRangeException(nameof(spellType), spellType, null);
         }
-        Spell.Randomize(1);
+        
         Spell.SetWeaponHolder(weaponHolder); 
         String[] info = StaticInfoHolder.LoadName(Spell.SpellKind, Spell.Element);
         CardName = info[0];
@@ -46,7 +47,7 @@ public class SpellCard : BaseCard
         switch (Spell.SpellKind)
         {
             case BaseSpell.SpellType.Damage:
-                Artwork = SingletoneGameController.InfoHolder.dmgSpellArtwork;
+                Artwork = SingletoneGameController.InfoHolder.dmgSpellArtworks[(int)Spell.Element+1];
                 Strength = Spell.Strength + ((DamageSpell) Spell).Damage;
                 break;
             case BaseSpell.SpellType.Hability:
