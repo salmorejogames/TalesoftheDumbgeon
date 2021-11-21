@@ -10,14 +10,14 @@ public class Generator : MonoBehaviour
     public int difficulty;
     [NonSerialized] public MapInstance map;
 
-    public void InstantiateEnemys(List<ExampleEnemyBehaviour> enemys)
+    public void InstantiateEnemys(List<BaseEnemy> enemys)
     {
         
         int reaminingDiff = difficulty;
         while (reaminingDiff>0)
         {
             int count = 10;
-            ExampleEnemyBehaviour enemy;
+            BaseEnemy enemy;
             do
             {
                 enemy = enemys[Random.Range(0, enemys.Count)];
@@ -31,7 +31,7 @@ public class Generator : MonoBehaviour
                 tilePos.y + Random.Range((float) -tilesArea, tilesArea));
             Debug.Log(newTilePos);
             reaminingDiff -= enemy.difficulty;
-            ExampleEnemyBehaviour newEnemy =Instantiate(enemy, IsometricUtils.CoordinatesToWorldSpace(newTilePos.x, newTilePos.y), Quaternion.identity);
+            BaseEnemy newEnemy =Instantiate(enemy, IsometricUtils.CoordinatesToWorldSpace(newTilePos.x, newTilePos.y), Quaternion.identity);
             newEnemy.gameObject.transform.parent = gameObject.transform;
             map.enemys.Add(newEnemy.stats);
         }

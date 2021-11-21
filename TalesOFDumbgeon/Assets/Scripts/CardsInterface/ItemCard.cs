@@ -39,6 +39,11 @@ public class ItemCard : MonoBehaviour, IPointerClickHandler
                     CardInfo = new WeaponCard((BaseWeapon.WeaponType) CardId, SingletoneGameController.PlayerActions.player.PlayerActions.weapon);
                     break;
                 case BaseCard.CardType.Equipment:
+                    CardInfo = new ArmorCard(SingletoneGameController.PlayerActions.playerAnimation);
+                    break;
+                case BaseCard.CardType.Spell:
+                    CardInfo = new SpellCard((BaseSpell.SpellType) CardId,
+                        SingletoneGameController.PlayerActions.player.PlayerActions.weapon);
                     break;
                 default:
                     throw new ArgumentOutOfRangeException();
@@ -46,7 +51,8 @@ public class ItemCard : MonoBehaviour, IPointerClickHandler
         }
         holderImage.sprite = CardInfo.CardHolder;
         itemImage.sprite = CardInfo.Artwork;
-        itemImage.color = SingletoneGameController.InfoHolder.LoadColor(CardInfo.Element);
+        if(CardInfo.cardType != BaseCard.CardType.Spell)
+            itemImage.color = SingletoneGameController.InfoHolder.LoadColor(CardInfo.Element);
         title.text = CardInfo.CardName;
         description.text = CardInfo.Description;
         armor.text = CardInfo.Armor.ToString();

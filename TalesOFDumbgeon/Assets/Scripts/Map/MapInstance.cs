@@ -35,7 +35,7 @@ public class MapInstance : MonoBehaviour
     [SerializeField] private Tilemap collisions;
     [SerializeField] private Tilemap doors;
     [SerializeField] private CompositeCollider2D mapTrigger;
-    [SerializeField] private List<ExampleEnemyBehaviour> enemyList;
+    [SerializeField] private List<BaseEnemy> enemyList;
     [SerializeField] private List<GameObject> powerUpList;
     [SerializeField] private List<Generator> generators;
     [NonSerialized] public List<CharacterStats> enemys;

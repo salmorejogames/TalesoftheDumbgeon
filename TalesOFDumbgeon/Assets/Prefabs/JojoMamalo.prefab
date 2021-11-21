@@ -46,6 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _spriteRenderer: {fileID: 2993545416660461873}
   holder: {fileID: 5799909287195593416}
+  damageAreas: []
 --- !u!212 &2993545416660461873
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -183,7 +184,7 @@ SpriteRenderer:
   m_Size: {x: 6.23, y: 6.25}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!61 &492670424977512372
@@ -262,6 +263,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce280b1e0c36e9946b7ef0bf37b7bfa3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  difficulty: 1
+  stats: {fileID: 5799909287195593416}
   jojoarma: {fileID: 7074768991149250718}
   skills: {fileID: 5562745824741664786}
 --- !u!114 &5562745824741664786

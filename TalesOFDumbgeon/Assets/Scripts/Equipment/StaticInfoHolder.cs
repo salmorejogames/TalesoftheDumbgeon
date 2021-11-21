@@ -13,8 +13,7 @@ public class StaticInfoHolder : MonoBehaviour
     [SerializeField] public Sprite piercingWeaponArtwork;
     [SerializeField] public Sprite boomerangWeaponArtwork;
     [SerializeField] public Sprite rapierWeaponArtwork;
-    [SerializeField] public Sprite dmgSpellArtwork;
-    
+
     [Header("Cards")]
     [SerializeField] public Sprite cartaArma;
     [SerializeField] public Sprite cartaArmadura;
@@ -32,10 +31,13 @@ public class StaticInfoHolder : MonoBehaviour
     [SerializeField] public List<Sprite> wizard;
     [SerializeField] public List<Sprite> rogue;
     
+    [Header("Spells")]
+    [SerializeField] public List<Sprite> dmgSpellSprites;
+    [SerializeField] public List<Sprite> dmgSpellArtworks;
     
     [Header("Other sprites")]
     [SerializeField] public Sprite ammoSprite;
-    [SerializeField] public Sprite dmgSpellSprite;
+    
     
     
     [SerializeField] private List<Color> colors;

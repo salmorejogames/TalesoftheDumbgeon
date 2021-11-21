@@ -4,7 +4,7 @@ using System.Globalization;
 using Interfaces;
 using UnityEngine;
 
-public class JojoMamaloBehaviour : MonoBehaviour, IDeadable, IMovil
+public class JojoMamaloBehaviour : BaseEnemy, IDeadable, IMovil
 {
     public const int NumPositions = 4;
     private int _hitsCountdown = 2;
@@ -14,19 +14,17 @@ public class JojoMamaloBehaviour : MonoBehaviour, IDeadable, IMovil
     private Transform _target;
     private bool _explosion = false;
     private Vector2[] _locations = new Vector2[NumPositions];
-
-    private CharacterStats _stats;
+    
     private SpriteRenderer _spr;
     [SerializeField] private Weapon jojoarma;
     [SerializeField] private JojomaloSkills skills;
 
     public int ActualPos => _actualPos;
-    public CharacterStats Stats => _stats;
 
     void Start()
     {
         MapInstance map = SingletoneGameController.MapManager.ActualMap;
-        _stats = gameObject.GetComponent<CharacterStats>();
+        stats = gameObject.GetComponent<CharacterStats>();
         _spr = gameObject.GetComponent<SpriteRenderer>();
         _target = SingletoneGameController.PlayerActions.player.gameObject.transform;
         _locations[0] = new Vector2(map.dims[0]-4, 0);
@@ -98,7 +96,7 @@ public class JojoMamaloBehaviour : MonoBehaviour, IDeadable, IMovil
 
     private void ColorDmg(Elements.Element elementDmg)
     {
-        float multiplier = Elements.GetElementMultiplier(elementDmg, _stats.element);
+        float multiplier = Elements.GetElementMultiplier(elementDmg, stats.element);
         if(multiplier>1.1f)
             _spr.color = Color.red;
         else if(multiplier<0.9f)
@@ -129,5 +127,10 @@ public class JojoMamaloBehaviour : MonoBehaviour, IDeadable, IMovil
     private void EnableMovement()
     {
         _active = true;
+    }
+
+    public int GetDifficulty()
+    {
+        return 1;
     }
 }

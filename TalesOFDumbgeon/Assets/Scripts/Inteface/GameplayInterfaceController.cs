@@ -162,7 +162,7 @@ namespace Inteface
                     break;
 
                 case BaseCard.CardType.Spell:
-                    contHechizo.sprite = nuevoSprite;
+                    //contHechizo.sprite = nuevoSprite;
                     break;
 
                 case BaseCard.CardType.Equipment:

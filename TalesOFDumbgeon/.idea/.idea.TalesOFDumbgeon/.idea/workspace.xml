@@ -2,23 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b1d37c9d-25b2-4110-97a9-49ea663fadda" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Inteface/ButtonClose.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Sprites/misc/381636_block_icon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Sprites/misc/381636_block_icon.png.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.TalesOFDumbgeon/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TalesOFDumbgeon/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Input/InputControler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Input/InputControler.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Input/InputControler.inputactions" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Input/InputControler.inputactions" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Interface/DamageNumber.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Interface/DamageNumber.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Card.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Card.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Collectable.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Collectable.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/DamageCanvas.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/DamageCanvas.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/GameManager.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/GameManager.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/InGameCard.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/InGameCard.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Main Camera.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Main Camera.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/IsometricScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/IsometricScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CardsInterface/CardHolder.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CardsInterface/CardHolder.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CardsInterface/CardsInfo/SpellCard.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CardsInterface/CardsInfo/SpellCard.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/CardsInterface/ItemCard.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CardsInterface/ItemCard.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Collectionable.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Collectionable.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Equipment/Spells/DamageSpell.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Equipment/Spells/DamageSpell.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Equipment/StaticInfoHolder.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Equipment/StaticInfoHolder.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,19 +62,11 @@
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
-      <option value="$PROJECT_DIR$/Assets/Scripts/BaseMovement.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Player/IsometricMove.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Equipment/AreaWeapon.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Imovil.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Enemys/JojomaloSkills.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Enemys/JojoMamaloBehaviour.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Interfaces/SpellDmg.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Interfaces/IDeadable.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Enemys/JojoMamalo/AreaTileAtack.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Elements.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Enemys/JojoMamalo/JojoMamaloBehaviour.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/CardsInterface/InGameCard.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Enemys/JojoMamalo/JojomaloSkills.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Equipment/BaseArmor.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Equipment/BaseWeapon.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Bala_Move.cs" />
@@ -96,14 +76,12 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/Player/IsometricCharacterRenderer.cs" />
       <option value="$PROJECT_DIR$/Assets/NavMeshManager.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Map/MapManager.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Enemys/ExampleEnemyBehaviour.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/IsometricUtils.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Animations/WeaponController.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/GameControl/PlayerActions.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Animations/PlayerAnimationController.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/GameControl/SingletoneGameController.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/CardsInterface/CardsInfo/BaseCard.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/CardsInterface/CardsInfo/SpellCard.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Animations/AnimationDirection.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/DamageArea.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Player/PlayerActionsController.cs" />
@@ -111,20 +89,30 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/Equipment/Weapons/AreaWeapon.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Equipment/Weapons/RangedWeapon.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Equipment/Weapons/PiercingWeapon.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Equipment/StaticInfoHolder.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Equipment/Weapons/PiercingWeapon1.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Equipment/Weapons/PiercingWeapon2.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Equipment/Weapons/PiercingWeapon3.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/CardsInterface/CardsInfo/WeaponCard.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Player/Weapon.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/CharacterStats.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/CardsInterface/CardsInfo/ArmorCard.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Inteface/ButtonClose.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/CardsInterface/ItemCard.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/CardsInterface/CardHolder.cs" />
       <option value="$PROJECT_DIR$/Assets/Interface/DamageNumber.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Inteface/GameplayInterfaceController.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Collectionable.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Inteface/GameplayInterfaceController.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Interfaces/IEnemy.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Enemys/ExampleEnemyBehaviour.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Enemys/JojoMamalo/JojoMamaloBehaviour.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Generator.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Map/MapInstance.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Enemys/JojoMamalo/JojomaloSkills.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Interfaces/Enemy.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Player/Weapon.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Interfaces/BaseEnemy.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Equipment/StaticInfoHolder.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/CardsInterface/CardsInfo/SpellCard.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/CardsInterface/ItemCard.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Equipment/Spells/DamageSpell.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1zRaEkaFY4bgpmOHr8r3t8E1N2f" />

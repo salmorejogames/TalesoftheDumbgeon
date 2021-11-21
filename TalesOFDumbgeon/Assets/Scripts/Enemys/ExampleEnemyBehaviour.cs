@@ -6,13 +6,11 @@ using UnityEditor.UIElements;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class ExampleEnemyBehaviour : MonoBehaviour, IDeadable
+public class ExampleEnemyBehaviour : BaseEnemy, IDeadable
 {
     private SpriteRenderer _spr;
     private IsometricMove _player;
     [SerializeField] private NavMeshAgent agent;
-    [NonSerialized] public  CharacterStats stats;
-    public int difficulty;
 
     [SerializeField]
     private DamageNumber DmgPrefab;
@@ -62,5 +60,10 @@ public class ExampleEnemyBehaviour : MonoBehaviour, IDeadable
     public void RevertColor()
     {
         _spr.color = Color.white;
+    }
+
+    public int GetDifficulty()
+    {
+        return difficulty;
     }
 }
