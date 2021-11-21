@@ -14,9 +14,6 @@ public class Weapon : MonoBehaviour
     [NonSerialized] public float angle;
     [NonSerialized] public float relativeAngle;
     [NonSerialized] public float relativePosition;
-    [SerializeField] private List<DamageArea> damageAreas;
-    private DamageArea _actualDmgArea;
-    public float AttackDuration => _actualDmgArea.fixedAnimationTime / holder.GetSpeedValue();
 
 
     // Start is called before the first frame update
@@ -24,14 +21,12 @@ public class Weapon : MonoBehaviour
     {
         SetOrientation(270);
         //_spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
-        AreaWeapon weapon = new AreaWeapon();
-        if(holder.gameObject.CompareTag("Player"))
-            _actualDmgArea = damageAreas[(int) BaseWeapon.WeaponType.Area];
+        RangedWeapon weapon = new RangedWeapon();
         weapon.SetWeaponHolder(this);
         weapon.Randomize(1);
         ChangeWeapon(weapon);
     }
-    
+
     public void ChangeWeapon(BaseWeapon newWeapon)
     {
         //Reset Collider
@@ -40,17 +35,10 @@ public class Weapon : MonoBehaviour
         newWeapon.SetWeaponHolder(this);
         weaponInfo = newWeapon;
         weaponInfo.Equip();
-        if (holder.gameObject.CompareTag("Player"))
-        {
-            _actualDmgArea.gameObject.SetActive(false);
-            _actualDmgArea = damageAreas[(int) weaponInfo.AttackType];
-        }
-        
         //_spriteRenderer.sprite = weaponInfo.WeaponSprite;
-        /*
         _collider = gameObject.AddComponent<PolygonCollider2D>();
         _collider.enabled = false;
-        _collider.isTrigger = true;*/
+        _collider.isTrigger = true;
         //_spriteRenderer.color = SingletoneGameController.InfoHolder.LoadColor(weaponInfo.Element);
     }
     
@@ -71,48 +59,17 @@ public class Weapon : MonoBehaviour
     public void Atack()
     {
         //Debug.Log("Im atacking");
-
-    
-
         weaponInfo.Atacar();
-        StartCoroutine(nameof(AttackCoroutine));
     }
 
     public void CastSpell()
     {
-        if (holder.gameObject.CompareTag("Player"))
-        {
-            switch (spellInfo.Element)
-            {
-              
-                case Elements.Element.Normal:
-                    break;
-                case Elements.Element.Brasa:
-                    SingletoneGameController.SoundManager.PlaySound("hechizofuego");
-                    break;
-                case Elements.Element.Caos:
-                    SingletoneGameController.SoundManager.PlaySound("hechizocaos");
-                    break;
-                case Elements.Element.Brisa:
-                    SingletoneGameController.SoundManager.PlaySound("hechizoaire");
-                    break;
-                case Elements.Element.Copo:
-                    SingletoneGameController.SoundManager.PlaySound("hechizohielo");
-                    break;
-                case Elements.Element.Guijarro:
-                    SingletoneGameController.SoundManager.PlaySound("hechizoroca");
-                    break;
-            }
-
-        }
-
         if (spellInfo != null)
         {
             spellInfo.Cast();
         }
     }
-
-    /*
+    
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (!other.gameObject.CompareTag(holder.tag) && (other.gameObject.CompareTag("Enemigo") || other.gameObject.CompareTag("Player")))
@@ -121,15 +78,13 @@ public class Weapon : MonoBehaviour
             enemy.DoDamage(weaponInfo.Dmg + holder.strength,  gameObject.transform.position, weaponInfo.Element);
         }
     }
-    */
+    
     ////Activate and Desactivate Elements
-    public void ReactivateCollider()
+    public void ReactivateCollider(float time)
     {
-        //_collider.enabled = true;
-        //_spriteRenderer.color = Color.yellow;
-        //actualDmgArea.gameObject.SetActive(true);
-        //Invoke(nameof(DesactivateCollider), time);
-        StartCoroutine(nameof(AttackCoroutine));
+        _collider.enabled = true;
+        _spriteRenderer.color = Color.yellow;
+        Invoke(nameof(DesactivateCollider), time);
     }
 
     public void UpdatePosition(Vector3 newCenter)
@@ -140,49 +95,8 @@ public class Weapon : MonoBehaviour
 
     public void DesactivateCollider()
     {
-        //_spriteRenderer.color = SingletoneGameController.InfoHolder.LoadColor(weaponInfo.Element);
-        //_collider.enabled = false;
-        _actualDmgArea.gameObject.SetActive(false);
+        _spriteRenderer.color = SingletoneGameController.InfoHolder.LoadColor(weaponInfo.Element);
+        _collider.enabled = false;
     }
-
-    private IEnumerator AttackCoroutine()
-    {
-        float duration = 0f;
-        if (holder.gameObject.CompareTag("Player"))
-            duration = _actualDmgArea.fixedAnimationTime / holder.GetSpeedValue();
-        holder.Immobilize(duration);
-        yield return new WaitForSeconds(duration*_actualDmgArea.percentStartDmg);
-        //sonidos
-
-        if (holder.gameObject.CompareTag("Player"))
-        {
-            switch (weaponInfo.AttackType)
-            {
-                case BaseWeapon.WeaponType.Area:
-                    SingletoneGameController.SoundManager.PlaySound("golpeespada");
-                    break;
-                case BaseWeapon.WeaponType.Ranged:
-                    SingletoneGameController.SoundManager.PlaySound("golpebaston");
-                    break;
-                case BaseWeapon.WeaponType.Smashing:
-                    SingletoneGameController.SoundManager.PlaySound("golpebaston");
-                    break;
-                case BaseWeapon.WeaponType.Piercing:
-                    SingletoneGameController.SoundManager.PlaySound("golpelanza");
-                    break;
-                case BaseWeapon.WeaponType.Frisbie:
-                    SingletoneGameController.SoundManager.PlaySound("golpeespada");
-                    break;
-                case BaseWeapon.WeaponType.Rapier:
-                    SingletoneGameController.SoundManager.PlaySound("golpelanza");
-                    break;
-            }
-            _actualDmgArea.gameObject.SetActive(true);
-            yield return new WaitForSeconds(duration*(_actualDmgArea.percentStopDmgg-_actualDmgArea.percentStartDmg));
-            _actualDmgArea.gameObject.SetActive(false);
-        }
-
-        
-    }
-
+    
 }

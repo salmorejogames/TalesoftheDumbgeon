@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class EnemigoController : MonoBehaviour, IDeadable
+public class EnemigoBanana : MonoBehaviour, IDeadable
 {
     //IDeadable 
     private SpriteRenderer _spr;

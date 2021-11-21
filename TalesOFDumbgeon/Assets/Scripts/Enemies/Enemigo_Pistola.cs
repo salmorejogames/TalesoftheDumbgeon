@@ -5,12 +5,18 @@ using UnityEngine;
 using Interfaces;
 using UnityEngine.AI;
 
-public class Enemigo_Pistola : MonoBehaviour, IDeadable
+public class Enemigo_Pistola : MonoBehaviour, IDeadable, IMovil
 {
     //IDeadable 
     private SpriteRenderer _spr;
     private IsometricMove _player;
     private CharacterStats _stats;
+
+    [SerializeField] private NavMeshAgent agent;
+    public int difficulty;
+
+    [SerializeField]
+    private DamageNumber DmgPrefab;
 
     public float velocidad = 5;
     public int armadura = 3;
@@ -22,7 +28,6 @@ public class Enemigo_Pistola : MonoBehaviour, IDeadable
     public float decisionClock = 0f;
 
     public GameObject personaje;
-    public GameObject Bala;
     public GameObject zonaAtaque;
     public RangedWeapon arma;
     private Weapon armaHolder;
@@ -59,6 +64,10 @@ public class Enemigo_Pistola : MonoBehaviour, IDeadable
         _stats = gameObject.GetComponent<CharacterStats>();
         _spr = gameObject.GetComponent<SpriteRenderer>();
         _player = SingletoneGameController.PlayerActions.player;
+        agent.updateUpAxis = false;
+        agent.speed = _stats.GetSpeedValue();
+        agent.updateRotation = false;
+
         arma = new RangedWeapon();
         armaHolder = zonaAtaque.GetComponent<Weapon>();
 
@@ -67,7 +76,7 @@ public class Enemigo_Pistola : MonoBehaviour, IDeadable
         rb.velocity = Vector2.zero;
         attackDelay = 5f;
         attackTime = 5f;
-        arma.SetWeaponHolder(zonaAtaque.GetComponent<Weapon>());
+        arma.SetWeaponHolder(armaHolder);
 
         if (especie == tipoEnemigo.Abuesqueleto)
         {
@@ -304,6 +313,7 @@ public class Enemigo_Pistola : MonoBehaviour, IDeadable
         {
             Debug.Log(collision.gameObject);
             //Destroy(gameObject);
+            
         }
     }
 
@@ -312,6 +322,7 @@ public class Enemigo_Pistola : MonoBehaviour, IDeadable
         if (collision.gameObject.CompareTag("Player"))
         {
             nextPos = transform.position;
+            _stats.DoDamage(arma.Dmg, this.transform.position, _stats.element);
         }
         /*else if (collision.gameObject.CompareTag("Colisiones"))
         {
@@ -335,17 +346,30 @@ public class Enemigo_Pistola : MonoBehaviour, IDeadable
     public void Damage(Vector3 enemy, float cantidad, Elements.Element element)
     {
         float multiplier = Elements.GetElementMultiplier(element, _stats.element);
+        DamageNumber dmgN = Instantiate(DmgPrefab, transform.position, Quaternion.identity);
+        dmgN.Inicializar(cantidad, transform);
         if (multiplier > 1.1f)
             _spr.color = Color.red;
         else if (multiplier < 0.9f)
             _spr.color = Color.cyan;
         else
             _spr.color = Color.yellow;
+        dmgN.number.color = _spr.color;
         Invoke(nameof(RevertColor), 0.2f);
     }
 
     public void RevertColor()
     {
         _spr.color = Color.white;
+    }
+
+    public void Move()
+    {
+        
+    }
+
+    public void DisableMovement(float time)
+    {
+        
     }
 }
