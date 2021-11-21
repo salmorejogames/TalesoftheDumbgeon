@@ -71,7 +71,7 @@ public class EnemigoBanana : BaseEnemy, IDeadable
         if(especie == tipoEnemigo.Banana)
         {
             velocidad = 2;
-            armadura = 2;
+            armadura = 1;
             damage = 4;
             vision = 10;
             stopDistance = 7;
