@@ -306,14 +306,11 @@ El esquema jugable de *Tales of the Dumbgeon* se basa en la recolección de las 
 ![](https://cdn.discordapp.com/attachments/503507632418455564/912095416307302430/unknown.png)
 		**
 	- **Hechizos:** Se equipa como habilidad para usarse en combate. (Ejemplo: *Saeta de fuego*)
-	
-		**![](https://lh3.googleusercontent.com/hjMRBRkWB1QpDalhjD8k46QlYyWIlypId38colLCghIEyHAD_b1gPMTYuEV3oW7gug23s-TAT0XTPaQVG0RpneOUoDU2WFS-wpVmi0s8yIDbkpAFBMb8M35qVJ6C=s1600)**
-	
+	**![](https://lh3.googleusercontent.com/hjMRBRkWB1QpDalhjD8k46QlYyWIlypId38colLCghIEyHAD_b1gPMTYuEV3oW7gug23s-TAT0XTPaQVG0RpneOUoDU2WFS-wpVmi0s8yIDbkpAFBMb8M35qVJ6C=s1600)**
 	- **Maldiciones:** Efectos adversos sobre el personaje. Se aplican instantáneamente al ser recogidas. (Ejemplo: *Analfabetismo*)
-	
-		**![](https://lh4.googleusercontent.com/pts37zA4_zCKe23nFgI7zof7oEUKbSsffSVzGSAeuZpZQAQQu3JDJoKtChMyRDQLo8TZdp0Zn1ChO7fYncnh7ZwC_n6roLXZ9e5PsBI4V29UELU09kF-aM7R4cF8=s1600)**
-	
-	- **Bendiciones:** Cartas que guardan en la mano del jugador para que este pueda usarlas cuando desee. Al activarlas ofrecen un efecto positivo al jugador y se consumen. (Ejemplo: *Power Up*)![](https://cdn.discordapp.com/attachments/503507632418455564/912096482130296872/unknown.png)
+	**![](https://lh4.googleusercontent.com/pts37zA4_zCKe23nFgI7zof7oEUKbSsffSVzGSAeuZpZQAQQu3JDJoKtChMyRDQLo8TZdp0Zn1ChO7fYncnh7ZwC_n6roLXZ9e5PsBI4V29UELU09kF-aM7R4cF8=s1600)**
+	- **Bendiciones:** Cartas que guardan en la mano del jugador para que este pueda usarlas cuando desee. Al activarlas ofrecen un efecto positivo al jugador y se consumen. (Ejemplo: *Power Up*)
+	![](https://cdn.discordapp.com/attachments/503507632418455564/912096482130296872/unknown.png)
 
 	
 	Cuando el jugador muera en las partidas, una de las cartas que tenia equipadas se dejara de herencia al siguiente personaje y empezar desde el inicio con ella, creando una herencia de equipo, hechizos y maldiciones que puedan ser útiles en las partidas posteriores.
@@ -434,16 +431,13 @@ Mientras sucede este movimiento, Jojomamalo expulsará bolas de energía similar
 -   *En arco*: 5 bolas de energía saldrán del centro de Jojomamalo para separarse formando un arco. Este disparo en concreto puede hacerlo hasta 3 veces seguidas.
     
 
-  
-
--   ![](https://lh3.googleusercontent.com/pCbxk-1yjAeYw2eA_vEbiDmoCTgv01_uWNm4Upw9AjEu7zLkUOlysvAFt7oi3NmoEO0TZkBUcrXirvuPY73R4QfXdiIjVt9Y2EuyRkJ0ZFU4oPSqGD3CNhHlgDn0Sbe51TUNQb9E)
+ ![](https://lh3.googleusercontent.com/pCbxk-1yjAeYw2eA_vEbiDmoCTgv01_uWNm4Upw9AjEu7zLkUOlysvAFt7oi3NmoEO0TZkBUcrXirvuPY73R4QfXdiIjVt9Y2EuyRkJ0ZFU4oPSqGD3CNhHlgDn0Sbe51TUNQb9E)
     
 
   
 
 -   *En serpiente:* Comenzará una ristra de hasta 15 bolas que se dispara hacia delante mientras Jojomamalo se mueve de un lado al otro de la pared en la que se encuentra.
     
-
 ![](https://lh4.googleusercontent.com/FIXFn7Sbek0ENjTd8zlpf9tCmYrXFfuQ6op7WfB53Yki00UOq7AkCBiLLcbDU-55_xcfsmTLN8CLLPvGppTYVA-WOBrqW2reFG1SuBGq9fgEWlvmNgGTn4hXJxbDfOjC-QglGn9t)
 
   
@@ -636,6 +630,7 @@ En este apartado se presentarán todos los personajes relevantes de la trama del
 
 **La Dumbgeon**: La disparatada morada de Jojomamalo con eternos pasillos y absurdos enemigos representan la prueba final de los Stadtnarr.
 ![](https://cdn.discordapp.com/attachments/503507632418455564/912105593106481172/unknown.png)
+
 	----- Patreon Ace up your sleeve -----
 	
 -   **Pueblo Boñiga**:
