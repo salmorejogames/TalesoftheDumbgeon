@@ -1,8 +1,12 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Globalization;
 using Interfaces;
 using UnityEngine;
+using UnityEngine.AI;
+using Random = UnityEngine.Random;
+
 
 public class JojoMamaloBehaviour : BaseEnemy, IDeadable, IMovil
 {
@@ -14,15 +18,23 @@ public class JojoMamaloBehaviour : BaseEnemy, IDeadable, IMovil
     private Transform _target;
     private bool _explosion = false;
     private Vector2[] _locations = new Vector2[NumPositions];
-    
+    private NavMeshAgent _navMeshAgent;
+
+    public float attackCooldown;
+    private float _elapsedTime = 0;
     private SpriteRenderer _spr;
     [SerializeField] private Weapon jojoarma;
     [SerializeField] private JojomaloSkills skills;
 
+    public Vector3 TargetPos => _target.position;
     public int ActualPos => _actualPos;
 
-    void Start()
+    void Awake()
     {
+        _navMeshAgent = gameObject.GetComponent<NavMeshAgent>();
+        _navMeshAgent.stoppingDistance = 1f;
+        _navMeshAgent.updateRotation = false;
+        _navMeshAgent.updateUpAxis = false;
         MapInstance map = SingletoneGameController.MapManager.ActualMap;
         stats = gameObject.GetComponent<CharacterStats>();
         _spr = gameObject.GetComponent<SpriteRenderer>();
@@ -37,6 +49,7 @@ public class JojoMamaloBehaviour : BaseEnemy, IDeadable, IMovil
         BaseWeapon newJojoArma = new RangedWeapon();
         newJojoArma.Randomize(1);
         jojoarma.ChangeWeapon(newJojoArma);
+        _navMeshAgent.speed = stats.GetSpeedValue();
     }
 
     // Update is called once per frame
@@ -44,11 +57,44 @@ public class JojoMamaloBehaviour : BaseEnemy, IDeadable, IMovil
     {
         if (_active)
         {
-            Vector3 dir = _target.position - jojoarma.gameObject.transform.position;
-            float angle = Mathf.Atan2(dir.y,dir.x) * Mathf.Rad2Deg;
-            jojoarma.SetOrientation(angle);
+            UpdateWeaponAngle();
+            _navMeshAgent.speed = stats.GetSpeedValue();
+            _navMeshAgent.destination = _target.position;
+            
         }
         
+    }
+
+    public void UpdateWeaponAngle()
+    {
+        Vector3 dir = _target.position - jojoarma.gameObject.transform.position;
+        float angle = Mathf.Atan2(dir.y,dir.x) * Mathf.Rad2Deg;
+        jojoarma.SetOrientation(angle);
+    }
+
+    private void FixedUpdate()
+    {
+        _elapsedTime += Time.fixedDeltaTime;
+        if (_elapsedTime > attackCooldown)
+        {
+            switch (Random.Range(0,4))
+            {
+                case 0:
+                    skills.ActivateSkill(JojomaloSkills.Skills.LineAttack);
+                    break;
+                case 1:
+                    skills.ActivateSkill(JojomaloSkills.Skills.BowAttack);
+                    break;
+                case 2:
+                    skills.ActivateSkill(JojomaloSkills.Skills.SnakeAttack);
+                    break;
+                case 3:
+                    skills.ActivateSkill(JojomaloSkills.Skills.AreaAttack);
+                    break;
+            }
+
+            _elapsedTime = 0f;
+        }
     }
 
     public void Dead()
@@ -81,7 +127,6 @@ public class JojoMamaloBehaviour : BaseEnemy, IDeadable, IMovil
             }
                 
         }
-        skills.ActivateSkill(JojomaloSkills.Skills.BowAttack);
     }
 
     public void UpdatePosition(int newPos)
@@ -121,11 +166,13 @@ public class JojoMamaloBehaviour : BaseEnemy, IDeadable, IMovil
     public void DisableMovement(float time)
     {
         _active = false;
+        _navMeshAgent.speed = 0f;
         Invoke(nameof(EnableMovement), time);
     }
 
     private void EnableMovement()
     {
+        _navMeshAgent.speed = stats.GetSpeedValue();
         _active = true;
     }
 

@@ -598,6 +598,7 @@ GameObject:
   - component: {fileID: 1115182075542822013}
   - component: {fileID: 7881152534294381081}
   - component: {fileID: 833516864745792791}
+  - component: {fileID: 9019096376584412084}
   m_Layer: 0
   m_Name: Triggers
   m_TagString: EscenarioTrigger
@@ -1101,6 +1102,22 @@ TilemapCollider2D:
   m_Offset: {x: 0, y: 0}
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0.00001
+--- !u!114 &9019096376584412084
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3907298092584946237}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_OverrideArea: 1
+  m_Area: 1
+  m_IgnoreFromBuild: 0
+  m_AffectedAgents: ffffffff
 --- !u!1 &6146247401845435747
 GameObject:
   m_ObjectHideFlags: 0
@@ -1277,6 +1294,7 @@ GameObject:
   - component: {fileID: 7329575102646037817}
   - component: {fileID: 123078062479638412}
   - component: {fileID: 6619574719327875077}
+  - component: {fileID: 4248268242480539806}
   m_Layer: 0
   m_Name: Collisions
   m_TagString: Escenario
@@ -12176,6 +12194,22 @@ CompositeCollider2D:
       - {x: -0.9628906, y: -2.2820563}
   m_VertexDistance: 0.0005
   m_OffsetDistance: 0.00005
+--- !u!114 &4248268242480539806
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6356500553481987202}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_OverrideArea: 1
+  m_Area: 1
+  m_IgnoreFromBuild: 0
+  m_AffectedAgents: ffffffff
 --- !u!1 &7057899662538505117
 GameObject:
   m_ObjectHideFlags: 0
@@ -12187,6 +12221,7 @@ GameObject:
   - component: {fileID: 9122831036906614678}
   - component: {fileID: 3471779580378091689}
   - component: {fileID: 8801667228055804920}
+  - component: {fileID: 7092108601116972513}
   m_Layer: 0
   m_Name: Ground
   m_TagString: Untagged
@@ -14900,6 +14935,22 @@ TilemapRenderer:
   m_Mode: 1
   m_DetectChunkCullingBounds: 0
   m_MaskInteraction: 0
+--- !u!114 &7092108601116972513
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7057899662538505117}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_OverrideArea: 1
+  m_Area: 0
+  m_IgnoreFromBuild: 0
+  m_AffectedAgents: ffffffff
 --- !u!1 &8120898947645969636
 GameObject:
   m_ObjectHideFlags: 0

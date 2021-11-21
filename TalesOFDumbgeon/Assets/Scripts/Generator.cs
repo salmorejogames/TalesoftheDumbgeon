@@ -20,12 +20,15 @@ public class Generator : MonoBehaviour
             BaseEnemy enemy;
             do
             {
+                
                 enemy = enemys[Random.Range(0, enemys.Count)];
+                Debug.Log(count + " " + enemy.ToString());
                 count--;
             } while (reaminingDiff - enemy.difficulty < 0 && count > 0);
-
+            Debug.Log("Checking count");
             if (count <= 0)
                 break;
+            Debug.Log("Generating enemy");
             Vector2 tilePos = IsometricUtils.ScreenCordsToTilesPos(gameObject.transform.position, false);
             Vector2 newTilePos = new Vector2(tilePos.x + Random.Range((float) -tilesArea, tilesArea),
                 tilePos.y + Random.Range((float) -tilesArea, tilesArea));

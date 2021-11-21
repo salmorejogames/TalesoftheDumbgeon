@@ -83,24 +83,28 @@ public class JojomaloSkills : MonoBehaviour
     }
     public IEnumerator RangedAttack1()
         {
-            Vector3 oldPos = weapon.gameObject.transform.position;
+            
+            mind.DisableMovement(weapon.weaponInfo.AttackSpeed*5);
             for (int i = 0; i < 5; i++)
             {
                 yield return new WaitForSeconds(weapon.weaponInfo.AttackSpeed);
                 Vector3 translate = weapon.gameObject.transform.up * Random.Range(-1f, 1f);
                 weapon.gameObject.transform.Translate(translate);
                 weapon.Atack();
-                weapon.gameObject.transform.position = oldPos;
+                weapon.gameObject.transform.position = body.position;
                 
             }
-            weapon.gameObject.transform.position = oldPos;
+            weapon.gameObject.transform.position = body.position;;
         }
         
         public IEnumerator RangedAttack2()
         {
+            Debug.Log("Bow Attack");
             float attackRange = 90f;
             for (int i = 0; i < 3; i++)
             {
+                Debug.Log("Ronda " + i);
+                mind.DisableMovement(weapon.weaponInfo.AttackSpeed*3);
                 yield return new WaitForSeconds(weapon.weaponInfo.AttackSpeed);
                 float originalAngle = weapon.angle;
                 for (float j = -attackRange / 2; j <= attackRange / 2; j += attackRange / 4)
@@ -113,7 +117,7 @@ public class JojomaloSkills : MonoBehaviour
                 
             }
         }
-        
+        /*
         public IEnumerator RangedAttack3()
         {
             Vector3 oldPos = body.position;
@@ -163,7 +167,23 @@ public class JojomaloSkills : MonoBehaviour
             }
             body.position = oldPos;
         }
-
+*/
+        public IEnumerator RangedAttack3()
+        {
+            int numAtaques = 10;
+            float distance = 2f;
+            mind.DisableMovement(weapon.weaponInfo.AttackSpeed*numAtaques/2);
+            for (int i = 0; i < numAtaques; i++)
+            {
+                yield return new WaitForSeconds(weapon.weaponInfo.AttackSpeed/2);
+                int angle = Random.Range(0, 360);
+                body.position = mind.TargetPos +
+                                new Vector3(distance * Mathf.Cos(angle), distance * Mathf.Sin(angle), 0);
+                mind.UpdateWeaponAngle();
+                weapon.Atack();
+            }
+            TeleportInvulnerable(0);
+        }
         private void AreaAttack()
         {
             Vector2 playerPos = SingletoneGameController.PlayerActions.player.gameObject.transform

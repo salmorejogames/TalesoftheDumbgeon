@@ -92,6 +92,7 @@ public class MapInstance : MonoBehaviour
         if (!_started)
         {
             SetCollisions(true);
+            SingletoneGameController.NavMeshManager.UpdateNavMesh();
             foreach (var generator in generators)
             {
                 generator.map = this;
@@ -133,7 +134,7 @@ public class MapInstance : MonoBehaviour
                 newPowerUp.transform.position = IsometricUtils.CoordinatesToWorldSpace(xx, yy);
                 newPowerUp.transform.localScale = new Vector3(0.1f, 0.1f, 1f);
             }
-
+            
             _started = true;
             OpenDors(false);
         }

@@ -17,14 +17,20 @@ public class Weapon : MonoBehaviour
 
 
     // Start is called before the first frame update
-    void Awake()
+    void Start()
     {
         SetOrientation(270);
         //_spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
-        RangedWeapon weapon = new RangedWeapon();
-        weapon.SetWeaponHolder(this);
-        weapon.Randomize(1);
-        ChangeWeapon(weapon);
+        if(holder.gameObject.CompareTag("Player"))
+            _actualDmgArea = damageAreas[(int) BaseWeapon.WeaponType.Area];
+        if (weaponInfo == null)
+        {
+            AreaWeapon weapon = new AreaWeapon();
+            weapon.SetWeaponHolder(this);
+            weapon.Randomize(1);
+            ChangeWeapon(weapon);
+        }
+        
     }
 
     public void ChangeWeapon(BaseWeapon newWeapon)
@@ -60,6 +66,7 @@ public class Weapon : MonoBehaviour
     {
         //Debug.Log("Im atacking");
         weaponInfo.Atacar();
+        //StartCoroutine(nameof(AttackCoroutine));
     }
 
     public void CastSpell()
@@ -82,9 +89,12 @@ public class Weapon : MonoBehaviour
     ////Activate and Desactivate Elements
     public void ReactivateCollider(float time)
     {
-        _collider.enabled = true;
-        _spriteRenderer.color = Color.yellow;
-        Invoke(nameof(DesactivateCollider), time);
+        //_collider.enabled = true;
+        //_spriteRenderer.color = Color.yellow;
+        //actualDmgArea.gameObject.SetActive(true);
+        //Invoke(nameof(DesactivateCollider), time);
+        if (holder.gameObject.CompareTag("Player"))
+            StartCoroutine(nameof(AttackCoroutine));
     }
 
     public void UpdatePosition(Vector3 newCenter)
@@ -95,8 +105,43 @@ public class Weapon : MonoBehaviour
 
     public void DesactivateCollider()
     {
-        _spriteRenderer.color = SingletoneGameController.InfoHolder.LoadColor(weaponInfo.Element);
-        _collider.enabled = false;
+        //_spriteRenderer.color = SingletoneGameController.InfoHolder.LoadColor(weaponInfo.Element);
+        //_collider.enabled = false;
+        _actualDmgArea.gameObject.SetActive(false);
+    }
+
+    private IEnumerator AttackCoroutine()
+    {
+        float duration = 0f;
+        duration = _actualDmgArea.fixedAnimationTime / holder.GetSpeedValue();
+        holder.Immobilize(duration);
+        yield return new WaitForSeconds(duration*_actualDmgArea.percentStartDmg);
+        //sonidos
+        switch (weaponInfo.AttackType)
+        {
+            case BaseWeapon.WeaponType.Area:
+                SingletoneGameController.SoundManager.PlaySound("golpeespada");
+                break;
+            case BaseWeapon.WeaponType.Ranged:
+                SingletoneGameController.SoundManager.PlaySound("golpebaston");
+                break;
+            case BaseWeapon.WeaponType.Smashing:
+                SingletoneGameController.SoundManager.PlaySound("golpebaston");
+                break;
+            case BaseWeapon.WeaponType.Piercing:
+                SingletoneGameController.SoundManager.PlaySound("golpelanza");
+                break;
+            case BaseWeapon.WeaponType.Frisbie:
+                SingletoneGameController.SoundManager.PlaySound("golpeespada");
+                break;
+            case BaseWeapon.WeaponType.Rapier:
+                SingletoneGameController.SoundManager.PlaySound("golpelanza");
+                break;
+        }
+        _actualDmgArea.gameObject.SetActive(true);
+        yield return new WaitForSeconds(duration*(_actualDmgArea.percentStopDmgg-_actualDmgArea.percentStartDmg));
+        _actualDmgArea.gameObject.SetActive(false);
+
     }
     
 }

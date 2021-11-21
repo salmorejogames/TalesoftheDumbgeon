@@ -151,7 +151,6 @@ public class MapManager : MonoBehaviour
         _player.transform.position = _player.transform.position - actualPos;
         SingletoneGameController.PlayerActions.EnableMovement();
         CameraFollow.activeFollow = true;
-        SingletoneGameController.NavMeshManager.UpdateNavMesh();
         _actualMap.StartMap();
     }
     public void ReloadScene()
