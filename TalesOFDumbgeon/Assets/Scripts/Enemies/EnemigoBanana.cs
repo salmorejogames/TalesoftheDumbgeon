@@ -70,7 +70,7 @@ public class EnemigoBanana : BaseEnemy, IDeadable
         {
             vision = 10f;
             stopDistance = 7f;
-            stats.armor = 2f;
+            stats.armor = 1.5f;
             stats.maxHealth = 14f;
             stats.strength = 4f;
             stats.speed = 2f;
