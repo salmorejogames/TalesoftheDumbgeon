@@ -17,9 +17,7 @@ public class EnemigoBanana : BaseEnemy, IDeadable
     private DamageNumber DmgPrefab;
 
 
-    public int velocidad = 5;
-    public int armadura = 3;
-    public int damage = 1;
+    public float velocidad;
     public float vision = 3;
     public float maxDistance = 1f;
     public float stopDistance = 0.5f;
@@ -70,11 +68,14 @@ public class EnemigoBanana : BaseEnemy, IDeadable
 
         if(especie == tipoEnemigo.Banana)
         {
-            velocidad = 2;
-            armadura = 1;
-            damage = 4;
-            vision = 10;
-            stopDistance = 7;
+            vision = 10f;
+            stopDistance = 7f;
+            stats.armor = 2f;
+            stats.maxHealth = 14f;
+            stats.strength = 4f;
+            stats.speed = 2f;
+            velocidad = stats.speed;
+            stats.element = Elements.Element.Caos;
         }
     }
 
@@ -247,7 +248,7 @@ public class EnemigoBanana : BaseEnemy, IDeadable
         }else if (collision.gameObject.CompareTag("Player"))
         {
             nextPos = transform.position;
-            collision.gameObject.GetComponent<CharacterStats>().DoDamage(damage, this.transform.position, stats.element);
+            collision.gameObject.GetComponent<CharacterStats>().DoDamage(stats.strength, this.transform.position, stats.element);
         }
     }
 
@@ -256,7 +257,7 @@ public class EnemigoBanana : BaseEnemy, IDeadable
         if (collision.gameObject.CompareTag("Player"))
         {
             nextPos = transform.position;
-            collision.gameObject.GetComponent<CharacterStats>().DoDamage(damage, this.transform.position, stats.element);
+            collision.gameObject.GetComponent<CharacterStats>().DoDamage(stats.strength, this.transform.position, stats.element);
         }/*else if (collision.gameObject.CompareTag("Colisiones"))
         {
             decisionClock = 5f;
