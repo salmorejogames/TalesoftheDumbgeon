@@ -47,10 +47,7 @@ public class Enemigo_Pistola : BaseEnemy, IDeadable, IMovil
     private bool canAtack = true;
     private float attackDelay;
     private float attackTime;
-    private float startDashTime = 0.5f;
     private bool attaking = false;
-    private float tiempoParado = 0f;
-    private float startTiempoParado = 1f;
 
     public enum tipoEnemigo { Abuesqueleto, Cerebro, Duonde, Palloto, Banana, Pelusa };
     public tipoEnemigo especie;
@@ -74,22 +71,10 @@ public class Enemigo_Pistola : BaseEnemy, IDeadable, IMovil
 
         rb = gameObject.GetComponent<Rigidbody2D>();
         personaje = GameObject.FindGameObjectWithTag("Player");
-        rb.velocity = Vector2.zero;
-        attackDelay = 2f;
-        attackTime = 2f;
+        attackDelay = 1.5f;
+        attackTime = 1.5f;
         arma.SetWeaponHolder(armaHolder);
-               
-        if (especie == tipoEnemigo.Cerebro)
-        {
-            vision = 10f;
-            stopDistance = 7f;            
-            stats.armor = 1f;
-            stats.maxHealth = 4f;
-            stats.strength = 3f;
-            stats.speed = 3.5f;
-            velocidad = stats.speed;
-            stats.element = Elements.Element.Brasa;
-        }
+        velocidad = stats.speed;
     }
 
     // Update is called once per frame
@@ -152,7 +137,7 @@ public class Enemigo_Pistola : BaseEnemy, IDeadable, IMovil
                     break;
 
                 case Estado.Attacking:
-                    rb.rotation = -rotacion;
+                    //rb.rotation = -rotacion;
                     Attack();
                     break;
             }
@@ -213,24 +198,12 @@ public class Enemigo_Pistola : BaseEnemy, IDeadable, IMovil
     {
         if (canAtack)
         {
-            if (especie == tipoEnemigo.Abuesqueleto)
-            {
-                zonaAtaque.GetComponent<Collider2D>().isTrigger = false;
-                rb.velocity = Vector2.zero;
-                canAtack = false;
-                nextPos = transform.position;
-            }
-            else if(especie == tipoEnemigo.Cerebro)
+            if(especie == tipoEnemigo.Cerebro)
             {
                 //arma.Atacar(rayos);
                 canAtack = false;
                 Debug.Log("Intento generar balas");
                 Invoke(nameof(ReactiveAttack), arma.AttackSpeed);
-            }
-            else if (especie == tipoEnemigo.Banana)
-            {
-                zonaAtaque.GetComponent<Collider2D>().isTrigger = false;
-                attaking = true;
             }
         }
     }

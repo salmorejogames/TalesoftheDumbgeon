@@ -25,7 +25,6 @@ public class EnemigoBanana : BaseEnemy, IDeadable
     public float decisionClock = 0f;
 
     public GameObject personaje;
-    public GameObject zonaAtaque;
 
     private Rigidbody2D rb;
     private enum Estado { Wandering, Detected, Attacking};
@@ -65,18 +64,8 @@ public class EnemigoBanana : BaseEnemy, IDeadable
         personaje = GameObject.FindGameObjectWithTag("Player");
         rb.velocity = Vector2.zero;
         attackDelay = 4;
+        velocidad = stats.speed;
 
-        if(especie == tipoEnemigo.Banana)
-        {
-            vision = 10f;
-            stopDistance = 7f;
-            stats.armor = 1.5f;
-            stats.maxHealth = 14f;
-            stats.strength = 4f;
-            stats.speed = 2f;
-            velocidad = stats.speed;
-            stats.element = Elements.Element.Caos;
-        }
     }
 
     // Update is called once per frame
@@ -127,7 +116,6 @@ public class EnemigoBanana : BaseEnemy, IDeadable
         if (attackDelay >= 200)
         {
             canAtack = true;
-            zonaAtaque.GetComponent<Collider2D>().isTrigger = true;
         }
 
         if (distanciaPlayer > vision)
@@ -214,15 +202,8 @@ public class EnemigoBanana : BaseEnemy, IDeadable
     {
         if (canAtack)
         {
-            if (especie == tipoEnemigo.Abuesqueleto)
+            if(especie == tipoEnemigo.Banana)
             {
-                zonaAtaque.GetComponent<Collider2D>().isTrigger = false;
-                rb.velocity = Vector2.zero;
-                canAtack = false;
-                nextPos = transform.position;
-            }else if(especie == tipoEnemigo.Banana)
-            {
-                zonaAtaque.GetComponent<Collider2D>().isTrigger = false;
                 attaking = true;
                 canAtack = false;
             }
