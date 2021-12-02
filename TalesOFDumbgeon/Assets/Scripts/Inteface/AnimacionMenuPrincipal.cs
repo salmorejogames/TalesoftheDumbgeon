@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class AnimacionMenuPrincipal : MonoBehaviour
 {
+    [SerializeField] private GameObject menuPrincipal;
+
     [SerializeField] private GameObject titulo;
     [SerializeField] private GameObject botonJugar;
     [SerializeField] private GameObject botonAjustes;
@@ -16,6 +18,8 @@ public class AnimacionMenuPrincipal : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        menuPrincipal.SetActive(true);
+
         LeanTween.moveLocalY(titulo, 190, 1.5f).setEaseOutCubic();
         LeanTween.rotateZ(titulo, -85, 1f).setEaseOutCubic();
 
@@ -42,7 +46,7 @@ public class AnimacionMenuPrincipal : MonoBehaviour
 
         //audioSource.PlayOneShot(cartaAudio);
 
-        LeanTween.moveLocalY(botonGuia, -320, 1.5f).setEaseOutCubic().setDelay(2.5f);
-        LeanTween.rotateZ(botonGuia, 1, 1f).setEaseOutCubic().setDelay(2.5f);
+        LeanTween.moveLocalY(botonGuia, -320, 1.5f).setEaseOutCubic().setDelay(2f);
+        LeanTween.rotateZ(botonGuia, 1, 1f).setEaseOutCubic().setDelay(2f);
     }
 }

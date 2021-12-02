@@ -16,7 +16,9 @@ public class MainMenuController : MonoBehaviour
     [SerializeField] private GameObject tutorial2;
     [SerializeField] private GameObject volumen;
 
+    [SerializeField] private GameObject menuPrincipal;
     [SerializeField] private GameObject menuAjustes;
+    [SerializeField] private GameObject menuGuia;
 
     [SerializeField] private Image tutorial1Imagen;
     [SerializeField] private Image tutorial2Imagen;
@@ -24,7 +26,26 @@ public class MainMenuController : MonoBehaviour
     [SerializeField] private Sprite tutorial1Movil;
     [SerializeField] private Sprite tutorial2Movil;
 
+    [SerializeField] private Button jugarBoton;
+    [SerializeField] private Button ajustesBoton;
+    [SerializeField] private Button guiaBoton;
+    [SerializeField] private Button creditosBoton;
+    [SerializeField] private Button volverBoton;
+    [SerializeField] private Button avanzarBoton1;
+    [SerializeField] private Button avanzarBoton2;
+    [SerializeField] private Button retrocederBoton1;
+    [SerializeField] private Button retrocederBoton2;
+
     private int pagina = 0;
+
+    private void Start()
+    {
+        HacerNoInteractuable(jugarBoton);
+        HacerNoInteractuable(ajustesBoton);
+        HacerNoInteractuable(creditosBoton);
+        HacerNoInteractuable(guiaBoton);
+        StartCoroutine(MenuPrincipalInteractuable(3.25f));
+    }
 
     public void Jugar()
     {
@@ -33,6 +54,11 @@ public class MainMenuController : MonoBehaviour
         LeanTween.moveLocalY(botonCreditos, -550, .25f);
         LeanTween.moveLocalY(botonGuia, -550, .25f);
         LeanTween.moveLocalY(titulo, 550, .25f);
+
+        HacerNoInteractuable(jugarBoton);
+        HacerNoInteractuable(ajustesBoton);
+        HacerNoInteractuable(creditosBoton);
+        HacerNoInteractuable(guiaBoton);
 
         StartCoroutine(EsperarJugar());
     }
@@ -45,6 +71,11 @@ public class MainMenuController : MonoBehaviour
 
     public void Creditos()
     {
+        HacerNoInteractuable(jugarBoton);
+        HacerNoInteractuable(ajustesBoton);
+        HacerNoInteractuable(creditosBoton);
+        HacerNoInteractuable(guiaBoton);
+
         LeanTween.moveLocalY(botonJugar, -550, .25f);
         LeanTween.moveLocalY(botonAjustes, -550, .25f);
         LeanTween.moveLocalY(botonCreditos, -550, .25f);
@@ -66,6 +97,17 @@ public class MainMenuController : MonoBehaviour
 
     public void Tutorial()
     {
+        HacerNoInteractuable(guiaBoton);
+
+        menuGuia.SetActive(true);
+
+        HacerNoInteractuable(jugarBoton);
+        HacerNoInteractuable(ajustesBoton);
+        HacerNoInteractuable(creditosBoton);
+
+        HacerNoInteractuable(avanzarBoton1);
+        HacerNoInteractuable(retrocederBoton1);
+
         if (CheckIfMobile.isMobile())
         {
             tutorial1Imagen.sprite = tutorial1Movil;
@@ -83,6 +125,9 @@ public class MainMenuController : MonoBehaviour
 
         LeanTween.moveLocalX(tutorial1, 0, 1f).setEaseOutCubic();
         LeanTween.moveLocalY(tutorial1, 0, 1f).setEaseOutCubic();
+
+        StartCoroutine(HacerInteractuableCoroutine(avanzarBoton1, 1.25f));
+        StartCoroutine(HacerInteractuableCoroutine(retrocederBoton1, 1.25f));
     }
 
     public void AvanzarPaginaGuia()
@@ -90,6 +135,11 @@ public class MainMenuController : MonoBehaviour
         switch (pagina)
         {
             case 1:
+                HacerNoInteractuable(avanzarBoton1);
+                HacerNoInteractuable(retrocederBoton1);
+                HacerNoInteractuable(avanzarBoton2);
+                HacerNoInteractuable(retrocederBoton2);
+
                 pagina = 2;
                 LeanTween.moveLocalX(tutorial1, 1260, 1f).setEaseOutCubic();
                 LeanTween.moveLocalY(tutorial1, 0, 1f).setEaseOutCubic();
@@ -97,13 +147,21 @@ public class MainMenuController : MonoBehaviour
                 LeanTween.moveLocalX(tutorial2, 0, 1f).setEaseOutCubic();
                 LeanTween.moveLocalY(tutorial2, 0, 1f).setEaseOutCubic();
 
+                StartCoroutine(HacerInteractuableCoroutine(avanzarBoton2, 1.25f));
+                StartCoroutine(HacerInteractuableCoroutine(retrocederBoton2, 1.25f));
+
                 break;
 
             case 2:
+                HacerNoInteractuable(avanzarBoton2);
+                HacerNoInteractuable(retrocederBoton2);
+
                 LeanTween.moveLocalX(tutorial2, 1260, 1f).setEaseOutCubic();
                 LeanTween.moveLocalY(tutorial2, 0, 1f).setEaseOutCubic();
 
                 AnimacionMenuPrincipal();
+
+                StartCoroutine(MenuPrincipalInteractuable(2.25f));
 
                 break;
         }
@@ -114,14 +172,24 @@ public class MainMenuController : MonoBehaviour
         switch (pagina)
         {
             case 1:
+                HacerNoInteractuable(avanzarBoton1);
+                HacerNoInteractuable(retrocederBoton1);
+
                 LeanTween.moveLocalX(tutorial1, 1260, 1f).setEaseOutCubic();
                 LeanTween.moveLocalY(tutorial1, 0, 1f).setEaseOutCubic();
 
                 AnimacionMenuPrincipal();
 
+                StartCoroutine(MenuAjustesInteractuable(2.25f));
+
                 break;
 
             case 2:
+                HacerNoInteractuable(avanzarBoton1);
+                HacerNoInteractuable(retrocederBoton1);
+                HacerNoInteractuable(avanzarBoton2);
+                HacerNoInteractuable(retrocederBoton2);
+
                 pagina = 1;
 
                 LeanTween.moveLocalX(tutorial1, 0, 1f).setEaseOutCubic();
@@ -129,6 +197,9 @@ public class MainMenuController : MonoBehaviour
 
                 LeanTween.moveLocalX(tutorial2, 1260, 1f).setEaseOutCubic();
                 LeanTween.moveLocalY(tutorial2, 0, 1f).setEaseOutCubic();
+
+                StartCoroutine(HacerInteractuableCoroutine(avanzarBoton1, 1.25f));
+                StartCoroutine(HacerInteractuableCoroutine(retrocederBoton1, 1.25f));
 
                 break;
         }
@@ -157,6 +228,13 @@ public class MainMenuController : MonoBehaviour
 
     public void Ajustes()
     {
+        menuAjustes.SetActive(true);
+
+        HacerNoInteractuable(ajustesBoton);
+        HacerNoInteractuable(volverBoton);
+
+        StartCoroutine(MenuAjustesInteractuable(1.5f));
+
         LeanTween.moveLocalY(botonJugar, -550, .25f);
         LeanTween.moveLocalY(botonCreditos, -550, .25f);
         LeanTween.moveLocalY(botonGuia, -550, .25f);
@@ -171,6 +249,22 @@ public class MainMenuController : MonoBehaviour
     }
 
     public void Volver()
+    {
+        HacerNoInteractuable(volverBoton);
+
+        AnimacionVolver();
+
+        HacerNoInteractuable(jugarBoton);
+        HacerNoInteractuable(ajustesBoton);
+        HacerNoInteractuable(creditosBoton);
+        HacerNoInteractuable(guiaBoton);
+
+        menuPrincipal.SetActive(true);
+
+        StartCoroutine(MenuPrincipalInteractuable(2.25f));
+    }
+
+    public void AnimacionVolver()
     {
         LeanTween.moveLocalY(titulo, 190, 1.5f).setEaseOutCubic();
         LeanTween.rotateZ(titulo, -85, 1f).setEaseOutCubic();
@@ -192,5 +286,41 @@ public class MainMenuController : MonoBehaviour
 
         LeanTween.moveLocalY(volumen, -500, .25f);
         LeanTween.moveLocalY(botonVolver, -500, .25f);
+    }
+
+    IEnumerator MenuPrincipalInteractuable(float segundos)
+    {
+        yield return new WaitForSeconds(segundos);
+
+        HacerInteractuable(jugarBoton);
+        HacerInteractuable(ajustesBoton);
+        HacerInteractuable(creditosBoton);
+        HacerInteractuable(guiaBoton);
+
+        menuAjustes.SetActive(false);
+    }
+
+    IEnumerator MenuAjustesInteractuable(float segundos)
+    {
+        yield return new WaitForSeconds(segundos);
+
+        HacerInteractuable(volverBoton);
+        menuPrincipal.SetActive(false);
+    }
+
+    IEnumerator HacerInteractuableCoroutine(Button button, float segundos)
+    {
+        yield return new WaitForSeconds(segundos);
+        HacerInteractuable(button);
+    }
+
+    public void HacerInteractuable(Button button)
+    {
+        button.interactable = true;
+    }
+
+    public void HacerNoInteractuable(Button button)
+    {
+        button.interactable = false;
     }
 }
