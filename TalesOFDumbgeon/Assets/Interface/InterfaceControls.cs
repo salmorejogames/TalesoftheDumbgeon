@@ -38,6 +38,17 @@ public class @InterfaceControls : IInputActionCollection, IDisposable
                     ""action"": ""Animacion puerta"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""512edf37-252e-41aa-b8ba-e0779af1bf4e"",
+                    ""path"": ""<Touchscreen>/press"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Animacion puerta"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },

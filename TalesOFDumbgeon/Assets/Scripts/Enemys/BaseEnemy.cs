@@ -5,6 +5,9 @@ using UnityEngine.Internal;
 
 public class BaseEnemy : MonoBehaviour
 {
+    public AudioSource audio;
+
+
     public int difficulty = 1;
     public CharacterStats stats;
 

@@ -24,6 +24,7 @@ public class Enemigo_Pelusa : BaseEnemy, IDeadable
     public float maxDistance = 1f;
     public float stopDistance = 0.5f;
     public float decisionClock = 0f;
+    public int maxChilds = 6;
 
     public GameObject personaje;
     public GameObject Bala;
@@ -91,9 +92,10 @@ public class Enemigo_Pelusa : BaseEnemy, IDeadable
 
     private void Attack()
     {
-        Instantiate(Bala, zonaAtaque.transform.position, Quaternion.identity, gameObject.transform);
-        Instantiate(Bala, zonaAtaque.transform.position, Quaternion.identity, gameObject.transform);
-        Instantiate(Bala, zonaAtaque.transform.position, Quaternion.identity, gameObject.transform);
+        if(gameObject.transform.childCount<=maxChilds)
+            Instantiate(Bala, zonaAtaque.transform.position, Quaternion.identity, gameObject.transform);
+        //Instantiate(Bala, zonaAtaque.transform.position, Quaternion.identity, gameObject.transform);
+        //Instantiate(Bala, zonaAtaque.transform.position, Quaternion.identity, gameObject.transform);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -128,6 +130,7 @@ public class Enemigo_Pelusa : BaseEnemy, IDeadable
 
     public void Damage(Vector3 enemy, float cantidad, Elements.Element element)
     {
+        audio.Play();
         float multiplier = Elements.GetElementMultiplier(element, stats.element);
         DamageNumber dmgN = Instantiate(DmgPrefab, transform.position, Quaternion.identity);
         dmgN.Inicializar(cantidad, transform);

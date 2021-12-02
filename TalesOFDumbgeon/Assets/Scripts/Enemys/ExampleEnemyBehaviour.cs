@@ -8,6 +8,9 @@ using UnityEngine.AI;
 
 public class ExampleEnemyBehaviour : BaseEnemy, IDeadable
 {
+
+   
+
     private SpriteRenderer _spr;
     private IsometricMove _player;
     [SerializeField] private NavMeshAgent agent;
@@ -44,6 +47,9 @@ public class ExampleEnemyBehaviour : BaseEnemy, IDeadable
 
     public void Damage(Vector3 enemyPos, float cantidad, Elements.Element element)
     {
+
+        audio.Play();
+
         float multiplier = Elements.GetElementMultiplier(element, stats.element);
         DamageNumber dmgN = Instantiate(DmgPrefab, transform.position, Quaternion.identity);
         dmgN.Inicializar(cantidad, transform);
