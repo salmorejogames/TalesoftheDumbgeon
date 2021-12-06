@@ -26,6 +26,7 @@ public class ItemCard : MonoBehaviour, IPointerClickHandler
     [SerializeField] private float fadeTime;
     [SerializeField] private int distanceLaunch;
 
+    private bool deleteMode = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -64,7 +65,7 @@ public class ItemCard : MonoBehaviour, IPointerClickHandler
     {
         if (_cardHolder.active)
         {
-           StartDelete();
+           StartDelete(_cardHolder.modeDelete);
         }
         else
         {
@@ -86,15 +87,16 @@ public class ItemCard : MonoBehaviour, IPointerClickHandler
         SingletoneGameController.InterfaceController.CambiarSprite(CardInfo.cardType, bodyPart, CardInfo.Artwork);
     }
 
-    public void StartDelete()
+    public void StartDelete(bool modeDelete)
     {
+        deleteMode = modeDelete;
         SetHighlight(false);
         StartCoroutine(nameof(Fade));
         Invoke(nameof(Delete), fadeTime);
     }
     private void Delete()
     {
-        if(!_cardHolder.modeDelete)
+        if(!deleteMode)
             ActivateEffect();
         _cardHolder.DeleteCard(_rectTransform);
     }
