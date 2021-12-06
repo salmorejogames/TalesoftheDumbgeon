@@ -11,7 +11,7 @@ public class Chest : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Arma") && closed == true)
+        if ((collision.gameObject.CompareTag("Arma") || collision.gameObject.CompareTag("Bala")) && closed == true)
         {
             GameObject newCard = Instantiate(carta,gameObject.transform.position + new Vector3(1.0f,0.0f,0.0f), gameObject.transform.rotation);
             newCard.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
@@ -20,6 +20,8 @@ public class Chest : MonoBehaviour
         }
         
     }
+
+
 
 
 }
