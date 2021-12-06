@@ -44,10 +44,10 @@ public class Enemigo_Pistola : BaseEnemy, IDeadable, IMovil
     private float rotacion;
     private RaycastHit2D hit;
     private Collider2D choque;
+    //Para controlar cuando puede atacar y si esta atacando
     private bool canAtack = true;
     private float attackDelay;
     private float attackTime;
-    private bool attaking = false;
 
     public enum tipoEnemigo { Abuesqueleto, Cerebro, Duonde, Palloto, Banana, Pelusa };
     public tipoEnemigo especie;
@@ -150,48 +150,6 @@ public class Enemigo_Pistola : BaseEnemy, IDeadable, IMovil
     private void Alcanzable()
     {
         transform.position = Vector2.MoveTowards(transform.position, personaje.transform.position, velocidad * Time.deltaTime);
-
-        //!!!!!!!!!!!!!!!!!!!!!!!!!NO BORRAR, ES CODIGO QUE NO FUNCIONA PERO QUE QUIERO IMPLEMETAR PARA QUE FUNCIONE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-
-        /*hit = Physics2D.Raycast(transform.position, nextPos);
-        choque = hit.collider;
-
-        if (choque.gameObject.CompareTag("Player"))
-        {
-            nextPos = choque.transform.position;
-            Debug.Log("Estoy igualando al jugador");
-        }
-        else
-        {
-            Vector3 punto = choque.bounds.center;
-            Vector3 puntoA = punto + choque.bounds.extents;
-            Vector3 puntoB = punto - choque.bounds.extents;
-            Vector3 puntoCercano = choque.bounds.ClosestPoint(transform.position);
-            Debug.Log("Me meto a recalcular el camino");
-
-            if(transform.position.y != puntoCercano.y)
-            {
-                if(Vector3.Distance(personaje.transform.position, puntoA) < Vector3.Distance(personaje.transform.position, puntoB)){
-                    nextPos = new Vector3(puntoA.x + 0.5f, puntoCercano.y, 0);  
-                }else
-                {
-                    nextPos = new Vector3(puntoB.x + 0.5f, puntoCercano.y, 0);
-                }
-            }
-            else
-            {
-                if (Vector3.Distance(personaje.transform.position, puntoA) < Vector3.Distance(personaje.transform.position, puntoB))
-                {
-                    nextPos = new Vector3(puntoCercano.x, puntoA.y + 0.5f, 0);
-                }
-                else
-                {
-                    nextPos = new Vector3(puntoCercano.x, puntoB.y + 0.5f, 0);
-                }
-            }
-        }*/
-
-        //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!NO BORRAR, ES CODIGO QUE NO FUNCIONA PERO QUE QUIERO HACER QUE FUNCIONE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     }
 
     private void Attack()
@@ -212,6 +170,7 @@ public class Enemigo_Pistola : BaseEnemy, IDeadable, IMovil
     {
         //canAtack = true;
         arma.Atacar();
+
         /*
         zonaAtaque.GetComponent<Collider2D>().isTrigger = false;
         rb.velocity = Vector2.zero;

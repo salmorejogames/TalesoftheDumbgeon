@@ -6,10 +6,8 @@ using UnityEditor.UIElements;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class ExampleEnemyBehaviour : BaseEnemy, IDeadable
-{
-
-   
+public class ExampleEnemyBehaviour : BaseEnemy, IDeadable, IMovil
+{   
 
     private SpriteRenderer _spr;
     private IsometricMove _player;
@@ -17,16 +15,40 @@ public class ExampleEnemyBehaviour : BaseEnemy, IDeadable
 
     [SerializeField]
     private DamageNumber DmgPrefab;
+    private float distanciaPlayer;
+    //Para que se pare despues de atacar
+    private float stoppedTime;
+    private float stoppedDelay;
+    private bool stopped = false;
 
     private void Update()
     {
         if (!SingletoneGameController.PlayerActions.dead)
         {
-            if(_player==null)
-                _player = SingletoneGameController.PlayerActions.player;
-            //gameObject.transform.position = Vector3.MoveTowards(gameObject.transform.position, _player.transform.position, stats.GetSpeedValue()*Time.deltaTime);
-            agent.destination = _player.transform.position;
-            
+            if (!stopped)
+            {
+                if (_player == null)
+                    _player = SingletoneGameController.PlayerActions.player;
+                distanciaPlayer = Vector2.Distance(transform.position, _player.transform.position);
+                //gameObject.transform.position = Vector3.MoveTowards(gameObject.transform.position, _player.transform.position, stats.GetSpeedValue()*Time.deltaTime);
+                if (distanciaPlayer >= rangoVision)
+                {
+                    agent.destination = _player.transform.position;
+                }
+                else
+                {
+                    agent.destination = gameObject.transform.position;
+                    stopped = true;
+                }
+            }
+            else
+            {
+                stoppedTime += Time.deltaTime;
+                if(stoppedTime >= stoppedDelay)
+                {
+                    stopped = false;
+                }
+            }        
         }
     }
 
@@ -35,9 +57,35 @@ public class ExampleEnemyBehaviour : BaseEnemy, IDeadable
         stats = gameObject.GetComponent<CharacterStats>();
         _spr = gameObject.GetComponent<SpriteRenderer>();
         _player = SingletoneGameController.PlayerActions.player;
+        rangoVision = 0.1f;
         agent.updateUpAxis = false;
         agent.speed = stats.GetSpeedValue();
         agent.updateRotation = false;
+        stoppedTime = 4f;
+        stoppedDelay = 4f;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Bala"))
+        {
+            Debug.Log(collision.gameObject);
+        }
+        else if (collision.gameObject.CompareTag("Player"))
+        {
+            collision.gameObject.GetComponent<CharacterStats>().DoDamage(stats.strength, this.transform.position, stats.element);
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            collision.gameObject.GetComponent<CharacterStats>().DoDamage(stats.strength, this.transform.position, stats.element);
+        }/*else if (collision.gameObject.CompareTag("Colisiones"))
+        {
+            decisionClock = 5f;
+        }*/
     }
 
     public void Dead()
@@ -71,5 +119,15 @@ public class ExampleEnemyBehaviour : BaseEnemy, IDeadable
     public int GetDifficulty()
     {
         return difficulty;
+    }
+
+    public void Move()
+    {
+        throw new NotImplementedException();
+    }
+
+    public void DisableMovement(float time)
+    {
+        throw new NotImplementedException();
     }
 }

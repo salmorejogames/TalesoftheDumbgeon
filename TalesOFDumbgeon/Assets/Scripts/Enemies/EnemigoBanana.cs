@@ -229,6 +229,7 @@ public class EnemigoBanana : BaseEnemy, IDeadable
         }else if (collision.gameObject.CompareTag("Player"))
         {
             nextPos = transform.position;
+            rb.velocity = Vector2.zero;
             collision.gameObject.GetComponent<CharacterStats>().DoDamage(stats.strength, this.transform.position, stats.element);
         }
     }
