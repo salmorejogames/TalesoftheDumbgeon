@@ -62,8 +62,8 @@ public class JojoMamaloBehaviour : BaseEnemy, IDeadable, IMovil
             UpdateWeaponAngle();
             _navMeshAgent.speed = stats.GetSpeedValue();
             _navMeshAgent.destination = _target.position;
-            
         }
+        StasisUpdate();
         
     }
 
@@ -117,6 +117,7 @@ public class JojoMamaloBehaviour : BaseEnemy, IDeadable, IMovil
         }
         else
         {
+            StasisActionUpdate(StasisActions.Damage, cantidad);
             dmgN.Inicializar(cantidad, transform);
             ColorDmg(element);
             _damageAcumulated += cantidad;
