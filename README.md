@@ -132,8 +132,6 @@ El videojuego se basa en los siguientes puntos:
     
 -   **Combate rápido cuerpo a cuerpo con habilidades y hechizos**: la *Dumbgeon* estará repleta de enemigos contra los que el jugador deberá enfrentarse usando las habilidades que haya obtenido de las cartas.
     
--  **Jefes finales con memoria:** los distintos enemigos finales de cada zona recordarán los anteriores encuentros que han tenido con el jugador, pudiendo hacer comentarios de diversa índole en función del ratio de victorias y derrotas del jugador.
-    
 -   **Herencia de habilidades:** al ser cada partida una incursión de un miembro de la familia *Stadtnarr* se incluirá una mecánica que permita la herencia de una de las cartas de antecesor al nuevo personaje.
     
 -   **Humor absurdo:** uno de los puntos más característicos del juego será su humor que le dará una aire menos serio al conjunto del título y que buscará hacer reír al jugador en cada ocasión, tomando como referente principal al juego de rol y mesa Munchkin.
@@ -157,15 +155,8 @@ En resumen, la jugabilidad se basa en:
 	- Armas
 	-  Ataques a distancia
 	- Hechizos
-	-   Transformaciones
 	- Bendiciones
-	- Maldiciones
-	-   Cambio de raza, clase y sexo
--   Mejoras de armas
-    
 
-  
-  
 
 ## 1.5 Estilo Visual
 
@@ -190,8 +181,6 @@ Todo esto enmarcado en un juego web con una rejugabilidad alta, en la que cada p
 ## 2.1 Tipo de modelo de monetización
        
 El videojuego seguirá un modelo *free to play*, en el que los jugadores no tendrán que pagar para jugar al título.
-
-*Tales of the Dumbgeon* estará subido a una web propia donde se alojen anuncios de terceros para generar beneficios con cada visita. Para dar a conocer el juego, este también se subirá a páginas web gratuitas de videojuegos, como puedan ser *Minijuegos* o *itch.io*, donde se podrá jugar a una versión reducida del juego, recomendando encarecidamente dirigirse a la página principal para poder disfrutar de la versión completa.
 
 Se espera que gracias a la constante actividad en redes sociales y a la accesibilidad para jugar al juego se puedan conseguir una base de jugadores que generen ingresos.
 
@@ -280,26 +269,21 @@ En este apartado se profundizará en las diferentes mecánicas que componen a *T
 
 *Tales of the Dumbgeon* es un juego de género roguelike con recolección de ítems en forma de cartas, combates de acción y exploración de un escenario generado proceduralmente. El jugador deberá tratar de llegar hasta el final de la mazmorra para completar el juego pudiendo morir en el proceso y en consecuencia teniendo que empezar desde el principio, pudiendo probar una nueva combinación de cartas que le suma valor a la rejugabilidad.
 
-El esquema jugable de *Tales of the Dumbgeon* se basa en la recolección de las cartas del mago Jojomamalo. Estas cartas funcionan como el corazón de la jugabilidad pudiendo actuar como equipamiento para el personaje, habilidades extra para la aventura o maldiciones que dificulten el transcurso de la partida.
+El esquema jugable de *Tales of the Dumbgeon* se basa en la recolección de las cartas del mago Jojomamalo. Estas cartas funcionan como el corazón de la jugabilidad pudiendo actuar como equipamiento para el personaje o habilidades extra para la aventura 
 
 - **Cartas**: Recolección de cartas que generan habilidades y equipo
 
 	Para poder hacerse con estos ítems el jugador deberá abrirse camino por la mazmorra, explorando distintas salas generadas de forma procedural y enfrentándose a diferentes enemigos utilizando esas mismas cartas, generando así un bucle de mejora constante mientras se avanza en el juego. 
-	
-				----- Patreon Ace up your sleeve -----
-		
-	En las salas seguras, como ya se explicará en el apartado de **Generación aleatoria del mundo y sus mazmorras**, aparecerá de vez en cuando un *NPC* llamado “*El Cartero*”. 	Este *NPC* cumplirá dos funciones:
-	
-	- Tendrá unas cuantas cartas, de modo que puedas cambiar la carta de tu mano que quieras por una aleatoria de las que él tiene.
-	- Tendrá un álbum en el que puedes guardar cartas que tienes en la mano para recogerlas más adelante, cuando vuelvas a encontrarte con él. Las cartas del álbum se eliminarán si mueres. No estarán disponibles cuando vuelvas a entrar a la *Dumbgeon*.
-	
-			  ----- ------------------------- -----
 
 	A lo largo del juego se podrán encontrar los siguientes tipos de carta:
 	
-	- **Armas:** Se equipan para usarse en combate y para incrementar los stats del personaje tales como su daño, defensa y velocidad. Cada una de ellas posee un elemento que las caracteriza. (Ejemplo: *Espada de Fe*).
+	- **Carta Genérica:** Estas cartas son las que aparecen a lo largo de la mazmorra después de abrir los cofres y que se recogerán automáticamente cuando el jugador pase por encima. Esta se transformara en cualquiera de los tipos de cartas que se mencionan más adelante.
+
+		![](https://cdn.discordapp.com/attachments/503507632418455564/917863262270423081/unknown.png)
 	
-		**![](https://lh5.googleusercontent.com/sWVmQnqZqAyYRArILtS8Xian7OBj-S4egwgiykisGWYUR4BgAGOhJcECwhFblz8zZf8rwXfrlQb4I1hCceNcJsJmaaHEhiESVDwNJLE9PCS5Y6MTfAJBHkPaw0-4=s1600)**
+	- **Armas:** Se equipan para usarse en combate y para incrementar los stats del personaje tales como su daño, armadura y velocidad. Cada una de ellas posee un elemento que las caracteriza. (Ejemplo: *Espada de Fe*).
+	
+		![](https://cdn.discordapp.com/attachments/503507632418455564/917863262941499412/unknown.png)
 	
 	- **Armadura:** Se equipan para incrementar los stats del personaje tales como su daño, defensa y velocidad. Cada una de ellas posee un elemento que las caracteriza. (Ejemplo: *Sayo de Saya*).
 	
@@ -307,31 +291,16 @@ El esquema jugable de *Tales of the Dumbgeon* se basa en la recolección de las 
 
 	- **Hechizos:** Se equipa como habilidad para usarse en combate. (Ejemplo: *Saeta de fuego*).
 	
-	![](https://lh3.googleusercontent.com/hjMRBRkWB1QpDalhjD8k46QlYyWIlypId38colLCghIEyHAD_b1gPMTYuEV3oW7gug23s-TAT0XTPaQVG0RpneOUoDU2WFS-wpVmi0s8yIDbkpAFBMb8M35qVJ6C=s1600)
+	![](https://cdn.discordapp.com/attachments/503507632418455564/917863262593355846/unknown.png)
 	
-	- **Maldiciones:** Efectos adversos sobre el personaje. Se aplican instantáneamente al ser recogidas. (Ejemplo: *Analfabetismo*).
 	
-	![](https://lh4.googleusercontent.com/pts37zA4_zCKe23nFgI7zof7oEUKbSsffSVzGSAeuZpZQAQQu3JDJoKtChMyRDQLo8TZdp0Zn1ChO7fYncnh7ZwC_n6roLXZ9e5PsBI4V29UELU09kF-aM7R4cF8=s1600)
 	
 	- **Bendiciones:** Cartas que guardan en la mano del jugador para que este pueda usarlas cuando desee. Al activarlas ofrecen un efecto positivo al jugador y se consumen. (Ejemplo: *Power Up*).
 	
 	![](https://cdn.discordapp.com/attachments/503507632418455564/912096482130296872/unknown.png)
 
 	
-	Cuando el jugador muera en las partidas, una de las cartas que tenia equipadas se dejara de herencia al siguiente personaje y empezar desde el inicio con ella, creando una herencia de equipo, hechizos y maldiciones que puedan ser útiles en las partidas posteriores.
-	
-			----- Patreon Ace up your sleeve -----
-	
-	**Calidad de Carta**
-	
-	Por otro lado, cada carta puede enmarcarse en tipo de calidad:
-		- **Normal:** La carta se encuentra en un estado estándar, así como sus atributos.
-		- **Especial:** La carta está mejorada lo que hace que un atributo de la carta se duplique.
-		- **Legendaria:** La carta está mejorada lo que hace que un atributo de la carta se cuadruplique.
-
-	Para mejorar la calidad de las cartas es necesario *Cuartos de Carta*, una moneda interna del juego. Esta se recoge de las recompensas que sueltan los enemigos al morir y se puede utilizar en la tienda del *Cuervillo*. El *NPC* pedirá un número determinado de *Cuartos de Carta* para poder subir de calidad la carta que quiera el jugador.
-	
-				----- ------------------------- -----
+	Cuando el jugador muera en las partidas, una de las cartas que tenia equipadas se dejara de herencia al siguiente personaje y empezar desde el inicio con ella, creando una herencia de equipo y hechizo, que puedan ser útiles en las partidas posteriores.
 	
 	**Elementos**
 	
@@ -346,6 +315,8 @@ El esquema jugable de *Tales of the Dumbgeon* se basa en la recolección de las 
 	- Los ataques de *Caos* son muy eficaces contra enemigos de *Copo*
 	- Los ataques de un elemento son poco eficaces contra si mismos
 
+		![](https://cdn.discordapp.com/attachments/503507632418455564/917866036005601310/unknown.png)
+
 		**![](https://lh3.googleusercontent.com/CAck00h4s0s1hczdFRtKAh4eYjEgT0EaYl-RSGphGWgY2Knzd1hqOgnyy4lei157WxVPLge2F615DF8wtdreYFj3ohlKyzGJ4f2AHHhvrd1JPdb6GRm3jwE8um-o=s1600)**
 	
 - **Combate:** Combate rápido cuerpo a cuerpo con habilidades y hechizos
@@ -355,20 +326,16 @@ El esquema jugable de *Tales of the Dumbgeon* se basa en la recolección de las 
 	En la mano de combate el jugador solo puede tener 4 cartas. Si se consigue una nueva se tendrá que decidir si quedársela, eliminando una que tengas o dejarla donde la has visto y perderla.
 	
 	En la sección de equipamiento solo se puede llevar 3 piezas de armadura (cabeza, pecho y piernas).
+	![](https://lh3.googleusercontent.com/Kg1fRphJTC7OHa5SvYycS9TEhbsGbIho9LtMNxhzmJXcnT746xjuwMI0pPx2s8Wty657VhGVsjUH76HuSyhYSK_eTWrlcbU39dXCLvkGmAbkLeOI5Dm54XNjNRoQ=s1600)
 	
-	**![](https://lh3.googleusercontent.com/Kg1fRphJTC7OHa5SvYycS9TEhbsGbIho9LtMNxhzmJXcnT746xjuwMI0pPx2s8Wty657VhGVsjUH76HuSyhYSK_eTWrlcbU39dXCLvkGmAbkLeOI5Dm54XNjNRoQ=s1600)**
-	
-	Por otro lado, existe una sección de maldiciones donde se irán acumulando las que el jugador vaya encontrando a lo largo de la partida.
-	
-	**![](https://lh6.googleusercontent.com/YTEBj8NzKpaKdmCAER1L0uMj74SFVkA1SnqhKMZNgvxDWCkUbygQBhw51wayRN0T5Eq25zZjStS3Q2pWupFamprSjSexkzj2xFsjYhRdIu9qTMiN-LAjp7TIFkVK=s1600)**
-	
-	Por último, en la sección de habilidades se pueden poner 1 arma (espada, arco, cetro...) y 1 hechizo (Poder limitado, Frío burgalés, Saeta de fuego).
-	
-	**![](https://lh4.googleusercontent.com/_JLdULJHGDhMulkUHS0pPVsnzzDjysrPf8Bb9FVyzJlJGIHFFfNlGbKJlzOjYiRqH4S2BcBUaSgNDz35iG0st0NfW_8hxxd8CmRUpWJPjPJJnKCvResdWv642AEY=s1600)**
+	Por último, en la sección de habilidades se pueden poner 1 arma (espada, arco, cetro...) y 1 hechizo (Poder limitado, Frío burgalés, Saeta de fuego).	
+	![](https://lh4.googleusercontent.com/_JLdULJHGDhMulkUHS0pPVsnzzDjysrPf8Bb9FVyzJlJGIHFFfNlGbKJlzOjYiRqH4S2BcBUaSgNDz35iG0st0NfW_8hxxd8CmRUpWJPjPJJnKCvResdWv642AEY=s1600)
 
-	**![](https://lh3.googleusercontent.com/HKDF40feN7hGjehy8COylL2AOYPxZbFQ7HRwhh-XHbbei7wzulwqk1sD-E6PW-Uq02OgUNy0mTFvv45P3-_u20qxzxxWmg5x1kxYyvAC9GkYwZKbn3mPwJ7qwoWu=s1600)**
+	![](https://lh3.googleusercontent.com/HKDF40feN7hGjehy8COylL2AOYPxZbFQ7HRwhh-XHbbei7wzulwqk1sD-E6PW-Uq02OgUNy0mTFvv45P3-_u20qxzxxWmg5x1kxYyvAC9GkYwZKbn3mPwJ7qwoWu=s1600)
 	
-	El movimiento del personaje se realizará con las teclas WASD, cambiando además la dirección a la que mira. Usando el click izquierdo usará el hechizo y el click derecho podrá usar el arma que tenga equipado. Mediante el botón el teclado Q, se abrirá el menú de pausa de juego en el que se visualizarán todas las secciones así como las cartas completamente que tienes en la mano.
+	El movimiento del personaje se realizará con las teclas WASD, cambiando además la dirección a la que mira. 
+
+	Usando el click izquierdo usará el hechizo y el click derecho podrá usar el arma que tenga equipado. Mediante el botón el teclado Q, se abrirá el menú de pausa de juego en el que se visualizarán todas las secciones así como las cartas completamente que tienes en la mano.
 	
 	En cuanto a los demás elementos del combate, el personaje tendrá vida que se ira reduciendo con los golpes enemigos. La vida se representará con una barra en el que se muestre la vida actual del personaje.
 	
@@ -376,19 +343,21 @@ El esquema jugable de *Tales of the Dumbgeon* se basa en la recolección de las 
 	
 	Los enemigos de la mazmorra son procedimentales a lo largo de la diferentes zonas, es decir, un enemigo no solo se encontrará en una zona si no en cualquiera de forma aleatoria. Estos enemigos custodian cofres los cuales, dropean cuando son golpeados lo siguientes elementos::
 	
-	- Carta de armadura, arma o hechizo de cualquier elemento
+	- Carta de armadura
+	- Carta de arma
+	- Carta de hechizo de cualquier elemento
+	- Carta de Bendición
 	
 - **Mazmorra:** Generación aleatoria del mundo y sus mazmorras
 
-	Los escenarios están organizados en pisos de la mazmorra los cuales vamos a llamar zonas. En cada partida el jugador tendrá que decidir entre dos caminos diferentes después de superar la 1º zona, lo que significa que llegará a dos zonas diferentes en el mismo 2º nivel de la mazmorra. Después de superar al jefe de este 2º nivel llegarán a la misma 3º zona independientemente de la decisión que se haya tomado en el 1º nivel. Lo mismo ocurrirá en el 3º nivel de la mazmorra, el camino se disgregará en dos zonas diferentes en el mismo nivel.
-	
-	Se muestra gráficamente en la siguiente imagen:
-	
-	**![](https://lh3.googleusercontent.com/sXJx_3PfRcEyOyAOwzWIaSPBQD2eIlybWI1ArdG3_Sgqm6tYyu18F8ImOLFTxnavBJ3ag310XpQA9A_ZmrpoEq_OFz5VLy7zS1eNb0EMGX5HLnTBokbHY-gQJoPm=s1600)**
-	
-	Las salas se organizan en las salas estándar donde el jugador puede encontrar cofres, enemigos, personajes secundarios, etc; y las salas de jefe en donde el jugador tendrá que derrotar al jefe de esa zona. 
-	
-	Cuanto más se baje en los niveles, el número de salas a explorar hasta llegar a la sala del jefe aumentará y los enemigos que se encuentren estas, serán más fuertes otorgándoles más vida o daño. Como compensación las cartas que se encuentran en los niveles más bajos son más raras y poderosas.
+	La mazmorra se construye de forma procedural a lo largo de la partida, por lo que al empezar una partida nueva, la forma del la mazmorra será diferente,  así como la disposición y numero de enemigos. Además en cada sala aparecerán cofres que dropearan diferentes cartas a las que salieron en la partida, añadiendo un gran fuerte de rejugabilidad al videojuego. 
+
+	- Los enemigos aparecen de los nidos de monstruos. Estos nidos poseen una dificultad la cual mide el tipo y numero de enemigos que ese nido va a generar cuando el jugador entre en la sala. Cada uno de los enemigos tiene asociado una dificultad y el nido generara enemigos hasta llegar a la dificultad máxima.
+
+		![](https://cdn.discordapp.com/attachments/503507632418455564/917870606802886666/unknown.png)
+
+	Las salas se organizan en las salas estándar donde el jugador puede encontrar cofres, enemigos, personajes secundarios, etc; y la sala de jefe en donde el jugador tendrá que derrotar al jefe de la zona, El Mago Jojomamalo. 
+
 
 ## 4.2 Controles y reglas de juego
 
@@ -414,6 +383,19 @@ El esquema jugable de *Tales of the Dumbgeon* se basa en la recolección de las 
 
 ## 4.3 Niveles
 
+### Enemigos generales
+
+#### Abuesqueleto
+
+![](https://cdn.discordapp.com/attachments/503507632418455564/917871595333255168/unknown.png)
+#### Cerebro en un tarro
+![](https://cdn.discordapp.com/attachments/503507632418455564/917874083784446072/cerebro_contento.png)
+#### Caballero Banana
+![](https://cdn.discordapp.com/attachments/503507632418455564/917873497047441478/banana_idle.png)
+#### Pelusa del Ombligo
+**![](https://lh6.googleusercontent.com/jF6ixA1xyvE7ErXIvzLF6u4tzoTbrEGcuzUBNqSBVc0mG8GYFg1y3nxh-NuWUeEUVtUPTd3MYi6pLqlHguREBYx0J6E2s0SZ9YuT5jc6_fgSunx233Qipdr_lii44bH2pS7DVCcJm9M5)
+**
+**![](https://lh3.googleusercontent.com/S92hNb9dZ2YxX6hEXasNQxGD11aj0C0F8T9kpOz8N8Zt7sdQms8kyacN3zgbVL8e9f2NI46mXvYTT3cM_8D8q2gcGZ9netyBQoS65fYjrxu_M0Q3KVs2CL2_4fCtX2DE2uGYJ0RxIWVK)**
 ### El Mago Jojomamalo
 
 Jojomamalo comenzará la batalla en el lado contrario por el que entre el personaje principal. Es decir, si el jugador entra por la pared sureste, Jojomamalo estará en la pared noroeste. El combate contra Jojomamalo se divide en tres partes diferenciadas por el porcentaje de vida que tiene:
@@ -429,21 +411,21 @@ Mientras sucede este movimiento, Jojomamalo expulsará bolas de energía similar
 -  *En línea:* 5 bolas de energía que saldrán directas hacia el jugador formando un zig zag y no cambiarán su trayectoria.
     
 
-![](https://lh3.googleusercontent.com/cfSb0DB5_n8adjmZGe_wcCsj5y3jkQ2I1Y9XEWd3c_mM78mrxR914iyFwq_sjADXrnp49RRaNiMpLMMkpDjm2T5YDvjVxEp6FCPhcDC1B1O4kGocVu7vYRYXG_TnHAwHeMorN6UI)
+	![](https://lh3.googleusercontent.com/cfSb0DB5_n8adjmZGe_wcCsj5y3jkQ2I1Y9XEWd3c_mM78mrxR914iyFwq_sjADXrnp49RRaNiMpLMMkpDjm2T5YDvjVxEp6FCPhcDC1B1O4kGocVu7vYRYXG_TnHAwHeMorN6UI)
 
   
 
 -   *En arco*: 5 bolas de energía saldrán del centro de Jojomamalo para separarse formando un arco. Este disparo en concreto puede hacerlo hasta 3 veces seguidas.
     
 
- ![](https://lh3.googleusercontent.com/pCbxk-1yjAeYw2eA_vEbiDmoCTgv01_uWNm4Upw9AjEu7zLkUOlysvAFt7oi3NmoEO0TZkBUcrXirvuPY73R4QfXdiIjVt9Y2EuyRkJ0ZFU4oPSqGD3CNhHlgDn0Sbe51TUNQb9E)
+	 ![](https://lh3.googleusercontent.com/pCbxk-1yjAeYw2eA_vEbiDmoCTgv01_uWNm4Upw9AjEu7zLkUOlysvAFt7oi3NmoEO0TZkBUcrXirvuPY73R4QfXdiIjVt9Y2EuyRkJ0ZFU4oPSqGD3CNhHlgDn0Sbe51TUNQb9E)
     
 
   
 
 -   *En serpiente:* Comenzará una ristra de hasta 15 bolas que se dispara hacia delante mientras Jojomamalo se mueve de un lado al otro de la pared en la que se encuentra.
     
-![](https://lh4.googleusercontent.com/FIXFn7Sbek0ENjTd8zlpf9tCmYrXFfuQ6op7WfB53Yki00UOq7AkCBiLLcbDU-55_xcfsmTLN8CLLPvGppTYVA-WOBrqW2reFG1SuBGq9fgEWlvmNgGTn4hXJxbDfOjC-QglGn9t)
+	![](https://lh4.googleusercontent.com/FIXFn7Sbek0ENjTd8zlpf9tCmYrXFfuQ6op7WfB53Yki00UOq7AkCBiLLcbDU-55_xcfsmTLN8CLLPvGppTYVA-WOBrqW2reFG1SuBGq9fgEWlvmNgGTn4hXJxbDfOjC-QglGn9t)
 
   
 
@@ -489,42 +471,6 @@ Jojomamalo se aparta del combate en cuanto empieza esta fase a la pared más lej
     
 Las demás técnicas se seguirán aplicando en esta fase tanto las bolas de energía como las cartas trampas.
 
-		----- Patreon Ace up your sleeve -----
-En este apartado se detallan las diferentes zonas de la mazmorra, con su respectivo jefe, su contenido y contexto. Como se ha explicado anteriormente, la mazmorra dispondrá de diversos pisos los cuales se centran en un mismo tema. Debido a que *Jojomamalo* se cree el director que dirige la *Dumbgeon*, las zonas representan temáticas paródicas de géneros del cine.
-
-En la primera fase solo se dispondrá de un nivel más la sala del jefe final para mostrar el funcionamiento del juego. Para las siguientes fases las zonas aumentan de número habiendo cuatro zonas principales más la última dedicada exclusivamente a *Jojomamalo*. Aquí se muestran estas zonas principales.
-
-- **La Discocueva:** es en esencia una caverna espaciosa que ha sido remodelada para actuar como lugar de ocio. Cuenta con luces de colores, barras, mucha suciedad y música a todo volumen. En su interior se encuentra la sala de baile principal donde aparece el jefe de esta zona, el *Alma de la Fiesta*:
-
-	- **El Alma de la Fiesta (Comedia):** un fantasma/espectro de lo más juerguista que nunca se separa de su vaso de kalimotxo y se dedica a bailar en su pista de baile para atacar a todo aquel que quiera pasar por ella. ¿Por qué hace esto? Porque le mola bailar y porque así aquellos a quienes mate se convertirán en fantasmas de su guateque por toda la eternidad, incapaces de hacer otra cosa que bailar y volver a bailar.
-
-		El suelo de la sala está llena de baldosas de baile, el *Alma de la Fiesta* ataca lanzando “hechizos” que se mueven en las baldosas, según el color del que estén iluminadas tienen un efecto u otro. Además cuenta con un movimiento que consiste en que unos altavoces que tiene a sus espaldas hacen mucho ruido y le echan para atrás.
-	
-- **Elmo Street:** cubierta de niebla, *Elmo Street* es una zona residencial en la que habitan gran variedad de monstruos de la *Dumbgeon*. A pesar de ser de noche las calles están infestadas de enemigos que tratarán de evitar que el jugador llegue hasta la rotonda de la calle donde se encuentra *La Adolescente de la Curva*: 
-
-	- **La Adolescente de la Curva (Terror):** literalmente solo puede moverse girando, no puede ir en línea recta y eso ha provocado que sea una rechazada y que nunca haya hecho amigos. Cualquiera diría que para pasar por ella solo tendrías que hacerte su amiga, pero debido a su pasado y a que está en su fase rebelde lo más probable es que vaya derechita a matarte. Bueno, derechita lo que se dice derechita no, pero tú ya me entiendes.
-
-		El combate empezará con la *Adolescente de la Curva* intentando llegar a por el *Stadtnarr*, yendo en curvas y siendo muy patética. Al recibir un poco de daño se enfada y llama a su moto infernal con la que haría más o menos lo mismo, pero con patrones de curvas diversos, mucha velocidad y dejando un pequeño rastro de llamas que quema al jugador.
-	
-- **La Zona Media:** un lugar donde el mundo medieval y el moderno se unen en una extraña mezcla en la que habitan todo tipos de criaturas fantásticas pero con elementos del mundo actual como trajes o teléfonos móviles. Y el que se encarga de dirigir todo este lugar es *El Presidente Demonio*:
-
-	- **El Presidente Demonio (Fantasía)**: un demonio que se presentó al cargo con la esperanza de hacer de su zona de la *Dumbgeon* un lugar mejor, legalizando los saqueos, impulsando el estudio de magias negras y armas mágicas de destrucción masiva… Pero al final cambiar el mundo es mucho más difícil de lo que parece, incluso en su posición no lo ha logrado, por ello está deseando que termine su mandato para poder olvidarse de este fracaso en su vida, pero parece que la fecha no llega nunca… 
-
-		*El Presidente Demonio* es un demonio alto y fuerte, que viste una elegante chaqueta, con su camisa blanca y una corbata dignas de su puesto. Cuando llega la hora del combate, se quita su corbata que sirve como espada y con la que atacará de cerca. Según va perdiendo vida puede sacar decretos que prohíban el uso de algunas de las cartas del jugador. Además, puede volver momentáneamente dorada su corbata permitiéndole usar el *Sablazo de Hacienda*, que le hace daño al jugador y se lleva la mitad de esa vida para recuperarse. Como ataques a distancia puede agarrar funcionarios y lanzarlos al jugador, si le impactan el funcionario iniciará un proceso burocrático como renovar el DNI al *Stadtnarr* o algo así, lo cuál drena su salud un poco durante ese tiempo y le impide moverse, de manera que *El Presidente Demonio* puede acercarse a atacar.
-	
-- **Little France:** lugar que empieza recordando a París, lleno de flores y dónde se respira el amor y poco a poco va degenerando en un oscuro lugar lleno de fotos de la familia del personaje, un lugar que se conoce como el *Templo Stadtnarr* cuya dueña es *La Loca del Moño*:
-
-	- **La Loca del Moño (Romance):** Está perdidamente enamorada de El *Stadtnarr*, da igual que sea viejo, joven o lo que sea. Está realmente obsesionada contigo que sabe perfectamente tu edad, tu altura, tu peso, tu signo zodiacal, tu DNI, tu contraseña de *Tuenti*, las veces que te duchas a la semana, lo que comiste ayer, el color de tu babi en infantil y por último pero no menos importante, las cartas ancestrales que llevas. El lugar donde habita es un templo dedicado a ti, lleno de fotitos tuyas y velas de colores. Te ha hecho fotos, bueno, a toda tu familia durante milenos y llenan las paredes del templo. Además tiene una estatua hecha de los huesos de tus antepasados. Hará lo que sea para que te quedes con ella. 
-
-		*La Loca del Moño* sabe todo sobre el personaje, por ello tiene la capacidad de copiar las habilidades que portas o que has portado en los dos últimos combates. Por ello es como si lucharas contra ti mismo, solo que con más vida y más loca, mucho más loca.
-
-- **Mostazar:** zona volcánica que en lugar de magma está conformada por mostaza picante. Para evitar tener que pisar tanto condimentado están habilitadas varias estructuras y pasarelas metálicas que conducen a la zona principal de extracción de mostaza, donde aguarda *Stradt Bader*:
-
-	- **Stradt Bader(Ciencia Ficción):** un tipo enmascarado, con un traje que mezcla el de un astronauta y un samurái negro. Porta un *Estoque de Protones* de color naranja y es de una complexión similar al *Stadtnarr*. El tipo asegura ser el padre del *Stadtnarr* con insistencia, y le pide al jugador que le de los datos de su cuenta bancaria para poder darle una herencia que les ha dejado una tía abuela que tienen en El Tíbet. Pero evidentemente, es mentira, el tipo se llama Tadeo y no tiene nada que ver contigo en realidad, pero hará todo lo posible por quedarse con tu pasta y tus cartas ya sea mediante sus estafas o teniendo que recurrir a la Fuerza. 
-
-	*Stradt Bader* puede atacar usando su *Estoque de Protones* que dura algo más que los normales, cuando se descarga corre a la pared principal para enchufarla y que se recargue. Mientras tanto, saca un imán típico de dibujo animado y lo usa para lanzar objetos metálicos al jugador.
-
-		----- ------------------------- -----
 
 ## 4.4 Cartas ancestrales
 
@@ -538,13 +484,6 @@ Tratando siempre de que esta versión sea lo más fiel posible al juego original
     - **Plan A.2:** Modificar el tamaño de la cámara si los botones no ocupan demasiado en la pantalla.  
     
     - **Plan A.3:** Establecer un *padding* en negro alrededor del juego que sirva como área para establecer los botones si el resultado no es convincente.
-    
--   **Plan B:** *Autorun*, es decir, el juego se ejecutará similarmente en móvil y PC, pero en la versión móvil el combate se hará automáticamente, el jugador todavía podrá elegir a qué salas moverse y que cartas usar en cada momento.      
-
-	-   **Plan B.2:** Introducir una mecánica sencilla de combate, como hacer click si el juego resulta demasiado aburrido.   
-
--   **Plan C:** Si todos los planes anteriores fallan u otorgan resultados no satisfactorios realizar una aplicación alternativa en el móvil que sirva de apoyo para el juego en pc, permitiendo abrir la biblioteca, hablar con personajes, modificar mazos e ideas similares sin que se pueda jugar realmente al juego.
-    
 
   
 Actualmente el desarrollo seguido para la implementación de *Tales of the Dumbgeon* en dispositivos móviles se corresponde con el **Plan A.3**.
