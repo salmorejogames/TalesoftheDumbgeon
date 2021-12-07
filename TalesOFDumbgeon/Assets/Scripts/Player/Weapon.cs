@@ -105,15 +105,6 @@ public class Weapon : MonoBehaviour
         }
     }
     
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (!other.gameObject.CompareTag(holder.tag) && (other.gameObject.CompareTag("Enemigo") || other.gameObject.CompareTag("Player")))
-        {
-            CharacterStats enemy = other.gameObject.GetComponent<CharacterStats>();
-            enemy.DoDamage(weaponInfo.Dmg + holder.strength,  gameObject.transform.position, weaponInfo.Element);
-        }
-    }
-    
     ////Activate and Desactivate Elements
     public void ReactivateCollider()
     {

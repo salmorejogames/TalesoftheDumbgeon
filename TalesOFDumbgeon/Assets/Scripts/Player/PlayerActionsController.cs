@@ -117,7 +117,7 @@ public class PlayerActionsController : MonoBehaviour, IDeadable
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if ((collision.gameObject.CompareTag("Enemigo") ||collision.gameObject.CompareTag("ArmaEnemiga")) && !invincible)
+        if ((collision.gameObject.CompareTag("Enemigo") || collision.gameObject.CompareTag("ArmaEnemiga")) && !invincible)
         {
             CharacterStats enemyStats = collision.gameObject.GetComponent<CharacterStats>();
             _stats.DoDamage(enemyStats.strength, collision.gameObject.transform.position, enemyStats.element);

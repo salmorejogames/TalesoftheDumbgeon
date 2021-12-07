@@ -6,12 +6,16 @@ public class Chest : MonoBehaviour
 {
     public GameObject carta;
     public Sprite cofreAbierto;
-    private bool closed = true;
+    private bool closed;
 
+    private void Start()
+    {
+        closed = true;
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if ((collision.gameObject.CompareTag("Arma") || collision.gameObject.CompareTag("Bala")) && closed == true)
+        if ((collision.gameObject.CompareTag("Arma") || collision.gameObject.CompareTag("Bala")) && closed)
         {
             GameObject newCard = Instantiate(carta,gameObject.transform.position + new Vector3(1.0f,0.0f,0.0f), gameObject.transform.rotation);
             newCard.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
