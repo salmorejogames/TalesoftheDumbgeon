@@ -386,11 +386,19 @@ El esquema jugable de *Tales of the Dumbgeon* se basa en la recolección de las 
 ### Enemigos generales
 
 #### Abuesqueleto
+Viejo, pero viejo viejo. El pobre se ha quedado en los huesos, pero aún sigue con energías para perserguirte e intentar zurrarte con su bastón.
 
-![](https://cdn.discordapp.com/attachments/503507632418455564/917871595333255168/unknown.png)
+Su patrón de ataque consiste en perseguir al jugador para propinarles golpes a melee con su bastón.
+![](https://media.discordapp.net/attachments/503507632418455564/917871595333255168/unknown.png?width=1440&height=255)
 #### Cerebro en un tarro
+Es un cerebro y está en un tarro. Nada más. Oh, bueno, también dispara bolas de energía mental que pueden hacer que te duela tanto la cabeza que pierdas un par de años de vida.
+
+Prefiere guardar las distancias y solo se moverá si el jugador se aleja demasiado, el resto del tiempo se dedica a atacar con proyectiles.
 ![](https://cdn.discordapp.com/attachments/503507632418455564/917874083784446072/cerebro_contento.png)
 #### Caballero Banana
+Nacido en el Reino Banana y atrapado en esta estúpida mazmorra, te embiste con su increíble velocidad para poder pelarte entero.
+
+El Caballero Banana gira sobre si mismo para cargar una embestida, una vez ya ha cargado su ataque sale disparado directo al jugador para herirlo.
 ![](https://cdn.discordapp.com/attachments/503507632418455564/917873497047441478/banana_idle.png)
 #### Pelusa del Ombligo
 **![](https://lh6.googleusercontent.com/jF6ixA1xyvE7ErXIvzLF6u4tzoTbrEGcuzUBNqSBVc0mG8GYFg1y3nxh-NuWUeEUVtUPTd3MYi6pLqlHguREBYx0J6E2s0SZ9YuT5jc6_fgSunx233Qipdr_lii44bH2pS7DVCcJm9M5)
