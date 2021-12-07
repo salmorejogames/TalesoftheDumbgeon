@@ -389,21 +389,33 @@ El esquema jugable de *Tales of the Dumbgeon* se basa en la recolección de las 
 Viejo, pero viejo viejo. El pobre se ha quedado en los huesos, pero aún sigue con energías para perserguirte e intentar zurrarte con su bastón.
 
 Su patrón de ataque consiste en perseguir al jugador para propinarles golpes a melee con su bastón.
+
 ![](https://media.discordapp.net/attachments/503507632418455564/917871595333255168/unknown.png?width=1440&height=255)
 #### Cerebro en un tarro
 Es un cerebro y está en un tarro. Nada más. Oh, bueno, también dispara bolas de energía mental que pueden hacer que te duela tanto la cabeza que pierdas un par de años de vida.
 
 Prefiere guardar las distancias y solo se moverá si el jugador se aleja demasiado, el resto del tiempo se dedica a atacar con proyectiles.
+
 ![](https://cdn.discordapp.com/attachments/503507632418455564/917874083784446072/cerebro_contento.png)
 #### Caballero Banana
 Nacido en el Reino Banana y atrapado en esta estúpida mazmorra, te embiste con su increíble velocidad para poder pelarte entero.
 
 El Caballero Banana gira sobre si mismo para cargar una embestida, una vez ya ha cargado su ataque sale disparado directo al jugador para herirlo.
+
 ![](https://cdn.discordapp.com/attachments/503507632418455564/917873497047441478/banana_idle.png)
 #### Pelusa del Ombligo
-**![](https://lh6.googleusercontent.com/jF6ixA1xyvE7ErXIvzLF6u4tzoTbrEGcuzUBNqSBVc0mG8GYFg1y3nxh-NuWUeEUVtUPTd3MYi6pLqlHguREBYx0J6E2s0SZ9YuT5jc6_fgSunx233Qipdr_lii44bH2pS7DVCcJm9M5)
-**
-**![](https://lh3.googleusercontent.com/S92hNb9dZ2YxX6hEXasNQxGD11aj0C0F8T9kpOz8N8Zt7sdQms8kyacN3zgbVL8e9f2NI46mXvYTT3cM_8D8q2gcGZ9netyBQoS65fYjrxu_M0Q3KVs2CL2_4fCtX2DE2uGYJ0RxIWVK)**
+Demasiado adorables para ser el cúmulo de la suciedad y polvo acumulado en la mazmorra por generaciones.
+
+##### Pelusa Madre
+La Pelusa Madre permanece inmóvil en el sitio mientras genera Pelusas Hijas cuyas vidas dependen de ella.
+
+![](https://lh6.googleusercontent.com/jF6ixA1xyvE7ErXIvzLF6u4tzoTbrEGcuzUBNqSBVc0mG8GYFg1y3nxh-NuWUeEUVtUPTd3MYi6pLqlHguREBYx0J6E2s0SZ9YuT5jc6_fgSunx233Qipdr_lii44bH2pS7DVCcJm9M5)
+
+##### Pelusa Madre
+La Pelusa Hija que nace de la Pelusa Madre se dedica a perseguir al jugador para atacarle sacrificando así su propia vida.
+
+![](https://lh3.googleusercontent.com/S92hNb9dZ2YxX6hEXasNQxGD11aj0C0F8T9kpOz8N8Zt7sdQms8kyacN3zgbVL8e9f2NI46mXvYTT3cM_8D8q2gcGZ9netyBQoS65fYjrxu_M0Q3KVs2CL2_4fCtX2DE2uGYJ0RxIWVK)
+
 ### El Mago Jojomamalo
 
 Jojomamalo comenzará la batalla en el lado contrario por el que entre el personaje principal. Es decir, si el jugador entra por la pared sureste, Jojomamalo estará en la pared noroeste. El combate contra Jojomamalo se divide en tres partes diferenciadas por el porcentaje de vida que tiene:
