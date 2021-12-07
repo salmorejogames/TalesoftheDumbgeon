@@ -148,6 +148,7 @@ public class JojoMamaloBehaviour : BaseEnemy, IDeadable, IMovil
 
     private void ColorDmg(Elements.Element elementDmg)
     {
+        /*
         float multiplier = Elements.GetElementMultiplier(elementDmg, stats.element);
         if(multiplier>1.1f)
             _spr.color = Color.red;
@@ -155,7 +156,7 @@ public class JojoMamaloBehaviour : BaseEnemy, IDeadable, IMovil
             _spr.color = Color.cyan;
         else 
             _spr.color = Color.yellow;
-        Invoke(nameof(RevertColor), 0.2f);
+        Invoke(nameof(RevertColor), 0.2f);*/
     }
     
     
