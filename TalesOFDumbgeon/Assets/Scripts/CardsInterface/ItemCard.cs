@@ -25,11 +25,13 @@ public class ItemCard : MonoBehaviour, IPointerClickHandler
     [SerializeField] private Color deleteColor;
     [SerializeField] private float fadeTime;
     [SerializeField] private int distanceLaunch;
+    private bool cardReady;
 
     private bool deleteMode = false;
     // Start is called before the first frame update
     void Start()
     {
+        cardReady = true;
         _rectTransform = gameObject.GetComponent<RectTransform>();
         _cardHolder = gameObject.transform.parent.gameObject.GetComponent<CardHolder>();
         if (CardInfo == null)
@@ -63,15 +65,17 @@ public class ItemCard : MonoBehaviour, IPointerClickHandler
     }
     public void OnPointerClick(PointerEventData eventData)
     {
-        if (_cardHolder.active)
+        if (cardReady && Time.timeScale > 0.0001f)
         {
-           StartDelete(_cardHolder.modeDelete);
+            if (_cardHolder.active)
+            {
+                StartDelete(_cardHolder.modeDelete);
+            }
+            else
+            {
+                _cardHolder.Resize();
+            }
         }
-        else
-        {
-            _cardHolder.Resize();
-        }
-        
     }
 
     public void ActivateEffect()
@@ -90,6 +94,7 @@ public class ItemCard : MonoBehaviour, IPointerClickHandler
     public void StartDelete(bool modeDelete)
     {
         deleteMode = modeDelete;
+        cardReady = false;
         SetHighlight(false);
         StartCoroutine(nameof(Fade));
         Invoke(nameof(Delete), fadeTime);

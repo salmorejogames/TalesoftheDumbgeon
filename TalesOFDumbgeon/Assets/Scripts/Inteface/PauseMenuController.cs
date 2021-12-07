@@ -41,6 +41,8 @@ public class PauseMenuController : MonoBehaviour
 
     public void ActivarMenuPausa()
     {
+        if (SingletoneGameController.PlayerActions.dead)
+            return;
         Time.timeScale = 0f;
         menuPausa.SetActive(true);
 
