@@ -183,7 +183,7 @@ TilemapRenderer:
   m_SortingLayer: 1
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
-  m_ChunkCullingBounds: {x: 0, y: 0.076660156, z: 0}
+  m_ChunkCullingBounds: {x: 0.00007247925, y: 0.076660156, z: 0}
   m_MaxChunkCount: 16
   m_MaxFrameAge: 16
   m_SortOrder: 0
@@ -369,7 +369,7 @@ TilemapRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
-  m_ChunkCullingBounds: {x: 0, y: 0.076660156, z: 0}
+  m_ChunkCullingBounds: {x: 0.00007247925, y: 0.076660156, z: 0}
   m_MaxChunkCount: 16
   m_MaxFrameAge: 16
   m_SortOrder: 0
@@ -10596,8 +10596,6 @@ MonoBehaviour:
   mapTrigger: {fileID: 7881152534294381081}
   enemyList:
   - {fileID: 0}
-  powerUpList:
-  - {fileID: 2459301831363257181, guid: 224f0d67d284d4744ba421578a9fa1ae, type: 3}
   generators: []
 --- !u!1001 &9168439526480249626
 PrefabInstance:
