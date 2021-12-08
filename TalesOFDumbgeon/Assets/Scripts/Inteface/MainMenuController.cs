@@ -236,16 +236,17 @@ public class MainMenuController : MonoBehaviour
         StartCoroutine(MenuAjustesInteractuable(1.5f));
 
         LeanTween.moveLocalY(botonJugar, -550, .25f);
+        LeanTween.moveLocalY(botonAjustes, -550, .25f);
         LeanTween.moveLocalY(botonCreditos, -550, .25f);
         LeanTween.moveLocalY(botonGuia, -550, .25f);
         LeanTween.moveLocalY(titulo, 550, .25f);
-
+        /*
         LeanTween.moveLocalX(botonAjustes, 0, 1f).setEaseOutCubic();
         LeanTween.moveLocalY(botonAjustes, 225, 1f).setEaseOutCubic();
         LeanTween.rotateZ(botonAjustes, 10, .5f).setEaseOutCubic();
-
-        LeanTween.moveLocalY(volumen, 0, 1f).setEaseOutCubic().setDelay(.5f);
-        LeanTween.moveLocalY(botonVolver, -100, 1f).setEaseOutCubic().setDelay(.75f);
+        */
+        LeanTween.moveLocalY(volumen, 80, 1f).setEaseOutCubic().setDelay(.5f);
+        LeanTween.moveLocalY(botonVolver, -200, 1f).setEaseOutCubic().setDelay(.75f);
     }
 
     public void Volver()
@@ -259,7 +260,7 @@ public class MainMenuController : MonoBehaviour
         HacerNoInteractuable(creditosBoton);
         HacerNoInteractuable(guiaBoton);
 
-        menuPrincipal.SetActive(true);
+        //menuPrincipal.SetActive(true);
 
         StartCoroutine(MenuPrincipalInteractuable(2.25f));
     }
@@ -273,9 +274,9 @@ public class MainMenuController : MonoBehaviour
         LeanTween.moveLocalY(botonJugar, -120, 1.5f).setEaseOutCubic().setDelay(.5f);
         LeanTween.rotateZ(botonJugar, -5, 1f).setEaseOutCubic().setDelay(.5f);
 
-        LeanTween.moveLocalX(botonAjustes, -420, 1.5f).setEaseOutCubic();
-        LeanTween.moveLocalY(botonAjustes, -180, 1.5f).setEaseOutCubic();
-        LeanTween.rotateZ(botonAjustes, 15, 1f).setEaseOutCubic();
+        LeanTween.moveLocalX(botonAjustes, -420, 1.5f).setEaseOutCubic().setDelay(.5f);
+        LeanTween.moveLocalY(botonAjustes, -180, 1.5f).setEaseOutCubic().setDelay(.5f);
+        LeanTween.rotateZ(botonAjustes, 15, 1f).setEaseOutCubic().setDelay(.5f);
 
         LeanTween.moveLocalX(botonCreditos, 385, 1.5f).setEaseOutCubic().setDelay(.5f);
         LeanTween.moveLocalY(botonCreditos, -160, 1.5f).setEaseOutCubic().setDelay(.5f);
@@ -305,7 +306,7 @@ public class MainMenuController : MonoBehaviour
         yield return new WaitForSeconds(segundos);
 
         HacerInteractuable(volverBoton);
-        menuPrincipal.SetActive(false);
+        //menuPrincipal.SetActive(false);
     }
 
     IEnumerator HacerInteractuableCoroutine(Button button, float segundos)
