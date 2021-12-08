@@ -11,6 +11,7 @@ public class DialogueManager : MonoBehaviour {
 	public TextMeshProUGUI dialogueText;
 
 	public Animator animator;
+	public IsometricMove player;
 
 	private Queue<string> names;
 	private Queue<string> sentences;
@@ -39,6 +40,7 @@ public class DialogueManager : MonoBehaviour {
 		clicks = -1;
 
 		DialogueTrigger.running = true;
+		player.DisableInputController();
 
 		animator.SetBool("IsOpen", true);
 
@@ -148,6 +150,7 @@ public class DialogueManager : MonoBehaviour {
 		dialogueText.text = "";
 		animator.SetBool("IsOpen", false);
 		DialogueTrigger.running = false;
+		player.EnableInputController();
 	}
 
 }
