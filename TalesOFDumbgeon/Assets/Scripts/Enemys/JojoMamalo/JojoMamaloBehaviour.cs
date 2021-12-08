@@ -50,6 +50,7 @@ public class JojoMamaloBehaviour : BaseEnemy, IDeadable, IMovil
 
         BaseWeapon newJojoArma = new RangedWeapon();
         newJojoArma.Randomize(1);
+        newJojoArma.OnDamage = () => StasisActionUpdate(StasisActions.Impact, newJojoArma.Dmg);
         jojoarma.ChangeWeapon(newJojoArma);
         _navMeshAgent.speed = stats.GetSpeedValue();
     }

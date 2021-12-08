@@ -49,6 +49,7 @@ public class RangedWeapon : BaseWeapon
         bala.Range = Range;
         bala.AmmoSpeed = AmmoSpeed;
         bala.holderStrength = Stats.strength;
+        bala.OnDamage = OnDamage;
         Collider2D collider2D = ammo.AddComponent<BoxCollider2D>();
         collider2D.isTrigger = true;
         

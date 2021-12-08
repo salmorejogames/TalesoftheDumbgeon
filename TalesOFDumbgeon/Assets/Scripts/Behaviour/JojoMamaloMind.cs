@@ -36,7 +36,7 @@ public class JojoMamaloMind : Mind
         damageReceived = true;
     }
 
-    public void endAction()
+    public void EndAction()
     {
         doingAction = false;
     }

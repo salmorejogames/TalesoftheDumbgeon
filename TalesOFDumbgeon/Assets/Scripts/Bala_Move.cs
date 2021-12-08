@@ -14,6 +14,7 @@ public class Bala_Move : MonoBehaviour
     public float holderStrength;
     
     private float _runedDistance;
+    public Action OnDamage;
     private Rigidbody2D _rb;
 
 
@@ -47,6 +48,7 @@ public class Bala_Move : MonoBehaviour
         {
             if (!impact.CompareTag(parentTag))
             {
+                OnDamage();
                 CharacterStats impactStats = impact.GetComponent<CharacterStats>();
                 impactStats.DoDamage(Damage + holderStrength, gameObject.transform.position, Element);
                 Destroy(gameObject);
