@@ -275,7 +275,7 @@ TilemapRenderer:
   m_SortingLayer: 1
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
-  m_ChunkCullingBounds: {x: 0.00007247925, y: 0.07714844, z: 0}
+  m_ChunkCullingBounds: {x: 0.00049591064, y: 0.07714844, z: 0}
   m_MaxChunkCount: 16
   m_MaxFrameAge: 16
   m_SortOrder: 0
@@ -14962,6 +14962,7 @@ GameObject:
   - component: {fileID: 3275907474395139997}
   - component: {fileID: 4165900803572800607}
   - component: {fileID: 3734589841681980758}
+  - component: {fileID: 5563822163719673151}
   m_Layer: 0
   m_Name: MapaInicio
   m_TagString: Untagged
@@ -15024,10 +15025,24 @@ MonoBehaviour:
   collisions: {fileID: 8400535576324825789}
   doors: {fileID: 3896281322945166764}
   mapTrigger: {fileID: 7881152534294381081}
-  enemyList: []
-  powerUpList:
-  - {fileID: 2459301831363257181, guid: 224f0d67d284d4744ba421578a9fa1ae, type: 3}
-  generators: []
+  enemyList:
+  - {fileID: 6293534581657644274, guid: 1dd5e250aca8e284ca6cbe25b6d6e977, type: 3}
+  generators:
+  - {fileID: 5563822163719673151}
+--- !u!114 &5563822163719673151
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8120898947645969636}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 800004a9d53455b48b41b1da63685c74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tilesArea: 1
+  difficulty: 1
 --- !u!1001 &8901781268486358170
 PrefabInstance:
   m_ObjectHideFlags: 0

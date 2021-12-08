@@ -146,6 +146,7 @@ public class PlayerActionsController : MonoBehaviour, IDeadable
             if (spell.OwnerTag != "Player" && !invincible)
             {
                 _stats.DoDamage(spell.Amount, spell.Origen, spell.Element);
+                spell.OnDamage();
             }
         }
         

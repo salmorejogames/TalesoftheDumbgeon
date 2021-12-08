@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,6 +9,7 @@ public class SpellDmg : MonoBehaviour
     public Elements.Element Element;
     public Vector3 Origen;
     public string OwnerTag;
+    public Action OnDamage;
 
     public void SetSpellDmgStats(float amount, Elements.Element element, Vector3 origen, string ownerTag)
     {
@@ -16,6 +18,4 @@ public class SpellDmg : MonoBehaviour
         Origen = origen;
         OwnerTag = ownerTag;
     }
-
-
 }

@@ -9,7 +9,7 @@ public class BaseEnemy : MonoBehaviour
     public float stasis = 0;
     public int difficulty = 1;
     public CharacterStats stats;
-    protected float stasisFactor = 0.1f;
+    protected float stasisFactor = 0.025f;
 
     public enum StasisActions {
         Attack,
@@ -19,14 +19,15 @@ public class BaseEnemy : MonoBehaviour
 
     protected void StasisUpdate()
     {
-        Mathf.Clamp01(stasis);
+        stasis = Mathf.Clamp(stasis, -1, 1);
         if (stasis < 0)
             stasis += stasisFactor * Time.deltaTime;
         if(stasis > 0)
-            stasis += stasisFactor * Time.deltaTime;
+            stasis -= stasisFactor * Time.deltaTime;
     }
 
-    protected void StasisActionUpdate(StasisActions action, float amount)
+    //Values between -1 and 1
+    public void StasisActionUpdate(StasisActions action, float amount)
     {
         switch (action)
         {
@@ -34,10 +35,12 @@ public class BaseEnemy : MonoBehaviour
                 stasis += amount;
                 break;
             case StasisActions.Impact:
-                stasis += (stats.maxHealth / amount);
+                if(amount>0.0001 ||amount<-0.0001)
+                    stasis += (amount/ stats.maxHealth);
                 break;
             case StasisActions.Damage:
-                stasis -= (stats.maxHealth / amount);
+                if (amount > 0.0001 || amount < -0.0001)
+                    stasis -= (amount/stats.maxHealth);
                 break;
         }
 

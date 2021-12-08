@@ -64,6 +64,7 @@ public class JojoMamaloBehaviour : BaseEnemy, IDeadable, IMovil
             _navMeshAgent.destination = _target.position;
         }
         StasisUpdate();
+        Debug.Log(stasis);
         
     }
 
@@ -108,7 +109,7 @@ public class JojoMamaloBehaviour : BaseEnemy, IDeadable, IMovil
     public void Damage(Vector3 enemyPos, float cantidad, Elements.Element element)
     {
         DamageNumber dmgN = Instantiate(prefabDamage, transform.position, Quaternion.identity);
-       
+        StasisActionUpdate(StasisActions.Damage, cantidad);
         if (_hitsCountdown > 0)
         { 
             dmgN.Inicializar(0, transform);

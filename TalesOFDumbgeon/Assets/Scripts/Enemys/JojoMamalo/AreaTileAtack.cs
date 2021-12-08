@@ -11,6 +11,7 @@ public class AreaTileAtack : MonoBehaviour
     [NonSerialized] public int actualFase;
     public GameObject[] fases = new GameObject[NumFases];
     public GameObject trigger;
+    
     // Start is called before the first frame update
     void Awake()
     {
@@ -39,6 +40,4 @@ public class AreaTileAtack : MonoBehaviour
         yield return new WaitForSeconds(faseTime);
         Destroy(gameObject);
     }
-
-    
 }

@@ -89,7 +89,7 @@ public class JojomaloSkills : MonoBehaviour
             for (int i = 0; i < 5; i++)
             {
                 yield return new WaitForSeconds(weapon.weaponInfo.AttackSpeed);
-                
+                mind.StasisActionUpdate(BaseEnemy.StasisActions.Attack, 0.05f);      
                 Vector3 translate = weapon.gameObject.transform.up * Random.Range(-1f, 1f);
                 weapon.gameObject.transform.Translate(translate);
                 weapon.Atack();
@@ -107,8 +107,8 @@ public class JojomaloSkills : MonoBehaviour
             for (int i = 0; i < 3; i++)
             {
                 Debug.Log("Ronda " + i);
-               
-                mind.DisableMovement(weapon.weaponInfo.AttackSpeed*3);
+            mind.StasisActionUpdate(BaseEnemy.StasisActions.Attack, 0.2f);
+            mind.DisableMovement(weapon.weaponInfo.AttackSpeed*3);
                 mind.animationController.SetAttack();
                 yield return new WaitForSeconds(weapon.weaponInfo.AttackSpeed);
                 
@@ -183,6 +183,7 @@ public class JojomaloSkills : MonoBehaviour
             for (int i = 0; i < numAtaques; i++)
             {
                 yield return new WaitForSeconds(weapon.weaponInfo.AttackSpeed/2);
+                mind.StasisActionUpdate(BaseEnemy.StasisActions.Attack, 0.2f/numAtaques);
                 int angle = Random.Range(0, 360);
                 body.position = mind.TargetPos +
                                 new Vector3(distance * Mathf.Cos(angle), distance * Mathf.Sin(angle), 0);
@@ -195,6 +196,7 @@ public class JojomaloSkills : MonoBehaviour
         private void AreaAttack()
         {
             mind.animationController.SetAttack();
+            mind.StasisActionUpdate(BaseEnemy.StasisActions.Attack, 0.05f);
             Vector2 playerPos = SingletoneGameController.PlayerActions.player.gameObject.transform
                 .position;
             Vector2 isometricPos = IsometricUtils.ScreenCordsToTilesPos(new Vector2(playerPos.x-0.25f, playerPos.y -0.25f), true);
@@ -204,11 +206,13 @@ public class JojomaloSkills : MonoBehaviour
             newArea.gameObject.transform.parent = body.parent;
             newArea.gameObject.transform.tag = "SpellDmg";
             newArea.spellDmg.SetSpellDmgStats(4, mind.stats.element, pos, body.tag);
+            newArea.spellDmg.OnDamage = () => mind.StasisActionUpdate(BaseEnemy.StasisActions.Impact, 4);
             mind.animationController.SetStop();
         }
         private void CounterAttack(float dmg)
         {
             mind.animationController.SetCharge();
+            mind.StasisActionUpdate(BaseEnemy.StasisActions.Attack, 0.25f);
             Vector2 playerPos = gameObject.transform.position;
             Vector2 isometricPos = IsometricUtils.ScreenCordsToTilesPos(new Vector2(playerPos.x-0.25f, playerPos.y -0.25f), true);
             Debug.Log(isometricPos.ToString());
@@ -217,6 +221,7 @@ public class JojomaloSkills : MonoBehaviour
             newArea.gameObject.transform.parent = body.parent;
             newArea.gameObject.transform.tag = "SpellDmg";
             newArea.spellDmg.SetSpellDmgStats(dmg, mind.stats.element, pos, body.tag);
+            newArea.spellDmg.OnDamage = () => mind.StasisActionUpdate(BaseEnemy.StasisActions.Impact, dmg);
             mind.animationController.SetAttack();
             mind.animationController.SetStop();
         }
