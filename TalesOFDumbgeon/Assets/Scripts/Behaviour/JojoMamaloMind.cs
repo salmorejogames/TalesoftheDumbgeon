@@ -5,25 +5,39 @@ using System;
 
 public class JojoMamaloMind : Mind
 {
+    public const int Stages = 3;
+    public float[] health_stages;
+    
     private bool canAttack;
     private bool damageReceived;
     private bool doingAction;
 
     [SerializeField] private float minStasis;
     [SerializeField] private float maxStasis;
-    [SerializeField] private Mind attackMind;
-    [SerializeField] private Mind dmgMind;
-
-    
+    [SerializeField] private JojoMamaloAttack attackMind;
+    [SerializeField] private JojomamaloDmg dmgMind;
+    public int stage;
+    public float MINStasis => minStasis;
+    public float MAXStasis => maxStasis;
 
     public Actions.JojoActions actual;
 
     public void Start()
     {
         actual = Actions.JojoActions.Presentacion;
+        attackMind.Mind = this;
+        dmgMind.Mind = this;
         doingAction = true;
+        stage = 0;
         canAttack = false;
         damageReceived = false;
+        
+        health_stages = new float[Stages];
+        float quarterLife =  body.stats.maxHealth/(Stages+1);
+        for(int i = 0; i < Stages; i++)
+        {
+            health_stages[i] = quarterLife * (Stages - i);
+        }
     }
 
     public void AttackTrigger()

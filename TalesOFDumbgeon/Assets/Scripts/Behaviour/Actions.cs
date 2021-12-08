@@ -15,6 +15,19 @@ public class Actions
         CaC,
         Arco,
         Linea,
-        Circular
+        Circular,
+        TeletransporteDisparo,
+        CirculoDeRunas,
+        DescargaRunica,
+        TeletransporteDisparoFuerte,
+        InvocarEnemigo,
+        AtaqueDefinitivo,
+        Curacion,
+        TeleportHealh,
+        Explosion,
+        ExplosionAcumulada,
+        ElementChange,
+        AreaAttackAndTeleport,
+        Teleport
     }
 }

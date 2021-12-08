@@ -65,7 +65,7 @@ public class JojoMamaloBehaviour : BaseEnemy, IDeadable, IMovil
             _navMeshAgent.destination = _target.position;
         }
         StasisUpdate();
-        Debug.Log(stasis);
+        //Debug.Log(stasis);
         
     }
 

@@ -1,6 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class JojoMamaloAttack : Mind
 {
@@ -8,49 +11,103 @@ public class JojoMamaloAttack : Mind
     [SerializeField] private float minDistancePlayer;
     [SerializeField] private float maxDistancePlayer;
 
-    private const int STAGES = 3;
-    private Transform _player;
-    private float[] health_stages;
-    public int stage;
+    private const int ATTACKS = 11;
 
-    private float playerDistanceValue;
-    private float lifeUntilPhaseValue;
-    private float extasisValue;
-    private float stage2;
-    private float stage3;
+    private Transform _player;
+    
+
+    [NonSerialized] public JojoMamaloMind Mind;
+
+    private float _playerDistanceValue;
+    private float _lifeUntilPhaseValue;
+    private float _extasisValue;
+    private float _stage2;
+    private float _stage3;
+    private float _fear;
 
     private void Start()
     {
        _player = SingletoneGameController.PlayerActions.player.gameObject.transform;
-        health_stages = new float[STAGES];
-        float quarter_life =  body.stats.maxHealth/(STAGES+1);
-        for(int i = 0; i < STAGES; i++)
-        {
-            health_stages[i] = quarter_life * (STAGES - i);
-        }
-        stage = 0;
+       
+        _stage2 = 0;
+        _stage3 = 0;
     }
     public override int GetAction()
     {
-        updateValues();
-        return 1;
+        UpdateValues();
+        return GetAttack();
     }
 
-    private void updateValues()
+    
+    private void UpdateValues()
     {
+        //Update _playerDistance (0-1)
         float distance = Vector3.Distance(_player.position, body.gameObject.transform.position);
         if (distance <= minDistancePlayer)
-            playerDistanceValue = 0;
+            _playerDistanceValue = 0;
         else if (distance >= maxDistancePlayer)
-            playerDistanceValue = 1;
+            _playerDistanceValue = 1;
         else
         {
             float distanceSegment = maxDistancePlayer - minDistancePlayer;
             float percentSegment = distance - minDistancePlayer;
-            playerDistanceValue = distanceSegment / percentSegment;
+            _playerDistanceValue = percentSegment/distanceSegment;
+            Debug.Log(_playerDistanceValue);
         }
         
+        //Update Stage
+        float actualHealth = body.stats.GetActualHealth();
 
+        //Update Life until next Stage
+        float maxHealth;
+        if (Mind.stage == 0)
+            maxHealth = body.stats.maxHealth;
+        else
+            maxHealth = Mind.health_stages[Mind.stage - 1];
+        float healthSegment = maxHealth - Mind.health_stages[Mind.stage];
+        float percentHealthSegment = actualHealth - Mind.health_stages[Mind.stage];
+        _lifeUntilPhaseValue = percentHealthSegment/healthSegment;
+        
+        //Update Extasis
+        _extasisValue = body.stasis;
+
+        //Update Fear
+        _fear = (1 - _playerDistanceValue) * 0.7f + (1 - _lifeUntilPhaseValue) * 0.3f;
+
+    }
+
+    private int GetAttack()
+    {
+        //float[] actions = new float[ATTACKS];
+        List<float> actions = new List<float>(ATTACKS);
+        const int enumOffset = (int) Actions.JojoActions.CaC;
+
+        actions[0] = IsFurious() * (1 - _playerDistanceValue) + RandomValue();
+        actions[1] = (1 - _playerDistanceValue) * 0.8f + RandomValue();
+        actions[2] = _playerDistanceValue * 0.8f + RandomValue();
+        actions[3] = (1 - _playerDistanceValue) * 0.8f + RandomValue();
+        actions[4] = _fear * IsFeared();
+        actions[5] = _stage2*actions[0]  + RandomValue();
+        actions[6] = _playerDistanceValue * _stage2 * 0.8f + RandomValue();
+        actions[7] = actions[4] * _stage2 + RandomValue();
+        actions[8] = _fear * _stage3 * _extasisValue <= Mind.MAXStasis ? 1 : 0 + RandomValue();
+        actions[9] = (1 - _lifeUntilPhaseValue) * _stage3;
+        actions[10] = actions[9] * IsFeared() + RandomValue();
+        return enumOffset + actions.IndexOf(actions.Max());
+    }
+
+    private float RandomValue()
+    {
+        return Random.Range(-0.1f, 0.1f);
+    }
+    private int IsFeared()
+    {
+        return _extasisValue <= Mind.MINStasis ? 1 : 0;
+    }
+    
+    private int IsFurious()
+    {
+        return _extasisValue >= Mind.MAXStasis ? 1 : 0;
     }
 
 }
