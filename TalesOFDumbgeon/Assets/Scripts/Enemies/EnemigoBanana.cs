@@ -239,7 +239,7 @@ public class EnemigoBanana : BaseEnemy, IDeadable
         if (collision.gameObject.CompareTag("Player"))
         {
             nextPos = transform.position;
-            collision.gameObject.GetComponent<CharacterStats>().DoDamage(stats.strength, this.transform.position, stats.element);
+            
         }/*else if (collision.gameObject.CompareTag("Colisiones"))
         {
             decisionClock = 5f;
@@ -258,6 +258,9 @@ public class EnemigoBanana : BaseEnemy, IDeadable
         float multiplier = Elements.GetElementMultiplier(element, stats.element);
         DamageNumber dmgN = Instantiate(DmgPrefab, transform.position, Quaternion.identity);
         dmgN.Inicializar(cantidad, transform);
+        Vector3 direction = gameObject.transform.position - _player.transform.position;
+        direction.Normalize();
+        rb.velocity = direction;
         if (multiplier > 1.1f)
             _spr.color = Color.red;
         else if (multiplier < 0.9f)
@@ -271,5 +274,11 @@ public class EnemigoBanana : BaseEnemy, IDeadable
     public void RevertColor()
     {
         _spr.color = Color.white;
+    }
+
+    private IEnumerator Knockback()
+    {
+        
+        yield return new WaitForSeconds(1f);
     }
 }

@@ -20,6 +20,8 @@ public class ExampleEnemyBehaviour : BaseEnemy, IDeadable, IMovil
     private float stoppedTime;
     private float stoppedDelay;
     private bool stopped = false;
+    private bool hit = false;
+    private float hitTime = 0.5f;
 
     private void Update()
     {
@@ -31,18 +33,31 @@ public class ExampleEnemyBehaviour : BaseEnemy, IDeadable, IMovil
                     _player = SingletoneGameController.PlayerActions.player;
                 distanciaPlayer = Vector2.Distance(transform.position, _player.transform.position);
                 //gameObject.transform.position = Vector3.MoveTowards(gameObject.transform.position, _player.transform.position, stats.GetSpeedValue()*Time.deltaTime);
-                if (distanciaPlayer >= rangoVision)
+                if (!hit)
                 {
-                    agent.destination = _player.transform.position;
+                    if (distanciaPlayer >= rangoVision)
+                    {
+                        agent.destination = _player.transform.position;
+                    }
+                    else
+                    {
+                        agent.destination = gameObject.transform.position;
+                        stopped = true;
+                    }
                 }
                 else
                 {
-                    agent.destination = gameObject.transform.position;
-                    stopped = true;
+                    hitTime -= Time.deltaTime;
+                    if(hitTime <= 0)
+                    {
+                        hit = false;
+                        hitTime = 0.5f;
+                    }
                 }
             }
             else
             {
+                agent.destination = gameObject.transform.position;
                 stoppedTime += Time.deltaTime;
                 if(stoppedTime >= stoppedDelay)
                 {
@@ -57,7 +72,7 @@ public class ExampleEnemyBehaviour : BaseEnemy, IDeadable, IMovil
         stats = gameObject.GetComponent<CharacterStats>();
         _spr = gameObject.GetComponent<SpriteRenderer>();
         _player = SingletoneGameController.PlayerActions.player;
-        rangoVision = 0.1f;
+        rangoVision = 0f;
         agent.updateUpAxis = false;
         agent.speed = stats.GetSpeedValue();
         agent.updateRotation = false;
@@ -100,8 +115,12 @@ public class ExampleEnemyBehaviour : BaseEnemy, IDeadable, IMovil
 
         float multiplier = Elements.GetElementMultiplier(element, stats.element);
         DamageNumber dmgN = Instantiate(DmgPrefab, transform.position, Quaternion.identity);
-        dmgN.Inicializar(cantidad, transform);
-        if(multiplier>1.1f)
+        dmgN.Inicializar(cantidad, transform);       
+        Vector3 direction = _player.transform.position - gameObject.transform.position;
+        direction.Normalize();
+        agent.destination = -direction;
+        hit = true;
+        if (multiplier>1.1f)
             _spr.color = Color.red;
         else if(multiplier<0.9f)
             _spr.color = Color.cyan;
@@ -119,6 +138,11 @@ public class ExampleEnemyBehaviour : BaseEnemy, IDeadable, IMovil
     public int GetDifficulty()
     {
         return difficulty;
+    }
+    private IEnumerator Knockback()
+    {
+        
+        yield return new WaitForSeconds(1f);
     }
 
     public void Move()

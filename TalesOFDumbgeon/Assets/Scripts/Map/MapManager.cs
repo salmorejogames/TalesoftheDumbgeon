@@ -140,9 +140,9 @@ public class MapManager : MonoBehaviour
             cameraTr = Vector3.MoveTowards(cameraTr, cameraDestiny, transitionSpeed*Time.deltaTime);
             _mainCamera.gameObject.transform.position = cameraTr;
             yield return null;
-        }
-        movCam.enabled = true;
+        }        
         AfterTransition(destiny);
+        movCam.enabled = true;
     }
 
     private void AfterTransition(Vector3 actualPos)
