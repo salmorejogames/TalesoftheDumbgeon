@@ -631,24 +631,23 @@ Actualmente las piezas compuestas son:
  - [Tema de *Pueblo Boñiga*](https://github.com/salmorejogames/TalesoftheDumbgeon/blob/main/TalesOFDumbgeon/Assets/Music/PuebloBo%C3%B1iga.wav)
  - [Tema de la *Dumbgeon*](https://github.com/salmorejogames/TalesoftheDumbgeon/blob/main/TalesOFDumbgeon/Assets/Music/Walking%20in%20the%20Dumbgeon.wav)
  - [Tema de *Elmo Street*](https://github.com/salmorejogames/TalesoftheDumbgeon/blob/main/TalesOFDumbgeon/Assets/Music/ElmoStreet.wav)
- - [Tema de *Game Over*](https://github.com/salmorejogames/TalesoftheDumbgeon/blob/main/TalesOFDumbgeon/Assets/Music/FUNeral.wav)
 
-## 6.4 Ambiente Sonoro
 
-FlipCard.wav
-GolpeBaston.wav
-GolpeEspada.wav
-GolpeLanza.wav
-HechizoAire.wav
-HechizoCaos.wav
-HechizoFuego.wav
-HechizoHielo.wav
-HechizoRoca.wav
-Monster_hurt.wav
-PasosMazmorra.wav
-SonidoBendicion.wav
-Stadtnarr_hurt.wav
+## 6.4 Efectos de sonido
 
+ - [FlipCard.wav](https://github.com/salmorejogames/TalesoftheDumbgeon/blob/main/TalesOFDumbgeon/Assets/Audio/Sonidos%20Buenos/FlipCard.wav)
+ -   [GolpeBaston.wav](https://github.com/salmorejogames/TalesoftheDumbgeon/blob/main/TalesOFDumbgeon/Assets/Audio/Sonidos%20Buenos/GolpeBaston.wav)
+ -   [GolpeEspada.wav](https://github.com/salmorejogames/TalesoftheDumbgeon/blob/main/TalesOFDumbgeon/Assets/Audio/Sonidos%20Buenos/GolpeEspada.wav)
+ -  [GolpeLanza.wav](https://github.com/salmorejogames/TalesoftheDumbgeon/blob/main/TalesOFDumbgeon/Assets/Audio/Sonidos%20Buenos/GolpeLanza.wav)
+ -   [HechizoAire.wav](https://github.com/salmorejogames/TalesoftheDumbgeon/blob/main/TalesOFDumbgeon/Assets/Audio/Sonidos%20Buenos/HechizoAire.wav)
+ -   [HechizoCaos.wav](https://github.com/salmorejogames/TalesoftheDumbgeon/blob/main/TalesOFDumbgeon/Assets/Audio/Sonidos%20Buenos/HechizoCaos.wav)
+ -   [HechizoFuego.wav](https://github.com/salmorejogames/TalesoftheDumbgeon/blob/main/TalesOFDumbgeon/Assets/Audio/Sonidos%20Buenos/HechizoFuego.wav)
+ - [HechizoHielo.wav](https://github.com/salmorejogames/TalesoftheDumbgeon/blob/main/TalesOFDumbgeon/Assets/Audio/Sonidos%20Buenos/HechizoHielo.wav)
+ - [HechizoRoca.wav](https://github.com/salmorejogames/TalesoftheDumbgeon/blob/main/TalesOFDumbgeon/Assets/Audio/Sonidos%20Buenos/HechizoRoca.wav)
+ - [Monster_hurt.wav](https://github.com/salmorejogames/TalesoftheDumbgeon/blob/main/TalesOFDumbgeon/Assets/Audio/Sonidos%20Buenos/Monster_hurt.wav)
+ - [PasosMazmorra.wav](https://github.com/salmorejogames/TalesoftheDumbgeon/blob/main/TalesOFDumbgeon/Assets/Audio/Sonidos%20Buenos/PasosMazmorra.wav)
+ - [SonidoBendicion.wav](https://github.com/salmorejogames/TalesoftheDumbgeon/blob/main/TalesOFDumbgeon/Assets/Audio/Sonidos%20Buenos/SonidoBendicion.wav)
+ - [Stadtnarr_hurt.wav](https://github.com/salmorejogames/TalesoftheDumbgeon/blob/main/TalesOFDumbgeon/Assets/Audio/Sonidos%20Buenos/Stadtnarr_hurt.wav)
 
 # 7. Interfaz
 ## 7.1 Diseños básicos de los menús
