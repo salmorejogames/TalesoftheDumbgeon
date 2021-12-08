@@ -92,6 +92,18 @@ public class ExampleEnemyBehaviour : BaseEnemy, IDeadable, IMovil
         }
     }
 
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Bala"))
+        {
+            Debug.Log(collision.gameObject);
+        }
+        else if (collision.gameObject.CompareTag("Player"))
+        {
+            collision.gameObject.GetComponent<CharacterStats>().DoDamage(stats.strength, this.transform.position, stats.element);
+        }
+    }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
@@ -138,11 +150,6 @@ public class ExampleEnemyBehaviour : BaseEnemy, IDeadable, IMovil
     public int GetDifficulty()
     {
         return difficulty;
-    }
-    private IEnumerator Knockback()
-    {
-        
-        yield return new WaitForSeconds(1f);
     }
 
     public void Move()
