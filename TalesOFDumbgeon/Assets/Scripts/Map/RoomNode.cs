@@ -26,14 +26,7 @@ public class RoomNode
 
     public RoomNode()
     {
-        _directions = new State[NUM_DIRECTIONS];
-        for (int i = 0; i < NUM_DIRECTIONS; i++)
-        {
-            _directions[i] = State.Null;
-        }
-
-        _map = null;
-        RoomState = State.Null;
+        ResetNode();
     }
 
     public RoomNode(MapInstance map)
@@ -70,5 +63,17 @@ public class RoomNode
     {
         get => _directions;
         set => _directions = value;
+    }
+
+    public void ResetNode()
+    {
+        _directions = new State[NUM_DIRECTIONS];
+        for (int i = 0; i < NUM_DIRECTIONS; i++)
+        {
+            _directions[i] = State.Null;
+        }
+
+        _map = null;
+        RoomState = State.Null;
     }
 }
