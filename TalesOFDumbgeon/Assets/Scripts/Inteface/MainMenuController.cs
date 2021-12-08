@@ -208,7 +208,7 @@ public class MainMenuController : MonoBehaviour
     public void AnimacionMenuPrincipal()
     {
         LeanTween.moveLocalY(titulo, 190, 1.5f).setEaseOutCubic();
-        LeanTween.rotateZ(titulo, -85, 1f).setEaseOutCubic();
+        LeanTween.rotateZ(titulo, 5, 1f).setEaseOutCubic();
 
         LeanTween.moveLocalX(botonJugar, -13, 1.5f).setEaseOutCubic().setDelay(.5f);
         LeanTween.moveLocalY(botonJugar, -120, 1.5f).setEaseOutCubic().setDelay(.5f);

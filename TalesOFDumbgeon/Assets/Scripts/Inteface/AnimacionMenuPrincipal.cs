@@ -21,7 +21,7 @@ public class AnimacionMenuPrincipal : MonoBehaviour
         menuPrincipal.SetActive(true);
 
         LeanTween.moveLocalY(titulo, 190, 1.5f).setEaseOutCubic();
-        LeanTween.rotateZ(titulo, -85, 1f).setEaseOutCubic();
+        LeanTween.rotateZ(titulo, 5, 1f).setEaseOutCubic();
 
         //audioSource.volume = .5f;
         //audioSource.PlayOneShot(cartaAudio);
