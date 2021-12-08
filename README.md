@@ -411,7 +411,7 @@ La Pelusa Madre permanece inmóvil en el sitio mientras genera Pelusas Hijas cuy
 
 ![](https://lh6.googleusercontent.com/jF6ixA1xyvE7ErXIvzLF6u4tzoTbrEGcuzUBNqSBVc0mG8GYFg1y3nxh-NuWUeEUVtUPTd3MYi6pLqlHguREBYx0J6E2s0SZ9YuT5jc6_fgSunx233Qipdr_lii44bH2pS7DVCcJm9M5)
 
-##### Pelusa Madre
+##### Pelusa Hija
 La Pelusa Hija que nace de la Pelusa Madre se dedica a perseguir al jugador para atacarle sacrificando así su propia vida.
 
 ![](https://lh3.googleusercontent.com/S92hNb9dZ2YxX6hEXasNQxGD11aj0C0F8T9kpOz8N8Zt7sdQms8kyacN3zgbVL8e9f2NI46mXvYTT3cM_8D8q2gcGZ9netyBQoS65fYjrxu_M0Q3KVs2CL2_4fCtX2DE2uGYJ0RxIWVK)
@@ -526,19 +526,6 @@ Por eso mismo acordaron en secreto enviar a uno de ellos a la *Dumbgeon*, hacié
 
 Y así es como comienza esta historia, con un pequeño aldeano que se ve obligado a entrar en un lugar aterrador y desconocido para él, ignorante del legado de su familia puesto que el primero de ellos nunca se le ocurrió comentarlo, y con la misión que todos aquellos que le precedieron no lograron cumplir. Adentrarse en la *Dumbgeon*, sobrevivir a todo monstruo que hubiera dentro, llegar hasta el final y derrotar a su dueño, el mago *Jojomamalo* y así convertirse en el *Héroe del Pueblo*.
 
-Hace mucho mucho tiempo, en una dimensión muy lejana un joven mago llamado *Jojomamalo* descubrió el poder de las Cartas, unos misteriosos artefactos que regulan todo aquello que existe en el universo: las estrellas, los elementos, los seres vivos, los fines de semana… Con este poder el mago fue capaz de crear a su antojo como si fuera un Dios, pero algo le frenaba, su falta de originalidad. Por ello, dedicó todos sus esfuerzos en la creación de una carta que le permitiera moverse por otros universos en lo que se conoce como el Mazoverso.
-
-En sus viajes, Jojomamalo pudo conocer una gran variedad de culturas, miles de ideas, millones de mundos. Con toda esta información, todas estas historias de las que se había enamorado, decidió crear la suya propia. Creó un lugar que pudiera albergar todas sus creaciones, la Dumbgeon, y allí con el poder de las Cartas empezó a crear a todo tipo de criaturas para que poblaran el lugar. Seres de toda índole inspirados, los envidiosos dirían que plagiados, de las historias que el mago había descubierto.
-
-Así pues fueron pasando los siglos, Jojomamalo seguía creando y divirtiéndose viendo cómo actuaban sus locas criaturas. Pero había una, una que no estaba conforme con aquello. Un ser de aspecto idéntico al humano pero dotado de toda clase de defectos, un pobre alma tonta, torpe y surrealista. Un pobre ser conocido como El Tonto del Pueblo, el Stadtnarr, que solo servía como bufón, alguien del que Jojomamalo y el resto de criaturas pudieran reírse con sus desgracias. Hasta que se hartó.
-
-Usando la carta especial de Jojomamalo abrió un portal a una dimensión particular, una en la que pudiera comenzar desde cero y huir para siempre de la Dumbgeon. El Stradtnarr se ocultó en una pequeña villa llamada Pueblo Boñiga, donde creó una familia y disfrutó de su nueva libertad lejos de las burlas y las bromas. Pero Jojomamalo no lo toleró.
-
-Cuando se enteró de que su marioneta del humor se había marchado montó en cólera, como un niño al que le quitan sus juguetes, por lo que recorrió todo el Mazoverso hasta encontrarse con los descendientes del Stadtnarr en Pueblo Boñiga. Sin más dilaciones, envió una horda de monstruos de la Dumbgeon a recuperar a los bufones, pero sin éxito. No obstante, los paletos de Pueblo Boñiga se dieron cuenta al décimo octavo ataque que los monstruos tenían una fijación particular por los Stadtnarr y que no los herían tanto como al resto.
-
-Por eso mismo acordaron en secreto enviar a uno de ellos a la Dumbgeon, haciéndolo pasar como una votación popular, para que disuadiera a los monstruos de atacar el pueblo una temporada. El plan salió a la perfección, pasó mucho tiempo hasta que Pueblo Boñiga recibiera otra incursión. Por ello, cada 43,5 años periódico se envía a un nuevo Stadtnarr a la Dumbgeon.
-
-Y así es como comienza esta historia, con un pequeño aldeano que se ve obligado a entrar en un lugar aterrador y desconocido para él, ignorante del legado de su familia puesto que el primero de ellos nunca se le ocurrió comentarlo, y con la misión que todos aquellos que le precedieron no lograron cumplir. Adentrarse en la Dumbgeon, sobrevivir a todo monstruo que hubiera dentro, llegar hasta el final y derrotar a su dueño, el mago Jojomamalo y así convertirse en el Héroe del Pueblo.
 
 ## 5.2 Personajes 
 
@@ -568,19 +555,19 @@ En este apartado se presentarán todos los personajes relevantes de la trama del
 
 		Desde entonces, la *Dumbgeon* se asienta cerca de *Pueblo Boñiga*, mandando oleadas periódicas de monstruos con la intención de recuperar a los *Stadtnarr* y que así *Jojomamalo* pueda seguir riéndose de ellos.
 
+![](https://cdn.discordapp.com/attachments/808761273884999771/918092368811548712/jojomamalo.png)
 
 **![](https://lh5.googleusercontent.com/7S3MuuG3ZevyGHt2X8DXLq8eT4yTLCF-s6dzeO6xQyB26GutVcqC-bMuJePeRymR5prVAKRUK0lsvJ85a5jVf-HWkqPqlXdVmib7CkYkA84yasTZdgw3vGm5M3mA=s1600)**
 
-		----- Patreon Ace up your sleeve -----
 
 -   **Francis “El Sabio de los Barriles:**
 	- Descripción: *Francis* en pocas palabras es un viejo borracho que ha vivido siempre en *Pueblo Boñiga* No ha salido de allí jamás y no lo hará ya que nadie le quiere llevar en su carro. Se pasa el día en la taberna del pueblo contando historias y batallitas de viejo, aunque ninguna sea cierta. Perdió su ropa hace ya mucho, en alguno de los asedios de los monstruos, por ello ahora viste con barriles. Dice que es lo que se lleva ahora y que él va a la onda. Además, siempre va sumamente borracho y los demás lugareños le apodan “El Sabio de los Barriles*" para burlarse de él.
+
+		Aparece en el tráiler oficial de Tales of the Dumbgeon
+	![](https://cdn.discordapp.com/attachments/808761273884999771/914582230230265876/francis.png)
+	![](https://cdn.discordapp.com/attachments/808761273884999771/914583293473730580/francis_owo.png)
 	
-		**![](https://lh6.googleusercontent.com/ZxMyjLUoEGz5JXS_A9YXH7GKkc0CIfJHzG57fMsNDfbv_OBixBdvf3R00DcdEGWphJmuM6Uvn_uDjCdOp379-XQVf7TPbzQzdMPMRmrvUDRRQXchvVVmXG51HmVy=s1600)**
--   **El Cartero**:
-	- Descripción: Es una más de las criaturas que se quedaron atrapadas en la *Dumbgeon*. Sin embargo, *El Cartero* no entró para acosar a los aventureros que entraran después de él, sino que busca a su “*Amor*” perdido. Su *Amor* fue secuestrado por *Jojomamalo* y como hizo con muchos más seres, los atrapó dentro de las cartas utilizando su magia de escritura. Colecciona las cartas ancestrales de la *Dumbgeon* esperando que, algún día, pueda encontrar la carta en la que está encerrada su *Amor*.
-	
-		**![](https://lh4.googleusercontent.com/qfZAGcUN45ulTny__cgNGVxbD1s_ODN0g7XUuoNYZnd3wq6Zrafiww8ldqstW0Uv_rZkJlTbp0tTbKwN305jCayYNdbDNhHnX58XCHAU6M_h8O96dy5OW6agMJTW=s1600)**
+
 -   **El Cuervillo**:
 	-   Descripción: “Calderero, Hojalatero. Afilador. Zahorí. Armadura de corcho. Tabaco. Pañuelos de seda traídos del *Pueblo Boñiga*. Papel de culo. Dulces y gominolas. Fino encaje y suaves plumas. ¡Vengan, señoras! ¡Vengan, muchachas! *El Cuervillo* solo se quedará un día en esta zona. ¡No esperen a que anochezca! Todo lo que necesites lo tiene *El Cuervillo*.”
  
@@ -588,34 +575,19 @@ En este apartado se presentarán todos los personajes relevantes de la trama del
 
 		**![](https://lh5.googleusercontent.com/U8FYk8k6t_P2XrXrjD2Wp4C38Wo-U3YtVx9XCFh69xAE7Wx1mUE7BVvwuwx1s9dhJPjynK58cr_qkw3hYbOU11u8FTi_9806tjl2HzxXzd6BzsNnBLNzI2KurYsJ=s1600)**
 		
-			----- ------------------------- -----
 
 ## 5.3 Entornos y lugares
 
-**La Dumbgeon**: La disparatada morada de Jojomamalo con eternos pasillos y absurdos enemigos representan la prueba final de los Stadtnarr.
-![](https://cdn.discordapp.com/attachments/503507632418455564/912105593106481172/unknown.png)
+**La Dumbgeon**: La disparatada morada de Jojomamalo con eternos pasillos y absurdos enemigos representan la prueba final de los Stadtnarr. Debido a su absurdez, la Dumbgeon esta formada por salas de diferentes lugar que además se intercambian entre si cada vez que alguien nuevo entra en ella. 
 
-	----- Patreon Ace up your sleeve -----
-	
--   **Pueblo Boñiga**:
+![](https://cdn.discordapp.com/attachments/503507632418455564/918096942918152232/unknown.png)
 
-	-   **Gremio de aventureros**: donde hay un tablón de desafíos que al cumplirse el siguiente *Stadtnarr* que mire el tablón podrá reclamar la carta recompensa y se añadirá esta a las cartas que pueden aparecer en la *Dumbgeon*.
-    
-	- **El Hogar del los Stadtnarr**:  un zulo en medio de Pueblo Boñiga el cual era una antigua biblioteca (actualmente en ruinas). Existen libros que se actualizan de forma automática guardando información esencial vista por los *Stadtnarr* en el interior de la *Dumbgeon*.
+![](https://cdn.discordapp.com/attachments/503507632418455564/918097210909024256/unknown.png)
 
--   **La Dumbgeon**:
-    
-	-   **La Discocueva**: es en esencia una caverna espaciosa que ha sido remodelada para actuar como lugar de ocio. Cuenta con luces de colores, barras, mucha suciedad y música a todo volumen. En su interior se encuentra la sala de baile principal donde aparece el jefe de esta zona, el *Alma de la Fiesta*.
+![](https://cdn.discordapp.com/attachments/503507632418455564/918097807242563604/unknown.png)
 
-	-   **Elmo Street**: cubierta de niebla, *Elmo Street* es una zona residencial en la que habitan gran variedad de monstruos de la *Dumbgeon*. A pesar de ser de noche las calles están infestadas de enemigos que tratarán de evitar que el jugador llegue hasta la rotonda de la calle donde se encuentra *La Adolescente de la Curva*.
+![](https://cdn.discordapp.com/attachments/503507632418455564/918098037656653834/unknown.png)
 
-	-   **La Zona Media**:  un lugar donde el mundo medieval y el moderno se unen en una extraña mezcla en la que habitan todo tipos de criaturas fantásticas pero con elementos del mundo actual como trajes o teléfonos móviles. Y el que se encarga de dirigir todo este lugar es *El Presidente Demonio*.
-
-	-   **Little France**: lugar que empieza recordando a París, lleno de flores y dónde se respira el amor y poco a poco va degenerando en un oscuro lugar lleno de fotos de la familia del personaje, un lugar que se conoce como el *Templo Stadtnarr* cuya dueña es *La Loca del Moño*.
-    
-	-   **Mostazar**: zona volcánica que en lugar de magma está conformada por mostaza picante. Para evitar tener que pisar tanto condimentado están habilitadas varias estructuras y pasarelas metálicas que conducen a la zona principal de extracción de mostaza, donde aguarda *Stradt Bader*.
-	
-				------ ------------------------- -----
 
 # 6. Arte
 ## 6.1 Estética general del juego
@@ -629,49 +601,29 @@ Esta estética se ha elegido para dotar de personalidad al mundo y a sus persona
 Además, esperamos que el uso de una estética más simple y menos detallista permita al equipo de arte agilizar su trabajo, encontrar una cohesión visual entre los diferente miembros e incluso dar la posibilidad de que miembros ajenos a este departamento puedan ayudar con tareas menores en caso de ser necesario.
 
 ## 6.2 Apartado visual
-En este apartado se ofrecen los assets creados originalmente por el equipo de desarrollo
 
-- Enemigo Abuesqueleto
-
-![](https://user-images.githubusercontent.com/72553373/138588708-aadeacae-704f-4838-9d9d-a42278a18751.png)
-
-- Entrada a la Dumbgeon
-
-![](https://user-images.githubusercontent.com/72553373/138588690-49a056b3-8e47-4caf-8f6e-592bf8478d66.png)
-
-- Suelo de la Discocueva
-
-![](https://cdn.discordapp.com/attachments/808761273884999771/901763700833288232/DISCOCUEVA-PistaDeBaile.png)
-
-- Columna de la Dumbgeon
-
-![](https://cdn.discordapp.com/attachments/808761273884999771/901763704150954005/MAZMORRA-Columna.png)
-
-- Suelo de la Dumbegon
-
-![](https://cdn.discordapp.com/attachments/808761273884999771/901763707871305728/MAZMORRA-Suelo.png)
-
-- Armadura --> Sombrero Mexicano
-
-![](https://cdn.discordapp.com/attachments/808761273884999771/901776879919464459/CARTAS.png)
-
-- Bendición --> Power Up
-
-![](https://cdn.discordapp.com/attachments/808761273884999771/901776873636372490/powerUP_carta.png)
-
-- Hechizo --> Poder Limitado
-
-![](https://user-images.githubusercontent.com/72553373/138589934-0599b7f5-40c8-40d6-8bfe-aa0357152724.png)
-
-- Maldición --> Analfabetismo
-
-![](https://user-images.githubusercontent.com/72553373/138589947-54eb4694-2725-4190-b4cb-94e1ed7b547f.png)
+En este apartado se ofrecen los assets creados originalmente por el equipo de arte.
+![](https://cdn.discordapp.com/attachments/503507632418455564/918100076017094666/unknown.png)
+![](https://cdn.discordapp.com/attachments/503507632418455564/918101642199597116/GUERRERO_boy_front.png)
+![](https://cdn.discordapp.com/attachments/503507632418455564/918101642635784253/MAGO_boy_front.png)
+![](https://cdn.discordapp.com/attachments/503507632418455564/918101643130708018/PICARO_boy_front.png)
 
 
+![](https://cdn.discordapp.com/attachments/503507632418455564/918100119780462592/unknown.png)
+![](https://cdn.discordapp.com/attachments/503507632418455564/918100990845124608/MAGO_girl_front.png)
+![](https://cdn.discordapp.com/attachments/503507632418455564/918100991134539816/PICARO_girl_front.png)
+![](https://cdn.discordapp.com/attachments/503507632418455564/918100991910510622/GUERRERO_girl_front.png)
+
+![](https://media.discordapp.net/attachments/503507632418455564/917871595333255168/unknown.png?width=1440&height=255)
 
 
+![](https://cdn.discordapp.com/attachments/503507632418455564/917874083784446072/cerebro_contento.png)
+![](https://cdn.discordapp.com/attachments/503507632418455564/917873497047441478/banana_idle.png)
+![](https://lh6.googleusercontent.com/jF6ixA1xyvE7ErXIvzLF6u4tzoTbrEGcuzUBNqSBVc0mG8GYFg1y3nxh-NuWUeEUVtUPTd3MYi6pLqlHguREBYx0J6E2s0SZ9YuT5jc6_fgSunx233Qipdr_lii44bH2pS7DVCcJm9M5)
+![](https://lh3.googleusercontent.com/S92hNb9dZ2YxX6hEXasNQxGD11aj0C0F8T9kpOz8N8Zt7sdQms8kyacN3zgbVL8e9f2NI46mXvYTT3cM_8D8q2gcGZ9netyBQoS65fYjrxu_M0Q3KVs2CL2_4fCtX2DE2uGYJ0RxIWVK)
 
-
+![](https://cdn.discordapp.com/attachments/503507632418455564/918106204591501393/unknown.png)
+![](https://cdn.discordapp.com/attachments/503507632418455564/918106333377605642/unknown.png)
 ## 6.3 Música
 
 Actualmente las piezas compuestas son: 
@@ -683,7 +635,11 @@ Actualmente las piezas compuestas son:
 
 ## 6.4 Ambiente Sonoro
 
-Cada piso de la mazmorra contará con su propia temática y por lo tanto con una composición musical diferente, que irá acompañada por efectos sonoros particulares que ayuden a la inmersión del jugador dentro del mundo del juego
+- [FlipCard] (https://github.com/salmorejogames/TalesoftheDumbgeon/blob/main/TalesOFDumbgeon/Assets/Audio/Sonidos%20Buenos/FlipCard.wav)
+- [Golpe Baston] (https://github.com/salmorejogames/TalesoftheDumbgeon/blob/main/TalesOFDumbgeon/Assets/Audio/Sonidos%20Buenos/GolpeBaston.wav)
+- [Golpe Lanza] 
+GolpeEspada.wav(https://github.com/salmorejogames/TalesoftheDumbgeon/blob/main/TalesOFDumbgeon/Assets/Audio/Sonidos%20Buenos/GolpeLanza.wav)
+
 
 # 7. Interfaz
 ## 7.1 Diseños básicos de los menús
