@@ -105,19 +105,20 @@ public class PauseMenuController : MonoBehaviour
     public void AnimacionAjustes()
     {
         LeanTween.moveLocalY(botonVolver, -470, 1f).setIgnoreTimeScale(true);
+        LeanTween.moveLocalY(botonAjustes, -470, 1f).setIgnoreTimeScale(true);
         LeanTween.moveLocalY(botonSalir, -470, 1f).setIgnoreTimeScale(true);
         LeanTween.moveLocalX(botonVolver, 0, 1f).setIgnoreTimeScale(true);
         LeanTween.moveLocalX(botonSalir, 0, 1f).setIgnoreTimeScale(true);
         LeanTween.moveLocalY(titulo, 520, 1f).setIgnoreTimeScale(true);
 
-        LeanTween.moveLocalX(botonAjustes, 0, .1f).setEaseOutCubic().setIgnoreTimeScale(true);
-        LeanTween.moveLocalY(botonAjustes, 220, 1f).setEaseOutCubic().setIgnoreTimeScale(true);
+        //LeanTween.moveLocalX(botonAjustes, 0, .1f).setEaseOutCubic().setIgnoreTimeScale(true);
+        //LeanTween.moveLocalY(botonAjustes, 220, 1f).setEaseOutCubic().setIgnoreTimeScale(true);
 
         LeanTween.moveLocalX(volumen, 0, 1f).setEaseOutCubic().setIgnoreTimeScale(true);
-        LeanTween.moveLocalY(volumen, -20, 1f).setEaseOutCubic().setIgnoreTimeScale(true);
+        LeanTween.moveLocalY(volumen, 40, 1f).setEaseOutCubic().setIgnoreTimeScale(true);
 
         LeanTween.moveLocalX(botonVolverAjustes, 0, 1f).setEaseOutCubic().setIgnoreTimeScale(true);
-        LeanTween.moveLocalY(botonVolverAjustes, -80, 1f).setEaseOutCubic().setIgnoreTimeScale(true);
+        LeanTween.moveLocalY(botonVolverAjustes, -130, 1f).setEaseOutCubic().setIgnoreTimeScale(true);
     }
 
     public void AnimacionVolver()
@@ -176,7 +177,7 @@ public class PauseMenuController : MonoBehaviour
         HacerNoInteractuable(volverAjustesBoton);
 
         Time.timeScale = 1f;
-        SceneManager.LoadScene("ClickParaEmpezar");
+        SceneManager.LoadScene("IsometricScene");
     }
 
     IEnumerator EsperarVolver()
