@@ -635,10 +635,19 @@ Actualmente las piezas compuestas son:
 
 ## 6.4 Ambiente Sonoro
 
-- [FlipCard] (https://github.com/salmorejogames/TalesoftheDumbgeon/blob/main/TalesOFDumbgeon/Assets/Audio/Sonidos%20Buenos/FlipCard.wav)
-- [Golpe Baston] (https://github.com/salmorejogames/TalesoftheDumbgeon/blob/main/TalesOFDumbgeon/Assets/Audio/Sonidos%20Buenos/GolpeBaston.wav)
-- [Golpe Lanza] 
-GolpeEspada.wav(https://github.com/salmorejogames/TalesoftheDumbgeon/blob/main/TalesOFDumbgeon/Assets/Audio/Sonidos%20Buenos/GolpeLanza.wav)
+FlipCard.wav
+GolpeBaston.wav
+GolpeEspada.wav
+GolpeLanza.wav
+HechizoAire.wav
+HechizoCaos.wav
+HechizoFuego.wav
+HechizoHielo.wav
+HechizoRoca.wav
+Monster_hurt.wav
+PasosMazmorra.wav
+SonidoBendicion.wav
+Stadtnarr_hurt.wav
 
 
 # 7. Interfaz
