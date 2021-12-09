@@ -25,6 +25,7 @@ public class JojoMamaloBehaviour : BaseEnemy, IDeadable, IMovil
     [NonSerialized] public bool invincible;
     public float attackCooldown;
     public float nearDistance;
+    public float midDistance;
     public float farDistance;
     [SerializeField] private Weapon jojoarma;
     [SerializeField] private JojomaloSkills skills;
@@ -61,7 +62,7 @@ public class JojoMamaloBehaviour : BaseEnemy, IDeadable, IMovil
         _actualAction = Actions.JojoActions.Presentacion;
         invincible = true;
         _navMeshAgent = gameObject.GetComponent<NavMeshAgent>();
-        _navMeshAgent.stoppingDistance = 1f;
+        
         _navMeshAgent.updateRotation = false;
         _navMeshAgent.updateUpAxis = false;
         _elapsedTime = 0;
@@ -81,8 +82,6 @@ public class JojoMamaloBehaviour : BaseEnemy, IDeadable, IMovil
         jojoarma.ChangeWeapon(newJojoArma);
         _navMeshAgent.speed = stats.GetSpeedValue();
         skills.ActivateSkill(_actualAction);
-        _navMeshAgent.radius = 0.01f;
-        _navMeshAgent.height = 0.01f;
     }
 
     
@@ -108,12 +107,15 @@ public class JojoMamaloBehaviour : BaseEnemy, IDeadable, IMovil
             switch (_objetive)
             {
                 case Objetives.Near:
+                    _navMeshAgent.stoppingDistance = nearDistance;
                     objetive = _target.position;
                     break;
                 case Objetives.Mid:
-                    objetive = _target.position + (heading / heading.magnitude) * nearDistance;
+                    _navMeshAgent.stoppingDistance = 0f;
+                    objetive = _target.position + (heading / heading.magnitude) * midDistance;
                     break;
                 case Objetives.Far:
+                    _navMeshAgent.stoppingDistance = 0f;
                     objetive = _target.position + (heading / heading.magnitude) * farDistance;
                     break;
                 case Objetives.None:
@@ -123,8 +125,8 @@ public class JojoMamaloBehaviour : BaseEnemy, IDeadable, IMovil
                     throw new ArgumentOutOfRangeException();
             }
             //Debug.Log(_target.position.ToString()  + " " +  stasis + " " + objetive.ToString());
-            Debug.DrawLine(pos, Vector3.zero, new Color(1f, 0f, 0f));
-            _navMeshAgent.destination = Vector3.zero;
+            Debug.DrawLine(pos, objetive, new Color(1f, 0f, 0f));
+            _navMeshAgent.destination = objetive;
         }
     }
     
