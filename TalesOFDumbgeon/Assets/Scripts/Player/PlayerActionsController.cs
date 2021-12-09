@@ -236,4 +236,5 @@ public class PlayerActionsController : MonoBehaviour, IDeadable
         colorGrading.saturation.value = -100;
         //mainCamera.orthographicSize = .5f;
     }
+
 }
