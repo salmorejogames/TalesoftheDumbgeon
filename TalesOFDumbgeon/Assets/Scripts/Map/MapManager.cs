@@ -118,9 +118,11 @@ public class MapManager : MonoBehaviour
     }
     private IEnumerator Transition(Vector3 destiny)
     {
+        var movCam = _mainCamera.gameObject.GetComponent<CameraMovement>();
         var cameraTr = _mainCamera.gameObject.transform.position;
         var playerPos = _player.gameObject.transform.position;
         var coordinates = CalculatePlayerRelativeCoordinates();
+        movCam.enabled = false;
         CameraFollow.activeFollow = false;
         Vector3 cameraDestiny = new Vector3(destiny.x, destiny.y, cameraTr.z);
         Vector3 playerObjetive = playerPos + coordinates;
@@ -138,8 +140,9 @@ public class MapManager : MonoBehaviour
             cameraTr = Vector3.MoveTowards(cameraTr, cameraDestiny, transitionSpeed*Time.deltaTime);
             _mainCamera.gameObject.transform.position = cameraTr;
             yield return null;
-        }
+        }        
         AfterTransition(destiny);
+        movCam.enabled = true;
     }
 
     private void AfterTransition(Vector3 actualPos)

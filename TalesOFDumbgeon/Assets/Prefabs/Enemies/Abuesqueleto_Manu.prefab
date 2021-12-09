@@ -102,7 +102,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.012904108, y: -0.1770708}
+  m_Offset: {x: -0.011390805, y: -0.22852147}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -113,7 +113,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.20274341, y: 0.22052348}
+  m_Size: {x: 0.24208808, y: 0.3294779}
   m_EdgeRadius: 0
 --- !u!50 &4988939038215573875
 Rigidbody2D:
@@ -130,11 +130,11 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 7
 --- !u!114 &3699361427768509052
 MonoBehaviour:
@@ -149,7 +149,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 20
-  armor: 1
+  armor: 0.5
   strength: 5
   speed: 0.5
   element: 0
@@ -168,6 +168,8 @@ MonoBehaviour:
   audio: {fileID: 1875680792872721955}
   difficulty: 1
   stats: {fileID: 0}
+  rangoVision: 0
+  miedo: 0
   agent: {fileID: 1634661290755254708}
   DmgPrefab: {fileID: 7413456247700845425, guid: d04ec14520fae5f44b0e829368e66535,
     type: 3}
