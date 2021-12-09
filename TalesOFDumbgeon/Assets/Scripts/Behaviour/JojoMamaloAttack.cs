@@ -56,16 +56,18 @@ public class JojoMamaloAttack : Mind
         }
         
         //Update Stage
-        float actualHealth = body.stats.GetActualHealth();
+        _stage2 = Mind.Stage >= 1 ? 1 : 0;
+        _stage3 = Mind.Stage >= 2 ? 1 : 0;
 
         //Update Life until next Stage
+        float actualHealth = body.stats.GetActualHealth();
         float maxHealth;
-        if (Mind.stage == 0)
+        if (Mind.Stage == 0)
             maxHealth = body.stats.maxHealth;
         else
-            maxHealth = Mind.health_stages[Mind.stage - 1];
-        float healthSegment = maxHealth - Mind.health_stages[Mind.stage];
-        float percentHealthSegment = actualHealth - Mind.health_stages[Mind.stage];
+            maxHealth = Mind.HealthStages[Mind.Stage - 1];
+        float healthSegment = maxHealth - Mind.HealthStages[Mind.Stage];
+        float percentHealthSegment = actualHealth - Mind.HealthStages[Mind.Stage];
         _lifeUntilPhaseValue = percentHealthSegment/healthSegment;
         
         //Update Extasis
@@ -79,7 +81,7 @@ public class JojoMamaloAttack : Mind
     private int GetAttack()
     {
         //float[] actions = new float[ATTACKS];
-        List<float> actions = new List<float>(ATTACKS);
+        float[] actions = new float[ATTACKS];
         const int enumOffset = (int) Actions.JojoActions.CaC;
 
         actions[0] = IsFurious() * (1 - _playerDistanceValue) + RandomValue();
@@ -90,10 +92,12 @@ public class JojoMamaloAttack : Mind
         actions[5] = _stage2*actions[0]  + RandomValue();
         actions[6] = _playerDistanceValue * _stage2 * 0.8f + RandomValue();
         actions[7] = actions[4] * _stage2 + RandomValue();
-        actions[8] = _fear * _stage3 * _extasisValue <= Mind.MAXStasis ? 1 : 0 + RandomValue();
+        actions[8] = (_fear * _stage3 * (_extasisValue <= Mind.MAXStasis ? 1 : 0)) + RandomValue();
         actions[9] = (1 - _lifeUntilPhaseValue) * _stage3;
         actions[10] = actions[9] * IsFeared() + RandomValue();
-        return enumOffset + actions.IndexOf(actions.Max());
+        for(int i = 0; i < actions.Length; i++)
+            Debug.Log(((Actions.JojoActions) enumOffset + i).ToString() + ": " + actions[i]);
+        return enumOffset + Array.IndexOf(actions, actions.Max());
     }
 
     private float RandomValue()

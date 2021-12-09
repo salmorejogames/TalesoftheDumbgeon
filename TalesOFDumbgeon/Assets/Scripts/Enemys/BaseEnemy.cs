@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,10 +7,10 @@ using UnityEngine.Internal;
 public class BaseEnemy : MonoBehaviour
 {
     public AudioSource audio;
-    public float stasis = 0;
+    [NonSerialized] public float stasis = 0;
     public int difficulty = 1;
     public CharacterStats stats;
-    protected float stasisFactor = 0.025f;
+    [SerializeField] protected float stasisFactor = 0.025f;
 
     public enum StasisActions {
         Attack,

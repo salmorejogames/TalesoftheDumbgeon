@@ -17,69 +17,99 @@ public class JojomaloSkills : MonoBehaviour
     [SerializeField] private float movementSpeed = 0.3f;
 
     [SerializeField] private InGameCard cardPrefab;
-    public enum Skills
-    {
-        LineAttack,
-        BowAttack,
-        SnakeAttack,
-        Tp,
-        AreaAttack,
-        ExplosionCounter,
-        ChangueElement
-    }
 
-    public void ActivateSkill(Skills skill, string argument)
-    {
-        switch (skill)
-        {
-            case Skills.LineAttack:
-            case Skills.BowAttack:
-            case Skills.SnakeAttack:
-            case Skills.AreaAttack:
-                ActivateSkill(skill);
-                break;
-            case Skills.Tp:
-                TeleportInvulnerable(float.Parse(argument));
-                break;
-            case Skills.ExplosionCounter:
-                CounterAttack(float.Parse(argument));
-                break;
-            case Skills.ChangueElement:
-                ChangueElement((Elements.Element) int.Parse(argument));
-                break;
-            default:
-                throw new ArgumentOutOfRangeException(nameof(skill), skill, null);
-        }
-    }
+    private int _healthTPs = 2;
     
-    public void ActivateSkill(Skills skill)
+    public void ActivateSkill(Actions.JojoActions skill)
     {
         switch (skill)
         {
-            case Skills.LineAttack:
-                StartCoroutine(RangedAttack1());
+            case Actions.JojoActions.Presentacion:
+                mind.Objetive = JojoMamaloBehaviour.Objetives.None;
+                Invoke(nameof(EndAction), 1f);
                 break;
-            case Skills.BowAttack:
+            case Actions.JojoActions.MantenerDistancia:
+                mind.Objetive = JojoMamaloBehaviour.Objetives.Mid;
+                break;
+            case Actions.JojoActions.Acercarse:
+                mind.Objetive = JojoMamaloBehaviour.Objetives.Near;
+                break;
+            case Actions.JojoActions.Alejarse:
+                mind.Objetive = JojoMamaloBehaviour.Objetives.Far;
+                break;
+            case Actions.JojoActions.Atacar:
+                break;
+            case Actions.JojoActions.RecibirDmg:
+                break;
+            case Actions.JojoActions.CaC:
+                Debug.Log("Ataque Cuerpo a Cuerpo");
+                EndAction();
+                break;
+            case Actions.JojoActions.Arco:
                 StartCoroutine(RangedAttack2());
                 break;
-            case Skills.SnakeAttack:
+            case Actions.JojoActions.Linea:
+                StartCoroutine(RangedAttack1());
+                break;
+            case Actions.JojoActions.Circular:
                 StartCoroutine(RangedAttack3());
                 break;
-            case Skills.Tp:
-                TeleportInvulnerable(0);
+            case Actions.JojoActions.TeletransporteDisparo:
+                Debug.Log("Teletransporte con disparo");
+                EndAction();
                 break;
-            case Skills.AreaAttack:
+            case Actions.JojoActions.CirculoDeRunas:
+                Debug.Log("Circulo de runas");
+                EndAction();
+                break;
+            case Actions.JojoActions.DescargaRunica:
                 AreaAttack();
                 break;
-            case Skills.ExplosionCounter:
+            case Actions.JojoActions.TeletransporteDisparoFuerte:
+                Debug.Log("Teletransporte con disparo fuerte");
+                EndAction();
+                break;
+            case Actions.JojoActions.InvocarEnemigo:
+                Debug.Log("Invocar enemigo");
+                EndAction();
+                break;
+            case Actions.JojoActions.AtaqueDefinitivo:
+                Debug.Log("Ataque definitivo");
+                EndAction();
+                break;
+            case Actions.JojoActions.Curacion:
+                Debug.Log("Curacion");
+                EndAction();
+                break;
+            case Actions.JojoActions.TeleportHealh:
+                TeleportInvulnerable(100);
+                break;
+            case Actions.JojoActions.Explosion:
                 CounterAttack(5);
                 break;
-            case Skills.ChangueElement:
-                ChangueElement(Elements.Element.Caos);
+            case Actions.JojoActions.ExplosionAcumulada:
+                CounterAttack(mind.DamageAcumulated);
+                mind.DamageAcumulated = 0;
+                break;
+            case Actions.JojoActions.ElementChange:
+                Debug.Log("Cambio de Elemento");
+                EndAction();
+                break;
+            case Actions.JojoActions.AreaAttackAndTeleport:
+                Debug.Log("Timon y pumba");
+                EndAction();
+                break;
+            case Actions.JojoActions.Teleport:
+                TeleportInvulnerable(0);
                 break;
             default:
                 throw new ArgumentOutOfRangeException(nameof(skill), skill, null);
         }
+    }
+
+    private void EndAction()
+    {
+        mind.masterMind.EndAction();
     }
     public IEnumerator RangedAttack1()
         {
@@ -98,6 +128,7 @@ public class JojomaloSkills : MonoBehaviour
             }
             weapon.gameObject.transform.position = body.position;
             mind.animationController.SetStop();
+            EndAction();
         }
         
         public IEnumerator RangedAttack2()
@@ -122,6 +153,7 @@ public class JojomaloSkills : MonoBehaviour
                 weapon.SetOrientation(originalAngle);
                 mind.animationController.SetStop();
             }
+            EndAction();
         }
         /*
         public IEnumerator RangedAttack3()
@@ -192,6 +224,7 @@ public class JojomaloSkills : MonoBehaviour
             }
             mind.animationController.SetStop();
             TeleportInvulnerable(0);
+            EndAction();
         }
         private void AreaAttack()
         {
@@ -208,6 +241,7 @@ public class JojomaloSkills : MonoBehaviour
             newArea.spellDmg.SetSpellDmgStats(4, mind.stats.element, pos, body.tag);
             newArea.spellDmg.OnDamage = () => mind.StasisActionUpdate(BaseEnemy.StasisActions.Impact, 4);
             mind.animationController.SetStop();
+            EndAction();
         }
         private void CounterAttack(float dmg)
         {
@@ -224,6 +258,7 @@ public class JojomaloSkills : MonoBehaviour
             newArea.spellDmg.OnDamage = () => mind.StasisActionUpdate(BaseEnemy.StasisActions.Impact, dmg);
             mind.animationController.SetAttack();
             mind.animationController.SetStop();
+            EndAction();
         }
         private void TeleportInvulnerable(float cantidad)
         {
@@ -234,8 +269,14 @@ public class JojomaloSkills : MonoBehaviour
                 ran = Random.Range(0, JojoMamaloBehaviour.NumPositions);
             } while (ran == mind.ActualPos);
             mind.UpdatePosition(ran);
-            if(cantidad>0)
-                mind.stats.Heal( cantidad);
+            if (cantidad > 0.001f)
+            {
+                mind.stats.Heal(cantidad);
+                _healthTPs--;
+                if(_healthTPs<=0)
+                    mind.invincible = false;
+            }
+            EndAction();
         }
 
         private void ChangueElement(Elements.Element newElement)
@@ -247,6 +288,7 @@ public class JojomaloSkills : MonoBehaviour
             newCard.card.CardInfo = new WeaponCard(weapon.weaponInfo);
             newCard.PlayAnimaton();
             //TODO->ANIMATION
+            EndAction();
 
         }
 }

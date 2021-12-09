@@ -11,35 +11,62 @@ using Random = UnityEngine.Random;
 public class JojoMamaloBehaviour : BaseEnemy, IDeadable, IMovil
 {
     public const int NumPositions = 4;
-    private int _hitsCountdown = 2;
     private int _actualPos;
     private float _damageAcumulated = 0;
     private bool _active = true;
     private Transform _target;
-    private bool _explosion = false;
     private Vector2[] _locations = new Vector2[NumPositions];
     private NavMeshAgent _navMeshAgent;
+    private float _elapsedTime;
     public DamageNumber prefabDamage;
     public JojomamaloAnimationController animationController;
 
+    private Objetives _objetive;
+    [NonSerialized] public bool invincible;
     public float attackCooldown;
-    private float _elapsedTime = 0;
-    private SpriteRenderer _spr;
+    public float nearDistance;
+    public float farDistance;
     [SerializeField] private Weapon jojoarma;
     [SerializeField] private JojomaloSkills skills;
+
+    public JojoMamaloMind masterMind;
+
+    private Actions.JojoActions _actualAction;
 
     public Vector3 TargetPos => _target.position;
     public int ActualPos => _actualPos;
 
+    public float DamageAcumulated
+    {
+        get => _damageAcumulated;
+        set => _damageAcumulated = value;
+    }
+
+    public Objetives Objetive
+    {
+        get => _objetive;
+        set => _objetive = value;
+    }
+
+    public enum Objetives
+    {
+        Near,
+        Mid,
+        Far,
+        None
+    }
     void Awake()
     {
+        _objetive = Objetives.None;
+        _actualAction = Actions.JojoActions.Presentacion;
+        invincible = true;
         _navMeshAgent = gameObject.GetComponent<NavMeshAgent>();
         _navMeshAgent.stoppingDistance = 1f;
         _navMeshAgent.updateRotation = false;
         _navMeshAgent.updateUpAxis = false;
+        _elapsedTime = 0;
         MapInstance map = SingletoneGameController.MapManager.ActualMap;
         stats = gameObject.GetComponent<CharacterStats>();
-        _spr = gameObject.GetComponent<SpriteRenderer>();
         _target = SingletoneGameController.PlayerActions.player.gameObject.transform;
         _locations[0] = new Vector2(map.dims[0]-4, 0);
         _locations[1] = new Vector2(map.dims[1]+4, 0);
@@ -53,20 +80,55 @@ public class JojoMamaloBehaviour : BaseEnemy, IDeadable, IMovil
         newJojoArma.OnDamage = () => StasisActionUpdate(StasisActions.Impact, newJojoArma.Dmg);
         jojoarma.ChangeWeapon(newJojoArma);
         _navMeshAgent.speed = stats.GetSpeedValue();
+        skills.ActivateSkill(_actualAction);
     }
 
+    
     // Update is called once per frame
     void Update()
     {
+        StasisUpdate();
+        Actions.JojoActions newAction = (Actions.JojoActions) masterMind.GetAction();
+        if (newAction != _actualAction)
+        {
+            skills.ActivateSkill(newAction);
+            _actualAction = newAction;
+            Debug.Log(_actualAction);
+        }
         if (_active)
         {
             UpdateWeaponAngle();
             _navMeshAgent.speed = stats.GetSpeedValue();
-            _navMeshAgent.destination = _target.position;
+            var pos = _navMeshAgent.gameObject.transform.position;
+            var heading = _target.position - pos;
+            switch (_objetive)
+            {
+                case Objetives.Near:
+                    _navMeshAgent.destination = _target.position;
+                    break;
+                case Objetives.Mid:
+                    _navMeshAgent.destination = (heading / heading.magnitude) * nearDistance;
+                    break;
+                case Objetives.Far:
+                    _navMeshAgent.destination = (heading / heading.magnitude) * farDistance;
+                    break;
+                case Objetives.None:
+                    _navMeshAgent.destination = pos;
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException();
+            }
         }
-        StasisUpdate();
-        //Debug.Log(stasis);
-        
+    }
+    
+    private void FixedUpdate()
+    {
+        _elapsedTime += Time.fixedDeltaTime;
+        if (_elapsedTime > attackCooldown)
+        {
+            masterMind.AttackTrigger();
+            _elapsedTime = 0f;
+        }
     }
 
     public void UpdateWeaponAngle()
@@ -76,32 +138,7 @@ public class JojoMamaloBehaviour : BaseEnemy, IDeadable, IMovil
         jojoarma.SetOrientation(angle);
         animationController.UpdateDirection(angle);
     }
-
-    private void FixedUpdate()
-    {
-        _elapsedTime += Time.fixedDeltaTime;
-        if (_elapsedTime > attackCooldown)
-        {
-            switch (Random.Range(0,4))
-            {
-                case 0:
-                    skills.ActivateSkill(JojomaloSkills.Skills.LineAttack);
-                    break;
-                case 1:
-                    skills.ActivateSkill(JojomaloSkills.Skills.BowAttack);
-                    break;
-                case 2:
-                    skills.ActivateSkill(JojomaloSkills.Skills.SnakeAttack);
-                    break;
-                case 3:
-                    skills.ActivateSkill(JojomaloSkills.Skills.AreaAttack);
-                    break;
-            }
-
-            _elapsedTime = 0f;
-        }
-    }
-
+    
     public void Dead()
     {
         gameObject.SetActive(false);
@@ -109,34 +146,15 @@ public class JojoMamaloBehaviour : BaseEnemy, IDeadable, IMovil
 
     public void Damage(Vector3 enemyPos, float cantidad, Elements.Element element)
     {
-        DamageNumber dmgN = Instantiate(prefabDamage, transform.position, Quaternion.identity);
         StasisActionUpdate(StasisActions.Damage, cantidad);
-        if (_hitsCountdown > 0)
-        { 
-            dmgN.Inicializar(0, transform);
-            _hitsCountdown--;
-            skills.ActivateSkill(JojomaloSkills.Skills.Tp, cantidad.ToString(CultureInfo.InvariantCulture));
-        }
-        else
+        masterMind.DmgTrigger();
+        if (!invincible)
         {
-            StasisActionUpdate(StasisActions.Damage, cantidad);
+            DamageNumber dmgN = Instantiate(prefabDamage, transform.position, Quaternion.identity);
             dmgN.Inicializar(cantidad, transform);
-            ColorDmg(element);
             _damageAcumulated += cantidad;
-            if (_damageAcumulated >= 10 && !_explosion)
-            {
-                skills.ActivateSkill(JojomaloSkills.Skills.ExplosionCounter, _damageAcumulated.ToString());
-                skills.ActivateSkill(JojomaloSkills.Skills.ChangueElement, "" + (int) Elements.GetCounter(SingletoneGameController.PlayerActions.player.Stats.element));
-                _explosion = true;
-            }
-            if (_damageAcumulated >= 20)
-            {
-                skills.ActivateSkill(JojomaloSkills.Skills.Tp);
-                _damageAcumulated = 0;
-                _explosion = false;
-            }
-                
         }
+        
     }
 
     public void UpdatePosition(int newPos)
@@ -146,28 +164,7 @@ public class JojoMamaloBehaviour : BaseEnemy, IDeadable, IMovil
         gameObject.transform.position =
             IsometricUtils.CoordinatesToWorldSpace(_locations[_actualPos].x, _locations[_actualPos].y);
     }
-
     
-
-    private void ColorDmg(Elements.Element elementDmg)
-    {
-        float multiplier = Elements.GetElementMultiplier(elementDmg, stats.element);
-        if(multiplier>1.1f)
-            _spr.color = Color.red;
-        else if(multiplier<0.9f)
-            _spr.color = Color.cyan;
-        else 
-            _spr.color = Color.yellow;
-        Invoke(nameof(RevertColor), 0.2f);
-    }
-    
-    
-    
-    public void RevertColor()
-    {
-        _spr.color = Color.white;
-    }
-
     public void Move()
     {
         throw new System.NotImplementedException();
@@ -186,8 +183,4 @@ public class JojoMamaloBehaviour : BaseEnemy, IDeadable, IMovil
         _active = true;
     }
 
-    public int GetDifficulty()
-    {
-        return 1;
-    }
 }

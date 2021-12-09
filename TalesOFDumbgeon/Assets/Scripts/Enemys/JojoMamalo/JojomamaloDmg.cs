@@ -33,16 +33,17 @@ public class JojomamaloDmg : Mind
             _invincibleTpCount--;
             return (int) Actions.JojoActions.TeleportHealh;
         }
-        if (body.stats.GetActualHealth() < Mind.health_stages[Mind.stage])
+        if (body.stats.GetActualHealth() < Mind.HealthStages[Mind.Stage])
         {
-            Mind.stage++;
+            Debug.LogWarning("FASE CHANGED");
+            Mind.Stage++;
             return (int) Actions.JojoActions.Explosion;
         }
 
         if (_elapsedTime >= timerActions)
         {
             _elapsedTime = 0;
-            if (Mind.stage >= 1)
+            if (Mind.Stage >= 1)
             {
                 if (Vector3.Distance(_player.position, body.gameObject.transform.position) <= closePlayerDistance)
                 {
