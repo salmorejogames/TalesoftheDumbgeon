@@ -81,6 +81,8 @@ public class JojoMamaloBehaviour : BaseEnemy, IDeadable, IMovil
         jojoarma.ChangeWeapon(newJojoArma);
         _navMeshAgent.speed = stats.GetSpeedValue();
         skills.ActivateSkill(_actualAction);
+        _navMeshAgent.radius = 0.01f;
+        _navMeshAgent.height = 0.01f;
     }
 
     
@@ -100,24 +102,29 @@ public class JojoMamaloBehaviour : BaseEnemy, IDeadable, IMovil
             UpdateWeaponAngle();
             _navMeshAgent.speed = stats.GetSpeedValue();
             var pos = _navMeshAgent.gameObject.transform.position;
-            var heading = _target.position - pos;
+            var heading = pos - _target.position;
+            //Debug.Log(_objetive);
+            Vector3 objetive;
             switch (_objetive)
             {
                 case Objetives.Near:
-                    _navMeshAgent.destination = _target.position;
+                    objetive = _target.position;
                     break;
                 case Objetives.Mid:
-                    _navMeshAgent.destination = (heading / heading.magnitude) * nearDistance;
+                    objetive = _target.position + (heading / heading.magnitude) * nearDistance;
                     break;
                 case Objetives.Far:
-                    _navMeshAgent.destination = (heading / heading.magnitude) * farDistance;
+                    objetive = _target.position + (heading / heading.magnitude) * farDistance;
                     break;
                 case Objetives.None:
-                    _navMeshAgent.destination = pos;
+                    objetive = pos;
                     break;
                 default:
                     throw new ArgumentOutOfRangeException();
             }
+            //Debug.Log(_target.position.ToString()  + " " +  stasis + " " + objetive.ToString());
+            Debug.DrawLine(pos, Vector3.zero, new Color(1f, 0f, 0f));
+            _navMeshAgent.destination = Vector3.zero;
         }
     }
     

@@ -52,10 +52,10 @@ public class JojoMamaloMind : Mind
         _damageReceived = true;
     }
 
-    public void EndAction()
+    public int EndAction()
     {
         _doingAction = false;
-        UpdateMovement();
+        return UpdateMovement();
     }
 
     public override int GetAction()
@@ -110,7 +110,7 @@ public class JojoMamaloMind : Mind
             Actual = Actions.JojoActions.Alejarse;
             return (int)Actions.JojoActions.Alejarse;
         }
-        if (body.stasis > minStasis)
+        if (body.stasis > maxStasis)
         {
             Actual = Actions.JojoActions.Acercarse;
             return (int)Actions.JojoActions.Acercarse;

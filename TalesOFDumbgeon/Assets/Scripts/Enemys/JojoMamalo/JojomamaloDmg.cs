@@ -61,7 +61,6 @@ public class JojomamaloDmg : Mind
 
             return (int) Actions.JojoActions.Teleport;
         }
-
-        return (int) Actions.JojoActions.RecibirDmg;
+        return Mind.EndAction();
     }
 }
