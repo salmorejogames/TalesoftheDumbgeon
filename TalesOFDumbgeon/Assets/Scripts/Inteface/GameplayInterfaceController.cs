@@ -21,8 +21,6 @@ namespace Inteface
         public Image contArmadura2;
         public Image contArmadura3;
         public Image contHechizo;
-        public Image contMaldicion1;
-        public Image contMaldicion2;
 
         private float vidaTresCuartos;
         private float vidaMitad;
@@ -182,6 +180,11 @@ namespace Inteface
                     }
                     break;
             }
+        }
+
+        public void SpriteArmaInicial(Sprite nuevoSprite)
+        {
+            contArma.sprite = nuevoSprite;
         }
     }
 }

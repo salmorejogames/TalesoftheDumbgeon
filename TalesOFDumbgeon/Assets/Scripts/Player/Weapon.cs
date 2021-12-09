@@ -32,7 +32,8 @@ public class Weapon : MonoBehaviour
             weapon.Randomize(1);
             ChangeWeapon(weapon);
         }
-        
+
+        SingletoneGameController.InterfaceController.SpriteArmaInicial(_spriteRenderer.sprite);
     }
 
     public void ChangeWeapon(BaseWeapon newWeapon)
@@ -45,6 +46,7 @@ public class Weapon : MonoBehaviour
             _actualDmgArea.gameObject.SetActive(false);
             _actualDmgArea = damageAreas[(int) weaponInfo.AttackType];
         }
+
         //_spriteRenderer.sprite = weaponInfo.WeaponSprite;
         /*
         _collider = gameObject.AddComponent<PolygonCollider2D>();
