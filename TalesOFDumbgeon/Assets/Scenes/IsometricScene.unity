@@ -1490,6 +1490,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b9a305e18de0c04dbd257a21cd47087, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &307483327
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 307483328}
+  m_Layer: 0
+  m_Name: CentroCamara
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &307483328
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 307483327}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &539755616 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6136151781136832913, guid: f7d8b04a9a3d676408435273389cf36e,
@@ -2018,6 +2048,16 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: Volver
       objectReference: {fileID: 0}
+    - target: {fileID: 230749388245068371, guid: f7d8b04a9a3d676408435273389cf36e,
+        type: 3}
+      propertyPath: players.Array.data[0]
+      value: 
+      objectReference: {fileID: 785119330}
+    - target: {fileID: 230749388245068371, guid: f7d8b04a9a3d676408435273389cf36e,
+        type: 3}
+      propertyPath: players.Array.data[1]
+      value: 
+      objectReference: {fileID: 307483328}
     - target: {fileID: 562512516631357479, guid: f7d8b04a9a3d676408435273389cf36e,
         type: 3}
       propertyPath: m_SizeDelta.x
@@ -2255,11 +2295,21 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 785119330}
+    - target: {fileID: 1224128817984665521, guid: f7d8b04a9a3d676408435273389cf36e,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1224128817984665522, guid: f7d8b04a9a3d676408435273389cf36e,
         type: 3}
       propertyPath: volumeTrigger
       value: 
       objectReference: {fileID: 1522614518}
+    - target: {fileID: 1224128817984665522, guid: f7d8b04a9a3d676408435273389cf36e,
+        type: 3}
+      propertyPath: m_ShowCustomSorter
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1224128817984665522, guid: f7d8b04a9a3d676408435273389cf36e,
         type: 3}
       propertyPath: volumeLayer.m_Bits
@@ -2499,6 +2549,11 @@ PrefabInstance:
         type: 3}
     - target: {fileID: 1224128819601507996, guid: f7d8b04a9a3d676408435273389cf36e,
         type: 3}
+      propertyPath: ataqueTexto
+      value: 
+      objectReference: {fileID: 1870823317}
+    - target: {fileID: 1224128819601507996, guid: f7d8b04a9a3d676408435273389cf36e,
+        type: 3}
       propertyPath: caraNoFeliz
       value: 
       objectReference: {fileID: 21300000, guid: 83abb4f6ee765b942a8a448680c03472,
@@ -2508,6 +2563,16 @@ PrefabInstance:
       propertyPath: contHechizo
       value: 
       objectReference: {fileID: 1209437848}
+    - target: {fileID: 1224128819601507996, guid: f7d8b04a9a3d676408435273389cf36e,
+        type: 3}
+      propertyPath: defensaTexto
+      value: 
+      objectReference: {fileID: 1757466291}
+    - target: {fileID: 1224128819601507996, guid: f7d8b04a9a3d676408435273389cf36e,
+        type: 3}
+      propertyPath: vidaMaxTexto
+      value: 
+      objectReference: {fileID: 1663344460}
     - target: {fileID: 1224128819601507996, guid: f7d8b04a9a3d676408435273389cf36e,
         type: 3}
       propertyPath: caraStadtnarr
@@ -2544,6 +2609,11 @@ PrefabInstance:
       propertyPath: contMaldicion2
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 1224128819601507996, guid: f7d8b04a9a3d676408435273389cf36e,
+        type: 3}
+      propertyPath: velocidadTexto
+      value: 
+      objectReference: {fileID: 1967560284}
     - target: {fileID: 1317272302297466757, guid: f7d8b04a9a3d676408435273389cf36e,
         type: 3}
       propertyPath: m_IsActive

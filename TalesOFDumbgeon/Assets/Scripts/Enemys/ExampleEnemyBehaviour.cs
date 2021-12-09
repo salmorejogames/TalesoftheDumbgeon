@@ -6,10 +6,8 @@ using UnityEditor.UIElements;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class ExampleEnemyBehaviour : BaseEnemy, IDeadable
-{
-
-   
+public class ExampleEnemyBehaviour : BaseEnemy, IDeadable, IMovil
+{   
 
     private SpriteRenderer _spr;
     private IsometricMove _player;
@@ -17,16 +15,56 @@ public class ExampleEnemyBehaviour : BaseEnemy, IDeadable
 
     [SerializeField]
     private DamageNumber DmgPrefab;
+    private float distanciaPlayer;
+    //Para que se pare despues de atacar
+    private float stoppedTime;
+    private float stoppedDelay;
+    private bool stopped = false;
+    private bool hit = false;
+    private float hitTime = 0.5f;
+    private float attackTime;
 
     private void Update()
     {
         if (!SingletoneGameController.PlayerActions.dead)
         {
-            if(_player==null)
-                _player = SingletoneGameController.PlayerActions.player;
-            //gameObject.transform.position = Vector3.MoveTowards(gameObject.transform.position, _player.transform.position, stats.GetSpeedValue()*Time.deltaTime);
-            agent.destination = _player.transform.position;
-            
+            if (!stopped)
+            {
+                if (_player == null)
+                    _player = SingletoneGameController.PlayerActions.player;
+                distanciaPlayer = Vector2.Distance(transform.position, _player.transform.position);
+                //gameObject.transform.position = Vector3.MoveTowards(gameObject.transform.position, _player.transform.position, stats.GetSpeedValue()*Time.deltaTime);
+                if (!hit)
+                {
+                    if (distanciaPlayer >= rangoVision)
+                    {
+                        agent.destination = _player.transform.position;
+                    }
+                    else
+                    {
+                        agent.destination = gameObject.transform.position;
+                        stopped = true;
+                    }
+                }
+                else
+                {
+                    hitTime -= Time.deltaTime;
+                    if(hitTime <= 0)
+                    {
+                        hit = false;
+                        hitTime = 0.5f;
+                    }
+                }
+            }
+            else
+            {
+                agent.destination = gameObject.transform.position;
+                stoppedTime += Time.deltaTime;
+                if(stoppedTime >= stoppedDelay)
+                {
+                    stopped = false;
+                }
+            }        
         }
     }
 
@@ -35,9 +73,55 @@ public class ExampleEnemyBehaviour : BaseEnemy, IDeadable
         stats = gameObject.GetComponent<CharacterStats>();
         _spr = gameObject.GetComponent<SpriteRenderer>();
         _player = SingletoneGameController.PlayerActions.player;
+        rangoVision = 0f;
         agent.updateUpAxis = false;
         agent.speed = stats.GetSpeedValue();
         agent.updateRotation = false;
+        stoppedTime = 4f;
+        stoppedDelay = 4f;
+        attackTime = 3f;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        
+        if (collision.gameObject.CompareTag("Bala"))
+        {
+            Debug.Log(collision.gameObject);
+        }
+        else if (collision.gameObject.CompareTag("Player"))
+        {
+            collision.gameObject.GetComponent<CharacterStats>().DoDamage(stats.strength, this.transform.position, stats.element);
+            attackTime = 3f;
+        }
+    }
+
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            if (attackTime <= 0)
+            {
+                collision.gameObject.GetComponent<CharacterStats>().DoDamage(stats.strength, this.transform.position, stats.element);
+                attackTime = 3f;
+            }
+            else
+            {
+                Debug.Log(attackTime);
+                attackTime -= Time.deltaTime;
+            }
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            collision.gameObject.GetComponent<CharacterStats>().DoDamage(stats.strength, this.transform.position, stats.element);
+        }/*else if (collision.gameObject.CompareTag("Colisiones"))
+        {
+            decisionClock = 5f;
+        }*/
     }
 
     public void Dead()
@@ -52,8 +136,12 @@ public class ExampleEnemyBehaviour : BaseEnemy, IDeadable
 
         float multiplier = Elements.GetElementMultiplier(element, stats.element);
         DamageNumber dmgN = Instantiate(DmgPrefab, transform.position, Quaternion.identity);
-        dmgN.Inicializar(cantidad, transform);
-        if(multiplier>1.1f)
+        dmgN.Inicializar(cantidad, transform);       
+        Vector3 direction = _player.transform.position - gameObject.transform.position;
+        direction.Normalize();
+        agent.destination = -direction;
+        hit = true;
+        if (multiplier>1.1f)
             _spr.color = Color.red;
         else if(multiplier<0.9f)
             _spr.color = Color.cyan;
@@ -71,5 +159,15 @@ public class ExampleEnemyBehaviour : BaseEnemy, IDeadable
     public int GetDifficulty()
     {
         return difficulty;
+    }
+
+    public void Move()
+    {
+        throw new NotImplementedException();
+    }
+
+    public void DisableMovement(float time)
+    {
+        throw new NotImplementedException();
     }
 }

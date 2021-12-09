@@ -119,7 +119,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.008212566, y: -0.21414495}
@@ -164,8 +164,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4fc0e643ad0dbe94489255a03f473bbf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  agent: {fileID: 8392545151624899443}
+  audio: {fileID: 0}
   difficulty: 1
+  stats: {fileID: 0}
+  rangoVision: 0
+  miedo: 0
+  agent: {fileID: 8392545151624899443}
   DmgPrefab: {fileID: 7413456247700845425, guid: d04ec14520fae5f44b0e829368e66535,
     type: 3}
   velocidad: 5

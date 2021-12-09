@@ -122,8 +122,6 @@ public class PlayerActionsController : MonoBehaviour, IDeadable
             CharacterStats enemyStats = collision.gameObject.GetComponent<CharacterStats>();
             _stats.DoDamage(enemyStats.strength, collision.gameObject.transform.position, enemyStats.element);
         }
-
-        
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -148,7 +146,6 @@ public class PlayerActionsController : MonoBehaviour, IDeadable
                 _stats.DoDamage(spell.Amount, spell.Origen, spell.Element);
             }
         }
-        
     }
 
     private void CancelInvincibility()
