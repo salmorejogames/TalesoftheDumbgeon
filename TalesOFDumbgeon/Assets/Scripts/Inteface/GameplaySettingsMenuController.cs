@@ -6,21 +6,31 @@ using UnityEngine.UI;
 
 public class GameplaySettingsMenuController : MonoBehaviour
 {
-    public AudioMixer audioMixer;
+    public AudioMixer audioMixerMusica;
+    public AudioMixer audioMixerEfectos;
+
     public float volumen;
-    public Slider slider;
+
+    public Slider sliderMusica;
+    public Slider sliderEfectos;
 
     public void Awake()
     {
-        audioMixer.GetFloat("Volumen", out volumen);
-        slider.value = volumen;
-        Debug.Log("VOLUMEN MUSICA DEL JUEGO" + volumen);
+        audioMixerMusica.GetFloat("VolumenMusica", out volumen);
+        audioMixerEfectos.GetFloat("VolumenEfectos", out volumen);
+
+        sliderMusica.value = volumen;
     }
 
-    public void SetVolume(float volume)
+    public void SetVolumenMusica(float volume)
     {
-        audioMixer.SetFloat("Volumen", volume);
+        audioMixerMusica.SetFloat("VolumenMusica", volume);
         volumen = volume;
-        Debug.Log(volumen);
+    }
+
+    public void SetVolumenEfectos(float volume)
+    {
+        audioMixerEfectos.SetFloat("VolumenEfectos", volume);
+        volumen = volume;
     }
 }

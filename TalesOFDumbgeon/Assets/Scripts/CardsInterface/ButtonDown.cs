@@ -34,8 +34,11 @@ public class ButtonDown : MonoBehaviour, IPointerClickHandler
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        _cardHolder.Resize();
-        gameObject.SetActive(false);
+        if(Time.timeScale > 0.0001f)
+        {
+            _cardHolder.Resize();
+            gameObject.SetActive(false);
+        }
     }
 
     public void SetPos(Vector3 pos)

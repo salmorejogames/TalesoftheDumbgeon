@@ -117,8 +117,7 @@ public class PlayerActionsController : MonoBehaviour, IDeadable
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        /*
-        if ((other.gameObject.CompareTag("Enemigo") || other.gameObject.CompareTag("ArmaEnemiga")) && !invincible)
+        if ((collision.gameObject.CompareTag("Enemigo") || collision.gameObject.CompareTag("ArmaEnemiga")) && !invincible)
         {
             CharacterStats enemyStats = other.gameObject.GetComponent<CharacterStats>();
             _stats.DoDamage(enemyStats.strength, other.gameObject.transform.position, enemyStats.element);
@@ -234,4 +233,5 @@ public class PlayerActionsController : MonoBehaviour, IDeadable
         colorGrading.saturation.value = -100;
         //mainCamera.orthographicSize = .5f;
     }
+
 }

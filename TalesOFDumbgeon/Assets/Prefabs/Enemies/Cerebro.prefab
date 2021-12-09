@@ -146,7 +146,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.0051115155, y: -0.19689053}
@@ -421,7 +421,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 3
-  m_Sprite: {fileID: -1155290835614158588, guid: 62c1073d16b85d640b384189e2267249,
+  m_Sprite: {fileID: -3078078531213514469, guid: 62c1073d16b85d640b384189e2267249,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -446,8 +446,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_RootBone: {fileID: 6572546566666048875}
-  m_BoneTransforms:
-  - {fileID: 6572546566666048875}
+  m_BoneTransforms: []
   m_Bounds:
     m_Center: {x: -0.0004969239, y: 0.000729084, z: 0}
     m_Extent: {x: 0.8057751, y: 0.59713995, z: 0}
@@ -620,7 +619,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: -4863744087126730845, guid: 62c1073d16b85d640b384189e2267249,
+  m_Sprite: {fileID: -1189785301394295002, guid: 62c1073d16b85d640b384189e2267249,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -704,7 +703,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 1642375281774469681, guid: 62c1073d16b85d640b384189e2267249,
+  m_Sprite: {fileID: -4920734515273826875, guid: 62c1073d16b85d640b384189e2267249,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -729,8 +728,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_RootBone: {fileID: 6572546566666048875}
-  m_BoneTransforms:
-  - {fileID: 6572546566666048875}
+  m_BoneTransforms: []
   m_Bounds:
     m_Center: {x: 0, y: 0.0018738508, z: 0}
     m_Extent: {x: 2.315, y: 1.8680447, z: 0}
@@ -808,7 +806,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 4
-  m_Sprite: {fileID: 8343504233159471943, guid: 62c1073d16b85d640b384189e2267249,
+  m_Sprite: {fileID: 4350289251126228645, guid: 62c1073d16b85d640b384189e2267249,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -833,8 +831,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_RootBone: {fileID: 2658185554183291841}
-  m_BoneTransforms:
-  - {fileID: 2658185554183291841}
+  m_BoneTransforms: []
   m_Bounds:
     m_Center: {x: 0.0072999, y: -0.0018348694, z: 0}
     m_Extent: {x: 3.3527007, y: 4.948166, z: 0}

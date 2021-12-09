@@ -14,7 +14,8 @@ public class Weapon : MonoBehaviour
     [NonSerialized] public float relativeAngle;
     [NonSerialized] public float relativePosition;
     [SerializeField] private List<DamageArea> damageAreas;
-    private DamageArea _actualDmgArea; 
+    private DamageArea _actualDmgArea;
+    private bool onDialogue = false;
     public float AttackDuration => _actualDmgArea.fixedAnimationTime / holder.GetSpeedValue();
 
 
@@ -32,7 +33,8 @@ public class Weapon : MonoBehaviour
             weapon.Randomize(1);
             ChangeWeapon(weapon);
         }
-        
+
+        SingletoneGameController.InterfaceController.SpriteArmaInicial(_spriteRenderer.sprite);
     }
 
     public void ChangeWeapon(BaseWeapon newWeapon)
@@ -45,6 +47,7 @@ public class Weapon : MonoBehaviour
             _actualDmgArea.gameObject.SetActive(false);
             _actualDmgArea = damageAreas[(int) weaponInfo.AttackType];
         }
+
         //_spriteRenderer.sprite = weaponInfo.WeaponSprite;
         /*
         _collider = gameObject.AddComponent<PolygonCollider2D>();
@@ -70,13 +73,17 @@ public class Weapon : MonoBehaviour
     public void Atack()
     {
         //Debug.Log("Im atacking");
-        weaponInfo.Atacar();
+        if (!onDialogue)
+        {
+            weaponInfo.Atacar();
+        }
+        
         //StartCoroutine(nameof(AttackCoroutine));
     }
 
     public void CastSpell()
     {
-        if (spellInfo != null)
+        if (spellInfo != null && !onDialogue)
         {
             spellInfo.Cast();
             if (holder.gameObject.CompareTag("Player"))
@@ -102,15 +109,6 @@ public class Weapon : MonoBehaviour
                         break;
                 }
             }
-        }
-    }
-    
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (!other.gameObject.CompareTag(holder.tag) && (other.gameObject.CompareTag("Enemigo") || other.gameObject.CompareTag("Player")))
-        {
-            CharacterStats enemy = other.gameObject.GetComponent<CharacterStats>();
-            enemy.DoDamage(weaponInfo.Dmg + holder.strength,  gameObject.transform.position, weaponInfo.Element);
         }
     }
     
@@ -170,6 +168,11 @@ public class Weapon : MonoBehaviour
         yield return new WaitForSeconds(duration*(_actualDmgArea.percentStopDmgg-_actualDmgArea.percentStartDmg));
         _actualDmgArea.gameObject.SetActive(false);
 
+    }
+
+    public void SetOnDialogue(bool newDialogue)
+    {
+        onDialogue = newDialogue;
     }
     
 }

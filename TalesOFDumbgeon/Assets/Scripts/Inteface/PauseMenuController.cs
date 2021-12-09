@@ -2,18 +2,26 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class PauseMenuController : MonoBehaviour
 {
     private InterfaceControls iuInput;
 
     [SerializeField] private GameObject menuPausa;
+    [SerializeField] private GameObject menuAjustes;
+
     [SerializeField] private GameObject titulo;
     [SerializeField] private GameObject botonVolver;
     [SerializeField] private GameObject botonAjustes;
     [SerializeField] private GameObject botonSalir;
     [SerializeField] private GameObject volumen;
     [SerializeField] private GameObject botonVolverAjustes;
+
+    [SerializeField] private Button ajustesBoton;
+    [SerializeField] private Button volverBoton;
+    [SerializeField] private Button salirBoton;
+    [SerializeField] private Button volverAjustesBoton;
 
     private void Awake()
     {
@@ -33,8 +41,15 @@ public class PauseMenuController : MonoBehaviour
 
     public void ActivarMenuPausa()
     {
+        if (SingletoneGameController.PlayerActions.dead)
+            return;
         Time.timeScale = 0f;
         menuPausa.SetActive(true);
+
+        HacerNoInteractuable(ajustesBoton);
+        HacerNoInteractuable(volverBoton);
+        HacerNoInteractuable(salirBoton);
+        HacerNoInteractuable(volverAjustesBoton);
 
         LeanTween.moveLocalY(titulo, 175, 1.5f).setEaseOutCubic().setIgnoreTimeScale(true);
         LeanTween.rotateZ(titulo, -2, 1f).setEaseOutCubic().setIgnoreTimeScale(true);
@@ -50,10 +65,17 @@ public class PauseMenuController : MonoBehaviour
         LeanTween.moveLocalX(botonSalir, 400, 1.5f).setEaseOutCubic().setDelay(.5f).setIgnoreTimeScale(true);
         LeanTween.moveLocalY(botonSalir, -180, 1.5f).setEaseOutCubic().setDelay(.5f).setIgnoreTimeScale(true);
         LeanTween.rotateZ(botonSalir, -6, 1f).setEaseOutCubic().setDelay(.5f).setIgnoreTimeScale(true);
+
+        StartCoroutine(MenuPausaInteractuable(2.25f));
     }
 
     public void Volver()
     {
+        HacerNoInteractuable(ajustesBoton);
+        HacerNoInteractuable(volverBoton);
+        HacerNoInteractuable(salirBoton);
+        HacerNoInteractuable(volverAjustesBoton);
+
         LeanTween.moveLocalY(botonVolver, -470, .25f).setIgnoreTimeScale(true);
         LeanTween.moveLocalY(botonAjustes, -470, .25f).setIgnoreTimeScale(true);
         LeanTween.moveLocalY(botonSalir, -470, .25f).setIgnoreTimeScale(true);
@@ -65,32 +87,40 @@ public class PauseMenuController : MonoBehaviour
 
         StartCoroutine(EsperarVolver());
 
-        menuPausa.SetActive(false);
-
         Time.timeScale = 1f;
     }
 
     public void Ajustes()
     {
+        menuAjustes.SetActive(true);
+
+        HacerNoInteractuable(ajustesBoton);
+        HacerNoInteractuable(volverBoton);
+        HacerNoInteractuable(salirBoton);
+        HacerNoInteractuable(volverAjustesBoton);
+
         AnimacionAjustes();
+
+        StartCoroutine(HacerInteractuableCoroutine(volverAjustesBoton, 1.25f));
     }
 
     public void AnimacionAjustes()
     {
         LeanTween.moveLocalY(botonVolver, -470, 1f).setIgnoreTimeScale(true);
+        LeanTween.moveLocalY(botonAjustes, -470, 1f).setIgnoreTimeScale(true);
         LeanTween.moveLocalY(botonSalir, -470, 1f).setIgnoreTimeScale(true);
         LeanTween.moveLocalX(botonVolver, 0, 1f).setIgnoreTimeScale(true);
         LeanTween.moveLocalX(botonSalir, 0, 1f).setIgnoreTimeScale(true);
         LeanTween.moveLocalY(titulo, 520, 1f).setIgnoreTimeScale(true);
 
-        LeanTween.moveLocalX(botonAjustes, 0, .1f).setEaseOutCubic().setIgnoreTimeScale(true);
-        LeanTween.moveLocalY(botonAjustes, 220, 1f).setEaseOutCubic().setIgnoreTimeScale(true);
+        //LeanTween.moveLocalX(botonAjustes, 0, .1f).setEaseOutCubic().setIgnoreTimeScale(true);
+        //LeanTween.moveLocalY(botonAjustes, 220, 1f).setEaseOutCubic().setIgnoreTimeScale(true);
 
         LeanTween.moveLocalX(volumen, 0, 1f).setEaseOutCubic().setIgnoreTimeScale(true);
-        LeanTween.moveLocalY(volumen, -20, 1f).setEaseOutCubic().setIgnoreTimeScale(true);
+        LeanTween.moveLocalY(volumen, 40, 1f).setEaseOutCubic().setIgnoreTimeScale(true);
 
         LeanTween.moveLocalX(botonVolverAjustes, 0, 1f).setEaseOutCubic().setIgnoreTimeScale(true);
-        LeanTween.moveLocalY(botonVolverAjustes, -80, 1f).setEaseOutCubic().setIgnoreTimeScale(true);
+        LeanTween.moveLocalY(botonVolverAjustes, -130, 1f).setEaseOutCubic().setIgnoreTimeScale(true);
     }
 
     public void AnimacionVolver()
@@ -107,7 +137,16 @@ public class PauseMenuController : MonoBehaviour
 
     public void VolverAjustes()
     {
+        HacerNoInteractuable(ajustesBoton);
+        HacerNoInteractuable(volverBoton);
+        HacerNoInteractuable(salirBoton);
+        HacerNoInteractuable(volverAjustesBoton);
+
         AnimacionVolverAjustes();
+
+        StartCoroutine(MenuPausaInteractuable(2.25f));
+
+        menuAjustes.SetActive(false);
     }
 
     public void AnimacionVolverAjustes()
@@ -134,13 +173,44 @@ public class PauseMenuController : MonoBehaviour
 
     public void Salir()
     {
+        HacerNoInteractuable(ajustesBoton);
+        HacerNoInteractuable(volverBoton);
+        HacerNoInteractuable(salirBoton);
+        HacerNoInteractuable(volverAjustesBoton);
+
         Time.timeScale = 1f;
-        SceneManager.LoadScene("ClickParaEmpezar");
+        SceneManager.LoadScene("IsometricScene");
     }
 
     IEnumerator EsperarVolver()
     {
         yield return new WaitForSeconds(1f);
         menuPausa.SetActive(false);
+    }
+
+    IEnumerator MenuPausaInteractuable(float segundos)
+    {
+        Debug.Log("XD");
+        yield return new WaitForSecondsRealtime(segundos);
+
+        HacerInteractuable(volverBoton);
+        HacerInteractuable(ajustesBoton);
+        HacerInteractuable(salirBoton);
+    }
+
+    IEnumerator HacerInteractuableCoroutine(Button button, float segundos)
+    {
+        yield return new WaitForSecondsRealtime(segundos);
+        HacerInteractuable(button);
+    }
+
+    public void HacerInteractuable(Button button)
+    {
+        button.interactable = true;
+    }
+
+    public void HacerNoInteractuable(Button button)
+    {
+        button.interactable = false;
     }
 }
