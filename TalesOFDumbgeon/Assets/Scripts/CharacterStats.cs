@@ -30,27 +30,34 @@ public class CharacterStats : MonoBehaviour
         _alive = true;
         _actualHealth = maxHealth;
 
-        SingletoneGameController.InterfaceController.ActualizarStatsUI(SingletoneGameController.InterfaceController.vidaMaxTexto, maxHealth);
-        SingletoneGameController.InterfaceController.ActualizarStatsUI(SingletoneGameController.InterfaceController.ataqueTexto, strength);
-        SingletoneGameController.InterfaceController.ActualizarStatsUI(SingletoneGameController.InterfaceController.defensaTexto, armor);
-        SingletoneGameController.InterfaceController.ActualizarStatsUI(SingletoneGameController.InterfaceController.velocidadTexto, speed);
+        if (gameObject.CompareTag("Player"))
+        {
+            SingletoneGameController.InterfaceController.ActualizarStatsUI(SingletoneGameController.InterfaceController.vidaMaxTexto, maxHealth);
+            SingletoneGameController.InterfaceController.ActualizarStatsUI(SingletoneGameController.InterfaceController.ataqueTexto, strength);
+            SingletoneGameController.InterfaceController.ActualizarStatsUI(SingletoneGameController.InterfaceController.defensaTexto, armor);
+            SingletoneGameController.InterfaceController.ActualizarStatsUI(SingletoneGameController.InterfaceController.velocidadTexto, speed);
+        }
+        
     }
 
     public float GetSpeedValue()
     {
-        if (speed <= 0.25f)
+        if (speed <= 0.5f)
         {
-            SingletoneGameController.InterfaceController.ActualizarStatsUI(SingletoneGameController.InterfaceController.velocidadTexto, speed);
-            return 0.5f;
+            if (gameObject.CompareTag("Player"))
+                SingletoneGameController.InterfaceController.ActualizarStatsUI(SingletoneGameController.InterfaceController.velocidadTexto, speed);
+            return 0.75f;
         }
 
-        SingletoneGameController.InterfaceController.ActualizarStatsUI(SingletoneGameController.InterfaceController.velocidadTexto, speed);
+        if (gameObject.CompareTag("Player"))
+            SingletoneGameController.InterfaceController.ActualizarStatsUI(SingletoneGameController.InterfaceController.velocidadTexto, speed);
         return (float) Math.Sqrt(speed);
     }
 
     public float GetActualHealth()
     {
-        SingletoneGameController.InterfaceController.ActualizarStatsUI(SingletoneGameController.InterfaceController.vidaMaxTexto, _actualHealth);
+        if (gameObject.CompareTag("Player"))
+            SingletoneGameController.InterfaceController.ActualizarStatsUI(SingletoneGameController.InterfaceController.vidaMaxTexto, _actualHealth);
         return _actualHealth;
     }
 
@@ -82,13 +89,15 @@ public class CharacterStats : MonoBehaviour
             _actions.Dead();
         }
 
-        SingletoneGameController.InterfaceController.ActualizarStatsUI(SingletoneGameController.InterfaceController.vidaMaxTexto, _actualHealth);
+        if (gameObject.CompareTag("Player"))
+            SingletoneGameController.InterfaceController.ActualizarStatsUI(SingletoneGameController.InterfaceController.vidaMaxTexto, _actualHealth);
     }
 
     public void Heal(float healh)
     {
         _actualHealth = Mathf.Clamp(_actualHealth + healh, 0, maxHealth);
-        SingletoneGameController.InterfaceController.ActualizarStatsUI(SingletoneGameController.InterfaceController.vidaMaxTexto, _actualHealth);
+        if (gameObject.CompareTag("Player"))
+            SingletoneGameController.InterfaceController.ActualizarStatsUI(SingletoneGameController.InterfaceController.vidaMaxTexto, _actualHealth);
     }
 
     
