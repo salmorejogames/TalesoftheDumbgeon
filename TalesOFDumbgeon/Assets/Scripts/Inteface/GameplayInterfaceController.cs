@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
+
 
 namespace Inteface
 {
@@ -31,6 +33,11 @@ namespace Inteface
         public Sprite caraNormal;
         public Sprite caraPreocupada;
         public Sprite caraNoFeliz;
+
+        public TMP_Text vidaMaxTexto;
+        public TMP_Text ataqueTexto;
+        public TMP_Text defensaTexto;
+        public TMP_Text velocidadTexto;
 
         // Start is called before the first frame update
         void Start()
@@ -185,6 +192,11 @@ namespace Inteface
         public void SpriteArmaInicial(Sprite nuevoSprite)
         {
             contArma.sprite = nuevoSprite;
+        }
+
+        public void ActualizarStatsUI(TMP_Text textoUI, float stat)
+        {
+            textoUI.SetText(stat.ToString());
         }
     }
 }
