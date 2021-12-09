@@ -42,6 +42,7 @@ public class EnemigoBanana : BaseEnemy, IDeadable
     private bool attaking = false;
     private float tiempoParado = 0f;
     private float startTiempoParado = 1f;
+    private float attackTime;
 
     public enum tipoEnemigo { Abuesqueleto, Cerebro, Duonde, Palloto, Banana, Pelusa };
     public tipoEnemigo especie;
@@ -65,7 +66,7 @@ public class EnemigoBanana : BaseEnemy, IDeadable
         rb.velocity = Vector2.zero;
         attackDelay = 4;
         velocidad = stats.speed;
-
+        attackTime = 3f;
     }
 
     // Update is called once per frame
@@ -234,18 +235,22 @@ public class EnemigoBanana : BaseEnemy, IDeadable
         }
     }
 
-    private void OnTriggerStay2D(Collider2D collision)
+    private void OnCollisionStay2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Bala"))
+        if (collision.gameObject.CompareTag("Player"))
         {
-            Debug.Log(collision.gameObject);
-
-        }
-        else if (collision.gameObject.CompareTag("Player"))
-        {
-            nextPos = transform.position;
-            rb.velocity = Vector2.zero;
-            collision.gameObject.GetComponent<CharacterStats>().DoDamage(stats.strength, this.transform.position, stats.element);
+            if (attackTime <= 0)
+            {
+                nextPos = transform.position;
+                rb.velocity = Vector2.zero;
+                collision.gameObject.GetComponent<CharacterStats>().DoDamage(stats.strength, this.transform.position, stats.element);
+                attackTime = 3f;
+            }
+            else
+            {
+                Debug.Log(attackTime);
+                attackTime -= Time.deltaTime;
+            }
         }
     }
 

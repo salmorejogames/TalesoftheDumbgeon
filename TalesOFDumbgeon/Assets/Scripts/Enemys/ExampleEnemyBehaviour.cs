@@ -22,6 +22,7 @@ public class ExampleEnemyBehaviour : BaseEnemy, IDeadable, IMovil
     private bool stopped = false;
     private bool hit = false;
     private float hitTime = 0.5f;
+    private float attackTime;
 
     private void Update()
     {
@@ -78,10 +79,12 @@ public class ExampleEnemyBehaviour : BaseEnemy, IDeadable, IMovil
         agent.updateRotation = false;
         stoppedTime = 4f;
         stoppedDelay = 4f;
+        attackTime = 3f;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        
         if (collision.gameObject.CompareTag("Bala"))
         {
             Debug.Log(collision.gameObject);
@@ -89,18 +92,24 @@ public class ExampleEnemyBehaviour : BaseEnemy, IDeadable, IMovil
         else if (collision.gameObject.CompareTag("Player"))
         {
             collision.gameObject.GetComponent<CharacterStats>().DoDamage(stats.strength, this.transform.position, stats.element);
+            attackTime = 3f;
         }
     }
 
-    private void OnTriggerStay2D(Collider2D collision)
+    private void OnCollisionStay2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Bala"))
+        if (collision.gameObject.CompareTag("Player"))
         {
-            Debug.Log(collision.gameObject);
-        }
-        else if (collision.gameObject.CompareTag("Player"))
-        {
-            collision.gameObject.GetComponent<CharacterStats>().DoDamage(stats.strength, this.transform.position, stats.element);
+            if (attackTime <= 0)
+            {
+                collision.gameObject.GetComponent<CharacterStats>().DoDamage(stats.strength, this.transform.position, stats.element);
+                attackTime = 3f;
+            }
+            else
+            {
+                Debug.Log(attackTime);
+                attackTime -= Time.deltaTime;
+            }
         }
     }
 

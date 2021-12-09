@@ -27,7 +27,7 @@ public class CameraMovement : MonoBehaviour
     {
         if (players.Count == 0)
             return;
-        Debug.Log("[1] Late updateeee");
+        //Debug.Log("[1] Late updateeee");
         Move();
         //Zoom();
         limitsAplication();
@@ -39,7 +39,7 @@ public class CameraMovement : MonoBehaviour
     {
         Vector3 newPos = getCenterPoint() + offset;
         transform.position = Vector3.SmoothDamp(transform.position, newPos, ref velocity, smoothTime);
-        Debug.Log("[2] PASO POR MOVE");
+        //Debug.Log("[2] PASO POR MOVE");
     }
 
     private void Zoom()
@@ -75,7 +75,7 @@ public class CameraMovement : MonoBehaviour
 
     private void limitsAplication()
     {
-        Debug.Log(transform.position);
+        //Debug.Log(transform.position);
         if (transform.position.x <= limits[0]) //Left
         {
             transform.position = new Vector3(limits[0],transform.position.y, transform.position.z);
