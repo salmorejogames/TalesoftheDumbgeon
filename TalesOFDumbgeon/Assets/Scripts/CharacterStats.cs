@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using Interfaces;
 using UnityEngine;
-using UnityEngine.UI;
 using TMPro;
 
 public class CharacterStats : MonoBehaviour
@@ -24,11 +23,6 @@ public class CharacterStats : MonoBehaviour
     private bool _alive;
     private float _actualHealth;
 
-    public TMP_Text vidaMaxTexto;
-    public TMP_Text ataqueTexto;
-    public TMP_Text defensaTexto;
-    public TMP_Text velocidadTexto;
-
     void Start()
     {
         _actions = gameObject.GetComponent<IDeadable>();
@@ -36,27 +30,27 @@ public class CharacterStats : MonoBehaviour
         _alive = true;
         _actualHealth = maxHealth;
 
-        vidaMaxTexto.SetText(_actualHealth.ToString());
-        ataqueTexto.SetText(strength.ToString());
-        defensaTexto.SetText(armor.ToString());
-        velocidadTexto.SetText(speed.ToString());
+        SingletoneGameController.InterfaceController.ActualizarStatsUI(SingletoneGameController.InterfaceController.vidaMaxTexto, maxHealth);
+        SingletoneGameController.InterfaceController.ActualizarStatsUI(SingletoneGameController.InterfaceController.ataqueTexto, strength);
+        SingletoneGameController.InterfaceController.ActualizarStatsUI(SingletoneGameController.InterfaceController.defensaTexto, armor);
+        SingletoneGameController.InterfaceController.ActualizarStatsUI(SingletoneGameController.InterfaceController.velocidadTexto, speed);
     }
 
     public float GetSpeedValue()
     {
         if (speed <= 0.25f)
         {
-            velocidadTexto.SetText(speed.ToString());
+            SingletoneGameController.InterfaceController.ActualizarStatsUI(SingletoneGameController.InterfaceController.velocidadTexto, speed);
             return 0.5f;
         }
 
-        velocidadTexto.SetText(speed.ToString());
+        SingletoneGameController.InterfaceController.ActualizarStatsUI(SingletoneGameController.InterfaceController.velocidadTexto, speed);
         return (float) Math.Sqrt(speed);
     }
 
     public float GetActualHealth()
     {
-        vidaMaxTexto.SetText(_actualHealth.ToString());
+        SingletoneGameController.InterfaceController.ActualizarStatsUI(SingletoneGameController.InterfaceController.vidaMaxTexto, _actualHealth);
         return _actualHealth;
     }
 
@@ -88,13 +82,13 @@ public class CharacterStats : MonoBehaviour
             _actions.Dead();
         }
 
-        vidaMaxTexto.SetText(_actualHealth.ToString());
+        SingletoneGameController.InterfaceController.ActualizarStatsUI(SingletoneGameController.InterfaceController.vidaMaxTexto, _actualHealth);
     }
 
     public void Heal(float healh)
     {
         _actualHealth = Mathf.Clamp(_actualHealth + healh, 0, maxHealth);
-        vidaMaxTexto.SetText(_actualHealth.ToString());
+        SingletoneGameController.InterfaceController.ActualizarStatsUI(SingletoneGameController.InterfaceController.vidaMaxTexto, _actualHealth);
     }
 
     
@@ -106,5 +100,10 @@ public class CharacterStats : MonoBehaviour
     public void Immobilize(float time)
     {
         _movement.DisableMovement(time);
+    }
+
+    public void CambiarTextoStats(TMP_Text textoUI, float stat)
+    {
+        textoUI.SetText(stat.ToString());
     }
 }
