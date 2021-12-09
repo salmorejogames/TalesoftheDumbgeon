@@ -11,6 +11,10 @@ public class DialogueManager : MonoBehaviour {
 	public TextMeshProUGUI dialogueText;
 
 	public Animator animator;
+	public IsometricMove player;
+	public Weapon weapon;
+	public GameObject cards;
+	public GameObject habilidadesButtons;
 
 	private Queue<string> names;
 	private Queue<string> sentences;
@@ -39,6 +43,11 @@ public class DialogueManager : MonoBehaviour {
 		clicks = -1;
 
 		DialogueTrigger.running = true;
+		player.DisableInputController();
+		weapon.SetOnDialogue(true);
+		cards.SetActive(false);
+		habilidadesButtons.SetActive(false);
+		
 
 		animator.SetBool("IsOpen", true);
 
@@ -148,6 +157,10 @@ public class DialogueManager : MonoBehaviour {
 		dialogueText.text = "";
 		animator.SetBool("IsOpen", false);
 		DialogueTrigger.running = false;
+		player.EnableInputController();
+		weapon.SetOnDialogue(false);
+		cards.SetActive(true);
+		habilidadesButtons.SetActive(true);
 	}
 
 }
