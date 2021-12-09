@@ -651,6 +651,30 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 3953147539745567089, guid: 3a9afe470fc87a14889f9b0eb94b4289, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 3a9afe470fc87a14889f9b0eb94b4289, type: 3}
+--- !u!114 &36201858 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8594361203118243010, guid: 3a9afe470fc87a14889f9b0eb94b4289,
+    type: 3}
+  m_PrefabInstance: {fileID: 36201857}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 874e63734376e5a4c8d21743cae91650, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &36201859 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3251779786003171712, guid: 3a9afe470fc87a14889f9b0eb94b4289,
+    type: 3}
+  m_PrefabInstance: {fileID: 36201857}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a5beb185fd95974f9ac35d41c942729, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &136558225 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 687464165537589875, guid: f7d8b04a9a3d676408435273389cf36e,
@@ -2213,6 +2237,58 @@ PrefabInstance:
         type: 3}
       propertyPath: m_PreserveAspect
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6345761012996200879, guid: f7d8b04a9a3d676408435273389cf36e,
+        type: 3}
+      propertyPath: cards
+      value: 
+      objectReference: {fileID: 1660504320}
+    - target: {fileID: 6345761012996200879, guid: f7d8b04a9a3d676408435273389cf36e,
+        type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 36201859}
+    - target: {fileID: 6345761012996200879, guid: f7d8b04a9a3d676408435273389cf36e,
+        type: 3}
+      propertyPath: weapon
+      value: 
+      objectReference: {fileID: 36201858}
+    - target: {fileID: 6345761012996200879, guid: f7d8b04a9a3d676408435273389cf36e,
+        type: 3}
+      propertyPath: habilidadesButtons
+      value: 
+      objectReference: {fileID: 1339952251}
+    - target: {fileID: 6345761013606032132, guid: f7d8b04a9a3d676408435273389cf36e,
+        type: 3}
+      propertyPath: m_fontSize
+      value: 36
+      objectReference: {fileID: 0}
+    - target: {fileID: 6345761013606032132, guid: f7d8b04a9a3d676408435273389cf36e,
+        type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee,
+        type: 2}
+    - target: {fileID: 6345761013606032132, guid: f7d8b04a9a3d676408435273389cf36e,
+        type: 3}
+      propertyPath: m_fontSizeBase
+      value: 36
+      objectReference: {fileID: 0}
+    - target: {fileID: 6345761014204607151, guid: f7d8b04a9a3d676408435273389cf36e,
+        type: 3}
+      propertyPath: m_fontSize
+      value: 36
+      objectReference: {fileID: 0}
+    - target: {fileID: 6345761014204607151, guid: f7d8b04a9a3d676408435273389cf36e,
+        type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee,
+        type: 2}
+    - target: {fileID: 6345761014204607151, guid: f7d8b04a9a3d676408435273389cf36e,
+        type: 3}
+      propertyPath: m_fontSizeBase
+      value: 36
       objectReference: {fileID: 0}
     - target: {fileID: 6580898175270560607, guid: f7d8b04a9a3d676408435273389cf36e,
         type: 3}
