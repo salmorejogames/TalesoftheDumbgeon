@@ -48,10 +48,29 @@ public class CharacterStats : MonoBehaviour
         return (float) Math.Sqrt(speed);
     }
 
+    
+
     public float GetActualHealth()
     {
         SingletoneGameController.InterfaceController.ActualizarStatsUI(SingletoneGameController.InterfaceController.vidaMaxTexto, maxHealth);
         return _actualHealth;
+    }
+    public void SetSpeedValue(float speed)
+    {
+        this.speed += speed;
+    }
+    public void SetArmor(float armor)
+    {
+        this.armor += armor;
+    }
+    public void SetStrength(float strength)
+    {
+        this.strength += strength;
+    }
+
+    public void SetMaxHealth(float maxHealth)
+    {
+        this.maxHealth += maxHealth;
     }
 
     public bool IsAlive()
