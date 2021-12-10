@@ -1466,6 +1466,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a5beb185fd95974f9ac35d41c942729, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &36201860 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1631064289040217682, guid: 3a9afe470fc87a14889f9b0eb94b4289,
+    type: 3}
+  m_PrefabInstance: {fileID: 36201857}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a075fd68c3364544b064db073fdb295, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &136558225 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 687464165537589875, guid: f7d8b04a9a3d676408435273389cf36e,
@@ -3114,6 +3126,11 @@ PrefabInstance:
       propertyPath: weapon
       value: 
       objectReference: {fileID: 36201858}
+    - target: {fileID: 6345761012996200879, guid: f7d8b04a9a3d676408435273389cf36e,
+        type: 3}
+      propertyPath: playerAnimator
+      value: 
+      objectReference: {fileID: 36201860}
     - target: {fileID: 6345761012996200879, guid: f7d8b04a9a3d676408435273389cf36e,
         type: 3}
       propertyPath: habilidadesButtons
