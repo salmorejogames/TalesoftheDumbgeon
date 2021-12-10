@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using UnityEngine.Rendering;
+
+using UnityEngine.Rendering.Universal;
 
 public class PauseMenuController : MonoBehaviour
 {
@@ -23,11 +26,22 @@ public class PauseMenuController : MonoBehaviour
     [SerializeField] private Button salirBoton;
     [SerializeField] private Button volverAjustesBoton;
 
+    public Volume volume;
+    private Vignette vignette;
+    private DepthOfField depthOfField;
+
     private void Awake()
     {
         iuInput = new InterfaceControls();
         iuInput.Menupausa.Pausa.performed += ctx => ActivarMenuPausa();
     }
+    private void Start()
+    {
+        //greyscalePostP.profile.TryGetSettings(out colorGrading);
+        volume.profile.TryGet(out vignette);
+        volume.profile.TryGet(out depthOfField);
+    }
+
 
     private void OnEnable()
     {
@@ -44,6 +58,11 @@ public class PauseMenuController : MonoBehaviour
         if (SingletoneGameController.PlayerActions.dead)
             return;
         Time.timeScale = 0f;
+
+        //vignette.intensity.value = .5f;
+        depthOfField.mode.value = DepthOfFieldMode.Gaussian;
+        StartCoroutine(VignettePausa());
+
         menuPausa.SetActive(true);
 
         HacerNoInteractuable(ajustesBoton);
@@ -86,8 +105,8 @@ public class PauseMenuController : MonoBehaviour
         LeanTween.moveLocalY(titulo, 520, .25f).setIgnoreTimeScale(true);
 
         StartCoroutine(EsperarVolver());
-
-        Time.timeScale = 1f;
+        StartCoroutine(VignetteReanudar());
+        depthOfField.mode.value = DepthOfFieldMode.Off;
     }
 
     public void Ajustes()
@@ -179,13 +198,14 @@ public class PauseMenuController : MonoBehaviour
         HacerNoInteractuable(volverAjustesBoton);
 
         Time.timeScale = 1f;
-        SceneManager.LoadScene("IsometricScene");
+        SceneManager.LoadScene("MenuPrincipal");
     }
 
     IEnumerator EsperarVolver()
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSecondsRealtime(1f);
         menuPausa.SetActive(false);
+        Time.timeScale = 1f;
     }
 
     IEnumerator MenuPausaInteractuable(float segundos)
@@ -212,5 +232,29 @@ public class PauseMenuController : MonoBehaviour
     public void HacerNoInteractuable(Button button)
     {
         button.interactable = false;
+    }
+
+    IEnumerator VignettePausa()
+    {
+        while (vignette.intensity.value < .55f && depthOfField.gaussianMaxRadius.value < 1.5f)
+        {
+            depthOfField.gaussianMaxRadius.value += .005f;
+            vignette.intensity.value += .005f;
+            yield return null;
+        }
+
+        yield return new WaitForSecondsRealtime(1f);
+    }
+
+    IEnumerator VignetteReanudar()
+    {
+        while (vignette.intensity.value > 0f && depthOfField.gaussianMaxRadius.value > .5f)
+        {
+            depthOfField.gaussianMaxRadius.value -= .005f;
+            vignette.intensity.value -= .005f;
+            yield return null;
+        }
+
+        yield return new WaitForSecondsRealtime(1f);
     }
 }
