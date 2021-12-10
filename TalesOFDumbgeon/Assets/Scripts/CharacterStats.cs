@@ -15,8 +15,7 @@ public class CharacterStats : MonoBehaviour
     public float armor;
     public float strength;
     public float speed;
-    public Elements.Element element;
-    
+    public Elements.Element element;    
 
     private IDeadable _actions;
     private IMovil _movement;
@@ -40,37 +39,40 @@ public class CharacterStats : MonoBehaviour
     {
         if (speed <= 0.25f)
         {
-            SingletoneGameController.InterfaceController.ActualizarStatsUI(SingletoneGameController.InterfaceController.velocidadTexto, speed);
             return 0.5f;
         }
 
-        SingletoneGameController.InterfaceController.ActualizarStatsUI(SingletoneGameController.InterfaceController.velocidadTexto, speed);
         return (float) Math.Sqrt(speed);
-    }
-
-    
+    }    
 
     public float GetActualHealth()
-    {
+    {        
         SingletoneGameController.InterfaceController.ActualizarStatsUI(SingletoneGameController.InterfaceController.vidaMaxTexto, maxHealth);
         return _actualHealth;
     }
+
     public void SetSpeedValue(float speed)
     {
         this.speed += speed;
+        SingletoneGameController.InterfaceController.ActualizarStatsUI(SingletoneGameController.InterfaceController.velocidadTexto, this.speed);
     }
+
     public void SetArmor(float armor)
     {
         this.armor += armor;
+        SingletoneGameController.InterfaceController.ActualizarStatsUI(SingletoneGameController.InterfaceController.defensaTexto, this.armor);
     }
+
     public void SetStrength(float strength)
     {
         this.strength += strength;
+        SingletoneGameController.InterfaceController.ActualizarStatsUI(SingletoneGameController.InterfaceController.ataqueTexto, this.strength);
     }
 
     public void SetMaxHealth(float maxHealth)
     {
         this.maxHealth += maxHealth;
+        SingletoneGameController.InterfaceController.ActualizarStatsUI(SingletoneGameController.InterfaceController.vidaMaxTexto, this.maxHealth);
     }
 
     public bool IsAlive()
@@ -93,6 +95,7 @@ public class CharacterStats : MonoBehaviour
 
     public void ReduceMaxHealth(float cantidad)
     {
+        SingletoneGameController.InterfaceController.ActualizarStatsUI(SingletoneGameController.InterfaceController.vidaMaxTexto, this.maxHealth);
         maxHealth -= cantidad;
         _actualHealth -= Mathf.Clamp(cantidad, 0, maxHealth);
         if (_actualHealth <= 0)
@@ -105,9 +108,9 @@ public class CharacterStats : MonoBehaviour
 
     public void Heal(float healh)
     {
+        SingletoneGameController.InterfaceController.ActualizarStatsUI(SingletoneGameController.InterfaceController.vidaMaxTexto, this.maxHealth);
         _actualHealth = Mathf.Clamp(_actualHealth + healh, 0, maxHealth);
     }
-
     
     public void Unequip(int pos)
     {
