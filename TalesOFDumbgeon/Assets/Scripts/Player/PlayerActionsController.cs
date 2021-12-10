@@ -41,6 +41,7 @@ public class PlayerActionsController : MonoBehaviour, IDeadable
     [SerializeField] private AudioSource musicaGameOver;
     [SerializeField] private AudioSource musicaGameplay;
 
+
     private void Awake()
     {
         _distance = Vector3.Distance(weapon.transform.position, gameObject.transform.position);
@@ -164,6 +165,7 @@ public class PlayerActionsController : MonoBehaviour, IDeadable
     {
         SingletoneGameController.PlayerActions.dead = true;
         PlayerPrefsCardSerializer.SaveData(weapon.weaponInfo);
+        PlayerPrefs.SetInt("Deaths", PlayerPrefs.GetInt("Deaths", 0)+1);
         Greyscale();
         DesactivarMenuGameplay();
         musicaGameplay.Stop();
