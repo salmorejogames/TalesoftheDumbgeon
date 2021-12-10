@@ -17,6 +17,7 @@ namespace Inteface
         [SerializeField] private RectTransform lifeBar;
         private List<Vector3> _originalPos;
         private List<Vector3> _hiddenPos;
+        private CharacterStats _player;
 
         public Image contArma;
         public Image contArmadura1;
@@ -53,17 +54,17 @@ namespace Inteface
                 _hiddenPos.Add(new Vector3(original.x + (banner.sizeDelta.x * hiddenPercent * modX), original.y, original.z));
             }
             MostrarUI(false);
+            _player = SingletoneGameController.PlayerActions.player.Stats;
         }
 
-        public void UpdateLife(float amount, float actualHealth, float maxHealth)
+        public void UpdateLife()
         {
-            vidaTresCuartos = maxHealth * .75f;
-            vidaMitad = maxHealth * .5f;
-            vidaUnCuarto = maxHealth * .25f;
-
-            amount = Mathf.Clamp01(amount);
-            StartCoroutine(nameof(UpdateHealthBar), amount);
-            CambiarSpriteVida(actualHealth, maxHealth);        
+            vidaTresCuartos = _player.maxHealth * .75f;
+            vidaMitad = _player.maxHealth * .5f;
+            vidaUnCuarto = _player.maxHealth * .25f;
+            
+            StartCoroutine(nameof(UpdateHealthBar));
+            CambiarSpriteVida(_player.GetActualHealth(), _player.maxHealth);        
         }
 
         public void CambiarSpriteVida(float vida, float vidaMaxima)
@@ -86,9 +87,10 @@ namespace Inteface
             }
         }
 
-        IEnumerator UpdateHealthBar(float amount)
+        IEnumerator UpdateHealthBar()
         {
-            float distance = amount - lifeBar.localScale.x;
+            float segment = _player.GetActualHealth()/_player.maxHealth;
+            float distance = segment-lifeBar.localScale.x;
             float timeElapsed = 0f;
             while (timeElapsed <= animationTime)
             {
@@ -100,7 +102,7 @@ namespace Inteface
                 timeElapsed += Time.deltaTime;
                 yield return new WaitForEndOfFrame();
             }
-            lifeBar.localScale = new Vector3(amount, 1, 1);
+            lifeBar.localScale = new Vector3(segment, 1, 1);
             yield return null;
         }
 

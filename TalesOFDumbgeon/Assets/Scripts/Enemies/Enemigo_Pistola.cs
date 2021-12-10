@@ -83,7 +83,6 @@ public class Enemigo_Pistola : BaseEnemy, IDeadable, IMovil
         if (!SingletoneGameController.PlayerActions.dead)
         {
             distanciaPlayer = Vector2.Distance(transform.position, personaje.transform.position);
-            Debug.Log("Distancia al jugador: " + distanciaPlayer);
             direccion = personaje.transform.position - transform.position;
             rotacion = Mathf.Atan2(direccion.x, direccion.y) * Mathf.Rad2Deg;
             direccion.Normalize();
@@ -92,7 +91,6 @@ public class Enemigo_Pistola : BaseEnemy, IDeadable, IMovil
 
             DecisionEstado();
             //tiempoParado = startTiempoParado;
-            Debug.Log("Entramos en la logica");
 
             /*tiempoParado -= Time.deltaTime;
             Debug.Log("Restamos tiempo transcurrido");

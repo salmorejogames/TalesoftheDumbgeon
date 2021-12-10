@@ -54,6 +54,7 @@ public class BlessCard : BaseCard
     public override void CastEffect()
     {
         Blessing.Activate();
+        SingletoneGameController.InterfaceController.UpdateLife();
     }
     
 }
