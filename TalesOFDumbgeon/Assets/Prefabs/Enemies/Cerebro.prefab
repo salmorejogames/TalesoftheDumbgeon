@@ -421,7 +421,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 3
-  m_Sprite: {fileID: -3078078531213514469, guid: 62c1073d16b85d640b384189e2267249,
+  m_Sprite: {fileID: 3333738215780435693, guid: 62c1073d16b85d640b384189e2267249,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -446,10 +446,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_RootBone: {fileID: 6572546566666048875}
-  m_BoneTransforms: []
+  m_BoneTransforms:
+  - {fileID: 6572546566666048875}
   m_Bounds:
-    m_Center: {x: -0.0004969239, y: 0.000729084, z: 0}
-    m_Extent: {x: 0.8057751, y: 0.59713995, z: 0}
+    m_Center: {x: -0.0006967783, y: 0.0011892915, z: 0}
+    m_Extent: {x: 0.8064951, y: 0.59743047, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
 --- !u!1 &4408164107733653120
@@ -619,7 +620,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: -1189785301394295002, guid: 62c1073d16b85d640b384189e2267249,
+  m_Sprite: {fileID: 9046772098452841942, guid: 62c1073d16b85d640b384189e2267249,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -703,7 +704,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: -4920734515273826875, guid: 62c1073d16b85d640b384189e2267249,
+  m_Sprite: {fileID: -4777787656485506061, guid: 62c1073d16b85d640b384189e2267249,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -728,10 +729,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_RootBone: {fileID: 6572546566666048875}
-  m_BoneTransforms: []
+  m_BoneTransforms:
+  - {fileID: 6572546566666048875}
   m_Bounds:
-    m_Center: {x: 0, y: 0.0018738508, z: 0}
-    m_Extent: {x: 2.315, y: 1.8680447, z: 0}
+    m_Center: {x: 0, y: 0.00037395954, z: 0}
+    m_Extent: {x: 2.315, y: 1.8665149, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
 --- !u!1 &7852175834298807358
@@ -806,7 +808,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 4
-  m_Sprite: {fileID: 4350289251126228645, guid: 62c1073d16b85d640b384189e2267249,
+  m_Sprite: {fileID: -5362467611046517600, guid: 62c1073d16b85d640b384189e2267249,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -831,9 +833,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_RootBone: {fileID: 2658185554183291841}
-  m_BoneTransforms: []
+  m_BoneTransforms:
+  - {fileID: 2658185554183291841}
   m_Bounds:
-    m_Center: {x: 0.0072999, y: -0.0018348694, z: 0}
-    m_Extent: {x: 3.3527007, y: 4.948166, z: 0}
+    m_Center: {x: 0.0035903454, y: -0.006849766, z: 0}
+    m_Extent: {x: 3.351551, y: 4.943151, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
