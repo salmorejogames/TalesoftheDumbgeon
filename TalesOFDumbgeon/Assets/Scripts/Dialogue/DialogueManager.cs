@@ -13,6 +13,7 @@ public class DialogueManager : MonoBehaviour {
 	public Animator animator;
 	public IsometricMove player;
 	public Weapon weapon;
+	public PlayerAnimationController playerAnimator;
 	public GameObject cards;
 	public GameObject habilidadesButtons;
 
@@ -45,6 +46,7 @@ public class DialogueManager : MonoBehaviour {
 		DialogueTrigger.running = true;
 		player.DisableInputController();
 		weapon.SetOnDialogue(true);
+		playerAnimator.SetOnDialogue(true);
 		cards.SetActive(false);
 		habilidadesButtons.SetActive(false);
 		
@@ -159,6 +161,7 @@ public class DialogueManager : MonoBehaviour {
 		DialogueTrigger.running = false;
 		player.EnableInputController();
 		weapon.SetOnDialogue(false);
+		playerAnimator.SetOnDialogue(false);
 		cards.SetActive(true);
 		habilidadesButtons.SetActive(true);
 	}

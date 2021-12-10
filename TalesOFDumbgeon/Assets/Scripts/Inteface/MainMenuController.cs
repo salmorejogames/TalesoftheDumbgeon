@@ -40,6 +40,7 @@ public class MainMenuController : MonoBehaviour
 
     private void Start()
     {
+        PlayerPrefs.SetInt("Deaths", 0);
         HacerNoInteractuable(jugarBoton);
         HacerNoInteractuable(ajustesBoton);
         HacerNoInteractuable(creditosBoton);

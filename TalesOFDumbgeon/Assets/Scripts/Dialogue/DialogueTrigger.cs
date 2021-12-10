@@ -36,7 +36,7 @@ public class DialogueTrigger : MonoBehaviour {
         path[8] = basePath + language + character + "/QuintoEncuentro.txt";
         path[9] = basePath + language + character + "/SextoEncuentro.txt";
         path[10] = basePath + language + character + "/SeptimoEncuentro.txt";
-        path[11] = basePath + language + character + "/OctavoEncuentro.txt";
+        path[11] = basePath + language + character + "/NovenoOctavoEncuentro.txt";
         //Cursor.SetCursor(cursorNone, Vector2.zero, CursorMode.ForceSoftware);
         /*
         dialogue = new Dialogue();
