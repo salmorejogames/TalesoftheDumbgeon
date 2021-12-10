@@ -2008,6 +2008,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 91990743254138296, guid: f7d8b04a9a3d676408435273389cf36e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 102553865508495458, guid: f7d8b04a9a3d676408435273389cf36e,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -2017,6 +2022,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: Volver
+      objectReference: {fileID: 0}
+    - target: {fileID: 426707693352769370, guid: f7d8b04a9a3d676408435273389cf36e,
+        type: 3}
+      propertyPath: m_PreserveAspect
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 562512516631357479, guid: f7d8b04a9a3d676408435273389cf36e,
         type: 3}
@@ -2592,7 +2602,7 @@ PrefabInstance:
     - target: {fileID: 1317272302297466757, guid: f7d8b04a9a3d676408435273389cf36e,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1652681409861373093, guid: f7d8b04a9a3d676408435273389cf36e,
         type: 3}
@@ -2874,6 +2884,17 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 280
       objectReference: {fileID: 0}
+    - target: {fileID: 4535144792259701516, guid: f7d8b04a9a3d676408435273389cf36e,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: ae34b5fde7ede61468fb2a1a618c21d3,
+        type: 3}
+    - target: {fileID: 4535144792259701516, guid: f7d8b04a9a3d676408435273389cf36e,
+        type: 3}
+      propertyPath: m_PreserveAspect
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4553493351823257300, guid: f7d8b04a9a3d676408435273389cf36e,
         type: 3}
       propertyPath: m_SizeDelta.x
@@ -3028,6 +3049,11 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: f7fe83555718cba4e99c9d56fd497f25,
         type: 3}
     - target: {fileID: 6136151781136832913, guid: f7d8b04a9a3d676408435273389cf36e,
+        type: 3}
+      propertyPath: m_PreserveAspect
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6254428968508082404, guid: f7d8b04a9a3d676408435273389cf36e,
         type: 3}
       propertyPath: m_PreserveAspect
       value: 1
@@ -3257,6 +3283,11 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7610025088355004550, guid: f7d8b04a9a3d676408435273389cf36e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8272370926788220041, guid: f7d8b04a9a3d676408435273389cf36e,
         type: 3}
       propertyPath: m_SizeDelta.x
@@ -3373,6 +3404,11 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9042570111637256506, guid: f7d8b04a9a3d676408435273389cf36e,
+        type: 3}
+      propertyPath: m_PreserveAspect
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9089382886012974094, guid: f7d8b04a9a3d676408435273389cf36e,
         type: 3}
       propertyPath: m_PreserveAspect
       value: 1

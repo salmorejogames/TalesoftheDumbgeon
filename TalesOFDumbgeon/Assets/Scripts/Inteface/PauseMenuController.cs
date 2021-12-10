@@ -179,7 +179,7 @@ public class PauseMenuController : MonoBehaviour
         HacerNoInteractuable(volverAjustesBoton);
 
         Time.timeScale = 1f;
-        SceneManager.LoadScene("IsometricScene");
+        SceneManager.LoadScene("MenuPrincipal");
     }
 
     IEnumerator EsperarVolver()
