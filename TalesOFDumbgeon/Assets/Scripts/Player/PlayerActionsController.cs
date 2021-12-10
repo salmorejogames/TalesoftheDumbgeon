@@ -28,7 +28,6 @@ public class PlayerActionsController : MonoBehaviour, IDeadable
     private SpriteRenderer _spriteRenderer;
     private Rigidbody2D _rb;
 
-    [SerializeField] private PostProcessVolume greyscalePostP;
     [SerializeField] private Camera mainCamera;
     [SerializeField] private PlayerAnimationController _playerAnimationController;
     private ColorGrading colorGrading;
@@ -66,7 +65,7 @@ public class PlayerActionsController : MonoBehaviour, IDeadable
 
     private void Start()
     {
-        greyscalePostP.profile.TryGetSettings(out colorGrading);
+        //greyscalePostP.profile.TryGetSettings(out colorGrading);
     }
 
     // Update is called once per frame
