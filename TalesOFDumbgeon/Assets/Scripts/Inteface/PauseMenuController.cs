@@ -236,7 +236,7 @@ public class PauseMenuController : MonoBehaviour
 
     IEnumerator VignettePausa()
     {
-        while (vignette.intensity.value < .55f && depthOfField.gaussianMaxRadius.value < 1.5f)
+        while (vignette.intensity.value < .60f && depthOfField.gaussianMaxRadius.value < 1.5f)
         {
             depthOfField.gaussianMaxRadius.value += .005f;
             vignette.intensity.value += .005f;

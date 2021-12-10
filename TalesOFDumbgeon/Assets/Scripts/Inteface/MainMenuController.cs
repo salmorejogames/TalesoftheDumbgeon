@@ -82,7 +82,7 @@ public class MainMenuController : MonoBehaviour
         LeanTween.moveLocalY(botonGuia, -550, .25f);
 
         LeanTween.moveLocalY(titulo, 0, .5f).setDelay(1);
-        LeanTween.rotateZ(titulo, -90, .5f).setDelay(1);
+        LeanTween.rotateZ(titulo, 0, .5f).setDelay(1);
         LeanTween.scaleX(titulo, 1.5f, .5f).setDelay(1).setEaseInCubic();
         LeanTween.scaleY(titulo, 1.5f, .5f).setDelay(1).setEaseInCubic();
 
@@ -240,11 +240,7 @@ public class MainMenuController : MonoBehaviour
         LeanTween.moveLocalY(botonCreditos, -550, .25f);
         LeanTween.moveLocalY(botonGuia, -550, .25f);
         LeanTween.moveLocalY(titulo, 550, .25f);
-        /*
-        LeanTween.moveLocalX(botonAjustes, 0, 1f).setEaseOutCubic();
-        LeanTween.moveLocalY(botonAjustes, 225, 1f).setEaseOutCubic();
-        LeanTween.rotateZ(botonAjustes, 10, .5f).setEaseOutCubic();
-        */
+
         LeanTween.moveLocalY(volumen, 80, 1f).setEaseOutCubic().setDelay(.5f);
         LeanTween.moveLocalY(botonVolver, -200, 1f).setEaseOutCubic().setDelay(.75f);
     }
