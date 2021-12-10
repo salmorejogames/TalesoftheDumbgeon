@@ -105,7 +105,7 @@ public class Enemigo_Pelusa : BaseEnemy, IDeadable
         {
             nextPos = transform.position;
         }
-        Debug.Log("decision CLock: " + decisionClock);
+        //Debug.Log("decision CLock: " + decisionClock);
     }
 
     private void OnDrawGizmosSelected()

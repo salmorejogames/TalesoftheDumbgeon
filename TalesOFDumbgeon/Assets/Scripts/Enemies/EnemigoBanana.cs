@@ -82,7 +82,7 @@ public class EnemigoBanana : BaseEnemy, IDeadable
 
             DecisionEstado();
             tiempoParado = startTiempoParado;
-            Debug.Log("Entramos en la logica");
+            //Debug.Log("Entramos en la logica");
         }
         else
         {
@@ -126,7 +126,7 @@ public class EnemigoBanana : BaseEnemy, IDeadable
         else if (distanciaPlayer <= stopDistance)
             estadoActual = Estado.Attacking;
 
-        Debug.Log(estadoActual);
+        //Debug.Log(estadoActual);
 
         if (decisionClock > decisionTime || distanciaPlayer < vision && personaje != null)
         {

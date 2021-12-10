@@ -117,7 +117,7 @@ public class Enemigo_Pistola : BaseEnemy, IDeadable, IMovil
         else if (distanciaPlayer <= stopDistance)
             estadoActual = Estado.Attacking;
 
-        Debug.Log(estadoActual);
+        //Debug.Log(estadoActual);
 
         if (decisionClock > decisionTime || distanciaPlayer < vision && personaje != null)
         {            
