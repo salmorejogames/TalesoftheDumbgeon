@@ -50,7 +50,7 @@ public class CharacterStats : MonoBehaviour
 
     public float GetActualHealth()
     {
-        SingletoneGameController.InterfaceController.ActualizarStatsUI(SingletoneGameController.InterfaceController.vidaMaxTexto, _actualHealth);
+        SingletoneGameController.InterfaceController.ActualizarStatsUI(SingletoneGameController.InterfaceController.vidaMaxTexto, maxHealth);
         return _actualHealth;
     }
 
@@ -82,13 +82,11 @@ public class CharacterStats : MonoBehaviour
             _actions.Dead();
         }
 
-        SingletoneGameController.InterfaceController.ActualizarStatsUI(SingletoneGameController.InterfaceController.vidaMaxTexto, _actualHealth);
     }
 
     public void Heal(float healh)
     {
         _actualHealth = Mathf.Clamp(_actualHealth + healh, 0, maxHealth);
-        SingletoneGameController.InterfaceController.ActualizarStatsUI(SingletoneGameController.InterfaceController.vidaMaxTexto, _actualHealth);
     }
 
     
