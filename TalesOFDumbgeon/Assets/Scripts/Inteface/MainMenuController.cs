@@ -234,7 +234,7 @@ public class MainMenuController : MonoBehaviour
         HacerNoInteractuable(ajustesBoton);
         HacerNoInteractuable(volverBoton);
 
-        StartCoroutine(MenuAjustesInteractuable(1.5f));
+        StartCoroutine(MenuAjustesInteractuable(1.85f));
 
         LeanTween.moveLocalY(botonJugar, -550, .25f);
         LeanTween.moveLocalY(botonAjustes, -550, .25f);

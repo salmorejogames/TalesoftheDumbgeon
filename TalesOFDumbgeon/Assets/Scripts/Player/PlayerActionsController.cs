@@ -35,6 +35,7 @@ public class PlayerActionsController : MonoBehaviour, IDeadable
     [SerializeField] private GameObject titulo;
     [SerializeField] private GameObject botonReintentar;
     [SerializeField] private GameObject botonSalir;
+    [SerializeField] private GameObject stats;
 
     [SerializeField] private AudioSource musicaGameOver;
     [SerializeField] private AudioSource musicaGameplay;
@@ -174,7 +175,8 @@ public class PlayerActionsController : MonoBehaviour, IDeadable
     {
         SingletoneGameController.PlayerActions.dead = true;
         PlayerPrefsCardSerializer.SaveData(weapon.weaponInfo);
-        StartCoroutine(GreyscaleGameOver());
+        //StartCoroutine(GreyscaleGameOver());
+        colorAdjustments.saturation.value = -100f;
         PlayerPrefs.SetInt("Deaths", PlayerPrefs.GetInt("Deaths", 0)+1);
         DesactivarMenuGameplay();
         musicaGameplay.Stop();
@@ -247,6 +249,7 @@ public class PlayerActionsController : MonoBehaviour, IDeadable
         habilidades.SetActive(false);
         cartas.SetActive(false);
         gameObject.SetActive(false);
+        stats.SetActive(false);
     }
 
     IEnumerator GreyscaleGameOver()
