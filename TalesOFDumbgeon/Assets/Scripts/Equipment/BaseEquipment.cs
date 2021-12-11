@@ -55,7 +55,7 @@ public class BaseEquipment
         Stats.SetArmor(-Armor);
         Stats.SetSpeedValue(-Speed);
         Stats.SetStrength(-Strength);
-        Stats.SetMaxHealth(Health);
+        //Stats.SetMaxHealth(Health);
         Stats.ReduceMaxHealth(Health);
         if (Type == EquipmentType.Body)
             Stats.element = Elements.Element.Caos;

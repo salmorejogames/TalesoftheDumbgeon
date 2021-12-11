@@ -69,6 +69,15 @@ public class Pelusa_Peque : BaseEnemy, IDeadable
         }
     }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            Destroy(gameObject);
+            collision.gameObject.GetComponent<CharacterStats>().DoDamage(5, this.transform.position, Elements.Element.Caos);
+        }
+    }
+
     public void Dead()
     {
         Destroy(gameObject);
