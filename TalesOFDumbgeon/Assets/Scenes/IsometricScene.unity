@@ -272,7 +272,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 18478274}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.9314653, y: -0.6751029, z: -0.6380137}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -464,6 +464,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2201182334707991289, guid: 3a9afe470fc87a14889f9b0eb94b4289,
+        type: 3}
+      propertyPath: m_BodyType
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2268728673714312264, guid: 3a9afe470fc87a14889f9b0eb94b4289,
         type: 3}
       propertyPath: m_Sprite
@@ -491,6 +496,11 @@ PrefabInstance:
       propertyPath: weaponController
       value: 
       objectReference: {fileID: 1661190082}
+    - target: {fileID: 2671527377455447469, guid: 3a9afe470fc87a14889f9b0eb94b4289,
+        type: 3}
+      propertyPath: m_BodyType
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2803310119634594842, guid: 3a9afe470fc87a14889f9b0eb94b4289,
         type: 3}
       propertyPath: m_Size.y
@@ -992,6 +1002,11 @@ PrefabInstance:
       propertyPath: m_WasSpriteAssigned
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5035257644509181283, guid: 3a9afe470fc87a14889f9b0eb94b4289,
+        type: 3}
+      propertyPath: m_BodyType
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5384418881621965634, guid: 3a9afe470fc87a14889f9b0eb94b4289,
         type: 3}
       propertyPath: m_Size.x
@@ -1027,6 +1042,11 @@ PrefabInstance:
     - target: {fileID: 5389161935074274332, guid: 3a9afe470fc87a14889f9b0eb94b4289,
         type: 3}
       propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5436927761302623171, guid: 3a9afe470fc87a14889f9b0eb94b4289,
+        type: 3}
+      propertyPath: m_BodyType
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5678761898760778659, guid: 3a9afe470fc87a14889f9b0eb94b4289,
@@ -1249,6 +1269,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_WasSpriteAssigned
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7686510818167286699, guid: 3a9afe470fc87a14889f9b0eb94b4289,
+        type: 3}
+      propertyPath: m_BodyType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7701864338981015134, guid: 3a9afe470fc87a14889f9b0eb94b4289,
+        type: 3}
+      propertyPath: m_Constraints
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7707594323690427151, guid: 3a9afe470fc87a14889f9b0eb94b4289,
         type: 3}
@@ -2052,6 +2082,16 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: Volver
       objectReference: {fileID: 0}
+    - target: {fileID: 230749388245068371, guid: f7d8b04a9a3d676408435273389cf36e,
+        type: 3}
+      propertyPath: players.Array.data[0]
+      value: 
+      objectReference: {fileID: 785119330}
+    - target: {fileID: 230749388245068371, guid: f7d8b04a9a3d676408435273389cf36e,
+        type: 3}
+      propertyPath: players.Array.data[1]
+      value: 
+      objectReference: {fileID: 18478277}
     - target: {fileID: 426707693352769370, guid: f7d8b04a9a3d676408435273389cf36e,
         type: 3}
       propertyPath: m_PreserveAspect
@@ -2354,7 +2394,7 @@ PrefabInstance:
         type: 3}
       propertyPath: volumeTrigger
       value: 
-      objectReference: {fileID: 1522614518}
+      objectReference: {fileID: 0}
     - target: {fileID: 1224128817984665522, guid: f7d8b04a9a3d676408435273389cf36e,
         type: 3}
       propertyPath: m_ShowCustomSorter
