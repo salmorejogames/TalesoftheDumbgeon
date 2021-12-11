@@ -167,7 +167,6 @@ MonoBehaviour:
   SonidoBendicion: {fileID: 8300000, guid: 76bdcc8585a27b84b97157dcfdf3b5c2, type: 3}
   SonidoMaldicion: {fileID: 8300000, guid: 94d27447a81bb6e4bbe1e4f910928856, type: 3}
   Stadtnarr_hurt: {fileID: 8300000, guid: 31baa5c479a95ec41b1159dd83df5996, type: 3}
-  Jojomamalo_Fight: {fileID: 8300000, guid: 6a0cced81803f7046b34c7ca3d88a6b7, type: 3}
 --- !u!82 &18478276
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1657,6 +1656,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &608641082 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7962344289547134463, guid: f7d8b04a9a3d676408435273389cf36e,
+    type: 3}
+  m_PrefabInstance: {fileID: 1224128818406787809}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &608641084
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 608641082}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 50f65e9b1297e964cbb427dad53ad254, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 2
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!4 &785119330 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4711098443936322421, guid: 3a9afe470fc87a14889f9b0eb94b4289,
@@ -2122,6 +2146,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: Volver
+      objectReference: {fileID: 0}
+    - target: {fileID: 146411984178577955, guid: f7d8b04a9a3d676408435273389cf36e,
+        type: 3}
+      propertyPath: m_PreserveAspect
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 230749388245068371, guid: f7d8b04a9a3d676408435273389cf36e,
         type: 3}
@@ -2844,7 +2873,7 @@ PrefabInstance:
     - target: {fileID: 1559429234454303484, guid: f7d8b04a9a3d676408435273389cf36e,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1652681409861373093, guid: f7d8b04a9a3d676408435273389cf36e,
         type: 3}
@@ -3425,6 +3454,11 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.x
       value: 37.5
       objectReference: {fileID: 0}
+    - target: {fileID: 5850143532071951773, guid: f7d8b04a9a3d676408435273389cf36e,
+        type: 3}
+      propertyPath: m_PreserveAspect
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5877057019480331845, guid: f7d8b04a9a3d676408435273389cf36e,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -3460,6 +3494,71 @@ PrefabInstance:
     - target: {fileID: 6202377210418419355, guid: f7d8b04a9a3d676408435273389cf36e,
         type: 3}
       propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6202377210798069354, guid: f7d8b04a9a3d676408435273389cf36e,
+        type: 3}
+      propertyPath: m_Pivot.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6202377210798069354, guid: f7d8b04a9a3d676408435273389cf36e,
+        type: 3}
+      propertyPath: m_Pivot.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6202377210798069354, guid: f7d8b04a9a3d676408435273389cf36e,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6202377210798069354, guid: f7d8b04a9a3d676408435273389cf36e,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6202377210798069354, guid: f7d8b04a9a3d676408435273389cf36e,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6202377210798069354, guid: f7d8b04a9a3d676408435273389cf36e,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6202377210798069354, guid: f7d8b04a9a3d676408435273389cf36e,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6202377210798069354, guid: f7d8b04a9a3d676408435273389cf36e,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6202377210798069354, guid: f7d8b04a9a3d676408435273389cf36e,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6202377210798069354, guid: f7d8b04a9a3d676408435273389cf36e,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6202377210798069354, guid: f7d8b04a9a3d676408435273389cf36e,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6202377211110686020, guid: f7d8b04a9a3d676408435273389cf36e,
+        type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6202377211110686021, guid: f7d8b04a9a3d676408435273389cf36e,
+        type: 3}
+      propertyPath: m_RenderMode
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6254428968508082404, guid: f7d8b04a9a3d676408435273389cf36e,
@@ -3585,6 +3684,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_PlayOnAwake
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6548532247455367584, guid: f7d8b04a9a3d676408435273389cf36e,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6548532247455367584, guid: f7d8b04a9a3d676408435273389cf36e,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6580898175270560607, guid: f7d8b04a9a3d676408435273389cf36e,
         type: 3}
