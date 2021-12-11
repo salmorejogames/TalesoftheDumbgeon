@@ -56,6 +56,11 @@ public class CharacterStats : MonoBehaviour
     {
         this.speed += speed;
         if (gameObject.CompareTag("Player"))
+            if(speed < 0)
+            {
+                SingletoneGameController.InterfaceController.ActualizarStatsUI(SingletoneGameController.InterfaceController.velocidadTexto, 0);
+            }
+
             SingletoneGameController.InterfaceController.ActualizarStatsUI(SingletoneGameController.InterfaceController.velocidadTexto, this.speed);
     }
 
@@ -63,21 +68,36 @@ public class CharacterStats : MonoBehaviour
     {
         this.armor += armor;
         if (gameObject.CompareTag("Player"))
-            SingletoneGameController.InterfaceController.ActualizarStatsUI(SingletoneGameController.InterfaceController.defensaTexto, this.armor);
+            if (armor < 0)
+            {
+                SingletoneGameController.InterfaceController.ActualizarStatsUI(SingletoneGameController.InterfaceController.defensaTexto, 0);
+            }
+
+        SingletoneGameController.InterfaceController.ActualizarStatsUI(SingletoneGameController.InterfaceController.defensaTexto, this.armor);
     }
 
     public void SetStrength(float strength)
     {
         this.strength += strength;
         if (gameObject.CompareTag("Player"))
-            SingletoneGameController.InterfaceController.ActualizarStatsUI(SingletoneGameController.InterfaceController.ataqueTexto, this.strength);
+            if (strength < 0)
+            {
+                SingletoneGameController.InterfaceController.ActualizarStatsUI(SingletoneGameController.InterfaceController.ataqueTexto, 0);
+            }
+
+        SingletoneGameController.InterfaceController.ActualizarStatsUI(SingletoneGameController.InterfaceController.ataqueTexto, this.strength);
     }
 
     public void SetMaxHealth(float maxHealth)
     {
         this.maxHealth += maxHealth;
         if (gameObject.CompareTag("Player"))
-            SingletoneGameController.InterfaceController.ActualizarStatsUI(SingletoneGameController.InterfaceController.vidaMaxTexto, this.maxHealth);
+            if (maxHealth < 0)
+            {
+                SingletoneGameController.InterfaceController.ActualizarStatsUI(SingletoneGameController.InterfaceController.vidaMaxTexto, 0);
+            }
+
+        SingletoneGameController.InterfaceController.ActualizarStatsUI(SingletoneGameController.InterfaceController.vidaMaxTexto, this.maxHealth);
     }
 
     public bool IsAlive()
