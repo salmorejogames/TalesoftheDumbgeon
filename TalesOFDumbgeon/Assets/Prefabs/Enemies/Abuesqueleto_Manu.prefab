@@ -175,6 +175,7 @@ MonoBehaviour:
   agent: {fileID: 1634661290755254708}
   DmgPrefab: {fileID: 7413456247700845425, guid: d04ec14520fae5f44b0e829368e66535,
     type: 3}
+  bastonazoTime: 4
   animator: {fileID: 2348855581620213006}
   weapon: {fileID: 1011795614555574066}
 --- !u!195 &1634661290755254708
@@ -414,7 +415,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parent: {fileID: 1011795614555574066}
   attackType: 5
-  fixedAnimationTime: 1.16
+  fixedAnimationTime: 1.25
   percentStartDmg: 0.9
   percentStopDmgg: 1
 --- !u!58 &8592276058816334950
@@ -561,7 +562,7 @@ GameObject:
   - component: {fileID: 1011795614555574066}
   m_Layer: 0
   m_Name: Baston
-  m_TagString: Untagged
+  m_TagString: AreaWeapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

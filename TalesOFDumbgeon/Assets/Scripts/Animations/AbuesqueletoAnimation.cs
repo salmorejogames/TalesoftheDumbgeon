@@ -22,10 +22,11 @@ public class AbuesqueletoAnimation : MonoBehaviour
 
     private void Start()
     {
-        _moving = false;
+        _moving = true;
         _current = south;
         _current.gameObject.SetActive(true);
         _direction = BodyParts.Direction.South;
+        _current.SetBool(Walk, _moving);
     }
 
     public void SetMoving(bool moving)
