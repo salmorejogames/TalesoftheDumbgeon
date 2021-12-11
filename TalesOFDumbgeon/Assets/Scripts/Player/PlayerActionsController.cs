@@ -173,10 +173,10 @@ public class PlayerActionsController : MonoBehaviour, IDeadable
 
     public void Dead()
     {
+        colorAdjustments.saturation.value = -100f;
         SingletoneGameController.PlayerActions.dead = true;
         PlayerPrefsCardSerializer.SaveData(weapon.weaponInfo);
         //StartCoroutine(GreyscaleGameOver());
-        colorAdjustments.saturation.value = -100f;
         PlayerPrefs.SetInt("Deaths", PlayerPrefs.GetInt("Deaths", 0)+1);
         DesactivarMenuGameplay();
         musicaGameplay.Stop();
