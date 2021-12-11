@@ -41,20 +41,14 @@ public class CharacterStats : MonoBehaviour
     {
         if (speed <= 0.5f)
         {
-            if (gameObject.CompareTag("Player"))
-                SingletoneGameController.InterfaceController.ActualizarStatsUI(SingletoneGameController.InterfaceController.velocidadTexto, speed);
             return 0.75f;
         }
 
-        if (gameObject.CompareTag("Player"))
-            SingletoneGameController.InterfaceController.ActualizarStatsUI(SingletoneGameController.InterfaceController.velocidadTexto, speed);
         return (float) Math.Sqrt(speed);
     }    
 
     public float GetActualHealth()
     {
-        if (gameObject.CompareTag("Player"))
-            SingletoneGameController.InterfaceController.ActualizarStatsUI(SingletoneGameController.InterfaceController.vidaMaxTexto, maxHealth);
         return _actualHealth;
     }
 

@@ -167,7 +167,6 @@ public class PlayerActionsController : MonoBehaviour, IDeadable
         PlayerPrefsCardSerializer.SaveData(weapon.weaponInfo);
         StartCoroutine(GreyscaleGameOver());
         PlayerPrefs.SetInt("Deaths", PlayerPrefs.GetInt("Deaths", 0)+1);
-        Greyscale();
         DesactivarMenuGameplay();
         musicaGameplay.Stop();
         menuGameOver.SetActive(true);
