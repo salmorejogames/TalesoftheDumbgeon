@@ -103,8 +103,8 @@ public class PauseMenuController : MonoBehaviour
 
         LeanTween.moveLocalY(titulo, 520, .25f).setIgnoreTimeScale(true);
 
-        StartCoroutine(EsperarVolver());
         StartCoroutine(VignetteReanudar());
+        StartCoroutine(EsperarVolver());
         depthOfField.mode.value = DepthOfFieldMode.Off;
     }
 
@@ -206,7 +206,6 @@ public class PauseMenuController : MonoBehaviour
 
     IEnumerator MenuPausaInteractuable(float segundos)
     {
-        Debug.Log("XD");
         yield return new WaitForSecondsRealtime(segundos);
 
         HacerInteractuable(volverBoton);
@@ -234,8 +233,8 @@ public class PauseMenuController : MonoBehaviour
     {
         while (vignette.intensity.value < .60f && depthOfField.gaussianMaxRadius.value < 1.5f)
         {
+            vignette.intensity.value += .05f;
             depthOfField.gaussianMaxRadius.value += .005f;
-            vignette.intensity.value += .005f;
             yield return null;
         }
 
@@ -244,9 +243,9 @@ public class PauseMenuController : MonoBehaviour
 
     IEnumerator VignetteReanudar()
     {
-        while (vignette.intensity.value > 0f && depthOfField.gaussianMaxRadius.value > .5f)
+        while (vignette.intensity.value > 0f || depthOfField.gaussianMaxRadius.value > .5f)
         {
-            depthOfField.gaussianMaxRadius.value -= .005f;
+            depthOfField.gaussianMaxRadius.value -= .05f;
             vignette.intensity.value -= .005f;
             yield return null;
         }
