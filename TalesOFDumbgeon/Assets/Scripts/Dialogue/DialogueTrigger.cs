@@ -9,10 +9,10 @@ public class DialogueTrigger : MonoBehaviour {
 	private Dialogue dialogue;
 	public static bool running = false;
     public bool click = false;
-    private string basePath = "Assets/DialogueFiles";
-    public string language = "/ENG";
-    public string character = "/Adan";
-    private string[] path = new string[12];// = "Assets/Dialogues/Spanish.txt";
+    private string basePath = "DialogueFiles";
+    public string language = "/ESP";
+    public string character = "/ElCuervillo";
+    private TextAsset[] path = new TextAsset[12];// = "Assets/Dialogues/Spanish.txt";
     public int linea = 0;
     private int faceAux;
     /*
@@ -25,18 +25,18 @@ public class DialogueTrigger : MonoBehaviour {
 
     public void Start()
     {
-        path[0] = basePath + language + character + "/Intro.txt";
-        path[1] = basePath + language + character + "/SegundoEncuentro.txt";
-        path[2] = basePath + language + character + "/TercerEncuentroAbuesqueleto.txt";
-        path[3] = basePath + language + character + "/TercerEncuentroBanana.txt";
-        path[4] = basePath + language + character + "/TercerEncuentroPelusa.txt";
-        path[5] = basePath + language + character + "/TercerEncuentroCerebro.txt";
-        path[6] = basePath + language + character + "/CuartoEncuentroPrimera.txt";
-        path[7] = basePath + language + character + "/CuartoEncuentroSegunda.txt";
-        path[8] = basePath + language + character + "/QuintoEncuentro.txt";
-        path[9] = basePath + language + character + "/SextoEncuentro.txt";
-        path[10] = basePath + language + character + "/SeptimoEncuentro.txt";
-        path[11] = basePath + language + character + "/NovenoOctavoEncuentro.txt";
+        path[0] = Resources.Load(basePath + language + character + "/Intro") as TextAsset;
+        path[1] = Resources.Load(basePath + language + character + "/SegundoEncuentro") as TextAsset;
+        path[2] = Resources.Load(basePath + language + character + "/TercerEncuentroAbuesqueleto") as TextAsset;
+        path[3] = Resources.Load(basePath + language + character + "/TercerEncuentroBanana") as TextAsset;
+        path[4] = Resources.Load(basePath + language + character + "/TercerEncuentroPelusa") as TextAsset;
+        path[5] = Resources.Load(basePath + language + character + "/TercerEncuentroCerebro") as TextAsset;
+        path[6] = Resources.Load(basePath + language + character + "/CuartoEncuentroPrimera") as TextAsset;
+        path[7] = Resources.Load(basePath + language + character + "/CuartoEncuentroSegunda") as TextAsset;
+        path[8] = Resources.Load(basePath + language + character + "/QuintoEncuentro") as TextAsset;
+        path[9] = Resources.Load(basePath + language + character + "/SextoEncuentro") as TextAsset;
+        path[10] = Resources.Load(basePath + language + character + "/SeptimoEncuentro") as TextAsset;
+        path[11] = Resources.Load(basePath + language + character + "/NovenoOctavoEncuentro") as TextAsset;
         //Cursor.SetCursor(cursorNone, Vector2.zero, CursorMode.ForceSoftware);
         /*
         dialogue = new Dialogue();
@@ -58,12 +58,18 @@ public class DialogueTrigger : MonoBehaviour {
         //Resources.Load
         //Addressables.LoadAsset<GameObject>("AssetAddress");
         //Addressables.LoadAsset<TextAsset>(path[0]);
-        StreamReader reader = new StreamReader(path[dialoguePath]);
-        linea = Int32.Parse(reader.ReadLine());
-        Debug.Log(linea);
-        for(int i = 0; i<linea; i++)
+        /*
+         * var listToReturn = new List<string>();
+        var arrayString = ta.text.Split('\n');
+        foreach (var line in arrayString)
         {
-            aux = reader.ReadLine();
+            listToReturn.Add(line);
+        }
+         */
+        string[] arrayString = path[dialoguePath].text.Split('\n');
+        for(int i = 0; i<arrayString.Length; i++)
+        {
+            aux = arrayString[i];
             auxAux = aux.Split('|');
             dialogue.name.Add(auxAux[0]);
             dialogue.sentences.Add(auxAux[1]);
@@ -73,13 +79,13 @@ public class DialogueTrigger : MonoBehaviour {
             Debug.Log(faceAux);
             dialogue.face.Add(faceAux);*/
         }
-        reader.Close();
+        //reader.Close();
         //TriggerDialogue();
     }
 
     public void TriggerDialogue()
 	{
-        if(running ==false)        //if((PauseMenu.gameIsPaused == false) && (running ==false))
+        if (running ==false)        //if((PauseMenu.gameIsPaused == false) && (running ==false))
         {
             //Cursor.SetCursor(cursorInteracted, Vector2.zero, CursorMode.ForceSoftware);
             FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
@@ -93,18 +99,16 @@ public class DialogueTrigger : MonoBehaviour {
         string[] auxAux;
         dialogue = new Dialogue();
         dialoguePath = newDialoguePath;
-        StreamReader reader = new StreamReader(path[dialoguePath]);
-        linea = Int32.Parse(reader.ReadLine());
-        Debug.Log(linea);
-        for (int i = 0; i < linea; i++)
+        string[] arrayString = path[dialoguePath].text.Split('\n');
+        for (int i = 0; i < arrayString.Length; i++)
         {
-            aux = reader.ReadLine();
+            aux = arrayString[i];
             auxAux = aux.Split('|');
             dialogue.name.Add(auxAux[0]);
             dialogue.sentences.Add(auxAux[1]);
             dialogue.face.Add(auxAux[2]);
         }
-        reader.Close();
+        //reader.Close();
     }
 	private void OnMouseDown()
 	{
