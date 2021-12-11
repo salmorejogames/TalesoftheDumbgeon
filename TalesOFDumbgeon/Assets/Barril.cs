@@ -6,7 +6,7 @@ public class Barril : MonoBehaviour
 {
     public GameObject carta;
     public Sprite barrilRoto;
-    public float chance;
+    private float chance = 0.78f;
     private bool closed;
     
 
