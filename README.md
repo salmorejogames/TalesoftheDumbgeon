@@ -571,9 +571,9 @@ En este apartado se presentarán todos los personajes relevantes de la trama del
 -   **El Cuervillo**:
 	-   Descripción: “Calderero, Hojalatero. Afilador. Zahorí. Armadura de corcho. Tabaco. Pañuelos de seda traídos del *Pueblo Boñiga*. Papel de culo. Dulces y gominolas. Fino encaje y suaves plumas. ¡Vengan, señoras! ¡Vengan, muchachas! *El Cuervillo* solo se quedará un día en esta zona. ¡No esperen a que anochezca! Todo lo que necesites lo tiene *El Cuervillo*.”
  
-	Este sagaz e intrépido cuervo ha vagado durante años la mazmorra y se sabe todos sus huecos y entresijos como la palma de la mano. Posee una gran colección de objetos que vende por un precio razonable, aunque a veces se le ve el plumero.
+	Este sagaz e intrépido cuervo ha vagado durante años la mazmorra y se sabe todos sus huecos y entresijos como la palma de 	la mano. Posee una gran colección de objetos que vende por un precio razonable, aunque a veces se le ve el plumero.
 
-![image](https://user-images.githubusercontent.com/72553373/145685574-03dc7dc9-7417-4b9f-81eb-50ba64a4a6ac.png)
+		![image](https://user-images.githubusercontent.com/72553373/145685574-03dc7dc9-7417-4b9f-81eb-50ba64a4a6ac.png)
 
 		
 
