@@ -16,6 +16,7 @@ public class EnemigoBanana : BaseEnemy, IDeadable
     [SerializeField]
     private DamageNumber DmgPrefab;
 
+    [SerializeField] private BananaAnimator animator;
 
     public float velocidad;
     public float vision = 3;
@@ -88,11 +89,13 @@ public class EnemigoBanana : BaseEnemy, IDeadable
         {
             if (tiempoParado <= 0)
             {
+                animator.StartAttack();
                 if (dashTime <= 0)
                 {
                     attaking = false;
                     dashTime = startDashTime;
                     rb.velocity = Vector2.zero;
+                    animator.EndAttack();
                 }
                 else
                 {
@@ -205,6 +208,7 @@ public class EnemigoBanana : BaseEnemy, IDeadable
         {
             if(especie == tipoEnemigo.Banana)
             {
+                animator.PrepareAttack();
                 attaking = true;
                 canAtack = false;
             }

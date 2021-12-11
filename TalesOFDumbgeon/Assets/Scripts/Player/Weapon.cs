@@ -35,8 +35,6 @@ public class Weapon : MonoBehaviour
             weapon.Randomize(1);
             ChangeWeapon(weapon);
         }
-
-        
     }
 
     public void ChangeWeapon(BaseWeapon newWeapon)

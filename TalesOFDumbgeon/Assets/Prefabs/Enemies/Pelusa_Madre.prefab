@@ -167,6 +167,8 @@ MonoBehaviour:
   audio: {fileID: 7526915823765226898}
   difficulty: 2
   stats: {fileID: 0}
+  rangoVision: 0
+  miedo: 0
   DmgPrefab: {fileID: 7413456247700845425, guid: d04ec14520fae5f44b0e829368e66535,
     type: 3}
   velocidad: 5
@@ -287,6 +289,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6890831710628340847}
   - component: {fileID: 6890831710628340846}
+  - component: {fileID: 7137709193165470784}
   m_Layer: 0
   m_Name: Pelusa_Madre
   m_TagString: Untagged
@@ -359,3 +362,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &7137709193165470784
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6890831710628340832}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 6714ed02513b60749ae6347f74caaa2a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
