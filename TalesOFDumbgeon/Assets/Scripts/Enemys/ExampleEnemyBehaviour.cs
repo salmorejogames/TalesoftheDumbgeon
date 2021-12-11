@@ -25,6 +25,25 @@ public class ExampleEnemyBehaviour : BaseEnemy, IDeadable, IMovil
     private float attackTime;
     [SerializeField] private AbuesqueletoAnimation animator;
     [SerializeField] private Weapon weapon;
+    
+    private void Awake()
+    {
+        stats = gameObject.GetComponent<CharacterStats>();
+        _spr = gameObject.GetComponent<SpriteRenderer>();
+        _player = SingletoneGameController.PlayerActions.player;
+        rangoVision = 0f;
+        agent.updateUpAxis = false;
+        agent.speed = stats.GetSpeedValue();
+        agent.updateRotation = false;
+        stoppedTime = 4f;
+        stoppedDelay = 4f;
+        attackTime = 3f;
+        SmashingWeapon baston = new SmashingWeapon();
+        baston.SetWeaponHolder(weapon);
+        baston.Randomize(1);
+        weapon.ChangeWeapon(baston);
+        
+    }
     private void Update()
     {
         if (!SingletoneGameController.PlayerActions.dead)
@@ -69,26 +88,6 @@ public class ExampleEnemyBehaviour : BaseEnemy, IDeadable, IMovil
             }        
         }
     }
-
-    private void Awake()
-    {
-        stats = gameObject.GetComponent<CharacterStats>();
-        _spr = gameObject.GetComponent<SpriteRenderer>();
-        _player = SingletoneGameController.PlayerActions.player;
-        rangoVision = 0f;
-        agent.updateUpAxis = false;
-        agent.speed = stats.GetSpeedValue();
-        agent.updateRotation = false;
-        stoppedTime = 4f;
-        stoppedDelay = 4f;
-        attackTime = 3f;
-        SmashingWeapon baston = new SmashingWeapon();
-        baston.SetWeaponHolder(weapon);
-        baston.Randomize(1);
-        weapon.ChangeWeapon(baston);
-        
-    }
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
         

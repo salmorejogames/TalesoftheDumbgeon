@@ -23,7 +23,7 @@ public class Weapon : MonoBehaviour
     {
         SetOrientation(0);
         //_spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
-        if(holder.gameObject.CompareTag("Player"))
+        if(holder.gameObject.CompareTag("Player") || gameObject.CompareTag("AreaWeapon"))
             _actualDmgArea = damageAreas[(int) BaseWeapon.WeaponType.Area];
         if (weaponInfo == null)
         {
@@ -42,9 +42,10 @@ public class Weapon : MonoBehaviour
         newWeapon.SetWeaponHolder(this);
         weaponInfo = newWeapon;
         weaponInfo.Equip();
-        if (holder.gameObject.CompareTag("Player"))
+        if (holder.gameObject.CompareTag("Player") || gameObject.CompareTag("AreaWeapon"))
         {
-            _actualDmgArea.gameObject.SetActive(false);
+            if(_actualDmgArea!=null)
+                _actualDmgArea.gameObject.SetActive(false);
             _actualDmgArea = damageAreas[(int) weaponInfo.AttackType];
         }
 
@@ -86,7 +87,7 @@ public class Weapon : MonoBehaviour
         if (spellInfo != null && !onDialogue)
         {
             spellInfo.Cast();
-            if (holder.gameObject.CompareTag("Player"))
+            if (holder.gameObject.CompareTag("Player") || gameObject.CompareTag("AreaWeapon"))
             {
                 switch (spellInfo.Element)
                 {
@@ -119,7 +120,7 @@ public class Weapon : MonoBehaviour
         //_spriteRenderer.color = Color.yellow;
         //actualDmgArea.gameObject.SetActive(true);
         //Invoke(nameof(DesactivateCollider), time);
-        if (holder.gameObject.CompareTag("Player"))
+        if (holder.gameObject.CompareTag("Player") || gameObject.CompareTag("AreaWeapon") )
             StartCoroutine(nameof(AttackCoroutine));
     }
 
