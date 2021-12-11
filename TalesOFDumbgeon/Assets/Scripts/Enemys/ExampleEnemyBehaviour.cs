@@ -23,15 +23,15 @@ public class ExampleEnemyBehaviour : BaseEnemy, IDeadable, IMovil
     private bool hit = false;
     private float hitTime = 0.5f;
     private float attackTime;
-
+    [SerializeField] private AbuesqueletoAnimation animator;
+    [SerializeField] private Weapon weapon;
     private void Update()
     {
         if (!SingletoneGameController.PlayerActions.dead)
         {
             if (!stopped)
             {
-                if (_player == null)
-                    _player = SingletoneGameController.PlayerActions.player;
+                UpdateWeaponAngle();
                 distanciaPlayer = Vector2.Distance(transform.position, _player.transform.position);
                 //gameObject.transform.position = Vector3.MoveTowards(gameObject.transform.position, _player.transform.position, stats.GetSpeedValue()*Time.deltaTime);
                 if (!hit)
@@ -43,6 +43,7 @@ public class ExampleEnemyBehaviour : BaseEnemy, IDeadable, IMovil
                     else
                     {
                         agent.destination = gameObject.transform.position;
+                        animator.SetMoving(false);
                         stopped = true;
                     }
                 }
@@ -63,6 +64,7 @@ public class ExampleEnemyBehaviour : BaseEnemy, IDeadable, IMovil
                 if(stoppedTime >= stoppedDelay)
                 {
                     stopped = false;
+                    animator.SetMoving(true);
                 }
             }        
         }
@@ -80,6 +82,11 @@ public class ExampleEnemyBehaviour : BaseEnemy, IDeadable, IMovil
         stoppedTime = 4f;
         stoppedDelay = 4f;
         attackTime = 3f;
+        SmashingWeapon baston = new SmashingWeapon();
+        baston.SetWeaponHolder(weapon);
+        baston.Randomize(1);
+        weapon.ChangeWeapon(baston);
+        
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -87,7 +94,7 @@ public class ExampleEnemyBehaviour : BaseEnemy, IDeadable, IMovil
         
         if (collision.gameObject.CompareTag("Bala"))
         {
-            Debug.Log(collision.gameObject);
+            //Debug.Log(collision.gameObject);
         }
         else if (collision.gameObject.CompareTag("Player"))
         {
@@ -107,7 +114,7 @@ public class ExampleEnemyBehaviour : BaseEnemy, IDeadable, IMovil
             }
             else
             {
-                Debug.Log(attackTime);
+                //Debug.Log(attackTime);
                 attackTime -= Time.deltaTime;
             }
         }
@@ -132,8 +139,7 @@ public class ExampleEnemyBehaviour : BaseEnemy, IDeadable, IMovil
     public void Damage(Vector3 enemyPos, float cantidad, Elements.Element element)
     {
 
-        audio.Play();
-
+        Audio.Play();
         float multiplier = Elements.GetElementMultiplier(element, stats.element);
         DamageNumber dmgN = Instantiate(DmgPrefab, transform.position, Quaternion.identity);
         dmgN.Inicializar(cantidad, transform);       
@@ -169,5 +175,13 @@ public class ExampleEnemyBehaviour : BaseEnemy, IDeadable, IMovil
     public void DisableMovement(float time)
     {
         throw new NotImplementedException();
+    }
+    
+    public void UpdateWeaponAngle()
+    {
+        Vector3 dir = _player.transform.position - weapon.gameObject.transform.position;
+        float angle = Mathf.Atan2(dir.y,dir.x) * Mathf.Rad2Deg;
+        weapon.SetOrientation(angle);
+        animator.UpdateDirection(angle);
     }
 }

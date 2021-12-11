@@ -197,7 +197,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e774dff563453834b9b00c1451e34e13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audio: {fileID: -3381451126987028669}
+  Audio: {fileID: -3381451126987028669}
   difficulty: 3
   stats: {fileID: 9165684829455639661}
   rangoVision: 0
@@ -245,7 +245,8 @@ AudioSource:
   m_GameObject: {fileID: 9165684829455639662}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: 492e8545492378844a032e0cc29a7011,
+    type: 2}
   m_audioClip: {fileID: 8300000, guid: 8190dc3d9b8227144b1c27fe8c64c5f9, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1

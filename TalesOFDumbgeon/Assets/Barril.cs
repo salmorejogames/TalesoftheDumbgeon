@@ -29,6 +29,7 @@ public class Barril : MonoBehaviour
             }
             
             gameObject.GetComponent<SpriteRenderer>().sprite = barrilRoto;
+            gameObject.tag = null;
             closed = false;
         }
 

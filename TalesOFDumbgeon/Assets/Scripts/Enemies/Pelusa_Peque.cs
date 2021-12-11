@@ -9,7 +9,6 @@ public class Pelusa_Peque : BaseEnemy, IDeadable
 {
     //IDeadable 
     [SerializeField] private SpriteRenderer _spr;
-    private IsometricMove _player;
     private NavMeshAgent _navMeshAgent;
 
     [SerializeField]
@@ -17,18 +16,11 @@ public class Pelusa_Peque : BaseEnemy, IDeadable
 
     public float speed = 0.1f;
     public Transform player;
-    private GameObject padre;
-    private Enemigo_Pelusa padreStats;
-    private CharacterStats padreInfo;
-    private float dmg;
-    private Elements.Element elemento;
+
 
     Pelusa_Peque(Transform player, GameObject padre, CharacterStats padreInfo)
     {
         this.player = player;
-        this.padre = padre;
-        this.padreStats = padre.GetComponent<Enemigo_Pelusa>();
-        this.padreInfo = padreInfo;
     }
 
     private void Awake()
@@ -43,8 +35,6 @@ public class Pelusa_Peque : BaseEnemy, IDeadable
     void Start()
     {
         player = SingletoneGameController.PlayerActions.player.gameObject.transform;
-        dmg = 2f;
-        elemento = Elements.Element.Caos;
         //padreInfo = padre.GetComponent<CharacterStats>();
         //dmg = padreStats.damage;
         //elemento = padreInfo.element;

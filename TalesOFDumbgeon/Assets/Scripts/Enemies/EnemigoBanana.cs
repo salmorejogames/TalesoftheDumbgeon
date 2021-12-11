@@ -278,7 +278,7 @@ public class EnemigoBanana : BaseEnemy, IDeadable
 
     public void Damage(Vector3 enemyPos, float cantidad, Elements.Element element)
     {
-        audio.Play();
+        Audio.Play();
         float multiplier = Elements.GetElementMultiplier(element, stats.element);
         DamageNumber dmgN = Instantiate(DmgPrefab, transform.position, Quaternion.identity);
         dmgN.Inicializar(cantidad, transform);

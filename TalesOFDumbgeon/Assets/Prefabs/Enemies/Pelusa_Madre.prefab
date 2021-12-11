@@ -164,16 +164,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdf4ef12545494845882955a67bb2d5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audio: {fileID: 7526915823765226898}
+  Audio: {fileID: 7526915823765226898}
   difficulty: 2
   stats: {fileID: 0}
   rangoVision: 0
   miedo: 0
   DmgPrefab: {fileID: 7413456247700845425, guid: d04ec14520fae5f44b0e829368e66535,
     type: 3}
-  velocidad: 5
-  armadura: 3
-  damage: 1
   vision: 3
   maxDistance: 1
   stopDistance: 0.5
@@ -182,7 +179,6 @@ MonoBehaviour:
   personaje: {fileID: 0}
   Bala: {fileID: 4852668842496861162, guid: c4b1e16d03221ac49bc3e435ff04fd33, type: 3}
   zonaAtaque: {fileID: 6890831710628340832}
-  especie: 5
 --- !u!82 &7526915823765226898
 AudioSource:
   m_ObjectHideFlags: 0
@@ -192,7 +188,8 @@ AudioSource:
   m_GameObject: {fileID: 6890831708604781750}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: 492e8545492378844a032e0cc29a7011,
+    type: 2}
   m_audioClip: {fileID: 8300000, guid: 8190dc3d9b8227144b1c27fe8c64c5f9, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
