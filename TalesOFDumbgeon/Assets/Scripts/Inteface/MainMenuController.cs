@@ -45,7 +45,7 @@ public class MainMenuController : MonoBehaviour
         HacerNoInteractuable(ajustesBoton);
         HacerNoInteractuable(creditosBoton);
         HacerNoInteractuable(guiaBoton);
-        StartCoroutine(MenuPrincipalInteractuable(3.25f));
+        StartCoroutine(MenuPrincipalInteractuable(1.9f));
     }
 
     public void Jugar()
@@ -83,7 +83,7 @@ public class MainMenuController : MonoBehaviour
         LeanTween.moveLocalY(botonGuia, -550, .25f);
 
         LeanTween.moveLocalY(titulo, 0, .5f).setDelay(1);
-        LeanTween.rotateZ(titulo, -90, .5f).setDelay(1);
+        LeanTween.rotateZ(titulo, 0, .5f).setDelay(1);
         LeanTween.scaleX(titulo, 1.5f, .5f).setDelay(1).setEaseInCubic();
         LeanTween.scaleY(titulo, 1.5f, .5f).setDelay(1).setEaseInCubic();
 
@@ -162,7 +162,7 @@ public class MainMenuController : MonoBehaviour
 
                 AnimacionMenuPrincipal();
 
-                StartCoroutine(MenuPrincipalInteractuable(2.25f));
+                StartCoroutine(MenuPrincipalInteractuable(1.9f));
 
                 break;
         }
@@ -208,23 +208,23 @@ public class MainMenuController : MonoBehaviour
 
     public void AnimacionMenuPrincipal()
     {
-        LeanTween.moveLocalY(titulo, 190, 1.5f).setEaseOutCubic();
+        LeanTween.moveLocalY(titulo, 190, 1f).setEaseOutCubic();
         LeanTween.rotateZ(titulo, 5, 1f).setEaseOutCubic();
 
-        LeanTween.moveLocalX(botonJugar, -13, 1.5f).setEaseOutCubic().setDelay(.5f);
-        LeanTween.moveLocalY(botonJugar, -120, 1.5f).setEaseOutCubic().setDelay(.5f);
-        LeanTween.rotateZ(botonJugar, -5, 1f).setEaseOutCubic().setDelay(.5f);
+        LeanTween.moveLocalX(botonJugar, -13, 1f).setEaseOutCubic().setDelay(.75f);
+        LeanTween.moveLocalY(botonJugar, -120, 1f).setEaseOutCubic().setDelay(.75f);
+        LeanTween.rotateZ(botonJugar, -5, .8f).setEaseOutCubic().setDelay(.75f);
 
-        LeanTween.moveLocalX(botonAjustes, -420, 1.5f).setEaseOutCubic().setDelay(.5f);
-        LeanTween.moveLocalY(botonAjustes, -180, 1.5f).setEaseOutCubic().setDelay(.5f);
-        LeanTween.rotateZ(botonAjustes, 15, 1f).setEaseOutCubic().setDelay(.5f);
+        LeanTween.moveLocalX(botonAjustes, -420, 1f).setEaseOutCubic().setDelay(.75f);
+        LeanTween.moveLocalY(botonAjustes, -180, 1f).setEaseOutCubic().setDelay(.75f);
+        LeanTween.rotateZ(botonAjustes, 15, .8f).setEaseOutCubic().setDelay(.75f);
 
-        LeanTween.moveLocalX(botonCreditos, 385, 1.5f).setEaseOutCubic().setDelay(.5f);
-        LeanTween.moveLocalY(botonCreditos, -160, 1.5f).setEaseOutCubic().setDelay(.5f);
-        LeanTween.rotateZ(botonCreditos, 5, 1f).setEaseOutCubic().setDelay(.5f);
+        LeanTween.moveLocalX(botonCreditos, 385, 1f).setEaseOutCubic().setDelay(.75f);
+        LeanTween.moveLocalY(botonCreditos, -160, 1f).setEaseOutCubic().setDelay(.75f);
+        LeanTween.rotateZ(botonCreditos, 5, .8f).setEaseOutCubic().setDelay(.75f);
 
-        LeanTween.moveLocalY(botonGuia, -320, 1.5f).setEaseOutCubic().setDelay(1f);
-        LeanTween.rotateZ(botonGuia, 1, 1f).setEaseOutCubic().setDelay(1f);
+        LeanTween.moveLocalY(botonGuia, -320, 1f).setEaseOutCubic().setDelay(1f);
+        LeanTween.rotateZ(botonGuia, 1, .8f).setEaseOutCubic().setDelay(1f);
     }
 
     public void Ajustes()
@@ -241,11 +241,7 @@ public class MainMenuController : MonoBehaviour
         LeanTween.moveLocalY(botonCreditos, -550, .25f);
         LeanTween.moveLocalY(botonGuia, -550, .25f);
         LeanTween.moveLocalY(titulo, 550, .25f);
-        /*
-        LeanTween.moveLocalX(botonAjustes, 0, 1f).setEaseOutCubic();
-        LeanTween.moveLocalY(botonAjustes, 225, 1f).setEaseOutCubic();
-        LeanTween.rotateZ(botonAjustes, 10, .5f).setEaseOutCubic();
-        */
+
         LeanTween.moveLocalY(volumen, 80, 1f).setEaseOutCubic().setDelay(.5f);
         LeanTween.moveLocalY(botonVolver, -200, 1f).setEaseOutCubic().setDelay(.75f);
     }
@@ -263,28 +259,28 @@ public class MainMenuController : MonoBehaviour
 
         //menuPrincipal.SetActive(true);
 
-        StartCoroutine(MenuPrincipalInteractuable(2.25f));
+        StartCoroutine(MenuPrincipalInteractuable(1.9f));
     }
 
     public void AnimacionVolver()
     {
-        LeanTween.moveLocalY(titulo, 190, 1.5f).setEaseOutCubic();
-        LeanTween.rotateZ(titulo, -85, 1f).setEaseOutCubic();
+        LeanTween.moveLocalY(titulo, 190, 1f).setEaseOutCubic();
+        LeanTween.rotateZ(titulo, 5, .8f).setEaseOutCubic();
 
-        LeanTween.moveLocalX(botonJugar, -13, 1.5f).setEaseOutCubic().setDelay(.5f);
-        LeanTween.moveLocalY(botonJugar, -120, 1.5f).setEaseOutCubic().setDelay(.5f);
-        LeanTween.rotateZ(botonJugar, -5, 1f).setEaseOutCubic().setDelay(.5f);
+        LeanTween.moveLocalX(botonJugar, -13, 1f).setEaseOutCubic().setDelay(.75f);
+        LeanTween.moveLocalY(botonJugar, -120, 1f).setEaseOutCubic().setDelay(.75f);
+        LeanTween.rotateZ(botonJugar, -5, .8f).setEaseOutCubic().setDelay(.75f);
 
-        LeanTween.moveLocalX(botonAjustes, -420, 1.5f).setEaseOutCubic().setDelay(.5f);
-        LeanTween.moveLocalY(botonAjustes, -180, 1.5f).setEaseOutCubic().setDelay(.5f);
-        LeanTween.rotateZ(botonAjustes, 15, 1f).setEaseOutCubic().setDelay(.5f);
+        LeanTween.moveLocalX(botonAjustes, -420, 1f).setEaseOutCubic().setDelay(.75f);
+        LeanTween.moveLocalY(botonAjustes, -180, 1f).setEaseOutCubic().setDelay(.75f);
+        LeanTween.rotateZ(botonAjustes, 15, .8f).setEaseOutCubic().setDelay(.75f);
 
-        LeanTween.moveLocalX(botonCreditos, 385, 1.5f).setEaseOutCubic().setDelay(.5f);
-        LeanTween.moveLocalY(botonCreditos, -160, 1.5f).setEaseOutCubic().setDelay(.5f);
-        LeanTween.rotateZ(botonCreditos, 5, 1f).setEaseOutCubic().setDelay(.5f);
+        LeanTween.moveLocalX(botonCreditos, 385, 1f).setEaseOutCubic().setDelay(.75f);
+        LeanTween.moveLocalY(botonCreditos, -160, 1f).setEaseOutCubic().setDelay(.75f);
+        LeanTween.rotateZ(botonCreditos, 5, .8f).setEaseOutCubic().setDelay(.75f);
 
-        LeanTween.moveLocalY(botonGuia, -320, 1.5f).setEaseOutCubic().setDelay(1f);
-        LeanTween.rotateZ(botonGuia, 1, 1f).setEaseOutCubic().setDelay(1f);
+        LeanTween.moveLocalY(botonGuia, -320, 1f).setEaseOutCubic().setDelay(1f);
+        LeanTween.rotateZ(botonGuia, 1, .8f).setEaseOutCubic().setDelay(1f);
 
         LeanTween.moveLocalY(volumen, -500, .25f);
         LeanTween.moveLocalY(botonVolver, -500, .25f);

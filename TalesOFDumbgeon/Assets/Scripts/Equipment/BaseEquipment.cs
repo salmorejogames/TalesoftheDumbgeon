@@ -40,11 +40,11 @@ public class BaseEquipment
         if(Stats.equipment[pos]!=null)
             Stats.equipment[pos].Unequip();
         Stats.equipment[pos] = this;
-        Stats.armor += Armor;
-        Stats.speed += Speed;
-        Stats.maxHealth +=Health;
+        Stats.SetArmor(Armor);
+        Stats.SetSpeedValue(Speed);
+        Stats.SetMaxHealth(Health);
         Stats.Heal(Health);
-        Stats.strength += Strength;
+        Stats.SetStrength(Strength);
         if (Type == EquipmentType.Body)
             Stats.element = Element;
     }
@@ -52,9 +52,10 @@ public class BaseEquipment
     public virtual void Unequip()
     {
         Stats.equipment[(int) Type] = null;
-        Stats.armor -= Armor;
-        Stats.speed -= Speed;
-        Stats.strength -= Strength;
+        Stats.SetArmor(-Armor);
+        Stats.SetSpeedValue(-Speed);
+        Stats.SetStrength(-Strength);
+        Stats.SetMaxHealth(Health);
         Stats.ReduceMaxHealth(Health);
         if (Type == EquipmentType.Body)
             Stats.element = Elements.Element.Caos;

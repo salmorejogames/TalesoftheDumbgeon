@@ -5,7 +5,7 @@ using Interfaces;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Rendering;
-using UnityEngine.Rendering.PostProcessing;
+using UnityEngine.Rendering.Universal;
 
 public class PlayerActionsController : MonoBehaviour, IDeadable
 {
@@ -28,10 +28,8 @@ public class PlayerActionsController : MonoBehaviour, IDeadable
     private SpriteRenderer _spriteRenderer;
     private Rigidbody2D _rb;
 
-    [SerializeField] private PostProcessVolume greyscalePostP;
     [SerializeField] private Camera mainCamera;
     [SerializeField] private PlayerAnimationController _playerAnimationController;
-    private ColorGrading colorGrading;
 
     [SerializeField] private GameObject menuGameOver;
     [SerializeField] private GameObject titulo;
@@ -41,6 +39,8 @@ public class PlayerActionsController : MonoBehaviour, IDeadable
     [SerializeField] private AudioSource musicaGameOver;
     [SerializeField] private AudioSource musicaGameplay;
 
+    public Volume volume;
+    private ColorAdjustments colorAdjustments;
 
     private void Awake()
     {
@@ -67,7 +67,7 @@ public class PlayerActionsController : MonoBehaviour, IDeadable
 
     private void Start()
     {
-        greyscalePostP.profile.TryGetSettings(out colorGrading);
+        volume.profile.TryGet(out colorAdjustments);
     }
 
     // Update is called once per frame
@@ -165,8 +165,8 @@ public class PlayerActionsController : MonoBehaviour, IDeadable
     {
         SingletoneGameController.PlayerActions.dead = true;
         PlayerPrefsCardSerializer.SaveData(weapon.weaponInfo);
+        StartCoroutine(GreyscaleGameOver());
         PlayerPrefs.SetInt("Deaths", PlayerPrefs.GetInt("Deaths", 0)+1);
-        Greyscale();
         DesactivarMenuGameplay();
         musicaGameplay.Stop();
         menuGameOver.SetActive(true);
@@ -230,10 +230,15 @@ public class PlayerActionsController : MonoBehaviour, IDeadable
         gameObject.SetActive(false);
     }
 
-    public void Greyscale()
+    IEnumerator GreyscaleGameOver()
     {
-        colorGrading.saturation.value = -100;
-        //mainCamera.orthographicSize = .5f;
-    }
+        while (colorAdjustments.saturation.value > -100f)
+        {
+            Debug.Log(colorAdjustments.saturation.value);
+            colorAdjustments.saturation.value -= .1f;
+            yield return null;
+        }
 
+        yield return new WaitForSeconds(1f);
+    }
 }
