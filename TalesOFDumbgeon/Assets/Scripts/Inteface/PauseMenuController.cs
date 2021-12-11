@@ -4,7 +4,6 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using UnityEngine.Rendering;
-
 using UnityEngine.Rendering.Universal;
 
 public class PauseMenuController : MonoBehaviour
