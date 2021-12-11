@@ -12,7 +12,7 @@ public class CameraMovement : MonoBehaviour
     [SerializeField] private Vector3 offset;
     [SerializeField] private float minZoom = 75f;
     [SerializeField] private float maxZoom = 40f;
-    [SerializeField] private float zoomLimiter = 80f;
+    //[SerializeField] private float zoomLimiter = 80f;
     private Vector3 velocity;
     private float smoothTime = 0.2f;
     private Camera cam;

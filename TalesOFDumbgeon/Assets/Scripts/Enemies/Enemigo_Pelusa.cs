@@ -17,9 +17,6 @@ public class Enemigo_Pelusa : BaseEnemy, IDeadable
     private DamageNumber DmgPrefab;
 
     //Enemigo 
-    public int velocidad = 5;
-    public int armadura = 3;
-    public int damage = 1;
     public float vision = 3;
     public float maxDistance = 1f;
     public float stopDistance = 0.5f;
@@ -31,16 +28,11 @@ public class Enemigo_Pelusa : BaseEnemy, IDeadable
     public GameObject zonaAtaque;
 
     private Rigidbody2D rb;
-    private Vector3 nextPos;
     private Vector2 direccion;
-    private RaycastHit2D hit;
-    private Collider2D choque;
     private float startDelayTime = 2f;
     private float attackDelay;
-    private bool attaking = false;
 
-    public enum tipoEnemigo { Abuesqueleto, Cerebro, Duonde, Palloto, Banana, Pelusa};
-    public tipoEnemigo especie;
+    
 
     private void Awake()
     {
@@ -56,7 +48,7 @@ public class Enemigo_Pelusa : BaseEnemy, IDeadable
 
         rb = gameObject.GetComponent<Rigidbody2D>();
         personaje = GameObject.FindGameObjectWithTag("Player");
-        rb.velocity = Vector2.zero;
+        //rb.velocity = Vector2.zero;
         rb.bodyType = RigidbodyType2D.Static;
         attackDelay = startDelayTime;
         
@@ -103,7 +95,7 @@ public class Enemigo_Pelusa : BaseEnemy, IDeadable
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            nextPos = transform.position;
+            //
         }
         //Debug.Log("decision CLock: " + decisionClock);
     }
@@ -122,7 +114,7 @@ public class Enemigo_Pelusa : BaseEnemy, IDeadable
 
     public void Damage(Vector3 enemy, float cantidad, Elements.Element element)
     {
-        audio.Play();
+        Audio.Play();
         float multiplier = Elements.GetElementMultiplier(element, stats.element);
         DamageNumber dmgN = Instantiate(DmgPrefab, transform.position, Quaternion.identity);
         dmgN.Inicializar(cantidad, transform);

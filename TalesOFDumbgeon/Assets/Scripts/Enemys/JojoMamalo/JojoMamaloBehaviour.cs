@@ -10,6 +10,8 @@ using Random = UnityEngine.Random;
 
 public class JojoMamaloBehaviour : BaseEnemy, IDeadable, IMovil
 {
+    [NonSerialized] public AudioSource audioSrc;
+    public AudioClip Jojomamalo_Fight;
     public const int NumPositions = 4;
     private int _hitsCountdown = 2;
     private int _actualPos;
@@ -33,6 +35,7 @@ public class JojoMamaloBehaviour : BaseEnemy, IDeadable, IMovil
 
     void Awake()
     {
+        audioSrc = GameObject.Find("GameManager").GetComponent<AudioSource>();
         _navMeshAgent = gameObject.GetComponent<NavMeshAgent>();
         _navMeshAgent.stoppingDistance = 1f;
         _navMeshAgent.updateRotation = false;
@@ -52,6 +55,13 @@ public class JojoMamaloBehaviour : BaseEnemy, IDeadable, IMovil
         newJojoArma.Randomize(1);
         jojoarma.ChangeWeapon(newJojoArma);
         _navMeshAgent.speed = stats.GetSpeedValue();
+    }
+
+    private void Start()
+    {
+        audioSrc.Stop();
+        audioSrc.clip = Jojomamalo_Fight;
+        audioSrc.Play();
     }
 
     // Update is called once per frame

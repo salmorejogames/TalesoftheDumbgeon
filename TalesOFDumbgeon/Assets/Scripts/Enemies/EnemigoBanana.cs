@@ -78,7 +78,7 @@ public class EnemigoBanana : BaseEnemy, IDeadable
         {
             distanciaPlayer = Vector2.Distance(transform.position, personaje.transform.position);
             direccion = personaje.transform.position - transform.position;
-            rotacion = Mathf.Atan2(direccion.x, direccion.y) * Mathf.Rad2Deg;
+            //rotacion = Mathf.Atan2(direccion.x, direccion.y) * Mathf.Rad2Deg;
             direccion.Normalize();
 
             DecisionEstado();
@@ -142,11 +142,11 @@ public class EnemigoBanana : BaseEnemy, IDeadable
 
                 case Estado.Detected:
                     Alcanzable();
-                    rb.rotation = -rotacion;
+                    //rb.rotation = -rotacion;
                     break;
 
                 case Estado.Attacking:
-                    rb.rotation = -rotacion;
+                    //rb.rotation = -rotacion;
                     Attack();
                     break;
             }
@@ -278,7 +278,7 @@ public class EnemigoBanana : BaseEnemy, IDeadable
 
     public void Damage(Vector3 enemyPos, float cantidad, Elements.Element element)
     {
-        audio.Play();
+        Audio.Play();
         float multiplier = Elements.GetElementMultiplier(element, stats.element);
         DamageNumber dmgN = Instantiate(DmgPrefab, transform.position, Quaternion.identity);
         dmgN.Inicializar(cantidad, transform);

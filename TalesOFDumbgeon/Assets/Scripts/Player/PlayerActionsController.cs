@@ -39,6 +39,8 @@ public class PlayerActionsController : MonoBehaviour, IDeadable
 
     [SerializeField] private AudioSource musicaGameOver;
     [SerializeField] private AudioSource musicaGameplay;
+    
+    [SerializeField] private DamageNumber numbers;
 
     public Volume volume;
     private ColorAdjustments colorAdjustments;
@@ -162,6 +164,13 @@ public class PlayerActionsController : MonoBehaviour, IDeadable
         _spriteRenderer.color = Color.white;
     }
 
+    public void Heal(float cantidad)
+    {
+        DamageNumber dmgN = Instantiate(numbers, transform.position, Quaternion.identity);
+        dmgN.Inicializar(cantidad, transform);
+        dmgN.number.color = Color.green;
+    }
+
     public void Dead()
     {
         SingletoneGameController.PlayerActions.dead = true;
@@ -185,6 +194,16 @@ public class PlayerActionsController : MonoBehaviour, IDeadable
         var direction = gameObject.transform.position - enemyPos;
         var magnitude = direction.magnitude;
         direction = direction / magnitude;
+        DamageNumber dmgN = Instantiate(numbers, transform.position, Quaternion.identity);
+        dmgN.Inicializar(cantidad, transform);
+        float multiplier = Elements.GetElementMultiplier(element, _stats.element);
+        if (multiplier > 1.1f)
+            dmgN.number.color = Color.red;
+        else if (multiplier < 0.9f)
+            dmgN.number.color = Color.cyan;
+        else
+            dmgN.number.color = Color.yellow;;
+        
         _rb.velocity = direction;
         //Debug.Log(direction);
         invincible = true;

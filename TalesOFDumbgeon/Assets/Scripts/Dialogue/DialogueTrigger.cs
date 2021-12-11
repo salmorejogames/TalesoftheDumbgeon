@@ -32,7 +32,7 @@ public class DialogueTrigger : MonoBehaviour {
         path[4] = basePath + language + character + "/TercerEncuentroPelusa.txt";
         path[5] = basePath + language + character + "/TercerEncuentroCerebro.txt";
         path[6] = basePath + language + character + "/CuartoEncuentroPrimera.txt";
-        path[7] = basePath + language + character + "/CuartoEncuentroSegundo.txt";
+        path[7] = basePath + language + character + "/CuartoEncuentroSegunda.txt";
         path[8] = basePath + language + character + "/QuintoEncuentro.txt";
         path[9] = basePath + language + character + "/SextoEncuentro.txt";
         path[10] = basePath + language + character + "/SeptimoEncuentro.txt";

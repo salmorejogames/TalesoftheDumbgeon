@@ -70,7 +70,6 @@ public class SoundManager : MonoBehaviour
             case "stadtnarrhurt":
                 audioSrc.PlayOneShot(Stadtnarr_hurt);
                 break;
-
         }
     }
 

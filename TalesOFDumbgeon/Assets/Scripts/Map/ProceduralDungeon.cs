@@ -248,11 +248,24 @@ public class ProceduralDungeon : MonoBehaviour
 
     private void ResetRooms()
     {
-        for (int i = 0; i < MaxSizeX; i++)
+        if (_rooms[0, 0] == null)
         {
-            for (int j = 0; j < MaxSizeY; j++)
+            for (int i = 0; i < MaxSizeX; i++)
             {
-                _rooms[i, j] = new RoomNode();
+                for (int j = 0; j < MaxSizeY; j++)
+                {
+                    _rooms[i, j] = new RoomNode();
+                }
+            }
+        }
+        else
+        {
+            for (int i = 0; i < MaxSizeX; i++)
+            {
+                for (int j = 0; j < MaxSizeY; j++)
+                {
+                    _rooms[i, j].RestartNode();
+                }
             }
         }
     }

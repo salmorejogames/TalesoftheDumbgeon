@@ -13,9 +13,6 @@ public class JojomaloSkills : MonoBehaviour
     
     [SerializeField] private AreaTileAtack areaTile;
     [SerializeField] private AreaTileAtack explosionCounterTile;
-    
-    [SerializeField] private float movementSpeed = 0.3f;
-
     [SerializeField] private InGameCard cardPrefab;
     public enum Skills
     {

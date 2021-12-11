@@ -13,7 +13,7 @@ public class CuervilloDialogo : MonoBehaviour
     void Start()
     {
         run = PlayerPrefs.GetInt("Deaths", 0);
-        Mathf.Clamp(run, 0, 12);
+        run = Mathf.Clamp(run, 0, 12);
         switch (run)
         {
             case 2:

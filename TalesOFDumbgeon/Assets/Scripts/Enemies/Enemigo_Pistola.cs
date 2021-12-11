@@ -48,12 +48,14 @@ public class Enemigo_Pistola : BaseEnemy, IDeadable, IMovil
     private bool canAtack = true;
     private float attackDelay;
     private float attackTime;
-
+    private float attackTimer2;
+    [SerializeField] private CerebroAnimation animator;
     public enum tipoEnemigo { Abuesqueleto, Cerebro, Duonde, Palloto, Banana, Pelusa };
     public tipoEnemigo especie;
 
     private void Awake()
     {
+        attackTimer2 = -1;
         //IDeadable
         stats = gameObject.GetComponent<CharacterStats>();
         _spr = gameObject.GetComponent<SpriteRenderer>();
@@ -158,15 +160,29 @@ public class Enemigo_Pistola : BaseEnemy, IDeadable, IMovil
             {
                 //arma.Atacar(rayos);
                 canAtack = false;
-                Debug.Log("Intento generar balas");
-                Invoke(nameof(ReactiveAttack), arma.AttackSpeed);
+                animator.StartAttack();
+                //Debug.Log("Intento generar balas");
+                attackTimer2 = arma.AttackSpeed;
             }
+        }
+    }
+
+    private void FixedUpdate()
+    {
+        if(attackTimer2<0)
+            return;
+        attackTimer2 -= Time.fixedDeltaTime;
+        if (attackTimer2 <= 0)
+        {
+            ReactiveAttack();
+            attackTimer2 = -1f;
         }
     }
 
     private void ReactiveAttack()
     {
         //canAtack = true;
+        animator.EndAttack();
         arma.Atacar();
 
         /*
@@ -241,7 +257,7 @@ public class Enemigo_Pistola : BaseEnemy, IDeadable, IMovil
 
     public void Damage(Vector3 enemy, float cantidad, Elements.Element element)
     {
-        audio.Play();
+        Audio.Play();
         float multiplier = Elements.GetElementMultiplier(element, stats.element);
         DamageNumber dmgN = Instantiate(DmgPrefab, transform.position, Quaternion.identity);
         dmgN.Inicializar(cantidad, transform);
