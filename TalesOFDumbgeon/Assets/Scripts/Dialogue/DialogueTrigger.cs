@@ -12,7 +12,7 @@ public class DialogueTrigger : MonoBehaviour {
     private string basePath = "Assets/DialogueFiles";
     public string language = "/ENG";
     public string character = "/Adan";
-    private string[] path = new string[9];// = "Assets/Dialogues/Spanish.txt";
+    private string[] path = new string[12];// = "Assets/Dialogues/Spanish.txt";
     public int linea = 0;
     private int faceAux;
     /*
@@ -20,19 +20,23 @@ public class DialogueTrigger : MonoBehaviour {
     public Texture2D cursorDetected;
     public Texture2D cursorInteracted;
     */
+    public int dialoguePath = 0;
 
 
     public void Start()
     {
         path[0] = basePath + language + character + "/Intro.txt";
-        path[1] = basePath + language + character + "/Fase1Good.txt";
-        path[2] = basePath + language + character + "/Fase1Bad.txt";
-        path[3] = basePath + language + character + "/Fase2Good.txt";
-        path[4] = basePath + language + character + "/Fase2Bad.txt";
-        path[5] = basePath + language + character + "/Fase3Good.txt";
-        path[6] = basePath + language + character + "/Fase3Bad.txt";
-        path[7] = basePath + language + character + "/FinalGood.txt";
-        path[8] = basePath + language + character + "/FinalBad.txt";
+        path[1] = basePath + language + character + "/SegundoEncuentro.txt";
+        path[2] = basePath + language + character + "/TercerEncuentroAbuesqueleto.txt";
+        path[3] = basePath + language + character + "/TercerEncuentroBanana.txt";
+        path[4] = basePath + language + character + "/TercerEncuentroPelusa.txt";
+        path[5] = basePath + language + character + "/TercerEncuentroCerebro.txt";
+        path[6] = basePath + language + character + "/CuartoEncuentroPrimera.txt";
+        path[7] = basePath + language + character + "/CuartoEncuentroSegundo.txt";
+        path[8] = basePath + language + character + "/QuintoEncuentro.txt";
+        path[9] = basePath + language + character + "/SextoEncuentro.txt";
+        path[10] = basePath + language + character + "/SeptimoEncuentro.txt";
+        path[11] = basePath + language + character + "/NovenoOctavoEncuentro.txt";
         //Cursor.SetCursor(cursorNone, Vector2.zero, CursorMode.ForceSoftware);
         /*
         dialogue = new Dialogue();
@@ -54,7 +58,7 @@ public class DialogueTrigger : MonoBehaviour {
         //Resources.Load
         //Addressables.LoadAsset<GameObject>("AssetAddress");
         //Addressables.LoadAsset<TextAsset>(path[0]);
-        StreamReader reader = new StreamReader(path[0]);
+        StreamReader reader = new StreamReader(path[dialoguePath]);
         linea = Int32.Parse(reader.ReadLine());
         Debug.Log(linea);
         for(int i = 0; i<linea; i++)
@@ -83,12 +87,13 @@ public class DialogueTrigger : MonoBehaviour {
 				
 	}
 
-    public void UpdatePath(int newPath)
+    public void UpdatePath(int newDialoguePath)
     {
         string aux;
         string[] auxAux;
         dialogue = new Dialogue();
-        StreamReader reader = new StreamReader(path[newPath]);
+        dialoguePath = newDialoguePath;
+        StreamReader reader = new StreamReader(path[dialoguePath]);
         linea = Int32.Parse(reader.ReadLine());
         Debug.Log(linea);
         for (int i = 0; i < linea; i++)
@@ -126,4 +131,5 @@ public class DialogueTrigger : MonoBehaviour {
             click = false;
         //}
     }
+
 }

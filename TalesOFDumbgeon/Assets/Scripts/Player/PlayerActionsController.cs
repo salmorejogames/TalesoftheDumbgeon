@@ -123,8 +123,6 @@ public class PlayerActionsController : MonoBehaviour, IDeadable
             CharacterStats enemyStats = collision.gameObject.GetComponent<CharacterStats>();
             _stats.DoDamage(enemyStats.strength, collision.gameObject.transform.position, enemyStats.element);
         }
-
-        
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -149,7 +147,6 @@ public class PlayerActionsController : MonoBehaviour, IDeadable
                 _stats.DoDamage(spell.Amount, spell.Origen, spell.Element);
             }
         }
-        
     }
 
     private void CancelInvincibility()
@@ -169,6 +166,8 @@ public class PlayerActionsController : MonoBehaviour, IDeadable
         SingletoneGameController.PlayerActions.dead = true;
         PlayerPrefsCardSerializer.SaveData(weapon.weaponInfo);
         StartCoroutine(GreyscaleGameOver());
+        PlayerPrefs.SetInt("Deaths", PlayerPrefs.GetInt("Deaths", 0)+1);
+        Greyscale();
         DesactivarMenuGameplay();
         musicaGameplay.Stop();
         menuGameOver.SetActive(true);
@@ -181,7 +180,7 @@ public class PlayerActionsController : MonoBehaviour, IDeadable
         //Aqui cuando recibe daño Stadnar
         SingletoneGameController.SoundManager.PlaySound("stadtnarrhurt");
         Debug.Log("Damage Recived");
-        SingletoneGameController.InterfaceController.UpdateLife(_stats.GetActualHealth() / _stats.maxHealth, _stats.GetActualHealth(),_stats.maxHealth);
+        SingletoneGameController.InterfaceController.UpdateLife();
         var direction = gameObject.transform.position - enemyPos;
         var magnitude = direction.magnitude;
         direction = direction / magnitude;

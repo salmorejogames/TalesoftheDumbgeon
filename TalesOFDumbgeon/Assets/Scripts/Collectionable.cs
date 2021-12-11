@@ -19,7 +19,7 @@ public class Collectionable : MonoBehaviour, ICollectable
             return;
         }
 
-        switch (Random.Range(0, 3))
+        switch (Random.Range(0, 4))
         {
             case 0:
                 SingletoneGameController.CardHolder.AddCard(new ArmorCard(SingletoneGameController.PlayerActions.player.IsoRenderer.animatorController));
@@ -29,6 +29,9 @@ public class Collectionable : MonoBehaviour, ICollectable
                 break;
             case 2:
                 SingletoneGameController.CardHolder.AddCard(new SpellCard(BaseSpell.SpellType.Damage, SingletoneGameController.PlayerActions.player.PlayerActions.weapon));
+                break;
+            case 3:
+                SingletoneGameController.CardHolder.AddCard(new BlessCard(BaseBlessing.BlessingType.Heal));
                 break;
         }
         //SingletoneGameController.CardHolder.AddCard(new SpellCard(BaseSpell.SpellType.Damage, SingletoneGameController.PlayerActions.player.PlayerActions.weapon));

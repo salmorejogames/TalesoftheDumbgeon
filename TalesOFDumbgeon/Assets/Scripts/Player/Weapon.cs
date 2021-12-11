@@ -8,7 +8,6 @@ public class Weapon : MonoBehaviour
     
     public BaseWeapon weaponInfo;
     public BaseSpell spellInfo;
-    [SerializeField] private SpriteRenderer _spriteRenderer;
     public CharacterStats holder;
     [NonSerialized] public float angle;
     [NonSerialized] public float relativeAngle;
@@ -29,12 +28,13 @@ public class Weapon : MonoBehaviour
         if (weaponInfo == null)
         {
             AreaWeapon weapon = new AreaWeapon();
+            WeaponCard temporalCard = new WeaponCard(weapon);
+            if(holder.gameObject.CompareTag("Player"))
+                SingletoneGameController.InterfaceController.SpriteArmaInicial(temporalCard.Artwork);
             weapon.SetWeaponHolder(this);
             weapon.Randomize(1);
             ChangeWeapon(weapon);
         }
-
-        SingletoneGameController.InterfaceController.SpriteArmaInicial(_spriteRenderer.sprite);
     }
 
     public void ChangeWeapon(BaseWeapon newWeapon)

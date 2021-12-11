@@ -24,7 +24,7 @@ public class Enemigo_Pelusa : BaseEnemy, IDeadable
     public float maxDistance = 1f;
     public float stopDistance = 0.5f;
     public float decisionClock = 0f;
-    public int maxChilds = 6;
+    public int maxChilds = 7;
 
     public GameObject personaje;
     public GameObject Bala;
@@ -60,14 +60,6 @@ public class Enemigo_Pelusa : BaseEnemy, IDeadable
         rb.bodyType = RigidbodyType2D.Static;
         attackDelay = startDelayTime;
         
-        if (especie == tipoEnemigo.Pelusa)
-        {
-            velocidad = 0;
-            armadura = 1;
-            damage = 4;
-            vision = 10;
-            stopDistance = vision;
-        }
 
     }
 
@@ -113,7 +105,7 @@ public class Enemigo_Pelusa : BaseEnemy, IDeadable
         {
             nextPos = transform.position;
         }
-        Debug.Log("decision CLock: " + decisionClock);
+        //Debug.Log("decision CLock: " + decisionClock);
     }
 
     private void OnDrawGizmosSelected()

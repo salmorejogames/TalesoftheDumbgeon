@@ -1471,6 +1471,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a5beb185fd95974f9ac35d41c942729, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &36201860 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1631064289040217682, guid: 3a9afe470fc87a14889f9b0eb94b4289,
+    type: 3}
+  m_PrefabInstance: {fileID: 36201857}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a075fd68c3364544b064db073fdb295, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &136558225 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 687464165537589875, guid: f7d8b04a9a3d676408435273389cf36e,
@@ -2333,6 +2345,26 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 785119330}
+    - target: {fileID: 1224128817984665521, guid: f7d8b04a9a3d676408435273389cf36e,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1224128817984665522, guid: f7d8b04a9a3d676408435273389cf36e,
+        type: 3}
+      propertyPath: volumeTrigger
+      value: 
+      objectReference: {fileID: 1522614518}
+    - target: {fileID: 1224128817984665522, guid: f7d8b04a9a3d676408435273389cf36e,
+        type: 3}
+      propertyPath: m_ShowCustomSorter
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1224128817984665522, guid: f7d8b04a9a3d676408435273389cf36e,
+        type: 3}
+      propertyPath: volumeLayer.m_Bits
+      value: 256
+      objectReference: {fileID: 0}
     - target: {fileID: 1224128817992320238, guid: f7d8b04a9a3d676408435273389cf36e,
         type: 3}
       propertyPath: m_SizeDelta.x
@@ -3274,6 +3306,11 @@ PrefabInstance:
       propertyPath: m_PreserveAspect
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6345761012996200872, guid: f7d8b04a9a3d676408435273389cf36e,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 4726cb5f0e7b60748ab8f543829ab22b, type: 2}
     - target: {fileID: 6345761012996200879, guid: f7d8b04a9a3d676408435273389cf36e,
         type: 3}
       propertyPath: cards
@@ -3291,13 +3328,18 @@ PrefabInstance:
       objectReference: {fileID: 36201858}
     - target: {fileID: 6345761012996200879, guid: f7d8b04a9a3d676408435273389cf36e,
         type: 3}
+      propertyPath: playerAnimator
+      value: 
+      objectReference: {fileID: 36201860}
+    - target: {fileID: 6345761012996200879, guid: f7d8b04a9a3d676408435273389cf36e,
+        type: 3}
       propertyPath: habilidadesButtons
       value: 
       objectReference: {fileID: 1339952251}
     - target: {fileID: 6345761013606032132, guid: f7d8b04a9a3d676408435273389cf36e,
         type: 3}
       propertyPath: m_fontSize
-      value: 36
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 6345761013606032132, guid: f7d8b04a9a3d676408435273389cf36e,
         type: 3}
@@ -3308,12 +3350,17 @@ PrefabInstance:
     - target: {fileID: 6345761013606032132, guid: f7d8b04a9a3d676408435273389cf36e,
         type: 3}
       propertyPath: m_fontSizeBase
-      value: 36
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 6345761013606032132, guid: f7d8b04a9a3d676408435273389cf36e,
+        type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6345761014204607151, guid: f7d8b04a9a3d676408435273389cf36e,
         type: 3}
       propertyPath: m_fontSize
-      value: 36
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 6345761014204607151, guid: f7d8b04a9a3d676408435273389cf36e,
         type: 3}
@@ -3324,7 +3371,7 @@ PrefabInstance:
     - target: {fileID: 6345761014204607151, guid: f7d8b04a9a3d676408435273389cf36e,
         type: 3}
       propertyPath: m_fontSizeBase
-      value: 36
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 6580898175270560607, guid: f7d8b04a9a3d676408435273389cf36e,
         type: 3}
@@ -3804,118 +3851,6 @@ PrefabInstance:
       propertyPath: dmgSpellArtwork
       value: 
       objectReference: {fileID: 21300000, guid: 8e8c2a2bc9e3db842a7f5a61a3f1c525,
-        type: 3}
-    - target: {fileID: 2208423518114130156, guid: f1130666115412e4fb8b424d17d71b09,
-        type: 3}
-      propertyPath: rangedWeaponArtwork
-      value: 
-      objectReference: {fileID: 21300000, guid: 630478ddf63bba94c8a3340919fb7c31,
-        type: 3}
-    - target: {fileID: 2208423518114130156, guid: f1130666115412e4fb8b424d17d71b09,
-        type: 3}
-      propertyPath: rapierWeaponArtwork
-      value: 
-      objectReference: {fileID: 21300000, guid: b749cb64f0ed53942ab58192a75837f3,
-        type: 3}
-    - target: {fileID: 2208423518114130156, guid: f1130666115412e4fb8b424d17d71b09,
-        type: 3}
-      propertyPath: piercingWeaponArtwork
-      value: 
-      objectReference: {fileID: 21300000, guid: 889eaf1a9b83bec44a58a6b7e148bbde,
-        type: 3}
-    - target: {fileID: 2208423518114130156, guid: f1130666115412e4fb8b424d17d71b09,
-        type: 3}
-      propertyPath: smashingWeaponArtwork
-      value: 
-      objectReference: {fileID: 21300000, guid: ec1dc663f00a06449a3c2df4123297f0,
-        type: 3}
-    - target: {fileID: 2208423518114130156, guid: f1130666115412e4fb8b424d17d71b09,
-        type: 3}
-      propertyPath: boomerangWeaponArtwork
-      value: 
-      objectReference: {fileID: 21300000, guid: a21aa97bb8416d04eb603921c3534984,
-        type: 3}
-    - target: {fileID: 2208423518114130156, guid: f1130666115412e4fb8b424d17d71b09,
-        type: 3}
-      propertyPath: dmgSpellSprites.Array.size
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 2208423518114130156, guid: f1130666115412e4fb8b424d17d71b09,
-        type: 3}
-      propertyPath: dmgSpellArtworks.Array.size
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 2208423518114130156, guid: f1130666115412e4fb8b424d17d71b09,
-        type: 3}
-      propertyPath: dmgSpellSprites.Array.data[0]
-      value: 
-      objectReference: {fileID: 21300000, guid: 3b791289cd90e7e41ad0d49ee86ba831,
-        type: 3}
-    - target: {fileID: 2208423518114130156, guid: f1130666115412e4fb8b424d17d71b09,
-        type: 3}
-      propertyPath: dmgSpellSprites.Array.data[1]
-      value: 
-      objectReference: {fileID: 21300000, guid: 44d868696e8bd6c4bae3dbc2b76e4eaa,
-        type: 3}
-    - target: {fileID: 2208423518114130156, guid: f1130666115412e4fb8b424d17d71b09,
-        type: 3}
-      propertyPath: dmgSpellSprites.Array.data[2]
-      value: 
-      objectReference: {fileID: 21300000, guid: 1e1cc410fce3c19469a888ff07c25299,
-        type: 3}
-    - target: {fileID: 2208423518114130156, guid: f1130666115412e4fb8b424d17d71b09,
-        type: 3}
-      propertyPath: dmgSpellSprites.Array.data[3]
-      value: 
-      objectReference: {fileID: 21300000, guid: b63733faf4b043a4c9aeddaf7f58764f,
-        type: 3}
-    - target: {fileID: 2208423518114130156, guid: f1130666115412e4fb8b424d17d71b09,
-        type: 3}
-      propertyPath: dmgSpellSprites.Array.data[4]
-      value: 
-      objectReference: {fileID: 21300000, guid: 09fb6cccefb6b554da520a4a84f3ba14,
-        type: 3}
-    - target: {fileID: 2208423518114130156, guid: f1130666115412e4fb8b424d17d71b09,
-        type: 3}
-      propertyPath: dmgSpellSprites.Array.data[5]
-      value: 
-      objectReference: {fileID: 21300000, guid: f5be591d98446224aabfd02ecfd725a6,
-        type: 3}
-    - target: {fileID: 2208423518114130156, guid: f1130666115412e4fb8b424d17d71b09,
-        type: 3}
-      propertyPath: dmgSpellArtworks.Array.data[0]
-      value: 
-      objectReference: {fileID: 21300000, guid: 2bf00ae0b9a8c0c4a8df6d7c8aa54c66,
-        type: 3}
-    - target: {fileID: 2208423518114130156, guid: f1130666115412e4fb8b424d17d71b09,
-        type: 3}
-      propertyPath: dmgSpellArtworks.Array.data[1]
-      value: 
-      objectReference: {fileID: 21300000, guid: d21ea46f90de9b74195be590e963aa39,
-        type: 3}
-    - target: {fileID: 2208423518114130156, guid: f1130666115412e4fb8b424d17d71b09,
-        type: 3}
-      propertyPath: dmgSpellArtworks.Array.data[2]
-      value: 
-      objectReference: {fileID: 21300000, guid: 8e8c2a2bc9e3db842a7f5a61a3f1c525,
-        type: 3}
-    - target: {fileID: 2208423518114130156, guid: f1130666115412e4fb8b424d17d71b09,
-        type: 3}
-      propertyPath: dmgSpellArtworks.Array.data[3]
-      value: 
-      objectReference: {fileID: 21300000, guid: fb0fed6af55fa8647bb733a5a93b593a,
-        type: 3}
-    - target: {fileID: 2208423518114130156, guid: f1130666115412e4fb8b424d17d71b09,
-        type: 3}
-      propertyPath: dmgSpellArtworks.Array.data[4]
-      value: 
-      objectReference: {fileID: 21300000, guid: 2bf00ae0b9a8c0c4a8df6d7c8aa54c66,
-        type: 3}
-    - target: {fileID: 2208423518114130156, guid: f1130666115412e4fb8b424d17d71b09,
-        type: 3}
-      propertyPath: dmgSpellArtworks.Array.data[5]
-      value: 
-      objectReference: {fileID: 21300000, guid: fbbdbe1915dec824381204358ba4c432,
         type: 3}
     - target: {fileID: 2208423518114130159, guid: f1130666115412e4fb8b424d17d71b09,
         type: 3}

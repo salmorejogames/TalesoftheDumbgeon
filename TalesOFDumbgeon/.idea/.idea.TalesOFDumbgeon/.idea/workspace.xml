@@ -2,7 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b1d37c9d-25b2-4110-97a9-49ea663fadda" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Animations/BananaAnimator.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Animations/BananaAnimator.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.TalesOFDumbgeon/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TalesOFDumbgeon/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Enemies/Abuesqueleto_Manu.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Enemies/Abuesqueleto_Manu.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Enemies/Caballero_Banana.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Enemies/Caballero_Banana.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Enemies/Cerebro.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Enemies/Cerebro.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Enemies/Pelusa_Hija.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Enemies/Pelusa_Hija.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Enemies/Pelusa_Madre.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Enemies/Pelusa_Madre.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Enemies/EnemigoBanana.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Enemies/EnemigoBanana.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/Weapon.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/Weapon.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,23 +35,21 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/8D3A4CBA-CDAE-45B3-84E0-E80B376938E1/76/54facd92/NativeInputSystem.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Collectionable.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Equipment/StaticInfoHolder.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock://D:/proyectos/TalesoftheDumbgeon/TalesOFDumbgeon/Assets/Scripts/Map/MapInstance.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/4D9F7249-F1DE-41E3-8466-8FEA10E9822F/d8/323f1cd2/UnitySynchronizationContext.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Plugins/CheckIfMobile/CheckIfMobile.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Imovil.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Elements.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/CardsInterface/CardsInfo/ArmorCard.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock://D:/proyectos/TalesoftheDumbgeon/TalesOFDumbgeon/Assets/Scripts/Map/MapInstance.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://D:/proyectos/TalesoftheDumbgeon/TalesOFDumbgeon/Assets/Scripts/Map/MapInstance.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../../Unity/Hub/Editor/2019.4.26f1/Editor/Data/Resources/PackageManager/BuiltInPackages/com.unity.ugui/Runtime/EventSystem/UIBehaviour.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Animations/WeaponController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Equipment/Blessings/HealBlessing.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.inputsystem@1.0.2/InputSystem/Utilities/DelegateHelpers.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/CardsInterface/CardsInfo/WeaponCard.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Equipment/Blessings/BaseBlessing.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/NavMeshManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/DamageArea.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.render-pipelines.core@10.4.0/Runtime/Debugging/DebugUpdater.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Interfaces/IDeadable.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock://D:/proyectos/TalesoftheDumbgeon/TalesOFDumbgeon/Assets/Scripts/Map/MapInstance.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.textmeshpro@3.0.1/Scripts/Runtime/TextMeshProUGUI.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.textmeshpro@3.0.1/Scripts/Runtime/TMPro_UGUI_Private.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Map/ProceduralDungeon.cs" root0="FORCE_HIGHLIGHTING" />
@@ -54,6 +61,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Inteface/GameplayInterfaceController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Inteface/PauseMenuController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Map/RoomNode.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/CardsInterface/CardsInfo/BlessCard.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/GameControl/PlayerActions.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.2d.animation@5.0.4/Runtime/SpriteSkin.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Inteface/ButtonClose.cs" root0="FORCE_HIGHLIGHTING" />
@@ -64,14 +72,9 @@
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
-      <option value="$PROJECT_DIR$/Assets/Scripts/Equipment/RangedWeapon.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Equipment/DamageSpell.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Equipment/BaseSpell.cs" />
-      <option value="$PROJECT_DIR$/Assets/NavMeshManager.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/IsometricUtils.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Animations/WeaponController.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/GameControl/PlayerActions.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/CardsInterface/CardsInfo/BaseCard.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/DamageArea.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Equipment/Weapons/BaseWeapon.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Equipment/Weapons/AreaWeapon.cs" />
@@ -81,40 +84,45 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/Equipment/Weapons/PiercingWeapon2.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Equipment/Weapons/PiercingWeapon3.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/CardsInterface/CardsInfo/WeaponCard.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/CharacterStats.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/CardsInterface/CardsInfo/ArmorCard.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Inteface/ButtonClose.cs" />
       <option value="$PROJECT_DIR$/Assets/Interface/DamageNumber.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Collectionable.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Interfaces/IEnemy.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Interfaces/Enemy.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Interfaces/BaseEnemy.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Equipment/StaticInfoHolder.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/CardsInterface/CardsInfo/SpellCard.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/CardsInterface/ItemCard.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Equipment/Spells/DamageSpell.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Map/MapManager.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/GameControl/SingletoneGameController.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Generator.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Inteface/GameplayInterfaceController.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Enemys/ExampleEnemyBehaviour.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Equipment/BaseArmor.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Equipment/PlayerPrefsCardSerializer.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Enemys/JojoMamalo/JojomaloSkills.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Animations/JojomamaloAnimationController.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Enemys/JojoMamalo/JojoMamaloBehaviour.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Player/PlayerActionsController.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/Enemigo_Pelusa.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Map/MapInstance.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Player/IsometricCharacterRenderer.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/CardsInterface/CardHolder.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/Pelusa_Peque.cs" />
       <option value="$PROJECT_DIR$/Assets/SoundManager.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Player/Weapon.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Animations/AnimationDirection.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/Enemigo_Pistola.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/CharacterStats.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/CardsInterface/CardsInfo/BaseCard.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Equipment/Blessings/BaseBlessing.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Equipment/StaticInfoHolder.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Collectionable.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Equipment/Blessings/HealBlessing.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Animations/PlayerAnimationController.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Player/IsometricCharacterRenderer.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Player/PlayerActionsController.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Inteface/GameplayInterfaceController.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/CardsInterface/CardsInfo/BlessCard.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/CardsInterface/ItemCard.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Generator.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/Enemigo_Pistola.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/Enemigo_Pelusa.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Player/Weapon.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/EnemigoBanana.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Animations/BananaAnimator.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1zRaEkaFY4bgpmOHr8r3t8E1N2f" />
@@ -201,6 +209,8 @@
       <workItem from="1637407440142" duration="7428000" />
       <workItem from="1637494141748" duration="6879000" />
       <workItem from="1637501275502" duration="5266000" />
+      <workItem from="1639150640743" duration="9628000" />
+      <workItem from="1639221747841" duration="1535000" />
     </task>
     <servers />
   </component>

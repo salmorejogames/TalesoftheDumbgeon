@@ -44,13 +44,10 @@ public class Enemigo_Pistola : BaseEnemy, IDeadable, IMovil
     private float rotacion;
     private RaycastHit2D hit;
     private Collider2D choque;
+    //Para controlar cuando puede atacar y si esta atacando
     private bool canAtack = true;
     private float attackDelay;
     private float attackTime;
-    private float startDashTime = 0.5f;
-    private bool attaking = false;
-    private float tiempoParado = 0f;
-    private float startTiempoParado = 1f;
 
     public enum tipoEnemigo { Abuesqueleto, Cerebro, Duonde, Palloto, Banana, Pelusa };
     public tipoEnemigo especie;
@@ -74,22 +71,10 @@ public class Enemigo_Pistola : BaseEnemy, IDeadable, IMovil
 
         rb = gameObject.GetComponent<Rigidbody2D>();
         personaje = GameObject.FindGameObjectWithTag("Player");
-        rb.velocity = Vector2.zero;
-        attackDelay = 2f;
-        attackTime = 2f;
+        attackDelay = 1.5f;
+        attackTime = 1.5f;
         arma.SetWeaponHolder(armaHolder);
-               
-        if (especie == tipoEnemigo.Cerebro)
-        {
-            vision = 10f;
-            stopDistance = 7f;            
-            stats.armor = 1f;
-            stats.maxHealth = 4f;
-            stats.strength = 3f;
-            stats.speed = 3.5f;
-            velocidad = stats.speed;
-            stats.element = Elements.Element.Brasa;
-        }
+        velocidad = stats.speed;
     }
 
     // Update is called once per frame
@@ -98,7 +83,6 @@ public class Enemigo_Pistola : BaseEnemy, IDeadable, IMovil
         if (!SingletoneGameController.PlayerActions.dead)
         {
             distanciaPlayer = Vector2.Distance(transform.position, personaje.transform.position);
-            Debug.Log("Distancia al jugador: " + distanciaPlayer);
             direccion = personaje.transform.position - transform.position;
             rotacion = Mathf.Atan2(direccion.x, direccion.y) * Mathf.Rad2Deg;
             direccion.Normalize();
@@ -107,7 +91,6 @@ public class Enemigo_Pistola : BaseEnemy, IDeadable, IMovil
 
             DecisionEstado();
             //tiempoParado = startTiempoParado;
-            Debug.Log("Entramos en la logica");
 
             /*tiempoParado -= Time.deltaTime;
             Debug.Log("Restamos tiempo transcurrido");
@@ -134,7 +117,7 @@ public class Enemigo_Pistola : BaseEnemy, IDeadable, IMovil
         else if (distanciaPlayer <= stopDistance)
             estadoActual = Estado.Attacking;
 
-        Debug.Log(estadoActual);
+        //Debug.Log(estadoActual);
 
         if (decisionClock > decisionTime || distanciaPlayer < vision && personaje != null)
         {            
@@ -152,7 +135,7 @@ public class Enemigo_Pistola : BaseEnemy, IDeadable, IMovil
                     break;
 
                 case Estado.Attacking:
-                    rb.rotation = -rotacion;
+                    //rb.rotation = -rotacion;
                     Attack();
                     break;
             }
@@ -165,72 +148,18 @@ public class Enemigo_Pistola : BaseEnemy, IDeadable, IMovil
     private void Alcanzable()
     {
         transform.position = Vector2.MoveTowards(transform.position, personaje.transform.position, velocidad * Time.deltaTime);
-
-        //!!!!!!!!!!!!!!!!!!!!!!!!!NO BORRAR, ES CODIGO QUE NO FUNCIONA PERO QUE QUIERO IMPLEMETAR PARA QUE FUNCIONE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-
-        /*hit = Physics2D.Raycast(transform.position, nextPos);
-        choque = hit.collider;
-
-        if (choque.gameObject.CompareTag("Player"))
-        {
-            nextPos = choque.transform.position;
-            Debug.Log("Estoy igualando al jugador");
-        }
-        else
-        {
-            Vector3 punto = choque.bounds.center;
-            Vector3 puntoA = punto + choque.bounds.extents;
-            Vector3 puntoB = punto - choque.bounds.extents;
-            Vector3 puntoCercano = choque.bounds.ClosestPoint(transform.position);
-            Debug.Log("Me meto a recalcular el camino");
-
-            if(transform.position.y != puntoCercano.y)
-            {
-                if(Vector3.Distance(personaje.transform.position, puntoA) < Vector3.Distance(personaje.transform.position, puntoB)){
-                    nextPos = new Vector3(puntoA.x + 0.5f, puntoCercano.y, 0);  
-                }else
-                {
-                    nextPos = new Vector3(puntoB.x + 0.5f, puntoCercano.y, 0);
-                }
-            }
-            else
-            {
-                if (Vector3.Distance(personaje.transform.position, puntoA) < Vector3.Distance(personaje.transform.position, puntoB))
-                {
-                    nextPos = new Vector3(puntoCercano.x, puntoA.y + 0.5f, 0);
-                }
-                else
-                {
-                    nextPos = new Vector3(puntoCercano.x, puntoB.y + 0.5f, 0);
-                }
-            }
-        }*/
-
-        //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!NO BORRAR, ES CODIGO QUE NO FUNCIONA PERO QUE QUIERO HACER QUE FUNCIONE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     }
 
     private void Attack()
     {
         if (canAtack)
         {
-            if (especie == tipoEnemigo.Abuesqueleto)
-            {
-                zonaAtaque.GetComponent<Collider2D>().isTrigger = false;
-                rb.velocity = Vector2.zero;
-                canAtack = false;
-                nextPos = transform.position;
-            }
-            else if(especie == tipoEnemigo.Cerebro)
+            if(especie == tipoEnemigo.Cerebro)
             {
                 //arma.Atacar(rayos);
                 canAtack = false;
                 Debug.Log("Intento generar balas");
                 Invoke(nameof(ReactiveAttack), arma.AttackSpeed);
-            }
-            else if (especie == tipoEnemigo.Banana)
-            {
-                zonaAtaque.GetComponent<Collider2D>().isTrigger = false;
-                attaking = true;
             }
         }
     }
@@ -239,6 +168,7 @@ public class Enemigo_Pistola : BaseEnemy, IDeadable, IMovil
     {
         //canAtack = true;
         arma.Atacar();
+
         /*
         zonaAtaque.GetComponent<Collider2D>().isTrigger = false;
         rb.velocity = Vector2.zero;

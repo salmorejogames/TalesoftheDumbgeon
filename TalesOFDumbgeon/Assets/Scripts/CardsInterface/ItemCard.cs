@@ -54,7 +54,7 @@ public class ItemCard : MonoBehaviour, IPointerClickHandler
         }
         holderImage.sprite = CardInfo.CardHolder;
         itemImage.sprite = CardInfo.Artwork;
-        if(CardInfo.cardType != BaseCard.CardType.Spell)
+        if(CardInfo.cardType != BaseCard.CardType.Spell && CardInfo.cardType != BaseCard.CardType.Bless)
             itemImage.color = SingletoneGameController.InfoHolder.LoadColor(CardInfo.Element);
         title.text = CardInfo.CardName;
         description.text = CardInfo.Description;

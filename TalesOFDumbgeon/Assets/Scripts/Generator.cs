@@ -25,14 +25,14 @@ public class Generator : MonoBehaviour
                 Debug.Log(count + " " + enemy.ToString());
                 count--;
             } while (reaminingDiff - enemy.difficulty < 0 && count > 0);
-            Debug.Log("Checking count");
+            //Debug.Log("Checking count");
             if (count <= 0)
                 break;
-            Debug.Log("Generating enemy");
+            //Debug.Log("Generating enemy");
             Vector2 tilePos = IsometricUtils.ScreenCordsToTilesPos(gameObject.transform.position, false);
             Vector2 newTilePos = new Vector2(tilePos.x + Random.Range((float) -tilesArea, tilesArea),
                 tilePos.y + Random.Range((float) -tilesArea, tilesArea));
-            Debug.Log(newTilePos);
+            //Debug.Log(newTilePos);
             reaminingDiff -= enemy.difficulty;
             BaseEnemy newEnemy =Instantiate(enemy, IsometricUtils.CoordinatesToWorldSpace(newTilePos.x, newTilePos.y), Quaternion.identity);
             newEnemy.gameObject.transform.parent = gameObject.transform;

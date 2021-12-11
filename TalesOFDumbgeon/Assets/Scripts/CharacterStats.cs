@@ -39,11 +39,15 @@ public class CharacterStats : MonoBehaviour
 
     public float GetSpeedValue()
     {
-        if (speed <= 0.25f)
+        if (speed <= 0.5f)
         {
-            return 0.5f;
+            if (gameObject.CompareTag("Player"))
+                SingletoneGameController.InterfaceController.ActualizarStatsUI(SingletoneGameController.InterfaceController.velocidadTexto, speed);
+            return 0.75f;
         }
 
+        if (gameObject.CompareTag("Player"))
+            SingletoneGameController.InterfaceController.ActualizarStatsUI(SingletoneGameController.InterfaceController.velocidadTexto, speed);
         return (float) Math.Sqrt(speed);
     }    
 
@@ -112,6 +116,8 @@ public class CharacterStats : MonoBehaviour
             _actions.Dead();
         }
 
+        if (gameObject.CompareTag("Player"))
+            SingletoneGameController.InterfaceController.ActualizarStatsUI(SingletoneGameController.InterfaceController.vidaMaxTexto, maxHealth);
     }
 
     public void Heal(float healh)
@@ -119,6 +125,8 @@ public class CharacterStats : MonoBehaviour
         if (gameObject.CompareTag("Player"))
             SingletoneGameController.InterfaceController.ActualizarStatsUI(SingletoneGameController.InterfaceController.vidaMaxTexto, this.maxHealth);
         _actualHealth = Mathf.Clamp(_actualHealth + healh, 0, maxHealth);
+        if (gameObject.CompareTag("Player"))
+            SingletoneGameController.InterfaceController.ActualizarStatsUI(SingletoneGameController.InterfaceController.vidaMaxTexto, maxHealth);
     }
     
     public void Unequip(int pos)

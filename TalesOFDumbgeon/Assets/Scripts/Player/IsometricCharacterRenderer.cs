@@ -10,6 +10,11 @@ public class IsometricCharacterRenderer : MonoBehaviour
     [SerializeField] public PlayerAnimationController animatorController;
     private int _lastDirection;
 
+    private void Start()
+    {
+        _lastDirection = 6;
+    }
+
     public int SetDirection(Vector2 direction)
     {
         //string[] directionArray = null;

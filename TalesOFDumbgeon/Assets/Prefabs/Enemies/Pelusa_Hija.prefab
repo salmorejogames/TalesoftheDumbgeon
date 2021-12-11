@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4823789786117406349}
   - component: {fileID: 4823789786117406350}
+  - component: {fileID: 6049882520940770741}
   m_Layer: 0
   m_Name: Square
   m_TagString: Untagged
@@ -82,6 +83,25 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &6049882520940770741
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4823789786117406348}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 7eb6f04b4b5c4124b949b851b2977bbf, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &4852668842496861162
 GameObject:
   m_ObjectHideFlags: 0
@@ -187,6 +207,8 @@ MonoBehaviour:
   audio: {fileID: 0}
   difficulty: 1
   stats: {fileID: 0}
+  rangoVision: 0
+  miedo: 0
   _spr: {fileID: 4823789786117406350}
   DmgPrefab: {fileID: 7413456247700845425, guid: d04ec14520fae5f44b0e829368e66535,
     type: 3}
@@ -201,7 +223,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 4852668842496861162}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.5
+  m_Radius: 0.1
   m_Speed: 0.5
   m_Acceleration: 8
   avoidancePriority: 50
@@ -210,7 +232,7 @@ NavMeshAgent:
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
-  m_Height: 2
+  m_Height: 0.2
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
