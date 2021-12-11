@@ -167,7 +167,7 @@ public class MapManager : MonoBehaviour
         if (_actualMap.roomType == MapInstance.RoomType.End && _player.gameObject.transform.position.x > 0 &&
             _player.transform.position.y > 0)
         {
-            SceneManager.LoadScene("CreditsScene");
+            SceneManager.LoadScene("VictoryScene");
             return;
         }
             
