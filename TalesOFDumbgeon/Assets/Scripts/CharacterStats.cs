@@ -57,6 +57,11 @@ public class CharacterStats : MonoBehaviour
         this.speed += speed;
         if (gameObject.CompareTag("Player"))
             SingletoneGameController.InterfaceController.ActualizarStatsUI(SingletoneGameController.InterfaceController.velocidadTexto, this.speed);
+
+        if (this.speed <= 0)
+        {
+            SingletoneGameController.InterfaceController.ActualizarStatsUI(SingletoneGameController.InterfaceController.velocidadTexto, 0);
+        }
     }
 
     public void SetArmor(float armor)
@@ -64,6 +69,11 @@ public class CharacterStats : MonoBehaviour
         this.armor += armor;
         if (gameObject.CompareTag("Player"))
             SingletoneGameController.InterfaceController.ActualizarStatsUI(SingletoneGameController.InterfaceController.defensaTexto, this.armor);
+
+        if (this.armor <= 0)
+        {
+            SingletoneGameController.InterfaceController.ActualizarStatsUI(SingletoneGameController.InterfaceController.defensaTexto, 0);
+        }
     }
 
     public void SetStrength(float strength)
@@ -71,6 +81,11 @@ public class CharacterStats : MonoBehaviour
         this.strength += strength;
         if (gameObject.CompareTag("Player"))
             SingletoneGameController.InterfaceController.ActualizarStatsUI(SingletoneGameController.InterfaceController.ataqueTexto, this.strength);
+
+        if (this.strength <= 0)
+        {
+            SingletoneGameController.InterfaceController.ActualizarStatsUI(SingletoneGameController.InterfaceController.ataqueTexto, 0);
+        }
     }
 
     public void SetMaxHealth(float maxHealth)
@@ -78,6 +93,11 @@ public class CharacterStats : MonoBehaviour
         this.maxHealth += maxHealth;
         if (gameObject.CompareTag("Player"))
             SingletoneGameController.InterfaceController.ActualizarStatsUI(SingletoneGameController.InterfaceController.vidaMaxTexto, this.maxHealth);
+
+        if (this.maxHealth <= 0)
+        {
+            SingletoneGameController.InterfaceController.ActualizarStatsUI(SingletoneGameController.InterfaceController.vidaMaxTexto, 0);
+        }
     }
 
     public bool IsAlive()
