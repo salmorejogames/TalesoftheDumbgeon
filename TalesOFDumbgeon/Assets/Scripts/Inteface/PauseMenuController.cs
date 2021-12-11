@@ -69,22 +69,22 @@ public class PauseMenuController : MonoBehaviour
         HacerNoInteractuable(salirBoton);
         HacerNoInteractuable(volverAjustesBoton);
 
-        LeanTween.moveLocalY(titulo, 175, 1.5f).setEaseOutCubic().setIgnoreTimeScale(true);
-        LeanTween.rotateZ(titulo, -2, 1f).setEaseOutCubic().setIgnoreTimeScale(true);
+        LeanTween.moveLocalY(titulo, 175, 1f).setEaseOutCubic().setIgnoreTimeScale(true);
+        LeanTween.rotateZ(titulo, -2, .8f).setEaseOutCubic().setIgnoreTimeScale(true);
 
-        LeanTween.moveLocalX(botonVolver, -400, 1.5f).setEaseOutCubic().setDelay(.5f).setIgnoreTimeScale(true);
-        LeanTween.moveLocalY(botonVolver, -170, 1.5f).setEaseOutCubic().setDelay(.5f).setIgnoreTimeScale(true);
-        LeanTween.rotateZ(botonVolver, 4, 1f).setEaseOutCubic().setDelay(.5f).setIgnoreTimeScale(true);
+        LeanTween.moveLocalX(botonVolver, -400, 1f).setEaseOutCubic().setDelay(.75f).setIgnoreTimeScale(true);
+        LeanTween.moveLocalY(botonVolver, -170, 1f).setEaseOutCubic().setDelay(.75f).setIgnoreTimeScale(true);
+        LeanTween.rotateZ(botonVolver, 4, .8f).setEaseOutCubic().setDelay(.75f).setIgnoreTimeScale(true);
 
-        LeanTween.moveLocalX(botonAjustes, 0, 1.5f).setEaseOutCubic().setDelay(.5f).setIgnoreTimeScale(true);
-        LeanTween.moveLocalY(botonAjustes, -130, 1.5f).setEaseOutCubic().setDelay(.5f).setIgnoreTimeScale(true);
-        LeanTween.rotateZ(botonAjustes, 2, 1f).setEaseOutCubic().setDelay(.5f).setIgnoreTimeScale(true);
+        LeanTween.moveLocalX(botonAjustes, 0, 1f).setEaseOutCubic().setDelay(.75f).setIgnoreTimeScale(true);
+        LeanTween.moveLocalY(botonAjustes, -130, 1f).setEaseOutCubic().setDelay(.75f).setIgnoreTimeScale(true);
+        LeanTween.rotateZ(botonAjustes, 2, .8f).setEaseOutCubic().setDelay(.75f).setIgnoreTimeScale(true);
 
-        LeanTween.moveLocalX(botonSalir, 400, 1.5f).setEaseOutCubic().setDelay(.5f).setIgnoreTimeScale(true);
-        LeanTween.moveLocalY(botonSalir, -180, 1.5f).setEaseOutCubic().setDelay(.5f).setIgnoreTimeScale(true);
-        LeanTween.rotateZ(botonSalir, -6, 1f).setEaseOutCubic().setDelay(.5f).setIgnoreTimeScale(true);
+        LeanTween.moveLocalX(botonSalir, 400, 1f).setEaseOutCubic().setDelay(.75f).setIgnoreTimeScale(true);
+        LeanTween.moveLocalY(botonSalir, -180, 1f).setEaseOutCubic().setDelay(.75f).setIgnoreTimeScale(true);
+        LeanTween.rotateZ(botonSalir, -6, .8f).setEaseOutCubic().setDelay(.75f).setIgnoreTimeScale(true);
 
-        StartCoroutine(MenuPausaInteractuable(2.25f));
+        StartCoroutine(MenuPausaInteractuable(1.9f));
     }
 
     public void Volver()
@@ -119,7 +119,7 @@ public class PauseMenuController : MonoBehaviour
 
         AnimacionAjustes();
 
-        StartCoroutine(HacerInteractuableCoroutine(volverAjustesBoton, 1.25f));
+        StartCoroutine(HacerInteractuableCoroutine(volverAjustesBoton, 1.1f));
     }
 
     public void AnimacionAjustes()
@@ -130,9 +130,6 @@ public class PauseMenuController : MonoBehaviour
         LeanTween.moveLocalX(botonVolver, 0, 1f).setIgnoreTimeScale(true);
         LeanTween.moveLocalX(botonSalir, 0, 1f).setIgnoreTimeScale(true);
         LeanTween.moveLocalY(titulo, 520, 1f).setIgnoreTimeScale(true);
-
-        //LeanTween.moveLocalX(botonAjustes, 0, .1f).setEaseOutCubic().setIgnoreTimeScale(true);
-        //LeanTween.moveLocalY(botonAjustes, 220, 1f).setEaseOutCubic().setIgnoreTimeScale(true);
 
         LeanTween.moveLocalX(volumen, 0, 1f).setEaseOutCubic().setIgnoreTimeScale(true);
         LeanTween.moveLocalY(volumen, 40, 1f).setEaseOutCubic().setIgnoreTimeScale(true);
@@ -162,7 +159,7 @@ public class PauseMenuController : MonoBehaviour
 
         AnimacionVolverAjustes();
 
-        StartCoroutine(MenuPausaInteractuable(2.25f));
+        StartCoroutine(MenuPausaInteractuable(1.9f));
 
         menuAjustes.SetActive(false);
     }
