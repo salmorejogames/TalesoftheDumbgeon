@@ -55,6 +55,7 @@ public class BlessCard : BaseCard
     {
         Blessing.Activate();
         SingletoneGameController.InterfaceController.UpdateLife();
+        SingletoneGameController.PlayerActions.Heal(Blessing.Health);
     }
     
 }
