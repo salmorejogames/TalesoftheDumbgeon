@@ -120,9 +120,11 @@ public class PlayerActionsController : MonoBehaviour, IDeadable
         Debug.Log("Usaste la carta " + hueco);
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnCollisionStay2D(Collision2D collision)
     {
-        if ((collision.gameObject.CompareTag("Enemigo") || collision.gameObject.CompareTag("ArmaEnemiga")) && !invincible)
+        if(invincible)
+            return;
+        if (collision.gameObject.CompareTag("Enemigo") || collision.gameObject.CompareTag("ArmaEnemiga"))
         {
             CharacterStats enemyStats = collision.gameObject.GetComponent<CharacterStats>();
             _stats.DoDamage(enemyStats.strength, collision.gameObject.transform.position, enemyStats.element);
@@ -158,6 +160,7 @@ public class PlayerActionsController : MonoBehaviour, IDeadable
         _canAtack = true;
         invincible = false;
         _rb.velocity = Vector2.zero;
+        Debug.Log("INVINCIBLEN'T D:");
     }
 
     public void ResetSpriteColor()
@@ -208,6 +211,7 @@ public class PlayerActionsController : MonoBehaviour, IDeadable
         _rb.velocity = direction;
         //Debug.Log(direction);
         invincible = true;
+        Debug.Log("INVENCIBLE :D");
         _canAtack = false;
         _spriteRenderer.color = Color.red;
         SingletoneGameController.PlayerActions.DisableMovement(inmunityTime);

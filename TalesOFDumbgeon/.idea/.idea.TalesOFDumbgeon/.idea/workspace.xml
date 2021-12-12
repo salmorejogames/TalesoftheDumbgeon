@@ -2,13 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b1d37c9d-25b2-4110-97a9-49ea663fadda" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/Sprites/personajes/NPCS/REY_BOTIJO.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Sprites/personajes/NPCS/francis.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Sprites/personajes/NPCS/francis/francis.clip.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/splash_arts/bar.png.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.TalesOFDumbgeon/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TalesOFDumbgeon/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Interface/DamageNumber.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Interface/DamageNumber.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CharacterStats.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CharacterStats.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameControl/PlayerActions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameControl/PlayerActions.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/IsometricUtils.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/IsometricUtils.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Map/MapManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Map/MapManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/IsometricMove.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/IsometricMove.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Enemies/Abuesqueleto_Manu.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Enemies/Abuesqueleto_Manu.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Enemies/Caballero_Banana.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Enemies/Caballero_Banana.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Enemies/DamageCanvas.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Enemies/DamageCanvas.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Animations/AbuesqueletoAnimation.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Animations/AbuesqueletoAnimation.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Enemys/ExampleEnemyBehaviour.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Enemys/ExampleEnemyBehaviour.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerActionsController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerActionsController.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -104,8 +108,6 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/Enemys/BaseEnemy.cs" />
       <option value="$PROJECT_DIR$/Assets/CameraMovement.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Player/Weapon.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Enemys/ExampleEnemyBehaviour.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Animations/AbuesqueletoAnimation.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/Enemigo_Pelusa.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/CardsInterface/CardsInfo/BlessCard.cs" />
       <option value="$PROJECT_DIR$/Assets/Barril.cs" />
@@ -115,13 +117,15 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/Equipment/Spells/DamageSpell.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Bala_Move.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Inteface/GameplayInterfaceController.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Player/PlayerActionsController.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Player/IsometricMove.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/GameControl/PlayerActions.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Map/MapManager.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/CharacterStats.cs" />
       <option value="$PROJECT_DIR$/Assets/Interface/DamageNumber.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/IsometricUtils.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Player/PlayerActionsController.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Animations/AbuesqueletoAnimation.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Enemys/ExampleEnemyBehaviour.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1zRaEkaFY4bgpmOHr8r3t8E1N2f" />
@@ -160,10 +164,10 @@
       </option>
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="1408">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" value="1408" />
+      <option name="pid" />
       <option name="projectPathOnTarget" />
       <option name="selectedOptions">
         <list />
@@ -210,6 +214,7 @@
       <workItem from="1637501275502" duration="5266000" />
       <workItem from="1639150640743" duration="9628000" />
       <workItem from="1639221747841" duration="1535000" />
+      <workItem from="1639324444544" duration="2056000" />
     </task>
     <servers />
   </component>
