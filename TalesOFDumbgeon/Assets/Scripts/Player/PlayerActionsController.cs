@@ -218,7 +218,7 @@ public class PlayerActionsController : MonoBehaviour, IDeadable
         Debug.Log("INVENCIBLE :D");
         _canAtack = false;
         _spriteRenderer.color = Color.red;
-        SingletoneGameController.PlayerActions.DisableMovement(inmunityTime);
+        SingletoneGameController.PlayerActions.DisableMovement(inmunityTime/2);
         Invoke(nameof(CancelInvincibility), inmunityTime);
         Invoke(nameof(ResetSpriteColor), inmunityTime);
     }

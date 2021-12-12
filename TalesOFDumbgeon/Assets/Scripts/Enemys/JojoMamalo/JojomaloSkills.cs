@@ -14,6 +14,7 @@ public class JojomaloSkills : MonoBehaviour
     [SerializeField] private AreaTileAtack areaTile;
     [SerializeField] private AreaTileAtack explosionCounterTile;
     [SerializeField] private InGameCard cardPrefab;
+    [SerializeField] private JojoSounds sounds;
     public enum Skills
     {
         LineAttack,
@@ -70,6 +71,7 @@ public class JojomaloSkills : MonoBehaviour
                 break;
             case Skills.ExplosionCounter:
                 CounterAttack(5);
+                
                 break;
             case Skills.ChangueElement:
                 ChangueElement(Elements.Element.Caos);
@@ -90,6 +92,7 @@ public class JojomaloSkills : MonoBehaviour
                 Vector3 translate = weapon.gameObject.transform.up * Random.Range(-1f, 1f);
                 weapon.gameObject.transform.Translate(translate);
                 weapon.Atack();
+                sounds.LaunchSound(JojoSounds.JojoSoundList.Disparo);
                 weapon.gameObject.transform.position = body.position;
                 
             }
@@ -108,7 +111,7 @@ public class JojomaloSkills : MonoBehaviour
                 mind.DisableMovement(weapon.weaponInfo.AttackSpeed*3);
                 mind.animationController.SetAttack();
                 yield return new WaitForSeconds(weapon.weaponInfo.AttackSpeed);
-                
+                sounds.LaunchSound(JojoSounds.JojoSoundList.Disparo);
                 float originalAngle = weapon.angle;
                 for (float j = -attackRange / 2; j <= attackRange / 2; j += attackRange / 4)
                 {
@@ -180,6 +183,7 @@ public class JojomaloSkills : MonoBehaviour
             for (int i = 0; i < numAtaques; i++)
             {
                 yield return new WaitForSeconds(weapon.weaponInfo.AttackSpeed/2);
+                sounds.LaunchSound(JojoSounds.JojoSoundList.Disparo);
                 int angle = Random.Range(0, 360);
                 body.position = mind.TargetPos +
                                 new Vector3(distance * Mathf.Cos(angle), distance * Mathf.Sin(angle), 0);
@@ -191,6 +195,7 @@ public class JojomaloSkills : MonoBehaviour
         }
         private void AreaAttack()
         {
+            sounds.LaunchSound(JojoSounds.JojoSoundList.Area);
             mind.animationController.SetAttack();
             Vector2 playerPos = SingletoneGameController.PlayerActions.player.gameObject.transform
                 .position;
@@ -205,6 +210,7 @@ public class JojomaloSkills : MonoBehaviour
         }
         private void CounterAttack(float dmg)
         {
+            sounds.LaunchSound(JojoSounds.JojoSoundList.Area);
             mind.animationController.SetCharge();
             Vector2 playerPos = gameObject.transform.position;
             Vector2 isometricPos = IsometricUtils.ScreenCordsToTilesPos(new Vector2(playerPos.x-0.25f, playerPos.y -0.25f), true);
@@ -219,7 +225,7 @@ public class JojomaloSkills : MonoBehaviour
         }
         private void TeleportInvulnerable(float cantidad)
         {
-        
+            sounds.LaunchSound(JojoSounds.JojoSoundList.Tp);
             int ran;
             do
             {

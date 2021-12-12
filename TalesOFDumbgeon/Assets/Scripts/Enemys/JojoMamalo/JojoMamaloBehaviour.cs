@@ -12,6 +12,7 @@ public class JojoMamaloBehaviour : BaseEnemy, IDeadable, IMovil
 {
     [NonSerialized] public AudioSource audioSrc;
     public AudioClip Jojomamalo_Fight;
+    [SerializeField] private JojoSounds sounds;
     public const int NumPositions = 4;
     private int _hitsCountdown = 2;
     private int _actualPos;
@@ -128,7 +129,7 @@ public class JojoMamaloBehaviour : BaseEnemy, IDeadable, IMovil
     public void Damage(Vector3 enemyPos, float cantidad, Elements.Element element)
     {
         DamageNumber dmgN = Instantiate(prefabDamage, transform.position, Quaternion.identity);
-       
+        sounds.LaunchSound(JojoSounds.JojoSoundList.Dmg);  
         if (_hitsCountdown > 0)
         { 
             dmgN.Inicializar(0, transform);

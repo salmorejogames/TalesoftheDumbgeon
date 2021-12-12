@@ -205,6 +205,7 @@ GameObject:
   - component: {fileID: 5541838033076014684}
   - component: {fileID: 2527247220220381595}
   - component: {fileID: 37635945413497549}
+  - component: {fileID: 2675162011540521317}
   m_Layer: 0
   m_Name: JojoMamalo
   m_TagString: Enemigo
@@ -310,9 +311,11 @@ MonoBehaviour:
   rangoVision: 0
   miedo: 0
   Jojomamalo_Fight: {fileID: 8300000, guid: 6a0cced81803f7046b34c7ca3d88a6b7, type: 3}
+  sounds: {fileID: 0}
   prefabDamage: {fileID: 7413456247700845425, guid: d04ec14520fae5f44b0e829368e66535,
     type: 3}
   animationController: {fileID: 8785547581767321911}
+  combat: 0
   attackCooldown: 6
   jojoarma: {fileID: 7074768991149250718}
   skills: {fileID: 5562745824741664786}
@@ -337,6 +340,7 @@ MonoBehaviour:
     type: 3}
   cardPrefab: {fileID: 7245321156880135598, guid: e666e4de48c23db458501b2e687fa12f,
     type: 3}
+  sounds: {fileID: 0}
 --- !u!195 &5541838033076014684
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -554,6 +558,23 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &2675162011540521317
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5057302173578858087}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7ec2f971d0acd445a7b28604c606ade, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jojoDmg: {fileID: 8300000, guid: 0130485930c06e54d9f87dd2f74beae9, type: 3}
+  jojoDisparo: {fileID: 8300000, guid: f4f00dfa2c4a70344ace9bc991063628, type: 3}
+  jojoArea: {fileID: 8300000, guid: bbca2eb9530552345aaf9b37f40dfbbe, type: 3}
+  jojoTp: {fileID: 8300000, guid: 7a4b3a911b6401e46af98bb6ac30739a, type: 3}
+  source: {fileID: 37635945413497549}
 --- !u!95 &2881738024301896483
 Animator:
   serializedVersion: 3
