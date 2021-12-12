@@ -6,7 +6,7 @@ using UnityEngine;
 public class SoundManager : MonoBehaviour
 {
 
-    public AudioClip FlipCard, GolpeBaston, GolpeEspada, GolpeLanza, HechizoAire, HechizoCaos, HechizoFuego, HechizoHielo, HechizoRoca, MonsterHurt, PasosMazmorra, SonidoBendicion, SonidoMaldicion, Stadtnarr_hurt, Open_Chest, Muerte_Pelusa, Muerte_Banana, Break_Barrel;
+    public AudioClip FlipCard, GolpeBaston, GolpeEspada, GolpeLanza, HechizoAire, HechizoCaos, HechizoFuego, HechizoHielo, HechizoRoca, MonsterHurt, PasosMazmorra, SonidoBendicion, SonidoMaldicion, Stadtnarr_hurt, Open_Chest, Muerte_Pelusa, Muerte_Banana, Break_Barrel, Bless;
     [NonSerialized] public AudioSource audioSrc;
     // Start is called before the first frame update
     void Start()
@@ -82,6 +82,10 @@ public class SoundManager : MonoBehaviour
             case "breakbarrel":
                 audioSrc.PlayOneShot(Break_Barrel);
                 break;
+            case "bless":
+                audioSrc.PlayOneShot(Bless);
+                break;
+
         }
     }
 
