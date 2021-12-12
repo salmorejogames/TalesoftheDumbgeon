@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 323822836215050289}
   - component: {fileID: 1361081095993181061}
   - component: {fileID: 5877177845912855045}
+  - component: {fileID: 5665780554117554948}
+  - component: {fileID: 1291844103780793692}
   m_Layer: 0
   m_Name: ReyBotijo
   m_TagString: Untagged
@@ -74,13 +76,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -8613915403651638326, guid: 176728de0756f1543bbe3bca5e7d7c3c,
-    type: 3}
+  m_Sprite: {fileID: 21300000, guid: 153ed57921dfbfb4796913053ea9e832, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.68759966, y: 0.81666666}
+  m_Size: {x: 10.24, y: 11.81}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -138,10 +139,10 @@ PolygonCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.50517744, y: 0.08592051}
-    oldSize: {x: 0.91679955, y: 1.0888889}
-    newSize: {x: 0.68759966, y: 0.81666666}
+    border: {x: 1.0933334, y: 0, z: 1.0933334, w: 2.6466668}
+    pivot: {x: 0.49999994, y: 0.03135316}
+    oldSize: {x: 3.4133334, y: 3.9366667}
+    newSize: {x: 10.24, y: 11.81}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -213,3 +214,35 @@ PolygonCollider2D:
       - {x: 0.29932648, y: 0.6751433}
       - {x: 0.2672898, y: 0.57903326}
       - {x: 0.2672898, y: 0.57262594}
+--- !u!114 &5665780554117554948
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1402193378371381417}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b41aa834ac79c9449f38de222d84297, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  carta: {fileID: 2459301831363257181, guid: 224f0d67d284d4744ba421578a9fa1ae, type: 3}
+  run: 0
+  trigger: {fileID: 1291844103780793692}
+--- !u!114 &1291844103780793692
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1402193378371381417}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8873eea9ee0cba545b7c26838221b48a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  click: 0
+  language: /ESP
+  character: /ReyBotijo
+  linea: 0
+  dialoguePath: 0
