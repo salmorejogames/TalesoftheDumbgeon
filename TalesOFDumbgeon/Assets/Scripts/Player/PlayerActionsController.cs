@@ -36,6 +36,7 @@ public class PlayerActionsController : MonoBehaviour, IDeadable
     [SerializeField] private GameObject botonReintentar;
     [SerializeField] private GameObject botonSalir;
     [SerializeField] private GameObject stats;
+    [SerializeField] private GameObject mana;
 
     [SerializeField] private AudioSource musicaGameOver;
     [SerializeField] private AudioSource musicaGameplay;
@@ -250,6 +251,7 @@ public class PlayerActionsController : MonoBehaviour, IDeadable
         cartas.SetActive(false);
         gameObject.SetActive(false);
         stats.SetActive(false);
+        mana.SetActive(false);
     }
 
     IEnumerator GreyscaleGameOver()
