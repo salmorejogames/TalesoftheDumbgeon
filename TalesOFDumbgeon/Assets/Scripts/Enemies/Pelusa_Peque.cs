@@ -71,6 +71,7 @@ public class Pelusa_Peque : BaseEnemy, IDeadable
 
     public void Dead()
     {
+        SingletoneGameController.SoundManager.audioSrc.PlayOneShot(Audio.clip);
         Destroy(gameObject);
     }
 

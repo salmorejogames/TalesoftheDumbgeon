@@ -116,6 +116,7 @@ public class Enemigo_Pelusa : BaseEnemy, IDeadable
 
     public void Dead()
     {
+        SingletoneGameController.SoundManager.audioSrc.PlayOneShot(Audio.clip);
         gameObject.SetActive(false);
     }
 

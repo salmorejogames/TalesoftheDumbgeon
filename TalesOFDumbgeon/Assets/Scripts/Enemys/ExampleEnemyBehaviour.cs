@@ -136,6 +136,7 @@ public class ExampleEnemyBehaviour : BaseEnemy, IDeadable, IMovil
 
     public void Dead()
     {
+        SingletoneGameController.SoundManager.audioSrc.PlayOneShot(Audio.clip);
         gameObject.SetActive(false);
     }
 

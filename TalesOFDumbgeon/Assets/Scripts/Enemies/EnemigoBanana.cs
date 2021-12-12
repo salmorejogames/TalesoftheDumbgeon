@@ -280,6 +280,7 @@ public class EnemigoBanana : BaseEnemy, IDeadable
 
     public void Dead()
     {
+        SingletoneGameController.SoundManager.audioSrc.PlayOneShot(Audio.clip);
         gameObject.SetActive(false);
     }
 

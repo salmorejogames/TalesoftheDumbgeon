@@ -253,6 +253,7 @@ public class Enemigo_Pistola : BaseEnemy, IDeadable, IMovil
 
     public void Dead()
     {
+        SingletoneGameController.SoundManager.audioSrc.PlayOneShot(Audio.clip);
         gameObject.SetActive(false);
     }
 
