@@ -7,6 +7,7 @@ public class Chest : MonoBehaviour
     public GameObject carta;
     public Sprite cofreAbierto;
     private bool closed;
+    public AudioSource audio;
 
     private void Start()
     {
@@ -20,6 +21,7 @@ public class Chest : MonoBehaviour
             GameObject newCard = Instantiate(carta,gameObject.transform.position + new Vector3(1.0f,0.0f,0.0f), gameObject.transform.rotation);
             newCard.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
             gameObject.GetComponent<SpriteRenderer>().sprite = cofreAbierto;
+            audio.Play();
             closed = false;
         }
         
