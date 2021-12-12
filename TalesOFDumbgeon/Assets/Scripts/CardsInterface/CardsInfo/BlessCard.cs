@@ -6,6 +6,7 @@ using UnityEngine;
 public class BlessCard : BaseCard
 {
     public BaseBlessing Blessing;
+    
 
     public BlessCard(BaseBlessing.BlessingType type)
     {
@@ -54,6 +55,7 @@ public class BlessCard : BaseCard
     public override void CastEffect()
     {
         Blessing.Activate();
+        SingletoneGameController.SoundManager.PlaySound("bless");
         SingletoneGameController.InterfaceController.UpdateLife();
         //SingletoneGameController.PlayerActions.Heal(Blessing.Health);
     }
