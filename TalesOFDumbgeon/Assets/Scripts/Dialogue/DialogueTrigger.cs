@@ -103,6 +103,16 @@ public class DialogueTrigger : MonoBehaviour {
 
     }
 
+    public void BossTriggerDialogue(JojoMamaloBehaviour jojo)
+    {
+        if (running == false)        //if((PauseMenu.gameIsPaused == false) && (running ==false))
+        {
+            //Cursor.SetCursor(cursorInteracted, Vector2.zero, CursorMode.ForceSoftware);
+            FindObjectOfType<BossDialogueManager>().StartDialogue(dialogue, jojo);
+        }
+
+    }
+
     public void UpdatePath(int newDialoguePath)
     {
         string aux;
