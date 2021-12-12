@@ -508,6 +508,7 @@ Tratando siempre de que esta versión sea lo más fiel posible al juego original
   
 Actualmente el desarrollo seguido para la implementación de *Tales of the Dumbgeon* en dispositivos móviles se corresponde con el **Plan A.3**.
 
+
 # 5. Trasfondo
 ## 5.1 Descripción detallada de la historia  y la trama
 
@@ -575,21 +576,20 @@ En este apartado se presentarán todos los personajes relevantes de la trama del
 
 	![image](https://user-images.githubusercontent.com/72553373/145685574-03dc7dc9-7417-4b9f-81eb-50ba64a4a6ac.png)
 
-		
+-   **El Rey Botijo**:
+	-   Descripción: 	
+			![](https://cdn.discordapp.com/attachments/808761273884999771/919628907290959892/REY_BOTIJO.png)
 
 ## 5.3 Entornos y lugares
 
 **La Dumbgeon**: La disparatada morada de Jojomamalo con eternos pasillos y absurdos enemigos representan la prueba final de los Stadtnarr. Debido a su absurdez, la Dumbgeon esta formada por salas de diferentes lugar que además se intercambian entre si cada vez que alguien nuevo entra en ella. 
-
-![](https://cdn.discordapp.com/attachments/503507632418455564/918096942918152232/unknown.png)
-
-![](https://cdn.discordapp.com/attachments/503507632418455564/918097210909024256/unknown.png)
-
-![](https://cdn.discordapp.com/attachments/503507632418455564/918097807242563604/unknown.png)
-
-![](https://cdn.discordapp.com/attachments/503507632418455564/918098037656653834/unknown.png)
-
-
+![](https://cdn.discordapp.com/attachments/808761273884999771/919629953790771200/unknown.png)
+![](https://cdn.discordapp.com/attachments/808761273884999771/919630218774315118/unknown.png)
+![](https://cdn.discordapp.com/attachments/808761273884999771/919630336789459054/unknown.png)
+![](https://cdn.discordapp.com/attachments/808761273884999771/919631221473030194/unknown.png)
+![](https://cdn.discordapp.com/attachments/808761273884999771/919631564462243880/unknown.png)
+![](https://cdn.discordapp.com/attachments/808761273884999771/919631883741040720/unknown.png)
+![](https://cdn.discordapp.com/attachments/808761273884999771/919632020336959558/unknown.png)
 # 6. Arte
 ## 6.1 Estética general del juego
 
@@ -624,7 +624,12 @@ En este apartado se ofrecen los assets creados originalmente por el equipo de ar
 ![](https://lh3.googleusercontent.com/S92hNb9dZ2YxX6hEXasNQxGD11aj0C0F8T9kpOz8N8Zt7sdQms8kyacN3zgbVL8e9f2NI46mXvYTT3cM_8D8q2gcGZ9netyBQoS65fYjrxu_M0Q3KVs2CL2_4fCtX2DE2uGYJ0RxIWVK)
 
 ![](https://cdn.discordapp.com/attachments/503507632418455564/918106204591501393/unknown.png)
+
 ![](https://cdn.discordapp.com/attachments/503507632418455564/918106333377605642/unknown.png)
+
+![](https://cdn.discordapp.com/attachments/808761273884999771/919630569531400202/CANDELABRO_03.png)
+![](https://cdn.discordapp.com/attachments/808761273884999771/919630569795624970/MAZMORRA-VASIJA_01.png)
+![](https://cdn.discordapp.com/attachments/808761273884999771/919630570101813278/MAZMORRA-VASIJA_02.png)
 ## 6.3 Música
 
 Actualmente las piezas compuestas son: 
