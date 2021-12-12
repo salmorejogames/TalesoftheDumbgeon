@@ -35,6 +35,10 @@ public class JojoMamaloBehaviour : BaseEnemy, IDeadable, IMovil
     public Vector3 TargetPos => _target.position;
     public int ActualPos => _actualPos;
 
+    //Dialogos
+    private int run = 0;
+    public DialogueTrigger dialogueTrigger;
+
     void Awake()
     {
         combat = false;
@@ -65,7 +69,16 @@ public class JojoMamaloBehaviour : BaseEnemy, IDeadable, IMovil
         audioSrc.Stop();
         audioSrc.clip = Jojomamalo_Fight;
         audioSrc.Play();
-        StartCombat();
+        run = PlayerPrefs.GetInt("Jojomamalos", 0);
+        run = Mathf.Clamp(run, 0, 4);
+        Invoke("JojomamaloDialogo", 1.5f);
+        //StartCombat();
+    }
+
+    public void JojomamaloDialogo()
+    {
+        dialogueTrigger.UpdatePath(run);
+        dialogueTrigger.BossTriggerDialogue(this);
     }
 
     public void StartCombat()
