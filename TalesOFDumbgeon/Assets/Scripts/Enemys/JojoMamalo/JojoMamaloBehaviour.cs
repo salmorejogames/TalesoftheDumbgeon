@@ -71,7 +71,7 @@ public class JojoMamaloBehaviour : BaseEnemy, IDeadable, IMovil
         audioSrc.Play();
         run = PlayerPrefs.GetInt("Jojomamalos", 0);
         run = Mathf.Clamp(run, 0, 4);
-        Invoke("JojomamaloDialogo", 1.5f);
+        Invoke("JojomamaloDialogo", 2.5f);
         //StartCombat();
     }
 
