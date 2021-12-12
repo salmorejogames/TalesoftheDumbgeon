@@ -577,8 +577,11 @@ En este apartado se presentarán todos los personajes relevantes de la trama del
 	![image](https://user-images.githubusercontent.com/72553373/145685574-03dc7dc9-7417-4b9f-81eb-50ba64a4a6ac.png)
 
 -   **El Rey Botijo**:
-	-   Descripción: 	
-			![](https://cdn.discordapp.com/attachments/808761273884999771/919628907290959892/REY_BOTIJO.png)
+	-   Descripción: Rey del Pueblo de la Arcilla, esclavizado hace mucho por Jojomamalo, vive temeroso de este y de que alguien haga daño a su pueblo en busca de alguna divisa mientras profiere gritos ininteligibles, pero eso son traumas suyos. Su principal objetivo es encontrar a un campeón que los libere de la tiranía del mago y no le importa cuántas cartas y alcohol tenga que regalar para conseguirlo.
+	
+	Puede encontrarsele en una sala particular de la mazmorra.
+	
+	![](https://cdn.discordapp.com/attachments/808761273884999771/919628907290959892/REY_BOTIJO.png)
 
 ## 5.3 Entornos y lugares
 
