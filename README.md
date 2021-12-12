@@ -634,10 +634,12 @@ En este apartado se ofrecen los assets creados originalmente por el equipo de ar
 
 Actualmente las piezas compuestas son: 
 	 
- - [Tema de *Pueblo Boñiga*](https://github.com/salmorejogames/TalesoftheDumbgeon/blob/main/TalesOFDumbgeon/Assets/Music/PuebloBo%C3%B1iga.wav)
+ - [Tema de *Creditos*](https://github.com/salmorejogames/TalesoftheDumbgeon/blob/main/TalesOFDumbgeon/Assets/Music/PuebloBo%C3%B1iga.wav)
  - [Tema de la *Dumbgeon*](https://github.com/salmorejogames/TalesoftheDumbgeon/blob/main/TalesOFDumbgeon/Assets/Music/Walking%20in%20the%20Dumbgeon.wav)
- - [Tema de *Elmo Street*](https://github.com/salmorejogames/TalesoftheDumbgeon/blob/main/TalesOFDumbgeon/Assets/Music/ElmoStreet.wav)
-
+ - [Tema de *Era se una vez...*](https://github.com/salmorejogames/TalesoftheDumbgeon/blob/main/TalesOFDumbgeon/Assets/Music/Once%20upon%20a%20time....wav)
+ - [Tema de *Game Over*](https://github.com/salmorejogames/TalesoftheDumbgeon/blob/main/TalesOFDumbgeon/Assets/Music/FUNeral.wav)
+ - [Tema de *Victory Fanfare*](https://github.com/salmorejogames/TalesoftheDumbgeon/blob/main/TalesOFDumbgeon/Assets/Music/Victory%20Fanfare%20Entera.wav)
+ - [Tema de *Chaotic*](https://github.com/salmorejogames/TalesoftheDumbgeon/blob/main/TalesOFDumbgeon/Assets/Music/Chaotic!.wav)
 
 ## 6.4 Efectos de sonido
 
@@ -655,22 +657,28 @@ Actualmente las piezas compuestas son:
  - [SonidoBendicion.wav](https://github.com/salmorejogames/TalesoftheDumbgeon/blob/main/TalesOFDumbgeon/Assets/Audio/Sonidos%20Buenos/SonidoBendicion.wav)
  - [Stadtnarr_hurt.wav](https://github.com/salmorejogames/TalesoftheDumbgeon/blob/main/TalesOFDumbgeon/Assets/Audio/Sonidos%20Buenos/Stadtnarr_hurt.wav)
 
+
 # 7. Interfaz
 ## 7.1 Diseños básicos de los menús
 **Pantalla inicial**
-![](https://cdn.discordapp.com/attachments/503507632418455564/912102026266161203/unknown.png)
-**Menu principal**![](https://cdn.discordapp.com/attachments/503507632418455564/912102128795922492/unknown.png)
-**Tutorial**
+![](https://cdn.discordapp.com/attachments/808761273884999771/919635450229055508/unknown.png)
+**Menu principal**![](https://cdn.discordapp.com/attachments/808761273884999771/919634752577863760/unknown.png)
+**Guia**
 ![](https://cdn.discordapp.com/attachments/503507632418455564/912102230201602138/unknown.png)
 
 **Menu de Ajustes**
-![](https://cdn.discordapp.com/attachments/503507632418455564/912102321977167872/unknown.png)
+![](https://cdn.discordapp.com/attachments/808761273884999771/919634900234162176/unknown.png)
 **Pantalla de gameplay**
-![](https://cdn.discordapp.com/attachments/503507632418455564/912102427577176085/unknown.png)
+![](https://cdn.discordapp.com/attachments/808761273884999771/919633300438532136/unknown.png)
+![](https://cdn.discordapp.com/attachments/808761273884999771/919633568957886485/unknown.png)
 **Menu de pausa**
-![](https://cdn.discordapp.com/attachments/503507632418455564/912102575107604500/unknown.png)
+![](https://cdn.discordapp.com/attachments/808761273884999771/919633982570774588/unknown.png)
 **Game Over**
-![](https://cdn.discordapp.com/attachments/503507632418455564/912102748747616276/unknown.png)
+![](https://cdn.discordapp.com/attachments/808761273884999771/919634430098813008/unknown.png)
+
+**Pantalla de Victoria**
+![](https://cdn.discordapp.com/attachments/808761273884999771/919635855860174978/unknown.png)
+![](https://cdn.discordapp.com/attachments/808761273884999771/919636250590330900/unknown.png)
 
 
 ## 7.2 Diagrama de flujo
