@@ -4,7 +4,7 @@ using UnityEngine;
 using Interfaces;
 using System;
 using UnityEngine.AI;
-using Random = System.Random;
+using Random = UnityEngine.Random;
 
 public class Enemigo_Pelusa : BaseEnemy, IDeadable
 {
@@ -122,6 +122,7 @@ public class Enemigo_Pelusa : BaseEnemy, IDeadable
 
     public void Damage(Vector3 enemy, float cantidad, Elements.Element element)
     {
+        Audio.pitch = Random.Range(0.5f, 1.5f);
         Audio.Play();
         float multiplier = Elements.GetElementMultiplier(element, stats.element);
         DamageNumber dmgN = Instantiate(DmgPrefab, transform.position, Quaternion.identity);

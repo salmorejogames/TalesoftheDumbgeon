@@ -57,7 +57,7 @@ public class BlessCard : BaseCard
         Blessing.Activate();
         SingletoneGameController.SoundManager.PlaySound("bless");
         SingletoneGameController.InterfaceController.UpdateLife();
-        SingletoneGameController.PlayerActions.Heal(Blessing.Health);
+        //SingletoneGameController.PlayerActions.Heal(Blessing.Health);
     }
     
 }

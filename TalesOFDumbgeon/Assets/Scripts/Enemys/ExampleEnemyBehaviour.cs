@@ -5,6 +5,7 @@ using Interfaces;
 using UnityEditor.UIElements;
 using UnityEngine;
 using UnityEngine.AI;
+using Random = UnityEngine.Random;
 
 public class ExampleEnemyBehaviour : BaseEnemy, IDeadable, IMovil
 {   
@@ -143,6 +144,7 @@ public class ExampleEnemyBehaviour : BaseEnemy, IDeadable, IMovil
     public void Damage(Vector3 enemyPos, float cantidad, Elements.Element element)
     {
 
+        Audio.pitch = Random.Range(0.5f, 1.5f);
         Audio.Play();
         float multiplier = Elements.GetElementMultiplier(element, stats.element);
         DamageNumber dmgN = Instantiate(dmgPrefab, transform.position, Quaternion.identity);

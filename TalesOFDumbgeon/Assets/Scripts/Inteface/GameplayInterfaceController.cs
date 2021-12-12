@@ -179,12 +179,13 @@ namespace Inteface
             yield return null;
         }
 
-        public void CambiarSprite(BaseCard.CardType cardType, BaseArmor.BodyPart bodyPart, Sprite nuevoSprite)
+        public void CambiarSprite(BaseCard.CardType cardType, BaseArmor.BodyPart bodyPart, Sprite nuevoSprite, Elements.Element element)
         {
             switch (cardType)
             {
                 case BaseCard.CardType.Weapon:
                     contArma.sprite = nuevoSprite;
+                    contArma.color = SingletoneGameController.InfoHolder.LoadColor(element);
                     break;
 
                 case BaseCard.CardType.Spell:
@@ -196,23 +197,27 @@ namespace Inteface
                     {
                         case BaseArmor.BodyPart.Head:
                             contArmadura1.sprite = nuevoSprite;
+                            contArmadura1.color = SingletoneGameController.InfoHolder.LoadColor(element);
                             break;
 
                         case BaseArmor.BodyPart.Body:
                             contArmadura2.sprite = nuevoSprite;
+                            contArmadura2.color = SingletoneGameController.InfoHolder.LoadColor(element);
                             break;
 
                         case BaseArmor.BodyPart.Legs:
                             contArmadura3.sprite = nuevoSprite;
+                            contArmadura3.color = SingletoneGameController.InfoHolder.LoadColor(element);
                             break;
                     }
                     break;
             }
         }
 
-        public void SpriteArmaInicial(Sprite nuevoSprite)
+        public void SpriteArmaInicial(Sprite nuevoSprite, Elements.Element element)
         {
             contArma.sprite = nuevoSprite;
+            contArma.color = SingletoneGameController.InfoHolder.LoadColor(element);
         }
 
         public void ActualizarStatsUI(TMP_Text textoUI, float stat)
