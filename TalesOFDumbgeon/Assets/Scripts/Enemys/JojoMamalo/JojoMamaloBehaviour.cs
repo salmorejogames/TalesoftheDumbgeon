@@ -24,6 +24,7 @@ public class JojoMamaloBehaviour : BaseEnemy, IDeadable, IMovil
     public DamageNumber prefabDamage;
     public JojomamaloAnimationController animationController;
 
+    public bool combat;
     public float attackCooldown;
     private float _elapsedTime = 0;
     private SpriteRenderer _spr;
@@ -35,6 +36,7 @@ public class JojoMamaloBehaviour : BaseEnemy, IDeadable, IMovil
 
     void Awake()
     {
+        combat = false;
         audioSrc = GameObject.Find("GameManager").GetComponent<AudioSource>();
         _navMeshAgent = gameObject.GetComponent<NavMeshAgent>();
         _navMeshAgent.stoppingDistance = 1f;
@@ -54,7 +56,7 @@ public class JojoMamaloBehaviour : BaseEnemy, IDeadable, IMovil
         BaseWeapon newJojoArma = new RangedWeapon();
         newJojoArma.Randomize(1);
         jojoarma.ChangeWeapon(newJojoArma);
-        _navMeshAgent.speed = stats.GetSpeedValue();
+        _navMeshAgent.speed = 0f;
     }
 
     private void Start()
@@ -62,12 +64,17 @@ public class JojoMamaloBehaviour : BaseEnemy, IDeadable, IMovil
         audioSrc.Stop();
         audioSrc.clip = Jojomamalo_Fight;
         audioSrc.Play();
+        StartCombat();
     }
 
+    public void StartCombat()
+    {
+        combat = true;
+    }
     // Update is called once per frame
     void Update()
     {
-        if (_active)
+        if (_active && combat)
         {
             UpdateWeaponAngle();
             _navMeshAgent.speed = stats.GetSpeedValue();
@@ -87,26 +94,29 @@ public class JojoMamaloBehaviour : BaseEnemy, IDeadable, IMovil
 
     private void FixedUpdate()
     {
-        _elapsedTime += Time.fixedDeltaTime;
-        if (_elapsedTime > attackCooldown)
+        if (combat)
         {
-            switch (Random.Range(0,4))
+            _elapsedTime += Time.fixedDeltaTime;
+            if (_elapsedTime > attackCooldown)
             {
-                case 0:
-                    skills.ActivateSkill(JojomaloSkills.Skills.LineAttack);
-                    break;
-                case 1:
-                    skills.ActivateSkill(JojomaloSkills.Skills.BowAttack);
-                    break;
-                case 2:
-                    skills.ActivateSkill(JojomaloSkills.Skills.SnakeAttack);
-                    break;
-                case 3:
-                    skills.ActivateSkill(JojomaloSkills.Skills.AreaAttack);
-                    break;
-            }
+                switch (Random.Range(0,4))
+                {
+                    case 0:
+                        skills.ActivateSkill(JojomaloSkills.Skills.LineAttack);
+                        break;
+                    case 1:
+                        skills.ActivateSkill(JojomaloSkills.Skills.BowAttack);
+                        break;
+                    case 2:
+                        skills.ActivateSkill(JojomaloSkills.Skills.SnakeAttack);
+                        break;
+                    case 3:
+                        skills.ActivateSkill(JojomaloSkills.Skills.AreaAttack);
+                        break;
+                }
 
-            _elapsedTime = 0f;
+                _elapsedTime = 0f;
+            } 
         }
     }
 
