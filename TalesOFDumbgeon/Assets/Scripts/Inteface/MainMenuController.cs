@@ -7,13 +7,19 @@ using UnityEngine.UI;
 public class MainMenuController : MonoBehaviour
 {
     [SerializeField] private GameObject titulo;
+
     [SerializeField] private GameObject botonJugar;
     [SerializeField] private GameObject botonAjustes;
     [SerializeField] private GameObject botonCreditos;
     [SerializeField] private GameObject botonGuia;
+
     [SerializeField] private GameObject botonVolver;
+
     [SerializeField] private GameObject tutorial1;
     [SerializeField] private GameObject tutorial2;
+    [SerializeField] private GameObject tutorial3;
+    [SerializeField] private GameObject tutorial4;
+
     [SerializeField] private GameObject volumen;
 
     [SerializeField] private GameObject menuPrincipal;
@@ -31,10 +37,16 @@ public class MainMenuController : MonoBehaviour
     [SerializeField] private Button guiaBoton;
     [SerializeField] private Button creditosBoton;
     [SerializeField] private Button volverBoton;
+
     [SerializeField] private Button avanzarBoton1;
     [SerializeField] private Button avanzarBoton2;
+    [SerializeField] private Button avanzarBoton3;
+    [SerializeField] private Button avanzarBoton4;
+
     [SerializeField] private Button retrocederBoton1;
     [SerializeField] private Button retrocederBoton2;
+    [SerializeField] private Button retrocederBoton3;
+    [SerializeField] private Button retrocederBoton4;
 
     private int pagina = 0;
 
@@ -142,24 +154,63 @@ public class MainMenuController : MonoBehaviour
                 HacerNoInteractuable(avanzarBoton2);
                 HacerNoInteractuable(retrocederBoton2);
 
-                pagina = 2;
                 LeanTween.moveLocalX(tutorial1, 1260, 1f).setEaseOutCubic();
                 LeanTween.moveLocalY(tutorial1, 0, 1f).setEaseOutCubic();
 
                 LeanTween.moveLocalX(tutorial2, 0, 1f).setEaseOutCubic();
                 LeanTween.moveLocalY(tutorial2, 0, 1f).setEaseOutCubic();
 
-                StartCoroutine(HacerInteractuableCoroutine(avanzarBoton2, 1.25f));
-                StartCoroutine(HacerInteractuableCoroutine(retrocederBoton2, 1.25f));
+                pagina = 2;
+
+                StartCoroutine(HacerInteractuableCoroutine(avanzarBoton2, 1.2f));
+                StartCoroutine(HacerInteractuableCoroutine(retrocederBoton2, 1.2f));
 
                 break;
 
             case 2:
                 HacerNoInteractuable(avanzarBoton2);
                 HacerNoInteractuable(retrocederBoton2);
+                HacerNoInteractuable(avanzarBoton3);
+                HacerNoInteractuable(retrocederBoton3);
 
                 LeanTween.moveLocalX(tutorial2, 1260, 1f).setEaseOutCubic();
                 LeanTween.moveLocalY(tutorial2, 0, 1f).setEaseOutCubic();
+
+                LeanTween.moveLocalX(tutorial3, 0, 1f).setEaseOutCubic();
+                LeanTween.moveLocalY(tutorial3, 0, 1f).setEaseOutCubic();
+
+                pagina = 3;
+
+                StartCoroutine(HacerInteractuableCoroutine(avanzarBoton3, 1.25f));
+                StartCoroutine(HacerInteractuableCoroutine(retrocederBoton3, 1.25f));
+
+                break;
+
+            case 3:
+                HacerNoInteractuable(avanzarBoton3);
+                HacerNoInteractuable(retrocederBoton3);
+                HacerNoInteractuable(avanzarBoton4);
+                HacerNoInteractuable(retrocederBoton4);
+
+                LeanTween.moveLocalX(tutorial3, 1260, 1f).setEaseOutCubic();
+                LeanTween.moveLocalY(tutorial3, 0, 1f).setEaseOutCubic();
+
+                LeanTween.moveLocalX(tutorial4, 0, 1f).setEaseOutCubic();
+                LeanTween.moveLocalY(tutorial4, 0, 1f).setEaseOutCubic();
+
+                pagina = 4;
+
+                StartCoroutine(HacerInteractuableCoroutine(avanzarBoton4, 1.25f));
+                StartCoroutine(HacerInteractuableCoroutine(retrocederBoton4, 1.25f));
+
+                break;
+
+            case 4:
+                HacerNoInteractuable(avanzarBoton4);
+                HacerNoInteractuable(retrocederBoton4);
+
+                LeanTween.moveLocalX(tutorial4, 1260, 1f).setEaseOutCubic();
+                LeanTween.moveLocalY(tutorial4, 0, 1f).setEaseOutCubic();
 
                 AnimacionMenuPrincipal();
 
@@ -182,7 +233,7 @@ public class MainMenuController : MonoBehaviour
 
                 AnimacionMenuPrincipal();
 
-                StartCoroutine(MenuAjustesInteractuable(2.25f));
+                StartCoroutine(MenuPrincipalInteractuable(1.9f));
 
                 break;
 
@@ -192,7 +243,6 @@ public class MainMenuController : MonoBehaviour
                 HacerNoInteractuable(avanzarBoton2);
                 HacerNoInteractuable(retrocederBoton2);
 
-                pagina = 1;
 
                 LeanTween.moveLocalX(tutorial1, 0, 1f).setEaseOutCubic();
                 LeanTween.moveLocalY(tutorial1, 0, 1f).setEaseOutCubic();
@@ -200,8 +250,49 @@ public class MainMenuController : MonoBehaviour
                 LeanTween.moveLocalX(tutorial2, 1260, 1f).setEaseOutCubic();
                 LeanTween.moveLocalY(tutorial2, 0, 1f).setEaseOutCubic();
 
+                pagina = 1;
+
                 StartCoroutine(HacerInteractuableCoroutine(avanzarBoton1, 1.25f));
                 StartCoroutine(HacerInteractuableCoroutine(retrocederBoton1, 1.25f));
+
+                break;
+
+            case 3:
+                HacerNoInteractuable(avanzarBoton2);
+                HacerNoInteractuable(retrocederBoton2);
+                HacerNoInteractuable(avanzarBoton3);
+                HacerNoInteractuable(retrocederBoton3);
+
+
+                LeanTween.moveLocalX(tutorial2, 0, 1f).setEaseOutCubic();
+                LeanTween.moveLocalY(tutorial2, 0, 1f).setEaseOutCubic();
+
+                LeanTween.moveLocalX(tutorial3, 1260, 1f).setEaseOutCubic();
+                LeanTween.moveLocalY(tutorial3, 0, 1f).setEaseOutCubic();
+
+                pagina = 2;
+
+                StartCoroutine(HacerInteractuableCoroutine(avanzarBoton2, 1.25f));
+                StartCoroutine(HacerInteractuableCoroutine(retrocederBoton2, 1.25f));
+
+                break;
+
+            case 4:
+                HacerNoInteractuable(avanzarBoton3);
+                HacerNoInteractuable(retrocederBoton3);
+                HacerNoInteractuable(avanzarBoton4);
+                HacerNoInteractuable(retrocederBoton4);
+
+                LeanTween.moveLocalX(tutorial3, 0, 1f).setEaseOutCubic();
+                LeanTween.moveLocalY(tutorial3, 0, 1f).setEaseOutCubic();
+
+                LeanTween.moveLocalX(tutorial4, 1260, 1f).setEaseOutCubic();
+                LeanTween.moveLocalY(tutorial4, 0, 1f).setEaseOutCubic();
+                
+                pagina = 3;
+
+                StartCoroutine(HacerInteractuableCoroutine(avanzarBoton3, 1.25f));
+                StartCoroutine(HacerInteractuableCoroutine(retrocederBoton3, 1.25f));
 
                 break;
         }
