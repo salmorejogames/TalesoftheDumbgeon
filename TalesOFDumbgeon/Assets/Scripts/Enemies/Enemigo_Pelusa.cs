@@ -11,7 +11,7 @@ public class Enemigo_Pelusa : BaseEnemy, IDeadable
     //IDeadable 
     private SpriteRenderer _spr;
     private IsometricMove _player;
-  
+    [SerializeField] private NavMeshAgent agent;
 
 
     [SerializeField]
@@ -38,6 +38,10 @@ public class Enemigo_Pelusa : BaseEnemy, IDeadable
     {
         
         //IDeadable
+        agent.speed = 0f;
+        agent.updatePosition = false;
+        agent.updateRotation = false;
+        agent.updateUpAxis = false;
         stats = gameObject.GetComponent<CharacterStats>();
         _spr = gameObject.GetComponent<SpriteRenderer>();
         stats.element = Elements.GetRandomElement();

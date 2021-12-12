@@ -8,6 +8,7 @@ public class Vasija : MonoBehaviour
     public Sprite vasijarota;
     private bool closed;
     public AudioSource audio;
+    [SerializeField] private SpriteRenderer spr;
 
     private void Start()
     {
@@ -18,8 +19,9 @@ public class Vasija : MonoBehaviour
     {
         if ((collision.gameObject.CompareTag("Arma") || collision.gameObject.CompareTag("Bala")) && closed)
         {
-           
-            gameObject.GetComponent<SpriteRenderer>().sprite = vasijarota;
+
+            gameObject.tag = "Untagged";
+            spr.sprite = vasijarota;
             audio.Play();
             closed = false;
         }
