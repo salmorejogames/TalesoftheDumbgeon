@@ -28,11 +28,11 @@ public class Weapon : MonoBehaviour
         if (weaponInfo == null)
         {
             AreaWeapon weapon = new AreaWeapon();
-            WeaponCard temporalCard = new WeaponCard(weapon);
-            if(holder.gameObject.CompareTag("Player"))
-                SingletoneGameController.InterfaceController.SpriteArmaInicial(temporalCard.Artwork);
             weapon.SetWeaponHolder(this);
             weapon.Randomize(1);
+            WeaponCard temporalCard = new WeaponCard(weapon);
+            if(holder.gameObject.CompareTag("Player"))
+                SingletoneGameController.InterfaceController.SpriteArmaInicial(temporalCard.Artwork, weapon.Element);
             ChangeWeapon(weapon);
         }
     }
