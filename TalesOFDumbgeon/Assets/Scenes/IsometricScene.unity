@@ -171,7 +171,7 @@ MonoBehaviour:
   Muerte_Pelusa: {fileID: 8300000, guid: 4b63d39218f16664382d65e2726a8cee, type: 3}
   Muerte_Banana: {fileID: 8300000, guid: c0608fceff38c2b42b8e61adf0d52961, type: 3}
   Break_Barrel: {fileID: 8300000, guid: 8abbd49cbf3ed3c43b0c604a388410fe, type: 3}
-  Bless: {fileID: 8300000, guid: 76bdcc8585a27b84b97157dcfdf3b5c2, type: 3}
+  Bless: {fileID: 0}
 --- !u!82 &18478276
 AudioSource:
   m_ObjectHideFlags: 0
@@ -3041,6 +3041,11 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2126528202483978887, guid: f7d8b04a9a3d676408435273389cf36e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2301910165461407173, guid: f7d8b04a9a3d676408435273389cf36e,
         type: 3}
       propertyPath: m_IsActive
       value: 1
