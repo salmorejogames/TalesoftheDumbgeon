@@ -54,6 +54,8 @@ public class PauseMenuController : MonoBehaviour
 
     public void ActivarMenuPausa()
     {
+        OnDisable();
+
         if (SingletoneGameController.PlayerActions.dead)
             return;
         Time.timeScale = 0f;
@@ -105,6 +107,7 @@ public class PauseMenuController : MonoBehaviour
 
         StartCoroutine(VignetteReanudar());
         StartCoroutine(EsperarVolver());
+
         depthOfField.mode.value = DepthOfFieldMode.Off;
     }
 
@@ -202,6 +205,7 @@ public class PauseMenuController : MonoBehaviour
         yield return new WaitForSecondsRealtime(1f);
         menuPausa.SetActive(false);
         Time.timeScale = 1f;
+        OnEnable();
     }
 
     IEnumerator MenuPausaInteractuable(float segundos)

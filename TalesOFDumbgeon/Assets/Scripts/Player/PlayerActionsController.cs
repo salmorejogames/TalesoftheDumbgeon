@@ -28,7 +28,6 @@ public class PlayerActionsController : MonoBehaviour, IDeadable
     private SpriteRenderer _spriteRenderer;
     private Rigidbody2D _rb;
 
-    [SerializeField] private Camera mainCamera;
     [SerializeField] private PlayerAnimationController _playerAnimationController;
 
     [SerializeField] private GameObject menuGameOver;
@@ -36,6 +35,7 @@ public class PlayerActionsController : MonoBehaviour, IDeadable
     [SerializeField] private GameObject botonReintentar;
     [SerializeField] private GameObject botonSalir;
     [SerializeField] private GameObject stats;
+    [SerializeField] private GameObject mana;
 
     [SerializeField] private AudioSource musicaGameOver;
     [SerializeField] private AudioSource musicaGameplay;
@@ -251,6 +251,7 @@ public class PlayerActionsController : MonoBehaviour, IDeadable
         cartas.SetActive(false);
         gameObject.SetActive(false);
         stats.SetActive(false);
+        mana.SetActive(false);
     }
 
     IEnumerator GreyscaleGameOver()
