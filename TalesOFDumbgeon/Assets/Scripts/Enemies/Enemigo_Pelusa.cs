@@ -4,6 +4,7 @@ using UnityEngine;
 using Interfaces;
 using System;
 using UnityEngine.AI;
+using Random = System.Random;
 
 public class Enemigo_Pelusa : BaseEnemy, IDeadable
 {
@@ -24,21 +25,23 @@ public class Enemigo_Pelusa : BaseEnemy, IDeadable
     public int maxChilds = 7;
 
     public GameObject personaje;
-    public GameObject Bala;
+    public Pelusa_Peque PelusaPeque;
     public GameObject zonaAtaque;
 
     private Rigidbody2D rb;
     private Vector2 direccion;
     private float startDelayTime = 2f;
     private float attackDelay;
-
     
-
+    [SerializeField] private SpriteRenderer bodySprite;
     private void Awake()
     {
+        
         //IDeadable
         stats = gameObject.GetComponent<CharacterStats>();
         _spr = gameObject.GetComponent<SpriteRenderer>();
+        stats.element = Elements.GetRandomElement();
+        bodySprite.color = SingletoneGameController.InfoHolder.LoadColor(stats.element);
         _player = SingletoneGameController.PlayerActions.player;
     }
 
@@ -76,8 +79,12 @@ public class Enemigo_Pelusa : BaseEnemy, IDeadable
 
     private void Attack()
     {
-        if(gameObject.transform.childCount<=maxChilds)
-            Instantiate(Bala, zonaAtaque.transform.position, Quaternion.identity, gameObject.transform);
+        if (gameObject.transform.childCount <= maxChilds)
+        {
+            Pelusa_Peque newPelusa =  Instantiate(PelusaPeque, zonaAtaque.transform.position, Quaternion.identity, gameObject.transform);
+            newPelusa.stats.element = stats.element;
+        }
+           
         //Instantiate(Bala, zonaAtaque.transform.position, Quaternion.identity, gameObject.transform);
         //Instantiate(Bala, zonaAtaque.transform.position, Quaternion.identity, gameObject.transform);
     }

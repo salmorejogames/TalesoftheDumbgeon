@@ -8,7 +8,7 @@ using UnityEngine.AI;
 public class Pelusa_Peque : BaseEnemy, IDeadable
 {
     //IDeadable 
-    [SerializeField] private SpriteRenderer _spr;
+    [SerializeField] private SpriteRenderer spr;
     private NavMeshAgent _navMeshAgent;
 
     [SerializeField]
@@ -35,6 +35,7 @@ public class Pelusa_Peque : BaseEnemy, IDeadable
     void Start()
     {
         player = SingletoneGameController.PlayerActions.player.gameObject.transform;
+        spr.color = SingletoneGameController.InfoHolder.LoadColor(stats.element);
         //padreInfo = padre.GetComponent<CharacterStats>();
         //dmg = padreStats.damage;
         //elemento = padreInfo.element;
@@ -79,17 +80,17 @@ public class Pelusa_Peque : BaseEnemy, IDeadable
         DamageNumber dmgN = Instantiate(DmgPrefab, transform.position, Quaternion.identity);
         dmgN.Inicializar(cantidad, transform);
         if (multiplier > 1.1f)
-            _spr.color = Color.red;
+            spr.color = Color.red;
         else if (multiplier < 0.9f)
-            _spr.color = Color.cyan;
+            spr.color = Color.cyan;
         else
-            _spr.color = Color.yellow;
-        dmgN.number.color = _spr.color;
+            spr.color = Color.yellow;
+        dmgN.number.color = spr.color;
         Invoke(nameof(RevertColor), 0.2f);
     }
 
     public void RevertColor()
     {
-        _spr.color = Color.white;
+        spr.color = Color.white;
     }
 }
