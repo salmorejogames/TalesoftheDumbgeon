@@ -67,7 +67,7 @@ public class MainMenuController : MonoBehaviour
     IEnumerator EsperarJugar()
     {
         yield return new WaitForSeconds(1.5f);
-        SceneManager.LoadScene("IsometricScene");
+        SceneManager.LoadScene("IntroductionScene");
     }
 
     public void Creditos()

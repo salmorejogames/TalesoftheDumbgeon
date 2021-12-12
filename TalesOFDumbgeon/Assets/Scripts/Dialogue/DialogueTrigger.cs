@@ -93,6 +93,16 @@ public class DialogueTrigger : MonoBehaviour {
 				
 	}
 
+    public void CinematicTriggerDialogue()
+    {
+        if (running == false)        //if((PauseMenu.gameIsPaused == false) && (running ==false))
+        {
+            //Cursor.SetCursor(cursorInteracted, Vector2.zero, CursorMode.ForceSoftware);
+            FindObjectOfType<CinematicDialogueManager>().StartDialogue(dialogue);
+        }
+
+    }
+
     public void UpdatePath(int newDialoguePath)
     {
         string aux;
