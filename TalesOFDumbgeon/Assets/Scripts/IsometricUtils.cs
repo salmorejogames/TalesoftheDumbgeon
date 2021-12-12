@@ -18,7 +18,8 @@ public static class IsometricUtils
     {
         float elementMultiplier = Elements.GetElementMultiplier(elementWeapon, elementObjetive);
         Debug.Log("Dmg base: " + (dmg - armor) +"Multiplicador de elemento: "  + elementMultiplier + "(" + elementWeapon.ToString() + " => " + elementObjetive.ToString() + ")");
-        return (dmg - armor) * elementMultiplier;
+        float baseDmg = (dmg - armor) * elementMultiplier;
+        return baseDmg > 1 ? baseDmg : 1;
     }
 
     public static Vector3 CoordinatesToWorldSpace(float x, float y)

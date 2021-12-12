@@ -56,11 +56,13 @@ public class CharacterStats : MonoBehaviour
     {
         this.speed += speed;
         if (gameObject.CompareTag("Player"))
+        {
             SingletoneGameController.InterfaceController.ActualizarStatsUI(SingletoneGameController.InterfaceController.velocidadTexto, this.speed);
 
-        if (this.speed <= 0)
-        {
-            SingletoneGameController.InterfaceController.ActualizarStatsUI(SingletoneGameController.InterfaceController.velocidadTexto, 0);
+            if (this.speed <= 0)
+            {
+                SingletoneGameController.InterfaceController.ActualizarStatsUI(SingletoneGameController.InterfaceController.velocidadTexto, 0);
+            }
         }
     }
 
@@ -68,36 +70,44 @@ public class CharacterStats : MonoBehaviour
     {
         this.armor += armor;
         if (gameObject.CompareTag("Player"))
-            SingletoneGameController.InterfaceController.ActualizarStatsUI(SingletoneGameController.InterfaceController.defensaTexto, this.armor);
-
-        if (this.armor <= 0)
         {
-            SingletoneGameController.InterfaceController.ActualizarStatsUI(SingletoneGameController.InterfaceController.defensaTexto, 0);
+            SingletoneGameController.InterfaceController.ActualizarStatsUI(SingletoneGameController.InterfaceController.defensaTexto, this.armor);
+            if (this.armor <= 0)
+            {
+                SingletoneGameController.InterfaceController.ActualizarStatsUI(SingletoneGameController.InterfaceController.defensaTexto, 0);
+            }
         }
+           
     }
 
     public void SetStrength(float strength)
     {
         this.strength += strength;
         if (gameObject.CompareTag("Player"))
+        {
             SingletoneGameController.InterfaceController.ActualizarStatsUI(SingletoneGameController.InterfaceController.ataqueTexto, this.strength);
 
-        if (this.strength <= 0)
-        {
-            SingletoneGameController.InterfaceController.ActualizarStatsUI(SingletoneGameController.InterfaceController.ataqueTexto, 0);
+            if (this.strength <= 0)
+            {
+                SingletoneGameController.InterfaceController.ActualizarStatsUI(SingletoneGameController.InterfaceController.ataqueTexto, 0);
+            }
         }
+            
     }
 
     public void SetMaxHealth(float maxHealth)
     {
         this.maxHealth += maxHealth;
         if (gameObject.CompareTag("Player"))
+        {
             SingletoneGameController.InterfaceController.ActualizarStatsUI(SingletoneGameController.InterfaceController.vidaMaxTexto, this.maxHealth);
 
-        if (this.maxHealth <= 0)
-        {
-            SingletoneGameController.InterfaceController.ActualizarStatsUI(SingletoneGameController.InterfaceController.vidaMaxTexto, 0);
+            if (this.maxHealth <= 0)
+            {
+                SingletoneGameController.InterfaceController.ActualizarStatsUI(SingletoneGameController.InterfaceController.vidaMaxTexto, 0);
+            } 
         }
+            
     }
 
     public bool IsAlive()
@@ -127,6 +137,7 @@ public class CharacterStats : MonoBehaviour
         if (_actualHealth <= 0)
         {
             _alive = false;
+            _actions.Dead();
             _actions.Dead();
         }
 

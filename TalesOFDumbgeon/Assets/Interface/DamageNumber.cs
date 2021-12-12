@@ -20,6 +20,8 @@ public class DamageNumber : MonoBehaviour
     {
         gameObject.transform.position = reference.position + offset + (Vector3) Random.insideUnitCircle * 0.5f;
         _started = true;
+        if (dmg < 0)
+            dmg = 0;
         number.text = dmg.ToString(CultureInfo.CurrentCulture);
         Destroy(gameObject, lifetime);
     }
