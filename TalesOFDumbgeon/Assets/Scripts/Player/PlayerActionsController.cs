@@ -28,7 +28,6 @@ public class PlayerActionsController : MonoBehaviour, IDeadable
     private SpriteRenderer _spriteRenderer;
     private Rigidbody2D _rb;
 
-    [SerializeField] private Camera mainCamera;
     [SerializeField] private PlayerAnimationController _playerAnimationController;
 
     [SerializeField] private GameObject menuGameOver;
