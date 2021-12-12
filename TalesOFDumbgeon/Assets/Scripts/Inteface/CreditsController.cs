@@ -10,15 +10,10 @@ public class CreditsController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Invoke("TerminarCreditos", 41.5f);
+        Invoke("TerminarCreditos", 42.9f);
+        Invoke("QuitarBotonSaltar", 41.5f);
         LeanTween.moveLocalY(saltarBoton, -240, 1.5f).setEaseOutCubic().setDelay(3f);
         LeanTween.rotateZ(saltarBoton, 2, 1f).setEaseOutCubic().setDelay(3f);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     public void TerminarCreditos()
@@ -29,5 +24,11 @@ public class CreditsController : MonoBehaviour
     public void SaltarCreditos()
     {
         SceneManager.LoadScene("MenuPrincipal");
+    }
+
+    public void QuitarBotonSaltar()
+    {
+        LeanTween.moveLocalY(saltarBoton, -450, 1.5f).setEaseOutCubic().setDelay(3f);
+        LeanTween.rotateZ(saltarBoton, 0, 1f).setEaseOutCubic().setDelay(3f);
     }
 }
