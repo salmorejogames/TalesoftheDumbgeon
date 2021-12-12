@@ -5,21 +5,20 @@ using UnityEngine.UI;
 using TMPro;
 using System;
 
-public class DialogueManager : MonoBehaviour {
+public class CinematicDialogueManager : MonoBehaviour {
 
 	public TextMeshProUGUI nameText;
 	public TextMeshProUGUI dialogueText;
 
 	public Animator animator;
-	public IsometricMove player;
-	public Weapon weapon;
-	public PlayerAnimationController playerAnimator;
-	public GameObject cards;
-	public GameObject habilidadesButtons;
+	public GameObject skipButton;
+	public FrancisDialogo cinemaManager;
 
 	private Queue<string> names;
 	private Queue<string> sentences;
 	private Queue<string> faces;
+
+	private int firstTime = 0;
 
 	/*
 	public Sprite spriteUp;
@@ -33,10 +32,11 @@ public class DialogueManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		firstTime = PlayerPrefs.GetInt("FirstTime", 0);
+		if(firstTime > 0) { skipButton.SetActive(true); }
 		names = new Queue<string>();
 		sentences = new Queue<string>();
 		faces = new Queue<string>();
-		Comentarios = GameObject.Find("Comentarios");
 	}
 
 	public void StartDialogue(Dialogue dialogue)
@@ -44,11 +44,6 @@ public class DialogueManager : MonoBehaviour {
 		clicks = -1;
 
 		DialogueTrigger.running = true;
-		player.DisableInputController();
-		weapon.SetOnDialogue(true);
-		playerAnimator.SetOnDialogue(true);
-		cards.SetActive(false);
-		habilidadesButtons.SetActive(false);
 		
 
 		animator.SetBool("IsOpen", true);
@@ -59,13 +54,13 @@ public class DialogueManager : MonoBehaviour {
 
 		foreach (string name in dialogue.name)
 		{
-
+			Debug.Log("Name: " + name);
 			names.Enqueue(name);
 		}
 
 		foreach (string sentence in dialogue.sentences)
 		{
-
+			Debug.Log("Sentence: " + sentence);
 			sentences.Enqueue(sentence);
 		}
 
@@ -157,13 +152,16 @@ public class DialogueManager : MonoBehaviour {
 	{
 		nameText.text = "";
 		dialogueText.text = "";
-		animator.SetBool("IsOpen", false);
+		//animator.SetBool("IsOpen", false);
 		DialogueTrigger.running = false;
-		player.EnableInputController();
-		weapon.SetOnDialogue(false);
-		playerAnimator.SetOnDialogue(false);
-		cards.SetActive(true);
-		habilidadesButtons.SetActive(true);
+		PlayerPrefs.SetInt("FirstTime", 1);
+		ActivateCinemaManager();
+	}
+
+	public void ActivateCinemaManager()
+	{
+		animator.SetBool("IsOpen", false);
+		cinemaManager.ActivateCinemaManager();
 	}
 
 }
