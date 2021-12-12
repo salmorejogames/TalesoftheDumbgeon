@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &1402193378371381417
+--- !u!1 &1268573183401434541
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,42 +8,56 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 8359843020186686252}
-  - component: {fileID: 6492359311643825049}
-  - component: {fileID: 323822836215050289}
-  - component: {fileID: 1361081095993181061}
-  - component: {fileID: 5877177845912855045}
-  - component: {fileID: 5665780554117554948}
-  - component: {fileID: 1291844103780793692}
-  - component: {fileID: 3321009668046215843}
+  - component: {fileID: 5338360318449992253}
+  - component: {fileID: 6289034669477257312}
+  - component: {fileID: 5243568425363076732}
   m_Layer: 0
-  m_Name: ReyBotijo
+  m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &8359843020186686252
+--- !u!4 &5338360318449992253
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1402193378371381417}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_GameObject: {fileID: 1268573183401434541}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.33, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 8359843020186686252}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &6492359311643825049
+--- !u!95 &6289034669477257312
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1268573183401434541}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e89e1baa2289b664ca592281e9ceceea, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!212 &5243568425363076732
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1402193378371381417}
+  m_GameObject: {fileID: 1268573183401434541}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -88,6 +102,43 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1402193378371381417
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8359843020186686252}
+  - component: {fileID: 323822836215050289}
+  - component: {fileID: 1361081095993181061}
+  - component: {fileID: 5877177845912855045}
+  - component: {fileID: 5665780554117554948}
+  - component: {fileID: 1291844103780793692}
+  - component: {fileID: 4145681141080699935}
+  m_Layer: 0
+  m_Name: ReyBotijo
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8359843020186686252
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1402193378371381417}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 5338360318449992253}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &323822836215050289
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -138,7 +189,7 @@ PolygonCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -0.33}
   m_SpriteTilingProperty:
     border: {x: 1.0933334, y: 0, z: 1.0933334, w: 2.6466668}
     pivot: {x: 0.49999994, y: 0.03135316}
@@ -150,71 +201,11 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0.3057338, y: 0.22662982}
-      - {x: 0.33136314, y: 0.29070318}
-      - {x: 0.33136314, y: 0.4572939}
-      - {x: 0.41465852, y: 0.5469966}
-      - {x: 0.40184385, y: 0.7135873}
-      - {x: 0.45950985, y: 0.80329}
-      - {x: 0.45950985, y: 0.8929927}
-      - {x: 0.4338805, y: 0.92502934}
-      - {x: 0.31854847, y: 0.92502934}
-      - {x: 0.2865118, y: 0.8994}
-      - {x: 0.20962377, y: 0.91221464}
-      - {x: -0.08511365, y: 0.918622}
-      - {x: -0.2196677, y: 0.9058073}
-      - {x: -0.32218507, y: 0.918622}
-      - {x: -0.36062908, y: 0.92502934}
-      - {x: -0.4182951, y: 0.92502934}
-      - {x: -0.43110976, y: 0.918622}
-      - {x: -0.4567391, y: 0.880178}
-      - {x: -0.4567391, y: 0.80969733}
-      - {x: -0.3990731, y: 0.70717996}
-      - {x: -0.41188776, y: 0.5469966}
-      - {x: -0.33499974, y: 0.45088655}
-      - {x: -0.3285924, y: 0.29070318}
-      - {x: -0.29655573, y: 0.22662982}
-      - {x: -0.23248237, y: 0.14333446}
-      - {x: -0.18763103, y: 0.117705114}
-      - {x: -0.17481636, y: 0.0023730781}
-      - {x: -0.14277968, y: -0.023256263}
-      - {x: -0.065891646, y: -0.048885606}
-      - {x: -0.040262304, y: -0.05529294}
-      - {x: 0.055847727, y: -0.05529294}
-      - {x: 0.15195775, y: -0.023256263}
-      - {x: 0.19040176, y: -0.0040342575}
-      - {x: 0.16477242, y: 0.0792611}
-    - - {x: -0.2709264, y: 0.57903326}
-      - {x: -0.29014838, y: 0.5982553}
-      - {x: -0.29655573, y: 0.5982553}
-      - {x: -0.29655573, y: 0.6751433}
-      - {x: -0.30296305, y: 0.6815506}
-      - {x: -0.30296305, y: 0.7135873}
-      - {x: -0.3093704, y: 0.71999466}
-      - {x: -0.3093704, y: 0.7392166}
-      - {x: -0.3285924, y: 0.7520313}
-      - {x: -0.32218507, y: 0.726402}
-      - {x: -0.2773337, y: 0.68795794}
-      - {x: -0.2773337, y: 0.6751433}
-      - {x: -0.2709264, y: 0.668736}
-      - {x: -0.2709264, y: 0.63669926}
-      - {x: -0.26451904, y: 0.63029194}
-      - {x: -0.25811172, y: 0.59184796}
-      - {x: -0.26451904, y: 0.5854406}
-      - {x: -0.25811172, y: 0.57262594}
-      - {x: -0.26451904, y: 0.57903326}
-    - - {x: 0.26088247, y: 0.6046626}
-      - {x: 0.2672898, y: 0.6046626}
-      - {x: 0.28010446, y: 0.6751433}
-      - {x: 0.28010446, y: 0.68795794}
-      - {x: 0.31854847, y: 0.726402}
-      - {x: 0.32495582, y: 0.745624}
-      - {x: 0.31214115, y: 0.7392166}
-      - {x: 0.3057338, y: 0.7135873}
-      - {x: 0.3057338, y: 0.6815506}
-      - {x: 0.29932648, y: 0.6751433}
-      - {x: 0.2672898, y: 0.57903326}
-      - {x: 0.2672898, y: 0.57262594}
+    - - {x: 0.11748989, y: 0.18298048}
+      - {x: 0.23021317, y: 0.015172176}
+      - {x: 0.004107237, y: -0.06676096}
+      - {x: -0.18721157, y: -0.00086438656}
+      - {x: -0.10895088, y: 0.17442828}
 --- !u!114 &5665780554117554948
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -247,22 +238,14 @@ MonoBehaviour:
   character: /ReyBotijo
   linea: 0
   dialoguePath: 0
---- !u!95 &3321009668046215843
-Animator:
-  serializedVersion: 3
+--- !u!210 &4145681141080699935
+SortingGroup:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1402193378371381417}
   m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: e89e1baa2289b664ca592281e9ceceea, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0

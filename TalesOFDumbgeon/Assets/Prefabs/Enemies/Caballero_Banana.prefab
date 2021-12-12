@@ -32,6 +32,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 6141370746608771469}
+  colorRenderer: {fileID: 3636020614547060420}
 --- !u!1 &9165684829455639662
 GameObject:
   m_ObjectHideFlags: 0
@@ -350,6 +351,21 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Enemigo
       objectReference: {fileID: 0}
+    - target: {fileID: -3655039750943228215, guid: 33b0f3cc374136146a8672ff7fd0cb20,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -3655039750943228215, guid: 33b0f3cc374136146a8672ff7fd0cb20,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -3655039750943228215, guid: 33b0f3cc374136146a8672ff7fd0cb20,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: -3496376650467336521, guid: 33b0f3cc374136146a8672ff7fd0cb20,
         type: 3}
       propertyPath: m_Bounds.m_Center.x
@@ -467,6 +483,12 @@ GameObject:
 --- !u!4 &6427583977992956635 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2738276914732507862, guid: 33b0f3cc374136146a8672ff7fd0cb20,
+    type: 3}
+  m_PrefabInstance: {fileID: 9165684828720039949}
+  m_PrefabAsset: {fileID: 0}
+--- !u!212 &3636020614547060420 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: -3655039750943228215, guid: 33b0f3cc374136146a8672ff7fd0cb20,
     type: 3}
   m_PrefabInstance: {fileID: 9165684828720039949}
   m_PrefabAsset: {fileID: 0}

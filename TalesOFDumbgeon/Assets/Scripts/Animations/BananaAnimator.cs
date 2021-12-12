@@ -8,7 +8,7 @@ public class BananaAnimator : MonoBehaviour
     private static readonly int Attack = Animator.StringToHash("Attack");
     private static readonly int ReleaseAttack = Animator.StringToHash("ReleaseAttack");
     private static readonly int EndAttack1 = Animator.StringToHash("EndAttack");
-
+    [SerializeField] private SpriteRenderer colorRenderer;
     public void PrepareAttack()
     {
         animator.SetTrigger(Attack);
@@ -22,5 +22,13 @@ public class BananaAnimator : MonoBehaviour
     public void EndAttack()
     {
         animator.SetTrigger(EndAttack1);
+    }
+
+    public void ChangeColor(Elements.Element element)
+    {
+        if (element == Elements.Element.Normal)
+            colorRenderer.color = Color.white;
+        else
+            colorRenderer.color = SingletoneGameController.InfoHolder.LoadColor(element);
     }
 }

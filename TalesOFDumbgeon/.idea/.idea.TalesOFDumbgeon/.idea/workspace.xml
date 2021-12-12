@@ -2,17 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b1d37c9d-25b2-4110-97a9-49ea663fadda" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Sprites/personajes/NPCS/REY_BOTIJO.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Sprites/personajes/NPCS/francis.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Sprites/personajes/NPCS/francis/francis.clip.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/splash_arts/bar.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Interface/Mana_bar.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Sprites/escenarios/MAZMORRA_BG.png.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.TalesOFDumbgeon/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TalesOFDumbgeon/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Enemies/Abuesqueleto_Manu.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Enemies/Abuesqueleto_Manu.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Enemies/Caballero_Banana.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Enemies/Caballero_Banana.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Enemies/DamageCanvas.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Enemies/DamageCanvas.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Animations/AbuesqueletoAnimation.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Animations/AbuesqueletoAnimation.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Enemys/ExampleEnemyBehaviour.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Enemys/ExampleEnemyBehaviour.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerActionsController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerActionsController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Enemies/Cerebro.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Enemies/Cerebro.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Main Camera.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Main Camera.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Animations/BananaAnimator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Animations/BananaAnimator.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Animations/CerebroAnimation.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Animations/CerebroAnimation.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Animations/PlayerAnimationController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Animations/PlayerAnimationController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Enemies/EnemigoBanana.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Enemies/EnemigoBanana.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Enemies/Enemigo_Pistola.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Enemies/Enemigo_Pistola.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -94,15 +94,10 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/Equipment/StaticInfoHolder.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Collectionable.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Equipment/Blessings/HealBlessing.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Animations/PlayerAnimationController.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Player/IsometricCharacterRenderer.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/CardsInterface/ItemCard.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Generator.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Animations/BananaAnimator.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/EnemigoBanana.cs" />
       <option value="$PROJECT_DIR$/Assets/CuervilloDialogo.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Animations/CerebroAnimation.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/Enemigo_Pistola.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Enemys/JojoMamalo/JojomaloSkills.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/Pelusa_Peque.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Enemys/BaseEnemy.cs" />
@@ -124,8 +119,13 @@
       <option value="$PROJECT_DIR$/Assets/Interface/DamageNumber.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/IsometricUtils.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Player/PlayerActionsController.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Animations/AbuesqueletoAnimation.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Enemys/ExampleEnemyBehaviour.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Animations/AbuesqueletoAnimation.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Animations/CerebroAnimation.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/Enemigo_Pistola.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Animations/PlayerAnimationController.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Animations/BananaAnimator.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/EnemigoBanana.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1zRaEkaFY4bgpmOHr8r3t8E1N2f" />
@@ -214,7 +214,7 @@
       <workItem from="1637501275502" duration="5266000" />
       <workItem from="1639150640743" duration="9628000" />
       <workItem from="1639221747841" duration="1535000" />
-      <workItem from="1639324444544" duration="2056000" />
+      <workItem from="1639324444544" duration="4219000" />
     </task>
     <servers />
   </component>

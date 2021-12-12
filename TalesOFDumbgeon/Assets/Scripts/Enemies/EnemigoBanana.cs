@@ -68,6 +68,13 @@ public class EnemigoBanana : BaseEnemy, IDeadable
         attackDelay = 4;
         velocidad = stats.speed;
         attackTime = 3f;
+        BaseArmor casco = new BaseArmor();
+        casco.Stats = stats;
+        casco.Randomize(1);
+        casco.Equip();
+        casco.Armor = 0f;
+        stats.element = casco.Element;
+        animator.ChangeColor(casco.Element);
     }
 
     // Update is called once per frame

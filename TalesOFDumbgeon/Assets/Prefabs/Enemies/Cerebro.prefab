@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6338462477549877428}
   - component: {fileID: 4413159110717676118}
+  - component: {fileID: 7961646411723127264}
   m_Layer: 0
   m_Name: Animation
   m_TagString: Untagged
@@ -45,6 +46,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 2357716322265903367}
+  colorRenderer: {fileID: 4271993953575714830}
+--- !u!210 &7961646411723127264
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1355509500790297239}
+  m_Enabled: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
 --- !u!1 &2789365598665093893
 GameObject:
   m_ObjectHideFlags: 0
@@ -264,9 +277,6 @@ MonoBehaviour:
   agent: {fileID: 2789365599019592910}
   DmgPrefab: {fileID: 7413456247700845425, guid: d04ec14520fae5f44b0e829368e66535,
     type: 3}
-  velocidad: 0.5
-  armadura: 0
-  damage: 2
   vision: 15
   maxDistance: 1
   stopDistance: 7
@@ -574,6 +584,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 2357716322265903367}
+  colorRenderer: {fileID: 0}
 --- !u!1 &6031929988981646505
 GameObject:
   m_ObjectHideFlags: 0
