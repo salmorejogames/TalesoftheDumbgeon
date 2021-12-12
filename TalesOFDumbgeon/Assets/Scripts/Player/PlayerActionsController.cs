@@ -109,6 +109,7 @@ public class PlayerActionsController : MonoBehaviour, IDeadable
         {
             Debug.Log("CastingSpell");
             _playerAnimationController.SetSpell();
+            SingletoneGameController.InterfaceController.LaunchSpell(weapon.spellInfo.Cooldown);
             weapon.CastSpell();
             _canSpell = false;
             Invoke(nameof(ReactiveSpell), weapon.spellInfo.Cooldown);

@@ -128,6 +128,7 @@ public class MapManager : MonoBehaviour
         Vector3 playerObjetive = playerPos + coordinates;
         SingletoneGameController.PlayerActions.DisableMovement();
         yield return new WaitForSeconds(sleepTime);
+        SingletoneGameController.PlayerActions.SetWalkAnimation(true);
         _player.UpdateAngle(coordinates);
         while (Vector3.Distance(playerPos, playerObjetive)>0.001)
         {
@@ -135,6 +136,7 @@ public class MapManager : MonoBehaviour
             _player.transform.position = playerPos;
             yield return null;
         }
+        SingletoneGameController.PlayerActions.SetWalkAnimation(false);
         while(Vector3.Distance(cameraTr, cameraDestiny) > 0.001)
         {
             cameraTr = Vector3.MoveTowards(cameraTr, cameraDestiny, transitionSpeed*Time.deltaTime);

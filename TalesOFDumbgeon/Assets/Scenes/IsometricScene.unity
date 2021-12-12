@@ -167,6 +167,10 @@ MonoBehaviour:
   SonidoBendicion: {fileID: 8300000, guid: 76bdcc8585a27b84b97157dcfdf3b5c2, type: 3}
   SonidoMaldicion: {fileID: 8300000, guid: 94d27447a81bb6e4bbe1e4f910928856, type: 3}
   Stadtnarr_hurt: {fileID: 8300000, guid: 31baa5c479a95ec41b1159dd83df5996, type: 3}
+  Open_Chest: {fileID: 8300000, guid: 91117130946e45040a7bf3bfd2966e09, type: 3}
+  Muerte_Pelusa: {fileID: 8300000, guid: 4b63d39218f16664382d65e2726a8cee, type: 3}
+  Muerte_Banana: {fileID: 8300000, guid: c0608fceff38c2b42b8e61adf0d52961, type: 3}
+  Break_Barrel: {fileID: 8300000, guid: 8abbd49cbf3ed3c43b0c604a388410fe, type: 3}
 --- !u!82 &18478276
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1536,6 +1540,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!224 &169583928 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 3915079393427185749, guid: f7d8b04a9a3d676408435273389cf36e,
+    type: 3}
+  m_PrefabInstance: {fileID: 1224128818406787809}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &369528832 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1320480309086693097, guid: f7d8b04a9a3d676408435273389cf36e,
@@ -1736,25 +1746,44 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1224128818406787809}
   m_PrefabAsset: {fileID: 0}
---- !u!95 &949139991
-Animator:
-  serializedVersion: 3
+--- !u!1 &964021865 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6202377211724500016, guid: f7d8b04a9a3d676408435273389cf36e,
+    type: 3}
+  m_PrefabInstance: {fileID: 1224128818406787809}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &964021868
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 949139986}
+  m_GameObject: {fileID: 964021865}
   m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 65955383f4ac8e843840fad0cb1c4850, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_RenderShadows: 1
+  m_RequiresDepthTextureOption: 2
+  m_RequiresOpaqueTextureOption: 2
+  m_CameraType: 0
+  m_Cameras: []
+  m_RendererIndex: -1
+  m_VolumeLayerMask:
+    serializedVersion: 2
+    m_Bits: 1
+  m_VolumeTrigger: {fileID: 0}
+  m_RenderPostProcessing: 0
+  m_Antialiasing: 0
+  m_AntialiasingQuality: 2
+  m_StopNaN: 0
+  m_Dithering: 0
+  m_ClearDepth: 1
+  m_AllowXRRendering: 1
+  m_RequiresDepthTexture: 0
+  m_RequiresColorTexture: 0
+  m_Version: 2
 --- !u!1 &1086874666 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1224128819485273803, guid: f7d8b04a9a3d676408435273389cf36e,
@@ -2033,6 +2062,24 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &1790952371 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6202377210418419355, guid: f7d8b04a9a3d676408435273389cf36e,
+    type: 3}
+  m_PrefabInstance: {fileID: 1224128818406787809}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1790952372
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1790952371}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f047cd629390ccc44b852571a186daf4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!82 &1846349257 stripped
@@ -2816,6 +2863,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1224128819601507996, guid: f7d8b04a9a3d676408435273389cf36e,
         type: 3}
+      propertyPath: manaBar
+      value: 
+      objectReference: {fileID: 169583928}
+    - target: {fileID: 1224128819601507996, guid: f7d8b04a9a3d676408435273389cf36e,
+        type: 3}
       propertyPath: contArma
       value: 
       objectReference: {fileID: 864054018}
@@ -2981,6 +3033,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2337100883907545578, guid: f7d8b04a9a3d676408435273389cf36e,
+        type: 3}
+      propertyPath: m_Name
+      value: BarraMana
       objectReference: {fileID: 0}
     - target: {fileID: 2641197866463568425, guid: f7d8b04a9a3d676408435273389cf36e,
         type: 3}
@@ -3853,6 +3910,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -80
+      objectReference: {fileID: 0}
+    - target: {fileID: 7480967359778891546, guid: f7d8b04a9a3d676408435273389cf36e,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -198.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7480967359778891546, guid: f7d8b04a9a3d676408435273389cf36e,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 290
       objectReference: {fileID: 0}
     - target: {fileID: 7504154343791306957, guid: f7d8b04a9a3d676408435273389cf36e,
         type: 3}

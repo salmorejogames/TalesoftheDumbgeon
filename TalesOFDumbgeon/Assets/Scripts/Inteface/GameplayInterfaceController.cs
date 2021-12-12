@@ -15,6 +15,8 @@ namespace Inteface
         [SerializeField] private float animationTime;
         [SerializeField] private float hiddenPercent;
         [SerializeField] private RectTransform lifeBar;
+        [SerializeField] private RectTransform manaBar;
+        
         private List<Vector3> _originalPos;
         private List<Vector3> _hiddenPos;
         private CharacterStats _player;
@@ -87,6 +89,23 @@ namespace Inteface
             }
         }
 
+        public void LaunchSpell(float reloadTime)
+        {
+            manaBar.localScale = new Vector3(0, 1 ,1);
+            StartCoroutine(nameof(UpdateManaBar), reloadTime);
+        }
+
+        IEnumerator UpdateManaBar(float reload)
+        {
+            int iterations = (int) Mathf.Floor(reload / Time.fixedDeltaTime);
+            float step = 1f / iterations;
+            for (int i = iterations; i > 0; i--)
+            {
+                manaBar.localScale = new Vector3(manaBar.localScale.x + step, 1, 1);
+                yield return new WaitForFixedUpdate();
+            }
+            manaBar.localScale = Vector3.one;
+        }
         IEnumerator UpdateHealthBar()
         {
             float segment = _player.GetActualHealth()/_player.maxHealth;

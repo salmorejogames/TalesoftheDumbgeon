@@ -53,6 +53,11 @@ public class PlayerActions : MonoBehaviour
         player.Stats.Heal(cantidad);
     }
 
+    public void SetWalkAnimation(bool anim)
+    {
+        player.walkAnimation = anim;
+    }
+
     public void Damage(int cantidad, Elements.Element tipo)
     {
         player.Stats.DoDamage(cantidad, gameObject.transform.position, tipo);
