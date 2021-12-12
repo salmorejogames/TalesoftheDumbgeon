@@ -42,11 +42,13 @@ public class DamageSpell : BaseSpell
         SpriteRenderer spriteR = spell.AddComponent<SpriteRenderer>();
         Bala_Move spellLogic = spell.AddComponent<Bala_Move>();
         Rigidbody2D rb =spell.AddComponent<Rigidbody2D>();
+        
         spell.transform.localScale = new Vector3(2, 2, 2);
         spriteR.sprite = SpellSprite;
         //spriteR.color = SingletoneGameController.InfoHolder.LoadColor(Element);
         
         rb.bodyType = RigidbodyType2D.Kinematic;
+        spellLogic.rotation = true;
         spellLogic.parentTag = WeaponHolder.holder.gameObject.tag;
         spellLogic.Damage = Damage;
         spellLogic.Element = Element;
