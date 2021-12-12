@@ -4,15 +4,19 @@ using UnityEngine;
 
 public class JojoSounds : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] private AudioClip jojoDmg;
+    [SerializeField] private AudioClip jojoDisparo;
+    [SerializeField] private AudioClip jojoEscopetazo;
+    [SerializeField] private AudioClip jojoArea;
+    [SerializeField] private AudioClip jojoEspecial;
 
-    // Update is called once per frame
-    void Update()
+    public enum JojoSoundList
     {
+        Dmg,
+        Disparo,
+        Area,
+        Escopetazo,
         
     }
+    
 }
