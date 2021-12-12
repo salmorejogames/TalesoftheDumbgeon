@@ -977,5 +977,95 @@ La fecha límite del hito 2 es el día 21 del mes de noviembre del año 2021. En
     
     
 ## 8.3 Hito 3
+
+La fecha límite del hito 3 es el día 26 del mes de Noviembre del año 2021. En él se ha testeado los juegos realizados por The Nides R.A y Panda Gamers y se ha realizado un análisis MDA donde se ha intentado describir su estética, dinámicas y mecánicas de ambos juegos. Además se ha realizado un informe de errores para que los desarrolladores sepan que arreglar. Ambos informes son los siguientes:
+
+**Análisis Frozen Fury:** https://docs.google.com/document/d/1_6ZxzG0n_qrmu-vMTpyF3ZYUx4HvzLwpTXBWODxkbUo/edit?usp=sharing 
+**Análisis Zoo Escape:** https://docs.google.com/document/d/1eBEU0gVTgzcyW9T4fDrRDeX6QnHtu6zxmJCbxz_OMMY/edit?usp=sharing
     
 ## 8.4 Fecha de lanzamiento
+
+
+La fecha límite del hito 4 es el día 12 del mes de Diciembre del año 2021. En él se ha desarrollado el juego de **Tales of the Dumbgeon** hasta conseguir una versión *Gold Master* la cual será lanzada al mercado. Para ello los diferentes departamentos del estudio han realizado las labores explicadas en los siguientes apartados:
+
+-   **Diseño**: El apartado de diseño se ha dejado un poco de lado ya que todo el trabajo que quedaba era implementar todos los diseños ya establecidos de antemano. Sin embargo se han añadido algunos elementos que han mejorado, sobre todo, el tema narrativo del juego:
+    
+	-   Cuervillo: Es un NPC que aparece al inicio del juego, en la primera sala. Si el jugador interactúa con el, el personaje comenzara a hablar. Cada vez que le jugador muera y vuelva a pasar por la primera sala, el dialogo del Cuervillo será diferente e ira añadiendo partes de la trama de la Dumbgeon.
+    
+	-    El Rey Botijo: Es otro NPC que aparece en el interior de una mazmorra y que contara parte de la trama secreta de la Dumbgeon.
+    
+	-    Enemigos con Elemento: Los enemigos ahora aparecerán en la sala con un elemento asignado el cual será mas fuerte o débil dependiendo del elemento que porte el Stadtnarr.
+
+
+-   **Programación:** En el apartado de programación: 
+	- Se solucionaron el 90% de errores que se propusieron a partir del testeo de los los otros equipos. 
+	
+	- Además se tratado de implementar un comportamiento de personajes complejo para dotar al mundo de la Dumbgeon de variedad. 
+	
+	- Se ha implementado el sistema de diálogos para los NPCs comentados anteriormente. Se ha implementado nuevos apartados en las interfaces.
+
+-   **Arte**: El departamento de arte trabajó en la elaboración de diferentes assets para mejorar el game feel y la experiencia del usuario:
+
+	- Sprite Vasija
+	- Sprite Vasija Alta
+	- Sprite Rey Botijo
+	- Sprite Cuervillo
+	- Tiles recoloreadas de la Dumbgeon
+	- Splash Art Escena Final
+	- Imagen Fondo de la mazmorra
+	- Iconos de enemigos
+	- 
+
+
+-   **Interfaces**: El departamento de interfaces llevó a cabo varias mejoras en interfaces ya existentes y añadió unas nuevas. Sobre todo se ha encargado de arreglar los errores referentes a su departamento y a pulir aun mas visual las interfaces de todo el videojuego:
+
+	-   Se ha mejorado el Menú Principal con una animación de introducción y animaciones en los botones, añadiendo además un pequeño tutorial
+    
+	-   El Menú de Pausa también se ha pulido visualmente
+    
+	-   Menú de Ajustes para poder regular el sonido
+    
+	-   Escena de créditos pulida visualmente corrigiendo errores del fondo de la Alpha
+    
+	-   El HUD del jugador también ha sido mejorado usando ya los assets finales
+	-   
+	-   La Pantalla de Muerte también ha sido mejorada visualmente
+
+-   **Marketing**: El equipo de marketing se ha encargado de promocionar el juego y darlo a conocer al mundo, para ello han realizado las siguientes acciones:
+
+	-   Se ha cuidado la cuenta de Twitter tratando de nutrirla de contenido constante para mantener el interés del público
+    
+	-   Se ha cuidado la cuenta de Instagram tratando de nutrirla de contenido constante para mantener el interés del público
+    
+	-   Se ha cuidado la cuenta de Tik Tok tratando de nutrirla de contenido constante para mantener el interés del público
+    
+	-   Se ha subido al canal de YouTube el teaser trailer así como la banda sonora del juego
+	
+    
+-   **Sonidos**: El compositor de la banda sonora de Tales of the Dumbgeon ha realizado los siguientes sonidos y canciones:
+
+	- Canción "Once upon a time..."
+	- Canción "Chaotic!"
+	- Canción "Victory Fanfare"   
+	- Sonido "Cofre Abierto"
+	- Sonido "Barril Destrozado"
+	- Sonido "Daño a Pelusa"
+	- Sonido "Daño a Banana"
+	- Sonido "Hechizo 1 Jojomamalo"
+	- Sonido "Hechizo 2 Jojomamalo"
+	- Sonido "Campo Magico  Jojomamalo"
+
+    
+-   **Gestión**: El departamento de gestión del proyecto ha continuado con los documentos para gestión del proyecto. Entre otras cosas se han realizado:
+    
+	-   Se ha continuado usando Trello
+    
+	-   Se ha continuado usando GitHub
+    
+	-   Organización de los *sprints*
+    
+	-   Configuración de las revisiones
+
+	-   Daily Meeting: Reuniones llevadas a cabo todos los días por la tarde.
+
+	-   Revisiones de Sprint: Realizadas los jueves y domingos para examinar el transcurso del proyecto.
