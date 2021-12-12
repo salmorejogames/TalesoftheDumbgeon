@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Interfaces;
 using UnityEngine.AI;
+using Random = UnityEngine.Random;
 
 public class Enemigo_Pistola : BaseEnemy, IDeadable, IMovil
 {
@@ -15,10 +16,7 @@ public class Enemigo_Pistola : BaseEnemy, IDeadable, IMovil
 
     [SerializeField]
     private DamageNumber DmgPrefab;
-
-    public float velocidad = 5;
-    public int armadura = 3;
-    public int damage = 1;
+    
     public float vision = 4;
     public float maxDistance = 1f;
     public float stopDistance = 3f;
@@ -76,7 +74,11 @@ public class Enemigo_Pistola : BaseEnemy, IDeadable, IMovil
         attackDelay = 1.5f;
         attackTime = 1.5f;
         arma.SetWeaponHolder(armaHolder);
-        velocidad = stats.speed;
+        arma.Randomize(1);
+        arma.Armor = 0;
+        arma.Equip();
+        stats.element = arma.Element;
+        animator.ChangeColor(stats.element);
     }
 
     // Update is called once per frame
@@ -128,11 +130,11 @@ public class Enemigo_Pistola : BaseEnemy, IDeadable, IMovil
                 case Estado.Wandering:
                     Wander();
                     decisionClock = 0;
-                    transform.position = Vector2.MoveTowards(transform.position, nextPos, velocidad * Time.deltaTime);
+                    transform.position = Vector2.MoveTowards(transform.position, nextPos, stats.GetSpeedValue() * Time.deltaTime);
                     break;
 
                 case Estado.Detected:
-                    transform.position = Vector2.MoveTowards(transform.position, personaje.transform.position, velocidad * Time.deltaTime);
+                    transform.position = Vector2.MoveTowards(transform.position, personaje.transform.position, stats.GetSpeedValue() * Time.deltaTime);
                     //rb.rotation = -rotacion;
                     break;
 
@@ -149,7 +151,7 @@ public class Enemigo_Pistola : BaseEnemy, IDeadable, IMovil
 
     private void Alcanzable()
     {
-        transform.position = Vector2.MoveTowards(transform.position, personaje.transform.position, velocidad * Time.deltaTime);
+        transform.position = Vector2.MoveTowards(transform.position, personaje.transform.position, stats.GetSpeedValue() * Time.deltaTime);
     }
 
     private void Attack()
@@ -252,11 +254,13 @@ public class Enemigo_Pistola : BaseEnemy, IDeadable, IMovil
 
     public void Dead()
     {
+        SingletoneGameController.SoundManager.audioSrc.PlayOneShot(Audio.clip);
         gameObject.SetActive(false);
     }
 
     public void Damage(Vector3 enemy, float cantidad, Elements.Element element)
     {
+        Audio.pitch = Random.Range(0.5f, 1.5f);
         Audio.Play();
         float multiplier = Elements.GetElementMultiplier(element, stats.element);
         DamageNumber dmgN = Instantiate(DmgPrefab, transform.position, Quaternion.identity);

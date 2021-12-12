@@ -65,13 +65,13 @@ public class DialogueManager : MonoBehaviour {
 
 		foreach (string sentence in dialogue.sentences)
 		{
-			Debug.Log("Ahhhhhhh: " + dialogue.sentences);
+
 			sentences.Enqueue(sentence);
 		}
 
 		foreach (string face in dialogue.face)
 		{
-			Debug.Log("EEEEEhhhhhhh: " + dialogue.face);
+
 			faces.Enqueue(face);
 		}
 
@@ -101,7 +101,7 @@ public class DialogueManager : MonoBehaviour {
 
 	IEnumerator TypeSentence (string name, string sentence, string face)
 	{
-		Debug.Log("Estoy en TypeSentence");
+
 		written = true;
 		nameText.text = name;
 		//nameText.text = "";

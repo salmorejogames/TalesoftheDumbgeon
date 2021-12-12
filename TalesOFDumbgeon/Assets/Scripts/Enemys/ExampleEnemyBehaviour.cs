@@ -5,6 +5,7 @@ using Interfaces;
 using UnityEditor.UIElements;
 using UnityEngine;
 using UnityEngine.AI;
+using Random = UnityEngine.Random;
 
 public class ExampleEnemyBehaviour : BaseEnemy, IDeadable, IMovil
 {   
@@ -14,8 +15,8 @@ public class ExampleEnemyBehaviour : BaseEnemy, IDeadable, IMovil
     [SerializeField] private NavMeshAgent agent;
 
     [SerializeField]
-    private DamageNumber DmgPrefab;
-    private float distanciaPlayer;
+    private DamageNumber dmgPrefab;
+    private float _distanciaPlayer;
     //Para que se pare despues de atacar
     private float stoppedTime;
     private float stoppedDelay;
@@ -41,7 +42,10 @@ public class ExampleEnemyBehaviour : BaseEnemy, IDeadable, IMovil
         SmashingWeapon baston = new SmashingWeapon();
         baston.SetWeaponHolder(weapon);
         baston.Randomize(1);
+        baston.Armor = 0f;
+        baston.Dmg = 0f;
         weapon.ChangeWeapon(baston);
+        stats.element = baston.Element;
         
     }
     private void Update()
@@ -51,11 +55,11 @@ public class ExampleEnemyBehaviour : BaseEnemy, IDeadable, IMovil
             if (!stopped)
             {
                 UpdateWeaponAngle();
-                distanciaPlayer = Vector2.Distance(transform.position, _player.transform.position);
+                _distanciaPlayer = Vector2.Distance(transform.position, _player.transform.position);
                 //gameObject.transform.position = Vector3.MoveTowards(gameObject.transform.position, _player.transform.position, stats.GetSpeedValue()*Time.deltaTime);
                 if (!hit)
                 {
-                    if (distanciaPlayer >= rangoVision)
+                    if (_distanciaPlayer >= rangoVision)
                     {
                         agent.destination = _player.transform.position;
                     }
@@ -121,6 +125,7 @@ public class ExampleEnemyBehaviour : BaseEnemy, IDeadable, IMovil
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        /*
         if (collision.gameObject.CompareTag("Player"))
         {
             collision.gameObject.GetComponent<CharacterStats>().DoDamage(stats.strength, this.transform.position, stats.element);
@@ -132,15 +137,17 @@ public class ExampleEnemyBehaviour : BaseEnemy, IDeadable, IMovil
 
     public void Dead()
     {
+        SingletoneGameController.SoundManager.audioSrc.PlayOneShot(Audio.clip);
         gameObject.SetActive(false);
     }
 
     public void Damage(Vector3 enemyPos, float cantidad, Elements.Element element)
     {
 
+        Audio.pitch = Random.Range(0.5f, 1.5f);
         Audio.Play();
         float multiplier = Elements.GetElementMultiplier(element, stats.element);
-        DamageNumber dmgN = Instantiate(DmgPrefab, transform.position, Quaternion.identity);
+        DamageNumber dmgN = Instantiate(dmgPrefab, transform.position, Quaternion.identity);
         dmgN.Inicializar(cantidad, transform);       
         Vector3 direction = _player.transform.position - gameObject.transform.position;
         direction.Normalize();

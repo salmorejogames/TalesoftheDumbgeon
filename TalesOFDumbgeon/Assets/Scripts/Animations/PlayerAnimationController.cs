@@ -207,5 +207,12 @@ public class PlayerAnimationController : MonoBehaviour
 
     }
     
+    [ContextMenu("LoadWizardHead")]
+    private void CM_LoadWizardHead()
+    {
+        ChangeSprite(AnimationDirection.EquipmentParts.Head, BodyParts.Sex.Boy, StaticInfoHolder.Wizard);
+
+    }
+    
     #endregion
 }

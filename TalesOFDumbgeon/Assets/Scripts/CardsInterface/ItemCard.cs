@@ -88,7 +88,7 @@ public class ItemCard : MonoBehaviour, IPointerClickHandler
             bodyPart = ((ArmorCard)CardInfo).NewArmor.Part;
         }
 
-        SingletoneGameController.InterfaceController.CambiarSprite(CardInfo.cardType, bodyPart, CardInfo.Artwork);
+        SingletoneGameController.InterfaceController.CambiarSprite(CardInfo.cardType, bodyPart, CardInfo.Artwork, CardInfo.Element);
     }
 
     public void StartDelete(bool modeDelete)

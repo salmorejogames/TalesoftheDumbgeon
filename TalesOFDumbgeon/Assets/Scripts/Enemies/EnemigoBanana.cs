@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using Random = UnityEngine.Random;
 
 public class EnemigoBanana : BaseEnemy, IDeadable
 {
@@ -68,6 +69,13 @@ public class EnemigoBanana : BaseEnemy, IDeadable
         attackDelay = 4;
         velocidad = stats.speed;
         attackTime = 3f;
+        BaseArmor casco = new BaseArmor();
+        casco.Stats = stats;
+        casco.Randomize(1);
+        casco.Equip();
+        casco.Armor = 0f;
+        stats.element = casco.Element;
+        animator.ChangeColor(casco.Element);
     }
 
     // Update is called once per frame
@@ -273,11 +281,13 @@ public class EnemigoBanana : BaseEnemy, IDeadable
 
     public void Dead()
     {
+        SingletoneGameController.SoundManager.audioSrc.PlayOneShot(Audio.clip);
         gameObject.SetActive(false);
     }
 
     public void Damage(Vector3 enemyPos, float cantidad, Elements.Element element)
     {
+        Audio.pitch = Random.Range(0.5f, 1.5f);
         Audio.Play();
         float multiplier = Elements.GetElementMultiplier(element, stats.element);
         DamageNumber dmgN = Instantiate(DmgPrefab, transform.position, Quaternion.identity);

@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class AbuesqueletoAnimation : MonoBehaviour
 {
@@ -14,6 +15,8 @@ public class AbuesqueletoAnimation : MonoBehaviour
     [SerializeField] private Animator sEast;
     [SerializeField] private Animator sWest;
 
+    private float _animatorSpeed;
+    [SerializeField] private ExampleEnemyBehaviour mind;
     private BodyParts.Direction _direction;
     private Animator _current;
     private bool _moving;
@@ -22,11 +25,12 @@ public class AbuesqueletoAnimation : MonoBehaviour
 
     private void Start()
     {
+        _animatorSpeed = Random.Range(0.9f, 1.1f);
         _moving = true;
         _current = south;
         _current.gameObject.SetActive(true);
         _direction = BodyParts.Direction.South;
-        _current.SetBool(Walk, _moving);
+        LoadAnimationsVariables();
     }
 
     public void SetMoving(bool moving)
@@ -103,8 +107,23 @@ public class AbuesqueletoAnimation : MonoBehaviour
             _current = sEast;
             _current.gameObject.SetActive(true); 
         }
+        
+        LoadAnimationsVariables();  
+    }
 
+    private void LoadAnimationsVariables()
+    {
         _current.SetBool(Walk, _moving);
+        _current.speed = _animatorSpeed;
+        Color newColor;
+        if (mind.stats.element == Elements.Element.Normal)
+            newColor = Color.white;
+        else
+            newColor = SingletoneGameController.InfoHolder.LoadColor(mind.stats.element);
+        foreach(SpriteRenderer  color in _current.gameObject.GetComponentsInChildren<SpriteRenderer> ())
+        {
+            color.material.color = newColor;
+        }
     }
     
     

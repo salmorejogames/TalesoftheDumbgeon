@@ -41,6 +41,7 @@ public class MainMenuController : MonoBehaviour
     private void Start()
     {
         PlayerPrefs.SetInt("Deaths", 0);
+        PlayerPrefs.SetInt("Botijos", 0);
         HacerNoInteractuable(jugarBoton);
         HacerNoInteractuable(ajustesBoton);
         HacerNoInteractuable(creditosBoton);
@@ -67,7 +68,7 @@ public class MainMenuController : MonoBehaviour
     IEnumerator EsperarJugar()
     {
         yield return new WaitForSeconds(1.5f);
-        SceneManager.LoadScene("IsometricScene");
+        SceneManager.LoadScene("IntroductionScene");
     }
 
     public void Creditos()
