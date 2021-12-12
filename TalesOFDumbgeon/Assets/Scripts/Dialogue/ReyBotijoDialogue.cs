@@ -31,7 +31,7 @@ public class ReyBotijoDialogue : MonoBehaviour
         {
             if (closed)
             {
-                GameObject newCard = Instantiate(carta, gameObject.transform.position + new Vector3(1.0f, 0.0f, 0.0f), gameObject.transform.rotation);
+                GameObject newCard = Instantiate(carta, gameObject.transform.position + new Vector3(0.0f, -1.8f, 0.0f), gameObject.transform.rotation);
                 newCard.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
                 trigger.UpdatePath(run);
                 PlayerPrefs.SetInt("Botijos", PlayerPrefs.GetInt("Botijos", 0) + 1);
