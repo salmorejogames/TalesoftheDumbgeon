@@ -1540,6 +1540,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!224 &169583928 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 3915079393427185749, guid: f7d8b04a9a3d676408435273389cf36e,
+    type: 3}
+  m_PrefabInstance: {fileID: 1224128818406787809}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &369528832 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1320480309086693097, guid: f7d8b04a9a3d676408435273389cf36e,
@@ -2857,6 +2863,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1224128819601507996, guid: f7d8b04a9a3d676408435273389cf36e,
         type: 3}
+      propertyPath: manaBar
+      value: 
+      objectReference: {fileID: 169583928}
+    - target: {fileID: 1224128819601507996, guid: f7d8b04a9a3d676408435273389cf36e,
+        type: 3}
       propertyPath: contArma
       value: 
       objectReference: {fileID: 864054018}
@@ -3022,6 +3033,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2337100883907545578, guid: f7d8b04a9a3d676408435273389cf36e,
+        type: 3}
+      propertyPath: m_Name
+      value: BarraMana
       objectReference: {fileID: 0}
     - target: {fileID: 2641197866463568425, guid: f7d8b04a9a3d676408435273389cf36e,
         type: 3}
@@ -3894,6 +3910,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -80
+      objectReference: {fileID: 0}
+    - target: {fileID: 7480967359778891546, guid: f7d8b04a9a3d676408435273389cf36e,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -198.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7480967359778891546, guid: f7d8b04a9a3d676408435273389cf36e,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 290
       objectReference: {fileID: 0}
     - target: {fileID: 7504154343791306957, guid: f7d8b04a9a3d676408435273389cf36e,
         type: 3}
