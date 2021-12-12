@@ -214,9 +214,10 @@ namespace Inteface
             }
         }
 
-        public void SpriteArmaInicial(Sprite nuevoSprite)
+        public void SpriteArmaInicial(Sprite nuevoSprite, Elements.Element element)
         {
             contArma.sprite = nuevoSprite;
+            contArma.color = SingletoneGameController.InfoHolder.LoadColor(element);
         }
 
         public void ActualizarStatsUI(TMP_Text textoUI, float stat)
