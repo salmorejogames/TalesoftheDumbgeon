@@ -10,6 +10,10 @@ using Random = UnityEngine.Random;
 
 public class JojoMamaloBehaviour : BaseEnemy, IDeadable, IMovil
 {
+    [NonSerialized] public AudioSource audioSrc;
+    public AudioClip Jojomamalo_Fight;
+    [SerializeField] private JojoSounds sounds;
+
     public const int NumPositions = 4;
     private int _actualPos;
     private float _damageAcumulated = 0;
@@ -30,6 +34,10 @@ public class JojoMamaloBehaviour : BaseEnemy, IDeadable, IMovil
     public float farDistance;
     [SerializeField] private Weapon jojoarma;
     [SerializeField] private JojomaloSkills skills;
+
+    //Dialogos
+    private int run = 0;
+    public DialogueTrigger dialogueTrigger;
 
     public JojoMamaloMind masterMind;
 
@@ -63,6 +71,7 @@ public class JojoMamaloBehaviour : BaseEnemy, IDeadable, IMovil
         _objetive = Objetives.None;
         _actualAction = Actions.JojoActions.Presentacion;
         invincible = true;
+        audioSrc = GameObject.Find("GameManager").GetComponent<AudioSource>();
         _navMeshAgent = gameObject.GetComponent<NavMeshAgent>();
         
         _navMeshAgent.updateRotation = false;
@@ -82,11 +91,27 @@ public class JojoMamaloBehaviour : BaseEnemy, IDeadable, IMovil
         newJojoArma.Randomize(1);
         newJojoArma.OnDamage = () => StasisActionUpdate(StasisActions.Impact, newJojoArma.Dmg);
         jojoarma.ChangeWeapon(newJojoArma);
-        _navMeshAgent.speed = stats.GetSpeedValue();
+        _navMeshAgent.speed = 0f;
         skills.ActivateSkill(_actualAction);
     }
 
-    
+    private void Start()
+    {
+        audioSrc.Stop();
+        audioSrc.clip = Jojomamalo_Fight;
+        audioSrc.Play();
+        run = PlayerPrefs.GetInt("Jojomamalos", 0);
+        run = Mathf.Clamp(run, 0, 4);
+        Invoke("JojomamaloDialogo", 2.5f);
+        //StartCombat();
+    }
+
+    public void JojomamaloDialogo()
+    {
+        dialogueTrigger.UpdatePath(run);
+        dialogueTrigger.BossTriggerDialogue(this);
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -170,6 +195,7 @@ public class JojoMamaloBehaviour : BaseEnemy, IDeadable, IMovil
         masterMind.DmgTrigger();
         if (!invincible)
         {
+            sounds.LaunchSound(JojoSounds.JojoSoundList.Dmg);
             DamageNumber dmgN = Instantiate(prefabDamage, transform.position, Quaternion.identity);
             dmgN.Inicializar(cantidad, transform);
             _damageAcumulated += cantidad;
