@@ -21,6 +21,7 @@ public class JojomaloSkills : MonoBehaviour
 
     public void ActivateSkill(Actions.JojoActions skill)
     {
+        //skill = Actions.JojoActions.TeletransporteDisparo;
         switch (skill)
         {
             case Actions.JojoActions.Presentacion:
@@ -55,7 +56,8 @@ public class JojomaloSkills : MonoBehaviour
                 break;
             case Actions.JojoActions.TeletransporteDisparo:
                 Debug.Log("Teletransporte con disparo");
-                EndAction();
+                StartCoroutine(RangedAttack4());
+                //EndAction();
                 break;
             case Actions.JojoActions.CirculoDeRunas:
                 Debug.Log("Circulo de runas");
@@ -227,6 +229,34 @@ public class JojomaloSkills : MonoBehaviour
         TeleportInvulnerable(0);
         EndAction();
     }
+
+    public IEnumerator RangedAttack4()
+    {
+
+        int numAtaques = 1;
+        float distance = 2f;
+
+        mind.DisableMovement(weapon.weaponInfo.AttackSpeed);
+        mind.animationController.SetAttack();
+        yield return new WaitForSeconds(weapon.weaponInfo.AttackSpeed);
+        
+
+        sounds.LaunchSound(JojoSounds.JojoSoundList.Disparo);
+        mind.StasisActionUpdate(BaseEnemy.StasisActions.Attack, 0.05f / numAtaques);
+        /*int angle = Random.Range(0, 360);
+        body.position = mind.TargetPos +
+                        new Vector3(distance * Mathf.Cos(angle), distance * Mathf.Sin(angle), 0);
+        mind.UpdateWeaponAngle();*/
+        weapon.Atack();
+        //yield return new WaitForSeconds(weapon.weaponInfo.AttackSpeed / 4);
+
+        mind.animationController.SetStop();
+
+        yield return new WaitForSeconds(weapon.weaponInfo.AttackSpeed);
+        TeleportInvulnerable(0);
+        //EndAction();
+    }
+
     private void AreaAttack()
     {
         sounds.LaunchSound(JojoSounds.JojoSoundList.Area);
