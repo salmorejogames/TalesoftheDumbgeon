@@ -33,15 +33,21 @@ public class BaseEnemy : MonoBehaviour
         switch (action)
         {
             case StasisActions.Attack:
+                Debug.Log("Antes: " +stasis);
                 stasis += amount;
+                Debug.Log("Despues: " + stasis);
                 break;
             case StasisActions.Impact:
-                if(amount>0.0001 ||amount<-0.0001)
-                    stasis += (amount/ stats.maxHealth);
+                Debug.Log("Antes: " +stasis);
+                if(amount>0.0001 ||amount<-0.0001){}
+                    stasis += (amount*4/ stats.maxHealth);
+                Debug.Log("Despues: " + stasis);
                 break;
             case StasisActions.Damage:
+                Debug.Log("Antes: " +stasis);
                 if (amount > 0.0001 || amount < -0.0001)
-                    stasis -= (amount/stats.maxHealth);
+                    stasis -= (amount*4/stats.maxHealth);
+                Debug.Log("Despues: " + stasis);
                 break;
         }
 

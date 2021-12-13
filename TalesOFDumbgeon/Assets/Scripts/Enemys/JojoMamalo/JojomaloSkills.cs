@@ -16,7 +16,7 @@ public class JojomaloSkills : MonoBehaviour
    
     [SerializeField] private InGameCard cardPrefab;
     [SerializeField] private JojoSounds sounds;
-
+    
     private int _healthTPs = 2;
     
     public void ActivateSkill(Actions.JojoActions skill)
@@ -138,7 +138,7 @@ public class JojomaloSkills : MonoBehaviour
             for (int i = 0; i < 3; i++)
             {
                 Debug.Log("Ronda " + i);
-            mind.StasisActionUpdate(BaseEnemy.StasisActions.Attack, 0.2f);
+            mind.StasisActionUpdate(BaseEnemy.StasisActions.Attack, 0.05f);
             mind.DisableMovement(weapon.weaponInfo.AttackSpeed*3);
                 mind.animationController.SetAttack();
                 yield return new WaitForSeconds(weapon.weaponInfo.AttackSpeed);
@@ -216,7 +216,7 @@ public class JojomaloSkills : MonoBehaviour
             {
                 yield return new WaitForSeconds(weapon.weaponInfo.AttackSpeed/2);
                 sounds.LaunchSound(JojoSounds.JojoSoundList.Disparo);
-                mind.StasisActionUpdate(BaseEnemy.StasisActions.Attack, 0.2f/numAtaques);
+                mind.StasisActionUpdate(BaseEnemy.StasisActions.Attack, 0.05f/numAtaques);
                 int angle = Random.Range(0, 360);
                 body.position = mind.TargetPos +
                                 new Vector3(distance * Mathf.Cos(angle), distance * Mathf.Sin(angle), 0);
@@ -249,7 +249,7 @@ public class JojomaloSkills : MonoBehaviour
         {
             sounds.LaunchSound(JojoSounds.JojoSoundList.Area);
             mind.animationController.SetCharge();
-            mind.StasisActionUpdate(BaseEnemy.StasisActions.Attack, 0.25f);
+            mind.StasisActionUpdate(BaseEnemy.StasisActions.Attack, 0.1f);
             Vector2 playerPos = gameObject.transform.position;
             Vector2 isometricPos = IsometricUtils.ScreenCordsToTilesPos(new Vector2(playerPos.x-0.25f, playerPos.y -0.25f), true);
             Debug.Log(isometricPos.ToString());

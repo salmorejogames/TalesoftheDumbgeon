@@ -143,10 +143,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   body: {fileID: 6293534581657644274}
-  minStasis: -0.5
-  maxStasis: 0.5
+  minStasis: -0.25
+  maxStasis: 0.25
   attackMind: {fileID: 5242500848099143556}
   dmgMind: {fileID: 4621148392534520236}
+  imageCanvas: {fileID: 3243209930697993571, guid: ff072388497cd704297facfd804f13dc,
+    type: 3}
+  temeroso: {fileID: 21300000, guid: e70d0cd0174d8d64ead007c62dc0e0e0, type: 3}
+  confiado: {fileID: 21300000, guid: 1178502f37be4ae4fa85fa4cd4b810dc, type: 3}
+  normal: {fileID: 21300000, guid: b1b2aca2593ac0641a4bbc9bac1128b9, type: 3}
 --- !u!114 &5242500848099143556
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -176,7 +181,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   body: {fileID: 6293534581657644274}
   weapon: {fileID: 7074768991149250718}
-  timerActions: 5
+  timerActions: 10
   closePlayerDistance: 1
 --- !u!95 &1119731518667209046
 Animator:
@@ -397,7 +402,7 @@ MonoBehaviour:
   prefabDamage: {fileID: 7413456247700845425, guid: d04ec14520fae5f44b0e829368e66535,
     type: 3}
   animationController: {fileID: 8785547581767321911}
-  attackCooldown: 6
+  attackCooldown: 10
   nearDistance: 0.5
   midDistance: 1.5
   farDistance: 3

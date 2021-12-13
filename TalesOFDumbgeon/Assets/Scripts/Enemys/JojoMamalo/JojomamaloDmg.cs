@@ -33,7 +33,7 @@ public class JojomamaloDmg : Mind
             _invincibleTpCount--;
             return (int) Actions.JojoActions.TeleportHealh;
         }
-        if (body.stats.GetActualHealth() < Mind.HealthStages[Mind.Stage])
+        if (Mind.Stage < JojoMamaloMind.Stages && body.stats.GetActualHealth() < Mind.HealthStages[Mind.Stage])
         {
             Debug.LogWarning("FASE CHANGED");
             Mind.Stage++;

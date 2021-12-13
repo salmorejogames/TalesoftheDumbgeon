@@ -276,7 +276,7 @@ public class EnemigoBanana : BaseEnemy, IDeadable
         {
             decisionClock = 5f;
         }*/
-        Debug.Log("decision CLock: " + decisionClock);
+        //Debug.Log("decision CLock: " + decisionClock);
     }
 
     public void Dead()

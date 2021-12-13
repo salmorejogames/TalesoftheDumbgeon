@@ -5,7 +5,7 @@ using System;
 
 public class JojoMamaloMind : Mind
 {
-    public const int Stages = 3;
+    public const int Stages = 2;
     
     
     private bool _canAttack;
@@ -24,8 +24,15 @@ public class JojoMamaloMind : Mind
     [NonSerialized] public int Stage;
     [NonSerialized] public float[] HealthStages;
     
+    [SerializeField] private ImageCanvas imageCanvas;
+    [SerializeField] private Sprite temeroso;
+    [SerializeField] private Sprite confiado;
+    [SerializeField] private Sprite normal;
+
+    private int actualState;
     public void Start()
     {
+        actualState = 1;
         Actual = Actions.JojoActions.Presentacion;
         attackMind.Mind = this;
         dmgMind.Mind = this;
@@ -33,13 +40,10 @@ public class JojoMamaloMind : Mind
         Stage = 0;
         _canAttack = false;
         _damageReceived = false;
-        
-        HealthStages = new float[Stages];
-        float quarterLife =  body.stats.maxHealth/(Stages+1);
-        for(int i = 0; i < Stages; i++)
-        {
-            HealthStages[i] = quarterLife * (Stages - i);
-        }
+        HealthStages = new float[Stages +1];
+        HealthStages[0] = 66;
+        HealthStages[1] = 33;
+        HealthStages[2] = 0;
     }
 
     public void AttackTrigger()
@@ -108,14 +112,32 @@ public class JojoMamaloMind : Mind
         if (body.stasis < minStasis)
         {
             Actual = Actions.JojoActions.Alejarse;
+            if (actualState != 0)
+            {
+                actualState = 0;
+                ImageCanvas newCanvas = Instantiate(imageCanvas, gameObject.transform.position, Quaternion.identity, this.transform);
+                newCanvas.Inicializar(temeroso, gameObject.transform);
+            }
             return (int)Actions.JojoActions.Alejarse;
         }
         if (body.stasis > maxStasis)
         {
             Actual = Actions.JojoActions.Acercarse;
+            if (actualState != 2)
+            {
+                actualState = 2;
+                ImageCanvas newCanvas = Instantiate(imageCanvas, gameObject.transform.position, Quaternion.identity, this.transform);
+                newCanvas.Inicializar(confiado, gameObject.transform);
+            }
             return (int)Actions.JojoActions.Acercarse;
         }
         Actual = Actions.JojoActions.MantenerDistancia;
+        if (actualState != 1)
+        {
+            actualState = 1;
+            ImageCanvas newCanvas = Instantiate(imageCanvas, gameObject.transform.position, Quaternion.identity, this.transform);
+            newCanvas.Inicializar(normal, gameObject.transform);
+        }
         return (int)Actions.JojoActions.MantenerDistancia;
     }
 

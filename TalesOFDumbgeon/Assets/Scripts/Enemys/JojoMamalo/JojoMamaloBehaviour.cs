@@ -34,7 +34,7 @@ public class JojoMamaloBehaviour : BaseEnemy, IDeadable, IMovil
     public float farDistance;
     [SerializeField] private Weapon jojoarma;
     [SerializeField] private JojomaloSkills skills;
-
+    
     //Dialogos
     private int run = 0;
     public DialogueTrigger dialogueTrigger;
@@ -123,7 +123,7 @@ public class JojoMamaloBehaviour : BaseEnemy, IDeadable, IMovil
         {
             skills.ActivateSkill(newAction);
             _actualAction = newAction;
-            Debug.Log(_actualAction);
+            Debug.LogWarning(_actualAction);
         }
         if (_active)
         {
