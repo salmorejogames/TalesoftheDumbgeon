@@ -87,7 +87,7 @@ public class JojoMamaloAttack : Mind
         actions[0] = IsFurious() * (1 - _playerDistanceValue) + RandomValue();
         actions[1] = (1 - _playerDistanceValue) * 0.8f + RandomValue();
         actions[2] = _playerDistanceValue * 0.8f + RandomValue();
-        actions[3] = (1 - _playerDistanceValue) * 0.8f + RandomValue();
+        actions[3] = (1 - _playerDistanceValue) * 0.75f + RandomValue();
         actions[4] = _fear * IsFeared();
         actions[5] = _stage2*actions[0]  + RandomValue();
         actions[6] = _playerDistanceValue * _stage2 * 0.8f + RandomValue();
