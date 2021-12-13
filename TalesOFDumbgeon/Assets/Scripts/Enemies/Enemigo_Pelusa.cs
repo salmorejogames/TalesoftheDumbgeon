@@ -93,23 +93,6 @@ public class Enemigo_Pelusa : BaseEnemy, IDeadable
         //Instantiate(Bala, zonaAtaque.transform.position, Quaternion.identity, gameObject.transform);
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.CompareTag("Bala"))
-        {
-            Debug.Log(collision.gameObject);
-            Destroy(gameObject);
-        }
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.CompareTag("Player"))
-        {
-            //
-        }
-        //Debug.Log("decision CLock: " + decisionClock);
-    }
 
     private void OnDrawGizmosSelected()
     {

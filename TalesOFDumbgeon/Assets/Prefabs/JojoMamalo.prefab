@@ -97,6 +97,87 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &3542398884610962968
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2812923344634502221}
+  - component: {fileID: 865662998111488697}
+  - component: {fileID: 5242500848099143556}
+  - component: {fileID: 4621148392534520236}
+  m_Layer: 0
+  m_Name: JojoMind
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2812923344634502221
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3542398884610962968}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 3528424684480511700}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &865662998111488697
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3542398884610962968}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04d0fbd6e715b0248bd06564f73571b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  body: {fileID: 6293534581657644274}
+  minStasis: -0.5
+  maxStasis: 0.5
+  attackMind: {fileID: 5242500848099143556}
+  dmgMind: {fileID: 4621148392534520236}
+--- !u!114 &5242500848099143556
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3542398884610962968}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0eb94ed99cb45ab4182ba7ed60309801, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  body: {fileID: 6293534581657644274}
+  minDistancePlayer: 0.5
+  maxDistancePlayer: 3
+--- !u!114 &4621148392534520236
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3542398884610962968}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e76bb095811ab441a5e5f72e074db81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  body: {fileID: 6293534581657644274}
+  weapon: {fileID: 7074768991149250718}
+  timerActions: 5
+  closePlayerDistance: 1
 --- !u!95 &1119731518667209046
 Animator:
   serializedVersion: 3
@@ -149,7 +230,7 @@ Transform:
   - {fileID: 5801068989458967997}
   - {fileID: 47311454680784240}
   m_Father: {fileID: 3528424684480511700}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &8785547581767321911
 MonoBehaviour:
@@ -226,6 +307,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1865094025060642486}
+  - {fileID: 2812923344634502221}
   - {fileID: 3251281442286286866}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -309,18 +391,20 @@ MonoBehaviour:
   Audio: {fileID: 0}
   difficulty: 1
   stats: {fileID: 5799909287195593416}
-  rangoVision: 0
-  miedo: 0
+  stasisFactor: 0.025
   Jojomamalo_Fight: {fileID: 8300000, guid: 6a0cced81803f7046b34c7ca3d88a6b7, type: 3}
   sounds: {fileID: 2675162011540521317}
   prefabDamage: {fileID: 7413456247700845425, guid: d04ec14520fae5f44b0e829368e66535,
     type: 3}
   animationController: {fileID: 8785547581767321911}
-  combat: 0
   attackCooldown: 6
+  nearDistance: 0.5
+  midDistance: 1.5
+  farDistance: 3
   jojoarma: {fileID: 7074768991149250718}
   skills: {fileID: 5562745824741664786}
   dialogueTrigger: {fileID: 7983937641709782486}
+  masterMind: {fileID: 865662998111488697}
 --- !u!114 &5562745824741664786
 MonoBehaviour:
   m_ObjectHideFlags: 0
