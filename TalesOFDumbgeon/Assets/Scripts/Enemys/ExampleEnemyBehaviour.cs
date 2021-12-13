@@ -12,6 +12,7 @@ public class ExampleEnemyBehaviour : BaseEnemy, IDeadable, IMovil
 
     private SpriteRenderer _spr;
     private IsometricMove _player;
+    private float rangoVision;
     [SerializeField] private NavMeshAgent agent;
 
     [SerializeField]

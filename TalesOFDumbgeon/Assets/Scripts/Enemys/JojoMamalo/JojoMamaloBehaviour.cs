@@ -20,6 +20,7 @@ public class JojoMamaloBehaviour : BaseEnemy, IDeadable, IMovil
     private float _elapsedTime;
     public DamageNumber prefabDamage;
     public JojomamaloAnimationController animationController;
+    private bool _combat;
 
     private Objetives _objetive;
     [NonSerialized] public bool invincible;
@@ -58,6 +59,7 @@ public class JojoMamaloBehaviour : BaseEnemy, IDeadable, IMovil
     }
     void Awake()
     {
+        _combat = false;
         _objetive = Objetives.None;
         _actualAction = Actions.JojoActions.Presentacion;
         invincible = true;
@@ -88,6 +90,8 @@ public class JojoMamaloBehaviour : BaseEnemy, IDeadable, IMovil
     // Update is called once per frame
     void Update()
     {
+        if (!_combat)
+            return;
         StasisUpdate();
         Actions.JojoActions newAction = (Actions.JojoActions) masterMind.GetAction();
         if (newAction != _actualAction)
@@ -129,9 +133,16 @@ public class JojoMamaloBehaviour : BaseEnemy, IDeadable, IMovil
             _navMeshAgent.destination = objetive;
         }
     }
+
+    public void StartCombat()
+    {
+        _combat = true;
+    }
     
     private void FixedUpdate()
     {
+        if (!_combat)
+            return;
         _elapsedTime += Time.fixedDeltaTime;
         if (_elapsedTime > attackCooldown)
         {
