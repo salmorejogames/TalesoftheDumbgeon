@@ -13,6 +13,7 @@ public class JojomaloSkills : MonoBehaviour
 
     [SerializeField] private AreaTileAtack areaTile;
     [SerializeField] private AreaTileAtack explosionCounterTile;
+    [SerializeField] private AreaTileAtack circleAreaTile;
 
     [SerializeField] private InGameCard cardPrefab;
     [SerializeField] private JojoSounds sounds;
@@ -21,7 +22,7 @@ public class JojomaloSkills : MonoBehaviour
 
     public void ActivateSkill(Actions.JojoActions skill)
     {
-        //skill = Actions.JojoActions.TeletransporteDisparo;
+        //skill = Actions.JojoActions.CirculoDeRunas;
         switch (skill)
         {
             case Actions.JojoActions.Presentacion:
@@ -55,13 +56,13 @@ public class JojomaloSkills : MonoBehaviour
                 StartCoroutine(RangedAttack3());
                 break;
             case Actions.JojoActions.TeletransporteDisparo:
-                Debug.Log("Teletransporte con disparo");
                 StartCoroutine(RangedAttack4());
                 //EndAction();
                 break;
             case Actions.JojoActions.CirculoDeRunas:
-                Debug.Log("Circulo de runas");
-                EndAction();
+                //Debug.Log("Circulo de runas");
+                CircleAreaAttack();
+                //EndAction();
                 break;
             case Actions.JojoActions.DescargaRunica:
                 AreaAttack();
@@ -275,6 +276,26 @@ public class JojomaloSkills : MonoBehaviour
         mind.animationController.SetStop();
         EndAction();
     }
+
+    private void CircleAreaAttack()
+    {
+        sounds.LaunchSound(JojoSounds.JojoSoundList.Area);
+        mind.animationController.SetAttack();
+        mind.StasisActionUpdate(BaseEnemy.StasisActions.Attack, 0.05f);
+        Vector2 playerPos = SingletoneGameController.PlayerActions.player.gameObject.transform
+            .position;
+        Vector2 isometricPos = IsometricUtils.ScreenCordsToTilesPos(new Vector2(playerPos.x - 0.25f, playerPos.y - 0.25f), true);
+        Debug.Log(isometricPos.ToString());
+        Vector3 pos = IsometricUtils.CoordinatesToWorldSpace(isometricPos.x, isometricPos.y);
+        AreaTileAtack newArea = Instantiate(circleAreaTile, pos, Quaternion.identity);
+        newArea.gameObject.transform.parent = body.parent;
+        newArea.gameObject.transform.tag = "SpellDmg";
+        newArea.spellDmg.SetSpellDmgStats(4, mind.stats.element, pos, body.tag);
+        newArea.spellDmg.OnDamage = () => mind.StasisActionUpdate(BaseEnemy.StasisActions.Impact, 4);
+        mind.animationController.SetStop();
+        EndAction();
+    }
+
     private void CounterAttack(float dmg)
     {
         sounds.LaunchSound(JojoSounds.JojoSoundList.Area);
