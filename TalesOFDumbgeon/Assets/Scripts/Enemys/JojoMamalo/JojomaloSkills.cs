@@ -10,15 +10,15 @@ public class JojomaloSkills : MonoBehaviour
     [SerializeField] private Transform body;
     [SerializeField] private JojoMamaloBehaviour mind;
     [SerializeField] private Weapon weapon;
-    
+
     [SerializeField] private AreaTileAtack areaTile;
     [SerializeField] private AreaTileAtack explosionCounterTile;
-   
+
     [SerializeField] private InGameCard cardPrefab;
     [SerializeField] private JojoSounds sounds;
-    
+
     private int _healthTPs = 2;
-    
+
     public void ActivateSkill(Actions.JojoActions skill)
     {
         switch (skill)
@@ -111,187 +111,187 @@ public class JojomaloSkills : MonoBehaviour
         mind.masterMind.EndAction();
     }
     public IEnumerator RangedAttack1()
+    {
+
+        mind.DisableMovement(weapon.weaponInfo.AttackSpeed * 5);
+        mind.animationController.SetAttack();
+        for (int i = 0; i < 5; i++)
         {
-            
-            mind.DisableMovement(weapon.weaponInfo.AttackSpeed*5);
-            mind.animationController.SetAttack();
-            for (int i = 0; i < 5; i++)
-            {
-                yield return new WaitForSeconds(weapon.weaponInfo.AttackSpeed);
-                mind.StasisActionUpdate(BaseEnemy.StasisActions.Attack, 0.05f);      
-                Vector3 translate = weapon.gameObject.transform.up * Random.Range(-1f, 1f);
-                weapon.gameObject.transform.Translate(translate);
-                weapon.Atack();
-                sounds.LaunchSound(JojoSounds.JojoSoundList.Disparo);
-                weapon.gameObject.transform.position = body.position;
-                
-            }
+            yield return new WaitForSeconds(weapon.weaponInfo.AttackSpeed);
+            mind.StasisActionUpdate(BaseEnemy.StasisActions.Attack, 0.05f);
+            Vector3 translate = weapon.gameObject.transform.up * Random.Range(-1f, 1f);
+            weapon.gameObject.transform.Translate(translate);
+            weapon.Atack();
+            sounds.LaunchSound(JojoSounds.JojoSoundList.Disparo);
             weapon.gameObject.transform.position = body.position;
-            mind.animationController.SetStop();
-            EndAction();
+
         }
-        
-        public IEnumerator RangedAttack2()
+        weapon.gameObject.transform.position = body.position;
+        mind.animationController.SetStop();
+        EndAction();
+    }
+
+    public IEnumerator RangedAttack2()
+    {
+        Debug.Log("Bow Attack");
+        float attackRange = 90f;
+        for (int i = 0; i < 3; i++)
         {
-            Debug.Log("Bow Attack");
-            float attackRange = 90f;
-            for (int i = 0; i < 3; i++)
-            {
-                Debug.Log("Ronda " + i);
+            Debug.Log("Ronda " + i);
             mind.StasisActionUpdate(BaseEnemy.StasisActions.Attack, 0.05f);
-            mind.DisableMovement(weapon.weaponInfo.AttackSpeed*3);
-                mind.animationController.SetAttack();
-                yield return new WaitForSeconds(weapon.weaponInfo.AttackSpeed);
-                sounds.LaunchSound(JojoSounds.JojoSoundList.Disparo);
-                float originalAngle = weapon.angle;
-                for (float j = -attackRange / 2; j <= attackRange / 2; j += attackRange / 4)
-                {
-                    //Debug.Log(weapon.angle + " " + j);
-                    weapon.SetOrientation(originalAngle + j);
-                    weapon.Atack();
-                }
-                weapon.SetOrientation(originalAngle);
-                mind.animationController.SetStop();
+            mind.DisableMovement(weapon.weaponInfo.AttackSpeed * 3);
+            mind.animationController.SetAttack();
+            yield return new WaitForSeconds(weapon.weaponInfo.AttackSpeed);
+            sounds.LaunchSound(JojoSounds.JojoSoundList.Disparo);
+            float originalAngle = weapon.angle;
+            for (float j = -attackRange / 2; j <= attackRange / 2; j += attackRange / 4)
+            {
+                //Debug.Log(weapon.angle + " " + j);
+                weapon.SetOrientation(originalAngle + j);
+                weapon.Atack();
             }
-            EndAction();
+            weapon.SetOrientation(originalAngle);
+            mind.animationController.SetStop();
         }
-        /*
-        public IEnumerator RangedAttack3()
+        EndAction();
+    }
+    /*
+    public IEnumerator RangedAttack3()
+    {
+        Vector3 oldPos = body.position;
+        bool vertical = !(mind.ActualPos == 0 || mind.ActualPos == 1);
+        float distance = 3f;
+        float step = distance / 5f;
+        yield return new WaitForSeconds(weapon.weaponInfo.AttackDuration);
+        float i = 0;
+        for (;i < distance; i+=step)
         {
-            Vector3 oldPos = body.position;
-            bool vertical = !(mind.ActualPos == 0 || mind.ActualPos == 1);
-            float distance = 3f;
-            float step = distance / 5f;
-            yield return new WaitForSeconds(weapon.weaponInfo.AttackDuration);
-            float i = 0;
-            for (;i < distance; i+=step)
-            {
-                if (vertical)
-                    body.position = oldPos + (Vector3) IsometricUtils.CartesianToIsometric(new Vector2(i,0));
-                else
-                    body.position = oldPos + (Vector3) IsometricUtils.CartesianToIsometric(new Vector2(0,i));
-                weapon.Atack();
-                yield return new WaitForSeconds(movementSpeed);
-            }
-            yield return new WaitForSeconds(weapon.weaponInfo.AttackDuration);
-            for (;i >= 0; i-=step)
-            {
-                if (vertical)
-                    body.position = oldPos + (Vector3) IsometricUtils.CartesianToIsometric(new Vector2(i,0));
-                else
-                    body.position = oldPos + (Vector3) IsometricUtils.CartesianToIsometric(new Vector2(0,i));
-                weapon.Atack();
-                yield return new WaitForSeconds(movementSpeed);
-            }
-            yield return new WaitForSeconds(weapon.weaponInfo.AttackDuration);
-            for (;i > -distance; i-=step)
-            {
-                if (vertical)
-                    body.position = oldPos + (Vector3) IsometricUtils.CartesianToIsometric(new Vector2(i,0));
-                else
-                    body.position = oldPos + (Vector3) IsometricUtils.CartesianToIsometric(new Vector2(0,i));
-                weapon.Atack();
-                yield return new WaitForSeconds(movementSpeed);
-            }
-            yield return new WaitForSeconds(weapon.weaponInfo.AttackDuration);
-            for (;i <= 0; i+=step)
-            {
-                if (vertical)
-                    body.position = oldPos + (Vector3) IsometricUtils.CartesianToIsometric(new Vector2(i,0));
-                else
-                    body.position = oldPos + (Vector3) IsometricUtils.CartesianToIsometric(new Vector2(0,i));
-                weapon.Atack();
-                yield return new WaitForSeconds(movementSpeed);
-            }
-            body.position = oldPos;
+            if (vertical)
+                body.position = oldPos + (Vector3) IsometricUtils.CartesianToIsometric(new Vector2(i,0));
+            else
+                body.position = oldPos + (Vector3) IsometricUtils.CartesianToIsometric(new Vector2(0,i));
+            weapon.Atack();
+            yield return new WaitForSeconds(movementSpeed);
         }
+        yield return new WaitForSeconds(weapon.weaponInfo.AttackDuration);
+        for (;i >= 0; i-=step)
+        {
+            if (vertical)
+                body.position = oldPos + (Vector3) IsometricUtils.CartesianToIsometric(new Vector2(i,0));
+            else
+                body.position = oldPos + (Vector3) IsometricUtils.CartesianToIsometric(new Vector2(0,i));
+            weapon.Atack();
+            yield return new WaitForSeconds(movementSpeed);
+        }
+        yield return new WaitForSeconds(weapon.weaponInfo.AttackDuration);
+        for (;i > -distance; i-=step)
+        {
+            if (vertical)
+                body.position = oldPos + (Vector3) IsometricUtils.CartesianToIsometric(new Vector2(i,0));
+            else
+                body.position = oldPos + (Vector3) IsometricUtils.CartesianToIsometric(new Vector2(0,i));
+            weapon.Atack();
+            yield return new WaitForSeconds(movementSpeed);
+        }
+        yield return new WaitForSeconds(weapon.weaponInfo.AttackDuration);
+        for (;i <= 0; i+=step)
+        {
+            if (vertical)
+                body.position = oldPos + (Vector3) IsometricUtils.CartesianToIsometric(new Vector2(i,0));
+            else
+                body.position = oldPos + (Vector3) IsometricUtils.CartesianToIsometric(new Vector2(0,i));
+            weapon.Atack();
+            yield return new WaitForSeconds(movementSpeed);
+        }
+        body.position = oldPos;
+    }
 */
-        public IEnumerator RangedAttack3()
+    public IEnumerator RangedAttack3()
+    {
+        int numAtaques = 10;
+        float distance = 2f;
+        mind.DisableMovement(weapon.weaponInfo.AttackSpeed * numAtaques / 2);
+        mind.animationController.SetAttack();
+        for (int i = 0; i < numAtaques; i++)
         {
-            int numAtaques = 10;
-            float distance = 2f;
-            mind.DisableMovement(weapon.weaponInfo.AttackSpeed*numAtaques/2);
-            mind.animationController.SetAttack();
-            for (int i = 0; i < numAtaques; i++)
-            {
-                yield return new WaitForSeconds(weapon.weaponInfo.AttackSpeed/2);
-                sounds.LaunchSound(JojoSounds.JojoSoundList.Disparo);
-                mind.StasisActionUpdate(BaseEnemy.StasisActions.Attack, 0.05f/numAtaques);
-                int angle = Random.Range(0, 360);
-                body.position = mind.TargetPos +
-                                new Vector3(distance * Mathf.Cos(angle), distance * Mathf.Sin(angle), 0);
-                mind.UpdateWeaponAngle();
-                weapon.Atack();
-            }
-            mind.animationController.SetStop();
-            TeleportInvulnerable(0);
-            EndAction();
+            yield return new WaitForSeconds(weapon.weaponInfo.AttackSpeed / 2);
+            sounds.LaunchSound(JojoSounds.JojoSoundList.Disparo);
+            mind.StasisActionUpdate(BaseEnemy.StasisActions.Attack, 0.05f / numAtaques);
+            int angle = Random.Range(0, 360);
+            body.position = mind.TargetPos +
+                            new Vector3(distance * Mathf.Cos(angle), distance * Mathf.Sin(angle), 0);
+            mind.UpdateWeaponAngle();
+            weapon.Atack();
         }
-        private void AreaAttack()
+        mind.animationController.SetStop();
+        TeleportInvulnerable(0);
+        EndAction();
+    }
+    private void AreaAttack()
+    {
+        sounds.LaunchSound(JojoSounds.JojoSoundList.Area);
+        mind.animationController.SetAttack();
+        mind.StasisActionUpdate(BaseEnemy.StasisActions.Attack, 0.05f);
+        Vector2 playerPos = SingletoneGameController.PlayerActions.player.gameObject.transform
+            .position;
+        Vector2 isometricPos = IsometricUtils.ScreenCordsToTilesPos(new Vector2(playerPos.x - 0.25f, playerPos.y - 0.25f), true);
+        Debug.Log(isometricPos.ToString());
+        Vector3 pos = IsometricUtils.CoordinatesToWorldSpace(isometricPos.x, isometricPos.y);
+        AreaTileAtack newArea = Instantiate(areaTile, pos, Quaternion.identity);
+        newArea.gameObject.transform.parent = body.parent;
+        newArea.gameObject.transform.tag = "SpellDmg";
+        newArea.spellDmg.SetSpellDmgStats(4, mind.stats.element, pos, body.tag);
+        newArea.spellDmg.OnDamage = () => mind.StasisActionUpdate(BaseEnemy.StasisActions.Impact, 4);
+        mind.animationController.SetStop();
+        EndAction();
+    }
+    private void CounterAttack(float dmg)
+    {
+        sounds.LaunchSound(JojoSounds.JojoSoundList.Area);
+        mind.animationController.SetCharge();
+        mind.StasisActionUpdate(BaseEnemy.StasisActions.Attack, 0.1f);
+        Vector2 playerPos = gameObject.transform.position;
+        Vector2 isometricPos = IsometricUtils.ScreenCordsToTilesPos(new Vector2(playerPos.x - 0.25f, playerPos.y - 0.25f), true);
+        Debug.Log(isometricPos.ToString());
+        Vector3 pos = IsometricUtils.CoordinatesToWorldSpace(isometricPos.x, isometricPos.y);
+        AreaTileAtack newArea = Instantiate(explosionCounterTile, pos, Quaternion.identity);
+        newArea.gameObject.transform.parent = body.parent;
+        newArea.gameObject.transform.tag = "SpellDmg";
+        newArea.spellDmg.SetSpellDmgStats(dmg, mind.stats.element, pos, body.tag);
+        newArea.spellDmg.OnDamage = () => mind.StasisActionUpdate(BaseEnemy.StasisActions.Impact, dmg);
+        mind.animationController.SetAttack();
+        mind.animationController.SetStop();
+        EndAction();
+    }
+    private void TeleportInvulnerable(float cantidad)
+    {
+        sounds.LaunchSound(JojoSounds.JojoSoundList.Tp);
+        int ran;
+        do
         {
-            sounds.LaunchSound(JojoSounds.JojoSoundList.Area);
-            mind.animationController.SetAttack();
-            mind.StasisActionUpdate(BaseEnemy.StasisActions.Attack, 0.05f);
-            Vector2 playerPos = SingletoneGameController.PlayerActions.player.gameObject.transform
-                .position;
-            Vector2 isometricPos = IsometricUtils.ScreenCordsToTilesPos(new Vector2(playerPos.x-0.25f, playerPos.y -0.25f), true);
-            Debug.Log(isometricPos.ToString());
-            Vector3 pos = IsometricUtils.CoordinatesToWorldSpace(isometricPos.x, isometricPos.y);
-            AreaTileAtack newArea = Instantiate(areaTile, pos, Quaternion.identity);
-            newArea.gameObject.transform.parent = body.parent;
-            newArea.gameObject.transform.tag = "SpellDmg";
-            newArea.spellDmg.SetSpellDmgStats(4, mind.stats.element, pos, body.tag);
-            newArea.spellDmg.OnDamage = () => mind.StasisActionUpdate(BaseEnemy.StasisActions.Impact, 4);
-            mind.animationController.SetStop();
-            EndAction();
-        }
-        private void CounterAttack(float dmg)
+            ran = Random.Range(0, JojoMamaloBehaviour.NumPositions);
+        } while (ran == mind.ActualPos);
+        mind.UpdatePosition(ran);
+        if (cantidad > 0.001f)
         {
-            sounds.LaunchSound(JojoSounds.JojoSoundList.Area);
-            mind.animationController.SetCharge();
-            mind.StasisActionUpdate(BaseEnemy.StasisActions.Attack, 0.1f);
-            Vector2 playerPos = gameObject.transform.position;
-            Vector2 isometricPos = IsometricUtils.ScreenCordsToTilesPos(new Vector2(playerPos.x-0.25f, playerPos.y -0.25f), true);
-            Debug.Log(isometricPos.ToString());
-            Vector3 pos = IsometricUtils.CoordinatesToWorldSpace(isometricPos.x, isometricPos.y);
-            AreaTileAtack newArea = Instantiate(explosionCounterTile, pos, Quaternion.identity);
-            newArea.gameObject.transform.parent = body.parent;
-            newArea.gameObject.transform.tag = "SpellDmg";
-            newArea.spellDmg.SetSpellDmgStats(dmg, mind.stats.element, pos, body.tag);
-            newArea.spellDmg.OnDamage = () => mind.StasisActionUpdate(BaseEnemy.StasisActions.Impact, dmg);
-            mind.animationController.SetAttack();
-            mind.animationController.SetStop();
-            EndAction();
+            mind.stats.Heal(cantidad);
+            _healthTPs--;
+            if (_healthTPs <= 0)
+                mind.invincible = false;
         }
-        private void TeleportInvulnerable(float cantidad)
-        {
-            sounds.LaunchSound(JojoSounds.JojoSoundList.Tp);
-            int ran;
-            do
-            {
-                ran = Random.Range(0, JojoMamaloBehaviour.NumPositions);
-            } while (ran == mind.ActualPos);
-            mind.UpdatePosition(ran);
-            if (cantidad > 0.001f)
-            {
-                mind.stats.Heal(cantidad);
-                _healthTPs--;
-                if(_healthTPs<=0)
-                    mind.invincible = false;
-            }
-            EndAction();
-        }
+        EndAction();
+    }
 
-        private void ChangueElement(Elements.Element newElement)
-        {
-            
-            weapon.weaponInfo.Element = newElement;
-            InGameCard newCard = Instantiate(cardPrefab, gameObject.transform.position + new Vector3(0, 0.5f, 0),
-                Quaternion.identity);
-            newCard.card.CardInfo = new WeaponCard(weapon.weaponInfo);
-            newCard.PlayAnimaton();
-            //TODO->ANIMATION
-            EndAction();
+    private void ChangueElement(Elements.Element newElement)
+    {
 
-        }
+        weapon.weaponInfo.Element = newElement;
+        InGameCard newCard = Instantiate(cardPrefab, gameObject.transform.position + new Vector3(0, 0.5f, 0),
+            Quaternion.identity);
+        newCard.card.CardInfo = new WeaponCard(weapon.weaponInfo);
+        newCard.PlayAnimaton();
+        //TODO->ANIMATION
+        EndAction();
+
+    }
 }
