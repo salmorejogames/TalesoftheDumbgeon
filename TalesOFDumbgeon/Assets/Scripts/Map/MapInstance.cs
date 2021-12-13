@@ -40,10 +40,12 @@ public class MapInstance : MonoBehaviour
     [NonSerialized] public List<CharacterStats> enemys;
     private bool _closed;
     private bool _started;
+    private GameController _gmc;
 
 
     private void Awake()
-    {               
+    {
+        _gmc = GameObject.Find("GameManager").GetComponent<GameController>();
         _started = false;
         ground.CompressBounds();
         Dimensions = (Vector2Int) ground.size;
@@ -63,6 +65,8 @@ public class MapInstance : MonoBehaviour
     {
         //enemyList.Sort((a, b) => a.difficulty.CompareTo(b.difficulty));
         BoundsInt bounds = ground.cellBounds;
+        _gmc.StartCount();
+        _gmc.dificultadInicial = 0;
         //Debug.Log("X: " +bounds.xMax + " " + bounds.xMin+ " Y: " + bounds.yMax + " " + bounds.yMin);
     }
 
@@ -74,6 +78,7 @@ public class MapInstance : MonoBehaviour
             OpenDors(true);
             _closed = true;
         }
+       
     }
 
     /**
@@ -82,6 +87,7 @@ public class MapInstance : MonoBehaviour
      */
     private void OpenDors(bool open)
     {
+        _gmc.StopCount();
         SetTrigger(open);
         SetTriggerRenderers(!open);
     }
@@ -94,6 +100,7 @@ public class MapInstance : MonoBehaviour
             SingletoneGameController.NavMeshManager.UpdateNavMesh();
             foreach (var generator in generators)
             {
+                _gmc.dificultadSala += generator.difficulty;
                 generator.map = this;
                 generator.InstantiateEnemys(enemyList);
             }
