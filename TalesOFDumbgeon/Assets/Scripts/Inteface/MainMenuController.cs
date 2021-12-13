@@ -7,13 +7,19 @@ using UnityEngine.UI;
 public class MainMenuController : MonoBehaviour
 {
     [SerializeField] private GameObject titulo;
+
     [SerializeField] private GameObject botonJugar;
     [SerializeField] private GameObject botonAjustes;
     [SerializeField] private GameObject botonCreditos;
     [SerializeField] private GameObject botonGuia;
+
     [SerializeField] private GameObject botonVolver;
+
     [SerializeField] private GameObject tutorial1;
     [SerializeField] private GameObject tutorial2;
+    [SerializeField] private GameObject tutorial3;
+    [SerializeField] private GameObject tutorial4;
+
     [SerializeField] private GameObject volumen;
 
     [SerializeField] private GameObject menuPrincipal;
@@ -31,20 +37,28 @@ public class MainMenuController : MonoBehaviour
     [SerializeField] private Button guiaBoton;
     [SerializeField] private Button creditosBoton;
     [SerializeField] private Button volverBoton;
+
     [SerializeField] private Button avanzarBoton1;
     [SerializeField] private Button avanzarBoton2;
+    [SerializeField] private Button avanzarBoton3;
+    [SerializeField] private Button avanzarBoton4;
+
     [SerializeField] private Button retrocederBoton1;
     [SerializeField] private Button retrocederBoton2;
+    [SerializeField] private Button retrocederBoton3;
+    [SerializeField] private Button retrocederBoton4;
 
     private int pagina = 0;
 
     private void Start()
     {
+        PlayerPrefs.SetInt("Deaths", 0);
+        PlayerPrefs.SetInt("Botijos", 0);
         HacerNoInteractuable(jugarBoton);
         HacerNoInteractuable(ajustesBoton);
         HacerNoInteractuable(creditosBoton);
         HacerNoInteractuable(guiaBoton);
-        StartCoroutine(MenuPrincipalInteractuable(3.25f));
+        StartCoroutine(MenuPrincipalInteractuable(1.9f));
     }
 
     public void Jugar()
@@ -66,7 +80,7 @@ public class MainMenuController : MonoBehaviour
     IEnumerator EsperarJugar()
     {
         yield return new WaitForSeconds(1.5f);
-        SceneManager.LoadScene("IsometricScene");
+        SceneManager.LoadScene("IntroductionScene");
     }
 
     public void Creditos()
@@ -82,7 +96,7 @@ public class MainMenuController : MonoBehaviour
         LeanTween.moveLocalY(botonGuia, -550, .25f);
 
         LeanTween.moveLocalY(titulo, 0, .5f).setDelay(1);
-        LeanTween.rotateZ(titulo, -90, .5f).setDelay(1);
+        LeanTween.rotateZ(titulo, 0, .5f).setDelay(1);
         LeanTween.scaleX(titulo, 1.5f, .5f).setDelay(1).setEaseInCubic();
         LeanTween.scaleY(titulo, 1.5f, .5f).setDelay(1).setEaseInCubic();
 
@@ -140,28 +154,67 @@ public class MainMenuController : MonoBehaviour
                 HacerNoInteractuable(avanzarBoton2);
                 HacerNoInteractuable(retrocederBoton2);
 
-                pagina = 2;
                 LeanTween.moveLocalX(tutorial1, 1260, 1f).setEaseOutCubic();
                 LeanTween.moveLocalY(tutorial1, 0, 1f).setEaseOutCubic();
 
                 LeanTween.moveLocalX(tutorial2, 0, 1f).setEaseOutCubic();
                 LeanTween.moveLocalY(tutorial2, 0, 1f).setEaseOutCubic();
 
-                StartCoroutine(HacerInteractuableCoroutine(avanzarBoton2, 1.25f));
-                StartCoroutine(HacerInteractuableCoroutine(retrocederBoton2, 1.25f));
+                pagina = 2;
+
+                StartCoroutine(HacerInteractuableCoroutine(avanzarBoton2, 1.2f));
+                StartCoroutine(HacerInteractuableCoroutine(retrocederBoton2, 1.2f));
 
                 break;
 
             case 2:
                 HacerNoInteractuable(avanzarBoton2);
                 HacerNoInteractuable(retrocederBoton2);
+                HacerNoInteractuable(avanzarBoton3);
+                HacerNoInteractuable(retrocederBoton3);
 
                 LeanTween.moveLocalX(tutorial2, 1260, 1f).setEaseOutCubic();
                 LeanTween.moveLocalY(tutorial2, 0, 1f).setEaseOutCubic();
 
+                LeanTween.moveLocalX(tutorial3, 0, 1f).setEaseOutCubic();
+                LeanTween.moveLocalY(tutorial3, 0, 1f).setEaseOutCubic();
+
+                pagina = 3;
+
+                StartCoroutine(HacerInteractuableCoroutine(avanzarBoton3, 1.25f));
+                StartCoroutine(HacerInteractuableCoroutine(retrocederBoton3, 1.25f));
+
+                break;
+
+            case 3:
+                HacerNoInteractuable(avanzarBoton3);
+                HacerNoInteractuable(retrocederBoton3);
+                HacerNoInteractuable(avanzarBoton4);
+                HacerNoInteractuable(retrocederBoton4);
+
+                LeanTween.moveLocalX(tutorial3, 1260, 1f).setEaseOutCubic();
+                LeanTween.moveLocalY(tutorial3, 0, 1f).setEaseOutCubic();
+
+                LeanTween.moveLocalX(tutorial4, 0, 1f).setEaseOutCubic();
+                LeanTween.moveLocalY(tutorial4, 0, 1f).setEaseOutCubic();
+
+                pagina = 4;
+
+                StartCoroutine(HacerInteractuableCoroutine(avanzarBoton4, 1.25f));
+                StartCoroutine(HacerInteractuableCoroutine(retrocederBoton4, 1.25f));
+
+                break;
+
+            case 4:
+                HacerNoInteractuable(avanzarBoton4);
+                HacerNoInteractuable(retrocederBoton4);
+
+                LeanTween.moveLocalX(tutorial4, 1260, 1f).setEaseOutCubic();
+                LeanTween.moveLocalY(tutorial4, 0, 1f).setEaseOutCubic();
+
                 AnimacionMenuPrincipal();
 
-                StartCoroutine(MenuPrincipalInteractuable(2.25f));
+                StartCoroutine(MenuPrincipalInteractuable(1.9f));
 
                 break;
         }
@@ -180,7 +233,7 @@ public class MainMenuController : MonoBehaviour
 
                 AnimacionMenuPrincipal();
 
-                StartCoroutine(MenuAjustesInteractuable(2.25f));
+                StartCoroutine(MenuPrincipalInteractuable(1.9f));
 
                 break;
 
@@ -190,7 +243,6 @@ public class MainMenuController : MonoBehaviour
                 HacerNoInteractuable(avanzarBoton2);
                 HacerNoInteractuable(retrocederBoton2);
 
-                pagina = 1;
 
                 LeanTween.moveLocalX(tutorial1, 0, 1f).setEaseOutCubic();
                 LeanTween.moveLocalY(tutorial1, 0, 1f).setEaseOutCubic();
@@ -198,8 +250,49 @@ public class MainMenuController : MonoBehaviour
                 LeanTween.moveLocalX(tutorial2, 1260, 1f).setEaseOutCubic();
                 LeanTween.moveLocalY(tutorial2, 0, 1f).setEaseOutCubic();
 
+                pagina = 1;
+
                 StartCoroutine(HacerInteractuableCoroutine(avanzarBoton1, 1.25f));
                 StartCoroutine(HacerInteractuableCoroutine(retrocederBoton1, 1.25f));
+
+                break;
+
+            case 3:
+                HacerNoInteractuable(avanzarBoton2);
+                HacerNoInteractuable(retrocederBoton2);
+                HacerNoInteractuable(avanzarBoton3);
+                HacerNoInteractuable(retrocederBoton3);
+
+
+                LeanTween.moveLocalX(tutorial2, 0, 1f).setEaseOutCubic();
+                LeanTween.moveLocalY(tutorial2, 0, 1f).setEaseOutCubic();
+
+                LeanTween.moveLocalX(tutorial3, 1260, 1f).setEaseOutCubic();
+                LeanTween.moveLocalY(tutorial3, 0, 1f).setEaseOutCubic();
+
+                pagina = 2;
+
+                StartCoroutine(HacerInteractuableCoroutine(avanzarBoton2, 1.25f));
+                StartCoroutine(HacerInteractuableCoroutine(retrocederBoton2, 1.25f));
+
+                break;
+
+            case 4:
+                HacerNoInteractuable(avanzarBoton3);
+                HacerNoInteractuable(retrocederBoton3);
+                HacerNoInteractuable(avanzarBoton4);
+                HacerNoInteractuable(retrocederBoton4);
+
+                LeanTween.moveLocalX(tutorial3, 0, 1f).setEaseOutCubic();
+                LeanTween.moveLocalY(tutorial3, 0, 1f).setEaseOutCubic();
+
+                LeanTween.moveLocalX(tutorial4, 1260, 1f).setEaseOutCubic();
+                LeanTween.moveLocalY(tutorial4, 0, 1f).setEaseOutCubic();
+                
+                pagina = 3;
+
+                StartCoroutine(HacerInteractuableCoroutine(avanzarBoton3, 1.25f));
+                StartCoroutine(HacerInteractuableCoroutine(retrocederBoton3, 1.25f));
 
                 break;
         }
@@ -207,23 +300,23 @@ public class MainMenuController : MonoBehaviour
 
     public void AnimacionMenuPrincipal()
     {
-        LeanTween.moveLocalY(titulo, 190, 1.5f).setEaseOutCubic();
-        LeanTween.rotateZ(titulo, -85, 1f).setEaseOutCubic();
+        LeanTween.moveLocalY(titulo, 190, 1f).setEaseOutCubic();
+        LeanTween.rotateZ(titulo, 5, 1f).setEaseOutCubic();
 
-        LeanTween.moveLocalX(botonJugar, -13, 1.5f).setEaseOutCubic().setDelay(.5f);
-        LeanTween.moveLocalY(botonJugar, -120, 1.5f).setEaseOutCubic().setDelay(.5f);
-        LeanTween.rotateZ(botonJugar, -5, 1f).setEaseOutCubic().setDelay(.5f);
+        LeanTween.moveLocalX(botonJugar, -13, 1f).setEaseOutCubic().setDelay(.75f);
+        LeanTween.moveLocalY(botonJugar, -120, 1f).setEaseOutCubic().setDelay(.75f);
+        LeanTween.rotateZ(botonJugar, -5, .8f).setEaseOutCubic().setDelay(.75f);
 
-        LeanTween.moveLocalX(botonAjustes, -420, 1.5f).setEaseOutCubic().setDelay(.5f);
-        LeanTween.moveLocalY(botonAjustes, -180, 1.5f).setEaseOutCubic().setDelay(.5f);
-        LeanTween.rotateZ(botonAjustes, 15, 1f).setEaseOutCubic().setDelay(.5f);
+        LeanTween.moveLocalX(botonAjustes, -420, 1f).setEaseOutCubic().setDelay(.75f);
+        LeanTween.moveLocalY(botonAjustes, -180, 1f).setEaseOutCubic().setDelay(.75f);
+        LeanTween.rotateZ(botonAjustes, 15, .8f).setEaseOutCubic().setDelay(.75f);
 
-        LeanTween.moveLocalX(botonCreditos, 385, 1.5f).setEaseOutCubic().setDelay(.5f);
-        LeanTween.moveLocalY(botonCreditos, -160, 1.5f).setEaseOutCubic().setDelay(.5f);
-        LeanTween.rotateZ(botonCreditos, 5, 1f).setEaseOutCubic().setDelay(.5f);
+        LeanTween.moveLocalX(botonCreditos, 385, 1f).setEaseOutCubic().setDelay(.75f);
+        LeanTween.moveLocalY(botonCreditos, -160, 1f).setEaseOutCubic().setDelay(.75f);
+        LeanTween.rotateZ(botonCreditos, 5, .8f).setEaseOutCubic().setDelay(.75f);
 
-        LeanTween.moveLocalY(botonGuia, -320, 1.5f).setEaseOutCubic().setDelay(1f);
-        LeanTween.rotateZ(botonGuia, 1, 1f).setEaseOutCubic().setDelay(1f);
+        LeanTween.moveLocalY(botonGuia, -320, 1f).setEaseOutCubic().setDelay(1f);
+        LeanTween.rotateZ(botonGuia, 1, .8f).setEaseOutCubic().setDelay(1f);
     }
 
     public void Ajustes()
@@ -233,19 +326,16 @@ public class MainMenuController : MonoBehaviour
         HacerNoInteractuable(ajustesBoton);
         HacerNoInteractuable(volverBoton);
 
-        StartCoroutine(MenuAjustesInteractuable(1.5f));
+        StartCoroutine(MenuAjustesInteractuable(1.85f));
 
         LeanTween.moveLocalY(botonJugar, -550, .25f);
+        LeanTween.moveLocalY(botonAjustes, -550, .25f);
         LeanTween.moveLocalY(botonCreditos, -550, .25f);
         LeanTween.moveLocalY(botonGuia, -550, .25f);
         LeanTween.moveLocalY(titulo, 550, .25f);
 
-        LeanTween.moveLocalX(botonAjustes, 0, 1f).setEaseOutCubic();
-        LeanTween.moveLocalY(botonAjustes, 225, 1f).setEaseOutCubic();
-        LeanTween.rotateZ(botonAjustes, 10, .5f).setEaseOutCubic();
-
-        LeanTween.moveLocalY(volumen, 0, 1f).setEaseOutCubic().setDelay(.5f);
-        LeanTween.moveLocalY(botonVolver, -100, 1f).setEaseOutCubic().setDelay(.75f);
+        LeanTween.moveLocalY(volumen, 80, 1f).setEaseOutCubic().setDelay(.5f);
+        LeanTween.moveLocalY(botonVolver, -200, 1f).setEaseOutCubic().setDelay(.75f);
     }
 
     public void Volver()
@@ -259,30 +349,30 @@ public class MainMenuController : MonoBehaviour
         HacerNoInteractuable(creditosBoton);
         HacerNoInteractuable(guiaBoton);
 
-        menuPrincipal.SetActive(true);
+        //menuPrincipal.SetActive(true);
 
-        StartCoroutine(MenuPrincipalInteractuable(2.25f));
+        StartCoroutine(MenuPrincipalInteractuable(1.9f));
     }
 
     public void AnimacionVolver()
     {
-        LeanTween.moveLocalY(titulo, 190, 1.5f).setEaseOutCubic();
-        LeanTween.rotateZ(titulo, -85, 1f).setEaseOutCubic();
+        LeanTween.moveLocalY(titulo, 190, 1f).setEaseOutCubic();
+        LeanTween.rotateZ(titulo, 5, .8f).setEaseOutCubic();
 
-        LeanTween.moveLocalX(botonJugar, -13, 1.5f).setEaseOutCubic().setDelay(.5f);
-        LeanTween.moveLocalY(botonJugar, -120, 1.5f).setEaseOutCubic().setDelay(.5f);
-        LeanTween.rotateZ(botonJugar, -5, 1f).setEaseOutCubic().setDelay(.5f);
+        LeanTween.moveLocalX(botonJugar, -13, 1f).setEaseOutCubic().setDelay(.75f);
+        LeanTween.moveLocalY(botonJugar, -120, 1f).setEaseOutCubic().setDelay(.75f);
+        LeanTween.rotateZ(botonJugar, -5, .8f).setEaseOutCubic().setDelay(.75f);
 
-        LeanTween.moveLocalX(botonAjustes, -420, 1.5f).setEaseOutCubic();
-        LeanTween.moveLocalY(botonAjustes, -180, 1.5f).setEaseOutCubic();
-        LeanTween.rotateZ(botonAjustes, 15, 1f).setEaseOutCubic();
+        LeanTween.moveLocalX(botonAjustes, -420, 1f).setEaseOutCubic().setDelay(.75f);
+        LeanTween.moveLocalY(botonAjustes, -180, 1f).setEaseOutCubic().setDelay(.75f);
+        LeanTween.rotateZ(botonAjustes, 15, .8f).setEaseOutCubic().setDelay(.75f);
 
-        LeanTween.moveLocalX(botonCreditos, 385, 1.5f).setEaseOutCubic().setDelay(.5f);
-        LeanTween.moveLocalY(botonCreditos, -160, 1.5f).setEaseOutCubic().setDelay(.5f);
-        LeanTween.rotateZ(botonCreditos, 5, 1f).setEaseOutCubic().setDelay(.5f);
+        LeanTween.moveLocalX(botonCreditos, 385, 1f).setEaseOutCubic().setDelay(.75f);
+        LeanTween.moveLocalY(botonCreditos, -160, 1f).setEaseOutCubic().setDelay(.75f);
+        LeanTween.rotateZ(botonCreditos, 5, .8f).setEaseOutCubic().setDelay(.75f);
 
-        LeanTween.moveLocalY(botonGuia, -320, 1.5f).setEaseOutCubic().setDelay(1f);
-        LeanTween.rotateZ(botonGuia, 1, 1f).setEaseOutCubic().setDelay(1f);
+        LeanTween.moveLocalY(botonGuia, -320, 1f).setEaseOutCubic().setDelay(1f);
+        LeanTween.rotateZ(botonGuia, 1, .8f).setEaseOutCubic().setDelay(1f);
 
         LeanTween.moveLocalY(volumen, -500, .25f);
         LeanTween.moveLocalY(botonVolver, -500, .25f);
@@ -305,7 +395,7 @@ public class MainMenuController : MonoBehaviour
         yield return new WaitForSeconds(segundos);
 
         HacerInteractuable(volverBoton);
-        menuPrincipal.SetActive(false);
+        //menuPrincipal.SetActive(false);
     }
 
     IEnumerator HacerInteractuableCoroutine(Button button, float segundos)

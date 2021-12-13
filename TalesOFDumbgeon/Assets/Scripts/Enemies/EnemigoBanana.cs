@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using Random = UnityEngine.Random;
 
 public class EnemigoBanana : BaseEnemy, IDeadable
 {
@@ -16,10 +17,9 @@ public class EnemigoBanana : BaseEnemy, IDeadable
     [SerializeField]
     private DamageNumber DmgPrefab;
 
+    [SerializeField] private BananaAnimator animator;
 
-    public int velocidad = 5;
-    public int armadura = 3;
-    public int damage = 1;
+    public float velocidad;
     public float vision = 3;
     public float maxDistance = 1f;
     public float stopDistance = 0.5f;
@@ -27,7 +27,6 @@ public class EnemigoBanana : BaseEnemy, IDeadable
     public float decisionClock = 0f;
 
     public GameObject personaje;
-    public GameObject zonaAtaque;
 
     private Rigidbody2D rb;
     private enum Estado { Wandering, Detected, Attacking};
@@ -45,6 +44,7 @@ public class EnemigoBanana : BaseEnemy, IDeadable
     private bool attaking = false;
     private float tiempoParado = 0f;
     private float startTiempoParado = 1f;
+    private float attackTime;
 
     public enum tipoEnemigo { Abuesqueleto, Cerebro, Duonde, Palloto, Banana, Pelusa };
     public tipoEnemigo especie;
@@ -67,15 +67,15 @@ public class EnemigoBanana : BaseEnemy, IDeadable
         personaje = GameObject.FindGameObjectWithTag("Player");
         rb.velocity = Vector2.zero;
         attackDelay = 4;
-
-        if(especie == tipoEnemigo.Banana)
-        {
-            velocidad = 2;
-            armadura = 1;
-            damage = 4;
-            vision = 10;
-            stopDistance = 7;
-        }
+        velocidad = stats.speed;
+        attackTime = 3f;
+        BaseArmor casco = new BaseArmor();
+        casco.Stats = stats;
+        casco.Randomize(1);
+        casco.Equip();
+        casco.Armor = 0f;
+        stats.element = casco.Element;
+        animator.ChangeColor(casco.Element);
     }
 
     // Update is called once per frame
@@ -86,22 +86,24 @@ public class EnemigoBanana : BaseEnemy, IDeadable
         {
             distanciaPlayer = Vector2.Distance(transform.position, personaje.transform.position);
             direccion = personaje.transform.position - transform.position;
-            rotacion = Mathf.Atan2(direccion.x, direccion.y) * Mathf.Rad2Deg;
+            //rotacion = Mathf.Atan2(direccion.x, direccion.y) * Mathf.Rad2Deg;
             direccion.Normalize();
 
             DecisionEstado();
             tiempoParado = startTiempoParado;
-            Debug.Log("Entramos en la logica");
+            //Debug.Log("Entramos en la logica");
         }
         else
         {
             if (tiempoParado <= 0)
             {
+                animator.StartAttack();
                 if (dashTime <= 0)
                 {
                     attaking = false;
                     dashTime = startDashTime;
                     rb.velocity = Vector2.zero;
+                    animator.EndAttack();
                 }
                 else
                 {
@@ -126,7 +128,6 @@ public class EnemigoBanana : BaseEnemy, IDeadable
         if (attackDelay >= 200)
         {
             canAtack = true;
-            zonaAtaque.GetComponent<Collider2D>().isTrigger = true;
         }
 
         if (distanciaPlayer > vision)
@@ -136,7 +137,7 @@ public class EnemigoBanana : BaseEnemy, IDeadable
         else if (distanciaPlayer <= stopDistance)
             estadoActual = Estado.Attacking;
 
-        Debug.Log(estadoActual);
+        //Debug.Log(estadoActual);
 
         if (decisionClock > decisionTime || distanciaPlayer < vision && personaje != null)
         {
@@ -149,11 +150,11 @@ public class EnemigoBanana : BaseEnemy, IDeadable
 
                 case Estado.Detected:
                     Alcanzable();
-                    rb.rotation = -rotacion;
+                    //rb.rotation = -rotacion;
                     break;
 
                 case Estado.Attacking:
-                    rb.rotation = -rotacion;
+                    //rb.rotation = -rotacion;
                     Attack();
                     break;
             }
@@ -213,15 +214,9 @@ public class EnemigoBanana : BaseEnemy, IDeadable
     {
         if (canAtack)
         {
-            if (especie == tipoEnemigo.Abuesqueleto)
+            if(especie == tipoEnemigo.Banana)
             {
-                zonaAtaque.GetComponent<Collider2D>().isTrigger = false;
-                rb.velocity = Vector2.zero;
-                canAtack = false;
-                nextPos = transform.position;
-            }else if(especie == tipoEnemigo.Banana)
-            {
-                zonaAtaque.GetComponent<Collider2D>().isTrigger = false;
+                animator.PrepareAttack();
                 attaking = true;
                 canAtack = false;
             }
@@ -247,7 +242,27 @@ public class EnemigoBanana : BaseEnemy, IDeadable
         }else if (collision.gameObject.CompareTag("Player"))
         {
             nextPos = transform.position;
-            collision.gameObject.GetComponent<CharacterStats>().DoDamage(damage, this.transform.position, stats.element);
+            rb.velocity = Vector2.zero;
+            collision.gameObject.GetComponent<CharacterStats>().DoDamage(stats.strength, this.transform.position, stats.element);
+        }
+    }
+
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            if (attackTime <= 0)
+            {
+                nextPos = transform.position;
+                rb.velocity = Vector2.zero;
+                collision.gameObject.GetComponent<CharacterStats>().DoDamage(stats.strength, this.transform.position, stats.element);
+                attackTime = 3f;
+            }
+            else
+            {
+                Debug.Log(attackTime);
+                attackTime -= Time.deltaTime;
+            }
         }
     }
 
@@ -256,7 +271,7 @@ public class EnemigoBanana : BaseEnemy, IDeadable
         if (collision.gameObject.CompareTag("Player"))
         {
             nextPos = transform.position;
-            collision.gameObject.GetComponent<CharacterStats>().DoDamage(damage, this.transform.position, stats.element);
+            
         }/*else if (collision.gameObject.CompareTag("Colisiones"))
         {
             decisionClock = 5f;
@@ -266,15 +281,20 @@ public class EnemigoBanana : BaseEnemy, IDeadable
 
     public void Dead()
     {
+        SingletoneGameController.SoundManager.audioSrc.PlayOneShot(Audio.clip);
         gameObject.SetActive(false);
     }
 
     public void Damage(Vector3 enemyPos, float cantidad, Elements.Element element)
     {
-        audio.Play();
+        Audio.pitch = Random.Range(0.5f, 1.5f);
+        Audio.Play();
         float multiplier = Elements.GetElementMultiplier(element, stats.element);
         DamageNumber dmgN = Instantiate(DmgPrefab, transform.position, Quaternion.identity);
         dmgN.Inicializar(cantidad, transform);
+        Vector3 direction = gameObject.transform.position - _player.transform.position;
+        direction.Normalize();
+        rb.velocity = direction * 1.5f;
         if (multiplier > 1.1f)
             _spr.color = Color.red;
         else if (multiplier < 0.9f)

@@ -8,8 +8,7 @@ using UnityEngine.AI;
 public class Pelusa_Peque : BaseEnemy, IDeadable
 {
     //IDeadable 
-    [SerializeField] private SpriteRenderer _spr;
-    private IsometricMove _player;
+    [SerializeField] private SpriteRenderer spr;
     private NavMeshAgent _navMeshAgent;
 
     [SerializeField]
@@ -17,18 +16,11 @@ public class Pelusa_Peque : BaseEnemy, IDeadable
 
     public float speed = 0.1f;
     public Transform player;
-    private GameObject padre;
-    private Enemigo_Pelusa padreStats;
-    private CharacterStats padreInfo;
-    private float dmg;
-    private Elements.Element elemento;
+
 
     Pelusa_Peque(Transform player, GameObject padre, CharacterStats padreInfo)
     {
         this.player = player;
-        this.padre = padre;
-        this.padreStats = padre.GetComponent<Enemigo_Pelusa>();
-        this.padreInfo = padreInfo;
     }
 
     private void Awake()
@@ -43,8 +35,7 @@ public class Pelusa_Peque : BaseEnemy, IDeadable
     void Start()
     {
         player = SingletoneGameController.PlayerActions.player.gameObject.transform;
-        dmg = 2f;
-        elemento = Elements.Element.Caos;
+        spr.color = SingletoneGameController.InfoHolder.LoadColor(stats.element);
         //padreInfo = padre.GetComponent<CharacterStats>();
         //dmg = padreStats.damage;
         //elemento = padreInfo.element;
@@ -69,8 +60,18 @@ public class Pelusa_Peque : BaseEnemy, IDeadable
         }
     }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            Destroy(gameObject);
+            collision.gameObject.GetComponent<CharacterStats>().DoDamage(5, this.transform.position, Elements.Element.Caos);
+        }
+    }
+
     public void Dead()
     {
+        SingletoneGameController.SoundManager.audioSrc.PlayOneShot(Audio.clip);
         Destroy(gameObject);
     }
 
@@ -80,17 +81,17 @@ public class Pelusa_Peque : BaseEnemy, IDeadable
         DamageNumber dmgN = Instantiate(DmgPrefab, transform.position, Quaternion.identity);
         dmgN.Inicializar(cantidad, transform);
         if (multiplier > 1.1f)
-            _spr.color = Color.red;
+            spr.color = Color.red;
         else if (multiplier < 0.9f)
-            _spr.color = Color.cyan;
+            spr.color = Color.cyan;
         else
-            _spr.color = Color.yellow;
-        dmgN.number.color = _spr.color;
+            spr.color = Color.yellow;
+        dmgN.number.color = spr.color;
         Invoke(nameof(RevertColor), 0.2f);
     }
 
     public void RevertColor()
     {
-        _spr.color = Color.white;
+        spr.color = Color.white;
     }
 }

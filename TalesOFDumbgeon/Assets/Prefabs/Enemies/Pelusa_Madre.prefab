@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 6890831708604781747}
   - component: {fileID: 6890831708604781748}
   - component: {fileID: 7526915823765226898}
+  - component: {fileID: 870975449141716681}
   m_Layer: 0
   m_Name: Pelusa_Madre
   m_TagString: Enemigo
@@ -98,7 +99,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.0003592372, y: -0.021796048}
@@ -147,9 +148,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe75dc7e7b1608540b14bb84463aa1bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 0
-  armor: 0
-  strength: 0
+  maxHealth: 10
+  armor: 1
+  strength: 4
   speed: 0
   element: 0
 --- !u!114 &6890831708604781748
@@ -164,23 +165,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdf4ef12545494845882955a67bb2d5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audio: {fileID: 7526915823765226898}
+  Audio: {fileID: 7526915823765226898}
   difficulty: 2
   stats: {fileID: 0}
+  rangoVision: 0
+  miedo: 0
+  agent: {fileID: 870975449141716681}
   DmgPrefab: {fileID: 7413456247700845425, guid: d04ec14520fae5f44b0e829368e66535,
     type: 3}
-  velocidad: 5
-  armadura: 3
-  damage: 1
   vision: 3
   maxDistance: 1
   stopDistance: 0.5
   decisionClock: 0
   maxChilds: 6
   personaje: {fileID: 0}
-  Bala: {fileID: 4852668842496861162, guid: c4b1e16d03221ac49bc3e435ff04fd33, type: 3}
+  PelusaPeque: {fileID: 4852668842496861165, guid: c4b1e16d03221ac49bc3e435ff04fd33,
+    type: 3}
   zonaAtaque: {fileID: 6890831710628340832}
-  especie: 5
+  bodySprite: {fileID: 6890831710628340846}
 --- !u!82 &7526915823765226898
 AudioSource:
   m_ObjectHideFlags: 0
@@ -190,8 +192,9 @@ AudioSource:
   m_GameObject: {fileID: 6890831708604781750}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 8190dc3d9b8227144b1c27fe8c64c5f9, type: 3}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: 492e8545492378844a032e0cc29a7011,
+    type: 2}
+  m_audioClip: {fileID: 8300000, guid: 4b63d39218f16664382d65e2726a8cee, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -277,6 +280,28 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!195 &870975449141716681
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6890831708604781750}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 0.5
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!1 &6890831710628340832
 GameObject:
   m_ObjectHideFlags: 0
@@ -287,6 +312,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6890831710628340847}
   - component: {fileID: 6890831710628340846}
+  - component: {fileID: 7137709193165470784}
   m_Layer: 0
   m_Name: Pelusa_Madre
   m_TagString: Untagged
@@ -359,3 +385,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &7137709193165470784
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6890831710628340832}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 6714ed02513b60749ae6347f74caaa2a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

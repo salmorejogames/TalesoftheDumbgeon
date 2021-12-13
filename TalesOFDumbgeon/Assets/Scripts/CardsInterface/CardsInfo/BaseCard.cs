@@ -20,7 +20,8 @@ public abstract class BaseCard
     {
         Weapon,
         Equipment,
-        Spell
+        Spell,
+        Bless
     }
 
     public BaseCard()

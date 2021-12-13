@@ -248,9 +248,8 @@ public class ProceduralDungeon : MonoBehaviour
 
     private void ResetRooms()
     {
-        if(_rooms[0,0] == null)
+        if (_rooms[0, 0] == null)
         {
-            Debug.Log("Creating Nodes");
             for (int i = 0; i < MaxSizeX; i++)
             {
                 for (int j = 0; j < MaxSizeY; j++)
@@ -261,16 +260,14 @@ public class ProceduralDungeon : MonoBehaviour
         }
         else
         {
-            Debug.Log("Reseting Nodes");
             for (int i = 0; i < MaxSizeX; i++)
             {
                 for (int j = 0; j < MaxSizeY; j++)
                 {
-                    _rooms[i, j].ResetNode();
+                    _rooms[i, j].RestartNode();
                 }
             }
         }
-        
     }
     private void UpdateMap(MapInstance map, int posX, int posY)
     {

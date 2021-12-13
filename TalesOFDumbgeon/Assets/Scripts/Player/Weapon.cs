@@ -8,13 +8,13 @@ public class Weapon : MonoBehaviour
     
     public BaseWeapon weaponInfo;
     public BaseSpell spellInfo;
-    [SerializeField] private SpriteRenderer _spriteRenderer;
     public CharacterStats holder;
     [NonSerialized] public float angle;
     [NonSerialized] public float relativeAngle;
     [NonSerialized] public float relativePosition;
     [SerializeField] private List<DamageArea> damageAreas;
-    private DamageArea _actualDmgArea; 
+    private DamageArea _actualDmgArea;
+    private bool onDialogue = false;
     public float AttackDuration => _actualDmgArea.fixedAnimationTime / holder.GetSpeedValue();
 
 
@@ -23,16 +23,18 @@ public class Weapon : MonoBehaviour
     {
         SetOrientation(0);
         //_spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
-        if(holder.gameObject.CompareTag("Player"))
+        if(holder.gameObject.CompareTag("Player") || gameObject.CompareTag("AreaWeapon"))
             _actualDmgArea = damageAreas[(int) BaseWeapon.WeaponType.Area];
         if (weaponInfo == null)
         {
             AreaWeapon weapon = new AreaWeapon();
             weapon.SetWeaponHolder(this);
             weapon.Randomize(1);
+            WeaponCard temporalCard = new WeaponCard(weapon);
+            if(holder.gameObject.CompareTag("Player"))
+                SingletoneGameController.InterfaceController.SpriteArmaInicial(temporalCard.Artwork, weapon.Element);
             ChangeWeapon(weapon);
         }
-        
     }
 
     public void ChangeWeapon(BaseWeapon newWeapon)
@@ -40,11 +42,13 @@ public class Weapon : MonoBehaviour
         newWeapon.SetWeaponHolder(this);
         weaponInfo = newWeapon;
         weaponInfo.Equip();
-        if (holder.gameObject.CompareTag("Player"))
+        if (holder.gameObject.CompareTag("Player") || gameObject.CompareTag("AreaWeapon"))
         {
-            _actualDmgArea.gameObject.SetActive(false);
+            if(_actualDmgArea!=null)
+                _actualDmgArea.gameObject.SetActive(false);
             _actualDmgArea = damageAreas[(int) weaponInfo.AttackType];
         }
+
         //_spriteRenderer.sprite = weaponInfo.WeaponSprite;
         /*
         _collider = gameObject.AddComponent<PolygonCollider2D>();
@@ -70,16 +74,20 @@ public class Weapon : MonoBehaviour
     public void Atack()
     {
         //Debug.Log("Im atacking");
-        weaponInfo.Atacar();
+        if (!onDialogue)
+        {
+            weaponInfo.Atacar();
+        }
+        
         //StartCoroutine(nameof(AttackCoroutine));
     }
 
     public void CastSpell()
     {
-        if (spellInfo != null)
+        if (spellInfo != null && !onDialogue)
         {
             spellInfo.Cast();
-            if (holder.gameObject.CompareTag("Player"))
+            if (holder.gameObject.CompareTag("Player") || gameObject.CompareTag("AreaWeapon"))
             {
                 switch (spellInfo.Element)
                 {
@@ -105,15 +113,6 @@ public class Weapon : MonoBehaviour
         }
     }
     
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (!other.gameObject.CompareTag(holder.tag) && (other.gameObject.CompareTag("Enemigo") || other.gameObject.CompareTag("Player")))
-        {
-            CharacterStats enemy = other.gameObject.GetComponent<CharacterStats>();
-            enemy.DoDamage(weaponInfo.Dmg + holder.strength,  gameObject.transform.position, weaponInfo.Element);
-        }
-    }
-    
     ////Activate and Desactivate Elements
     public void ReactivateCollider()
     {
@@ -121,7 +120,7 @@ public class Weapon : MonoBehaviour
         //_spriteRenderer.color = Color.yellow;
         //actualDmgArea.gameObject.SetActive(true);
         //Invoke(nameof(DesactivateCollider), time);
-        if (holder.gameObject.CompareTag("Player"))
+        if (holder.gameObject.CompareTag("Player") || gameObject.CompareTag("AreaWeapon") )
             StartCoroutine(nameof(AttackCoroutine));
     }
 
@@ -170,6 +169,11 @@ public class Weapon : MonoBehaviour
         yield return new WaitForSeconds(duration*(_actualDmgArea.percentStopDmgg-_actualDmgArea.percentStartDmg));
         _actualDmgArea.gameObject.SetActive(false);
 
+    }
+
+    public void SetOnDialogue(bool newDialogue)
+    {
+        onDialogue = newDialogue;
     }
     
 }

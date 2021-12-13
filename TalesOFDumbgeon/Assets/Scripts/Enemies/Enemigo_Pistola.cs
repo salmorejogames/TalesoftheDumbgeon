@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Interfaces;
 using UnityEngine.AI;
+using Random = UnityEngine.Random;
 
 public class Enemigo_Pistola : BaseEnemy, IDeadable, IMovil
 {
@@ -15,10 +16,7 @@ public class Enemigo_Pistola : BaseEnemy, IDeadable, IMovil
 
     [SerializeField]
     private DamageNumber DmgPrefab;
-
-    public float velocidad = 5;
-    public int armadura = 3;
-    public int damage = 1;
+    
     public float vision = 4;
     public float maxDistance = 1f;
     public float stopDistance = 3f;
@@ -44,19 +42,18 @@ public class Enemigo_Pistola : BaseEnemy, IDeadable, IMovil
     private float rotacion;
     private RaycastHit2D hit;
     private Collider2D choque;
+    //Para controlar cuando puede atacar y si esta atacando
     private bool canAtack = true;
     private float attackDelay;
     private float attackTime;
-    private float startDashTime = 0.5f;
-    private bool attaking = false;
-    private float tiempoParado = 0f;
-    private float startTiempoParado = 1f;
-
+    private float attackTimer2;
+    [SerializeField] private CerebroAnimation animator;
     public enum tipoEnemigo { Abuesqueleto, Cerebro, Duonde, Palloto, Banana, Pelusa };
     public tipoEnemigo especie;
 
     private void Awake()
     {
+        attackTimer2 = -1;
         //IDeadable
         stats = gameObject.GetComponent<CharacterStats>();
         _spr = gameObject.GetComponent<SpriteRenderer>();
@@ -74,22 +71,14 @@ public class Enemigo_Pistola : BaseEnemy, IDeadable, IMovil
 
         rb = gameObject.GetComponent<Rigidbody2D>();
         personaje = GameObject.FindGameObjectWithTag("Player");
-        rb.velocity = Vector2.zero;
-        attackDelay = 2f;
-        attackTime = 2f;
+        attackDelay = 1.5f;
+        attackTime = 1.5f;
         arma.SetWeaponHolder(armaHolder);
-               
-        if (especie == tipoEnemigo.Cerebro)
-        {
-            vision = 10f;
-            stopDistance = 7f;            
-            stats.armor = 1f;
-            stats.maxHealth = 4f;
-            stats.strength = 3f;
-            stats.speed = 3.5f;
-            velocidad = stats.speed;
-            stats.element = Elements.Element.Brasa;
-        }
+        arma.Randomize(1);
+        arma.Armor = 0;
+        arma.Equip();
+        stats.element = arma.Element;
+        animator.ChangeColor(stats.element);
     }
 
     // Update is called once per frame
@@ -98,7 +87,6 @@ public class Enemigo_Pistola : BaseEnemy, IDeadable, IMovil
         if (!SingletoneGameController.PlayerActions.dead)
         {
             distanciaPlayer = Vector2.Distance(transform.position, personaje.transform.position);
-            Debug.Log("Distancia al jugador: " + distanciaPlayer);
             direccion = personaje.transform.position - transform.position;
             rotacion = Mathf.Atan2(direccion.x, direccion.y) * Mathf.Rad2Deg;
             direccion.Normalize();
@@ -107,7 +95,6 @@ public class Enemigo_Pistola : BaseEnemy, IDeadable, IMovil
 
             DecisionEstado();
             //tiempoParado = startTiempoParado;
-            Debug.Log("Entramos en la logica");
 
             /*tiempoParado -= Time.deltaTime;
             Debug.Log("Restamos tiempo transcurrido");
@@ -134,7 +121,7 @@ public class Enemigo_Pistola : BaseEnemy, IDeadable, IMovil
         else if (distanciaPlayer <= stopDistance)
             estadoActual = Estado.Attacking;
 
-        Debug.Log(estadoActual);
+        //Debug.Log(estadoActual);
 
         if (decisionClock > decisionTime || distanciaPlayer < vision && personaje != null)
         {            
@@ -143,16 +130,16 @@ public class Enemigo_Pistola : BaseEnemy, IDeadable, IMovil
                 case Estado.Wandering:
                     Wander();
                     decisionClock = 0;
-                    transform.position = Vector2.MoveTowards(transform.position, nextPos, velocidad * Time.deltaTime);
+                    transform.position = Vector2.MoveTowards(transform.position, nextPos, stats.GetSpeedValue() * Time.deltaTime);
                     break;
 
                 case Estado.Detected:
-                    transform.position = Vector2.MoveTowards(transform.position, personaje.transform.position, velocidad * Time.deltaTime);
+                    transform.position = Vector2.MoveTowards(transform.position, personaje.transform.position, stats.GetSpeedValue() * Time.deltaTime);
                     //rb.rotation = -rotacion;
                     break;
 
                 case Estado.Attacking:
-                    rb.rotation = -rotacion;
+                    //rb.rotation = -rotacion;
                     Attack();
                     break;
             }
@@ -164,81 +151,42 @@ public class Enemigo_Pistola : BaseEnemy, IDeadable, IMovil
 
     private void Alcanzable()
     {
-        transform.position = Vector2.MoveTowards(transform.position, personaje.transform.position, velocidad * Time.deltaTime);
-
-        //!!!!!!!!!!!!!!!!!!!!!!!!!NO BORRAR, ES CODIGO QUE NO FUNCIONA PERO QUE QUIERO IMPLEMETAR PARA QUE FUNCIONE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-
-        /*hit = Physics2D.Raycast(transform.position, nextPos);
-        choque = hit.collider;
-
-        if (choque.gameObject.CompareTag("Player"))
-        {
-            nextPos = choque.transform.position;
-            Debug.Log("Estoy igualando al jugador");
-        }
-        else
-        {
-            Vector3 punto = choque.bounds.center;
-            Vector3 puntoA = punto + choque.bounds.extents;
-            Vector3 puntoB = punto - choque.bounds.extents;
-            Vector3 puntoCercano = choque.bounds.ClosestPoint(transform.position);
-            Debug.Log("Me meto a recalcular el camino");
-
-            if(transform.position.y != puntoCercano.y)
-            {
-                if(Vector3.Distance(personaje.transform.position, puntoA) < Vector3.Distance(personaje.transform.position, puntoB)){
-                    nextPos = new Vector3(puntoA.x + 0.5f, puntoCercano.y, 0);  
-                }else
-                {
-                    nextPos = new Vector3(puntoB.x + 0.5f, puntoCercano.y, 0);
-                }
-            }
-            else
-            {
-                if (Vector3.Distance(personaje.transform.position, puntoA) < Vector3.Distance(personaje.transform.position, puntoB))
-                {
-                    nextPos = new Vector3(puntoCercano.x, puntoA.y + 0.5f, 0);
-                }
-                else
-                {
-                    nextPos = new Vector3(puntoCercano.x, puntoB.y + 0.5f, 0);
-                }
-            }
-        }*/
-
-        //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!NO BORRAR, ES CODIGO QUE NO FUNCIONA PERO QUE QUIERO HACER QUE FUNCIONE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        transform.position = Vector2.MoveTowards(transform.position, personaje.transform.position, stats.GetSpeedValue() * Time.deltaTime);
     }
 
     private void Attack()
     {
         if (canAtack)
         {
-            if (especie == tipoEnemigo.Abuesqueleto)
-            {
-                zonaAtaque.GetComponent<Collider2D>().isTrigger = false;
-                rb.velocity = Vector2.zero;
-                canAtack = false;
-                nextPos = transform.position;
-            }
-            else if(especie == tipoEnemigo.Cerebro)
+            if(especie == tipoEnemigo.Cerebro)
             {
                 //arma.Atacar(rayos);
                 canAtack = false;
-                Debug.Log("Intento generar balas");
-                Invoke(nameof(ReactiveAttack), arma.AttackSpeed);
+                animator.StartAttack();
+                //Debug.Log("Intento generar balas");
+                attackTimer2 = arma.AttackSpeed;
             }
-            else if (especie == tipoEnemigo.Banana)
-            {
-                zonaAtaque.GetComponent<Collider2D>().isTrigger = false;
-                attaking = true;
-            }
+        }
+    }
+
+    private void FixedUpdate()
+    {
+        if(attackTimer2<0)
+            return;
+        attackTimer2 -= Time.fixedDeltaTime;
+        if (attackTimer2 <= 0)
+        {
+            ReactiveAttack();
+            attackTimer2 = -1f;
         }
     }
 
     private void ReactiveAttack()
     {
         //canAtack = true;
+        animator.EndAttack();
         arma.Atacar();
+
         /*
         zonaAtaque.GetComponent<Collider2D>().isTrigger = false;
         rb.velocity = Vector2.zero;
@@ -306,12 +254,14 @@ public class Enemigo_Pistola : BaseEnemy, IDeadable, IMovil
 
     public void Dead()
     {
+        SingletoneGameController.SoundManager.audioSrc.PlayOneShot(Audio.clip);
         gameObject.SetActive(false);
     }
 
     public void Damage(Vector3 enemy, float cantidad, Elements.Element element)
     {
-        audio.Play();
+        Audio.pitch = Random.Range(0.5f, 1.5f);
+        Audio.Play();
         float multiplier = Elements.GetElementMultiplier(element, stats.element);
         DamageNumber dmgN = Instantiate(DmgPrefab, transform.position, Quaternion.identity);
         dmgN.Inicializar(cantidad, transform);

@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
+
 
 namespace Inteface
 {
@@ -13,16 +15,17 @@ namespace Inteface
         [SerializeField] private float animationTime;
         [SerializeField] private float hiddenPercent;
         [SerializeField] private RectTransform lifeBar;
+        [SerializeField] private RectTransform manaBar;
+        
         private List<Vector3> _originalPos;
         private List<Vector3> _hiddenPos;
+        private CharacterStats _player;
 
         public Image contArma;
         public Image contArmadura1;
         public Image contArmadura2;
         public Image contArmadura3;
         public Image contHechizo;
-        public Image contMaldicion1;
-        public Image contMaldicion2;
 
         private float vidaTresCuartos;
         private float vidaMitad;
@@ -33,6 +36,11 @@ namespace Inteface
         public Sprite caraNormal;
         public Sprite caraPreocupada;
         public Sprite caraNoFeliz;
+
+        public TMP_Text vidaMaxTexto;
+        public TMP_Text ataqueTexto;
+        public TMP_Text defensaTexto;
+        public TMP_Text velocidadTexto;
 
         // Start is called before the first frame update
         void Start()
@@ -48,17 +56,17 @@ namespace Inteface
                 _hiddenPos.Add(new Vector3(original.x + (banner.sizeDelta.x * hiddenPercent * modX), original.y, original.z));
             }
             MostrarUI(false);
+            _player = SingletoneGameController.PlayerActions.player.Stats;
         }
 
-        public void UpdateLife(float amount, float actualHealth, float maxHealth)
+        public void UpdateLife()
         {
-            vidaTresCuartos = maxHealth * .75f;
-            vidaMitad = maxHealth * .5f;
-            vidaUnCuarto = maxHealth * .25f;
-
-            amount = Mathf.Clamp01(amount);
-            StartCoroutine(nameof(UpdateHealthBar), amount);
-            CambiarSpriteVida(actualHealth, maxHealth);        
+            vidaTresCuartos = _player.maxHealth * .75f;
+            vidaMitad = _player.maxHealth * .5f;
+            vidaUnCuarto = _player.maxHealth * .25f;
+            
+            StartCoroutine(nameof(UpdateHealthBar));
+            CambiarSpriteVida(_player.GetActualHealth(), _player.maxHealth);        
         }
 
         public void CambiarSpriteVida(float vida, float vidaMaxima)
@@ -81,9 +89,27 @@ namespace Inteface
             }
         }
 
-        IEnumerator UpdateHealthBar(float amount)
+        public void LaunchSpell(float reloadTime)
         {
-            float distance = amount - lifeBar.localScale.x;
+            manaBar.localScale = new Vector3(0, 1 ,1);
+            StartCoroutine(nameof(UpdateManaBar), reloadTime);
+        }
+
+        IEnumerator UpdateManaBar(float reload)
+        {
+            int iterations = (int) Mathf.Floor(reload / Time.fixedDeltaTime);
+            float step = 1f / iterations;
+            for (int i = iterations; i > 0; i--)
+            {
+                manaBar.localScale = new Vector3(manaBar.localScale.x + step, 1, 1);
+                yield return new WaitForFixedUpdate();
+            }
+            manaBar.localScale = Vector3.one;
+        }
+        IEnumerator UpdateHealthBar()
+        {
+            float segment = _player.GetActualHealth()/_player.maxHealth;
+            float distance = segment-lifeBar.localScale.x;
             float timeElapsed = 0f;
             while (timeElapsed <= animationTime)
             {
@@ -95,7 +121,7 @@ namespace Inteface
                 timeElapsed += Time.deltaTime;
                 yield return new WaitForEndOfFrame();
             }
-            lifeBar.localScale = new Vector3(amount, 1, 1);
+            lifeBar.localScale = new Vector3(segment, 1, 1);
             yield return null;
         }
 
@@ -153,12 +179,13 @@ namespace Inteface
             yield return null;
         }
 
-        public void CambiarSprite(BaseCard.CardType cardType, BaseArmor.BodyPart bodyPart, Sprite nuevoSprite)
+        public void CambiarSprite(BaseCard.CardType cardType, BaseArmor.BodyPart bodyPart, Sprite nuevoSprite, Elements.Element element)
         {
             switch (cardType)
             {
                 case BaseCard.CardType.Weapon:
                     contArma.sprite = nuevoSprite;
+                    contArma.color = SingletoneGameController.InfoHolder.LoadColor(element);
                     break;
 
                 case BaseCard.CardType.Spell:
@@ -170,18 +197,32 @@ namespace Inteface
                     {
                         case BaseArmor.BodyPart.Head:
                             contArmadura1.sprite = nuevoSprite;
+                            contArmadura1.color = SingletoneGameController.InfoHolder.LoadColor(element);
                             break;
 
                         case BaseArmor.BodyPart.Body:
                             contArmadura2.sprite = nuevoSprite;
+                            contArmadura2.color = SingletoneGameController.InfoHolder.LoadColor(element);
                             break;
 
                         case BaseArmor.BodyPart.Legs:
                             contArmadura3.sprite = nuevoSprite;
+                            contArmadura3.color = SingletoneGameController.InfoHolder.LoadColor(element);
                             break;
                     }
                     break;
             }
+        }
+
+        public void SpriteArmaInicial(Sprite nuevoSprite, Elements.Element element)
+        {
+            contArma.sprite = nuevoSprite;
+            contArma.color = SingletoneGameController.InfoHolder.LoadColor(element);
+        }
+
+        public void ActualizarStatsUI(TMP_Text textoUI, float stat)
+        {
+            textoUI.SetText(stat.ToString());
         }
     }
 }

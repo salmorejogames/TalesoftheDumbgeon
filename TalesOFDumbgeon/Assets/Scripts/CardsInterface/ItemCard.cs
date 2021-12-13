@@ -25,10 +25,13 @@ public class ItemCard : MonoBehaviour, IPointerClickHandler
     [SerializeField] private Color deleteColor;
     [SerializeField] private float fadeTime;
     [SerializeField] private int distanceLaunch;
+    private bool cardReady;
 
+    private bool deleteMode = false;
     // Start is called before the first frame update
     void Start()
     {
+        cardReady = true;
         _rectTransform = gameObject.GetComponent<RectTransform>();
         _cardHolder = gameObject.transform.parent.gameObject.GetComponent<CardHolder>();
         if (CardInfo == null)
@@ -51,7 +54,7 @@ public class ItemCard : MonoBehaviour, IPointerClickHandler
         }
         holderImage.sprite = CardInfo.CardHolder;
         itemImage.sprite = CardInfo.Artwork;
-        if(CardInfo.cardType != BaseCard.CardType.Spell)
+        if(CardInfo.cardType != BaseCard.CardType.Spell && CardInfo.cardType != BaseCard.CardType.Bless)
             itemImage.color = SingletoneGameController.InfoHolder.LoadColor(CardInfo.Element);
         title.text = CardInfo.CardName;
         description.text = CardInfo.Description;
@@ -62,15 +65,17 @@ public class ItemCard : MonoBehaviour, IPointerClickHandler
     }
     public void OnPointerClick(PointerEventData eventData)
     {
-        if (_cardHolder.active)
+        if (cardReady && Time.timeScale > 0.0001f)
         {
-           StartDelete();
+            if (_cardHolder.active)
+            {
+                StartDelete(_cardHolder.modeDelete);
+            }
+            else
+            {
+                _cardHolder.Resize();
+            }
         }
-        else
-        {
-            _cardHolder.Resize();
-        }
-        
     }
 
     public void ActivateEffect()
@@ -83,18 +88,20 @@ public class ItemCard : MonoBehaviour, IPointerClickHandler
             bodyPart = ((ArmorCard)CardInfo).NewArmor.Part;
         }
 
-        SingletoneGameController.InterfaceController.CambiarSprite(CardInfo.cardType, bodyPart, CardInfo.Artwork);
+        SingletoneGameController.InterfaceController.CambiarSprite(CardInfo.cardType, bodyPart, CardInfo.Artwork, CardInfo.Element);
     }
 
-    public void StartDelete()
+    public void StartDelete(bool modeDelete)
     {
+        deleteMode = modeDelete;
+        cardReady = false;
         SetHighlight(false);
         StartCoroutine(nameof(Fade));
         Invoke(nameof(Delete), fadeTime);
     }
     private void Delete()
     {
-        if(!_cardHolder.modeDelete)
+        if(!deleteMode)
             ActivateEffect();
         _cardHolder.DeleteCard(_rectTransform);
     }

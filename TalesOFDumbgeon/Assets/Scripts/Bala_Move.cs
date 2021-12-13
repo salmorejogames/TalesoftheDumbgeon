@@ -9,6 +9,7 @@ public class Bala_Move : MonoBehaviour
     public float Range;
     public float Damage;
     public Elements.Element Element;
+    public bool rotation = false;
     
     public string parentTag;
     public float holderStrength;
@@ -30,10 +31,14 @@ public class Bala_Move : MonoBehaviour
     private void FixedUpdate()
     {
         _runedDistance += Vector3.Magnitude(transform.right * (AmmoSpeed * Time.fixedDeltaTime));
+        if(rotation)
+            gameObject.transform.Rotate(new Vector3(0, 0, 1), 360*Time.fixedDeltaTime);
         if (_runedDistance > Range)
         {
             Destroy(gameObject);
         }
+        
+            
     }
 
 

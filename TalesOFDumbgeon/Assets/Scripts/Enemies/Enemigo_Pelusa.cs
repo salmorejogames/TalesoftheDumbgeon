@@ -4,49 +4,48 @@ using UnityEngine;
 using Interfaces;
 using System;
 using UnityEngine.AI;
+using Random = UnityEngine.Random;
 
 public class Enemigo_Pelusa : BaseEnemy, IDeadable
 {
     //IDeadable 
     private SpriteRenderer _spr;
     private IsometricMove _player;
-  
+    [SerializeField] private NavMeshAgent agent;
 
 
     [SerializeField]
     private DamageNumber DmgPrefab;
 
     //Enemigo 
-    public int velocidad = 5;
-    public int armadura = 3;
-    public int damage = 1;
     public float vision = 3;
     public float maxDistance = 1f;
     public float stopDistance = 0.5f;
     public float decisionClock = 0f;
-    public int maxChilds = 6;
+    public int maxChilds = 7;
 
     public GameObject personaje;
-    public GameObject Bala;
+    public Pelusa_Peque PelusaPeque;
     public GameObject zonaAtaque;
 
     private Rigidbody2D rb;
-    private Vector3 nextPos;
     private Vector2 direccion;
-    private RaycastHit2D hit;
-    private Collider2D choque;
     private float startDelayTime = 2f;
     private float attackDelay;
-    private bool attaking = false;
-
-    public enum tipoEnemigo { Abuesqueleto, Cerebro, Duonde, Palloto, Banana, Pelusa};
-    public tipoEnemigo especie;
-
+    
+    [SerializeField] private SpriteRenderer bodySprite;
     private void Awake()
     {
+        
         //IDeadable
+        agent.speed = 0f;
+        agent.updatePosition = false;
+        agent.updateRotation = false;
+        agent.updateUpAxis = false;
         stats = gameObject.GetComponent<CharacterStats>();
         _spr = gameObject.GetComponent<SpriteRenderer>();
+        stats.element = Elements.GetRandomElement();
+        bodySprite.color = SingletoneGameController.InfoHolder.LoadColor(stats.element);
         _player = SingletoneGameController.PlayerActions.player;
     }
 
@@ -56,18 +55,10 @@ public class Enemigo_Pelusa : BaseEnemy, IDeadable
 
         rb = gameObject.GetComponent<Rigidbody2D>();
         personaje = GameObject.FindGameObjectWithTag("Player");
-        rb.velocity = Vector2.zero;
+        //rb.velocity = Vector2.zero;
         rb.bodyType = RigidbodyType2D.Static;
         attackDelay = startDelayTime;
         
-        if (especie == tipoEnemigo.Pelusa)
-        {
-            velocidad = 0;
-            armadura = 1;
-            damage = 4;
-            vision = 10;
-            stopDistance = vision;
-        }
 
     }
 
@@ -92,8 +83,12 @@ public class Enemigo_Pelusa : BaseEnemy, IDeadable
 
     private void Attack()
     {
-        if(gameObject.transform.childCount<=maxChilds)
-            Instantiate(Bala, zonaAtaque.transform.position, Quaternion.identity, gameObject.transform);
+        if (gameObject.transform.childCount <= maxChilds)
+        {
+            Pelusa_Peque newPelusa =  Instantiate(PelusaPeque, zonaAtaque.transform.position, Quaternion.identity, gameObject.transform);
+            newPelusa.stats.element = stats.element;
+        }
+           
         //Instantiate(Bala, zonaAtaque.transform.position, Quaternion.identity, gameObject.transform);
         //Instantiate(Bala, zonaAtaque.transform.position, Quaternion.identity, gameObject.transform);
     }
@@ -111,9 +106,9 @@ public class Enemigo_Pelusa : BaseEnemy, IDeadable
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            nextPos = transform.position;
+            //
         }
-        Debug.Log("decision CLock: " + decisionClock);
+        //Debug.Log("decision CLock: " + decisionClock);
     }
 
     private void OnDrawGizmosSelected()
@@ -125,12 +120,14 @@ public class Enemigo_Pelusa : BaseEnemy, IDeadable
 
     public void Dead()
     {
+        SingletoneGameController.SoundManager.audioSrc.PlayOneShot(Audio.clip);
         gameObject.SetActive(false);
     }
 
     public void Damage(Vector3 enemy, float cantidad, Elements.Element element)
     {
-        audio.Play();
+        Audio.pitch = Random.Range(0.5f, 1.5f);
+        Audio.Play();
         float multiplier = Elements.GetElementMultiplier(element, stats.element);
         DamageNumber dmgN = Instantiate(DmgPrefab, transform.position, Quaternion.identity);
         dmgN.Inicializar(cantidad, transform);

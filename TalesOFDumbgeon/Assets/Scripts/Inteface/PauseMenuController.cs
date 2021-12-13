@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using UnityEngine.Rendering;
+using UnityEngine.Rendering.Universal;
 
 public class PauseMenuController : MonoBehaviour
 {
@@ -23,11 +25,22 @@ public class PauseMenuController : MonoBehaviour
     [SerializeField] private Button salirBoton;
     [SerializeField] private Button volverAjustesBoton;
 
+    public Volume volume;
+    private Vignette vignette;
+    private DepthOfField depthOfField;
+
     private void Awake()
     {
         iuInput = new InterfaceControls();
         iuInput.Menupausa.Pausa.performed += ctx => ActivarMenuPausa();
     }
+    private void Start()
+    {
+        //greyscalePostP.profile.TryGetSettings(out colorGrading);
+        volume.profile.TryGet(out vignette);
+        volume.profile.TryGet(out depthOfField);
+    }
+
 
     private void OnEnable()
     {
@@ -41,7 +54,16 @@ public class PauseMenuController : MonoBehaviour
 
     public void ActivarMenuPausa()
     {
+        OnDisable();
+
+        if (SingletoneGameController.PlayerActions.dead)
+            return;
         Time.timeScale = 0f;
+
+        //vignette.intensity.value = .5f;
+        depthOfField.mode.value = DepthOfFieldMode.Gaussian;
+        StartCoroutine(VignettePausa());
+
         menuPausa.SetActive(true);
 
         HacerNoInteractuable(ajustesBoton);
@@ -49,22 +71,22 @@ public class PauseMenuController : MonoBehaviour
         HacerNoInteractuable(salirBoton);
         HacerNoInteractuable(volverAjustesBoton);
 
-        LeanTween.moveLocalY(titulo, 175, 1.5f).setEaseOutCubic().setIgnoreTimeScale(true);
-        LeanTween.rotateZ(titulo, -2, 1f).setEaseOutCubic().setIgnoreTimeScale(true);
+        LeanTween.moveLocalY(titulo, 175, 1f).setEaseOutCubic().setIgnoreTimeScale(true);
+        LeanTween.rotateZ(titulo, -2, .8f).setEaseOutCubic().setIgnoreTimeScale(true);
 
-        LeanTween.moveLocalX(botonVolver, -400, 1.5f).setEaseOutCubic().setDelay(.5f).setIgnoreTimeScale(true);
-        LeanTween.moveLocalY(botonVolver, -170, 1.5f).setEaseOutCubic().setDelay(.5f).setIgnoreTimeScale(true);
-        LeanTween.rotateZ(botonVolver, 4, 1f).setEaseOutCubic().setDelay(.5f).setIgnoreTimeScale(true);
+        LeanTween.moveLocalX(botonVolver, -400, 1f).setEaseOutCubic().setDelay(.75f).setIgnoreTimeScale(true);
+        LeanTween.moveLocalY(botonVolver, -170, 1f).setEaseOutCubic().setDelay(.75f).setIgnoreTimeScale(true);
+        LeanTween.rotateZ(botonVolver, 4, .8f).setEaseOutCubic().setDelay(.75f).setIgnoreTimeScale(true);
 
-        LeanTween.moveLocalX(botonAjustes, 0, 1.5f).setEaseOutCubic().setDelay(.5f).setIgnoreTimeScale(true);
-        LeanTween.moveLocalY(botonAjustes, -130, 1.5f).setEaseOutCubic().setDelay(.5f).setIgnoreTimeScale(true);
-        LeanTween.rotateZ(botonAjustes, 2, 1f).setEaseOutCubic().setDelay(.5f).setIgnoreTimeScale(true);
+        LeanTween.moveLocalX(botonAjustes, 0, 1f).setEaseOutCubic().setDelay(.75f).setIgnoreTimeScale(true);
+        LeanTween.moveLocalY(botonAjustes, -130, 1f).setEaseOutCubic().setDelay(.75f).setIgnoreTimeScale(true);
+        LeanTween.rotateZ(botonAjustes, 2, .8f).setEaseOutCubic().setDelay(.75f).setIgnoreTimeScale(true);
 
-        LeanTween.moveLocalX(botonSalir, 400, 1.5f).setEaseOutCubic().setDelay(.5f).setIgnoreTimeScale(true);
-        LeanTween.moveLocalY(botonSalir, -180, 1.5f).setEaseOutCubic().setDelay(.5f).setIgnoreTimeScale(true);
-        LeanTween.rotateZ(botonSalir, -6, 1f).setEaseOutCubic().setDelay(.5f).setIgnoreTimeScale(true);
+        LeanTween.moveLocalX(botonSalir, 400, 1f).setEaseOutCubic().setDelay(.75f).setIgnoreTimeScale(true);
+        LeanTween.moveLocalY(botonSalir, -180, 1f).setEaseOutCubic().setDelay(.75f).setIgnoreTimeScale(true);
+        LeanTween.rotateZ(botonSalir, -6, .8f).setEaseOutCubic().setDelay(.75f).setIgnoreTimeScale(true);
 
-        StartCoroutine(MenuPausaInteractuable(2.25f));
+        StartCoroutine(MenuPausaInteractuable(1.9f));
     }
 
     public void Volver()
@@ -83,9 +105,10 @@ public class PauseMenuController : MonoBehaviour
 
         LeanTween.moveLocalY(titulo, 520, .25f).setIgnoreTimeScale(true);
 
+        StartCoroutine(VignetteReanudar());
         StartCoroutine(EsperarVolver());
 
-        Time.timeScale = 1f;
+        depthOfField.mode.value = DepthOfFieldMode.Off;
     }
 
     public void Ajustes()
@@ -99,25 +122,23 @@ public class PauseMenuController : MonoBehaviour
 
         AnimacionAjustes();
 
-        StartCoroutine(HacerInteractuableCoroutine(volverAjustesBoton, 1.25f));
+        StartCoroutine(HacerInteractuableCoroutine(volverAjustesBoton, 1.1f));
     }
 
     public void AnimacionAjustes()
     {
         LeanTween.moveLocalY(botonVolver, -470, 1f).setIgnoreTimeScale(true);
+        LeanTween.moveLocalY(botonAjustes, -470, 1f).setIgnoreTimeScale(true);
         LeanTween.moveLocalY(botonSalir, -470, 1f).setIgnoreTimeScale(true);
         LeanTween.moveLocalX(botonVolver, 0, 1f).setIgnoreTimeScale(true);
         LeanTween.moveLocalX(botonSalir, 0, 1f).setIgnoreTimeScale(true);
         LeanTween.moveLocalY(titulo, 520, 1f).setIgnoreTimeScale(true);
 
-        LeanTween.moveLocalX(botonAjustes, 0, .1f).setEaseOutCubic().setIgnoreTimeScale(true);
-        LeanTween.moveLocalY(botonAjustes, 220, 1f).setEaseOutCubic().setIgnoreTimeScale(true);
-
         LeanTween.moveLocalX(volumen, 0, 1f).setEaseOutCubic().setIgnoreTimeScale(true);
-        LeanTween.moveLocalY(volumen, -20, 1f).setEaseOutCubic().setIgnoreTimeScale(true);
+        LeanTween.moveLocalY(volumen, 40, 1f).setEaseOutCubic().setIgnoreTimeScale(true);
 
         LeanTween.moveLocalX(botonVolverAjustes, 0, 1f).setEaseOutCubic().setIgnoreTimeScale(true);
-        LeanTween.moveLocalY(botonVolverAjustes, -80, 1f).setEaseOutCubic().setIgnoreTimeScale(true);
+        LeanTween.moveLocalY(botonVolverAjustes, -130, 1f).setEaseOutCubic().setIgnoreTimeScale(true);
     }
 
     public void AnimacionVolver()
@@ -141,7 +162,7 @@ public class PauseMenuController : MonoBehaviour
 
         AnimacionVolverAjustes();
 
-        StartCoroutine(MenuPausaInteractuable(2.25f));
+        StartCoroutine(MenuPausaInteractuable(1.9f));
 
         menuAjustes.SetActive(false);
     }
@@ -176,18 +197,19 @@ public class PauseMenuController : MonoBehaviour
         HacerNoInteractuable(volverAjustesBoton);
 
         Time.timeScale = 1f;
-        SceneManager.LoadScene("ClickParaEmpezar");
+        SceneManager.LoadScene("MenuPrincipal");
     }
 
     IEnumerator EsperarVolver()
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSecondsRealtime(1f);
         menuPausa.SetActive(false);
+        Time.timeScale = 1f;
+        OnEnable();
     }
 
     IEnumerator MenuPausaInteractuable(float segundos)
     {
-        Debug.Log("XD");
         yield return new WaitForSecondsRealtime(segundos);
 
         HacerInteractuable(volverBoton);
@@ -209,5 +231,29 @@ public class PauseMenuController : MonoBehaviour
     public void HacerNoInteractuable(Button button)
     {
         button.interactable = false;
+    }
+
+    IEnumerator VignettePausa()
+    {
+        while (vignette.intensity.value < .60f && depthOfField.gaussianMaxRadius.value < 1.5f)
+        {
+            vignette.intensity.value += .05f;
+            depthOfField.gaussianMaxRadius.value += .005f;
+            yield return null;
+        }
+
+        yield return new WaitForSecondsRealtime(1f);
+    }
+
+    IEnumerator VignetteReanudar()
+    {
+        while (vignette.intensity.value > 0f || depthOfField.gaussianMaxRadius.value > .5f)
+        {
+            depthOfField.gaussianMaxRadius.value -= .05f;
+            vignette.intensity.value -= .005f;
+            yield return null;
+        }
+
+        yield return new WaitForSecondsRealtime(1f);
     }
 }

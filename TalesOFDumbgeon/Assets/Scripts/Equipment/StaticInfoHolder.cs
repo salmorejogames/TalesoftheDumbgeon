@@ -35,6 +35,13 @@ public class StaticInfoHolder : MonoBehaviour
     [SerializeField] public List<Sprite> dmgSpellSprites;
     [SerializeField] public List<Sprite> dmgSpellArtworks;
     
+    [Header("Blessings")]
+    [SerializeField] public Sprite ChupitoDeLeche;
+    [SerializeField] public Sprite GalletasDeDragon;
+    [SerializeField] public Sprite Queso;
+    [SerializeField] public Sprite TortillaDePatatas;
+    [SerializeField] public Sprite PowerUp;
+    
     [Header("Other sprites")]
     [SerializeField] public Sprite ammoSprite;
     
@@ -239,6 +246,43 @@ public class StaticInfoHolder : MonoBehaviour
         return info;
     }
 
+    public static string[] LoadName(BaseBlessing.BlessingType blessType, int subIndex)
+    {
+        string[] info = new string[2];
+        switch (blessType)
+        {
+            case BaseBlessing.BlessingType.Heal:
+                switch ((HealBlessing.HealingItems) subIndex)
+                {
+                    case HealBlessing.HealingItems.Chupito:
+                        info[0] = "Chupito de Leche";
+                        info[1] = "Traguito rico en calcio y puntos de vida";
+                        break;
+                    case HealBlessing.HealingItems.Dragon:
+                        info[0] = "Galletas de Dragón";
+                        info[1] = "Los niños comen galletas con forma de dragón y los dragones niños con forma de niños, es el ciclo vital";
+                        break;
+                    case HealBlessing.HealingItems.Queso:
+                        info[0] = "Cuña de Queso";
+                        info[1] = "Tan, pero tan curado, que te cura";
+                        break;
+                    case HealBlessing.HealingItems.Tortilla:
+                        info[0] = "Tortilla de patatas";
+                        info[1] = "El alimento primigenio, el manjar de los dioses, el fruto de la vida eterna...";
+                        break;
+                    default:
+                        throw new ArgumentOutOfRangeException(nameof(subIndex), subIndex, null);
+                }
+                break;
+            case BaseBlessing.BlessingType.PowerUp:
+                info[0] = "Power Up";
+                info[1] = "Aumenta temporalmente tu fuerza, defensa y velocidad de manera inversamente proporcional a tu salud";
+                break;
+            default:
+                throw new ArgumentOutOfRangeException(nameof(blessType), blessType, null);
+        }
+        return info;
+    }
     public static string[] LoadName(BaseArmor.BodyPart armorType, BaseArmor.ArmorPart armorKind, Elements.Element element)
     {
         string[] info = new string[2];

@@ -47,6 +47,7 @@ public class RangedWeapon : BaseWeapon
         bala.Damage = Dmg;
         bala.Element = Element;
         bala.Range = Range;
+        bala.tag = "Bala";
         bala.AmmoSpeed = AmmoSpeed;
         bala.holderStrength = Stats.strength;
         bala.OnDamage = OnDamage;

@@ -24,6 +24,10 @@ public class PlayerActions : MonoBehaviour
         _movementImpediments = 0;
     }
 
+    public void Heal(float cantidad)
+    {
+        player.PlayerActions.Heal(cantidad);
+    }
     public void DisableMovement(float tiempo)
     {
         _movementImpediments++;
@@ -47,6 +51,11 @@ public class PlayerActions : MonoBehaviour
     public void Healh(int cantidad)
     {
         player.Stats.Heal(cantidad);
+    }
+
+    public void SetWalkAnimation(bool anim)
+    {
+        player.walkAnimation = anim;
     }
 
     public void Damage(int cantidad, Elements.Element tipo)

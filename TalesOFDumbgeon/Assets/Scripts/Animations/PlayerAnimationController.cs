@@ -24,6 +24,8 @@ public class PlayerAnimationController : MonoBehaviour
 
     public const string PathName = "EquipmentClass/";
 
+    private bool onDialogue = false;
+
     private void Awake()
     {
         _weapon = 0;
@@ -90,14 +92,19 @@ public class PlayerAnimationController : MonoBehaviour
     public void SetAtacking()
     {
         //Current.Animator.speed = 4f;
-        Current.animator.SetTrigger(Attack);
+        if (!onDialogue) { Current.animator.SetTrigger(Attack); }
     }
     
     public void SetSpell()
     {
         //Current.Animator.speed = 4f;
         Debug.Log("Spell");
-        Current.animator.SetTrigger(Magic);
+        if (!onDialogue) { Current.animator.SetTrigger(Magic); }
+    }
+
+    public void SetOnDialogue(bool onDialogue)
+    {
+        this.onDialogue = onDialogue;
     }
     public void SetMoving(bool moving)
     {
@@ -197,6 +204,13 @@ public class PlayerAnimationController : MonoBehaviour
     private void CM_LoadLegs()
     {
         ChangeSprite(AnimationDirection.EquipmentParts.Legs, BodyParts.Sex.Boy, StaticInfoHolder.Warrior);
+
+    }
+    
+    [ContextMenu("LoadWizardHead")]
+    private void CM_LoadWizardHead()
+    {
+        ChangeSprite(AnimationDirection.EquipmentParts.Head, BodyParts.Sex.Boy, StaticInfoHolder.Wizard);
 
     }
     

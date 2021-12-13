@@ -19,6 +19,8 @@ public class IsometricMove : MonoBehaviour, IMovil
     private InputControler _inputControler;
     private IsometricCharacterRenderer _isoRenderer;
 
+    public bool walkAnimation = false;
+
     public IsometricCharacterRenderer IsoRenderer => _isoRenderer;
 
     private void Awake()
@@ -37,7 +39,10 @@ public class IsometricMove : MonoBehaviour, IMovil
             Move();          
         }else
         {
-            _isoRenderer.animatorController.SetMoving(false);
+            if(walkAnimation)
+                _isoRenderer.animatorController.SetMoving(true);
+            else
+                _isoRenderer.animatorController.SetMoving(false);
         }
         
         PlayerActions.UpdateWeaponPosition(angle);
@@ -104,5 +109,17 @@ public class IsometricMove : MonoBehaviour, IMovil
         _inputControler.Disable();
     }
 
-    
+    public void EnableInputController()
+    {
+        _inputControler.Enable();
+        SingletoneGameController.PlayerActions.EnableMovement();
+    }
+
+    public void DisableInputController()
+    {
+        _inputControler.Disable();
+        SingletoneGameController.PlayerActions.DisableMovement();
+    }
+
+
 }

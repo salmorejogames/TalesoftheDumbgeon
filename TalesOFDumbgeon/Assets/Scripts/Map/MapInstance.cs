@@ -8,8 +8,7 @@ using Random = UnityEngine.Random;
 
 
 public class MapInstance : MonoBehaviour
-{
-
+{    
     public enum RoomType
     {
         Big,
@@ -44,7 +43,7 @@ public class MapInstance : MonoBehaviour
 
 
     private void Awake()
-    {
+    {               
         _started = false;
         ground.CompressBounds();
         Dimensions = (Vector2Int) ground.size;

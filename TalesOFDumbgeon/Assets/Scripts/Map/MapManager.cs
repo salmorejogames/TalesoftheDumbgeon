@@ -118,14 +118,17 @@ public class MapManager : MonoBehaviour
     }
     private IEnumerator Transition(Vector3 destiny)
     {
+        var movCam = _mainCamera.gameObject.GetComponent<CameraMovement>();
         var cameraTr = _mainCamera.gameObject.transform.position;
         var playerPos = _player.gameObject.transform.position;
         var coordinates = CalculatePlayerRelativeCoordinates();
+        movCam.enabled = false;
         CameraFollow.activeFollow = false;
         Vector3 cameraDestiny = new Vector3(destiny.x, destiny.y, cameraTr.z);
         Vector3 playerObjetive = playerPos + coordinates;
         SingletoneGameController.PlayerActions.DisableMovement();
         yield return new WaitForSeconds(sleepTime);
+        SingletoneGameController.PlayerActions.SetWalkAnimation(true);
         _player.UpdateAngle(coordinates);
         while (Vector3.Distance(playerPos, playerObjetive)>0.001)
         {
@@ -133,13 +136,15 @@ public class MapManager : MonoBehaviour
             _player.transform.position = playerPos;
             yield return null;
         }
+        SingletoneGameController.PlayerActions.SetWalkAnimation(false);
         while(Vector3.Distance(cameraTr, cameraDestiny) > 0.001)
         {
             cameraTr = Vector3.MoveTowards(cameraTr, cameraDestiny, transitionSpeed*Time.deltaTime);
             _mainCamera.gameObject.transform.position = cameraTr;
             yield return null;
-        }
+        }        
         AfterTransition(destiny);
+        movCam.enabled = true;
     }
 
     private void AfterTransition(Vector3 actualPos)
@@ -164,7 +169,7 @@ public class MapManager : MonoBehaviour
         if (_actualMap.roomType == MapInstance.RoomType.End && _player.gameObject.transform.position.x > 0 &&
             _player.transform.position.y > 0)
         {
-            SceneManager.LoadScene("CreditsScene");
+            SceneManager.LoadScene("VictoryScene");
             return;
         }
             

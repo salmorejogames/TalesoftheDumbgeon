@@ -5,7 +5,8 @@ using Interfaces;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Rendering;
-using UnityEngine.Rendering.PostProcessing;
+using UnityEngine.Rendering.Universal;
+using Random = UnityEngine.Random;
 
 public class PlayerActionsController : MonoBehaviour, IDeadable
 {
@@ -18,6 +19,8 @@ public class PlayerActionsController : MonoBehaviour, IDeadable
     [SerializeField] private GameObject habilidades;
     [SerializeField] private GameObject cartas;
 
+    [SerializeField] private AudioSource audio;
+
     private int _cartaUsada;
     private bool _canAtack = true;
     private bool _canSpell = true;
@@ -28,18 +31,22 @@ public class PlayerActionsController : MonoBehaviour, IDeadable
     private SpriteRenderer _spriteRenderer;
     private Rigidbody2D _rb;
 
-    [SerializeField] private PostProcessVolume greyscalePostP;
-    [SerializeField] private Camera mainCamera;
     [SerializeField] private PlayerAnimationController _playerAnimationController;
-    private ColorGrading colorGrading;
 
     [SerializeField] private GameObject menuGameOver;
     [SerializeField] private GameObject titulo;
     [SerializeField] private GameObject botonReintentar;
     [SerializeField] private GameObject botonSalir;
+    [SerializeField] private GameObject stats;
+    [SerializeField] private GameObject mana;
 
     [SerializeField] private AudioSource musicaGameOver;
     [SerializeField] private AudioSource musicaGameplay;
+    
+    [SerializeField] private DamageNumber numbers;
+
+    public Volume volume;
+    private ColorAdjustments colorAdjustments;
 
     private void Awake()
     {
@@ -66,7 +73,7 @@ public class PlayerActionsController : MonoBehaviour, IDeadable
 
     private void Start()
     {
-        greyscalePostP.profile.TryGetSettings(out colorGrading);
+        volume.profile.TryGet(out colorAdjustments);
     }
 
     // Update is called once per frame
@@ -104,6 +111,7 @@ public class PlayerActionsController : MonoBehaviour, IDeadable
         {
             Debug.Log("CastingSpell");
             _playerAnimationController.SetSpell();
+            SingletoneGameController.InterfaceController.LaunchSpell(weapon.spellInfo.Cooldown);
             weapon.CastSpell();
             _canSpell = false;
             Invoke(nameof(ReactiveSpell), weapon.spellInfo.Cooldown);
@@ -115,15 +123,15 @@ public class PlayerActionsController : MonoBehaviour, IDeadable
         Debug.Log("Usaste la carta " + hueco);
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnCollisionStay2D(Collision2D collision)
     {
-        if ((collision.gameObject.CompareTag("Enemigo") ||collision.gameObject.CompareTag("ArmaEnemiga")) && !invincible)
+        if(invincible)
+            return;
+        if (collision.gameObject.CompareTag("Enemigo") || collision.gameObject.CompareTag("ArmaEnemiga"))
         {
             CharacterStats enemyStats = collision.gameObject.GetComponent<CharacterStats>();
             _stats.DoDamage(enemyStats.strength, collision.gameObject.transform.position, enemyStats.element);
         }
-
-        
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -149,7 +157,6 @@ public class PlayerActionsController : MonoBehaviour, IDeadable
                 spell.OnDamage();
             }
         }
-        
     }
 
     private void CancelInvincibility()
@@ -157,6 +164,7 @@ public class PlayerActionsController : MonoBehaviour, IDeadable
         _canAtack = true;
         invincible = false;
         _rb.velocity = Vector2.zero;
+        Debug.Log("INVINCIBLEN'T D:");
     }
 
     public void ResetSpriteColor()
@@ -164,11 +172,20 @@ public class PlayerActionsController : MonoBehaviour, IDeadable
         _spriteRenderer.color = Color.white;
     }
 
+    public void Heal(float cantidad)
+    {
+        DamageNumber dmgN = Instantiate(numbers, transform.position, Quaternion.identity);
+        dmgN.Inicializar(cantidad, transform);
+        dmgN.number.color = Color.green;
+    }
+
     public void Dead()
     {
+        colorAdjustments.saturation.value = -100f;
         SingletoneGameController.PlayerActions.dead = true;
         PlayerPrefsCardSerializer.SaveData(weapon.weaponInfo);
-        Greyscale();
+        //StartCoroutine(GreyscaleGameOver());
+        PlayerPrefs.SetInt("Deaths", PlayerPrefs.GetInt("Deaths", 0)+1);
         DesactivarMenuGameplay();
         musicaGameplay.Stop();
         menuGameOver.SetActive(true);
@@ -179,18 +196,30 @@ public class PlayerActionsController : MonoBehaviour, IDeadable
     public void Damage(Vector3 enemyPos, float cantidad, Elements.Element element)
     {
         //Aqui cuando recibe daño Stadnar
-        SingletoneGameController.SoundManager.PlaySound("stadtnarrhurt");
+        audio.pitch = Random.Range(0.75f, 1.25f);
+        audio.Play();
         Debug.Log("Damage Recived");
-        SingletoneGameController.InterfaceController.UpdateLife(_stats.GetActualHealth() / _stats.maxHealth, _stats.GetActualHealth(),_stats.maxHealth);
+        SingletoneGameController.InterfaceController.UpdateLife();
         var direction = gameObject.transform.position - enemyPos;
         var magnitude = direction.magnitude;
         direction = direction / magnitude;
+        DamageNumber dmgN = Instantiate(numbers, transform.position, Quaternion.identity);
+        dmgN.Inicializar(cantidad, transform);
+        float multiplier = Elements.GetElementMultiplier(element, _stats.element);
+        if (multiplier > 1.1f)
+            dmgN.number.color = Color.red;
+        else if (multiplier < 0.9f)
+            dmgN.number.color = Color.cyan;
+        else
+            dmgN.number.color = Color.yellow;;
+        
         _rb.velocity = direction;
         //Debug.Log(direction);
         invincible = true;
+        Debug.Log("INVENCIBLE :D");
         _canAtack = false;
         _spriteRenderer.color = Color.red;
-        SingletoneGameController.PlayerActions.DisableMovement(inmunityTime);
+        SingletoneGameController.PlayerActions.DisableMovement(inmunityTime/2);
         Invoke(nameof(CancelInvincibility), inmunityTime);
         Invoke(nameof(ResetSpriteColor), inmunityTime);
     }
@@ -230,11 +259,19 @@ public class PlayerActionsController : MonoBehaviour, IDeadable
         habilidades.SetActive(false);
         cartas.SetActive(false);
         gameObject.SetActive(false);
+        stats.SetActive(false);
+        mana.SetActive(false);
     }
 
-    public void Greyscale()
+    IEnumerator GreyscaleGameOver()
     {
-        colorGrading.saturation.value = -100;
-        //mainCamera.orthographicSize = .5f;
+        while (colorAdjustments.saturation.value > -100f)
+        {
+            Debug.Log(colorAdjustments.saturation.value);
+            colorAdjustments.saturation.value -= .1f;
+            yield return null;
+        }
+
+        yield return new WaitForSeconds(1f);
     }
 }

@@ -258,7 +258,7 @@ public class CardHolder : MonoBehaviour
     {
         ResetHighlight();
         GameObject go = cards[index].gameObject;
-        go.GetComponent<ItemCard>().StartDelete();
+        go.GetComponent<ItemCard>().StartDelete(modeDelete);
     }
 
     private void ResetHighlight()
