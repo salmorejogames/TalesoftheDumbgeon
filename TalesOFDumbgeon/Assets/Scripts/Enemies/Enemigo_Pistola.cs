@@ -154,7 +154,7 @@ public class Enemigo_Pistola : BaseEnemy, IDeadable, IMovil
         transform.position = Vector2.MoveTowards(transform.position, personaje.transform.position, stats.GetSpeedValue() * Time.deltaTime);
     }
 
-    private void Attack()
+    public override void Attack()
     {
         if (canAtack)
         {

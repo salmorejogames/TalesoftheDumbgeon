@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Internal;
 
-public class BaseEnemy : MonoBehaviour
+public abstract class BaseEnemy : MonoBehaviour
 {
     public AudioSource Audio;
     [NonSerialized] public float stasis = 0;
@@ -17,6 +17,8 @@ public class BaseEnemy : MonoBehaviour
         Impact,
         Damage
     }
+    
+    public abstract void Attack();
 
     protected void StasisUpdate()
     {
@@ -33,21 +35,15 @@ public class BaseEnemy : MonoBehaviour
         switch (action)
         {
             case StasisActions.Attack:
-                Debug.Log("Antes: " +stasis);
                 stasis += amount;
-                Debug.Log("Despues: " + stasis);
                 break;
             case StasisActions.Impact:
-                Debug.Log("Antes: " +stasis);
                 if(amount>0.0001 ||amount<-0.0001){}
                     stasis += (amount*4/ stats.maxHealth);
-                Debug.Log("Despues: " + stasis);
                 break;
             case StasisActions.Damage:
-                Debug.Log("Antes: " +stasis);
                 if (amount > 0.0001 || amount < -0.0001)
                     stasis -= (amount*4/stats.maxHealth);
-                Debug.Log("Despues: " + stasis);
                 break;
         }
 

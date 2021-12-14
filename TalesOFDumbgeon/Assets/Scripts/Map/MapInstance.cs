@@ -94,7 +94,7 @@ public class MapInstance : MonoBehaviour
             SingletoneGameController.NavMeshManager.UpdateNavMesh();
             foreach (var generator in generators)
             {
-                generator.map = this;
+                generator.Map = this;
                 generator.InstantiateEnemys(enemyList);
             }
            
