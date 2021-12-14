@@ -225,7 +225,7 @@ public class Enemigo_Pistola : BaseEnemy, IDeadable, IMovil
     {
         if (collision.gameObject.CompareTag("Bala"))
         {
-            Debug.Log(collision.gameObject);
+            //Debug.Log(collision.gameObject);
             //Destroy(gameObject);
             
         }

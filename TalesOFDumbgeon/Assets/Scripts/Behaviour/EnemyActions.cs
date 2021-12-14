@@ -99,7 +99,8 @@ public class EnemyActions : MonoBehaviour
                     runTrigger = true;
                     GenerateEmote(run);
                 }
-                agent.SetDestination(_generator.gameObject.transform.position);
+                Debug.LogError("GOHOME");
+                _actualCoroutine = StartCoroutine(GoHome());
                 break;
             case EnemyMindController.EnemyBaseActions.RunFromPlayer:
                 _actualCoroutine = StartCoroutine(RuningAway());
@@ -129,6 +130,7 @@ public class EnemyActions : MonoBehaviour
         }
     }
 
+   
     private void HealhAction()
     {
         GenerateEmote(heal);
@@ -199,6 +201,14 @@ public class EnemyActions : MonoBehaviour
             mind.UpdateTired(Time.fixedDeltaTime);
             yield return new WaitForFixedUpdate();
         }
+    }
+    
+    private IEnumerator GoHome()
+    {
+        Debug.Log(_generator.gameObject.transform.position);
+        agent.destination = _generator.gameObject.transform.position;
+        Debug.DrawLine(gameObject.transform.position, agent.destination, Color.red);
+        yield return new WaitForFixedUpdate();
     }
     
     private IEnumerator Formation()

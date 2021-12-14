@@ -17,10 +17,10 @@ public class EscapeMind : Mind
     public override int GetAction()
     {
         Vector3 pos = body.transform.position;
-        if (Vector3.Distance(pos, _home.gameObject.transform.position) < inBaseDistance &&
-            Vector3.Distance(pos, _player.position) < closeDistance)
+        if (Vector2.Distance(pos, _home.gameObject.transform.position) < inBaseDistance &&
+            Vector2.Distance(pos, _player.position) < closeDistance)
             return (int) EnemyMindController.EnemyBaseActions.RunFromPlayer;
-        if (Vector3.Distance(pos, _home.gameObject.transform.position)>inBaseDistance)
+        if (Vector2.Distance(pos, _home.gameObject.transform.position)>inBaseDistance)
             return (int) EnemyMindController.EnemyBaseActions.GoBackHome;
         return (int) EnemyMindController.EnemyBaseActions.Descanso;
     }

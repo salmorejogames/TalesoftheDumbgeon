@@ -40,10 +40,12 @@ public class MapInstance : MonoBehaviour
     [NonSerialized] public List<CharacterStats> enemys;
     private bool _closed;
     private bool _started;
+    private GameController _gmc;
 
 
     private void Awake()
-    {               
+    {
+        _gmc = GameObject.Find("GameManager").GetComponent<GameController>();
         _started = false;
         ground.CompressBounds();
         Dimensions = (Vector2Int) ground.size;
@@ -63,17 +65,26 @@ public class MapInstance : MonoBehaviour
     {
         //enemyList.Sort((a, b) => a.difficulty.CompareTo(b.difficulty));
         BoundsInt bounds = ground.cellBounds;
+        _gmc.StartCount();
+        _gmc.dificultadActual = 0;
+        _gmc.Stop = false;
         //Debug.Log("X: " +bounds.xMax + " " + bounds.xMin+ " Y: " + bounds.yMax + " " + bounds.yMin);
     }
 
     private void Update()
     {
+        if (!_gmc.Stop)
+        {
+            _gmc.tiempoSala += Time.deltaTime;
+            //Debug.Log("tiempo tardado: " + _gmc.tiempoSala);
+        }
         CheckAlive();
         if (enemys.Count <= 0 && !_closed)
         {
+            _gmc.StopCount();
             OpenDors(true);
             _closed = true;
-        }
+        }        
     }
 
     /**
@@ -81,7 +92,7 @@ public class MapInstance : MonoBehaviour
      * False-> Close the door
      */
     private void OpenDors(bool open)
-    {
+    {        
         SetTrigger(open);
         SetTriggerRenderers(!open);
     }
@@ -94,8 +105,22 @@ public class MapInstance : MonoBehaviour
             SingletoneGameController.NavMeshManager.UpdateNavMesh();
             foreach (var generator in generators)
             {
+                if (roomType == RoomType.End)
+                {
+                    if (_gmc.CalcularModo() == 1)
+                    {
+                        generator.difficulty += 1;
+                        Debug.Log("Dificilito mapa" + generator.difficulty);
+                    }
+                    else if (_gmc.CalcularModo() == -1)
+                    {
+                        generator.difficulty -= 1;
+                        Debug.Log("Facilito mapa" + generator.difficulty);
+                    }
+                }
                 generator.Map = this;
                 generator.InstantiateEnemys(enemyList);
+                _gmc.dificultadActual += generator.difficulty;
             }
            
             /*

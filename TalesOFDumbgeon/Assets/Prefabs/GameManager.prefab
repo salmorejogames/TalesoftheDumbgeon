@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 2208423518114130157}
   - component: {fileID: 2208423518114130156}
   - component: {fileID: 145222085670520808}
+  - component: {fileID: 3099902689836155721}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -298,3 +299,20 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 3993b73a60fb649419bd32e4ee017f23, type: 2}
   - {fileID: 2100000, guid: b7733054e26e11a4c8b7742cfdd8cdc9, type: 2}
   - {fileID: 2100000, guid: 6420b9c3ce165c440819a6ee92ef3935, type: 2}
+--- !u!114 &3099902689836155721
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2208423518114130159}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8beae5ee6ae3dc4099db63348d31bf0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tiempoSala: 0
+  dificultadActual: 0
+  dificultadAnterior: 0
+  modoActual: 0
+  Stop: 0
