@@ -63,6 +63,7 @@ public class GameController : MonoBehaviour
     public void StopCount()
     {
         Stop = true;
+        Debug.Log("tiempo tardado: " + tiempoSala);
     }
     public void TimeCount()
     {
