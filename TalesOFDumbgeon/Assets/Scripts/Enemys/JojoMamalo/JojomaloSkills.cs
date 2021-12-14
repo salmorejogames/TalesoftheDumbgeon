@@ -22,7 +22,7 @@ public class JojomaloSkills : MonoBehaviour
 
     public void ActivateSkill(Actions.JojoActions skill)
     {
-        //skill = Actions.JojoActions.CirculoDeRunas;
+        //skill = Actions.JojoActions.Curacion;
         switch (skill)
         {
             case Actions.JojoActions.Presentacion:
@@ -69,6 +69,7 @@ public class JojomaloSkills : MonoBehaviour
                 break;
             case Actions.JojoActions.TeletransporteDisparoFuerte:
                 Debug.Log("Teletransporte con disparo fuerte");
+                //Inventarse algo xdxdxd
                 EndAction();
                 break;
             case Actions.JojoActions.InvocarEnemigo:
@@ -76,12 +77,14 @@ public class JojomaloSkills : MonoBehaviour
                 EndAction();
                 break;
             case Actions.JojoActions.AtaqueDefinitivo:
+                //Marcar jugador y ataque en circulo
                 Debug.Log("Ataque definitivo");
                 EndAction();
                 break;
             case Actions.JojoActions.Curacion:
-                Debug.Log("Curacion");
-                EndAction();
+                //Debug.Log("Curacion");
+                //EndAction();
+                RestoreHealth();
                 break;
             case Actions.JojoActions.TeleportHealh:
                 TeleportInvulnerable(100);
@@ -266,7 +269,7 @@ public class JojomaloSkills : MonoBehaviour
         Vector2 playerPos = SingletoneGameController.PlayerActions.player.gameObject.transform
             .position;
         Vector2 isometricPos = IsometricUtils.ScreenCordsToTilesPos(new Vector2(playerPos.x - 0.25f, playerPos.y - 0.25f), true);
-        Debug.Log(isometricPos.ToString());
+        //Debug.Log(isometricPos.ToString());
         Vector3 pos = IsometricUtils.CoordinatesToWorldSpace(isometricPos.x, isometricPos.y);
         AreaTileAtack newArea = Instantiate(areaTile, pos, Quaternion.identity);
         newArea.gameObject.transform.parent = body.parent;
@@ -285,7 +288,7 @@ public class JojomaloSkills : MonoBehaviour
         Vector2 playerPos = SingletoneGameController.PlayerActions.player.gameObject.transform
             .position;
         Vector2 isometricPos = IsometricUtils.ScreenCordsToTilesPos(new Vector2(playerPos.x - 0.25f, playerPos.y - 0.25f), true);
-        Debug.Log(isometricPos.ToString());
+        //Debug.Log(isometricPos.ToString());
         Vector3 pos = IsometricUtils.CoordinatesToWorldSpace(isometricPos.x, isometricPos.y);
         AreaTileAtack newArea = Instantiate(circleAreaTile, pos, Quaternion.identity);
         newArea.gameObject.transform.parent = body.parent;
@@ -303,7 +306,7 @@ public class JojomaloSkills : MonoBehaviour
         mind.StasisActionUpdate(BaseEnemy.StasisActions.Attack, 0.1f);
         Vector2 playerPos = gameObject.transform.position;
         Vector2 isometricPos = IsometricUtils.ScreenCordsToTilesPos(new Vector2(playerPos.x - 0.25f, playerPos.y - 0.25f), true);
-        Debug.Log(isometricPos.ToString());
+        //Debug.Log(isometricPos.ToString());
         Vector3 pos = IsometricUtils.CoordinatesToWorldSpace(isometricPos.x, isometricPos.y);
         AreaTileAtack newArea = Instantiate(explosionCounterTile, pos, Quaternion.identity);
         newArea.gameObject.transform.parent = body.parent;
@@ -314,6 +317,17 @@ public class JojomaloSkills : MonoBehaviour
         mind.animationController.SetStop();
         EndAction();
     }
+
+    private void RestoreHealth()
+    {
+        InGameCard newCard = Instantiate(cardPrefab, gameObject.transform.position + new Vector3(0, 0.5f, 0),
+            Quaternion.identity);
+        newCard.card.CardInfo = new WeaponCard(weapon.weaponInfo);
+        newCard.PlayAnimaton();
+        mind.stats.Heal(Random.Range(5, 15));
+        EndAction();
+    }
+
     private void TeleportInvulnerable(float cantidad)
     {
         sounds.LaunchSound(JojoSounds.JojoSoundList.Tp);
