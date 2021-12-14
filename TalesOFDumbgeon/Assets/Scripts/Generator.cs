@@ -50,6 +50,7 @@ public class Generator : MonoBehaviour
     {
         _generated++;
         return _generated - 1;
+        
     }
     public void ChangeCentinel()
     {

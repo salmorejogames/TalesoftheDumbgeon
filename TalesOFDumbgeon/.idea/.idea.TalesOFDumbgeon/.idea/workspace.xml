@@ -4,9 +4,9 @@
     <list default="true" id="b1d37c9d-25b2-4110-97a9-49ea663fadda" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.TalesOFDumbgeon/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TalesOFDumbgeon/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Enemies/Abuesqueleto_Manu.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Enemies/Abuesqueleto_Manu.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Enemies/Caballero_Banana.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Enemies/Caballero_Banana.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Enemies/EnemyMind.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Enemies/EnemyMind.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Enemies/EnemigoBanana.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Enemies/EnemigoBanana.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Behaviour/EnemyActions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Behaviour/EnemyActions.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Enemys/ExampleEnemyBehaviour.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Enemys/ExampleEnemyBehaviour.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Generator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Generator.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -112,8 +112,6 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/EnemigoController.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/Pelusa_Peque.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Enemys/JojoMamalo/JojoMamaloBehaviour.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Behaviour/EnemyIdle.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Generator.cs" />
       <option value="$PROJECT_DIR$/Assets/DebugText.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Behaviour/JojoMamaloAttack.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Behaviour/AttackMind.cs" />
@@ -121,13 +119,15 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/Behaviour/EscapeMind.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Behaviour/EnemyMindController.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/CharacterStats.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Behaviour/EnemyActions.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Player/PlayerActionsController.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/DamageArea.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Player/Weapon.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Enemys/ExampleEnemyBehaviour.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Enemys/BaseEnemy.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/EnemigoBanana.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Behaviour/EnemyIdle.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Behaviour/EnemyActions.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Generator.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Enemys/ExampleEnemyBehaviour.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1zRaEkaFY4bgpmOHr8r3t8E1N2f" />
@@ -218,7 +218,7 @@
       <workItem from="1639221747841" duration="1535000" />
       <workItem from="1639324444544" duration="12860000" />
       <workItem from="1639415932870" duration="21024000" />
-      <workItem from="1639477281644" duration="20546000" />
+      <workItem from="1639477281644" duration="22563000" />
     </task>
     <servers />
   </component>

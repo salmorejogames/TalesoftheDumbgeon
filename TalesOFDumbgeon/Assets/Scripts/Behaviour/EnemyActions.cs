@@ -40,7 +40,7 @@ public class EnemyActions : MonoBehaviour
         agent.updateUpAxis = false;
         _generator = mind.idleMind.GetHome();
         float step = 360f / _generator.GetNumEnemys();
-        angle = step * mind.idleMind.GetIndex() * step;
+        angle = step * mind.idleMind.GetIndex();
     }
 
     private void Update()
@@ -205,8 +205,10 @@ public class EnemyActions : MonoBehaviour
     {
         while (true)
         {
+           
             double radians = Math.PI * angle / 180.0f; 
             agent.destination = _player.position + new Vector3(midDistance* (float) Math.Sin(radians), midDistance* (float) Math.Cos(radians), 0);
+            Debug.DrawLine(gameObject.transform.position, agent.destination);
             mind.UpdateTired(Time.fixedDeltaTime);
             yield return new WaitForFixedUpdate();
         }

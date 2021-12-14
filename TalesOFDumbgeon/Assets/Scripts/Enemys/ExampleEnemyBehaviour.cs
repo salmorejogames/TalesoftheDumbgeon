@@ -84,7 +84,7 @@ public class ExampleEnemyBehaviour : BaseEnemy, IDeadable, IMovil
         StasisActionUpdate(StasisActions.Damage, cantidad);
         Vector3 direction = _player.transform.position - gameObject.transform.position;
         direction.Normalize();
-        rb.AddForce(-direction*10f);
+        rb.AddForce(-direction*0.5f, ForceMode2D.Impulse);
         Color dmgColor;
         if (multiplier>1.1f)
             dmgColor = Color.red;
