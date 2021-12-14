@@ -198,6 +198,14 @@ public class JojoMamaloBehaviour : BaseEnemy, IDeadable, IMovil
             sounds.LaunchSound(JojoSounds.JojoSoundList.Dmg);
             DamageNumber dmgN = Instantiate(prefabDamage, transform.position, Quaternion.identity);
             dmgN.Inicializar(cantidad, transform);
+            float multiplier = Elements.GetElementMultiplier(element, stats.element);
+            if (multiplier > 1.1f)
+                dmgN.number.color = Color.red;
+            else if (multiplier < 0.9f)
+                dmgN.number.color = Color.cyan;
+            else
+                dmgN.number.color = Color.yellow; ;
+
             _damageAcumulated += cantidad;
         }
         
