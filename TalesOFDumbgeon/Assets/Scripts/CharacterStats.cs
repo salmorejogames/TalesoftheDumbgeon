@@ -39,6 +39,8 @@ public class CharacterStats : MonoBehaviour
 
     public float GetSpeedValue()
     {
+        if (speed <= -10)
+            return 0f;
         if (speed <= 0.5f)
         {
             return 0.75f;
@@ -115,7 +117,7 @@ public class CharacterStats : MonoBehaviour
         return _alive;
     }
 
-    public void DoDamage(float dmg, Vector3 origin, Elements.Element atackElement)
+    public float DoDamage(float dmg, Vector3 origin, Elements.Element atackElement)
     {
         float totalDmg = IsometricUtils.CalculateDamage(dmg, armor, atackElement, element);
         _actualHealth -= Mathf.Clamp(totalDmg, 0, maxHealth);
@@ -126,6 +128,7 @@ public class CharacterStats : MonoBehaviour
             _actions.Dead();
         }
         Debug.Log(gameObject.name +": Me han hecho " + (totalDmg) + " de dmg, me quedan " + _actualHealth + " de vida");
+        return totalDmg;
     }
 
     public void ReduceMaxHealth(float cantidad)

@@ -8,12 +8,15 @@ public class Generator : MonoBehaviour
 {
     public int tilesArea;
     public int difficulty;
-    [NonSerialized] public MapInstance map;
-
+    [NonSerialized] public MapInstance Map;
+    [NonSerialized] private int _numEnemys;
+    [NonSerialized] private bool[] _index;
+    [NonSerialized] private int _generated = 0;
     public void InstantiateEnemys(List<BaseEnemy> enemys)
     {
         
         int reaminingDiff = difficulty;
+        _numEnemys = 0;
         while (reaminingDiff>0)
         {
             int count = 10;
@@ -34,9 +37,34 @@ public class Generator : MonoBehaviour
                 tilePos.y + Random.Range((float) -tilesArea, tilesArea));
             //Debug.Log(newTilePos);
             reaminingDiff -= enemy.difficulty;
-            BaseEnemy newEnemy =Instantiate(enemy, IsometricUtils.CoordinatesToWorldSpace(newTilePos.x, newTilePos.y), Quaternion.identity);
-            newEnemy.gameObject.transform.parent = gameObject.transform;
-            map.enemys.Add(newEnemy.stats);
+            BaseEnemy newEnemy =Instantiate(enemy, IsometricUtils.CoordinatesToWorldSpace(newTilePos.x, newTilePos.y), Quaternion.identity, this.gameObject.transform);
+            Map.enemys.Add(newEnemy.stats);
+            _numEnemys++;
         }
+
+        _index = new bool[_numEnemys];
+        ChangeCentinel();
+    }
+
+    public int GetNumber()
+    {
+        _generated++;
+        return _generated - 1;
+    }
+    public void ChangeCentinel()
+    {
+        int newIndex = Random.Range(0, _numEnemys);
+        for (int i = 0; i < _numEnemys; i++)
+            _index[i] = (i == newIndex);
+    }
+
+    public bool IsCentinel(int idx)
+    {
+        return _index[idx];
+    }
+
+    public int GetNumEnemys()
+    {
+        return _generated;
     }
 }

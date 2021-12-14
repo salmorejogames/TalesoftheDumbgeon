@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,6 +7,7 @@ public class DamageArea : MonoBehaviour
 {
     [SerializeField] private Weapon parent;
     public BaseWeapon.WeaponType attackType;
+    public Action OnDamage;
     public float fixedAnimationTime;
     [Range(0,1)]
     public float percentStartDmg;
@@ -17,6 +19,7 @@ public class DamageArea : MonoBehaviour
         {
             CharacterStats enemy = other.gameObject.GetComponent<CharacterStats>();
             enemy.DoDamage(parent.weaponInfo.Dmg + parent.holder.strength,  gameObject.transform.position, parent.weaponInfo.Element);
+            OnDamage?.Invoke();
         }
     }
 }

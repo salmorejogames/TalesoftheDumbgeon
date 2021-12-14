@@ -81,7 +81,7 @@ public class Enemigo_Pelusa : BaseEnemy, IDeadable
         }
     }
 
-    private void Attack()
+    public override void Attack()
     {
         if (gameObject.transform.childCount <= maxChilds)
         {

@@ -208,7 +208,7 @@ public class EnemigoController : BaseEnemy, IDeadable
         //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!NO BORRAR, ES CODIGO QUE NO FUNCIONA PERO QUE QUIERO HACER QUE FUNCIONE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     }
 
-    private void Attack()
+    public override void Attack()
     {
         if (canAtack)
         {

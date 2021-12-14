@@ -94,4 +94,9 @@ public class Pelusa_Peque : BaseEnemy, IDeadable
     {
         spr.color = Color.white;
     }
+
+    public override void Attack()
+    {
+        Debug.Log("NYAA");
+    }
 }

@@ -41,7 +41,7 @@ public class JojoMamaloAttack : Mind
         return GetAttack();
     }
 
-    private void Update()
+    private void LateUpdate()
     {
         if (debugMode)
         {
@@ -80,7 +80,6 @@ public class JojoMamaloAttack : Mind
             float distanceSegment = maxDistancePlayer - minDistancePlayer;
             float percentSegment = distance - minDistancePlayer;
             _playerDistanceValue = percentSegment/distanceSegment;
-            Debug.Log(_playerDistanceValue);
         }
         
         //Update Stage

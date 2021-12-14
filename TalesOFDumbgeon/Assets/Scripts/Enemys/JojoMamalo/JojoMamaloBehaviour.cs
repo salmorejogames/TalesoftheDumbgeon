@@ -237,4 +237,8 @@ public class JojoMamaloBehaviour : BaseEnemy, IDeadable, IMovil
         _active = true;
     }
 
+    public override void Attack()
+    {
+        
+    }
 }
