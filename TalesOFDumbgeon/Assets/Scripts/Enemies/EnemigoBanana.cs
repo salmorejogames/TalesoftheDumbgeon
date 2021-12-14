@@ -28,7 +28,7 @@ public class EnemigoBanana : BaseEnemy, IDeadable
 
     public GameObject personaje;
 
-    private Rigidbody2D rb;
+    private Rigidbody2D _rb;
     private enum Estado { Wandering, Detected, Attacking};
     private Estado estadoActual = Estado.Wandering;
     private Vector3 nextPos;
@@ -63,9 +63,9 @@ public class EnemigoBanana : BaseEnemy, IDeadable
     // Start is called before the first frame update
     void Start()
     {
-        rb = gameObject.GetComponent<Rigidbody2D>();
+        _rb = gameObject.GetComponentInChildren<Rigidbody2D>();
         personaje = GameObject.FindGameObjectWithTag("Player");
-        rb.velocity = Vector2.zero;
+        _rb.velocity = Vector2.zero;
         attackDelay = 4;
         velocidad = stats.speed;
         attackTime = 3f;
@@ -102,14 +102,14 @@ public class EnemigoBanana : BaseEnemy, IDeadable
                 {
                     attaking = false;
                     dashTime = startDashTime;
-                    rb.velocity = Vector2.zero;
+                    _rb.velocity = Vector2.zero;
                     animator.EndAttack();
                 }
                 else
                 {
                     dashTime -= Time.deltaTime;
 
-                    rb.velocity = direccion * (velocidad * 3f);
+                    _rb.velocity = direccion * (velocidad * 3f);
                 }
             }
             else
@@ -166,62 +166,19 @@ public class EnemigoBanana : BaseEnemy, IDeadable
     private void Alcanzable()
     {
         nextPos = personaje.transform.position;
-
-        //!!!!!!!!!!!!!!!!!!!!!!!!!NO BORRAR, ES CODIGO QUE NO FUNCIONA PERO QUE QUIERO IMPLEMETAR PARA QUE FUNCIONE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-
-        /*hit = Physics2D.Raycast(transform.position, nextPos);
-        choque = hit.collider;
-
-        if (choque.gameObject.CompareTag("Player"))
-        {
-            nextPos = choque.transform.position;
-            Debug.Log("Estoy igualando al jugador");
-        }
-        else
-        {
-            Vector3 punto = choque.bounds.center;
-            Vector3 puntoA = punto + choque.bounds.extents;
-            Vector3 puntoB = punto - choque.bounds.extents;
-            Vector3 puntoCercano = choque.bounds.ClosestPoint(transform.position);
-            Debug.Log("Me meto a recalcular el camino");
-
-            if(transform.position.y != puntoCercano.y)
-            {
-                if(Vector3.Distance(personaje.transform.position, puntoA) < Vector3.Distance(personaje.transform.position, puntoB)){
-                    nextPos = new Vector3(puntoA.x + 0.5f, puntoCercano.y, 0);  
-                }else
-                {
-                    nextPos = new Vector3(puntoB.x + 0.5f, puntoCercano.y, 0);
-                }
-            }
-            else
-            {
-                if (Vector3.Distance(personaje.transform.position, puntoA) < Vector3.Distance(personaje.transform.position, puntoB))
-                {
-                    nextPos = new Vector3(puntoCercano.x, puntoA.y + 0.5f, 0);
-                }
-                else
-                {
-                    nextPos = new Vector3(puntoCercano.x, puntoB.y + 0.5f, 0);
-                }
-            }
-        }*/
-        
-        //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!NO BORRAR, ES CODIGO QUE NO FUNCIONA PERO QUE QUIERO HACER QUE FUNCIONE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     }
 
     public override void Attack()
     {
         if (canAtack)
         {
-            if(especie == tipoEnemigo.Banana)
-            {
-                animator.PrepareAttack();
-                attaking = true;
-                canAtack = false;
-            }
+            animator.PrepareAttack();
+            attaking = true;
+            canAtack = false;
         }
     }
+    
+    
 
 
     private void Wander()
@@ -232,53 +189,8 @@ public class EnemigoBanana : BaseEnemy, IDeadable
         Debug.Log("hago un wander: " + nextPos);
     }
 
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.CompareTag("Bala"))
-        {
-            Debug.Log(collision.gameObject);
-            
-        }else if (collision.gameObject.CompareTag("Player"))
-        {
-            nextPos = transform.position;
-            rb.velocity = Vector2.zero;
-            collision.gameObject.GetComponent<CharacterStats>().DoDamage(stats.strength, this.transform.position, stats.element);
-        }
-    }
-
-    private void OnCollisionStay2D(Collision2D collision)
-    {
-        if (collision.gameObject.CompareTag("Player"))
-        {
-            if (attackTime <= 0)
-            {
-                nextPos = transform.position;
-                rb.velocity = Vector2.zero;
-                collision.gameObject.GetComponent<CharacterStats>().DoDamage(stats.strength, this.transform.position, stats.element);
-                attackTime = 3f;
-            }
-            else
-            {
-                Debug.Log(attackTime);
-                attackTime -= Time.deltaTime;
-            }
-        }
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.CompareTag("Player"))
-        {
-            nextPos = transform.position;
-            
-        }/*else if (collision.gameObject.CompareTag("Colisiones"))
-        {
-            decisionClock = 5f;
-        }*/
-        //Debug.Log("decision CLock: " + decisionClock);
-    }
-
+    
+    
     public void Dead()
     {
         SingletoneGameController.SoundManager.audioSrc.PlayOneShot(Audio.clip);
@@ -294,7 +206,7 @@ public class EnemigoBanana : BaseEnemy, IDeadable
         dmgN.Inicializar(cantidad, transform);
         Vector3 direction = gameObject.transform.position - _player.transform.position;
         direction.Normalize();
-        rb.velocity = direction * 1.5f;
+        _rb.velocity = direction * 1.5f;
         if (multiplier > 1.1f)
             _spr.color = Color.red;
         else if (multiplier < 0.9f)
