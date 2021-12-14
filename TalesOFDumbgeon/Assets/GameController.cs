@@ -5,12 +5,11 @@ using UnityEngine;
 public class GameController : MonoBehaviour
 {
     public float tiempoSala;
-    public int dificultadSala;
-    public int dificultadInicial;
+    public int dificultadActual;
+    public int dificultadAnterior;
     public enum Modo { Facil, Medio, Dificil};
     public Modo modoActual;
-    private float tiempoInicio;
-    private float tiempoFinal;
+    private float tiempoAnterior;
     private float limiteFacilT1 = 60f;
     private float limiteFacilT2 = 90f;
     private float limiteFacilT3 = 120f;
@@ -25,33 +24,28 @@ public class GameController : MonoBehaviour
     private float limiteDificilT3 = 120f;
     private int limiteDificultad1 = 4;
     private int limiteDificultad2 = 7;
-    private bool Stop = false;
+    public bool Stop = false;
      
 
     // Start is called before the first frame update
     void Start()
     {
         modoActual = Modo.Medio;
-        dificultadSala = 0;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        dificultadActual = 0;
+        tiempoSala = 0;
     }
 
     public int Facilitar()
     {
-        dificultadSala -= 1;
-        Debug.Log("Facilito " + dificultadSala);
+        dificultadActual -= 1;
+        Debug.Log("Facilito " + dificultadActual);
         return -1;
     }
 
     public int Dificultar()
     {
-        dificultadSala += 1;
-        Debug.Log("Dificilito " + dificultadSala);
+        dificultadActual += 1;
+        Debug.Log("Dificilito " + dificultadActual);
         return 1;
     }
 
@@ -63,21 +57,17 @@ public class GameController : MonoBehaviour
     public void StopCount()
     {
         Stop = true;
+        dificultadAnterior = dificultadActual;
+        tiempoAnterior = tiempoSala;
         Debug.Log("tiempo tardado: " + tiempoSala);
-    }
-    public void TimeCount()
-    {
-        if (!Stop) 
-        {
-            tiempoSala += Time.deltaTime;
-        }
-    }
+    } 
+
 
     public int CalcularModo()
     {
-        if ((tiempoSala > limiteFacilT1 && dificultadInicial <= limiteDificultad1) ||
-            (tiempoSala >= limiteFacilT2  && dificultadInicial < limiteDificultad2) 
-            || (tiempoSala  > limiteFacilT3 && dificultadInicial >= limiteDificultad2))
+        if ((tiempoAnterior > limiteFacilT1 && dificultadAnterior <= limiteDificultad1) ||
+            (tiempoAnterior >= limiteFacilT2  && dificultadAnterior < limiteDificultad2) 
+            || (tiempoAnterior > limiteFacilT3 && dificultadAnterior >= limiteDificultad2))
         {
             return Facilitar();
         }
@@ -89,9 +79,9 @@ public class GameController : MonoBehaviour
             modoActual = Modo.Medio;
         }*/
 
-        if ((tiempoSala < limiteDificilT1 && dificultadInicial < limiteDificultad1) 
-            || (tiempoSala < limiteDificilT2 && dificultadInicial < limiteDificultad2 && dificultadInicial >= limiteDificultad1)
-            || (tiempoSala <limiteDificilT3  && dificultadInicial >= limiteDificultad2))
+        if ((tiempoAnterior < limiteDificilT1 && dificultadAnterior < limiteDificultad1) 
+            || (tiempoAnterior < limiteDificilT2 && dificultadAnterior < limiteDificultad2 && dificultadAnterior >= limiteDificultad1)
+            || (tiempoAnterior < limiteDificilT3  && dificultadAnterior >= limiteDificultad2))
         {
             return Dificultar();
         }
