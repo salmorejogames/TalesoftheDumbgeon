@@ -39,11 +39,11 @@ public abstract class BaseEnemy : MonoBehaviour
                 break;
             case StasisActions.Impact:
                 if(amount>0.0001 ||amount<-0.0001){}
-                    stasis += (amount*4/ stats.maxHealth);
+                    stasis += (amount*2/ stats.maxHealth);
                 break;
             case StasisActions.Damage:
                 if (amount > 0.0001 || amount < -0.0001)
-                    stasis -= (amount*4/stats.maxHealth);
+                    stasis -= (amount*2/stats.maxHealth);
                 break;
         }
 

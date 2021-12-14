@@ -19,9 +19,12 @@ public class ExampleEnemyBehaviour : BaseEnemy, IDeadable, IMovil
     [SerializeField] private AbuesqueletoAnimation animator;
     [SerializeField] private Weapon weapon;
     [SerializeField] private Rigidbody2D rb;
+    private float lastSpeed;
+    private Vector3 lastPos;
     
     private void Awake()
     {
+        lastPos = gameObject.transform.position;
         stats = gameObject.GetComponent<CharacterStats>();
         _player = SingletoneGameController.PlayerActions.player;
         SmashingWeapon baston = new SmashingWeapon();
@@ -33,6 +36,12 @@ public class ExampleEnemyBehaviour : BaseEnemy, IDeadable, IMovil
         stats.element = baston.Element;
         
     }
+
+    private void Start()
+    {
+        weapon.SetDmgEvent(() => StasisActionUpdate(StasisActions.Impact, weapon.weaponInfo.Dmg + stats.strength), 0);
+    }
+
     private void Update()
     {
         StasisUpdate();
@@ -41,6 +50,19 @@ public class ExampleEnemyBehaviour : BaseEnemy, IDeadable, IMovil
             if (!stopped)
             {
                 UpdateWeaponAngle();
+                if (lastPos != gameObject.transform.position)
+                {
+                    lastPos = gameObject.transform.position;
+                    animator.SetMoving(true);
+                }
+                else
+                {
+                    animator.SetMoving(false);
+                }
+            }
+            else
+            {
+                animator.SetMoving(false);
             }        
         }
     }
@@ -61,7 +83,7 @@ public class ExampleEnemyBehaviour : BaseEnemy, IDeadable, IMovil
         StasisActionUpdate(StasisActions.Damage, cantidad);
         Vector3 direction = _player.transform.position - gameObject.transform.position;
         direction.Normalize();
-        rb.AddForce(-direction*3f);
+        rb.AddForce(-direction*10f);
         Color dmgColor;
         if (multiplier>1.1f)
             dmgColor = Color.red;
@@ -79,7 +101,19 @@ public class ExampleEnemyBehaviour : BaseEnemy, IDeadable, IMovil
 
     public void DisableMovement(float time)
     {
-        throw new NotImplementedException();
+        Debug.Log(gameObject.name + ": Disable move " +time  );
+        stopped = true;
+        lastSpeed = stats.speed;
+        stats.speed = -11f;
+        StartCoroutine(ReenableMovement(time));
+    }
+
+    private IEnumerator ReenableMovement(float time)
+    {
+        yield return new WaitForSeconds(time);
+        Debug.Log(gameObject.name + ": Reenable move" );
+        stopped = false;
+        stats.speed = lastSpeed;
     }
     
     public void UpdateWeaponAngle()
@@ -92,6 +126,8 @@ public class ExampleEnemyBehaviour : BaseEnemy, IDeadable, IMovil
 
     public override void Attack()
     {
-        Debug.Log("Bastonazo");
+        weapon.Atack();
+        Debug.Log("Duration:" + weapon.AttackDuration);
+        animator.StartAtack();
     }
 }

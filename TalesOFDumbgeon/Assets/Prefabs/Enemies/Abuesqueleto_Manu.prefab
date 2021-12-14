@@ -139,10 +139,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mind: {fileID: 2747468635776866739}
   enemy: {fileID: 210292057612706183}
-  wanderingDistance: 3
+  wanderingDistance: 6
   midDistance: 1.2
   numbers: {fileID: 7413456247700845425, guid: d04ec14520fae5f44b0e829368e66535, type: 3}
   agent: {fileID: 1634661290755254708}
+  imageCanvas: {fileID: 3243209930697993571, guid: ff072388497cd704297facfd804f13dc,
+    type: 3}
+  dialogue: {fileID: 21300000, guid: d7d552aef20c61c4d855d0864b308e2f, type: 3}
+  sleep: {fileID: 21300000, guid: 30e0ba24375d02643a4d5e136fca3f6e, type: 3}
+  heal: {fileID: 21300000, guid: 82f85107c6fee9d41911878c4227998a, type: 3}
+  rest: {fileID: 21300000, guid: c92c8fbb0d19ad9419029569212d86bd, type: 3}
+  wandering: {fileID: 21300000, guid: 2f3987caddaafd54a9f0339e98620708, type: 3}
+  run: {fileID: 21300000, guid: 7ae7678cb9f8f61468f82bbc142c4398, type: 3}
+  detected: {fileID: 21300000, guid: d7923240d7be4b845a0d92338279af4e, type: 3}
 --- !u!195 &1634661290755254708
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -296,7 +305,7 @@ GameObject:
   - component: {fileID: 7277696150048670936}
   m_Layer: 0
   m_Name: SmashingAttack
-  m_TagString: Arma
+  m_TagString: ArmaEnemiga
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -380,8 +389,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parent: {fileID: 1011795614555574066}
   attackType: 5
-  fixedAnimationTime: 1.25
-  percentStartDmg: 0.9
+  fixedAnimationTime: 1
+  percentStartDmg: 0.8
   percentStopDmgg: 1
 --- !u!58 &8592276058816334950
 CircleCollider2D:
@@ -2061,11 +2070,6 @@ PrefabInstance:
       propertyPath: body
       value: 
       objectReference: {fileID: 210292057612706183}
-    - target: {fileID: 3306604158472705336, guid: 8980dd1f09682034d8010cd6e3fd1d43,
-        type: 3}
-      propertyPath: healTime
-      value: 10
-      objectReference: {fileID: 0}
     - target: {fileID: 3498251150122491879, guid: 8980dd1f09682034d8010cd6e3fd1d43,
         type: 3}
       propertyPath: body
@@ -2103,8 +2107,8 @@ PrefabInstance:
       objectReference: {fileID: 210292057612706183}
     - target: {fileID: 6641824225852402328, guid: 8980dd1f09682034d8010cd6e3fd1d43,
         type: 3}
-      propertyPath: attackRange
-      value: 0.5
+      propertyPath: attackTime
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8980dd1f09682034d8010cd6e3fd1d43, type: 3}

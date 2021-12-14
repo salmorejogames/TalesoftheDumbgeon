@@ -137,6 +137,10 @@ public class Weapon : MonoBehaviour
         _actualDmgArea.gameObject.SetActive(false);
     }
 
+    public void SetDmgEvent(Action newEvent, int pos)
+    {
+        damageAreas[pos].OnDamage = newEvent;
+    }
     private IEnumerator AttackCoroutine()
     {
         float duration = 0f;

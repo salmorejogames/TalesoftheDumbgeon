@@ -18,6 +18,19 @@ public class EnemyActions : MonoBehaviour
     private Coroutine _actualCoroutine;
     private Transform _player;
     private float angle;
+
+    [SerializeField] private ImageCanvas imageCanvas;
+    [Header("Iconos")]
+    [SerializeField] private Sprite dialogue;
+    [SerializeField] private Sprite sleep;
+    [SerializeField] private Sprite heal;
+    [SerializeField] private Sprite rest;
+    [SerializeField] private Sprite wandering;
+    [SerializeField] private Sprite run;
+    [SerializeField] private Sprite detected;
+
+    private bool runTrigger = false;
+    private bool detectedTrigger = false;
     private void Start()
     {
         _player = SingletoneGameController.PlayerActions.player.gameObject.transform;
@@ -51,6 +64,16 @@ public class EnemyActions : MonoBehaviour
     private void MakeAction()
     {
         Debug.LogWarning(_action);
+        if (runTrigger && _action != EnemyMindController.EnemyBaseActions.GoBackHome &&
+            _action != EnemyMindController.EnemyBaseActions.RunFromPlayer)
+            runTrigger = false;
+        if (!detectedTrigger && _action != EnemyMindController.EnemyBaseActions.Wandering &&
+            _action != EnemyMindController.EnemyBaseActions.Sleeping &&
+            _action != EnemyMindController.EnemyBaseActions.Talking)
+        {
+            detectedTrigger = true;
+            GenerateEmote(detected);
+        }
         switch (_action)
         {
             case EnemyMindController.EnemyBaseActions.None:
@@ -61,6 +84,7 @@ public class EnemyActions : MonoBehaviour
                 Debug.LogError("Algo ha ido mal en las acciones de " + gameObject.name);
                 break;
             case EnemyMindController.EnemyBaseActions.Wandering:
+                
                 _actualCoroutine = StartCoroutine(WanderingAction());
                 break;
             case EnemyMindController.EnemyBaseActions.Talking:
@@ -70,6 +94,11 @@ public class EnemyActions : MonoBehaviour
                 _actualCoroutine = StartCoroutine(Sleeping());
                 break;
             case EnemyMindController.EnemyBaseActions.GoBackHome:
+                if (!runTrigger)
+                {
+                    runTrigger = true;
+                    GenerateEmote(run);
+                }
                 agent.SetDestination(_generator.gameObject.transform.position);
                 break;
             case EnemyMindController.EnemyBaseActions.RunFromPlayer:
@@ -102,6 +131,7 @@ public class EnemyActions : MonoBehaviour
 
     private void HealhAction()
     {
+        GenerateEmote(heal);
         mind.UpdateTired(-20f);
         float healing = enemy.stats.maxHealth / 4f;
         agent.destination = gameObject.transform.position;
@@ -114,11 +144,10 @@ public class EnemyActions : MonoBehaviour
     private IEnumerator WanderingAction()
     {
         agent.destination = enemy.gameObject.transform.position + (Vector3) Random.insideUnitCircle*wanderingDistance;
-        agent.speed = enemy.stats.GetSpeedValue();
-        //TODO CENTINEL EMOTE
-        yield return new WaitForSeconds(2f);
+        GenerateEmote(wandering);
+        yield return new WaitForSeconds(3f);
         agent.destination = _generator.gameObject.transform.position;
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(3.2f);
         _generator.ChangeCentinel();
         _action = EnemyMindController.EnemyBaseActions.None;
     }
@@ -128,7 +157,7 @@ public class EnemyActions : MonoBehaviour
         while (true)
         {
             Debug.Log(gameObject.name + ": talking");
-            //TODO Talking Emote
+            GenerateEmote(dialogue);
             yield return new WaitForSeconds(Random.Range(2f, 5f));
         }
         
@@ -139,18 +168,24 @@ public class EnemyActions : MonoBehaviour
         while (true)
         {
             Debug.Log(gameObject.name + ": Sleeping");
-            //TODO Sleeping Emote
+            GenerateEmote(sleep);
             yield return new WaitForSeconds(Random.Range(3f, 6f));
         }
     }
     
     private IEnumerator RuningAway()
     {
+        if (!runTrigger)
+        {
+            runTrigger = true;
+            GenerateEmote(run);
+        }
         while (true)
         {
             var pos = enemy.gameObject.transform.position;
             var playerPosition = _player.position;
             var heading = pos - playerPosition;
+            mind.UpdateTired(Time.fixedDeltaTime);
             agent.destination = playerPosition + (heading / heading.magnitude) * wanderingDistance;
             yield return new WaitForFixedUpdate();
         }
@@ -161,6 +196,7 @@ public class EnemyActions : MonoBehaviour
         while (true)
         {
             agent.destination = _player.position;
+            mind.UpdateTired(Time.fixedDeltaTime);
             yield return new WaitForFixedUpdate();
         }
     }
@@ -171,16 +207,24 @@ public class EnemyActions : MonoBehaviour
         {
             double radians = Math.PI * angle / 180.0f; 
             agent.destination = _player.position + new Vector3(midDistance* (float) Math.Sin(radians), midDistance* (float) Math.Cos(radians), 0);
+            mind.UpdateTired(Time.fixedDeltaTime);
             yield return new WaitForFixedUpdate();
         }
     }
 
     private IEnumerator Descanso()
     {
+        GenerateEmote(rest);
         while (true)
         {
             mind.UpdateTired(-1f);
             yield return new WaitForSeconds(0.25f);
         }
+    }
+
+    private void GenerateEmote(Sprite sprite)
+    {
+        ImageCanvas newCanvas = Instantiate(imageCanvas, gameObject.transform.position, Quaternion.identity, this.transform);
+        newCanvas.Inicializar(sprite, gameObject.transform);
     }
 }

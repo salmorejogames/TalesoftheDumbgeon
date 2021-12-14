@@ -127,11 +127,11 @@ public class PlayerActionsController : MonoBehaviour, IDeadable
     {
         if(invincible)
             return;
-        if (collision.gameObject.CompareTag("Enemigo") || collision.gameObject.CompareTag("ArmaEnemiga"))
+        if (collision.gameObject.CompareTag("Enemigo"))
         {
             BaseEnemy enemyStats = collision.gameObject.GetComponent<BaseEnemy>();
-            _stats.DoDamage(enemyStats.stats.strength, collision.gameObject.transform.position, enemyStats.stats.element);
-            enemyStats.StasisActionUpdate(BaseEnemy.StasisActions.Impact, enemyStats.stats.strength);
+            float dmg = _stats.DoDamage(enemyStats.stats.strength, collision.gameObject.transform.position, enemyStats.stats.element);
+            enemyStats.StasisActionUpdate(BaseEnemy.StasisActions.Impact, dmg);
         }
     }
 
