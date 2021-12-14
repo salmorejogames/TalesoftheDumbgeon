@@ -46,11 +46,11 @@ public class EnemyActions : MonoBehaviour
     private void Update()
     {
         EnemyMindController.EnemyBaseActions newAction = (EnemyMindController.EnemyBaseActions) mind.GetAction();
+        agent.speed = enemy.stats.GetSpeedValue();
         if (newAction != _action)
         {
             agent.destination = enemy.gameObject.transform.position;
             agent.stoppingDistance = 0f;
-            agent.speed = enemy.stats.GetSpeedValue();
             if (_actualCoroutine != null)
             {
                 StopCoroutine(_actualCoroutine);

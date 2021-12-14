@@ -40,6 +40,7 @@ public class ExampleEnemyBehaviour : BaseEnemy, IDeadable, IMovil
     private void Start()
     {
         weapon.SetDmgEvent(() => StasisActionUpdate(StasisActions.Impact, weapon.weaponInfo.Dmg + stats.strength), 0);
+        lastSpeed = stats.speed;
     }
 
     private void Update()
@@ -103,7 +104,6 @@ public class ExampleEnemyBehaviour : BaseEnemy, IDeadable, IMovil
     {
         Debug.Log(gameObject.name + ": Disable move " +time  );
         stopped = true;
-        lastSpeed = stats.speed;
         stats.speed = -11f;
         StartCoroutine(ReenableMovement(time));
     }

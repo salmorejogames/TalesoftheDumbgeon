@@ -48,7 +48,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   body: {fileID: 0}
-  visionRange: 0
+  visionRange: 3
   cansancio: 0
   maxDistancePlayer: 4
   minDistancePlayer: 0.25
@@ -58,7 +58,7 @@ MonoBehaviour:
   attackMind: {fileID: 6641824225852402328}
   healhMind: {fileID: 3306604158472705336}
   retreatMind: {fileID: 6385445056719838369}
-  debug: 0
+  debug: 1
 --- !u!114 &3498251150122491879
 MonoBehaviour:
   m_ObjectHideFlags: 0
