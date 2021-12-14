@@ -22,6 +22,8 @@ public class JojomaloSkills : MonoBehaviour
 
     [SerializeField] private DamageNumber numbers;
 
+    [SerializeField] private DamageArea cacDmgArea;
+
     private int _healthTPs = 2;
 
     public void ActivateSkill(Actions.JojoActions skill)
@@ -47,8 +49,9 @@ public class JojomaloSkills : MonoBehaviour
             case Actions.JojoActions.RecibirDmg:
                 break;
             case Actions.JojoActions.CaC:
-                Debug.Log("Ataque Cuerpo a Cuerpo");
-                EndAction();
+                //Debug.Log("Ataque Cuerpo a Cuerpo");
+                //EndAction();
+                StartCoroutine(CacAttack());
                 break;
             case Actions.JojoActions.Arco:
                 StartCoroutine(RangedAttack2());
@@ -124,11 +127,26 @@ public class JojomaloSkills : MonoBehaviour
         mind.masterMind.EndAction();
     }
 
-    public void CacAttack()
+    public IEnumerator CacAttack()
     {
-        weapon.Atack();
-        //_canAtack = false;
-        //Invoke(nameof(ReactiveAtack), weapon.weaponInfo.AttackSpeed + weapon.AttackDuration);
+        //weapon.Atack();
+
+        float duration = 0f;
+        duration = cacDmgArea.fixedAnimationTime / mind.stats.GetSpeedValue();
+        mind.DisableMovement(duration);
+        //mind.Immobilize(duration);
+        yield return new WaitForSeconds(duration * cacDmgArea.percentStartDmg);
+
+        //sonidos
+        sounds.LaunchSound(JojoSounds.JojoSoundList.Area);
+
+        cacDmgArea.gameObject.SetActive(true);
+        mind.animationController.SetAttack();
+        yield return new WaitForSeconds(duration * (cacDmgArea.percentStopDmgg - cacDmgArea.percentStartDmg));
+        cacDmgArea.gameObject.SetActive(false);
+        mind.animationController.SetStop();
+
+        EndAction();
     }
     public IEnumerator RangedAttack1()
     {
