@@ -100,9 +100,19 @@ public class MapInstance : MonoBehaviour
             SingletoneGameController.NavMeshManager.UpdateNavMesh();
             foreach (var generator in generators)
             {
-                _gmc.dificultadSala += generator.difficulty;
+                if (_gmc.CalcularModo() == 1)
+                {
+                    generator.difficulty += 1;
+                    Debug.Log("Dificilito mapa" + generator.difficulty);
+                }
+                else if(_gmc.CalcularModo() == -1)
+                {
+                    generator.difficulty -= 1;
+                    Debug.Log("Facilito mapa" + generator.difficulty);
+                }
                 generator.map = this;
                 generator.InstantiateEnemys(enemyList);
+                _gmc.dificultadInicial += generator.difficulty;
             }
            
             /*

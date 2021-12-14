@@ -41,14 +41,18 @@ public class GameController : MonoBehaviour
         
     }
 
-    public void Facilitar()
+    public int Facilitar()
     {
         dificultadSala -= 1;
+        Debug.Log("Facilito " + dificultadSala);
+        return -1;
     }
 
-    public void Dificultar()
+    public int Dificultar()
     {
         dificultadSala += 1;
+        Debug.Log("Dificilito " + dificultadSala);
+        return 1;
     }
 
     public void StartCount()
@@ -68,13 +72,13 @@ public class GameController : MonoBehaviour
         }
     }
 
-    public void CalcularModo()
+    public int CalcularModo()
     {
         if ((tiempoSala > limiteFacilT1 && dificultadInicial <= limiteDificultad1) ||
             (tiempoSala >= limiteFacilT2  && dificultadInicial < limiteDificultad2) 
             || (tiempoSala  > limiteFacilT3 && dificultadInicial >= limiteDificultad2))
         {
-            Facilitar();
+            return Facilitar();
         }
         /*
         if ((tiempoSala >= limiteMedioT1 && tiempoSala <= limiteMedioT2 && dificultadSala < limiteDificultad1 ) 
@@ -88,7 +92,8 @@ public class GameController : MonoBehaviour
             || (tiempoSala < limiteDificilT2 && dificultadInicial < limiteDificultad2 && dificultadInicial >= limiteDificultad1)
             || (tiempoSala <limiteDificilT3  && dificultadInicial >= limiteDificultad2))
         {
-            Dificultar();
+            return Dificultar();
         }
+        return 0;
     }
 }
