@@ -78,8 +78,9 @@ public class JojomaloSkills : MonoBehaviour
                 StartCoroutine(RangedAttack5());
                 break;
             case Actions.JojoActions.InvocarEnemigo:
-                Debug.Log("Invocar enemigo");
-                EndAction();
+                //Debug.Log("Invocar enemigo");
+                //EndAction();
+                InvokeEnemies();
                 break;
             case Actions.JojoActions.AtaqueDefinitivo:
                 //Marcar jugador y ataque en circulo
@@ -121,6 +122,13 @@ public class JojomaloSkills : MonoBehaviour
     private void EndAction()
     {
         mind.masterMind.EndAction();
+    }
+
+    public void CacAttack()
+    {
+        weapon.Atack();
+        //_canAtack = false;
+        //Invoke(nameof(ReactiveAtack), weapon.weaponInfo.AttackSpeed + weapon.AttackDuration);
     }
     public IEnumerator RangedAttack1()
     {
@@ -382,8 +390,8 @@ public class JojomaloSkills : MonoBehaviour
         Vector2 newTilePos = new Vector2(tilePos.x + Random.Range((float)-tilesArea, tilesArea),
                 tilePos.y + Random.Range((float)-tilesArea, tilesArea));
         //BaseEnemy newEnemy = Instantiate(enemy, IsometricUtils.CoordinatesToWorldSpace(newTilePos.x, newTilePos.y), Quaternion.identity);
-        ExampleEnemyBehaviour enemy1 = Instantiate(abuesqueleto, IsometricUtils.CoordinatesToWorldSpace(newTilePos.x, newTilePos.y), Quaternion.identity);
-        enemy1.gameObject.transform.parent = mind.transform;
+        ExampleEnemyBehaviour enemy1 = Instantiate(abuesqueleto, IsometricUtils.CoordinatesToWorldSpace(newTilePos.x, newTilePos.y), Quaternion.identity, mind.gameObject.transform.parent);
+        //enemy1.gameObject.transform.parent = mind.transform;
 
         EndAction();
     }
