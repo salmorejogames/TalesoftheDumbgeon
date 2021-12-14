@@ -18,11 +18,13 @@ public class JojomaloSkills : MonoBehaviour
     [SerializeField] private InGameCard cardPrefab;
     [SerializeField] private JojoSounds sounds;
 
+    [SerializeField] private DamageNumber numbers;
+
     private int _healthTPs = 2;
 
     public void ActivateSkill(Actions.JojoActions skill)
     {
-        //skill = Actions.JojoActions.Curacion;
+        //skill = Actions.JojoActions.AreaAttackAndTeleport;
         switch (skill)
         {
             case Actions.JojoActions.Presentacion:
@@ -78,8 +80,9 @@ public class JojomaloSkills : MonoBehaviour
                 break;
             case Actions.JojoActions.AtaqueDefinitivo:
                 //Marcar jugador y ataque en circulo
-                Debug.Log("Ataque definitivo");
-                EndAction();
+                //Debug.Log("Ataque definitivo");
+                StartCoroutine(DefinitiveAttack());
+                //EndAction();
                 break;
             case Actions.JojoActions.Curacion:
                 //Debug.Log("Curacion");
@@ -101,8 +104,7 @@ public class JojomaloSkills : MonoBehaviour
                 EndAction();
                 break;
             case Actions.JojoActions.AreaAttackAndTeleport:
-                Debug.Log("Timon y pumba");
-                EndAction();
+                AreaAndTeleportAttack();
                 break;
             case Actions.JojoActions.Teleport:
                 TeleportInvulnerable(0);
@@ -215,7 +217,7 @@ public class JojomaloSkills : MonoBehaviour
     public IEnumerator RangedAttack3()
     {
         int numAtaques = 10;
-        float distance = 2f;
+        float distance = 3f;
         mind.DisableMovement(weapon.weaponInfo.AttackSpeed * numAtaques / 2);
         mind.animationController.SetAttack();
         for (int i = 0; i < numAtaques; i++)
@@ -318,13 +320,53 @@ public class JojomaloSkills : MonoBehaviour
         EndAction();
     }
 
+    public IEnumerator DefinitiveAttack()
+    {
+        int numAtaques = 10;
+        float distance = 2f;
+
+        sounds.LaunchSound(JojoSounds.JojoSoundList.Area);
+        mind.animationController.SetAttack();
+        mind.StasisActionUpdate(BaseEnemy.StasisActions.Attack, 0.05f);
+        Vector2 playerPos = SingletoneGameController.PlayerActions.player.gameObject.transform.position;
+        Vector2 isometricPos = IsometricUtils.ScreenCordsToTilesPos(new Vector2(playerPos.x - 0.25f, playerPos.y - 0.25f), true);
+        //Debug.Log(isometricPos.ToString());
+        Vector3 pos = IsometricUtils.CoordinatesToWorldSpace(isometricPos.x, isometricPos.y);
+        AreaTileAtack newArea = Instantiate(circleAreaTile, pos, Quaternion.identity);
+        newArea.gameObject.transform.parent = body.parent;
+        newArea.gameObject.transform.tag = "SpellDmg";
+        newArea.spellDmg.SetSpellDmgStats(4, mind.stats.element, pos, body.tag);
+        newArea.spellDmg.OnDamage = () => mind.StasisActionUpdate(BaseEnemy.StasisActions.Impact, 4);
+
+        mind.DisableMovement(weapon.weaponInfo.AttackSpeed * numAtaques / 2);
+        for (int i = 0; i < numAtaques; i++)
+        {
+            yield return new WaitForSeconds(weapon.weaponInfo.AttackSpeed / 2);
+            sounds.LaunchSound(JojoSounds.JojoSoundList.Disparo);
+            mind.StasisActionUpdate(BaseEnemy.StasisActions.Attack, 0.05f / numAtaques);
+            int angle = Random.Range(0, 360);
+            body.position = mind.TargetPos +
+                            new Vector3(distance * Mathf.Cos(angle), distance * Mathf.Sin(angle), 0);
+            mind.UpdateWeaponAngle();
+            weapon.Atack();
+        }
+        mind.animationController.SetStop();
+        TeleportInvulnerable(0);
+
+        EndAction();
+    }
+
     private void RestoreHealth()
     {
+        float cantidad = Random.Range(5, 15);
         InGameCard newCard = Instantiate(cardPrefab, gameObject.transform.position + new Vector3(0, 0.5f, 0),
             Quaternion.identity);
         newCard.card.CardInfo = new WeaponCard(weapon.weaponInfo);
         newCard.PlayAnimaton();
-        mind.stats.Heal(Random.Range(5, 15));
+        mind.stats.Heal(cantidad);
+        DamageNumber dmgN = Instantiate(numbers, transform.position, Quaternion.identity);
+        dmgN.Inicializar(cantidad, transform);
+        dmgN.number.color = Color.green;
         EndAction();
     }
 
@@ -358,5 +400,25 @@ public class JojomaloSkills : MonoBehaviour
         //TODO->ANIMATION
         EndAction();
 
+    }
+
+    private void AreaAndTeleportAttack()
+    {
+        sounds.LaunchSound(JojoSounds.JojoSoundList.Area);
+        mind.animationController.SetAttack();
+        mind.StasisActionUpdate(BaseEnemy.StasisActions.Attack, 0.05f);
+        Vector2 playerPos = SingletoneGameController.PlayerActions.player.gameObject.transform
+            .position;
+        Vector2 isometricPos = IsometricUtils.ScreenCordsToTilesPos(new Vector2(playerPos.x - 0.25f, playerPos.y - 0.25f), true);
+        //Debug.Log(isometricPos.ToString());
+        Vector3 pos = IsometricUtils.CoordinatesToWorldSpace(isometricPos.x, isometricPos.y);
+        AreaTileAtack newArea = Instantiate(areaTile, pos, Quaternion.identity);
+        newArea.gameObject.transform.parent = body.parent;
+        newArea.gameObject.transform.tag = "SpellDmg";
+        newArea.spellDmg.SetSpellDmgStats(4, mind.stats.element, pos, body.tag);
+        newArea.spellDmg.OnDamage = () => mind.StasisActionUpdate(BaseEnemy.StasisActions.Impact, 4);
+        mind.animationController.SetStop();
+
+        TeleportInvulnerable(0);
     }
 }
