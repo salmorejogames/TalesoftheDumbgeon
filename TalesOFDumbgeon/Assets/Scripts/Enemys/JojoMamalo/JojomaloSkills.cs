@@ -24,7 +24,7 @@ public class JojomaloSkills : MonoBehaviour
 
     public void ActivateSkill(Actions.JojoActions skill)
     {
-        //skill = Actions.JojoActions.AreaAttackAndTeleport;
+        //skill = Actions.JojoActions.TeletransporteDisparoFuerte;
         switch (skill)
         {
             case Actions.JojoActions.Presentacion:
@@ -70,9 +70,10 @@ public class JojomaloSkills : MonoBehaviour
                 AreaAttack();
                 break;
             case Actions.JojoActions.TeletransporteDisparoFuerte:
-                Debug.Log("Teletransporte con disparo fuerte");
+                //Debug.Log("Teletransporte con disparo fuerte");
                 //Inventarse algo xdxdxd
-                EndAction();
+                //EndAction();
+                StartCoroutine(RangedAttack5());
                 break;
             case Actions.JojoActions.InvocarEnemigo:
                 Debug.Log("Invocar enemigo");
@@ -240,7 +241,6 @@ public class JojomaloSkills : MonoBehaviour
     {
 
         int numAtaques = 1;
-        float distance = 2f;
 
         mind.DisableMovement(weapon.weaponInfo.AttackSpeed);
         mind.animationController.SetAttack();
@@ -261,6 +261,56 @@ public class JojomaloSkills : MonoBehaviour
         yield return new WaitForSeconds(weapon.weaponInfo.AttackSpeed);
         TeleportInvulnerable(0);
         //EndAction();
+    }
+
+    public IEnumerator RangedAttack5()
+    {
+        int numAtaques = 4;
+        float distance = 3f;
+
+        sounds.LaunchSound(JojoSounds.JojoSoundList.Tp);
+        int angle = Random.Range(0, 360);
+        body.position = mind.TargetPos +
+                        new Vector3(distance * Mathf.Cos(angle), distance * Mathf.Sin(angle), 0);
+        mind.UpdateWeaponAngle();
+
+        float attackRangeEven = 120f;
+        float attackRangeOdd = 90f;
+        for (int i = 0; i < numAtaques; i++)
+        {
+            Debug.Log("Ronda " + i);
+            mind.StasisActionUpdate(BaseEnemy.StasisActions.Attack, 0.05f);
+            mind.DisableMovement(weapon.weaponInfo.AttackSpeed);
+            mind.animationController.SetAttack();
+            yield return new WaitForSeconds(weapon.weaponInfo.AttackSpeed);
+            sounds.LaunchSound(JojoSounds.JojoSoundList.Disparo);
+            float originalAngle = weapon.angle;
+
+            if (i % 2 == 0)
+            {
+                for (float j = -attackRangeEven / 3; j <= attackRangeEven / 3; j += attackRangeEven / 4)
+                {
+                    //Debug.Log(weapon.angle + " " + j);
+                    weapon.SetOrientation(originalAngle + j);
+                    weapon.Atack();
+                }
+            }
+            else
+            {
+                for (float j = -attackRangeOdd / 2; j <= attackRangeOdd / 2; j += attackRangeOdd / 4)
+                {
+                    //Debug.Log(weapon.angle + " " + j);
+                    weapon.SetOrientation(originalAngle + j);
+                    weapon.Atack();
+                }
+            }
+
+            
+            weapon.SetOrientation(originalAngle);
+            mind.animationController.SetStop();
+        }
+
+        EndAction();
     }
 
     private void AreaAttack()
