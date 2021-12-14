@@ -105,7 +105,7 @@ public class MapInstance : MonoBehaviour
             SingletoneGameController.NavMeshManager.UpdateNavMesh();
             foreach (var generator in generators)
             {
-                if (roomType == RoomType.End)
+                if (roomType != RoomType.End)
                 {
                     if (_gmc.CalcularModo() == 1)
                     {

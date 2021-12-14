@@ -99,7 +99,7 @@ public class EnemyActions : MonoBehaviour
                     runTrigger = true;
                     GenerateEmote(run);
                 }
-                Debug.LogError("GOHOME");
+                //Debug.LogError("GOHOME");
                 _actualCoroutine = StartCoroutine(GoHome());
                 break;
             case EnemyMindController.EnemyBaseActions.RunFromPlayer:
@@ -135,7 +135,7 @@ public class EnemyActions : MonoBehaviour
     {
         GenerateEmote(heal);
         mind.UpdateTired(-20f);
-        float healing = enemy.stats.maxHealth / 4f;
+        float healing = enemy.stats.maxHealth / 2f;
         agent.destination = gameObject.transform.position;
         enemy.stats.Heal(healing);
         DamageNumber dmgN = Instantiate(numbers, transform.position, Quaternion.identity);
@@ -187,7 +187,7 @@ public class EnemyActions : MonoBehaviour
             var pos = enemy.gameObject.transform.position;
             var playerPosition = _player.position;
             var heading = pos - playerPosition;
-            mind.UpdateTired(Time.fixedDeltaTime);
+            mind.UpdateTired(Time.fixedDeltaTime/2f);
             agent.destination = playerPosition + (heading / heading.magnitude) * wanderingDistance;
             yield return new WaitForFixedUpdate();
         }
@@ -198,7 +198,7 @@ public class EnemyActions : MonoBehaviour
         while (true)
         {
             agent.destination = _player.position;
-            mind.UpdateTired(Time.fixedDeltaTime);
+            mind.UpdateTired(Time.fixedDeltaTime/2f);
             yield return new WaitForFixedUpdate();
         }
     }
@@ -219,7 +219,7 @@ public class EnemyActions : MonoBehaviour
             double radians = Math.PI * angle / 180.0f; 
             agent.destination = _player.position + new Vector3(midDistance* (float) Math.Sin(radians), midDistance* (float) Math.Cos(radians), 0);
             Debug.DrawLine(gameObject.transform.position, agent.destination);
-            mind.UpdateTired(Time.fixedDeltaTime);
+            mind.UpdateTired(Time.fixedDeltaTime/2f);
             yield return new WaitForFixedUpdate();
         }
     }

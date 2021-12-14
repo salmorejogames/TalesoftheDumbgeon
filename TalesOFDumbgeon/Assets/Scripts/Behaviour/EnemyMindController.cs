@@ -93,7 +93,7 @@ public class EnemyMindController : Mind
         _actions[0] = 1f-_playerDetectedValue;
         _actions[1] = (0.3f*(1-_stasisValue) + 0.7f*_tiredValue);
         _actions[2] = 0.3f*(1-_stasisValue) + 0.7f*(1-_lifeValue);
-        _actions[3] = 0.4f + 0.3f * _stasisValue + 0.3f * (1 - _playerDistanceValue);
+        _actions[3] = 0.6f + 0.2f * _stasisValue + 0.2f * (1 - _playerDistanceValue);
         _actions[lastState] += inercia;
         return  Array.IndexOf(_actions, _actions.Max());
     }
