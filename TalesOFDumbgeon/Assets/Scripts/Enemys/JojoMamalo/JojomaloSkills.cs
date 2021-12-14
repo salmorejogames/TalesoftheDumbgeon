@@ -401,9 +401,11 @@ public class JojomaloSkills : MonoBehaviour
 
     public void InvokeEnemies()
     {
-        int typeEnemy = (int)Random.Range(0, 3);
+        //int typeEnemy = (int)Random.Range(0, 3);
 
         int tilesArea = 0;
+
+        mind.StasisActionUpdate(BaseEnemy.StasisActions.Attack, 0.05f);
         Vector2 tilePos = IsometricUtils.ScreenCordsToTilesPos(mind.transform.position, false);
         Vector2 newTilePos = new Vector2(tilePos.x + Random.Range((float)-tilesArea, tilesArea),
                 tilePos.y + Random.Range((float)-tilesArea, tilesArea));
