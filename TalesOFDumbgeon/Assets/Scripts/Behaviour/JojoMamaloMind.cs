@@ -28,6 +28,7 @@ public class JojoMamaloMind : Mind
     [SerializeField] private Sprite temeroso;
     [SerializeField] private Sprite confiado;
     [SerializeField] private Sprite normal;
+    
 
     private int actualState;
     public void Start()

@@ -14,6 +14,10 @@ public class JojomamaloDmg : Mind
     private float _elapsedTime;
     private int _invincibleTpCount;
     private Transform _player;
+    
+    [SerializeField] private ImageCanvas imageCanvas;
+    [SerializeField] private Sprite fase2;
+    [SerializeField] private Sprite fase3;
     private void Start()
     {
         _player = SingletoneGameController.PlayerActions.player.gameObject.transform;
@@ -37,6 +41,17 @@ public class JojomamaloDmg : Mind
         {
             Debug.LogWarning("FASE CHANGED");
             Mind.Stage++;
+            if (Mind.Stage == 1)
+            {
+                ImageCanvas newCanvas = Instantiate(imageCanvas, gameObject.transform.position, Quaternion.identity, this.transform);
+                newCanvas.Inicializar(fase2, gameObject.transform);
+            }
+            if (Mind.Stage == 2)
+            {
+                ImageCanvas newCanvas = Instantiate(imageCanvas, gameObject.transform.position, Quaternion.identity, this.transform);
+                newCanvas.Inicializar(fase3, gameObject.transform);
+            }
+            
             return (int) Actions.JojoActions.Explosion;
         }
 
