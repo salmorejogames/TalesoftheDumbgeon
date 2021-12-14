@@ -10,6 +10,7 @@ public abstract class BaseEnemy : MonoBehaviour
     [NonSerialized] public float stasis = 0;
     public int difficulty = 1;
     public CharacterStats stats;
+    public float stasisMultiplier = 2;
     [SerializeField] protected float stasisFactor = 0.025f;
 
     public enum StasisActions {
@@ -39,11 +40,11 @@ public abstract class BaseEnemy : MonoBehaviour
                 break;
             case StasisActions.Impact:
                 if(amount>0.0001 ||amount<-0.0001){}
-                    stasis += (amount*2/ stats.maxHealth);
+                    stasis += (amount*stasisMultiplier/ stats.maxHealth);
                 break;
             case StasisActions.Damage:
                 if (amount > 0.0001 || amount < -0.0001)
-                    stasis -= (amount*2/stats.maxHealth);
+                    stasis -= (amount*stasisMultiplier/stats.maxHealth);
                 break;
         }
 
