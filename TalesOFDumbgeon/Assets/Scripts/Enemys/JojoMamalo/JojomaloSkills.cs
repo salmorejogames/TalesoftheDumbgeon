@@ -15,6 +15,8 @@ public class JojomaloSkills : MonoBehaviour
     [SerializeField] private AreaTileAtack explosionCounterTile;
     [SerializeField] private AreaTileAtack circleAreaTile;
 
+    [SerializeField] private ExampleEnemyBehaviour abuesqueleto;
+
     [SerializeField] private InGameCard cardPrefab;
     [SerializeField] private JojoSounds sounds;
 
@@ -24,7 +26,7 @@ public class JojomaloSkills : MonoBehaviour
 
     public void ActivateSkill(Actions.JojoActions skill)
     {
-        //skill = Actions.JojoActions.TeletransporteDisparoFuerte;
+        //skill = Actions.JojoActions.ElementChange;
         switch (skill)
         {
             case Actions.JojoActions.Presentacion:
@@ -101,8 +103,9 @@ public class JojomaloSkills : MonoBehaviour
                 mind.DamageAcumulated = 0;
                 break;
             case Actions.JojoActions.ElementChange:
-                Debug.Log("Cambio de Elemento");
-                EndAction();
+                //Debug.Log("Cambio de Elemento");
+                //EndAction();
+                ChangeElement();
                 break;
             case Actions.JojoActions.AreaAttackAndTeleport:
                 AreaAndTeleportAttack();
@@ -370,6 +373,21 @@ public class JojomaloSkills : MonoBehaviour
         EndAction();
     }
 
+    public void InvokeEnemies()
+    {
+        int typeEnemy = (int)Random.Range(0, 3);
+
+        int tilesArea = 0;
+        Vector2 tilePos = IsometricUtils.ScreenCordsToTilesPos(mind.transform.position, false);
+        Vector2 newTilePos = new Vector2(tilePos.x + Random.Range((float)-tilesArea, tilesArea),
+                tilePos.y + Random.Range((float)-tilesArea, tilesArea));
+        //BaseEnemy newEnemy = Instantiate(enemy, IsometricUtils.CoordinatesToWorldSpace(newTilePos.x, newTilePos.y), Quaternion.identity);
+        ExampleEnemyBehaviour enemy1 = Instantiate(abuesqueleto, IsometricUtils.CoordinatesToWorldSpace(newTilePos.x, newTilePos.y), Quaternion.identity);
+        enemy1.gameObject.transform.parent = mind.transform;
+
+        EndAction();
+    }
+
     public IEnumerator DefinitiveAttack()
     {
         int numAtaques = 10;
@@ -439,17 +457,30 @@ public class JojomaloSkills : MonoBehaviour
         EndAction();
     }
 
-    private void ChangueElement(Elements.Element newElement)
+    private void ChangeElement()
     {
+        GameObject player = GameObject.Find("Personaje_Principal");
+        Elements.Element playerElement = player.GetComponent<CharacterStats>().element;
 
+        player = GameObject.Find("Personaje_Principal/CharacterWeapon");
+        Elements.Element playerElement2 = player.GetComponentInChildren<Weapon>().weaponInfo.Element;
+
+
+        Elements.Element newElement = Elements.GetEffective(playerElement);
+        Elements.Element newElement2 = Elements.GetCounter(playerElement2);
+
+      
         weapon.weaponInfo.Element = newElement;
+        mind.stats.element = newElement2;
         InGameCard newCard = Instantiate(cardPrefab, gameObject.transform.position + new Vector3(0, 0.5f, 0),
             Quaternion.identity);
         newCard.card.CardInfo = new WeaponCard(weapon.weaponInfo);
         newCard.PlayAnimaton();
         //TODO->ANIMATION
-        EndAction();
+        mind.stats.element = newElement;
+        //Elements.Element newElement
 
+        EndAction();
     }
 
     private void AreaAndTeleportAttack()
