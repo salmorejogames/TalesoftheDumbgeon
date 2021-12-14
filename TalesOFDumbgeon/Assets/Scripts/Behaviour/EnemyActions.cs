@@ -65,7 +65,7 @@ public class EnemyActions : MonoBehaviour
     {
         Debug.LogWarning(_action);
         if (runTrigger && _action != EnemyMindController.EnemyBaseActions.GoBackHome &&
-            _action != EnemyMindController.EnemyBaseActions.RunFromPlayer)
+            _action != EnemyMindController.EnemyBaseActions.RunFromPlayer && _action != EnemyMindController.EnemyBaseActions.Descanso)
             runTrigger = false;
         if (!detectedTrigger && _action != EnemyMindController.EnemyBaseActions.Wandering &&
             _action != EnemyMindController.EnemyBaseActions.Sleeping &&
