@@ -119,19 +119,23 @@ public class CinematicDialogueManager : MonoBehaviour {
 
 		dialogueText.text = "";
 		float contTemp = 0;
+		float speed = 0.02f;
 		foreach (char letter in sentence.ToCharArray())
 		{
 			dialogueText.text += letter;
 			if(clicks < 1)
 			{
-				yield return new WaitForSeconds(0.02f);
-				contTemp = contTemp + 0.02f;
+				yield return new WaitForSeconds(speed / 0.8f);
+				contTemp = contTemp + (speed / 0.8f);
 			}
+			/*
 			else
 			{
-				yield return new WaitForSeconds(0.02f);
-				contTemp = contTemp + 0.02f;
-			}
+				
+				yield return new WaitForSeconds(speed / 1.4f);
+				contTemp = contTemp + (speed / 1.4f);
+				
+			}*/
 			
 		}
 		clicks = -1;
