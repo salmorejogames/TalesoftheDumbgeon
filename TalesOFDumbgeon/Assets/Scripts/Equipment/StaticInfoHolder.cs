@@ -612,8 +612,8 @@ public class StaticInfoHolder : MonoBehaviour
                         info[1] = "Un trozo de papel que llevabas en los bolsillos. Esta afilado";
                         break;
                     case Elements.Element.Caos:
-                        info[0] = "Tiromancia suprema";
-                        info[1] = "Convierte a tus enemigos en deliciosas cuñas de queso curado de oveja. Que hambre, ¿no?";
+                        info[0] = "Entropía arcana";
+                        info[1] = "Combina todo el desorden del universo en un único ataque que dejará todo a su paso manga por hombro";
                         break;
                     case Elements.Element.Brisa:
                         info[0] = "Poder limitado";
