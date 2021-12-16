@@ -15,7 +15,7 @@ public class DamageArea : MonoBehaviour
     {
         if (!other.gameObject.CompareTag(parent.holder.tag) && (other.gameObject.CompareTag("Enemigo") || other.gameObject.CompareTag("Player")))
         {
-            CharacterStats enemy = other.gameObject.GetComponent<CharacterStats>();
+            CharacterStats enemy = other.gameObject.GetComponentInParent<CharacterStats>();
             enemy.DoDamage(parent.weaponInfo.Dmg + parent.holder.strength,  gameObject.transform.position, parent.weaponInfo.Element);
         }
     }

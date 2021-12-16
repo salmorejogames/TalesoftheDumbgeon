@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!60 &3130443471533671288
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5583732681666147006}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: -0.60638016, y: 0.95237166}
+      - {x: -2.9535654, y: -1.8401356}
+      - {x: -2.5352697, y: -2.5866704}
+      - {x: 0.31608415, y: -1.1953874}
+      - {x: 2.5451653, y: -0.8624535}
+      - {x: 1.9894526, y: 1.3761773}
 --- !u!95 &6141370746608771469
 Animator:
   serializedVersion: 3
@@ -44,7 +75,6 @@ GameObject:
   - component: {fileID: 9165684829455639665}
   - component: {fileID: 9165684829455639664}
   - component: {fileID: 9165684829455639667}
-  - component: {fileID: 9165684829455639666}
   - component: {fileID: 9165684829455639661}
   - component: {fileID: 2116294338088829018}
   - component: {fileID: 9165684829455639663}
@@ -143,32 +173,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!61 &9165684829455639666
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9165684829455639662}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.016269267, y: 0.009083986}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.3112961, y: 0.7303579}
-  m_EdgeRadius: 0
 --- !u!114 &9165684829455639661
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -351,6 +355,11 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Enemigo
       objectReference: {fileID: 0}
+    - target: {fileID: -5598420186899629389, guid: 33b0f3cc374136146a8672ff7fd0cb20,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enemigo
+      objectReference: {fileID: 0}
     - target: {fileID: -3655039750943228215, guid: 33b0f3cc374136146a8672ff7fd0cb20,
         type: 3}
       propertyPath: m_Color.b
@@ -489,6 +498,12 @@ Transform:
 --- !u!212 &3636020614547060420 stripped
 SpriteRenderer:
   m_CorrespondingSourceObject: {fileID: -3655039750943228215, guid: 33b0f3cc374136146a8672ff7fd0cb20,
+    type: 3}
+  m_PrefabInstance: {fileID: 9165684828720039949}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &5583732681666147006 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -5598420186899629389, guid: 33b0f3cc374136146a8672ff7fd0cb20,
     type: 3}
   m_PrefabInstance: {fileID: 9165684828720039949}
   m_PrefabAsset: {fileID: 0}
