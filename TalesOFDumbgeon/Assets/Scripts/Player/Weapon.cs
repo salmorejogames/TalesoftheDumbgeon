@@ -48,6 +48,9 @@ public class Weapon : MonoBehaviour
                 _actualDmgArea.gameObject.SetActive(false);
             _actualDmgArea = damageAreas[(int) weaponInfo.AttackType];
         }
+        if (holder.gameObject.CompareTag("Player")){
+            SingletoneGameController.InterfaceController.ActualizarDmgArma(weaponInfo.Dmg);
+        }
 
         //_spriteRenderer.sprite = weaponInfo.WeaponSprite;
         /*

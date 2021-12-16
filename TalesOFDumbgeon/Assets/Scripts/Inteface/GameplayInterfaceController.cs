@@ -42,6 +42,9 @@ namespace Inteface
         public TMP_Text defensaTexto;
         public TMP_Text velocidadTexto;
 
+        float fuerza = 0;
+        float dmg = 0;
+
         // Start is called before the first frame update
         void Start()
         {
@@ -223,6 +226,18 @@ namespace Inteface
         public void ActualizarStatsUI(TMP_Text textoUI, float stat)
         {
             textoUI.SetText(stat.ToString());
+        }
+
+        public void ActualizarFuerza(float fuerza)
+        {
+            this.fuerza = fuerza;
+            ActualizarStatsUI(ataqueTexto, fuerza + dmg);
+        }
+
+        public void ActualizarDmgArma(float dmg)
+        {
+            this.dmg = dmg;
+            ActualizarStatsUI(ataqueTexto, fuerza + dmg);
         }
     }
 }
