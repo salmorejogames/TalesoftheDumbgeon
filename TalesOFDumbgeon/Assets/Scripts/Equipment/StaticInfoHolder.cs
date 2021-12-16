@@ -44,7 +44,7 @@ public class StaticInfoHolder : MonoBehaviour
     
     [Header("Other sprites")]
     [SerializeField] public Sprite ammoSprite;
-    
+    [SerializeField] public GameObject hechizo;
     
     
     [SerializeField] private List<Color> colors;
