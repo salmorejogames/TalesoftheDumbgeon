@@ -148,7 +148,7 @@ public class CinematicDialogueManager : MonoBehaviour {
 		DisplayNextSentence();
 	}
 
-	void EndDialogue()
+	public void EndDialogue()
 	{
 		nameText.text = "";
 		dialogueText.text = "";
